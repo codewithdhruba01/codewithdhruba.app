@@ -2,14 +2,16 @@ import React from 'react';
 
 const Skills = () => {
   const skills = [
+    { name: 'Java', icon: 'fab fa-java' },
+    { name: 'C', icon: 'fab fa-cuttlefish' },
+    { name: 'Python', icon: 'fab fa-python' },
     { name: 'HTML', icon: 'fab fa-html5' },
     { name: 'CSS', icon: 'fab fa-css3-alt' },
     { name: 'JavaScript', icon: 'fab fa-js' },
     { name: 'React', icon: 'fab fa-react' },
     { name: 'Node.js', icon: 'fab fa-node-js' },
-    { name: 'Python', icon: 'fab fa-python' },
     { name: 'Git', icon: 'fab fa-git-alt' },
-    { name: 'Docker', icon: 'fab fa-docker' }
+    { name: 'Github', icon: 'fa-brands fa-github' },
   ];
 
   return (

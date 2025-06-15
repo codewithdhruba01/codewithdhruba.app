@@ -1,5 +1,3 @@
-import React from 'react';
-
 const About = () => {
   return (
     <section id="about" className="py-20">
@@ -29,10 +27,10 @@ const About = () => {
             className="relative"
             data-aos="fade-left"
           >
-            <div className="w-full h-[400px] bg-gradient-to-r from-[#00DC82] to-[#00DC82]/50 rounded-lg">
+            <div className="w-full h-[400px] bg-gradient-to-r from-[#00DC8] to-[#00DC82]/50 rounded-lg">
               <img
-                src="https://xanmoy.in/images/profile.jpg"
-                alt="Xanmoy"
+                src=".\src\Assets\dhrubaraj.jpg"
+                alt="Dhrubaraj"
                 className="w-full h-full object-cover rounded-lg mix-blend-overlay"
               />
             </div>

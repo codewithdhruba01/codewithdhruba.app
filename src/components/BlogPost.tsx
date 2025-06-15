@@ -5,8 +5,8 @@ import { useParams } from 'react-router-dom';
 const blogPostsData = {
   'getting-started-with-react-typescript': {
     title: 'Getting Started with React and TypeScript',
-    date: 'March 15, 2024',
-    author: 'Xanmoy',
+    date: 'March 15, 2025',
+    author: 'Dhrubaraj Pati',
     category: 'Development',
     readTime: '5 min read',
     content: `
@@ -30,8 +30,8 @@ const blogPostsData = {
   },
   'optimizing-neural-networks-edge-devices': {
     title: 'Optimizing Neural Networks for Edge Devices',
-    date: 'March 20, 2024',
-    author: 'Xanmoy',
+    date: 'March 20, 2025',
+    author: 'Dhrubaraj Pati',
     category: 'Machine Learning',
     readTime: '8 min read',
     content: `

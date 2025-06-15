@@ -3,22 +3,22 @@ import React from 'react';
 const Education = () => {
   const education = [
     {
-      year: '2021 - Present',
-      degree: 'B.Tech in Computer Science and Engineering',
-      institution: 'University Institute of Technology, Burdwan University',
+      year: '2023 - Present',
+      degree: 'BCA in Computer Application and Engineering',
+      institution: 'Swami Vivekananda University',
       description: 'Currently pursuing my bachelor\'s degree with a focus on computer science fundamentals and modern web technologies.'
     },
     {
-      year: '2019 - 2021',
+      year: '2020 - 2022',
       degree: 'Higher Secondary Education (Class XII)',
-      institution: 'Burdwan Model School',
-      description: 'Completed my higher secondary education with a focus on Science, Mathematics, and Computer Science.'
+      institution: 'Khatra High School',
+      description: 'Completed my higher secondary education with Computer Application.'
     },
     {
-      year: '2019',
+      year: '2020',
       degree: 'Secondary Education (Class X)',
-      institution: 'Burdwan Model School',
-      description: 'Completed my secondary education with distinction in Mathematics and Science.'
+      institution: 'Chaka High School',
+      description: 'Completed my secondary education in West Bengal Bord.'
     }
   ];
 

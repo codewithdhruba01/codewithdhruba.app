@@ -20,24 +20,6 @@ const Blog = () => {
       category: 'Machine Learning',
       readTime: '8 min read',
       slug: 'optimizing-neural-networks-edge-devices'
-    },
-    {
-      title: 'Building Responsive Layouts with Tailwind CSS',
-      description: 'A comprehensive guide to creating responsive and beautiful layouts using Tailwind CSS.',
-      date: 'March 10, 2024',
-      image: 'https://via.placeholder.com/800x400',
-      category: 'Design',
-      readTime: '7 min read',
-      slug: 'building-responsive-layouts-tailwind-css'
-    },
-    {
-      title: 'Modern JavaScript Features Every Developer Should Know',
-      description: 'Explore the latest JavaScript features that can improve your code quality and productivity.',
-      date: 'March 5, 2024',
-      image: 'https://via.placeholder.com/800x400',
-      category: 'JavaScript',
-      readTime: '6 min read',
-      slug: 'modern-javascript-features'
     }
   ];
 

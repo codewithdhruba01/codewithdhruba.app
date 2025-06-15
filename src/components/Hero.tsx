@@ -4,8 +4,8 @@ const Hero = () => {
   const handleDownloadCV = () => {
     // Replace 'resume.pdf' with your actual CV file name
     const link = document.createElement('a');
-    link.href = '/resume.pdf';
-    link.download = 'Xanmoy_Resume.pdf';
+    link.href = '.\src\Assets\dhrubaraj_resume.pdf'; // Path to your CV file
+    link.download = 'dhrubaraj_resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -25,7 +25,7 @@ const Hero = () => {
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          A passionate full-stack developer from India
+          A Full Stack Developer crafts seamless digital experiences, blending front-end creativity with back-end logic, mastering diverse technologies to build robust, user-friendly, and efficient web applications from start to finish.
         </p>
         <div 
           className="flex flex-col items-center space-y-6"
@@ -40,7 +40,10 @@ const Hero = () => {
               <i className="fab fa-linkedin"></i>
             </a>
             <a href="https://x.com/codewithdhruba" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-[#00DC82] transition-colors">
-              <i className="fab fa-twitter"></i>
+              <i className="fab fa-x"></i>
+            </a>
+            <a href="https://www.instagram.com/dhrubaraj_pati/" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-[#00DC82] transition-colors">
+              <i className="fab fa-instagram"></i>
             </a>
           </div>
           

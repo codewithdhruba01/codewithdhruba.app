@@ -11,20 +11,20 @@ const Contact = () => {
     {
       icon: 'fas fa-envelope',
       title: 'Email',
-      value: 'contact@xanmoy.in',
-      link: 'mailto:contact@xanmoy.in'
+      value: 'pati.dhrubaraj@outlook.com',
+      link: 'mailto:dhrubaraj@outlook.com'
     },
     {
       icon: 'fas fa-phone',
       title: 'Phone',
-      value: '+91 123 456 7890',
-      link: 'tel:+911234567890'
+      value: '+91 906 464 4809',
+      link: 'tel:+919064644809'
     },
     {
       icon: 'fas fa-map-marker-alt',
       title: 'Location',
-      value: 'Burdwan, West Bengal, India',
-      link: 'https://maps.google.com/?q=Burdwan,WestBengal,India'
+      value: 'Kolkata, West Bengal, India',
+      link: 'https://maps.google.com/?q=kolkata,WestBengal,India'
     }
   ];
 
@@ -140,21 +140,7 @@ const Contact = () => {
             </button>
           </form>
 
-          <div className="mt-12 flex justify-center space-x-6">
-            {['github', 'linkedin', 'twitter'].map((platform, index) => (
-              <a
-                key={platform}
-                href={`https://${platform}.com/xanmoy`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#00DC82] transform hover:-translate-y-1 transition-all duration-300"
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-              >
-                <i className={`fab fa-${platform} text-2xl`}></i>
-              </a>
-            ))}
-          </div>
+          
         </div>
       </div>
     </section>

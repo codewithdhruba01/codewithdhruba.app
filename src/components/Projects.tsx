@@ -1,27 +1,25 @@
-import React from 'react';
-
 const Projects = () => {
   const projects = [
     {
-      title: 'Project 1',
-      description: 'A full-stack web application built with React and Node.js',
+      title: 'Vercual Assistence',
+      description: 'A web-based voice assistant designed to provide an interactive user experience.',
       image: 'https://via.placeholder.com/400x300',
-      github: 'https://github.com/xanmoy/project1',
-      demo: 'https://project1.xanmoy.in'
+      github: 'https://github.com/codewithdhruba01/Virtual-Assistant-Application',
+      demo: 'https://codewithdhruba01.github.io/Virtual-Assistant-Application/'
     },
     {
-      title: 'Project 2',
-      description: 'An AI-powered application using Python and TensorFlow',
+      title: 'Tic Tac Toe Game',
+      description: 'This project is a visually appealing and interactive Tic Tac Toe Game',
       image: 'https://via.placeholder.com/400x300',
-      github: 'https://github.com/xanmoy/project2',
-      demo: 'https://project2.xanmoy.in'
+      github: 'https://github.com/codewithdhruba01/tic-tac-toe-game',
+      demo: ''
     },
     {
-      title: 'Project 3',
+      title: 'Expense Tracker',
       description: 'A mobile-first responsive website with modern UI/UX',
       image: 'https://via.placeholder.com/400x300',
-      github: 'https://github.com/xanmoy/project3',
-      demo: 'https://project3.xanmoy.in'
+      github: 'https://github.com/codewithdhruba01/ExpenseTrackerSystem',
+      demo: 'https://github.com/codewithdhruba01/ExpenseTrackerSystem'
     }
   ];
 

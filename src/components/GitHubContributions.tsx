@@ -78,7 +78,7 @@ const GitHubContributions = () => {
               <span>More</span>
             </div>
             <a 
-              href="https://github.com/xanmoy" 
+              href="https://github.com/codewithdhruba01" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-[#00DC82] hover:text-white transition-colors"
