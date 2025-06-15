@@ -29,7 +29,7 @@ const About = () => {
           >
             <div className="w-full h-[400px] bg-gradient-to-r from-[#00DC8] to-[#00DC82]/50 rounded-lg">
               <img
-                src=".\src\Assets\dhrubaraj.jpg"
+                src=".\src\components\dhrubaraj.jpg"
                 alt="Dhrubaraj"
                 className="w-full h-full object-cover rounded-lg mix-blend-overlay"
               />
