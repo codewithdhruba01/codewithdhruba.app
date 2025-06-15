@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Improved mobile responsiveness */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem !important;
+  }
+  h2 {
+    font-size: 2rem !important;
+  }
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00DC82;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00b368;
+}
+
+/* Add smooth transition for mobile menu */
+.md\:hidden {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Blog post card hover effects */
+.blog-post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0, 220, 130, 0.1);
+}
+
+/* Line clamp for blog descriptions */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
