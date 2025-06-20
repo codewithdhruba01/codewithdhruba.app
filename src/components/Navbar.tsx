@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { href: '#home', text: 'Home' },
-    { href: '#about', text: 'About' },
-    { href: '#education', text: 'Education' },
-    { href: '#skills', text: 'Skills' },
-    { href: '#projects', text: 'Projects' },
-    { href: '#contributions', text: 'Contributions' },
-    { href: '#blog', text: 'Blog' },
-    { href: '#contact', text: 'Contact' }
+    { href: '/#home', text: 'Home' },
+    { href: '/#about', text: 'About' },
+    { href: '/#education', text: 'Education' },
+    { href: '/#skills', text: 'Skills' },
+    { href: '/#projects', text: 'Projects' },
+    { href: '/#contributions', text: 'Contributions' },
+    { href: '/all-posts', text: 'Blog' },
+    { href: '/#contact', text: 'Contact' }
   ];
 
   return (

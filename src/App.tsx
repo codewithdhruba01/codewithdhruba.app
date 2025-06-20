@@ -10,6 +10,7 @@ import Blog from './components/Blog';
 import BlogPost from './components/BlogPost';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import AllPosts from './pages/AllPosts';
 import GitHubContributions from './components/GitHubContributions';
 import AOS from 'aos';
 
@@ -39,6 +40,7 @@ const App = () => {
             </>
           } />
           <Route path="/blog/:slug" element={<BlogPost />} />
+           <Route path="/all-posts" element={<AllPosts />} />
         </Routes>
         <Footer />
       </div>

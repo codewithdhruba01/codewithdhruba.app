@@ -3,21 +3,21 @@ const Projects = () => {
     {
       title: 'Vercual Assistence',
       description: 'A web-based voice assistant designed to provide an interactive user experience.',
-      image: './src/assets/vercual-ass-project.png',
+      image: './public/project/vercual-ass-project.png',
       github: 'https://github.com/codewithdhruba01/Virtual-Assistant-Application',
       demo: 'https://codewithdhruba01.github.io/Virtual-Assistant-Application/'
     },
     {
       title: 'Tic Tac Toe Game',
       description: 'This project is a visually appealing and interactive Tic Tac Toe Game',
-      image: './src/assets/game-project.jpg',
+      image: './public/project/Game-project.jpg',
       github: 'https://github.com/codewithdhruba01/tic-tac-toe-game',
       demo: ''
     },
     {
       title: 'Expense Tracker',
       description: 'A mobile-first responsive website with modern UI/UX',
-      image: './src/assets/expencess.png',
+      image: './public/project/expencess.png',
       github: 'https://github.com/codewithdhruba01/ExpenseTrackerSystem',
       demo: 'https://github.com/codewithdhruba01/ExpenseTrackerSystem'
     }

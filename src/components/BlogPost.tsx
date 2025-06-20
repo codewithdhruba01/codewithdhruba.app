@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-// Mock blog post data - In a real application, this would come from an API
+// Blog post data (mocked, would come from an API in real case)
 const blogPostsData = {
   'getting-started-with-react-typescript': {
     title: 'Getting Started with React and TypeScript',
@@ -10,7 +10,7 @@ const blogPostsData = {
     category: 'Development',
     readTime: '5 min read',
     content: `
-      <h2>Introduction</h2>
+     <h2>Introduction</h2>
     <p>React is one of the most popular JavaScript libraries for building user interfaces, and TypeScript is a powerful tool that adds type safety to JavaScript. Combining the two can significantly improve your development experience by helping you catch bugs earlier and write more maintainable code.</p>
     <p>In this guide, we’ll walk through how to set up a React project using TypeScript, understand key TypeScript concepts, and explore how TypeScript integrates with React components.</p>
       
@@ -58,9 +58,10 @@ const UserCard: React.FC<UserCardProps> = ({ name, age }) => (
     <p>Start small by typing props and state, and gradually explore more advanced features like generics and custom hooks with TypeScript support.</p>
     <p>Once you get the hang of it, you'll never want to go back to plain JavaScript. Happy coding! 🚀</p>
     `,
-    image: 'https://via.placeholder.com/1200x600',
+    image: '/blog/thumbnails/blog2.jpg',
     tags: ['React', 'TypeScript', 'Web Development']
   },
+
   'optimizing-neural-networks-edge-devices': {
     title: 'Optimizing Neural Networks for Edge Devices',
     date: 'March 20, 2025',
@@ -69,31 +70,60 @@ const UserCard: React.FC<UserCardProps> = ({ name, age }) => (
     readTime: '8 min read',
     content: `
       <h2>Introduction to Edge AI</h2>
-      <p>Edge AI is revolutionizing how we deploy machine learning models by bringing computation closer to where data is generated...</p>
-      
+      <p>Edge AI is revolutionizing how we deploy machine learning models...</p>
       <h2>Challenges in Edge Deployment</h2>
-      <p>Deploying neural networks on edge devices presents unique challenges due to limited computational resources and power constraints...</p>
-      
+      <p>Deploying neural networks on edge devices presents unique challenges...</p>
       <h2>Optimization Techniques</h2>
-      <p>Several techniques can be employed to optimize neural networks for edge deployment:</p>
       <ul>
         <li>Model Quantization</li>
         <li>Network Pruning</li>
         <li>Knowledge Distillation</li>
-        <li>Architecture Optimization</li>
       </ul>
-      
-      <h2>Implementation Examples</h2>
-      <p>Let's look at some practical examples of implementing these optimization techniques...</p>
-      
-      <h2>Performance Metrics</h2>
-      <p>We'll examine how these optimizations affect model performance and resource utilization...</p>
-      
-      <h2>Best Practices and Future Directions</h2>
-      <p>Here are some best practices to follow when optimizing neural networks for edge devices...</p>
+      <h2>Conclusion</h2>
+      <p>These techniques improve performance and reduce resource usage.</p>
+    `,
+    image: '/blog/thumbnails/blog3.jpg',
+    tags: ['Machine Learning', 'Edge Computing', 'Neural Networks', 'Optimization']
+  },
+
+  'building-a-responsive-portfolio': {
+    title: 'Building a Responsive Portfolio Website',
+    date: 'April 10, 2025',
+    author: 'Dhrubaraj Pati',
+    category: 'Web Design',
+    readTime: '6 min read',
+    content: `
+      <h2>Why a Portfolio Website Matters</h2>
+      <p>Your portfolio is the first impression recruiters get...</p>
+      <h2>Planning Your Layout</h2>
+      <p>Use clear sections like Home, About, Projects, and Contact.</p>
+      <h2>Using Flexbox and Grid</h2>
+      <p>Leverage modern CSS for a great user experience.</p>
     `,
     image: 'https://via.placeholder.com/1200x600',
-    tags: ['Machine Learning', 'Edge Computing', 'Neural Networks', 'Optimization']
+    tags: ['Portfolio', 'HTML', 'CSS', 'Responsive Design']
+  },
+
+  'getting-started-with-sql': {
+    title: 'Getting Started with SQL',
+    date: 'May 05, 2025',
+    author: 'Dhrubaraj Pati',
+    category: 'Database',
+    readTime: '7 min read',
+    content: `
+      <h2>Introduction to SQL</h2>
+      <p>SQL (Structured Query Language) is used to interact with relational databases...</p>
+      <h2>Core SQL Commands</h2>
+      <ul>
+        <li><strong>DDL:</strong> CREATE, DROP, ALTER</li>
+        <li><strong>DML:</strong> INSERT, UPDATE, DELETE</li>
+        <li><strong>DQL:</strong> SELECT, WHERE, GROUP BY</li>
+      </ul>
+      <h2>Practice and Learning</h2>
+      <p>Practice with online platforms or local tools like MySQL.</p>
+    `,
+    image: 'https://via.placeholder.com/1200x600',
+    tags: ['SQL', 'Databases', 'MySQL', 'PostgreSQL']
   }
 };
 
@@ -102,7 +132,6 @@ const BlogPost = () => {
   const [post, setPost] = useState<any>(null);
 
   useEffect(() => {
-    // In a real application, you would fetch the blog post data from an API
     if (slug && blogPostsData[slug as keyof typeof blogPostsData]) {
       setPost(blogPostsData[slug as keyof typeof blogPostsData]);
     }
@@ -150,14 +179,14 @@ const BlogPost = () => {
         {/* Featured Image */}
         <div className="mb-12" data-aos="fade-up">
           <img
-            src={post.image}
-            alt={post.title}
+            src='/blog/thumbnails/blog2.jpg'
+            alt= 'Started with React and TypeScript'
             className="w-full h-[400px] object-cover rounded-lg"
           />
         </div>
 
         {/* Content */}
-        <div 
+        <div
           className="prose prose-lg prose-invert max-w-none"
           dangerouslySetInnerHTML={{ __html: post.content }}
           data-aos="fade-up"
