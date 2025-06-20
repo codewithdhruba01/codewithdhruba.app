@@ -7,7 +7,7 @@ const Blog = () => {
       title: 'Getting Started with React and TypeScript',
       description: 'Learn how to set up a new React project with TypeScript and best practices for type safety.',
       date: 'March 15, 2024',
-      image: 'https://via.placeholder.com/800x400',
+      image: './src/assets/blog/blog2.jpg',
       category: 'Development',
       readTime: '5 min read',
       slug: 'getting-started-with-react-typescript'
@@ -16,7 +16,7 @@ const Blog = () => {
       title: 'Optimizing Neural Networks for Edge Devices',
       description: 'Learn about various techniques to optimize neural networks for deployment on edge devices.',
       date: 'March 20, 2024',
-      image: 'https://via.placeholder.com/800x400',
+      image: './src/assets/blog/blog3.jpg',
       category: 'Machine Learning',
       readTime: '8 min read',
       slug: 'optimizing-neural-networks-edge-devices'

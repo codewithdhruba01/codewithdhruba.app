@@ -11,19 +11,52 @@ const blogPostsData = {
     readTime: '5 min read',
     content: `
       <h2>Introduction</h2>
-      <p>TypeScript has become an essential tool in modern React development...</p>
+    <p>React is one of the most popular JavaScript libraries for building user interfaces, and TypeScript is a powerful tool that adds type safety to JavaScript. Combining the two can significantly improve your development experience by helping you catch bugs earlier and write more maintainable code.</p>
+    <p>In this guide, we’ll walk through how to set up a React project using TypeScript, understand key TypeScript concepts, and explore how TypeScript integrates with React components.</p>
       
-      <h2>Setting Up Your Development Environment</h2>
-      <p>First, ensure you have Node.js installed on your system...</p>
+       <h2>Setting Up Your Development Environment</h2>
+    <p>Before you begin, make sure you have the following tools installed:</p>
+    <ul>
+      <li><strong>Node.js</strong> (recommended version 18.x or later)</li>
+      <li><strong>npm</strong> or <strong>yarn</strong> as your package manager</li>
+      <li><strong>Visual Studio Code</strong> for code editing, along with extensions like ESLint, Prettier, and the TypeScript language support</li>
+    </ul>
+    <p>These tools provide a modern development setup that supports TypeScript features like autocompletion, type checking, and more.</p>
       
       <h2>Creating a New React TypeScript Project</h2>
-      <p>You can create a new React TypeScript project using Create React App...</p>
+    <p>The easiest way to get started is by using Create React App with the TypeScript template. Open your terminal and run:</p>
+    <pre><code>npx create-react-app my-app --template typescript</code></pre>
+    <p>This command will create a new React project pre-configured for TypeScript. You’ll notice files like <code>tsconfig.json</code> and components using <code>.tsx</code> extensions, which support JSX and TypeScript together.</p>
       
-      <h2>Basic TypeScript Concepts for React</h2>
-      <p>Let's explore some fundamental TypeScript concepts that you'll use frequently in React development...</p>
+     <h2>Basic TypeScript Concepts for React</h2>
+    <p>Here are some fundamental TypeScript features you'll frequently use in React:</p>
+    <ul>
+      <li><strong>Props and State Types:</strong> You can define interfaces for component props and use them to enforce strict type checking.</li>
+      <li><strong>Interfaces:</strong> These define object shapes, useful for props and data models.</li>
+      <li><strong>Union Types:</strong> Handle multiple allowed value types elegantly (e.g., <code>type Status = "loading" | "success" | "error";</code>).</li>
+      <li><strong>Generics:</strong> Allow you to write reusable components that work with a variety of types.</li>
+    </ul>
+
+    <h3>Example: Typing Props</h3>
+    <pre><code>
+interface UserCardProps {
+  name: string;
+  age: number;
+}
+
+const UserCard: React.FC<UserCardProps> = ({ name, age }) => (
+  &lt;div&gt;
+    &lt;h3&gt;{name}&lt;/h3&gt;
+    &lt;p&gt;Age: {age}&lt;/p&gt;
+  &lt;/div&gt;
+);
+</code></pre>
+    <p>In the above example, TypeScript ensures that <code>name</code> is a string and <code>age</code> is a number. If incorrect types are passed, you’ll get a compile-time error.</p>
       
       <h2>Conclusion</h2>
-      <p>TypeScript brings many benefits to React development, including better tooling support and catch errors early...</p>
+    <p>TypeScript and React work together beautifully to help you build scalable, maintainable, and bug-free applications. TypeScript adds a robust layer of tooling, which is invaluable in large projects or when working with teams.</p>
+    <p>Start small by typing props and state, and gradually explore more advanced features like generics and custom hooks with TypeScript support.</p>
+    <p>Once you get the hang of it, you'll never want to go back to plain JavaScript. Happy coding! 🚀</p>
     `,
     image: 'https://via.placeholder.com/1200x600',
     tags: ['React', 'TypeScript', 'Web Development']
@@ -101,7 +134,7 @@ const BlogPost = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-6">{post.title}</h1>
           <div className="flex items-center text-gray-400 mb-8">
             <img
-              src="https://via.placeholder.com/40x40"
+              src="https://avatars.githubusercontent.com/u/146111647?v=4"
               alt={post.author}
               className="w-10 h-10 rounded-full mr-4"
             />
@@ -148,13 +181,13 @@ const BlogPost = () => {
         <div className="mt-12 flex items-center justify-between" data-aos="fade-up">
           <div className="text-gray-400">Share this article:</div>
           <div className="flex space-x-4">
-            <a href="#" className="text-gray-400 hover:text-[#00DC82] transition-colors">
-              <i className="fab fa-twitter text-xl"></i>
+            <a href="#" className="text-gray-400 hover:text-[#333446] transition-colors">
+              <i className="fab fa-x text-xl"></i>
             </a>
-            <a href="#" className="text-gray-400 hover:text-[#00DC82] transition-colors">
+            <a href="#" className="text-gray-400 hover:text-[#3674B5] transition-colors">
               <i className="fab fa-linkedin text-xl"></i>
             </a>
-            <a href="#" className="text-gray-400 hover:text-[#00DC82] transition-colors">
+            <a href="#" className="text-gray-400 hover:text-[#0065F8] transition-colors">
               <i className="fab fa-facebook text-xl"></i>
             </a>
           </div>

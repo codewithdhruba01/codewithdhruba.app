@@ -33,17 +33,17 @@ const Hero = () => {
           data-aos-delay="400"
         >
           <div className="flex justify-center space-x-6">
-            <a href="https://github.com/codewithdhruba01" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-[#00DC82] transition-colors">
-              <i className="fab fa-github"></i>
+            <a href="https://github.com/codewithdhruba01" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-[#3C3D37] transition-colors">
+              <i className="fa-brands fa-github fa-beat"></i>
             </a>
-            <a href="https://www.linkedin.com/in/dhrubaraj-pati/" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-[#00DC82] transition-colors">
-              <i className="fab fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/dhrubaraj-pati/" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-[#0065F8] transition-colors">
+              <i className="fa-brands fa-linkedin fa-fade"></i>
             </a>
-            <a href="https://x.com/codewithdhruba" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-[#00DC82] transition-colors">
-              <i className="fab fa-x"></i>
+            <a href="https://www.instagram.com/dhrubaraj_pati/" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-[#E53888] transition-colors">
+              <i className="fa-brands fa-instagram fa-beat-fade"></i>
             </a>
-            <a href="https://www.instagram.com/dhrubaraj_pati/" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-[#00DC82] transition-colors">
-              <i className="fab fa-instagram"></i>
+            <a href="https://x.com/codewithdhruba" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-[#F1EFEC] transition-colors">
+              <i className="fa-solid fa-x fa-beat"></i>
             </a>
           </div>
           

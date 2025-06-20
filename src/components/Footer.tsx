@@ -10,16 +10,16 @@ const Footer = () => {
           </p>
           
           <div className="flex space-x-6">
-            <a href="https://github.com/codewithdhruba01" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#00DC82] transition-colors">
+            <a href="https://github.com/codewithdhruba01" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#3C3D37] transition-colors">
               <i className="fab fa-github text-xl"></i>
             </a>
-            <a href="https://www.linkedin.com/in/dhrubaraj-pati/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#00DC82] transition-colors">
-              <i className="fab fa-linkedin text-xl"></i>
+            <a href="https://www.linkedin.com/in/dhrubaraj-pati/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#0065F8] transition-colors">
+              <i className="fab fa-linkedin-in text-xl"></i>
             </a>
-            <a href="https://x.com/codewithdhruba" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#00DC82] transition-colors">
+            <a href="https://x.com/codewithdhruba" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#F1EFEC] transition-colors">
               <i className="fab fa-x text-xl"></i>
             </a>
-            <a href="https://www.instagram.com/dhrubaraj_pati/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#00DC82] transition-colors">
+            <a href="https://www.instagram.com/dhrubaraj_pati/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#E53888] transition-colors">
               <i className="fab fa-instagram text-xl"></i>
             </a>
           </div>

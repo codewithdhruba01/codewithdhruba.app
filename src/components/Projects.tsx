@@ -3,21 +3,21 @@ const Projects = () => {
     {
       title: 'Vercual Assistence',
       description: 'A web-based voice assistant designed to provide an interactive user experience.',
-      image: 'https://via.placeholder.com/400x300',
+      image: './src/assets/vercual-ass-project.png',
       github: 'https://github.com/codewithdhruba01/Virtual-Assistant-Application',
       demo: 'https://codewithdhruba01.github.io/Virtual-Assistant-Application/'
     },
     {
       title: 'Tic Tac Toe Game',
       description: 'This project is a visually appealing and interactive Tic Tac Toe Game',
-      image: 'https://via.placeholder.com/400x300',
+      image: './src/assets/game-project.jpg',
       github: 'https://github.com/codewithdhruba01/tic-tac-toe-game',
       demo: ''
     },
     {
       title: 'Expense Tracker',
       description: 'A mobile-first responsive website with modern UI/UX',
-      image: 'https://via.placeholder.com/400x300',
+      image: './src/assets/expencess.png',
       github: 'https://github.com/codewithdhruba01/ExpenseTrackerSystem',
       demo: 'https://github.com/codewithdhruba01/ExpenseTrackerSystem'
     }
@@ -49,7 +49,7 @@ const Projects = () => {
                     href={project.github} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-[#00DC82] hover:text-white transition-colors"
+                    className="text hover:text-[#3C3D37] transition-colors"   //text-3xl hover:text-[#0065F8] transition-colors 00DC82
                   >
                     <i className="fab fa-github text-xl"></i>
                   </a>
@@ -57,9 +57,9 @@ const Projects = () => {
                     href={project.demo} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-[#00DC82] hover:text-white transition-colors"
+                    className="text hover:text-[#00DC82] transition-colors"
                   >
-                    <i className="fas fa-external-link-alt text-xl"></i>
+                    <i className="fa-solid fa-square-arrow-up-right text-xl"></i>
                   </a>
                 </div>
               </div>
