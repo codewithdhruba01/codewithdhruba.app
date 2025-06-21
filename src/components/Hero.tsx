@@ -4,7 +4,7 @@ const Hero = () => {
   const handleDownloadCV = () => {
     // Replace 'resume.pdf' with your actual CV file name
     const link = document.createElement('a');
-    link.href = '.\src\Assets\dhrubaraj_resume.pdf'; // Path to your CV file
+    link.href = '/blog/thumbnails/Dhrubaraj Pati - Resume.pdf'; // Path to your CV file
     link.download = 'dhrubaraj_resume.pdf';
     document.body.appendChild(link);
     link.click();

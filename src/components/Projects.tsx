@@ -3,23 +3,23 @@ const Projects = () => {
     {
       title: 'Vercual Assistence',
       description: 'A web-based voice assistant designed to provide an interactive user experience.',
-      image: './public/project/assets/vercual-ass-project.jpg',
+      image: '/blog/thumbnails/vercual-ass-project.jpg',
       github: 'https://github.com/codewithdhruba01/Virtual-Assistant-Application',
       demo: 'https://codewithdhruba01.github.io/Virtual-Assistant-Application/'
     },
     {
-      title: 'Tic Tac Toe Game',
-      description: 'This project is a visually appealing and interactive Tic Tac Toe Game',
-      image: './public/project/assets/game-project.jpg',
-      github: 'https://github.com/codewithdhruba01/tic-tac-toe-game',
-      demo: ''
+      title: 'Outfit Wallpaper Generator',
+      description: 'Outfit Wallpaper Generator is a modern, interactive web application that allows users to create personalized phone wallpapers',
+      image: '/blog/thumbnails/outfitapp.png',
+      github: 'https://github.com/codewithdhruba01/OutfitWallpaper',
+      demo: 'https://outfitwallpaper.netlify.app/'
     },
     {
-      title: 'Expense Tracker',
-      description: 'A mobile-first responsive website with modern UI/UX',
-      image: './public/project/assets/expencess.jpg',
-      github: 'https://github.com/codewithdhruba01/ExpenseTrackerSystem',
-      demo: 'https://github.com/codewithdhruba01/ExpenseTrackerSystem'
+      title: 'Notes App',
+      description: 'A lightweight, responsive note-taking app with Classic UI/UX',
+      image: '/blog/thumbnails/noteapp.png',
+      github: 'https://github.com/codewithdhruba01/Znote',
+      demo: 'https://codewithdhruba01.github.io/Znote/'
     }
   ];
 
