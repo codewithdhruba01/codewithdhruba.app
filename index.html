@@ -11,40 +11,6 @@
   </head>
   <body class="bg-[#0A0A0A]">
     <div id="root"></div>
-    <script>
-      (function() {
-        const popup = document.createElement("div");
-        popup.innerHTML = "Maintain by <strong>Dhrubaraj Pati</strong>";
-        Object.assign(popup.style, {
-          position: "fixed",
-          bottom: "20px",
-          left: "20px",
-          backgroundColor: "rgba(0, 0, 0, 0.7)",
-          color: "#fff",
-          padding: "8px 12px",
-          borderRadius: "8px",
-          fontSize: "14px",
-          zIndex: "1000",
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-          opacity: "0",
-          transform: "translateY(10px)",
-          transition: "opacity 0.5s ease, transform 0.5s ease"
-        });
-    
-        document.body.appendChild(popup);
-    
-        requestAnimationFrame(() => {
-          popup.style.opacity = "1";
-          popup.style.transform = "translateY(0)";
-        });
-    
-        setTimeout(() => {
-          popup.style.opacity = "0";
-          popup.style.transform = "translateY(10px)";
-          setTimeout(() => popup.remove(), 500);
-        }, 5000);
-      })();
-    </script>
     <script type="module" src="/src/main.tsx"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   </body>
