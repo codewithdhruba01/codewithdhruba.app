@@ -1,18 +1,58 @@
 const AllProjects = () => {
   const projects = [
     {
-      title: 'Task Manager App',
-      description: 'A simple yet powerful to-do and task manager with local storage support.',
-      image: '/blog/thumbnails/task-manager.png',
-      github: 'https://github.com/codewithdhruba01/task-manager',
-      demo: 'https://taskmanagerdemo.netlify.app/'
+      title: 'Skill Progress',
+      description: 'Skillber is a simple and extensible CLI tool built with TypeScript.',
+      image: '/blog/thumbnails/skillsber.jpg',
+      github: 'https://github.com/codewithdhruba01/Skillber',
+      demo: 'https://github.com/codewithdhruba01/Skillber'
     },
     {
       title: 'Weather Forecast App',
       description: 'A modern weather web app using OpenWeatherMap API with weekly forecast.',
-      image: '/blog/thumbnails/weatherapp.png',
-      github: 'https://github.com/codewithdhruba01/weather-app',
-      demo: 'https://dhrubaweather.netlify.app/'
+      image: '/blog/thumbnails/weather.jpg',
+      github: 'https://github.com/codewithdhruba01/realtimeWeather',
+      demo: 'https://codewithdhruba01.github.io/realtimeWeather/'
+    },
+    {
+      title: 'College Fee Payment Portal',
+      description: 'This is a simple and responsive College Fee Payment Portal built using HTML, CSS, and JavaScript.',
+      image: '/blog/thumbnails/collegeFees.jpg',
+      github: 'https://github.com/codewithdhruba01/fPortalcollege',
+      demo: 'https://codewithdhruba01.github.io/fPortalcollege/'
+    },
+    {
+      title: 'TerminalV1',
+      description: 'This project simulates a Linux terminal interface.',
+      image: '/blog/thumbnails/terminal.jpg',
+      github: 'https://github.com/codewithdhruba01/TerminalV1',
+      demo: 'https://terminalv1.netlify.app/'
+    },
+    {
+      title: 'E-Wallet Web App',
+      description: 'An interactive and responsive E-Wallet user interface built using HTML, CSS, and JavaScript..',
+      image: '/blog/thumbnails/e-wallet.jpg',
+      github: 'https://github.com/codewithdhruba01/E-Wallet',
+      demo: 'https://codewithdhruba01.github.io/E-Wallet/'
+    },
+    {
+      title: 'My Portfolio',
+      description: 'A modern weather Portfolio web app using Typescript.',
+      image: '/blog/thumbnails/portfolio.jpg',
+      demo: 'https://codewithdhruba.netlify.app/'
+    },
+    {
+      title: 'Face Recognition Real-Time',
+      description: 'This project is a real-time Face Attendance System that uses face recognition using OpenCV.',
+      image: '/blog/thumbnails/facesystem.jpg',
+      github: 'https://github.com/codewithdhruba01/FaceRecognitionRealTime'
+    },
+    {
+      title: 'Tic Tac Toe Game',
+      description: 'This project is a visually appealing and interactive Tic Tac Toe Game built using HTML, CSS, and JavaScript. It provides a two-player mode where players take turns as "X" and "O.".',
+      image: '/blog/thumbnails/game-project.jpg',
+      github: 'https://github.com/codewithdhruba01/tic-tac-toe-game',
+      demo: 'https://codewithdhruba01.github.io/tic-tac-toe-game/'
     }
   ];
 

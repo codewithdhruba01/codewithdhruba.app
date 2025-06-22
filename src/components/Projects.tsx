@@ -22,14 +22,14 @@ const Projects = () => {
     {
       title: 'Outfit Wallpaper Generator',
       description: 'Outfit Wallpaper Generator is a modern, interactive web application that allows users to create personalized phone wallpapers',
-      image: '/blog/thumbnails/outfitapp.png',
+      image: '/blog/thumbnails/outfitWallpaper.jpg',
       github: 'https://github.com/codewithdhruba01/OutfitWallpaper',
       demo: 'https://outfitwallpaper.netlify.app/'
     },
     {
       title: 'Notes App',
       description: 'A lightweight, responsive note-taking app with Classic UI/UX',
-      image: '/blog/thumbnails/noteapp.png',
+      image: '/blog/thumbnails/zNote.jpg',
       github: 'https://github.com/codewithdhruba01/Znote',
       demo: 'https://codewithdhruba01.github.io/Znote/'
     }

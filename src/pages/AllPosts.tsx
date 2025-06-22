@@ -18,25 +18,25 @@ const blogPosts = [
     category: 'Machine Learning',
     readTime: '8 min read',
     slug: 'optimizing-neural-networks-edge-devices'
-  },
-  {
-    title: 'Building a Responsive Portfolio Website',
-    description: 'Discover how to structure and build a clean, responsive portfolio website using modern tools.',
-    date: 'April 10, 2025',
-    image: '/blog/thumbnails/blog4.jpg',
-    category: 'Web Design',
-    readTime: '6 min read',
-    slug: 'building-a-responsive-portfolio'
-  },
-  {
-    title: 'Getting Started with SQL',
-    description: 'Master the basics of SQL including key commands and how to interact with relational databases.',
-    date: 'May 05, 2025',
-    image: '/blog/thumbnails/blog5.jpg',
-    category: 'Database',
-    readTime: '7 min read',
-    slug: 'getting-started-with-sql'
   }
+  // {
+  //   title: 'Building a Responsive Portfolio Website',
+  //   description: 'Discover how to structure and build a clean, responsive portfolio website using modern tools.',
+  //   date: 'April 10, 2025',
+  //   image: '/blog/thumbnails/blog4.jpg',
+  //   category: 'Web Design',
+  //   readTime: '6 min read',
+  //   slug: 'building-a-responsive-portfolio'
+  // },
+  // {
+  //   title: 'Getting Started with SQL',
+  //   description: 'Master the basics of SQL including key commands and how to interact with relational databases.',
+  //   date: 'May 05, 2025',
+  //   image: '/blog/thumbnails/blog5.jpg',
+  //   category: 'Database',
+  //   readTime: '7 min read',
+  //   slug: 'getting-started-with-sql'
+  // }
 ];
 
 const AllPosts = () => {
