@@ -1,5 +1,17 @@
+import { useNavigate } from 'react-router-dom';
+
+type Project = {
+  title: string;
+  description: string;
+  image: string;
+  github: string;
+  demo: string;
+};
+
 const Projects = () => {
-  const projects = [
+  const navigate = useNavigate();
+
+  const projects: Project[] = [
     {
       title: 'Vercual Assistence',
       description: 'A web-based voice assistant designed to provide an interactive user experience.',
@@ -26,15 +38,13 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 
-          className="text-4xl font-bold mb-12 text-center"
-          data-aos="fade-up"
-        >
+        <h2 className="text-4xl font-bold mb-12 text-center" data-aos="fade-up">
           Projects
         </h2>
+
         <div className="grid md:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div 
+            <div
               key={index}
               className="bg-[#111111] rounded-lg overflow-hidden"
               data-aos="fade-up"
@@ -45,17 +55,17 @@ const Projects = () => {
                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                 <p className="text-gray-300 mb-4">{project.description}</p>
                 <div className="flex space-x-4">
-                  <a 
-                    href={project.github} 
-                    target="_blank" 
+                  <a
+                    href={project.github}
+                    target="_blank"
                     rel="noopener noreferrer"
-                    className="text hover:text-[#3C3D37] transition-colors"   //text-3xl hover:text-[#0065F8] transition-colors 00DC82
+                    className="text hover:text-[#6e5494] transition-colors"
                   >
                     <i className="fab fa-github text-xl"></i>
                   </a>
-                  <a 
-                    href={project.demo} 
-                    target="_blank" 
+                  <a
+                    href={project.demo}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text hover:text-[#00DC82] transition-colors"
                   >
@@ -66,9 +76,32 @@ const Projects = () => {
             </div>
           ))}
         </div>
+
+        {/* View All Projects Button */}
+        <div className="text-center mt-12">
+          <button
+            onClick={() => navigate('/projects')}
+            className="inline-flex items-center justify-center px-8 py-3 border border-[#00DC82] text-[#00DC82] rounded-lg hover:bg-[#00DC82] hover:text-black transition-all duration-300"
+          >
+            View All Projects
+             <i className="fas fa-arrow-right ml-2"></i>
+          </button>
+        </div>
       </div>
     </section>
   );
 };
 
 export default Projects;
+
+
+
+
+
+// <Link 
+//             to="/all-posts"
+//             className="inline-flex items-center justify-center px-8 py-3 border border-[#00DC82] text-[#00DC82] rounded-lg hover:bg-[#00DC82] hover:text-black transition-all duration-300"
+//           >
+//             View All Posts
+//             <i className="fas fa-arrow-right ml-2"></i>
+//           </Link>

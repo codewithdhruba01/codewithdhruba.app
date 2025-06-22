@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -11,6 +11,7 @@ import BlogPost from './components/BlogPost';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AllPosts from './pages/AllPosts';
+import AllProjects from './pages/AllProjects';
 import GitHubContributions from './components/GitHubContributions';
 import AOS from 'aos';
 
@@ -24,7 +25,7 @@ const App = () => {
 
   return (
     <Router>
-      <div className="min-h-screen bg-[#0A0A0A] text-white">
+      <div className="min-h-screen bg-[#0A0A0A] text-white overflow-x-hidden">
         <Navbar />
         <Routes>
           <Route path="/" element={
@@ -41,6 +42,7 @@ const App = () => {
           } />
           <Route path="/blog/:slug" element={<BlogPost />} />
            <Route path="/all-posts" element={<AllPosts />} />
+           <Route path="/projects" element={<AllProjects />} />
         </Routes>
         <Footer />
       </div>

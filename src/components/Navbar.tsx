@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState('/#home'); // default active link
 
   const navLinks = [
     { href: '/#home', text: 'Home' },
@@ -17,9 +18,10 @@ const Navbar = () => {
   return (
     <nav className="fixed w-full z-50 bg-[#0A0A0A]/80 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="/#about">
+            <a href="/#home">
               <img
                 src="/logo/logo.png"
                 alt="Logo"
@@ -28,19 +30,22 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-white hover:text-[#00DC82] px-3 py-2 transition-colors"
-                >
-                  {link.text}
-                </a>
-              ))}
-            </div>
+          {/* Centered Desktop Navigation */}
+          <div className="hidden md:flex mx-auto space-x-2">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setActiveLink(link.href)}
+                className={`px-4 py-2 rounded-full transition-all duration-300 ${
+                  activeLink === link.href
+                    ? 'bg-[#00DC82]/20 text-[#00DC82]'
+                    : 'text-white hover:bg-[#00DC82]/20 hover:text-[#00DC82]'
+                }`}
+              >
+                {link.text}
+              </a>
+            ))}
           </div>
 
           {/* Mobile menu button */}
@@ -61,8 +66,15 @@ const Navbar = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-white hover:text-[#00DC82] block px-3 py-2 transition-colors"
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setActiveLink(link.href);
+                  setIsOpen(false);
+                }}
+                className={`block px-3 py-2 rounded-md transition-all duration-300 ${
+                  activeLink === link.href
+                    ? 'bg-[#00DC82]/20 text-[#00DC82]'
+                    : 'text-white hover:bg-[#00DC82]/20 hover:text-[#00DC82]'
+                }`}
               >
                 {link.text}
               </a>
