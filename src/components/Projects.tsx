@@ -21,7 +21,7 @@ const Projects = () => {
     },
     {
       title: 'Outfit Wallpaper Generator',
-      description: 'Outfit Wallpaper Generator is a modern, interactive web application that allows users to create personalized phone wallpapers',
+      description: 'Outfit Wallpaper Generator is a modern, interactive web application ',
       image: '/blog/thumbnails/outfitWallpaper.jpg',
       github: 'https://github.com/codewithdhruba01/OutfitWallpaper',
       demo: 'https://outfitwallpaper.netlify.app/'
@@ -53,7 +53,7 @@ const Projects = () => {
               <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-300 mb-4">{project.description}</p>
+                <p className="text-neutral-400 mb-6 leading-relaxed">{project.description}</p>
                 <div className="flex space-x-4">
                   <a
                     href={project.github}

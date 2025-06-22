@@ -61,7 +61,7 @@ const Blog = () => {
                 <h3 className="text-xl font-bold mb-2 hover:text-[#00DC82] transition-colors">
                   <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                 </h3>
-                <p className="text-gray-300 mb-4 line-clamp-2">
+                <p className="text-neutral-400 mb-6 leading-relaxed">
                   {post.description}
                 </p>
                 <Link 

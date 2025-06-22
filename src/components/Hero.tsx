@@ -31,7 +31,7 @@ const Hero = () => {
 
         {/* Description */}
         <p 
-          className="text-lg sm:text-xl md:text-2xl mb-8 text-gray-300"
+          className="text-base md:text-xl text-neutral-400 max-w-6xl md:max-w-6xl lg:max-w-5xl xl:max-w-4xl mb-10"
           data-aos="fade-up"
           data-aos-delay="200"
         >

@@ -49,7 +49,7 @@ const AllProjects = () => {
     },
     {
       title: 'Tic Tac Toe Game',
-      description: 'This project is a visually appealing and interactive Tic Tac Toe Game built using HTML, CSS, and JavaScript. It provides a two-player mode where players take turns as "X" and "O.".',
+      description: 'This project is a visually appealing and interactive Tic Tac Toe Game built using HTML, CSS, and JavaScript.',
       image: '/blog/thumbnails/game-project.jpg',
       github: 'https://github.com/codewithdhruba01/tic-tac-toe-game',
       demo: 'https://codewithdhruba01.github.io/tic-tac-toe-game/'
@@ -68,7 +68,7 @@ const AllProjects = () => {
                 <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-gray-300 mb-4">{project.description}</p>
+                  <p className=" text-neutral-400 mb-6 leading-relaxed">{project.description}</p>
                   <div className="flex space-x-4">
                     <a href={project.github} target="_blank" rel="noopener noreferrer" className="hover:text-[#6e5494] transition-colors">
                       <i className="fab fa-github text-xl"></i>
