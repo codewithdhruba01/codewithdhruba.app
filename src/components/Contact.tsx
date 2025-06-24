@@ -6,13 +6,18 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
 
   const contactInfo = [
     {
       icon: 'fas fa-envelope',
       title: 'Email',
-      value: 'pati.dhrubaraj@outlook.com',
-      link: 'mailto:dhrubaraj@outlook.com'
+      value: 'patidhrubaraj@gmail.com',
+      link: 'mailto:patidhrubaraj@gmail.com'
     },
     {
       icon: 'fas fa-phone',
@@ -33,10 +38,43 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log(formData);
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    try {
+      const response = await fetch(`https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_FORM_ID}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: 'success',
+          message: 'Thank you! Your message has been sent successfully.'
+        });
+        // Reset form
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus({
+        type: 'error',
+        message: 'Sorry, there was an error sending your message. Please try again.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -133,14 +171,38 @@ const Contact = () => {
 
             <button
               type="submit"
-              className="w-full bg-[#00DC82] text-black font-bold py-4 px-8 rounded-lg hover:bg-[#00DC82]/90 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-2"
+              disabled={isSubmitting}
+              className={`w-full bg-[#00DC82] text-black font-bold py-4 px-8 rounded-lg hover:bg-[#00DC82]/90 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-2 ${
+                isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
             >
-              <span>Send Message</span>
-              <i className="fas fa-paper-plane"></i>
+              {isSubmitting ? (
+                <>
+                  <span>Sending...</span>
+                  <i className="fas fa-spinner fa-spin"></i>
+                </>
+              ) : (
+                <>
+                  <span>Send Message</span>
+                  <i className="fas fa-paper-plane"></i>
+                </>
+              )}
             </button>
           </form>
 
-          
+          {/* Status Message */}
+          {submitStatus.type && (
+            <div
+              className={`mt-4 p-4 rounded-lg text-center ${
+                submitStatus.type === 'success'
+                  ? 'bg-green-500/20 text-green-400'
+                  : 'bg-red-500/20 text-red-400'
+              }`}
+              data-aos="fade-up"
+            >
+              {submitStatus.message}
+            </div>
+          )}
         </div>
       </div>
     </section>
