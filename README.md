@@ -1,7 +1,5 @@
 ## 🧑‍💻 How to Run the Project Locally
 
-### ✅ Prerequisites
-
 Before you begin, make sure the following tools are installed on your system:
 
 * [Node.js](https://nodejs.org/) (version 16 or higher)
@@ -10,7 +8,7 @@ Before you begin, make sure the following tools are installed on your system:
 
 ---
 
-### 📥 Step 1: Clone the Repository
+### Step 1: Clone the Repository
 
 Open your terminal or command prompt and run:
 
@@ -26,7 +24,7 @@ cd myProfile
 
 ---
 
-### 📦 Step 2: Install Dependencies
+### Step 2: Install Dependencies
 
 Install the required packages using npm:
 
@@ -38,7 +36,7 @@ This command will install all dependencies listed in the `package.json` file.
 
 ---
 
-### 🚀 Step 3: Run the Development Server
+### Step 3: Run the Development Server
 
 Start the project locally:
 
