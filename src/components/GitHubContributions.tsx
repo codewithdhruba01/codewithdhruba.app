@@ -1,23 +1,69 @@
-// import React from 'react';
+import { useEffect, useState } from 'react';
+import { request, gql } from 'graphql-request';
+
+interface DayData {
+  date: string;
+  contributionCount: number;
+}
 
 const GitHubContributions = () => {
-  // Mock data for contributions
-  // In a real application, you would fetch this from GitHub API
-  const generateMockData = () => {
-    const contributions = [];
-    const today = new Date();
-    for (let i = 0; i < 365; i++) {
-      const date = new Date(today);
-      date.setDate(date.getDate() - i);
-      contributions.unshift({
-        date: date.toISOString().split('T')[0],
-        count: Math.floor(Math.random() * 10)
-      });
+  const [contributions, setContributions] = useState<DayData[]>([]);
+  const [totalCount, setTotalCount] = useState<number>(0);
+
+  const GITHUB_USERNAME = 'codewithdhruba01';
+  const TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
+
+  const fetchContributions = async () => {
+    const endpoint = 'https://api.github.com/graphql';
+
+    const query = gql`
+      query {
+        user(login: "${GITHUB_USERNAME}") {
+          contributionsCollection {
+            contributionCalendar {
+              totalContributions
+              weeks {
+                contributionDays {
+                  date
+                  contributionCount
+                }
+              }
+            }
+          }
+        }
+      }
+    `;
+
+    try {
+      const headers = {
+        Authorization: `Bearer ${TOKEN}`,
+      };
+
+      const data = await request(endpoint, query, {}, headers) as {
+        user: {
+          contributionsCollection: {
+            contributionCalendar: {
+              totalContributions: number;
+              weeks: Array<{
+                contributionDays: DayData[];
+              }>;
+            };
+          };
+        };
+      };
+      const calendar = data.user.contributionsCollection.contributionCalendar;
+
+      const allDays: DayData[] = calendar.weeks.flatMap((week: any) => week.contributionDays);
+      setContributions(allDays);
+      setTotalCount(calendar.totalContributions);
+    } catch (error) {
+      console.error("GitHub API Error:", error);
     }
-    return contributions;
   };
 
-  const contributions = generateMockData();
+  useEffect(() => {
+    fetchContributions();
+  }, []);
 
   const getContributionColor = (count: number) => {
     if (count === 0) return 'bg-[#1f1f1f]';
@@ -35,17 +81,9 @@ const GitHubContributions = () => {
   return (
     <section id="contributions" className="py-20 bg-[#111111]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 
-          className="text-4xl font-bold mb-12 text-center"
-          data-aos="fade-up"
-        >
-          GitHub Contributions
-        </h2>
-        <div 
-          className="bg-[#0A0A0A] rounded-lg p-8 shadow-lg"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
+        <h2 className="text-4xl font-bold mb-12 text-center">GitHub Contributions</h2>
+
+        <div className="bg-[#0A0A0A] rounded-lg p-8 shadow-lg">
           <div className="overflow-x-auto">
             <div className="inline-flex gap-1">
               {weeks.map((week, weekIndex) => (
@@ -53,11 +91,11 @@ const GitHubContributions = () => {
                   {week.map((day, dayIndex) => (
                     <div
                       key={`${weekIndex}-${dayIndex}`}
-                      className={`w-3 h-3 rounded-sm ${getContributionColor(day.count)} hover:ring-2 hover:ring-[#00DC82]/30 transition-all duration-300 cursor-pointer group relative`}
-                      title={`${day.count} contributions on ${day.date}`}
+                      className={`w-3 h-3 rounded-sm ${getContributionColor(day.contributionCount)} hover:ring-2 hover:ring-[#00DC82]/30 transition-all duration-300 cursor-pointer group relative`}
+                      title={`${day.contributionCount} contributions on ${day.date}`}
                     >
                       <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-[#1f1f1f] text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                        {day.count} contributions on {day.date}
+                        {day.contributionCount} on {day.date}
                       </div>
                     </div>
                   ))}
@@ -65,7 +103,8 @@ const GitHubContributions = () => {
               ))}
             </div>
           </div>
-          <div className="mt-8 flex items-center justify-between text-sm text-gray-400">
+
+          <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm text-gray-400">
             <div className="flex items-center gap-2">
               <span>Less</span>
               <div className="flex gap-1">
@@ -77,11 +116,18 @@ const GitHubContributions = () => {
               </div>
               <span>More</span>
             </div>
-            <a 
-              href="https://github.com/codewithdhruba01" 
-              target="_blank" 
+
+            <div className="text-center sm:text-right">
+              <span className="text-[#00DC82] font-semibold">{totalCount}</span> contributions in the last year
+            </div>
+          </div>
+
+          <div className="mt-2 text-right">
+            <a
+              href={`https://github.com/${GITHUB_USERNAME}`}
+              target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-[#00DC82] hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 text-[#00DC82] hover:text-white transition-colors text-sm"
             >
               <i className="fab fa-github"></i>
               <span>View on GitHub</span>
