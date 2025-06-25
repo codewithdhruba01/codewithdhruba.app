@@ -61,7 +61,6 @@ const Contact = () => {
           type: 'success',
           message: 'Thank you! Your message has been sent successfully.'
         });
-        // Reset form
         setFormData({ name: '', email: '', message: '' });
       } else {
         throw new Error('Form submission failed');
@@ -105,104 +104,125 @@ const Contact = () => {
           ))}
         </div>
 
-        <div className="max-w-3xl mx-auto bg-[#0A0A0A] p-8 rounded-lg shadow-lg">
-          <form 
-            onSubmit={handleSubmit}
-            className="space-y-6"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <div className="relative">
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full px-4 py-3 bg-[#111111] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00DC82] transition-all duration-300 peer placeholder-transparent"
-                placeholder="Name"
-                required
-              />
-              <label 
-                htmlFor="name"
-                className="absolute left-4 -top-6 text-sm text-gray-400 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-6 peer-focus:text-[#00DC82] peer-focus:text-sm transition-all duration-300"
-              >
-                Name
-              </label>
-            </div>
-
-            <div className="relative">
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full px-4 py-3 bg-[#111111] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00DC82] transition-all duration-300 peer placeholder-transparent"
-                placeholder="Email"
-                required
-              />
-              <label 
-                htmlFor="email"
-                className="absolute left-4 -top-6 text-sm text-gray-400 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-6 peer-focus:text-[#00DC82] peer-focus:text-sm transition-all duration-300"
-              >
-                Email
-              </label>
-            </div>
-
-            <div className="relative">
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                rows={6}
-                className="w-full px-4 py-3 bg-[#111111] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00DC82] transition-all duration-300 peer placeholder-transparent resize-none"
-                placeholder="Message"
-                required
-              ></textarea>
-              <label 
-                htmlFor="message"
-                className="absolute left-4 -top-6 text-sm text-gray-400 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-6 peer-focus:text-[#00DC82] peer-focus:text-sm transition-all duration-300"
-              >
-                Message
-              </label>
-            </div>
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className={`w-full bg-[#00DC82] text-black font-bold py-4 px-8 rounded-lg hover:bg-[#00DC82]/90 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-2 ${
-                isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
-            >
-              {isSubmitting ? (
-                <>
-                  <span>Sending...</span>
-                  <i className="fas fa-spinner fa-spin"></i>
-                </>
-              ) : (
-                <>
-                  <span>Send Message</span>
-                  <i className="fas fa-paper-plane"></i>
-                </>
-              )}
-            </button>
-          </form>
-
-          {/* Status Message */}
-          {submitStatus.type && (
-            <div
-              className={`mt-4 p-4 rounded-lg text-center ${
-                submitStatus.type === 'success'
-                  ? 'bg-green-500/20 text-green-400'
-                  : 'bg-red-500/20 text-red-400'
-              }`}
+        <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-8">
+          <div className="bg-[#0A0A0A] p-8 rounded-lg shadow-lg">
+            <form 
+              onSubmit={handleSubmit}
+              className="space-y-6"
               data-aos="fade-up"
+              data-aos-delay="200"
             >
-              {submitStatus.message}
+              <div className="relative">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-[#111111] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00DC82] transition-all duration-300 peer placeholder-transparent"
+                  placeholder="Name"
+                  required
+                />
+                <label 
+                  htmlFor="name"
+                  className="absolute left-4 -top-6 text-sm text-gray-400 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-6 peer-focus:text-[#00DC82] peer-focus:text-sm transition-all duration-300"
+                >
+                  Name
+                </label>
+              </div>
+
+              <div className="relative">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-[#111111] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00DC82] transition-all duration-300 peer placeholder-transparent"
+                  placeholder="Email"
+                  required
+                />
+                <label 
+                  htmlFor="email"
+                  className="absolute left-4 -top-6 text-sm text-gray-400 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-6 peer-focus:text-[#00DC82] peer-focus:text-sm transition-all duration-300"
+                >
+                  Email
+                </label>
+              </div>
+
+              <div className="relative">
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={6}
+                  className="w-full px-4 py-3 bg-[#111111] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00DC82] transition-all duration-300 peer placeholder-transparent resize-none"
+                  placeholder="Message"
+                  required
+                ></textarea>
+                <label 
+                  htmlFor="message"
+                  className="absolute left-4 -top-6 text-sm text-gray-400 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-6 peer-focus:text-[#00DC82] peer-focus:text-sm transition-all duration-300"
+                >
+                  Message
+                </label>
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`w-full bg-[#00DC82] text-black font-bold py-4 px-8 rounded-lg hover:bg-[#00DC82]/90 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-2 ${
+                  isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
+              >
+                {isSubmitting ? (
+                  <>
+                    <span>Sending...</span>
+                    <i className="fas fa-spinner fa-spin"></i>
+                  </>
+                ) : (
+                  <>
+                    <span>Send Message</span>
+                    <i className="fas fa-paper-plane"></i>
+                  </>
+                )}
+              </button>
+            </form>
+
+            {submitStatus.type && (
+              <div
+                className={`mt-4 p-4 rounded-lg text-center ${
+                  submitStatus.type === 'success'
+                    ? 'bg-green-500/20 text-green-400'
+                    : 'bg-red-500/20 text-red-400'
+                }`}
+                data-aos="fade-up"
+              >
+                {submitStatus.message}
+              </div>
+            )}
+          </div>
+
+          <div
+            className="bg-[#0A0A0A] p-4 rounded-lg shadow-lg flex flex-col justify-center"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <h3 className="text-xl font-semibold mb-4 text-center text-white">My Location</h3>
+            <div className="w-full h-80 rounded-lg overflow-hidden">
+              <iframe
+                title="Google Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d650.966997713129!2d88.40957408945086!3d22.63792158551718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89e72ef489cd9%3A0x834736c3aa54eb8d!2s3rd%20Bye%20Ln%2C%20Subhash%20Nagar%2C%20West%20Bengal%20700065!5e0!3m2!1sen!2sin!4v1750845330208!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
-          )}
+          </div>
         </div>
       </div>
     </section>
