@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 type Project = {
@@ -10,6 +11,7 @@ type Project = {
 
 const Projects = () => {
   const navigate = useNavigate();
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const projects: Project[] = [
     {
@@ -17,91 +19,156 @@ const Projects = () => {
       description: 'A web-based voice assistant designed to provide an interactive user experience.',
       image: '/blog/thumbnails/vercual-ass-project.jpg',
       github: 'https://github.com/codewithdhruba01/Virtual-Assistant-Application',
-      demo: 'https://codewithdhruba01.github.io/Virtual-Assistant-Application/'
+      demo: 'https://codewithdhruba01.github.io/Virtual-Assistant-Application/',
     },
     {
       title: 'Outfit Wallpaper Generator',
-      description: 'Outfit Wallpaper Generator is a modern, interactive web application ',
+      description: 'Outfit Wallpaper Generator is a modern, interactive web application.',
       image: '/blog/thumbnails/outfitWallpaper.jpg',
       github: 'https://github.com/codewithdhruba01/OutfitWallpaper',
-      demo: 'https://outfitwallpaper.netlify.app/'
+      demo: 'https://outfitwallpaper.netlify.app/',
     },
     {
       title: 'Notes App',
-      description: 'A lightweight, responsive note-taking app with Classic UI/UX',
+      description: 'A lightweight, responsive note-taking app with Classic UI/UX.',
       image: '/blog/thumbnails/zNote.jpg',
       github: 'https://github.com/codewithdhruba01/Znote',
-      demo: 'https://codewithdhruba01.github.io/Znote/'
-    }
+      demo: 'https://codewithdhruba01.github.io/Znote/',
+    },
   ];
 
   return (
-    <section id="projects" className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold mb-12 text-center" data-aos="fade-up">
-          Projects
-        </h2>
+    <>
+      {/* Inline CSS animation */}
+      <style>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out forwards;
+        }
+      `}</style>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="bg-[#111111] rounded-lg overflow-hidden"
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
-            >
-              <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-neutral-400 mb-6 leading-relaxed">{project.description}</p>
-                <div className="flex space-x-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text hover:text-[#6e5494] transition-colors"
-                  >
-                    <i className="fab fa-github text-xl"></i>
-                  </a>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text hover:text-[#00DC82] transition-colors"
-                  >
-                    <i className="fa-solid fa-square-arrow-up-right text-xl"></i>
-                  </a>
+      <section id="projects" className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold mb-12 text-center" data-aos="fade-up">
+            Projects
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                onClick={() => setSelectedProject(project)}
+                className="bg-[#111111] rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                  <p className="text-neutral-400 mb-6 leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div className="flex space-x-4">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text hover:text-[#6e5494] transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <i className="fab fa-github text-xl"></i>
+                    </a>
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text hover:text-[#00DC82] transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <i className="fa-solid fa-square-arrow-up-right text-xl"></i>
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* View All Projects Button */}
+          <div className="text-center mt-12">
+            <button
+              onClick={() => navigate('/projects')}
+              className="inline-flex items-center justify-center px-8 py-3 border border-[#00DC82] text-[#00DC82] rounded-lg hover:bg-[#00DC82] hover:text-black transition-all duration-300"
+            >
+              View All Projects
+              <i className="fas fa-arrow-right ml-2"></i>
+            </button>
+          </div>
         </div>
 
-        {/* View All Projects Button */}
-        <div className="text-center mt-12">
-          <button
-            onClick={() => navigate('/projects')}
-            className="inline-flex items-center justify-center px-8 py-3 border border-[#00DC82] text-[#00DC82] rounded-lg hover:bg-[#00DC82] hover:text-black transition-all duration-300"
+        {/* Modal Overlay */}
+        {selectedProject && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+            onClick={() => setSelectedProject(null)}
           >
-            View All Projects
-             <i className="fas fa-arrow-right ml-2"></i>
-          </button>
-        </div>
-      </div>
-    </section>
+            <div
+              className="bg-[#111111] rounded-lg max-w-lg w-full p-6 relative transform transition-all duration-300 ease-out scale-95 opacity-0 animate-fadeIn"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="w-full h-64 object-cover rounded mb-4"
+              />
+              <h3 className="text-2xl font-bold mb-2 text-white">
+                {selectedProject.title}
+              </h3>
+              <p className="text-neutral-500 mb-4">{selectedProject.description}</p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href={selectedProject.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-4 py-2 border border-[#f8f8f8] text-[#faf9fa] rounded hover:bg-[#ffffff] hover:text-black transition-all"
+                >
+                  <i className="fab fa-github mr-2"></i>
+                  GitHub
+                </a>
+                <a
+                  href={selectedProject.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-4 py-2 border border-[#00DC82] text-[#00DC82] rounded hover:bg-[#00DC82] hover:text-black transition-all"
+                >
+                  <i className="fa-solid fa-square-arrow-up-right mr-2"></i>
+                  Live Demo
+                </a>
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="inline-flex items-center font-bold-500 px-4 py-2 border border-red-500 text-gray-300 rounded hover:bg-red-500 hover:text-white transition-all"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </section>
+    </>
   );
 };
 
 export default Projects;
-
-
-
-
-
-// <Link 
-//             to="/all-posts"
-//             className="inline-flex items-center justify-center px-8 py-3 border border-[#00DC82] text-[#00DC82] rounded-lg hover:bg-[#00DC82] hover:text-black transition-all duration-300"
-//           >
-//             View All Posts
-//             <i className="fas fa-arrow-right ml-2"></i>
-//           </Link>
