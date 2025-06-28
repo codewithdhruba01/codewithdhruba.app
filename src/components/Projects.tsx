@@ -39,7 +39,6 @@ const Projects = () => {
 
   return (
     <>
-      {/* Inline CSS animation */}
       <style>{`
         @keyframes fadeIn {
           from {
@@ -59,7 +58,7 @@ const Projects = () => {
       <section id="projects" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-12 text-center" data-aos="fade-up">
-            Projects
+            Latest Projects
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -121,17 +120,17 @@ const Projects = () => {
         {/* Modal Overlay */}
         {selectedProject && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+            className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex flex-col items-center justify-center z-50"
             onClick={() => setSelectedProject(null)}
           >
             <div
-              className="bg-[#111111] rounded-lg max-w-lg w-full p-6 relative transform transition-all duration-300 ease-out scale-95 opacity-0 animate-fadeIn"
+              className="bg-[#111111] rounded-lg max-w-lg w-[90%] md:w-full p-6 relative transform transition-all duration-300 ease-out scale-95 opacity-0 animate-fadeIn"
               onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={selectedProject.image}
                 alt={selectedProject.title}
-                className="w-full h-64 object-cover rounded mb-4"
+                className="w-full h-48 md:h-64 object-cover rounded mb-4"
               />
               <h3 className="text-2xl font-bold mb-2 text-white">
                 {selectedProject.title}
@@ -156,14 +155,16 @@ const Projects = () => {
                   <i className="fa-solid fa-square-arrow-up-right mr-2"></i>
                   Live Demo
                 </a>
-                <button
-                  onClick={() => setSelectedProject(null)}
-                  className="inline-flex items-center font-bold-500 px-4 py-2 border border-red-500 text-gray-300 rounded hover:bg-red-500 hover:text-white transition-all"
-                >
-                  Close
-                </button>
               </div>
             </div>
+
+            {/* Centered Close Button */}
+            <button
+              onClick={() => setSelectedProject(null)}
+              className="mt-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#222] text-gray-300 hover:bg-red-500 hover:text-white transition-all"
+            >
+              <i className="fas fa-times text-lg"></i>
+            </button>
           </div>
         )}
       </section>

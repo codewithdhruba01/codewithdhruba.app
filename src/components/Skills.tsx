@@ -1,41 +1,92 @@
-import { 
-  FaJava, FaPython, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGit, FaGithub 
-} from 'react-icons/fa';
-import { SiC } from 'react-icons/si';
-
 const Skills = () => {
-  const skills = [
-    { name: 'Java', icon: <FaJava className="text-[#5382a1]" /> },
-    { name: 'C', icon: <SiC className="text-white-500" /> },
-    { name: 'Python', icon: <FaPython className="text-[#06663a]" /> },
-    { name: 'HTML', icon: <FaHtml5 className="text-orange-600" /> },
-    { name: 'CSS', icon: <FaCss3Alt className="text-blue-500" /> },
-    { name: 'JavaScript', icon: <FaJs className="text-yellow-300" /> },
-    { name: 'React', icon: <FaReact className="text-cyan-400 animate-spin-slow" /> },
-    { name: 'Node.js', icon: <FaNodeJs className="text-green-500" /> },
-    { name: 'Git', icon: <FaGit className="text-red-500" /> },
-    { name: 'Github', icon: <FaGithub className="text-white" /> },
+  const sections = [
+    {
+      title: "Programming Languages",
+      skills: [
+        "C Programming",
+        "Python Programming",
+        "Java Programming",
+        "JavaScript",
+        "TypeScript",
+        "C++ Programming",
+      ],
+    },
+    {
+      title: "Full Stack Development",
+      skills: [
+        "HTML",
+        "CSS",
+        "Tailwind CSS",
+        "Bootstrap",
+        "Material UI",
+        "JavaScript",
+        "TypeScript",
+        "Node.js",
+        "Vite",
+        "REST APIs",
+        "MongoDB",
+      ],
+    },
+    {
+      title: "Development Tools",
+      skills: [
+        "Git",
+        "GitHub",
+        "Visual Studio Code",
+        "Pycharm",
+        "intellij",
+        "Eclipse",
+        "Postman",
+        "Figma",
+        "Flaticon",
+        "terminal",
+        "npm",
+      ],
+    },
+    {
+      title: "Other Skills",
+      skills: [
+        "Problem Solving",
+        "Competitive Programming",
+        "Data Structures and Algorithms",
+        "Web Development",
+        "Software Development",
+        "UI/UX Design",
+        "Agile Methodologies",
+      ],
+    },
   ];
 
   return (
-    <section id="skills" className="py-20 bg-[#29282800]">
+    <section id="skills" className="py-20 bg-[#0c0c0c00]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 
+        <h2
           className="text-4xl font-bold mb-12 text-center text-white"
           data-aos="fade-up"
         >
           Skills
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {skills.map((skill, index) => (
-            <div 
-              key={index}
-              className="flex flex-col items-center p-6 bg-[#181717] rounded-xl hover:scale-105 transition-transform hover:shadow-lg"
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {sections.map((section, idx) => (
+            <div
+              key={idx}
+              className="bg-[#181818] border border-[#2a2a2a] rounded-lg p-6"
               data-aos="fade-up"
-              data-aos-delay={index * 100}
+              data-aos-delay={idx * 100}
             >
-              <div className="text-5xl mb-4">{skill.icon}</div>
-              <span className="text-lg text-white">{skill.name}</span>
+              <h3 className="text-lg font-semibold text-white mb-4">
+                {section.title}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {section.skills.map((skill, sIdx) => (
+                  <span
+                    key={sIdx}
+                    className="bg-[#08350ee0] text-[#00DC82] px-3 py-1 rounded-full text-sm"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
           ))}
         </div>
