@@ -1,6 +1,13 @@
 const AllProjects = () => {
   const projects = [
     {
+      title: 'Vercual Assistence',
+      description: 'A web-based voice assistant designed to provide an interactive user experience.',
+      image: '/blog/thumbnails/vercual-ass-project.jpg',
+      github: 'https://github.com/codewithdhruba01/Virtual-Assistant-Application',
+      demo: 'https://codewithdhruba01.github.io/Virtual-Assistant-Application/'
+    },
+    {
       title: 'Skill Progress',
       description: 'Skillber is a simple and extensible CLI tool built with TypeScript.',
       image: '/blog/thumbnails/skillsber.jpg',

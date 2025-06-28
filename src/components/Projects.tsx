@@ -15,11 +15,11 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
-      title: 'Vercual Assistence',
-      description: 'A web-based voice assistant designed to provide an interactive user experience.',
-      image: '/blog/thumbnails/vercual-ass-project.jpg',
-      github: 'https://github.com/codewithdhruba01/Virtual-Assistant-Application',
-      demo: 'https://codewithdhruba01.github.io/Virtual-Assistant-Application/',
+      title: 'MultiCalc - Calculator',
+      description: 'A comprehensive calculator website with multiple calculator types and a beautiful UI.',
+      image: '/blog/thumbnails/calculator.png',
+      github: 'https://github.com/codewithdhruba01/MultiCalc',
+      demo: 'https://multi-calc-gamma.vercel.app/',
     },
     {
       title: 'Outfit Wallpaper Generator',
