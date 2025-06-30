@@ -77,7 +77,7 @@ const AllProjects = () => {
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                   <p className=" text-neutral-400 mb-6 leading-relaxed">{project.description}</p>
                   <div className="flex space-x-4">
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="hover:text-[#6e5494] transition-colors">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="hover:text-[#666566] transition-colors">
                       <i className="fab fa-github text-xl"></i>
                     </a>
                     <a href={project.demo} target="_blank" rel="noopener noreferrer" className="hover:text-[#00DC82] transition-colors">

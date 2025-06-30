@@ -3,7 +3,7 @@ const About = () => {
     <section id="about" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 
-          className="text-4xl font-bold mb-12 text-center"
+          className="text-4xl font-bold mb-12 text-center font-serif"
           data-aos="fade-up"
         >
           About Me
@@ -13,13 +13,13 @@ const About = () => {
             className="space-y-6"
             data-aos="fade-right"
           >
-            <p className="text-lg text-gray-300">
+            <p className="text-xl text-gray-300 font-sans">
               I'm a passionate Full Stack Developer based in India, with a strong focus on creating beautiful and functional web applications.
             </p>
-            <p className="text-lg text-gray-300">
+            <p className="text-xl text-gray-300 font-sans">
               Currently pursuing my BCA in Computer Science and Engineering, I love exploring new technologies and building innovative solutions.
             </p>
-            <p className="text-lg text-gray-300">
+            <p className="text-xl text-gray-300 font-sans">
               Beyond coding, I’m passionate about exploring cutting-edge technologies, actively contributing to open-source communities, and continuously learning about the latest innovations in web development to sharpen my skills and stay ahead in the tech world
             </p>
           </div>

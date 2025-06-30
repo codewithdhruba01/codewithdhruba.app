@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react'
 
 // Blog post data (mocked, would come from an API in real case)
 const blogPostsData = {
@@ -210,15 +211,27 @@ const BlogPost = () => {
         <div className="mt-12 flex items-center justify-between" data-aos="fade-up">
           <div className="text-gray-400">Share this article:</div>
           <div className="flex space-x-4">
-            <a href="#" className="text-gray-400 hover:text-[#333446] transition-colors">
-              <i className="fab fa-x text-xl"></i>
-            </a>
-            <a href="#" className="text-gray-400 hover:text-[#3674B5] transition-colors">
-              <i className="fab fa-linkedin text-xl"></i>
-            </a>
-            <a href="#" className="text-gray-400 hover:text-[#0065F8] transition-colors">
-              <i className="fab fa-facebook text-xl"></i>
-            </a>
+          
+            
+            <div className="flex space-x-4">
+              <a href="https://x.com/codewithdhruba" className="text-muted-foreground hover:text-foreground">
+                <Twitter className="h-5 w-5 hover:text-[#00CAFF]" />
+                <span className="sr-only">Twitter</span>
+              </a>
+              <a href="https://www.linkedin.com/in/dhrubaraj-pati/" className="text-muted-foreground hover:text-foreground">
+                <Linkedin className="h-5 w-5 hover:text-[#5093f7]" />
+                <span className="sr-only">Linkedin</span>
+              </a>
+              <a href="https://www.instagram.com/dhrubaraj_pati/" className="text-muted-foreground hover:text-foreground">
+                <Instagram className="h-5 w-5 hover:text-[#E4405F] transition-transform hover:scale-110" />
+                <span className="sr-only">Instagram</span>
+              </a>
+              <a href="https://m.facebook.com/dhruba.raj.113858/" className="text-muted-foreground hover:text-foreground">
+                <Facebook className="h-5 w-5 hover:text-[#4a5bf5] transition-transform hover:scale-110" />
+                <span className="sr-only">Facebook</span>
+              </a>
+            </div>
+          
           </div>
         </div>
       </div>

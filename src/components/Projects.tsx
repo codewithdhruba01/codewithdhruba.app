@@ -85,7 +85,7 @@ const Projects = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text hover:text-[#6e5494] transition-colors"
+                      className="text hover:text-[#757475] transition-colors"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <i className="fab fa-github text-xl"></i>

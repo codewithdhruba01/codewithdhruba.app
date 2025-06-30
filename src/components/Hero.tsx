@@ -1,3 +1,5 @@
+import { Github, Twitter, Linkedin, Instagram } from 'lucide-react'
+
 const Hero = () => {
   const handleDownloadCV = () => {
     const link = document.createElement('a');
@@ -23,15 +25,15 @@ const Hero = () => {
 
         {/* Name Heading */}
         <h1 
-          className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white"
+          className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white font-serif"
           data-aos="fade-up"
         >
-          Hi, I'm <span className="text-[#00DC82]">Dhrubaraj</span>
+          Hi, I'm <span className="text-[#00DC82] font-semibold">Dhrubaraj</span>
         </h1>
 
         {/* Description */}
         <p 
-          className="text-base md:text-xl text-neutral-400 max-w-6xl md:max-w-6xl lg:max-w-5xl xl:max-w-4xl mb-10"
+          className="text-base md:text-xl text-neutral-400 max-w-6xl md:max-w-6xl lg:max-w-5xl xl:max-w-4xl mb-10 font-sans"
           data-aos="fade-up"
           data-aos-delay="200"
         >
@@ -44,24 +46,30 @@ const Hero = () => {
           data-aos="fade-up"
           data-aos-delay="400"
         >
-          <div className="flex justify-center space-x-6 text-white text-3xl">
-            <a href="https://github.com/codewithdhruba01" target="_blank" rel="noopener noreferrer" className="hover:text-[#6e5494] transition-transform hover:scale-110">
-              <i className="fa-brands fa-github fa-beat"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/dhrubaraj-pati/" target="_blank" rel="noopener noreferrer" className="hover:text-[#0077B5] transition-transform hover:scale-110">
-              <i className="fa-brands fa-linkedin fa-fade"></i>
-            </a>
-            <a href="https://www.instagram.com/dhrubaraj_pati/" target="_blank" rel="noopener noreferrer" className="hover:text-[#E4405F] transition-transform hover:scale-110">
-              <i className="fa-brands fa-instagram fa-beat-fade"></i>
-            </a>
-            <a href="https://x.com/codewithdhruba" target="_blank" rel="noopener noreferrer" className="hover:text-[#1DA1F2] transition-transform hover:scale-110">
-              <i className="fa-brands fa-x-twitter fa-beat"></i>
-            </a>
+          <div>
+            <div className="flex space-x-4" data-aos="fade-up">
+              <a href="https://x.com/codewithdhruba" className="text-muted-foreground hover:text-foreground">
+                <Twitter className="h-9 w-9 text-[#00CAFF] hover:text-[#215b69] transition-transform hover:scale-110" />
+                <span className="sr-only">Twitter</span>
+              </a>
+              <a href="https://www.linkedin.com/in/dhrubaraj-pati/" className="text-muted-foreground hover:text-foreground">
+                <Linkedin className="h-9 w-9 text-[#2455be] hover:text-[#5093f7] transition-transform hover:scale-110" />
+                <span className="sr-only">Linkedin</span>
+              </a>
+              <a href="https://www.instagram.com/dhrubaraj_pati/" className="text-muted-foreground hover:text-foreground">
+                <Instagram className="h-10 w-8 text-[#E4405F] hover:text-[#812737] transition-transform hover:scale-110" />
+                <span className="sr-only">Instagram</span>
+              </a>
+              <a href="https://github.com/codewithdhruba01" className="text-muted-foreground hover:text-foreground">
+                <Github className="h-9 w-9 hover:text-[#a7a6a6] transition-transform hover:scale-110" />
+                <span className="sr-only">GitHub</span>
+              </a>
+            </div>
           </div>
 
           <button
             onClick={handleDownloadCV}
-            className="group flex items-center space-x-2 bg-[#00DC82] hover:bg-[#00DC82]/90 text-black font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-[#00DC82]/20"
+            className="group flex items-center space-x-2 bg-[#00DC82] hover:bg-[#fff]/90 text-black font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-[#00DC82]/80"
           >
             <span>Download CV</span>
             <i className="fas fa-download group-hover:animate-bounce"></i>
