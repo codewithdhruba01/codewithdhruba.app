@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react'
+import { Facebook, Twitter, Linkedin, Instagram, ArrowLeft } from 'lucide-react';
 
-// Blog post data (mocked, would come from an API in real case)
+// Blog post data
 const blogPostsData = {
   'getting-started-with-react-typescript': {
     title: 'Getting Started with React and TypeScript',
@@ -15,7 +15,7 @@ const blogPostsData = {
     <p>React is one of the most popular JavaScript libraries for building user interfaces, and TypeScript is a powerful tool that adds type safety to JavaScript. Combining the two can significantly improve your development experience by helping you catch bugs earlier and write more maintainable code.</p>
     <p>In this guide, we’ll walk through how to set up a React project using TypeScript, understand key TypeScript concepts, and explore how TypeScript integrates with React components.</p>
       
-       <h2>Setting Up Your Development Environment</h2>
+       <h3>Setting Up Your Development Environment</h3>
     <p>Before you begin, make sure you have the following tools installed:</p>
     <ul>
       <li><strong>Node.js</strong> (recommended version 18.x or later)</li>
@@ -24,12 +24,12 @@ const blogPostsData = {
     </ul>
     <p>These tools provide a modern development setup that supports TypeScript features like autocompletion, type checking, and more.</p>
       
-      <h2>Creating a New React TypeScript Project</h2>
+      <h3>Creating a New React TypeScript Project</h3>
     <p>The easiest way to get started is by using Create React App with the TypeScript template. Open your terminal and run:</p>
     <pre><code>npx create-react-app my-app --template typescript</code></pre>
     <p>This command will create a new React project pre-configured for TypeScript. You’ll notice files like <code>tsconfig.json</code> and components using <code>.tsx</code> extensions, which support JSX and TypeScript together.</p>
       
-     <h2>Basic TypeScript Concepts for React</h2>
+     <h3>Basic TypeScript Concepts for React</h3>
     <p>Here are some fundamental TypeScript features you'll frequently use in React:</p>
     <ul>
       <li><strong>Props and State Types:</strong> You can define interfaces for component props and use them to enforce strict type checking.</li>
@@ -63,68 +63,163 @@ const UserCard: React.FC<UserCardProps> = ({ name, age }) => (
     tags: ['React', 'TypeScript', 'Web Development']
   },
 
-  'optimizing-neural-networks-edge-devices': {
-    title: 'Optimizing Neural Networks for Edge Devices',
-    date: 'March 20, 2025',
-    author: 'Dhrubaraj Pati',
-    category: 'Machine Learning',
-    readTime: '8 min read',
-    content: `
-      <h2>Introduction to Edge AI</h2>
-      <p>Edge AI is revolutionizing how we deploy machine learning models...</p>
-      <h2>Challenges in Edge Deployment</h2>
-      <p>Deploying neural networks on edge devices presents unique challenges...</p>
-      <h2>Optimization Techniques</h2>
-      <ul>
-        <li>Model Quantization</li>
-        <li>Network Pruning</li>
-        <li>Knowledge Distillation</li>
-      </ul>
-      <h2>Conclusion</h2>
-      <p>These techniques improve performance and reduce resource usage.</p>
-    `,
-    image: '/blog/thumbnails/blog3.jpg',
-    tags: ['Machine Learning', 'Edge Computing', 'Neural Networks', 'Optimization']
-  },
+  'getting-started-with-vs-code': {
+  title: 'Getting Started with Visual Studio Code: The Complete Guide',
+  date: 'July 2, 2025',
+  author: 'Dhrubaraj Pati',
+  category: 'Development Tools',
+  readTime: '8 min read',
+  content: `
+    <h2>Introduction</h2>
+    <p>Visual Studio Code, commonly known as VS Code, is a lightweight but powerful source-code editor developed by Microsoft. Whether you are a beginner learning to code or a professional building large-scale applications, VS Code provides the tools and flexibility to boost your productivity.</p>
+    
+    <h2>Why Use VS Code?</h2>
+    <p>VS Code has become the most popular code editor for several reasons:</p>
+    <ul>
+      <li><strong>Free and Open Source:</strong> Completely free to use with an active community.</li>
+      <li><strong>Cross-Platform:</strong> Available on Windows, macOS, and Linux.</li>
+      <li><strong>Extensions Marketplace:</strong> Thousands of extensions to add support for any language or tool.</li>
+      <li><strong>Built-in Git Integration:</strong> Manage your repositories without leaving the editor.</li>
+      <li><strong>Customizable:</strong> Themes, icons, keybindings, and settings can be tailored to your workflow.</li>
+    </ul>
+    
+    <h2>Installing VS Code</h2>
+    <p>You can download the latest version from the <a href="https://code.visualstudio.com/" target="_blank">official website</a>. The installation is straightforward:</p>
+    <ol>
+      <li>Download the installer for your operating system.</li>
+      <li>Run the installer and follow the prompts.</li>
+      <li>Launch VS Code after installation completes.</li>
+    </ol>
+    
+    <h2>Exploring the User Interface</h2>
+    <p>When you first open VS Code, you'll see:</p>
+    <ul>
+      <li><strong>Activity Bar:</strong> On the left side, gives quick access to Explorer, Search, Source Control, Extensions, and more.</li>
+      <li><strong>Side Bar:</strong> Displays your project files and folders.</li>
+      <li><strong>Editor:</strong> Where you write your code.</li>
+      <li><strong>Status Bar:</strong> Shows information about your project and editor state.</li>
+      <li><strong>Command Palette:</strong> Press <code>Ctrl+Shift+P</code> (or <code>Cmd+Shift+P</code> on Mac) to access all commands.</li>
+    </ul>
+    
+    <h2>Essential Extensions</h2>
+    <p>Extensions make VS Code incredibly powerful. Here are some recommended ones:</p>
+    <ul>
+      <li><strong>Python:</strong> Adds rich support for Python development, including IntelliSense and debugging.</li>
+      <li><strong>Prettier:</strong> Automatically formats your code for consistent style.</li>
+      <li><strong>ESLint:</strong> Helps you find and fix problems in JavaScript and TypeScript.</li>
+      <li><strong>GitLens:</strong> Supercharges Git capabilities with blame annotations and history exploration.</li>
+      <li><strong>Live Server:</strong> Launch a development server with live reload for HTML and JavaScript.</li>
+    </ul>
+    
+    <h2>Customizing Your Environment</h2>
+    <p>One of VS Code's strengths is customization:</p>
+    <ul>
+      <li><strong>Themes:</strong> Change the look and feel via <em>Extensions &gt; Themes</em>.</li>
+      <li><strong>Settings:</strong> Configure settings using the <code>settings.json</code> file or the UI editor.</li>
+      <li><strong>Keybindings:</strong> Modify keyboard shortcuts to match your preferences.</li>
+      <li><strong>Snippets:</strong> Create reusable code snippets to speed up your workflow.</li>
+    </ul>
+    
+    <h2>Using the Integrated Terminal</h2>
+    <p>VS Code includes a built-in terminal so you don’t have to leave the editor to run commands:</p>
+    <pre><code>
+View > Terminal
+    </code></pre>
+    <p>You can open multiple terminals and run different processes simultaneously.</p>
+    
+    <h2>Debugging Your Code</h2>
+    <p>VS Code has excellent debugging support:</p>
+    <ol>
+      <li>Set breakpoints by clicking next to the line numbers.</li>
+      <li>Launch the debugger using the <strong>Run and Debug</strong> icon in the Activity Bar.</li>
+      <li>Use the Debug Console to inspect variables and control execution.</li>
+    </ol>
+    
+    <h2>Working with Git</h2>
+    <p>VS Code makes version control simple:</p>
+    <ul>
+      <li>Initialize a repository or clone an existing one.</li>
+      <li>Stage changes, commit, and push to remote repositories.</li>
+      <li>View diffs and manage branches.</li>
+    </ul>
+    
+    <h2>Conclusion</h2>
+    <p>Visual Studio Code is a modern, flexible editor that adapts to any project or technology stack. With its powerful extensions, built-in tools, and extensive customization options, it’s an essential tool in every developer’s toolkit.</p>
+    <p>Download VS Code today and start building your next project faster and more efficiently!</p>
+  `,
+  image: '/blog/thumbnails/blog-vs-code.png',
+  tags: ['VS Code', 'Code Editor', 'Development', 'Productivity']
+},
 
-  'building-a-responsive-portfolio': {
-    title: 'Building a Responsive Portfolio Website',
-    date: 'April 10, 2025',
+  'understanding-python-packages': {
+    title: 'Mastering Python Packages: Organize and Share Your Code',
+    date: 'July 2, 2025',
     author: 'Dhrubaraj Pati',
-    category: 'Web Design',
-    readTime: '6 min read',
-    content: `
-      <h2>Why a Portfolio Website Matters</h2>
-      <p>Your portfolio is the first impression recruiters get...</p>
-      <h2>Planning Your Layout</h2>
-      <p>Use clear sections like Home, About, Projects, and Contact.</p>
-      <h2>Using Flexbox and Grid</h2>
-      <p>Leverage modern CSS for a great user experience.</p>
-    `,
-    image: 'https://via.placeholder.com/1200x600',
-    tags: ['Portfolio', 'HTML', 'CSS', 'Responsive Design']
-  },
-
-  'getting-started-with-sql': {
-    title: 'Getting Started with SQL',
-    date: 'May 05, 2025',
-    author: 'Dhrubaraj Pati',
-    category: 'Database',
+    category: 'Python Programming',
     readTime: '7 min read',
     content: `
-      <h2>Introduction to SQL</h2>
-      <p>SQL (Structured Query Language) is used to interact with relational databases...</p>
-      <h2>Core SQL Commands</h2>
+      <h2>Introduction</h2>
+      <p>As your Python projects grow, organizing your code becomes critical. Python Packages allow you to group related modules together, making your codebase clean, maintainable, and reusable.</p>
+
+      <h2>What is a Package?</h2>
+      <p>A package is simply a directory containing a special <code>__init__.py</code> file, which tells Python it can be imported as a package.</p>
+
+      <h3>Creating a Package</h3>
+      <pre><code>
+my_package/
+  __init__.py
+  module1.py
+  module2.py
+      </code></pre>
+      <p>You can now import modules like:</p>
+      <pre><code>
+from my_package import module1
+      </code></pre>
+
+      <h2>Why Use Packages?</h2>
       <ul>
-        <li><strong>DDL:</strong> CREATE, DROP, ALTER</li>
-        <li><strong>DML:</strong> INSERT, UPDATE, DELETE</li>
-        <li><strong>DQL:</strong> SELECT, WHERE, GROUP BY</li>
+        <li><strong>Organization:</strong> Group related code logically.</li>
+        <li><strong>Reusability:</strong> Share code across projects.</li>
+        <li><strong>Namespace Management:</strong> Avoid name collisions.</li>
       </ul>
-      <h2>Practice and Learning</h2>
-      <p>Practice with online platforms or local tools like MySQL.</p>
+
+      <h2>Example: Building a Math Package</h2>
+      <p>Let's create a simple math utilities package.</p>
+      <pre><code>
+math_utils/
+  __init__.py
+  addition.py
+  multiplication.py
+      </code></pre>
+
+      <h3>addition.py</h3>
+      <pre><code>
+def add(a, b):
+    return a + b
+      </code></pre>
+
+      <h3>multiplication.py</h3>
+      <pre><code>
+def multiply(a, b):
+    return a * b
+      </code></pre>
+
+      <h3>Using the Package</h3>
+      <pre><code>
+from math_utils import addition, multiplication
+
+print(addition.add(2, 3))       # 5
+print(multiplication.multiply(4, 5))  # 20
+      </code></pre>
+
+      <h2>Distributing Your Package</h2>
+      <p>To share your package, create a <code>setup.py</code> and upload it to PyPI using tools like <code>twine</code>. This way, others can install it via <code>pip install your-package</code>.</p>
+
+      <h2>Conclusion</h2>
+      <p>Python packages are essential for professional Python development. By mastering them, you can create well-organized, modular, and reusable code ready to scale and share with the world.</p>
     `,
-    image: 'https://via.placeholder.com/1200x600',
-    tags: ['SQL', 'Databases', 'MySQL', 'PostgreSQL']
+    image: '/blog/thumbnails/blog-python-packages.jpg',
+    tags: ['Python', 'Packages', 'Code Organization', 'Beginner']
   }
 };
 
@@ -154,6 +249,17 @@ const BlogPost = () => {
   return (
     <article className="py-20 px-4">
       <div className="max-w-4xl mx-auto">
+        {/* Back Button */}
+        <div className="mb-8" data-aos="fade-up">
+          <a
+            href="/all-posts"
+            className="inline-flex items-center text-gray-400 hover:text-white transition-colors"
+          >
+            <ArrowLeft className="h-5 w-5 mr-2" />
+            Back to Blog
+          </a>
+        </div>
+
         {/* Header */}
         <header className="mb-12" data-aos="fade-up">
           <div className="mb-6">
@@ -180,8 +286,8 @@ const BlogPost = () => {
         {/* Featured Image */}
         <div className="mb-12" data-aos="fade-up">
           <img
-            src='/blog/thumbnails/blog2.jpg'
-            alt= 'Started with React and TypeScript'
+            src={post.image}
+            alt={`Thumbnail for ${post.title}`}
             className="w-full h-[400px] object-cover rounded-lg"
           />
         </div>
@@ -211,27 +317,18 @@ const BlogPost = () => {
         <div className="mt-12 flex items-center justify-between" data-aos="fade-up">
           <div className="text-gray-400">Share this article:</div>
           <div className="flex space-x-4">
-          
-            
-            <div className="flex space-x-4">
-              <a href="https://x.com/codewithdhruba" className="text-muted-foreground hover:text-foreground">
-                <Twitter className="h-5 w-5 hover:text-[#00CAFF]" />
-                <span className="sr-only">Twitter</span>
-              </a>
-              <a href="https://www.linkedin.com/in/dhrubaraj-pati/" className="text-muted-foreground hover:text-foreground">
-                <Linkedin className="h-5 w-5 hover:text-[#5093f7]" />
-                <span className="sr-only">Linkedin</span>
-              </a>
-              <a href="https://www.instagram.com/dhrubaraj_pati/" className="text-muted-foreground hover:text-foreground">
-                <Instagram className="h-5 w-5 hover:text-[#E4405F] transition-transform hover:scale-110" />
-                <span className="sr-only">Instagram</span>
-              </a>
-              <a href="https://m.facebook.com/dhruba.raj.113858/" className="text-muted-foreground hover:text-foreground">
-                <Facebook className="h-5 w-5 hover:text-[#4a5bf5] transition-transform hover:scale-110" />
-                <span className="sr-only">Facebook</span>
-              </a>
-            </div>
-          
+            <a href="https://x.com/codewithdhruba" className="text-muted-foreground hover:text-foreground">
+              <Twitter className="h-5 w-5 hover:text-[#00CAFF]" />
+            </a>
+            <a href="https://www.linkedin.com/in/dhrubaraj-pati/" className="text-muted-foreground hover:text-foreground">
+              <Linkedin className="h-5 w-5 hover:text-[#5093f7]" />
+            </a>
+            <a href="https://www.instagram.com/dhrubaraj_pati/" className="text-muted-foreground hover:text-foreground">
+              <Instagram className="h-5 w-5 hover:text-[#E4405F]" />
+            </a>
+            <a href="https://m.facebook.com/dhruba.raj.113858/" className="text-muted-foreground hover:text-foreground">
+              <Facebook className="h-5 w-5 hover:text-[#4a5bf5]" />
+            </a>
           </div>
         </div>
       </div>

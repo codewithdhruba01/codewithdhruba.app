@@ -13,13 +13,13 @@ const Blog = () => {
       slug: 'getting-started-with-react-typescript'
     },
     {
-      title: 'Optimizing Neural Networks for Edge Devices',
-      description: 'Learn about various techniques to optimize neural networks for deployment on edge devices.',
-      date: 'March 20, 2024',
-      image: '/blog/thumbnails/blog3.jpg',
-      category: 'Machine Learning',
+      title: 'Getting Started with Visual Studio Code: The Complete Guide',
+      description: 'A complete beginner guide to using Visual Studio Code, the world’s most popular code editor.',
+      date: 'July 2, 2025',
+      image: '/blog/thumbnails/blog-vs-code.png',
+      category: 'Development Tools',
       readTime: '8 min read',
-      slug: 'optimizing-neural-networks-edge-devices'
+      slug: 'getting-started-with-vs-code'
     }
   ];
 

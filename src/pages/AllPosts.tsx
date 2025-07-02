@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 const blogPosts = [
   {
     title: 'Getting Started with React and TypeScript',
-    description: 'Learn how to set up a new React project with TypeScript and best practices for type safety.',
+    description:
+      'Learn how to set up a new React project with TypeScript and best practices for type safety.',
     date: 'March 15, 2024',
     image: '/blog/thumbnails/blog2.jpg',
     category: 'Development',
@@ -11,32 +12,24 @@ const blogPosts = [
     slug: 'getting-started-with-react-typescript'
   },
   {
-    title: 'Optimizing Neural Networks for Edge Devices',
-    description: 'Learn about various techniques to optimize neural networks for deployment on edge devices.',
-    date: 'March 20, 2024',
-    image: '/blog/thumbnails/blog3.jpg',
-    category: 'Machine Learning',
-    readTime: '8 min read',
-    slug: 'optimizing-neural-networks-edge-devices'
+  title: 'Getting Started with Visual Studio Code: The Complete Guide',
+  description: 'A complete beginner guide to using Visual Studio Code, the world’s most popular code editor.',
+  date: 'July 2, 2025',
+  image: '/blog/thumbnails/blog-vs-code.png',
+  category: 'Development Tools',
+  readTime: '8 min read',
+  slug: 'getting-started-with-vs-code'
+},
+  {
+    title: 'Mastering Python Packages: Organize and Share Your Code',
+    description:
+      'Understand how Python packages work, how to create them, and how to share your code with the world.',
+    date: 'July 2, 2025',
+    image: '/blog/thumbnails/blog-python-packages.jpg',
+    category: 'Python Programming',
+    readTime: '7 min read',
+    slug: 'understanding-python-packages'
   }
-  // {
-  //   title: 'Building a Responsive Portfolio Website',
-  //   description: 'Discover how to structure and build a clean, responsive portfolio website using modern tools.',
-  //   date: 'April 10, 2025',
-  //   image: '/blog/thumbnails/blog4.jpg',
-  //   category: 'Web Design',
-  //   readTime: '6 min read',
-  //   slug: 'building-a-responsive-portfolio'
-  // },
-  // {
-  //   title: 'Getting Started with SQL',
-  //   description: 'Master the basics of SQL including key commands and how to interact with relational databases.',
-  //   date: 'May 05, 2025',
-  //   image: '/blog/thumbnails/blog5.jpg',
-  //   category: 'Database',
-  //   readTime: '7 min read',
-  //   slug: 'getting-started-with-sql'
-  // }
 ];
 
 const AllPosts = () => {
@@ -46,13 +39,13 @@ const AllPosts = () => {
         <h1 className="text-3xl font-bold text-center mb-12 text-white">Blog Posts</h1>
         <div className="grid md:grid-cols-2 gap-10">
           {blogPosts.map((post, index) => (
-            <article 
+            <article
               key={index}
               className="bg-[#0A0A0A] rounded-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300"
             >
               <div className="relative">
-                <img 
-                  src={post.image} 
+                <img
+                  src={post.image}
                   alt={post.title}
                   className="w-full h-48 object-cover"
                 />
@@ -74,7 +67,7 @@ const AllPosts = () => {
                 <p className="text-neutral-400 mb-6 leading-relaxed">
                   {post.description}
                 </p>
-                <Link 
+                <Link
                   to={`/blog/${post.slug}`}
                   className="inline-flex items-center text-[#00DC82] hover:text-white transition-colors"
                 >
