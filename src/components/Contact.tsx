@@ -16,8 +16,8 @@ const Contact = () => {
     {
       icon: 'fas fa-envelope',
       title: 'Email',
-      value: 'patidhrubaraj@gmail.com',
-      link: 'mailto:patidhrubaraj@gmail.com'
+      value: 'pati.dhrubaraj@outlook.com',
+      link: 'mailto:pati.dhrubaraj@outlook.com'
     },
     {
       icon: 'fas fa-phone',
@@ -213,7 +213,7 @@ const Contact = () => {
             <div className="w-full h-80 rounded-lg overflow-hidden">
               <iframe
                 title="Google Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d650.966997713129!2d88.40957408945086!3d22.63792158551718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89e72ef489cd9%3A0x834736c3aa54eb8d!2s3rd%20Bye%20Ln%2C%20Subhash%20Nagar%2C%20West%20Bengal%20700065!5e0!3m2!1sen!2sin!4v1750845330208!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235850.81212011125!2d88.18254112599966!3d22.535343439863773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f882db4908f667%3A0x43e330e68f6c2cbc!2sKolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1751457061571!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

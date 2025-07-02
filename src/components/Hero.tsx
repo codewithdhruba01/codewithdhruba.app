@@ -25,11 +25,20 @@ const Hero = () => {
 
         {/* Name Heading */}
         <h1 
-          className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white font-serif"
+          className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white font-sans"
           data-aos="fade-up"
         >
-          Hi, I'm <span className="text-[#00DC82] font-semibold">Dhrubaraj</span>
+          Hi, I'm <span className="text-[#00DC82] font-sans">Dhrubaraj</span>
         </h1>
+
+        {/* New Subtitle */}
+        <p
+          className="text-lg md:text-3xl text-neutral-300 max-w-3xl mx-auto mb-6 font-sans"
+          data-aos="fade-up"
+          data-aos-delay="150"
+        >
+          Empowering ideas into reality through clean code, creative design, and unwavering passion for technology.
+        </p>
 
         {/* Description */}
         <p 
