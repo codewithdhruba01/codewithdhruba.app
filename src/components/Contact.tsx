@@ -22,7 +22,7 @@ const Contact = () => {
     {
       icon: 'fas fa-phone',
       title: 'Phone',
-      value: '+91 906 464 4809',
+      value: '+91 XXX XXX 4809',
       link: 'tel:+919064644809'
     },
     {

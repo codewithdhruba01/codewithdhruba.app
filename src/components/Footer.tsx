@@ -83,7 +83,7 @@ const Footer = () => {
       {/* Back to Top Button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 z-50 p-2 rounded-full bg-[#28f09d] text-black shadow-md hover:bg-green-500 transition-transform duration-300 ${
+        className={`fixed bottom-6 right-6 z-50 p-2 rounded-full bg-green-500 text-white shadow-md hover:bg-green-700 transition-transform duration-300 ${
           showButton ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         aria-label="Back to Top"

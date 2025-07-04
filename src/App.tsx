@@ -12,7 +12,9 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AllPosts from './pages/AllPosts';
 import AllProjects from './pages/AllProjects';
+import ChatAssistant from './pages/ChatAssistant';
 import GitHubContributions from './components/GitHubContributions';
+import ChatBotLauncher from './components/ChatBotLauncher';
 import AOS from 'aos';
 
 const App = () => {
@@ -25,7 +27,7 @@ const App = () => {
 
   return (
     <Router>
-      <div className="min-h-screen bg-[#0A0A0A] text-white overflow-x-hidden">
+      <div className="min-h-screen bg-[#0A0A0A] text-white overflow-x-hidden relative">
         <Navbar />
         <Routes>
           <Route path="/" element={
@@ -41,9 +43,11 @@ const App = () => {
             </>
           } />
           <Route path="/blog/:slug" element={<BlogPost />} />
-           <Route path="/all-posts" element={<AllPosts />} />
-           <Route path="/projects" element={<AllProjects />} />
+          <Route path="/all-posts" element={<AllPosts />} />
+          <Route path="/projects" element={<AllProjects />} />
+          <Route path="/chat-assistant" element={<ChatAssistant />} />
         </Routes>
+        <ChatBotLauncher /> {/* Floating chat icon */}
         <Footer />
       </div>
     </Router>

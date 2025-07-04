@@ -1,4 +1,10 @@
+import { useEffect } from 'react';
+
 const AllProjects = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0); // ✅ Scrolls to top when page loads
+  }, []);
+
   const projects = [
     {
       title: 'Vercual Assistence',
