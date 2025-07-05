@@ -19,7 +19,7 @@ const Hero = () => {
           <img
             src="/blog/thumbnails/hero-cover.png"
             alt="Dhrubaraj"
-            className="w-40 h-40 mx-auto mb-6 rounded-full object-cover border-4 border-[#00DC82] shadow-md"
+            className="w-40 h-40 mx-auto mb-6 rounded-full object-cover border-4 border-[#28ad28] shadow-md"
           />
         </div>
 
