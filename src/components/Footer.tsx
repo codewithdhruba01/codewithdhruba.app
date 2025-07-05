@@ -71,7 +71,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 py-7">
           <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 font-sans">
             <p className="font-semibold">
-              © 2025 <span className="text-[#b5b6b8]">Dhrubaraj Pati</span>. All rights reserved.
+              © 2025 Dhrubaraj Pati All rights reserved.
             </p>
             <p className="text-sm text-muted-foreground flex items-center mt-2 md:mt-0 font-sans">
             Made with <Heart className="h-4 w-4 mx-1 text-red-500" /> <span className="text-[#b5b6b8] font-sans">Dhrubaraj Pati</span>
