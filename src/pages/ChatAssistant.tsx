@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SendHorizonal, MessageSquareText } from 'lucide-react';
+import { SendHorizonal, MessageSquareText, Linkedin, Mail, Twitter } from 'lucide-react';
 
 const ChatAssistant: React.FC = () => {
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
@@ -26,18 +26,26 @@ const ChatAssistant: React.FC = () => {
       return "Hey there! I'm Your Chat Assistant, your personal assistant to explore Dhrubaraj's world of coding, creativity, and projects. Ask me anything — I'm always ready to help!";
     if (input.includes('name'))
       return "I'm Dhrubaraj Pati, a passionate Computer Engineering student exploring full-stack development.";
+    if (input.includes('about'))
+      return "I'm a passionate Full Stack Developer based in India, with a strong focus on creating beautiful and functional web applications.";
+    if (input.includes('How are you'))
+      return "I’m doing great.";
     if (input.includes('skills'))
-      return "My skills include React, TypeScript, Tailwind CSS, Node.js, Python, Firebase.";
+      return "My skills include HTML, CSS, JS, React, TypeScript, Tailwind CSS, Node.js, Python, Java.";
     if (input.includes('education'))
-      return "I’m pursuing Computer Engineering and constantly learning through real-world coding challenges.";
+      return "Currently pursuing my BCA in Computer Science and Engineering, I love exploring new technologies and building innovative solutions.";
     if (input.includes('project'))
-      return `Here are a few of my projects:
-1. 🔢 Multi Calculator – A feature-rich calculator with multiple tools.
-2. 🧠 AI Chat Assistant – Fully functional assistant using OpenAI (you’re using it now!).
-3. 🌐 Portfolio – This sleek and professional website built with React + Tailwind.
+      return `Current projects include:
+    • Multi Calculator – A feature-rich calculator with multiple tools.
+    • File Converter App – A simple and responsive static file converter landing application.
+    • Outfit Wallpaper Generator - a modern, interactive web application.
 Explore more on the Projects page!`;
     if (input.includes('blog'))
-      return "I write blogs about web dev, React, and AI tools — check them out in the Blog section.";
+      return `Current Blogs include:
+    • Getting Started with React and TypeScript.
+    • Getting Started with Visual Studio Code: The Complete Guide.
+    • Mastering Python Packages: Organize and Share Your Code.
+Explore more on the blog page!`;
     if (input.includes('contact'))
       return "You can reach me through the Contact page or via the social icons in the footer.";
     if (input.includes('github') || input.includes('contribution'))
@@ -72,20 +80,22 @@ Explore more on the Projects page!`;
 
   return (
     <div className="min-h-screen bg-black text-white py-16 px-4 flex flex-col items-center">
-        <h1 className="text-4xl font-bold mb-6"></h1>
-      <h1 className="text-4xl font-bold mb-5"
-      data-aos="fade-up"
-      
-      >Get in Touch</h1>
+      <h2 className="text-4xl font-bold mb-10"></h2>
+      <h1 className="text-4xl font-bold mb-5" data-aos="fade-up">
+        Get in Touch
+      </h1>
       <p className="text-gray-400 mb-10 pb-5 text-center max-w-md" data-aos="fade-up">
         Have a question or want to Chat with my assistant below.
       </p>
 
-      <div className="w-full max-w-xl bg-[#1c1c1c] rounded-lg shadow-xl p-4 space-y-4" data-aos="fade-up">
+      <div
+        className="w-full max-w-xl bg-[#1c1c1c] rounded-lg shadow-xl p-4 space-y-4"
+        data-aos="fade-up"
+      >
         {/* Assistant Header */}
         <div className="flex items-center gap-4 border-b border-gray-700 pb-4">
           <div className="bg-green-600 rounded-full w-10 h-10 flex items-center justify-center text-white font-bold">
-                <MessageSquareText className="h-6 w-6"/>
+            <MessageSquareText className="h-6 w-6" />
           </div>
           <div>
             <div className="font-semibold text-lg">Chat Assistant</div>
@@ -96,10 +106,15 @@ Explore more on the Projects page!`;
         {/* Chat Messages */}
         <div className="h-[320px] overflow-y-auto space-y-3 pr-1">
           {messages.map((msg, idx) => (
-            <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+            <div
+              key={idx}
+              className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+            >
               <div
                 className={`rounded-lg px-4 py-2 max-w-[75%] text-sm ${
-                  msg.role === 'user' ? 'bg-green-600 text-white' : 'bg-gray-800 text-gray-200'
+                  msg.role === 'user'
+                    ? 'bg-green-600 text-white'
+                    : 'bg-gray-800 text-gray-200'
                 }`}
               >
                 {msg.content}
@@ -143,15 +158,49 @@ Explore more on the Projects page!`;
       </div>
 
       {/* Social Footer */}
-      {/* <div className="mt-10 text-center">
-        <h3 className="text-1xl text-gray-500 mb-3">Other Ways to Connect</h3>
-        <div className="flex gap-6 justify-center text-gray-400 text-lg">
-          <a href="https://x.com/codewithdhruba" className="text-muted-foreground hover:text-foreground">
-                <Linkedin className="h-10 w-10 hover:text-[#00CAFF]" />
-                <span className="sr-only">Twitter</span>
-              </a>
-        </div>
-      </div> */}
+      <div className="mt-10 text-center">
+        <h3 className="text-xl font-bold text-white mb-5" data-aos="fade-up">Other Ways to Connect</h3>
+        <div className="flex gap-10 justify-center text-gray-400 text-sm" data-aos="fade-up">
+          
+  {/* LinkedIn */}
+  <a
+    href="https://www.linkedin.com/in/dhrubaraj-pati/"
+    className="flex flex-col items-center group"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <div className="bg-[#1c1c1c] border border-gray-900 rounded-full p-3 group-hover:text-[#499eff] transition">
+      <Linkedin className="h-6 w-6" />
+    </div>
+    <span className="mt-2 group-hover:text-[#499eff]">LinkedIn</span>
+  </a>
+
+  {/* Email */}
+  <a
+    href="mailto:pati.dhrubaraj@outlook.com"
+    className="flex flex-col items-center group"
+  >
+    <div className="bg-[#1c1c1c] border border-gray-900 rounded-full p-3 group-hover:text-[#b83434] transition">
+      <Mail className="h-6 w-6" />
+    </div>
+    <span className="mt-2 group-hover:text-[#b83434]">Email</span>
+  </a>
+
+  {/* Twitter */}
+  <a
+    href="https://x.com/codewithdhruba" //
+    className="flex flex-col items-center group"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <div className="bg-[#1c1c1c] border border-gray-900 rounded-full p-3 group-hover:text-[#1DA1F2] transition">
+      <Twitter className="h-6 w-6" />
+    </div>
+    <span className="mt-2 group-hover:text-[#1DA1F2]">Twitter</span>
+  </a>
+</div>
+
+      </div>
     </div>
   );
 };
