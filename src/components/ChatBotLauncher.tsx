@@ -13,7 +13,7 @@ const ChatBotLauncher: React.FC = () => {
     <div className="group fixed bottom-20 right-5 z-50">
       <button
         onClick={() => navigate('/chat-assistant')}
-        className="bg-green-600 hover:bg-green-700 p-3 rounded-full shadow-lg transition-all"
+        className="bg-[#333333b7] hover:bg-[#222222] p-3 rounded-full shadow-lg transition-all"
         aria-label="Open Chat Assistant"
       >
         <BotMessageSquare size={24} className="text-white" />
