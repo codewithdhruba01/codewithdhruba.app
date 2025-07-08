@@ -19,7 +19,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-[#0A0A0A] text-gray-400">
+      <footer className="bg-black text-gray-400">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Left */}
           <div>
@@ -36,7 +36,7 @@ const Footer = () => {
             <div>
               <h3 className="text-white font-semibold mb-2">Links</h3>
               <ul className="space-y-1">
-                <li><a href="#about" className="hover:text-[#00DC82] font-sans">About Us</a></li>
+                <li><a href="/about" className="hover:text-[#00DC82] font-sans">About Us</a></li>
                 <li><a href="/#projects" className="hover:text-[#00DC82] font-sans">Project</a></li>
                 <li><a href="/#education" className="hover:text-[#00DC82] font-sans">Education</a></li>
                 <li><a href="/#blog" className="hover:text-[#00DC82] font-sans">Blogs</a></li>

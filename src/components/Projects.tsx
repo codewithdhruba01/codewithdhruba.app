@@ -55,10 +55,10 @@ const Projects = () => {
         }
       `}</style>
 
-      <section id="projects" className="py-20">
+      <section id="projects" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-12 text-center" data-aos="fade-up">
-            Latest Projects
+            Latest <span className="text-[#00DC82]">Projects</span>
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">

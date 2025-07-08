@@ -1,4 +1,5 @@
-import { Github, Twitter, Linkedin, Instagram } from 'lucide-react'
+import { Github, Twitter, Linkedin, Instagram, User, Download } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
   const handleDownloadCV = () => {
@@ -76,13 +77,24 @@ const Hero = () => {
             </div>
           </div>
 
-          <button
-            onClick={handleDownloadCV}
-            className="group flex items-center space-x-2 bg-[#00DC82] hover:bg-[#fff]/90 text-black font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-[#00DC82]/80"
-          >
-            <span>Download CV</span>
-            <i className="fas fa-download group-hover:animate-bounce"></i>
-          </button>
+           {/* Buttons: Download CV + About Me */}
+          <div className="flex flex-wrap justify-center gap-4">
+            <button
+              onClick={handleDownloadCV}
+              className="group flex items-center space-x-2 bg-[#00DC82] hover:bg-[#fff]/90 text-black font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-[#00DC82]/80"
+            >
+              <span>Download CV</span>
+              <Download className="h-6 w-6 text-[#000000] font-bold transition-transform hover:scale-110" />
+            </button>
+
+            <Link
+              to="/about"
+              className="group flex items-center space-x-2 bg-white text-black hover:bg-[#00DC82]/90 font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-white/50"
+            >
+              <span>About Me</span>
+               <User className="h-6 w-6 text-[#000000] transition-transform hover:scale-110" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
