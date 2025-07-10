@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const blogPosts = [
   {
@@ -33,6 +34,9 @@ const blogPosts = [
 ];
 
 const AllPosts = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to top when page loads
+  }, []);
   return (
     <section className="py-20 bg-[#111111] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
