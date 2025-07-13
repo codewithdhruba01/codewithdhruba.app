@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 const Hero = () => {
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/blog/thumbnails/Dhrubaraj-Resume.pdf'; // Path to your CV file
-    link.download = 'dhrubaraj_resume.pdf';
+    link.href = '/blog/thumbnails/Dhrubaraj_s_CV.pdf'; // Path to your CV file
+    link.download = 'Dhrubaraj_s_CV.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
