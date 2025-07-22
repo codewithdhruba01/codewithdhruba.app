@@ -19,7 +19,7 @@ const Projects = () => {
       description: 'A comprehensive calculator website with multiple calculator types and a beautiful UI.',
       image: '/blog/thumbnails/calculator.png',
       github: 'https://github.com/codewithdhruba01/MultiCalc',
-      demo: 'https://multi-calc-gamma.vercel.app/',
+      demo: 'https://multicalculat.netlify.app/',
     },
     {
       title: 'Outfit Wallpaper Generator',
@@ -29,11 +29,11 @@ const Projects = () => {
       demo: 'https://outfitwallpaper.netlify.app/',
     },
     {
-      title: 'Notes App',
-      description: 'A lightweight, responsive note-taking app with Classic UI/UX.',
-      image: '/blog/thumbnails/zNote.jpg',
-      github: 'https://github.com/codewithdhruba01/Znote',
-      demo: 'https://codewithdhruba01.github.io/Znote/',
+      title: 'ComfortPG-Website',
+      description: 'A modern, responsive Paying Guest accommodation website built with React, TypeScript, and Tailwind CSS.',
+      image: '/blog/thumbnails/pg-website.jpg',
+      github: 'https://github.com/codewithdhruba01/ComfortPG_Website',
+      demo: 'https://comfort-pg.vercel.app/',
     },
   ];
 

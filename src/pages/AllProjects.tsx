@@ -55,6 +55,13 @@ const AllProjects = () => {
       demo: 'https://codewithdhruba.netlify.app/'
     },
     {
+      title: 'Notes App',
+      description: 'A lightweight, responsive note-taking app with Classic UI/UX.',
+      image: '/blog/thumbnails/zNote.jpg',
+      github: 'https://github.com/codewithdhruba01/Znote',
+      demo: 'https://codewithdhruba01.github.io/Znote/',
+    },
+    {
       title: 'Face Recognition Real-Time',
       description: 'This project is a real-time Face Attendance System that uses face recognition using OpenCV.',
       image: '/blog/thumbnails/facesystem.jpg',
