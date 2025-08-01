@@ -61,11 +61,12 @@ const Skills = () => {
     <section id="skills" className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          className="text-4xl font-bold mb-12 text-center text-white"
+          className="text-4xl font-bold mb-4 text-center text-white"
           data-aos="fade-up"
         >
-          Skills
+          Tech Stack
         </h2>
+        <div className="h-1 w-24 bg-gradient-to-r from-white to-green-900 mx-auto rounded-full mb-10" data-aos="fade-up" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {sections.map((section, idx) => (
             <div

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Github, ExternalLink } from 'lucide-react'
 
 type Project = {
   title: string;
@@ -30,7 +31,7 @@ const Projects = () => {
     },
     {
       title: 'ComfortPG-Website',
-      description: 'A modern, responsive Paying Guest accommodation website built with React, TypeScript, and Tailwind CSS.',
+      description: 'A modern, responsive Paying Guest accommodation website',
       image: '/blog/thumbnails/pg-website.jpg',
       github: 'https://github.com/codewithdhruba01/ComfortPG_Website',
       demo: 'https://comfort-pg.vercel.app/',
@@ -57,9 +58,10 @@ const Projects = () => {
 
       <section id="projects" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold mb-12 text-center" data-aos="fade-up">
+          <h2 className="text-4xl font-bold mb-4 text-center" data-aos="fade-up">
             Latest <span className="text-[#00DC82]">Projects</span>
           </h2>
+          <div className="h-1 w-24 bg-gradient-to-r from-white to-green-900 mx-auto rounded-full mb-10" data-aos="fade-up" />
 
           <div className="grid md:grid-cols-3 gap-8">
             {projects.map((project, index) => (
@@ -85,19 +87,19 @@ const Projects = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text hover:text-[#757475] transition-colors"
-                      onClick={(e) => e.stopPropagation()}
+                      className="flex items-center gap-1 px-3 py-1.5 rounded-md text-sm bg-[#292929] hover:bg-[#3a3a3a] text-white transition"
                     >
-                      <i className="fab fa-github text-xl"></i>
+                      <Github className="w-4 h-4" />
+                      Code
                     </a>
                     <a
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text hover:text-[#00DC82] transition-colors"
-                      onClick={(e) => e.stopPropagation()}
+                      className="flex items-center gap-1 px-3 py-1.5 rounded-md text-sm bg-green-700 hover:bg-green-600 text-white transition"
                     >
-                      <i className="fa-solid fa-square-arrow-up-right text-xl"></i>
+                      <ExternalLink className="w-4 h-4" />
+                      Live
                     </a>
                   </div>
                 </div>
