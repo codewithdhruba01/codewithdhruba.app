@@ -15,6 +15,7 @@ import AllProjects from './pages/AllProjects';
 import ChatAssistant from './pages/ChatAssistant';
 import GitHubContributions from './components/GitHubContributions';
 import ChatBotLauncher from './components/ChatBotLauncher';
+import Certificates from './pages/Certificates';
 import AOS from 'aos';
 
 const App = () => {
@@ -46,6 +47,7 @@ const App = () => {
           <Route path="/all-posts" element={<AllPosts />} />
           <Route path="/projects" element={<AllProjects />} />
           <Route path="/chat-assistant" element={<ChatAssistant />} />
+           <Route path="/certificates" element={<Certificates />} />
         </Routes>
         <ChatBotLauncher /> {/* Floating chat icon */}
         <Footer />

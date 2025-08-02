@@ -40,6 +40,7 @@ const Footer = () => {
                 <li><a href="/#projects" className="hover:text-[#00DC82] font-sans">Project</a></li>
                 <li><a href="/#education" className="hover:text-[#00DC82] font-sans">Education</a></li>
                 <li><a href="/#blog" className="hover:text-[#00DC82] font-sans">Blogs</a></li>
+                <li><a href="/certificates" className="hover:text-[#00DC82] font-sans">certificates</a></li>
                 <li><a href="/#contact" className="hover:text-[#00DC82] font-sans">Contact Us</a></li>
                 <li><a href="/#contributions" className="hover:text-[#00DC82] font-sans">GitHub Contributions</a></li>
               </ul>
