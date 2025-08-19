@@ -16,6 +16,7 @@ import ChatAssistant from './pages/ChatAssistant';
 import GitHubContributions from './components/GitHubContributions';
 import ChatBotLauncher from './components/ChatBotLauncher';
 import Certificates from './pages/Certificates';
+import Badges from './components/Badges';
 import AOS from 'aos';
 
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
               <Skills />
               <GitHubContributions />
               <Blog />
+              <Badges />
               <Contact />
             </>
           } />
