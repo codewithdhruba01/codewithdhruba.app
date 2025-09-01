@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Github, ExternalLink } from 'lucide-react'
+import { Github, Globe } from 'lucide-react'
 
 type Project = {
   title: string;
@@ -58,7 +58,7 @@ const Projects = () => {
 
       <section id="projects" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold mb-4 text-center" data-aos="fade-up">
+          <h2 className="text-4xl font-bold mb-4 text-center font-synonym" data-aos="fade-up">
             Latest <span className="text-[#00DC82]">Projects</span>
           </h2>
           <div className="h-1 w-24 bg-gradient-to-r from-white to-green-900 mx-auto rounded-full mb-10" data-aos="fade-up" />
@@ -98,7 +98,7 @@ const Projects = () => {
                       rel="noopener noreferrer"
                       className="flex items-center gap-1 px-3 py-1.5 rounded-md text-sm bg-green-700 hover:bg-green-600 text-white transition"
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <Globe className="w-4 h-4" />
                       Live
                     </a>
                   </div>
@@ -111,7 +111,7 @@ const Projects = () => {
           <div className="text-center mt-12">
             <button
               onClick={() => navigate('/projects')}
-              className="inline-flex items-center justify-center px-8 py-3 border border-[#00DC82] text-[#00DC82] rounded-lg hover:bg-[#00DC82] hover:text-black transition-all duration-300"
+              className="inline-flex items-center justify-center font-bold px-8 py-3 border border-[#00DC82] text-[#00DC82] rounded-lg hover:bg-[#00DC82] hover:text-black transition-all duration-300"
             >
               View All Projects
               <i className="fas fa-arrow-right ml-2"></i>

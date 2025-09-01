@@ -26,15 +26,15 @@ const Hero = () => {
 
         {/* Name Heading */}
         <h1 
-          className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white font-sans"
+          className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white font-synonym"
           data-aos="fade-up"
         >
-          Hi, I'm <span className="text-[#00DC82] font-sans">Dhrubaraj</span>
+          Hi, I'm <span className="text-[#00DC82] font-synonym">Dhrubaraj</span>
         </h1>
 
         {/* New Subtitle */}
         <p
-          className="text-lg md:text-3xl text-neutral-300 max-w-3xl mx-auto mb-6 font-sans"
+          className="text-lg md:text-2xl text-neutral-300 max-w-3xl mx-auto mb-6 font-amulya"
           data-aos="fade-up"
           data-aos-delay="150"
         >
@@ -43,7 +43,7 @@ const Hero = () => {
 
         {/* Description */}
         <p 
-          className="text-base md:text-xl text-neutral-400 max-w-6xl md:max-w-6xl lg:max-w-5xl xl:max-w-4xl mb-10 font-sans"
+          className="text-base md:text-xl text-neutral-400 max-w-6xl md:max-w-6xl lg:max-w-5xl xl:max-w-4xl mb-10 font-satoshi"
           data-aos="fade-up"
           data-aos-delay="200"
         >

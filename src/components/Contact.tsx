@@ -80,7 +80,7 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-[#111111]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 
-          className="text-4xl font-bold mb-12 text-center"
+          className="text-4xl font-bold mb-12 text-center font-outfit"
           data-aos="fade-up"
         >
           Get In Touch

@@ -61,7 +61,7 @@ const Skills = () => {
     <section id="skills" className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          className="text-4xl font-bold mb-4 text-center text-white"
+          className="text-4xl font-bold mb-4 text-center font-synonym text-white"
           data-aos="fade-up"
         >
           Tech Stack

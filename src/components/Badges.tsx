@@ -35,7 +35,7 @@ const githubBadges = [
 export default function GithubBadgeSection() {
   return (
     <section className="py-16 bg-[#111111] text-center">
-      <h2 className="text-3xl font-bold text-white mb-8">All Badges</h2>
+      <h2 className="text-3xl font-bold text-white mb-10 font-synonym">All Badges</h2>
 
       {/* Scrolling Line */}
       <div className="overflow-hidden whitespace-nowrap">
