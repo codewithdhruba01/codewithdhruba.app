@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Github, ExternalLink } from 'lucide-react'
+import { Github, Globe } from 'lucide-react'
 
 const categories = [
   'All',
@@ -144,11 +144,11 @@ const AllProjects = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <p className="mb-10"></p>
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 font-sans">
-            Featured <span className="text-green-600">Projects</span> 
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4 font-excon">
+            Featured <span className="text-green-600 font-excon font-bold">Projects</span> 
           </h2>
           <div className="h-1 w-24 bg-gradient-to-r from-white to-green-900 mx-auto rounded-full mb-4" />
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-400 max-w-2xl mx-auto font-satoshi">
             A showcase of my best work across various technologies and domains.
             Each project represents a unique challenge and different aspects of
             my skills.
@@ -226,7 +226,7 @@ const AllProjects = () => {
                       rel="noopener noreferrer"
                       className="flex items-center gap-1 px-3 py-1.5 rounded-md text-sm bg-green-700 hover:bg-green-600 text-white transition"
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <Globe className="w-4 h-4" />
                       Live
                     </a>
                       )}

@@ -82,7 +82,7 @@ const Blog = () => {
         >
           <Link 
             to="/all-posts"
-            className="inline-flex items-center justify-center px-8 py-3 border border-[#00DC82] text-[#00DC82] rounded-lg hover:bg-[#00DC82] hover:text-black transition-all duration-300"
+            className="inline-flex items-center justify-center px-8 py-3 border border-[#00DC82] text-[#00DC82] font-outfit font-bold rounded-lg hover:bg-[#00DC82] hover:text-black transition-all duration-300"
           >
             View All Posts
             <i className="fas fa-arrow-right ml-2"></i>

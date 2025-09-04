@@ -74,12 +74,12 @@ const Certificates = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-            
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 font-sans">
-            Certificates & <span className="bg-gradient-to-r from-blue-400 to-green-600 bg-clip-text text-transparent">Achievements</span>
+          <div className="mb-8"></div>
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 font-excon">
+            Certificates & <span className="bg-gradient-to-r from-blue-400 to-green-600 bg-clip-text text-transparent font-excon font-bold">Achievements</span>
           </h1>
           <div className="h-1 w-24 bg-gradient-to-r from-white to-green-900 mx-auto rounded-full mb-4" />
-          <p className="text-xl text-gray-300">Professional certifications and recognitions</p>
+          <p className="text-xl text-gray-300 font-satoshi">Professional certifications and recognitions</p>
         </motion.div>
 
         {/* Certificates Section */}
@@ -110,15 +110,15 @@ const Certificates = () => {
                 </div>
                 
                 <div className="p-4 lg:p-5">
-                  <h3 className="text-lg lg:text-xl font-bold text-white mb-2 line-clamp-2">{cert.title}</h3>
-                  <h4 className="text-green-500 font-semibold mb-2 text-sm lg:text-base">{cert.issuer}</h4>
+                  <h3 className="text-lg lg:text-xl font-bold text-white mb-2 line-clamp-2 font-synonym">{cert.title}</h3>
+                  <h4 className="text-green-500 font-semibold mb-2 text-sm lg:text-base font-outfit">{cert.issuer}</h4>
                   
                   <div className="flex items-center text-gray-300 mb-3 text-sm">
                     <Calendar className="mr-2" size={14} />
                     <span className="text-sm">{cert.date}</span>
                   </div>
                   
-                  <p className="text-gray-300 mb-3 text-sm line-clamp-2">{cert.description}</p>
+                  <p className="text-gray-300 mb-3 text-sm line-clamp-2 font-satoshi">{cert.description}</p>
                   
                   <div className="mb-3">
                     <span className="text-xs text-gray-400">ID: {cert.credentialId}</span>
@@ -151,7 +151,7 @@ const Certificates = () => {
         >
           <div className="flex items-center mb-8">
             <CheckCircle className="text-green-500 mb-4 mr-3" size={32} />
-            <h2 className="text-3xl md:text-3xl mb-4 font-bold text-white font-sans">Open Source & <span className="font-bold font-sans bg-gradient-to-r from-blue-400 to-green-600 bg-clip-text text-transparent">Contribution</span></h2>
+            <h2 className="text-3xl md:text-3xl mb-4 font-bold text-white font-excon">Open Source & <span className="font-bold font-excon bg-gradient-to-r from-blue-400 to-green-600 bg-clip-text text-transparent">Contribution</span></h2>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
@@ -195,8 +195,8 @@ const Certificates = () => {
           className="text-center mt-16"
         >
           <div className="bg-gray-800/50 backdrop-blur-md rounded-xl p-6 lg:p-8 border border-gray-700/30 shadow-lg">
-            <h3 className="text-2xl font-bold text-green-500 mb-4 font-mono">Continuous Learning</h3>
-            <p className="text-gray-400 leading-relaxed font-mono">
+            <h3 className="text-2xl font-bold text-green-500 mb-4 font-synonym">Continuous Learning</h3>
+            <p className="text-gray-400 leading-relaxed font-satoshi">
               I believe in continuous improvement and staying updated with the latest technologies. 
               These certifications and achievements represent my commitment to excellence and 
               professional growth in the ever-evolving field of technology.

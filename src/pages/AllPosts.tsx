@@ -38,14 +38,14 @@ const AllPosts = () => {
     window.scrollTo(0, 0); // Scrolls to top when page loads
   }, []);
   return (
-    <section className="py-20 bg-[#111111] min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold text-center mb-12 text-white">Blog Posts</h1>
+    <section className="py-20 bg-[#080808] min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h1 className="text-3xl font-bold text-center mb-12 text-white font-excon">Blog Posts</h1>
         <div className="grid md:grid-cols-2 gap-10">
           {blogPosts.map((post, index) => (
             <article
               key={index}
-              className="bg-[#0A0A0A] rounded-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300"
+              className="bg-[#111111] rounded-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300"
             >
               <div className="relative">
                 <img

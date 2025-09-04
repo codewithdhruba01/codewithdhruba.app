@@ -79,12 +79,12 @@ Explore more on the blog page!`;
   };
 
   return (
-    <div className="min-h-screen bg-black text-white py-16 px-4 flex flex-col items-center">
-      <h2 className="text-4xl font-bold mb-10"></h2>
-      <h1 className="text-4xl font-bold mb-5" data-aos="fade-up">
+    <div className="min-h-screen bg-[#0a0a0a] text-white py-16 px-4 flex flex-col items-center">
+      <h2 className="text-4xl font-bold mb-12"></h2>
+      <h1 className="text-4xl font-bold mb-5 font-excon" data-aos="fade-up">
         Get in Touch
       </h1>
-      <p className="text-gray-400 mb-10 pb-5 text-center max-w-md" data-aos="fade-up">
+      <p className="text-gray-400 mb-10 pb-5 text-center max-w-md font-satoshi" data-aos="fade-up">
         Have a question or want to Chat with my assistant below.
       </p>
 
@@ -98,8 +98,8 @@ Explore more on the blog page!`;
             <MessageSquareText className="h-6 w-6" />
           </div>
           <div>
-            <div className="font-semibold text-lg">Chat Assistant</div>
-            <div className="text-sm text-green-400">Online · Replies instantly</div>
+            <div className="font-semibold text-lg font-synonym">Chat Assistant</div>
+            <div className="text-sm text-green-400 font-outfit">Online · Replies instantly</div>
           </div>
         </div>
 
@@ -159,7 +159,7 @@ Explore more on the blog page!`;
 
       {/* Social Footer */}
       <div className="mt-10 text-center">
-        <h3 className="text-xl font-bold text-white mb-5" data-aos="fade-up">Other Ways to Connect</h3>
+        <h3 className="text-xl font-bold text-white mb-5 font-synonym" data-aos="fade-up">Other Ways to Connect</h3>
         <div className="flex gap-10 justify-center text-gray-400 text-sm" data-aos="fade-up">
           
   {/* LinkedIn */}
