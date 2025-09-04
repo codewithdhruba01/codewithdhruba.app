@@ -5,8 +5,8 @@ const Navbar = () => {
   const [activeLink, setActiveLink] = useState('/#home'); // default active link
 
   const navLinks = [
-    { href: '/#home', text: 'Home' },
-    { href: '/#projects', text: 'Projects' },
+    { href: '/', text: 'Home' },
+    { href: '/projects', text: 'Projects' },
     { href: '/#education', text: 'Education' },
     { href: '/#skills', text: 'Skills' },
     { href: '/#contributions', text: 'Contributions' },
@@ -21,7 +21,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="/#home">
+            <a href="/">
               <img
                 src="/logo/logo.png"
                 alt="Logo"
