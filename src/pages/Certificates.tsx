@@ -98,7 +98,7 @@ const Certificates = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 + index * 0.1 }}
-                className="bg-gray-800/50 backdrop-blur-md rounded-xl overflow-hidden border border-gray-700/30 hover:bg-gray-800/70 transition-all duration-300 group shadow-lg"
+                className="bg-gray-900/50 backdrop-blur-md rounded-xl overflow-hidden border border-gray-700/30 hover:bg-gray-800/70 transition-all duration-300 group shadow-lg"
               >
                 <div className="relative h-32 lg:h-40 overflow-hidden">
                   <img
@@ -125,12 +125,12 @@ const Certificates = () => {
                   </div>
                   
                   <div>
-                    <h5 className="text-white font-semibold mb-2 text-sm">Skills:</h5>
+                    <h5 className="text-white font-semibold mb-2 text-sm font-synonym">Skills:</h5>
                     <div className="flex flex-wrap gap-1">
                       {cert.skills.map((skill, i) => (
                         <span
                           key={i}
-                          className="bg-green-600/20 text-green-500 px-2 py-1 rounded-full text-xs"
+                          className="bg-green-600/20 text-green-500 px-2 py-1 rounded-full text-xs font-satoshi"
                         >
                           {skill}
                         </span>
@@ -194,11 +194,11 @@ const Certificates = () => {
           transition={{ duration: 0.8, delay: 1 }}
           className="text-center mt-16"
         >
-          <div className="bg-gray-800/50 backdrop-blur-md rounded-xl p-6 lg:p-8 border border-gray-700/30 shadow-lg">
-            <h3 className="text-2xl font-bold text-green-500 mb-4 font-synonym">Continuous Learning</h3>
-            <p className="text-gray-400 leading-relaxed font-satoshi">
+          <div className="bg-gray-900/50 backdrop-blur-md rounded-xl p-6 lg:p-8 border border-gray-800/30 shadow-lg">
+            <h3 className="text-3xl font-bold text-[#fff] mb-4 font-synonym">Continuous Learning</h3>
+            <p className="text-gray-400 text-sm leading-relaxed font-satoshi">
               I believe in continuous improvement and staying updated with the latest technologies. 
-              These certifications and achievements represent my commitment to excellence and 
+              These certifications and achievements <br /> represent my commitment to excellence and 
               professional growth in the ever-evolving field of technology.
             </p>
           </div>

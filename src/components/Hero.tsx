@@ -34,7 +34,7 @@ const Hero = () => {
 
         {/* New Subtitle */}
         <p
-          className="text-lg md:text-2xl text-neutral-300 max-w-3xl mx-auto mb-6 font-amulya"
+          className="text-xl md:text-xl text-[#afaeae] max-w-3xl mx-auto mb-6 font-outfit"
           data-aos="fade-up"
           data-aos-delay="150"
         >
@@ -43,7 +43,7 @@ const Hero = () => {
 
         {/* Description */}
         <p 
-          className="text-base md:text-xl text-neutral-400 max-w-6xl md:max-w-6xl lg:max-w-5xl xl:max-w-4xl mb-10 font-satoshi"
+          className="text-base md:text-base text-neutral-400 max-w-6xl md:max-w-6xl lg:max-w-5xl xl:max-w-4xl mb-10 font-excon"
           data-aos="fade-up"
           data-aos-delay="200"
         >
