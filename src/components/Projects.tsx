@@ -8,6 +8,7 @@ type Project = {
   image: string;
   github: string;
   demo: string;
+  techStack: string[]; // ✅ Tech Stack
 };
 
 const Projects = () => {
@@ -18,23 +19,26 @@ const Projects = () => {
     {
       title: 'MultiCalc - Calculator',
       description: 'A comprehensive calculator website with multiple calculator types and a beautiful UI.',
-      image: '/blog/thumbnails/calculator.png',
+      image: '/blog/thumbnails/multicalc1.png',
       github: 'https://github.com/codewithdhruba01/MultiCalc',
       demo: 'https://multicalculat.netlify.app/',
+      techStack: ['React', 'TypeScript', 'Node.js'],
     },
     {
       title: 'Outfit Wallpaper Generator',
       description: 'Outfit Wallpaper Generator is a modern, interactive web application.',
-      image: '/blog/thumbnails/outfitWallpaper.jpg',
+      image: '/blog/thumbnails/wallpaperapp.png',
       github: 'https://github.com/codewithdhruba01/OutfitWallpaper',
       demo: 'https://outfitwallpaper.netlify.app/',
+      techStack: ['React', 'TypeScript', 'Tailwind CSS'],
     },
     {
-      title: 'ComfortPG-Website',
-      description: 'A modern, responsive Paying Guest accommodation website',
-      image: '/blog/thumbnails/pg-website.jpg',
-      github: 'https://github.com/codewithdhruba01/ComfortPG_Website',
-      demo: 'https://comfort-pg.vercel.app/',
+      title: 'GitHub Pro Tools',
+      description: 'Advanced GitHub tools for developers follower analytics, README designer, comparison, and documentation.',
+      image: '/blog/thumbnails/githubprotool.png',
+      github: 'https://github.com/codewithdhruba01/GithubProtools',
+      demo: 'https://githubprotools.vercel.app/',
+      techStack: ['React', 'Next.js', 'REST API'],
     },
   ];
 
@@ -56,7 +60,7 @@ const Projects = () => {
         }
       `}</style>
 
-      <section id="projects" className="py-20 bg-black">
+      <section id="projects" className="py-20 bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-4 text-center font-synonym" data-aos="fade-up">
             Latest <span className="text-[#00DC82]">Projects</span>
@@ -68,20 +72,39 @@ const Projects = () => {
               <div
                 key={index}
                 onClick={() => setSelectedProject(project)}
-                className="bg-[#111111] rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                className="group bg-neutral-900 rounded-lg overflow-hidden cursor-pointer transform transition-all duration-500 hover:scale-[1.03] hover:shadow-xl hover:shadow-[#00DC82]/20 hover:border hover:border-[#00DC82]/40"
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-neutral-400 mb-6 leading-relaxed">
+                {/* Image with zoom effect */}
+                <div className="overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+
+                <div className="p-6 transition-colors duration-500 group-hover:bg-neutral-900">
+                  <h3 className="text-xl font-bold mb-2 font-synonym group-hover:text-[#00DC82] transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-neutral-400 mb-4 leading-relaxed text-sm font-poppins">
                     {project.description}
                   </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.techStack.map((tech, i) => (
+                      <span
+                        key={i}
+                        className="px-2 py-1 text-xs rounded-full bg-[#1f1f1f] text-[#00DC82] border border-[#00DC82]/30 group-hover:border-[#00DC82]/60 transition-all"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Buttons */}
                   <div className="flex space-x-4">
                     <a
                       href={project.github}
@@ -134,10 +157,23 @@ const Projects = () => {
                 alt={selectedProject.title}
                 className="w-full h-48 md:h-64 object-cover rounded mb-4"
               />
-              <h3 className="text-2xl font-bold mb-2 text-white">
+              <h3 className="text-2xl font-bold mb-2 text-white font-outfit">
                 {selectedProject.title}
               </h3>
-              <p className="text-neutral-500 mb-4">{selectedProject.description}</p>
+              <p className="text-neutral-500 mb-4 font-satoshi">{selectedProject.description}</p>
+
+              {/* ✅ Show Tech Stack in Modal */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                {selectedProject.techStack.map((tech, i) => (
+                  <span
+                    key={i}
+                    className="px-3 py-1 text-xs rounded-full bg-[#1f1f1f] text-[#00DC82] border border-[#00DC82]/30"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
               <div className="flex flex-wrap gap-3">
                 <a
                   href={selectedProject.github}

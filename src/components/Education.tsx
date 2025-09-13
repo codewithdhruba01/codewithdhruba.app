@@ -2,20 +2,21 @@ const Education = () => {
   const education = [
     {
       year: '2023 - Present',
-      degree: 'BCA in Computer Application and Engineering',
+      degree: 'Computer Science and Engineering',
       institution: 'Swami Vivekananda University, Kolkata, West Bengal, India',
       description: "Currently pursuing my bachelor's degree with a focus on computer science fundamentals and modern web technologies.",
     },
     {
       year: '2020 - 2022',
       degree: 'Higher Secondary Education',
-      institution: 'Khatra High School, Bankura, West Bengal, India',
+      institution: 'West Bengal Council of Higher Secondary Education',
       description: 'Completed My higher secondary education with Computer Application.',
     },
+     
     {
       year: '2020',
       degree: 'Secondary Education',
-      institution: 'Chaka High School, Bankura, West Bengal, India',
+      institution: 'West Bengal Board of Secondary Education',
       description: 'Completed my secondary education in West Bengal Board of Secondary Education Board.',
     },
   ];
@@ -38,7 +39,7 @@ const Education = () => {
   return (
     <>
       {/* Education Section */}
-      <section id="education" className="py-20 bg-black">
+      <section id="education" className="py-20 bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-12 text-center font-synonym" data-aos="fade-up">
             Education
@@ -67,9 +68,9 @@ const Education = () => {
                   </div>
                   <div className="mt-6 w-full md:w-1/2 p-6 bg-[#111111] border border-gray-800 rounded-lg text-center">
                     <div className="text-gray-400 text-sm mb-1">{item.year}</div>
-                    <h3 className="text-xl font-bold text-white mb-2">{item.degree}</h3>
-                    <div className="text-gray-400 mb-2">{item.institution}</div>
-                    <p className="text-gray-400">{item.description}</p>
+                    <h3 className="text-xl font-bold text-white font-outfit mb-2">{item.degree}</h3>
+                    <div className="text-gray-400 text-sm mb-2 font-extrabold font-poppins">{item.institution}</div>
+                    <p className="text-gray-400 text-sm font-satoshi">{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -79,7 +80,7 @@ const Education = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 bg-black">
+      <section id="experience" className="py-20 bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-12 text-center font-synonym" data-aos="fade-up">
             Experience

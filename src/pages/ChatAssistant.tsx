@@ -79,7 +79,7 @@ Explore more on the blog page!`;
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white py-16 px-4 flex flex-col items-center">
+    <div className="min-h-screen bg-neutral-950 text-white py-16 px-4 flex flex-col items-center">
       <h2 className="text-4xl font-bold mb-12"></h2>
       <h1 className="text-4xl font-bold mb-5 font-excon" data-aos="fade-up">
         Get in Touch
@@ -89,7 +89,7 @@ Explore more on the blog page!`;
       </p>
 
       <div
-        className="w-full max-w-xl bg-[#1c1c1c] rounded-lg shadow-xl p-4 space-y-4"
+        className="w-full max-w-xl bg-neutral-900 rounded-lg shadow-xl p-4 space-y-4"
         data-aos="fade-up"
       >
         {/* Assistant Header */}

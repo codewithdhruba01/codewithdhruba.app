@@ -77,7 +77,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-[#111111]">
+    <section id="contact" className="py-20 bg-neutral-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 
           className="text-4xl font-bold mb-12 text-center font-outfit"
@@ -93,7 +93,7 @@ const Contact = () => {
               href={info.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-8 bg-[#0A0A0A] rounded-lg text-center transition-all duration-300 hover:bg-[#00DC82]/10 hover:transform hover:-translate-y-1"
+              className="group p-8 bg-[#111111] rounded-lg text-center transition-all duration-300 hover:bg-[#00DC82]/10 hover:transform hover:-translate-y-1"
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
@@ -105,7 +105,7 @@ const Contact = () => {
         </div>
 
         <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-8">
-          <div className="bg-[#0A0A0A] p-8 rounded-lg shadow-lg">
+          <div className="bg-[#111111] p-8 rounded-lg shadow-lg">
             <form 
               onSubmit={handleSubmit}
               className="space-y-6"
@@ -119,7 +119,7 @@ const Contact = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-[#111111] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00DC82] transition-all duration-300 peer placeholder-transparent"
+                  className="w-full px-4 py-3 bg-[#171817] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00DC82] transition-all duration-300 peer placeholder-transparent"
                   placeholder="Name"
                   required
                 />
@@ -138,7 +138,7 @@ const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-[#111111] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00DC82] transition-all duration-300 peer placeholder-transparent"
+                  className="w-full px-4 py-3 bg-[#171817] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00DC82] transition-all duration-300 peer placeholder-transparent"
                   placeholder="Email"
                   required
                 />
@@ -157,7 +157,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows={6}
-                  className="w-full px-4 py-3 bg-[#111111] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00DC82] transition-all duration-300 peer placeholder-transparent resize-none"
+                  className="w-full px-4 py-3 bg-[#171817] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00DC82] transition-all duration-300 peer placeholder-transparent resize-none"
                   placeholder="Message"
                   required
                 ></textarea>
@@ -209,7 +209,7 @@ const Contact = () => {
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            <h3 className="text-xl font-semibold mb-4 text-center text-white">My Location</h3>
+            <h3 className="text-xl font-bold mb-4 text-center text-white font-synonym py-4">My Location</h3>
             <div className="w-full h-80 rounded-lg overflow-hidden">
               <iframe
                 title="Google Map"

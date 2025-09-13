@@ -58,7 +58,7 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-black">
+    <section id="skills" className="py-20 bg-neutral-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2
           className="text-4xl font-bold mb-4 text-center font-synonym text-white"
@@ -71,7 +71,7 @@ const Skills = () => {
           {sections.map((section, idx) => (
             <div
               key={idx}
-              className="bg-[#181818] border border-[#2a2a2a] rounded-lg p-6"
+              className="bg-[#111111] border border-[#272727] rounded-lg p-6"
               data-aos="fade-up"
               data-aos-delay={idx * 100}
             >

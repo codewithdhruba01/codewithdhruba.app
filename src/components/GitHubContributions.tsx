@@ -79,11 +79,11 @@ const GitHubContributions = () => {
   }
 
   return (
-    <section id="contributions" className="py-20 bg-[#111111]">
+    <section id="contributions" className="py-20 bg-neutral-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold mb-12 text-center font-synonym">GitHub Contributions</h2>
 
-        <div className="bg-[#0A0A0A] rounded-lg p-8 shadow-lg">
+        <div className="bg-[#111111] rounded-lg p-8 shadow-lg">
           <div className="overflow-x-auto">
             <div className="inline-flex gap-1">
               {weeks.map((week, weekIndex) => (

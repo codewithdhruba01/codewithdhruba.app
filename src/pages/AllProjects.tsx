@@ -32,6 +32,14 @@ const projects = [
     tags: ['Frontend'],
   },
   {
+      title: 'ComfortPG-Website',
+      description: 'A modern, responsive Paying Guest accommodation website',
+      image: '/blog/thumbnails/pg-website.jpg',
+      github: 'https://github.com/codewithdhruba01/ComfortPG_Website',
+      demo: 'https://comfort-pg.vercel.app/',
+      tags: ['Frontend', 'Next JS', 'Type Script'],
+    },
+  {
     title: 'Weather Forecast App',
     description:
       'A modern weather web app using OpenWeatherMap API with weekly forecast.',
@@ -139,7 +147,7 @@ const AllProjects = () => {
   const showToggleBtn = filteredProjects.length > initialCount
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white px-4 py-20">
+    <div className="min-h-screen bg-neutral-950 text-white px-4 py-20">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -185,7 +193,7 @@ const AllProjects = () => {
             : visibleProjects.map((project, idx) => (
                 <div
                   key={idx}
-                  className="bg-[#111111] rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 group border border-[#222]"
+                  className="bg-neutral-900 rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 group border border-[#222]"
                 >
                   <img
                     src={project.image}
