@@ -8,7 +8,7 @@ type Project = {
   image: string;
   github: string;
   demo: string;
-  techStack: string[]; // ✅ Tech Stack
+  techStack: string[];
 };
 
 const Projects = () => {
@@ -72,32 +72,33 @@ const Projects = () => {
               <div
                 key={index}
                 onClick={() => setSelectedProject(project)}
-                className="group bg-neutral-900 rounded-lg overflow-hidden cursor-pointer transform transition-all duration-500 hover:scale-[1.03] hover:shadow-xl hover:shadow-[#00DC82]/20 hover:border hover:border-[#00DC82]/40"
+                className="group bg-neutral-900 rounded-lg overflow-hidden cursor-pointer transform transition-all duration-500 ease-in-out hover:scale-[1.04] hover:shadow-2xl hover:shadow-[#00DC82]/30"
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
               >
-                {/* Image with zoom effect */}
+                {/* Image with smooth zoom */}
                 <div className="overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-48 object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
                   />
                 </div>
 
-                <div className="p-6 transition-colors duration-500 group-hover:bg-neutral-900">
-                  <h3 className="text-xl font-bold mb-2 font-synonym group-hover:text-[#00DC82] transition-colors">
+                <div className="p-6 transition-colors duration-500 ease-in-out group-hover:bg-neutral-900">
+                  <h3 className="text-xl font-bold mb-2 font-synonym transition-colors duration-500 ease-in-out group-hover:text-[#00DC82]">
                     {project.title}
                   </h3>
                   <p className="text-neutral-400 mb-4 leading-relaxed text-sm font-poppins">
                     {project.description}
                   </p>
                   
+                  {/* Tech Stack */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.techStack.map((tech, i) => (
                       <span
                         key={i}
-                        className="px-2 py-1 text-xs rounded-full bg-[#1f1f1f] text-[#00DC82] border border-[#00DC82]/30 group-hover:border-[#00DC82]/60 transition-all"
+                        className="px-2 py-1 text-xs rounded-full bg-[#1f1f1f] text-[#00DC82] border border-[#00DC82]/40  transition-all duration-500 ease-in-out group-hover:border-[#00DC82]/70"
                       >
                         {tech}
                       </span>
@@ -110,7 +111,7 @@ const Projects = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 px-3 py-1.5 rounded-md text-sm bg-[#292929] hover:bg-[#3a3a3a] text-white transition"
+                      className="flex items-center gap-1 px-3 py-1.5 rounded-md text-sm bg-[#292929] hover:bg-[#3a3a3a] text-white transition-colors duration-300 ease-in-out"
                     >
                       <Github className="w-4 h-4" />
                       Code
@@ -119,7 +120,7 @@ const Projects = () => {
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 px-3 py-1.5 rounded-md text-sm bg-green-700 hover:bg-green-600 text-white transition"
+                      className="flex items-center gap-1 px-3 py-1.5 rounded-md text-sm bg-green-700 hover:bg-green-600 text-white transition-colors duration-300 ease-in-out"
                     >
                       <Globe className="w-4 h-4" />
                       Live
@@ -134,7 +135,7 @@ const Projects = () => {
           <div className="text-center mt-12">
             <button
               onClick={() => navigate('/projects')}
-              className="inline-flex items-center justify-center font-bold px-8 py-3 border border-[#00DC82] text-[#00DC82] rounded-lg hover:bg-[#00DC82] hover:text-black transition-all duration-300"
+              className="inline-flex items-center justify-center font-bold px-8 py-3 border border-[#00DC82] text-[#00DC82] rounded-lg hover:bg-[#00DC82] hover:text-black transition-all duration-500 ease-in-out"
             >
               View All Projects
               <i className="fas fa-arrow-right ml-2"></i>
@@ -157,12 +158,12 @@ const Projects = () => {
                 alt={selectedProject.title}
                 className="w-full h-48 md:h-64 object-cover rounded mb-4"
               />
-              <h3 className="text-2xl font-bold mb-2 text-white font-outfit">
+              <h3 className="text-2xl font-bold mb-2 text-white font-synonym">
                 {selectedProject.title}
               </h3>
-              <p className="text-neutral-500 mb-4 font-satoshi">{selectedProject.description}</p>
+              <p className="text-neutral-500 mb-4 font-poppins text-sm">{selectedProject.description}</p>
 
-              {/* ✅ Show Tech Stack in Modal */}
+              {/* Tech Stack in Modal */}
               <div className="flex flex-wrap gap-2 mb-4">
                 {selectedProject.techStack.map((tech, i) => (
                   <span
@@ -179,7 +180,7 @@ const Projects = () => {
                   href={selectedProject.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-4 py-2 border border-[#f8f8f8] text-[#faf9fa] rounded hover:bg-[#ffffff] hover:text-black transition-all"
+                  className="inline-flex items-center px-4 py-2 border border-[#f8f8f8] text-[#faf9fa] rounded hover:bg-[#ffffff] hover:text-black transition-all duration-300 ease-in-out font-semibold"
                 >
                   <i className="fab fa-github mr-2"></i>
                   GitHub
@@ -188,18 +189,18 @@ const Projects = () => {
                   href={selectedProject.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-4 py-2 border border-[#00DC82] text-[#00DC82] rounded hover:bg-[#00DC82] hover:text-black transition-all"
+                  className="inline-flex items-center font-poppins px-4 py-2 border border-[#00DC82] text-[#00DC82] rounded hover:bg-[#00DC82] hover:text-black transition-all duration-300 ease-in-out font-semibold"
                 >
-                  <i className="fa-solid fa-square-arrow-up-right mr-2"></i>
-                  Live Demo
+                  <i className="fa-solid fa-globe mr-2"></i>
+                  Live
                 </a>
               </div>
             </div>
 
-            {/* Centered Close Button */}
+            {/* Close Button */}
             <button
               onClick={() => setSelectedProject(null)}
-              className="mt-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#222] text-gray-300 hover:bg-red-500 hover:text-white transition-all"
+              className="mt-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#222] text-gray-300 hover:bg-red-500 hover:text-white transition-all duration-300 ease-in-out"
             >
               <i className="fas fa-times text-lg"></i>
             </button>
