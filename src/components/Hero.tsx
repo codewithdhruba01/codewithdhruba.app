@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Hero = () => {
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/blog/thumbnails/Dhrubaraj_s_CV.pdf'; // Path to your CV file
+    link.href = '/blog/thumbnails/Dhrubaraj_s_CV.pdf'; 
     link.download = 'Dhrubaraj_s_CV.pdf';
     document.body.appendChild(link);
     link.click();
@@ -32,7 +32,7 @@ const Hero = () => {
           Hi, I'm <span className="text-[#00DC82] font-synonym">Dhrubaraj</span>
         </h1>
 
-        {/* New Subtitle */}
+        {/* Subtitle */}
         <p
           className="text-xl md:text-xl text-[#afaeae] max-w-3xl mx-auto mb-6 font-outfit"
           data-aos="fade-up"
@@ -56,28 +56,35 @@ const Hero = () => {
           data-aos="fade-up"
           data-aos-delay="400"
         >
-          <div>
-            <div className="flex space-x-4" data-aos="fade-up">
-              <a href="https://x.com/codewithdhruba" className="text-muted-foreground hover:text-foreground">
-                <Twitter className="h-9 w-9 text-[#00CAFF] hover:text-[#215b69] transition-transform hover:scale-110" />
-                <span className="sr-only">Twitter</span>
+          {/* Social Icons with Tooltip */}
+          <div className="flex space-x-6">
+            {[
+              { href: "https://x.com/codewithdhruba", icon: Twitter, label: "Twitter", color: "hover:text-[#00CAFF]" },
+              { href: "https://www.linkedin.com/in/dhrubaraj-pati/", icon: Linkedin, label: "LinkedIn", color: "hover:text-[#5093f7]" },
+              { href: "https://www.instagram.com/dhrubaraj_pati/", icon: Instagram, label: "Instagram", color: "hover:text-[#E4405F]" },
+              { href: "https://github.com/codewithdhruba01", icon: Github, label: "GitHub", color: "hover:text-[#a7a6a6]" },
+            ].map(({ href, icon: Icon, label, color }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative group"
+              >
+                <div className={`p-3 rounded-full border border-gray-500 text-gray-400 transition-all duration-300 hover:bg-white/10 hover:scale-110 ${color}`}>
+                  <Icon className="h-6 w-6" />
+                </div>
+                {/* Tooltip (UP direction) */}
+                <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 text-sm text-black bg-white rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+                  {label}
+                  {/* Arrow pointing DOWN (because tooltip is on top) */}
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full border-4 border-transparent border-t-white"></span>
+                </span>
               </a>
-              <a href="https://www.linkedin.com/in/dhrubaraj-pati/" className="text-muted-foreground hover:text-foreground">
-                <Linkedin className="h-9 w-9 text-[#2455be] hover:text-[#5093f7] transition-transform hover:scale-110" />
-                <span className="sr-only">Linkedin</span>
-              </a>
-              <a href="https://www.instagram.com/dhrubaraj_pati/" className="text-muted-foreground hover:text-foreground">
-                <Instagram className="h-10 w-8 text-[#E4405F] hover:text-[#812737] transition-transform hover:scale-110" />
-                <span className="sr-only">Instagram</span>
-              </a>
-              <a href="https://github.com/codewithdhruba01" className="text-muted-foreground hover:text-foreground">
-                <Github className="h-9 w-9 hover:text-[#a7a6a6] transition-transform hover:scale-110" />
-                <span className="sr-only">GitHub</span>
-              </a>
-            </div>
+            ))}
           </div>
 
-           {/* Buttons: Download CV + About Me */}
+          {/* Buttons */}
           <div className="flex flex-wrap justify-center gap-4">
             <button
               onClick={handleDownloadCV}
@@ -92,7 +99,7 @@ const Hero = () => {
               className="group flex items-center space-x-2 bg-white text-black hover:bg-[#00DC82]/90 font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-white/50"
             >
               <span>About Me</span>
-               <User className="h-6 w-6 text-[#000000] transition-transform hover:scale-110" />
+              <User className="h-6 w-6 text-[#000000] transition-transform hover:scale-110" />
             </Link>
           </div>
         </div>
