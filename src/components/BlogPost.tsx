@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Facebook, Twitter, Linkedin, Instagram, ArrowLeft } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram, Undo2 } from 'lucide-react';
 
 // Blog post data
 const blogPostsData = {
@@ -59,7 +59,7 @@ const UserCard: React.FC<UserCardProps> = ({ name, age }) => (
     <p>Start small by typing props and state, and gradually explore more advanced features like generics and custom hooks with TypeScript support.</p>
     <p>Once you get the hang of it, you'll never want to go back to plain JavaScript. Happy coding! 🚀</p>
     `,
-    image: '/blog/thumbnails/blog2.jpg',
+    image: '/blog/thumbnails/blog2.png',
     tags: ['React', 'TypeScript', 'Web Development']
   },
 
@@ -147,7 +147,7 @@ View > Terminal
     <p>Visual Studio Code is a modern, flexible editor that adapts to any project or technology stack. With its powerful extensions, built-in tools, and extensive customization options, it’s an essential tool in every developer’s toolkit.</p>
     <p>Download VS Code today and start building your next project faster and more efficiently!</p>
   `,
-  image: '/blog/thumbnails/blog-vs-code.png',
+  image: '/blog/thumbnails/blog1.png',
   tags: ['VS Code', 'Code Editor', 'Development', 'Productivity']
 },
 
@@ -248,14 +248,14 @@ const BlogPost = () => {
 
   return (
     <article className="py-20 px-4">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto py-10 mb-8">
         {/* Back Button */}
         <div className="mb-8" data-aos="fade-up">
           <a
             href="/all-posts"
             className="inline-flex items-center text-gray-400 hover:text-white transition-colors"
           >
-            <ArrowLeft className="h-5 w-5 mr-2" />
+            <Undo2 className="h-4 w-4 mr-2" />
             Back to Blog
           </a>
         </div>
@@ -289,13 +289,13 @@ const BlogPost = () => {
             src={post.image}
             alt={`Thumbnail for ${post.title}`}
             className="w-full h-auto rounded-lg"
-            style={{ maxHeight: '600px', objectFit: 'contain' }}
+            style={{ maxHeight: '500px', objectFit: 'contain' }}
           />
         </div>
 
         {/* Content */}
         <div
-          className="prose prose-lg prose-invert max-w-none"
+          className="prose prose-lg prose-invert max-w-none font-satoshi text-base"
           dangerouslySetInnerHTML={{ __html: post.content }}
           data-aos="fade-up"
         />
