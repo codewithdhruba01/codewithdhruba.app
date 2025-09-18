@@ -81,9 +81,11 @@ const GitHubContributions = () => {
   return (
     <section id="contributions" className="py-20 bg-neutral-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold mb-12 text-center font-synonym">GitHub Contributions</h2>
+        <h2 className="text-4xl font-bold mb-4 text-center font-synonym">GitHub Activity</h2>
+        <p className="text-center mb-2 text-sm font-supreme text-gray-400"><strong>codewithdhruba's</strong> coding journey over the past year</p>
+        <p className="text-center mb-10 text-sm font-satoshi">Total: <span className="text-[#00DC82] font-semibold">{totalCount}</span> contributions</p>
 
-        <div className="bg-[#111111] rounded-lg p-8 shadow-lg">
+        <div className="bg-[#101010] rounded-lg p-8 shadow-lg">
           <div className="overflow-x-auto">
             <div className="inline-flex gap-1">
               {weeks.map((week, weekIndex) => (
@@ -104,35 +106,31 @@ const GitHubContributions = () => {
             </div>
           </div>
 
-          <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm text-gray-400">
+          <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm text-gray-400">
             <div className="flex items-center gap-2">
-              <span>Less</span>
+              <span className="font-bold">Less</span>
               <div className="flex gap-1">
-                <div className="w-3 h-3 rounded-sm bg-[#1f1f1f]"></div>
                 <div className="w-3 h-3 rounded-sm bg-[#00DC82]/20"></div>
                 <div className="w-3 h-3 rounded-sm bg-[#00DC82]/50"></div>
                 <div className="w-3 h-3 rounded-sm bg-[#00DC82]/80"></div>
                 <div className="w-3 h-3 rounded-sm bg-[#00DC82]"></div>
               </div>
-              <span>More</span>
+              <span className="font-bold">More</span>
             </div>
 
-            <div className="text-center sm:text-right">
-              <span className="text-[#00DC82] font-semibold">{totalCount}</span> contributions in the last year
-            </div>
-          </div>
-
-          <div className="mt-2 text-right">
+            <div className="mt-2 text-right">
             <a
               href={`https://github.com/${GITHUB_USERNAME}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[#00DC82] hover:text-white transition-colors text-sm"
+              className="inline-flex items-center gap-2 text-[#ffffff] hover:text-[#00DC82] transition-colors text-sm"
             >
               <i className="fab fa-github"></i>
-              <span>View on GitHub</span>
+              <span className="font-outfit">View on GitHub</span>
             </a>
           </div>
+          </div>
+
         </div>
       </div>
     </section>
