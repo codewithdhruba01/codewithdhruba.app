@@ -2,14 +2,12 @@ import { useState } from 'react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState('/#home'); // default active link
+  const [activeLink, setActiveLink] = useState('/#home');
 
   const navLinks = [
     { href: '/', text: 'Home' },
     { href: '/projects', text: 'Projects' },
-    { href: '/#education', text: 'Education' },
     { href: '/#skills', text: 'Skills' },
-    { href: '/#contributions', text: 'Contributions' },
     { href: '/#blog', text: 'Blog' },
     { href: '/certificates', text: 'Certificates' },
     { href: '/#contact', text: 'Contact' }
