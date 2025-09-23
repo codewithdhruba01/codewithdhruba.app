@@ -75,7 +75,7 @@ const Skills = () => {
               data-aos="fade-up"
               data-aos-delay={idx * 100}
             >
-              <h3 className="text-lg font-semibold text-white mb-4">
+              <h3 className="text-lg font-excon text-neutral-300 mb-4">
                 {section.title}
               </h3>
               <div className="flex flex-wrap gap-2">

@@ -68,9 +68,9 @@ const Education = () => {
                   </div>
                   <div className="mt-6 w-full md:w-1/2 p-6 bg-[#111111] border border-gray-800 rounded-lg text-center">
                     <div className="text-neutral-400 text-sm mb-1">{item.year}</div>
-                    <h3 className="text-xl font-bold text-neutral-400 font-outfit mb-2">{item.degree}</h3>
-                    <div className="text-neutral-500 text-sm mb-2 font-extrabold font-outfit">{item.institution}</div>
-                    <p className="text-neutral-500 text-sm font-satoshi">{item.description}</p>
+                    <h3 className="text-xl font-bold text-neutral-300 font-outfit mb-2">{item.degree}</h3>
+                    <div className="text-neutral-400 text-sm mb-2 font-extrabold font-outfit">{item.institution}</div>
+                    <p className="text-neutral-400 text-sm font-satoshi">{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -109,9 +109,9 @@ const Education = () => {
                   </div>
                   <div className="mt-6 w-full md:w-1/2 p-6 bg-[#111111] border border-gray-800 rounded-lg text-center">
                     <div className="text-neutral-400 text-sm mb-1">{item.year}</div>
-                    <h3 className="text-xl font-bold text-neutral-400 mb-2">{item.title}</h3>
-                    <div className="text-neutral-500 mb-2">{item.company}</div>
-                    <p className="text-neutral-500">{item.description}</p>
+                    <h3 className="text-xl font-bold text-neutral-300 mb-2">{item.title}</h3>
+                    <div className="text-neutral-400 mb-2">{item.company}</div>
+                    <p className="text-neutral-400">{item.description}</p>
                   </div>
                 </div>
               ))}
