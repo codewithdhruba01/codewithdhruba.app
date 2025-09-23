@@ -89,8 +89,6 @@ const Certificates = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-16"
         >
-          
-          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certificates.map((cert, index) => (
               <motion.div
@@ -100,42 +98,53 @@ const Certificates = () => {
                 transition={{ duration: 0.8, delay: 0.4 + index * 0.1 }}
                 className="bg-neutral-900 backdrop-blur-md rounded-xl overflow-hidden border border-gray-700/30 hover:bg-gray-900/80 transition-all duration-300 group shadow-lg"
               >
-                <div className="relative h-32 lg:h-40 overflow-hidden">
+                {/* Bigger Image + Complete Tag */}
+                <div className="relative h-44 lg:h-56 overflow-hidden">
                   <img
                     src={cert.image}
                     alt={cert.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <span className="absolute top-2 right-2 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                    Complete
+                  </span>
                 </div>
                 
-                <div className="p-4 lg:p-5">
-                  <h3 className="text-lg lg:text-xl font-bold text-white mb-2 line-clamp-2 font-synonym">{cert.title}</h3>
-                  <h4 className="text-green-600 font-semibold mb-2 text-sm lg:text-base font-outfit">{cert.issuer}</h4>
-                  
-                  <div className="flex items-center text-gray-300 mb-3 text-sm">
-                    <Calendar className="mr-2" size={14} />
-                    <span className="text-sm">{cert.date}</span>
+                <div className="p-5">
+                  <h3 className="text-lg lg:text-xl font-bold text-white mb-2 line-clamp-2 font-synonym">
+                    {cert.title}
+                  </h3>
+
+                  {/* Issuer + Date in one row */}
+                  <div className="flex justify-between items-center mb-2 text-sm lg:text-base">
+                    <h4 className="text-green-600 font-semibold font-outfit">{cert.issuer}</h4>
+                    <div className="flex items-center text-gray-300">
+                      <Calendar className="mr-1" size={14} />
+                      <span>{cert.date}</span>
+                    </div>
                   </div>
-                  
-                  <p className="text-gray-300 mb-3 text-sm line-clamp-2 font-satoshi">{cert.description}</p>
-                  
+
+                  <p className="text-gray-300 mb-3 text-sm line-clamp-2 font-satoshi">
+                    {cert.description}
+                  </p>
+
                   <div className="mb-3">
                     <span className="text-xs text-gray-400">ID: {cert.credentialId}</span>
                   </div>
-                  
+
                   <div>
-                    <h5 className="text-white font-semibold mb-2 text-sm font-synonym">Skills:</h5>
-                    <div className="flex flex-wrap gap-1">
-                      {cert.skills.map((skill, i) => (
-                        <span
-                          key={i}
-                          className="bg-green-600/20 text-green-500 px-2 py-1 rounded-full text-xs font-satoshi"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
+                    <div className="flex items-center flex-wrap gap-2">
+                    <h5 className="text-white font-semibold text-sm font-synonym">Skills:</h5>
+                    {cert.skills.map((skill, i) => (
+                    <span
+                    key={i}
+                    className="whitespace-nowrap bg-green-600/20 text-green-500 px-2 py-1 rounded-full text-xs font-satoshi"
+                    >
+                    {skill}
+                   </span>
+                    ))}
+                  </div>
                   </div>
                 </div>
               </motion.div>
@@ -151,7 +160,9 @@ const Certificates = () => {
         >
           <div className="flex items-center mb-8">
             <CheckCircle className="text-green-500 mb-4 mr-3" size={32} />
-            <h2 className="text-3xl md:text-3xl mb-4 font-bold text-white font-excon">Open Source & <span className="font-bold font-excon bg-gradient-to-r from-blue-400 to-green-600 bg-clip-text text-transparent">Contribution</span></h2>
+            <h2 className="text-3xl md:text-3xl mb-4 font-bold text-white font-excon">
+              Open Source & <span className="font-bold font-excon bg-gradient-to-r from-blue-400 to-green-600 bg-clip-text text-transparent">Contribution</span>
+            </h2>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
@@ -163,7 +174,7 @@ const Certificates = () => {
                 transition={{ duration: 0.8, delay: 0.8 + index * 0.1 }}
                 className="bg-neutral-900 backdrop-blur-md rounded-xl overflow-hidden border border-gray-700/30 hover:bg-gray-900/80 transition-all duration-300 group shadow-lg"
               >
-                <div className="relative h-24 lg:h-32 overflow-hidden">
+                <div className="relative h-32 lg:h-44 overflow-hidden">
                   <img
                     src={achievement.image}
                     alt={achievement.title}
@@ -174,13 +185,16 @@ const Certificates = () => {
                 
                 <div className="p-4">
                   <h3 className="text-base lg:text-lg font-bold text-white mb-2 line-clamp-2">{achievement.title}</h3>
-                  <h4 className="text-green-500 font-semibold mb-2 text-xs lg:text-sm line-clamp-1">{achievement.organization}</h4>
-                  
-                  <div className="flex items-center text-gray-300 mb-2 text-xs font-satoshi">
-                    <Calendar className="mr-1" size={12} />
-                    <span className="text-xs">{achievement.date}</span>
+
+                  {/* Org + Date same row */}
+                  <div className="flex justify-between items-center mb-2 text-xs lg:text-sm">
+                    <h4 className="text-green-500 font-semibold line-clamp-1">{achievement.organization}</h4>
+                    <div className="flex items-center text-gray-300">
+                      <Calendar className="mr-1" size={12} />
+                      <span>{achievement.date}</span>
+                    </div>
                   </div>
-                  
+
                   <p className="text-gray-300 text-xs line-clamp-3 font-poppins">{achievement.description}</p>
                 </div>
               </motion.div>
