@@ -29,12 +29,12 @@ const Hero = () => {
           className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white font-synonym"
           data-aos="fade-up"
         >
-          Hi, I'm <span className="text-[#00DC82] font-synonym">Dhrubaraj</span>
+          Hi, I'm <span className="text-[#009a5a] font-synonym">Dhrubaraj</span>
         </h1>
 
         {/* Subtitle */}
         <p
-          className="text-xl md:text-xl text-[#afaeae] max-w-3xl mx-auto mb-6 font-outfit"
+          className="text-xl md:text-xl text-neutral-400 max-w-3xl mx-auto mb-6 font-outfit"
           data-aos="fade-up"
           data-aos-delay="150"
         >
@@ -43,7 +43,7 @@ const Hero = () => {
 
         {/* Description */}
         <p 
-          className="text-base md:text-base text-neutral-400 max-w-6xl md:max-w-6xl lg:max-w-5xl xl:max-w-4xl mb-10 font-excon"
+          className="text-base md:text-base text-neutral-500 max-w-6xl md:max-w-6xl lg:max-w-5xl xl:max-w-4xl mb-10 font-excon"
           data-aos="fade-up"
           data-aos-delay="200"
         >
@@ -60,7 +60,7 @@ const Hero = () => {
           <div className="flex space-x-6">
             {[
               { href: "https://x.com/codewithdhruba", icon: Twitter, label: "Twitter", color: "hover:text-[#00CAFF]" },
-              { href: "https://www.linkedin.com/in/dhrubaraj-pati/", icon: Linkedin, label: "LinkedIn", color: "hover:text-[#5093f7]" },
+              { href: "https://www.linkedin.com/in/dhrubaraj-pati/", icon: Linkedin, label: "LinkedIn", color: "hover:text-[#3396D3]" },
               { href: "https://www.instagram.com/dhrubaraj_pati/", icon: Instagram, label: "Instagram", color: "hover:text-[#E4405F]" },
               { href: "https://github.com/codewithdhruba01", icon: Github, label: "GitHub", color: "hover:text-[#a7a6a6]" },
             ].map(({ href, icon: Icon, label, color }) => (
