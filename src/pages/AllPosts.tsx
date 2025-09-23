@@ -8,7 +8,7 @@ const blogPosts = [
     description:
       "Learn how to set up a new React project with TypeScript and best practices for type safety.",
     date: "March 15, 2024",
-    image: "/blog/thumbnails/blog2.png",
+    image: "/blog/blog2.png",
     category: ["Development"],
     readTime: "5 min read",
     slug: "getting-started-with-react-typescript",
@@ -18,7 +18,7 @@ const blogPosts = [
     description:
       "A complete beginner guide to using Visual Studio Code, the world’s most popular code editor.",
     date: "July 2, 2025",
-    image: "/blog/thumbnails/blog1.png",
+    image: "/blog/blog1.png",
     category: ["Development Tools"],
     readTime: "8 min read",
     slug: "getting-started-with-vs-code",
@@ -28,7 +28,7 @@ const blogPosts = [
     description:
       "Understand how Python packages work, how to create them, and how to share your code with the world.",
     date: "July 2, 2025",
-    image: "/blog/thumbnails/blog-python-packages.jpg",
+    image: "/blog/blog3.jpg",
     category: ["Python Programming"],
     readTime: "7 min read",
     slug: "understanding-python-packages",

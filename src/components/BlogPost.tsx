@@ -59,7 +59,7 @@ const UserCard: React.FC<UserCardProps> = ({ name, age }) => (
     <p>Start small by typing props and state, and gradually explore more advanced features like generics and custom hooks with TypeScript support.</p>
     <p>Once you get the hang of it, you'll never want to go back to plain JavaScript. Happy coding! 🚀</p>
     `,
-    image: '/blog/thumbnails/blog2.png',
+    image: '/blog/blog2.png',
     tags: ['React', 'TypeScript', 'Web Development']
   },
 
@@ -147,7 +147,7 @@ View > Terminal
     <p>Visual Studio Code is a modern, flexible editor that adapts to any project or technology stack. With its powerful extensions, built-in tools, and extensive customization options, it’s an essential tool in every developer’s toolkit.</p>
     <p>Download VS Code today and start building your next project faster and more efficiently!</p>
   `,
-  image: '/blog/thumbnails/blog1.png',
+  image: '/blog/blog1.png',
   tags: ['VS Code', 'Code Editor', 'Development', 'Productivity']
 },
 
@@ -218,7 +218,7 @@ print(multiplication.multiply(4, 5))  # 20
       <h2>Conclusion</h2>
       <p>Python packages are essential for professional Python development. By mastering them, you can create well-organized, modular, and reusable code ready to scale and share with the world.</p>
     `,
-    image: '/blog/thumbnails/blog-python-packages.jpg',
+    image: '/blog/blog3.jpg',
     tags: ['Python', 'Packages', 'Code Organization', 'Beginner']
   }
 };

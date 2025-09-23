@@ -8,7 +8,7 @@ const Blog = () => {
       description:
         "Learn how to set up a new React project with TypeScript and best practices for type safety.",
       date: "March 15, 2025",
-      image: "/blog/thumbnails/blog2.png",
+      image: "/blog/blog2.png",
       category: ["React", "Setting", "Setup"],
       slug: "getting-started-with-react-typescript",
     },
@@ -17,7 +17,7 @@ const Blog = () => {
       description:
         "A complete beginner guide to using Visual Studio Code, the world’s most popular code editor.",
       date: "July 2, 2025",
-      image: "/blog/thumbnails/blog1.png",
+      image: "/blog/blog1.png",
       category: ["Editor", "development"],
       slug: "getting-started-with-vs-code",
     },

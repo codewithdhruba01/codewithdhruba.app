@@ -17,33 +17,34 @@ const projects = [
     title: 'Vercual Assistence',
     description:
       'A web-based voice assistant designed to provide an interactive user experience.',
-    image: '/blog/thumbnails/vercual-ass-project.jpg',
+    image: '/project/vercual-ass-project.jpg',
     github: 'https://github.com/codewithdhruba01/Virtual-Assistant-Application',
     demo: 'https://codewithdhruba01.github.io/Virtual-Assistant-Application/',
     tags: ['Bot Development', 'Full Stack'],
   },
+  
   {
+      title: 'ComfortPG-Website',
+      description: 'A modern, responsive Paying Guest accommodation website',
+      image: '/project/comfortpg.png',
+      github: 'https://github.com/codewithdhruba01/ComfortPG_Website',
+      demo: 'https://comfort-pg.vercel.app/',
+      tags: ['Frontend', 'Next JS', 'Type Script'],
+    },
+
+    {
     title: 'Skill Progress',
-    description:
-      'Skillber is a simple and extensible CLI tool built with TypeScript.',
-    image: '/blog/thumbnails/skillsber.jpg',
+    description:'Skillber is a simple and extensible CLI tool built with TypeScript.',
+    image: '/project/skillsber.jpg',
     github: 'https://github.com/codewithdhruba01/Skillber',
     demo: 'https://github.com/codewithdhruba01/Skillber',
     tags: ['Frontend'],
   },
   {
-      title: 'ComfortPG-Website',
-      description: 'A modern, responsive Paying Guest accommodation website',
-      image: '/blog/thumbnails/pg-website.jpg',
-      github: 'https://github.com/codewithdhruba01/ComfortPG_Website',
-      demo: 'https://comfort-pg.vercel.app/',
-      tags: ['Frontend', 'Next JS', 'Type Script'],
-    },
-  {
     title: 'Weather Forecast App',
     description:
       'A modern weather web app using OpenWeatherMap API with weekly forecast.',
-    image: '/blog/thumbnails/weather.jpg',
+    image: '/project/weather.jpg',
     github: 'https://github.com/codewithdhruba01/realtimeWeather',
     demo: 'https://codewithdhruba01.github.io/realtimeWeather/',
     tags: ['Frontend', 'API'],
@@ -52,7 +53,7 @@ const projects = [
     title: 'College Fee Payment Portal',
     description:
       'A simple and responsive College Fee Payment Portal built using HTML, CSS, and JavaScript.',
-    image: '/blog/thumbnails/collegeFees.jpg',
+    image: '/project/collegepayment.png',
     github: 'https://github.com/codewithdhruba01/fPortalcollege',
     demo: 'https://codewithdhruba01.github.io/fPortalcollege/',
     tags: ['Frontend'],
@@ -60,7 +61,7 @@ const projects = [
   {
     title: 'TerminalV1',
     description: 'This project simulates a Linux terminal interface.',
-    image: '/blog/thumbnails/terminal.jpg',
+    image: '/project/terminal.jpg',
     github: 'https://github.com/codewithdhruba01/TerminalV1',
     demo: 'https://terminalv1.netlify.app/',
     tags: ['Utility'],
@@ -69,7 +70,7 @@ const projects = [
     title: 'E-Wallet Web App',
     description:
       'An interactive and responsive E-Wallet user interface built using HTML, CSS, and JavaScript.',
-    image: '/blog/thumbnails/e-wallet.jpg',
+    image: '/project/e-wallet.jpg',
     github: 'https://github.com/codewithdhruba01/E-Wallet',
     demo: 'https://codewithdhruba01.github.io/E-Wallet/',
     tags: ['Frontend'],
@@ -77,7 +78,7 @@ const projects = [
   {
     title: 'My Portfolio',
     description: 'A modern Portfolio web app using Typescript.',
-    image: '/blog/thumbnails/portfolio.jpg',
+    image: '/project/portfolio.jpg',
     demo: 'https://codewithdhruba.netlify.app/',
     tags: ['Frontend'],
   },
@@ -85,7 +86,7 @@ const projects = [
     title: 'Notes App',
     description:
       'A lightweight, responsive note-taking app with Classic UI/UX.',
-    image: '/blog/thumbnails/zNote.jpg',
+    image: '/project/zNote.jpg',
     github: 'https://github.com/codewithdhruba01/Znote',
     demo: 'https://codewithdhruba01.github.io/Znote/',
     tags: ['Full Stack'],
@@ -94,7 +95,7 @@ const projects = [
     title: 'Face Recognition Real-Time',
     description:
       'Real-time Face Attendance System using OpenCV for recognition.',
-    image: '/blog/thumbnails/facesystem.jpg',
+    image: '/project/facesystem.jpg',
     github: 'https://github.com/codewithdhruba01/FaceRecognitionRealTime',
     tags: ['AI/ML'],
   },
@@ -102,7 +103,7 @@ const projects = [
     title: 'Tic Tac Toe Game',
     description:
       'Visually appealing Tic Tac Toe Game built using HTML, CSS, JS.',
-    image: '/blog/thumbnails/game-project.jpg',
+    image: '/project/game-project.jpg',
     github: 'https://github.com/codewithdhruba01/tic-tac-toe-game',
     demo: 'https://codewithdhruba01.github.io/tic-tac-toe-game/',
     tags: ['Game'],
