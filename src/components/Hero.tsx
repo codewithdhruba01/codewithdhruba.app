@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 const Hero = () => {
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/blog/thumbnails/Dhrubaraj_s_CV.pdf'; 
-    link.download = 'Dhrubaraj_s_CV.pdf';
+    link.href = '/assets/Dhrubaraj_s_CV.pdf'; 
+    link.download = 'Dhrubaraj_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -18,7 +18,7 @@ const Hero = () => {
         {/* Profile Image */}
         <div data-aos="fade-up">
           <img
-            src="/blog/thumbnails/hero-cover.png"
+            src="/assets/hero-cover.png"
             alt="Dhrubaraj"
             className="w-40 h-40 mx-auto mb-6 rounded-full object-cover border-4 border-[#28ad28] shadow-md"
           />
