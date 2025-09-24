@@ -65,6 +65,44 @@ const Certificates = () => {
     }
   ];
 
+  const githubBadges = [
+  {
+    name: "Pull Shark",
+    img: "https://github.githubassets.com/images/modules/profile/achievements/pull-shark-default.png",
+    count: "x3",
+  },
+  {
+    name: "Pair Extraordinaire",
+    img: "https://github.githubassets.com/images/modules/profile/achievements/pair-extraordinaire-default.png",
+    count: "x3",
+  },
+  {
+    name: "Starstruck",
+    img: "https://github.githubassets.com/images/modules/profile/achievements/starstruck-default.png",
+  },
+  {
+    name: "Galaxy Brain",
+    img: "https://github.githubassets.com/images/modules/profile/achievements/galaxy-brain-default.png",
+    count: "x2",
+  },
+  {
+    name: "Quickdraw",
+    img: "https://github.githubassets.com/images/modules/profile/achievements/quickdraw-default.png",
+  },
+  {
+    name: "YOLO",
+    img: "https://github.githubassets.com/images/modules/profile/achievements/yolo-default.png",
+  },
+  {
+    name: "POSTMAN",
+    img: "https://github.com/codewithdhruba01/codewithdhruba01/raw/main/Assets/Postman%20-%20Postman.png",
+  },
+  {
+    name: "Arcade",
+    img: "https://cdn.qwiklabs.com/4MlP8X6Zqepz7nED0fOVdlLiiDTgLW6D79lZtC4j64M%3D",
+  },
+];
+
   return (
     <div className="min-h-screen pt-24 pb-12 px-4 bg-neutral-950">
       <div className="max-w-7xl mx-auto">
@@ -98,7 +136,7 @@ const Certificates = () => {
                 transition={{ duration: 0.8, delay: 0.4 + index * 0.1 }}
                 className="bg-neutral-900 backdrop-blur-md rounded-xl overflow-hidden border border-gray-700/30 hover:bg-gray-900/90 transition-all duration-300 group shadow-lg"
               >
-                {/* Bigger Image + Complete Tag */}
+               
                 <div className="relative aspect-[4/3] w-full overflow-hidden flex items-center justify-center bg-black">
                   <img
                     src={cert.image}
@@ -202,6 +240,48 @@ const Certificates = () => {
           </div>
         </motion.div>
 
+        {/* GitHub Badges Section */}
+      <section className="py-16 bg-neutral-950 text-center">
+      <h2 className="text-4xl font-bold text-white mb-10 font-synonym">All Badges</h2>
+      <div className="overflow-hidden whitespace-nowrap">
+        <div className="inline-flex animate-marquee space-x-8">
+          {githubBadges.map((badge, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center min-w-[150px]"
+            >
+              <div className="relative">
+                <img
+                  src={badge.img}
+                  alt={badge.name}
+                  className="h-16 w-16 object-contain"
+                />
+                {badge.count && (
+                  <span className="absolute bottom-0 right-0 bg-white text-black text-xs font-bold px-1 rounded-full">
+                    {badge.count}
+                  </span>
+                )}
+              </div>
+              <p className="text-gray-300 text-sm mt-2">{badge.name}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Marquee Animation */}
+      <style>
+        {`
+          @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+          }
+          .animate-marquee {
+            display: inline-flex;
+            animation: marquee 15s linear infinite;
+          }
+        `}
+      </style>
+    </section>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
