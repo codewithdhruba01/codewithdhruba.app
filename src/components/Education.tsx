@@ -41,7 +41,7 @@ const Education = () => {
       {/* Education Section */}
       <section id="education" className="py-20 bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold mb-12 text-center font-synonym" data-aos="fade-up">
+          <h2 className="text-5xl md:text-4xl font-bold mb-12 text-center font-synonym" data-aos="fade-up">
             Education
           </h2>
           <div className="relative">
@@ -82,7 +82,7 @@ const Education = () => {
       {/* Experience Section */}
       <section id="experience" className="py-20 bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold mb-12 text-center font-synonym" data-aos="fade-up">
+          <h2 className="text-5xl md:text-4xl font-bold mb-12 text-center font-synonym" data-aos="fade-up">
             Experience
           </h2>
           <div className="relative">
