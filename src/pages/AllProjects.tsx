@@ -14,9 +14,34 @@ const categories = [
 
 const projects = [
   {
+      title: 'MultiCalc - Calculator',
+      description: 'A comprehensive calculator website with multiple calculator types and a beautiful UI.',
+      image: '/project/multicalc1.png',
+      github: 'https://github.com/codewithdhruba01/MultiCalc',
+      demo: 'https://multicalculat.netlify.app/',
+      tags: ['React', 'TypeScript', 'Node.js', 'Full Stack'],
+    },
+    {
+      title: 'Outfit Wallpaper Generator',
+      description: 'Outfit Wallpaper Generator is a modern, interactive web application.',
+      image: '/project/wallpaperapp.png',
+      github: 'https://github.com/codewithdhruba01/OutfitWallpaper',
+      demo: 'https://outfitwallpaper.netlify.app/',
+      tags: ['React', 'TypeScript', 'Frontend'],
+    },
+    {
+      title: 'GitHub Pro Tools',
+      description: 'Advanced GitHub tools for developers follower analytics, README designer, comparison, and documentation.',
+      image: '/project/githubprotool.png',
+      github: 'https://github.com/codewithdhruba01/GithubProtools',
+      demo: 'https://githubprotools.vercel.app/',
+      tags: ['React', 'Next.js', 'REST API', 'Frontend'],
+    },
+
+  {
+    id: 1,
     title: 'Vercual Assistence',
-    description:
-      'A web-based voice assistant designed to provide an interactive user experience.',
+    description:'A web-based voice assistant designed to provide an interactive user experience.',
     image: '/project/vercual-ass-project.jpg',
     github: 'https://github.com/codewithdhruba01/Virtual-Assistant-Application',
     demo: 'https://codewithdhruba01.github.io/Virtual-Assistant-Application/',
@@ -24,15 +49,17 @@ const projects = [
   },
   
   {
-      title: 'ComfortPG-Website',
-      description: 'A modern, responsive Paying Guest accommodation website',
-      image: '/project/comfortpg.png',
-      github: 'https://github.com/codewithdhruba01/ComfortPG_Website',
-      demo: 'https://comfort-pg.vercel.app/',
-      tags: ['Frontend', 'Next JS', 'Type Script'],
+    id: 2,
+    title: 'ComfortPG-Website',
+    description: 'A modern, responsive Paying Guest accommodation website',
+    image: '/project/comfortpg.png',
+    github: 'https://github.com/codewithdhruba01/ComfortPG_Website',
+    demo: 'https://comfort-pg.vercel.app/',
+    tags: ['Frontend', 'Next JS', 'Type Script'],
     },
 
     {
+    id: 3,
     title: 'Skill Progress',
     description:'Skillber is a simple and extensible CLI tool built with TypeScript.',
     image: '/project/skillsber.jpg',
@@ -41,24 +68,25 @@ const projects = [
     tags: ['Frontend'],
   },
   {
+    id: 4,
     title: 'Weather Forecast App',
-    description:
-      'A modern weather web app using OpenWeatherMap API with weekly forecast.',
+    description:'A modern weather web app using OpenWeatherMap API with weekly forecast.',
     image: '/project/weather.jpg',
     github: 'https://github.com/codewithdhruba01/realtimeWeather',
     demo: 'https://codewithdhruba01.github.io/realtimeWeather/',
     tags: ['Frontend', 'API'],
   },
   {
+    id: 5,
     title: 'College Fee Payment Portal',
-    description:
-      'A simple and responsive College Fee Payment Portal built using HTML, CSS, and JavaScript.',
+    description:'A simple and responsive College Fee Payment Portal built using HTML, CSS, and JavaScript.',
     image: '/project/collegepayment.png',
     github: 'https://github.com/codewithdhruba01/fPortalcollege',
     demo: 'https://codewithdhruba01.github.io/fPortalcollege/',
     tags: ['Frontend'],
   },
   {
+    id: 6,
     title: 'TerminalV1',
     description: 'This project simulates a Linux terminal interface.',
     image: '/project/terminal.jpg',
@@ -67,15 +95,16 @@ const projects = [
     tags: ['Utility'],
   },
   {
+    id: 7,
     title: 'E-Wallet Web App',
-    description:
-      'An interactive and responsive E-Wallet user interface built using HTML, CSS, and JavaScript.',
+    description:'An interactive and responsive E-Wallet user interface built using HTML, CSS, and JavaScript.',
     image: '/project/e-wallet.jpg',
     github: 'https://github.com/codewithdhruba01/E-Wallet',
     demo: 'https://codewithdhruba01.github.io/E-Wallet/',
     tags: ['Frontend'],
   },
   {
+    id: 8,
     title: 'My Portfolio',
     description: 'A modern Portfolio web app using Typescript.',
     image: '/project/portfolio.jpg',
@@ -83,26 +112,26 @@ const projects = [
     tags: ['Frontend'],
   },
   {
+    id: 9,
     title: 'Notes App',
-    description:
-      'A lightweight, responsive note-taking app with Classic UI/UX.',
+    description:'A lightweight, responsive note-taking app with Classic UI/UX.',
     image: '/project/zNote.jpg',
     github: 'https://github.com/codewithdhruba01/Znote',
     demo: 'https://codewithdhruba01.github.io/Znote/',
     tags: ['Full Stack'],
   },
   {
+    id: 10,
     title: 'Face Recognition Real-Time',
-    description:
-      'Real-time Face Attendance System using OpenCV for recognition.',
+    description:'Real-time Face Attendance System using OpenCV for recognition.',
     image: '/project/facesystem.jpg',
     github: 'https://github.com/codewithdhruba01/FaceRecognitionRealTime',
     tags: ['AI/ML'],
   },
   {
+    id: 11,
     title: 'Tic Tac Toe Game',
-    description:
-      'Visually appealing Tic Tac Toe Game built using HTML, CSS, JS.',
+    description:'Visually appealing Tic Tac Toe Game built using HTML, CSS, JS.',
     image: '/project/game-project.jpg',
     github: 'https://github.com/codewithdhruba01/tic-tac-toe-game',
     demo: 'https://codewithdhruba01.github.io/tic-tac-toe-game/',
