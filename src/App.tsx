@@ -8,15 +8,15 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Blog from './components/Blog';
 import BlogPost from './components/BlogPost';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AllPosts from './pages/AllPosts';
 import AllProjects from './pages/AllProjects';
 import ChatAssistant from './pages/ChatAssistant';
+import Contact from './pages/Contact';
 import GitHubContributions from './components/GitHubContributions';
 import ChatBotLauncher from './components/ChatBotLauncher';
 import Certificates from './pages/Certificates';
-import Badges from './components/Badges';
+import Touch from './components/Touch';
 import AOS from 'aos';
 
 const App = () => {
@@ -40,8 +40,7 @@ const App = () => {
               <Skills />
               <GitHubContributions />
               <Blog />
-              <Badges />
-              <Contact />
+              <Touch />
             </>
           } />
           <Route path="/about" element={<About />} />
@@ -49,9 +48,10 @@ const App = () => {
           <Route path="/all-posts" element={<AllPosts />} />
           <Route path="/projects" element={<AllProjects />} />
           <Route path="/chat-assistant" element={<ChatAssistant />} />
-           <Route path="/certificates" element={<Certificates />} />
+          <Route path="/certificates" element={<Certificates />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
-        <ChatBotLauncher /> {/* Floating chat icon */}
+        <ChatBotLauncher />
         <Footer />
       </div>
     </Router>

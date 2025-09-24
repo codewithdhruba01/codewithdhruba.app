@@ -9,6 +9,7 @@
     "build": "vite build"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
     "@tailwindcss/typography": "^0.5.10",
     "aos": "^2.3.4",
     "framer-motion": "^12.23.12",

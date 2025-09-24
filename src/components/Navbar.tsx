@@ -10,7 +10,7 @@ const Navbar = () => {
     { href: '/#skills', text: 'Skills' },
     { href: '/#blog', text: 'Blog' },
     { href: '/certificates', text: 'Certificates' },
-    { href: '/#contact', text: 'Contact' }
+    { href: '/contact', text: 'Contact' }
   ];
 
   return (
