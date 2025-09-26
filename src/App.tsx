@@ -13,9 +13,11 @@ import AllPosts from './pages/AllPosts';
 import AllProjects from './pages/AllProjects';
 import ChatAssistant from './pages/ChatAssistant';
 import Contact from './pages/Contact';
+import Gears from './pages/Gears';
 import GitHubContributions from './components/GitHubContributions';
 import ChatBotLauncher from './components/ChatBotLauncher';
 import Certificates from './pages/Certificates';
+import Tools from './components/Tools';
 import Touch from './components/Touch';
 import AOS from 'aos';
 
@@ -40,6 +42,7 @@ const App = () => {
               <Skills />
               <GitHubContributions />
               <Blog />
+              <Tools/>
               <Touch />
             </>
           } />
@@ -50,6 +53,7 @@ const App = () => {
           <Route path="/chat-assistant" element={<ChatAssistant />} />
           <Route path="/certificates" element={<Certificates />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/gears" element={<Gears />} />
         </Routes>
         <ChatBotLauncher />
         <Footer />
