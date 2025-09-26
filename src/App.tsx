@@ -14,6 +14,7 @@ import AllProjects from './pages/AllProjects';
 import ChatAssistant from './pages/ChatAssistant';
 import Contact from './pages/Contact';
 import Gears from './pages/Gears';
+import Extensions from './pages/Extensions';
 import GitHubContributions from './components/GitHubContributions';
 import ChatBotLauncher from './components/ChatBotLauncher';
 import Certificates from './pages/Certificates';
@@ -54,6 +55,7 @@ const App = () => {
           <Route path="/certificates" element={<Certificates />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/gears" element={<Gears />} />
+          <Route path="/extensions" element={<Extensions />} />
         </Routes>
         <ChatBotLauncher />
         <Footer />

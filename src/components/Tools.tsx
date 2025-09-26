@@ -35,7 +35,7 @@ const GetInTouch = () => {
 
           {/* Contact Form Card */}
           <Link
-            to="/contact"
+            to="/extensions"
             className="group flex items-center justify-between w-full p-5 rounded-xl border border-neutral-800 bg-[#101010] transition-all duration-300"
           >
             <div className="flex items-center gap-3">
