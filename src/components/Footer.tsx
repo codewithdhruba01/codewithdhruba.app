@@ -34,10 +34,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold text-white mb-4">Quick Links</h3>
             <ul className="space-y-1">
-              <li><a href="#projects" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">Project</a></li>
-              <li><a href="#education" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">Education</a></li>
-              <li><a href="#skills" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">Skills</a></li>
-              <li><a href="#contributions" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">GitHub Activity</a></li>
+              <li><a href="/#projects" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">Project</a></li>
+              <li><a href="/#education" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">Education</a></li>
+              <li><a href="/#skills" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">Skills</a></li>
+              <li><a href="/#contributions" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">GitHub Activity</a></li>
             </ul>
           </div>
 
@@ -46,7 +46,7 @@ const Footer = () => {
             <ul className="space-y-1">
               <li><a href="/about" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">About</a></li>
               <li><a href="/projects" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">Projects</a></li>
-              <li><a href="/blog" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">Blogs</a></li>
+              <li><a href="/all-posts" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">Blogs</a></li>
               <li><a href="/certificates" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">Achievements</a></li>
               <li><a href="/contact" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">Contact Us</a></li>
             </ul>
