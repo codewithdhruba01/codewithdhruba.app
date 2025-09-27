@@ -11,6 +11,10 @@ const Contact = () => {
     message: ''
   });
 
+   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [status, setStatus] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
