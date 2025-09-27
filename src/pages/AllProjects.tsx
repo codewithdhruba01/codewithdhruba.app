@@ -179,21 +179,19 @@ const AllProjects = () => {
   return (
     <div className="min-h-screen bg-neutral-950 text-white px-4 py-20">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <p className="mb-10"></p>
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 font-excon">
-            Featured <span className="text-green-600 font-excon font-bold">Projects</span> 
-          </h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-white to-green-900 mx-auto rounded-full mb-4" />
-          <p className="text-gray-400 max-w-2xl mx-auto font-satoshi">
-            A showcase of my best work across various technologies and domains.
+        <div className="text-center mb-10">
+           <p className="mb-10"></p>
+        <h1 className="text-4xl sm:text-5xl font-bold font-excon mb-4">Featured Projects</h1>
+        <p className="text-gray-400 max-w-2xl mx-auto font-poppins">
+           A showcase of my best work across various technologies and domains.
             Each project represents a unique challenge and different aspects of
             my skills.
-          </p>
-        </div>
+        </p>
+      </div>
 
-        {/* Category Filters */}
+      <div className="border-t border-gray-700 max-w-3xl mx-auto mb-12"></div>
+
+        {/* Category */}
         <div className="flex flex-wrap justify-center gap-3 mb-10">
           {categories.map((category) => (
             <button
@@ -213,8 +211,7 @@ const AllProjects = () => {
             </button>
           ))}
         </div>
-
-        {/* Project Grid */}
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {loading
             ? Array(showAll ? filteredProjects.length : initialCount)
