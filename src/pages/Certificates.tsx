@@ -113,12 +113,14 @@ const Certificates = () => {
           className="text-center mb-12"
         >
           <div className="mb-8"></div>
-          <h1 className="text-5xl md:text-4xl font-bold text-white mb-4 font-excon">
+          <h1 className="text-3xl sm:text-4xl font-bold font-excon mb-4">
             Certificates & Achievements
           </h1>
-          <div className="h-1 w-24 bg-gradient-to-r from-white to-green-900 mx-auto rounded-full mb-4" />
-          <p className="text-lg text-gray-300 font-satoshi">Professional certifications and recognitions</p>
+          <p className="text-gray-400 mt-2 text-base sm:text-base font-poppins">A Journey of Learning, Certifications, and Professional Recognition</p>
         </motion.div>
+
+        {/* Divider */}
+      <div className="border-t border-gray-700 max-w-3xl mx-auto mb-12"></div>
 
         {/* Certificates Section */}
         <motion.div
