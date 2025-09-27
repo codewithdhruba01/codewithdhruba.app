@@ -1,6 +1,6 @@
-// src/pages/gears.tsx
 "use client";
 
+import { useEffect } from "react";
 import {
   Laptop,
   Monitor,
@@ -15,6 +15,10 @@ import {
 } from "lucide-react";
 
 export default function Gears() {
+  useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+    
   return (
     <div className="min-h-screen bg-neutral-950 text-white px-6 py-20 sm:py-20">
       <h2 className="text-4xl font-bold mb-12"></h2>
