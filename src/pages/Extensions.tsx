@@ -50,8 +50,6 @@ export default function Gears() {
                 { name: "sidharthachatterjee.vscode-tailwindcss" },
                 { name: "aslamanver.vsc-export" },
 
-
-
             ].map((ext, i) => (
               
               <li

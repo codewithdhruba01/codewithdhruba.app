@@ -85,7 +85,7 @@ const GitHubContributions = () => {
         <p className="text-center mb-2 text-sm font-supreme text-gray-400"><strong>codewithdhruba's</strong> coding journey over the past year</p>
         <p className="text-center mb-10 text-sm font-satoshi">Total: <span className="text-[#00DC82] font-semibold">{totalCount}</span> contributions</p>
 
-        <div className="bg-[#101010] rounded-lg p-8 shadow-lg">
+        <div className="border border-neutral-800 bg-neutral-950 rounded-lg p-8 shadow-lg">
           <div className="overflow-x-auto">
             <div className="inline-flex gap-1">
               {weeks.map((week, weekIndex) => (
