@@ -1,4 +1,5 @@
-import { Mail, MessageSquareText } from 'lucide-react';
+"use client";
+import { Mail, MessageSquareText, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const GetInTouch = () => {
@@ -20,7 +21,7 @@ const GetInTouch = () => {
           {/* Email Card */}
           <a
             href="mailto:pati.dhrubaraj@outlook.com"
-            className="flex flex-col items-start space-y-2 p-6 bg-[#101010] rounded-xl border border-gray-700/50 hover:border-teal-500/50 transition-all duration-300"
+            className="group relative flex flex-col items-start space-y-2 p-6 bg-[#101010] rounded-xl border border-gray-700/50 hover:border-teal-500/50 transition-all duration-300"
           >
             <div className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center">
               <Mail className="w-5 h-5 text-teal-400" />
@@ -31,12 +32,17 @@ const GetInTouch = () => {
             <p className="text-gray-400 text-sm">
               Quick and direct communication
             </p>
+
+            {/* Arrow on hover */}
+            <ArrowRight
+              className="absolute right-6 top-1/2 -translate-y-1/2 text-teal-400 opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"
+            />
           </a>
 
           {/* Contact Form Card */}
           <Link
             to="/contact"
-            className="flex flex-col items-start space-y-2 p-6 bg-[#101010] rounded-xl border border-gray-700/50 hover:border-green-500/50 transition-all duration-300"
+            className="group relative flex flex-col items-start space-y-2 p-6 bg-[#101010] rounded-xl border border-gray-700/50 hover:border-green-500/50 transition-all duration-300"
           >
             <div className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center">
               <MessageSquareText className="w-5 h-5 text-green-400" />
@@ -47,6 +53,11 @@ const GetInTouch = () => {
             <p className="text-gray-400 text-sm">
               Detailed project discussion
             </p>
+
+            {/* Arrow on hover */}
+            <ArrowRight
+              className="absolute right-6 top-1/2 -translate-y-1/2 text-green-400 opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"
+            />
           </Link>
         </div>
 
