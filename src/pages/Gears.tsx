@@ -147,40 +147,6 @@ export default function Gears() {
             ))}
           </ul>
         </section>
-        
-
-        {/* Web Extensions Section */}
-        <section>
-          <h2 className="text-lg sm:text-xl font-semibold mb-6 flex items-center gap-2">
-            Chrome Extensions
-          </h2>
-          <ul className="space-y-4">
-            {[
-              { name: "AdBlock", url: "https://getadblock.com/en/" },
-              { name: "Urban VPN", url: "https://www.urban-vpn.com/" },
-              { name: "Mobile simulator", url: "https://chromewebstore.google.com/detail/ckejmhbmlajgoklhgbapkiccekfoccmk?utm_source=item-share-cb" },
-            ].map((ext, i) => (
-              
-              <li
-                key={i}
-                className="flex items-center gap-3 text-base sm:text-base"
-              >
-                {/* Number Circle */}
-                <span className="w-7 h-7 flex items-center justify-center rounded-md bg-neutral-800 text-sm text-gray-300">
-                  {i + 1}
-                </span>
-                <a
-                  href={ext.url}
-                  target="_blank"
-                  className="text-neutral-400 hover:text-white transition font-supreme"
-                >
-                  {ext.name}
-                </a>
-                <ArrowUpRight className="w-4 h-4 text-neutral-400 hover:text-white" />
-              </li>
-            ))}
-          </ul>
-        </section>
       </div>
     </div>
   );
