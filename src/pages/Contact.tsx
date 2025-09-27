@@ -93,7 +93,7 @@ const Contact = () => {
               Let's Work Together
             </span>
           </h1>
-          <p className="text-lg text-neutral-400 max-w-3xl mx-auto font-supreme">
+          <p className="text-lg text-neutral-400 max-w-3xl mx-auto font-poppins">
             Have a project in mind? I'd love to hear about it. Send me a message and let's discuss how we can bring your ideas to life.
           </p>
         </div>
@@ -142,7 +142,7 @@ const Contact = () => {
                 ].map((item, i) => (
                   <motion.div
                     key={i}
-                    className="flex items-center space-x-4 p-4 bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-700/50"
+                    className="flex items-center space-x-4 p-4 border border-neutral-800 bg-[#101010] backdrop-blur-sm rounded-xl"
                     variants={fadeUp}
                     initial="hidden"
                     animate="visible"
@@ -170,21 +170,21 @@ const Contact = () => {
                 <div className="flex space-x-4">
                   <a
                     href="https://github.com/codewithdhruba01"
-                    className="p-3 bg-gray-800/50 hover:bg-gray-900/50 rounded-lg transition-all duration-300 hover:scale-110"
+                    className="p-3 border-neutral-800 bg-[#101010] border hover:bg-gray-900/50 rounded-lg transition-all duration-300 hover:scale-110"
                   >
-                    <Github className="w-6 h-6 text-gray-400 hover:text-white" />
+                    <Github className="w-6 h-6 text-white" />
                   </a>
                   <a
                     href="https://www.linkedin.com/in/dhrubaraj-pati/"
-                    className="p-3 bg-gray-800/50 hover:bg-blue-600 rounded-lg transition-all duration-300 hover:scale-110"
+                    className="p-3 border-neutral-800 bg-[#101010] border hover:bg-blue-600 rounded-lg transition-all duration-300 hover:scale-110"
                   >
-                    <Linkedin className="w-6 h-6 text-gray-400 hover:text-white" />
+                    <Linkedin className="w-6 h-6 text-white" />
                   </a>
                   <a
                     href="https://x.com/codewithdhruba"
-                    className="p-3 bg-gray-800/50 hover:bg-sky-600 rounded-lg transition-all duration-300 hover:scale-110"
+                    className="p-3 border-neutral-800 bg-[#101010] border hover:bg-sky-600 rounded-lg transition-all duration-300 hover:scale-110"
                   >
-                    <Twitter className="w-6 h-6 text-gray-400 hover:text-white" />
+                    <Twitter className="w-6 h-6 text-white" />
                   </a>
                 </div>
               </motion.div>
@@ -192,7 +192,7 @@ const Contact = () => {
 
             {/* Contact Form */}
             <motion.div
-              className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50"
+              className="border-neutral-800 bg-[#101010] border backdrop-blur-sm rounded-2xl p-8"
               variants={fadeUp}
               initial="hidden"
               animate="visible"
@@ -212,7 +212,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors"
+                    className="w-full px-4 py-3 border-neutral-800 bg-[#101010] border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors"
                     placeholder="Your Name"
                   />
                 </div>
@@ -228,7 +228,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors"
+                    className="w-full px-4 py-3 border-neutral-800 bg-[#101010] border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -244,7 +244,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors"
+                    className="w-full px-4 py-3 border-neutral-800 bg-[#101010] border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors"
                     placeholder="Project Discussion"
                   />
                 </div>
@@ -260,7 +260,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors resize-none"
+                    className="w-full px-4 py-3 border-neutral-800 bg-[#101010] border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors resize-none"
                     placeholder="Tell me about your project..."
                   />
                 </div>
