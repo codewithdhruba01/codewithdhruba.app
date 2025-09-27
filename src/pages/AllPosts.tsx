@@ -58,22 +58,19 @@ const AllPosts = () => {
   return (
     <section className="py-20 bg-neutral-950 min-h-screen">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Heading */}
-        <h1 className="text-5xl font-bold text-center text-white font-excon">
-          Blog & Publications
-        </h1>
-
-        {/* Subline */}
-        <p className="text-center text-gray-400 mt-4 font-poppins text-lg">
-          Exploring the art of engineering, the craft of code, and the journey of building impactful tech.
+        <div className="text-center mb-10">
+        <h1 className="text-4xl sm:text-5xl font-bold font-excon mb-4">Blog & Publications</h1>
+        <p className="text-gray-400 mt-2 text-base sm:text-lg font-poppins">
+           Exploring the art of engineering, the craft of code, and the journey of building impactful tech.
         </p>
+      </div>
+
+      {/* Divider */}
+      <div className="border-t border-gray-700 max-w-3xl mx-auto mb-8"></div>
 
         {/* Popular Tags */}
         <div className="mt-10 mb-12">
-          <p className="text-lg md:text-lg font-semibold font-synonym mb-4">
-            Popular Tags
-          </p>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3 text-center justify-center">
             {tags.map((tag, i) => (
               <button
                 key={i}
