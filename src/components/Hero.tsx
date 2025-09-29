@@ -34,20 +34,20 @@ const Hero = () => {
 
         {/* Subtitle */}
         <p
-          className="text-xl md:text-xl text-neutral-400 max-w-3xl mx-auto mb-6 font-outfit"
+          className="text-xl md:text-xl text-gray-700 dark:text-gray-500 mb-8  font-satoshi"
           data-aos="fade-up"
           data-aos-delay="150"
         >
-          Empowering ideas into reality through clean code, creative design, and unwavering passion for technology.
+           A Full Stack Developer crafts seamless digital experiences, blending front-end creativity with back-end logic, mastering diverse technologies to build robust, user-friendly, and efficient web applications from start to finish.
         </p>
 
         {/* Description */}
         <p 
-          className="text-base md:text-base text-neutral-500 max-w-6xl md:max-w-6xl lg:max-w-5xl xl:max-w-4xl mb-10 font-excon"
+          className="text-base md:text-base text-neutral-500 max-w-6xl md:max-w-6xl lg:max-w-5xl xl:max-w-4xl mb-10 font-outfit"
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          A Full Stack Developer crafts seamless digital experiences, blending front-end creativity with back-end logic, mastering diverse technologies to build robust, user-friendly, and efficient web applications from start to finish.
+         
         </p>
 
         {/* Social + Button */}
