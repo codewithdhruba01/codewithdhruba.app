@@ -9,7 +9,7 @@ interface DayData {
 const GitHubContributions = () => {
   const [contributions, setContributions] = useState<DayData[]>([]);
   const [totalCount, setTotalCount] = useState<number>(0);
-  const [year, setYear] = useState<number>(2025); // default latest year
+  const [year, setYear] = useState<number>(new Date().getFullYear()); // default latest year
 
   const GITHUB_USERNAME = "codewithdhruba01";
   const TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
@@ -85,7 +85,9 @@ const GitHubContributions = () => {
     weeks.push(contributions.slice(i, i + 7));
   }
 
-  const years = [2025, 2024, 2023, 2022, 2021];
+  // Dynamic latest 5 years
+  const currentYear = new Date().getFullYear();
+  const years = Array.from({ length: 4 }, (_, i) => currentYear - i);
 
   // Get month labels
   const monthLabels: { index: number; month: string }[] = [];
@@ -114,7 +116,7 @@ const GitHubContributions = () => {
           <div className="flex-1 border border-neutral-800 bg-neutral-900/60 rounded-lg p-6 shadow-lg">
             {/* Scrollable container */}
             <div className="overflow-x-auto">
-              {/* Month labels (stick with grid scroll) */}
+              {/* Month labels */}
               <div className="ml-8 flex gap-1 text-xs text-gray-400 mb-1">
                 {weeks.map((_, weekIndex) => {
                   const label = monthLabels.find((m) => m.index === weekIndex);
@@ -129,7 +131,7 @@ const GitHubContributions = () => {
                 })}
               </div>
 
-              {/* Contribution Grid with weekdays */}
+              {/* Contribution Grid */}
               <div className="flex">
                 {/* Weekday labels */}
                 <div className="flex flex-col justify-between mr-2 text-xs text-gray-400">
