@@ -290,7 +290,7 @@ const Certificates = () => {
           transition={{ duration: 0.8, delay: 1 }}
           className="text-center mt-16"
         >
-          <div className="bg-neutral-900 backdrop-blur-md rounded-xl p-6 lg:p-8 border border-gray-800/30 shadow-lg">
+          <div className="bg-neutral-950 backdrop-blur-md rounded-xl p-6 lg:p-8 border border-gray-600/30 shadow-lg">
             <h3 className="text-3xl font-bold text-[#fff] mb-4 font-synonym">Continuous Learning</h3>
             <p className="text-gray-400 text-sm leading-relaxed font-satoshi">
               I believe in continuous improvement and staying updated with the latest technologies. 
