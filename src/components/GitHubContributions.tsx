@@ -85,7 +85,7 @@ const GitHubContributions = () => {
     weeks.push(contributions.slice(i, i + 7));
   }
 
-  // Dynamic latest 5 years
+  // Dynamic latest 4 years
   const currentYear = new Date().getFullYear();
   const years = Array.from({ length: 4 }, (_, i) => currentYear - i);
 
@@ -107,15 +107,15 @@ const GitHubContributions = () => {
     <section id="contributions" className="py-20 bg-neutral-950">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <h2 className="text-2xl font-bold mb-6 text-white">
-          Contribution Graph
-        </h2>
+        <h2 className="text-4xl font-bold mb-4 text-center font-synonym">GitHub Activity</h2>
+        <p className="text-center mb-2 text-sm font-supreme text-gray-400"><strong>codewithdhruba's</strong> coding journey over the past year</p>
+        <div className="text-center mb-10 text-sm font-satoshi">Total contributions in {year}: <span className="text-[#00DC82] font-semibold">{totalCount}</span></div>
 
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Graph Card */}
           <div className="flex-1 border border-neutral-800 bg-neutral-900/60 rounded-lg p-6 shadow-lg">
             {/* Scrollable container */}
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto thin-scrollbar">
               {/* Month labels */}
               <div className="ml-8 flex gap-1 text-xs text-gray-400 mb-1">
                 {weeks.map((_, weekIndex) => {
@@ -164,8 +164,7 @@ const GitHubContributions = () => {
                           )} 
                             hover:ring-2 hover:ring-[#00DC82]/30 transition-all duration-300 cursor-pointer group relative`}
                           title={`${day.contributionCount} contributions on ${day.date}`}
-                        >
-                        </div>
+                        ></div>
                       ))}
                     </div>
                   ))}
@@ -175,11 +174,6 @@ const GitHubContributions = () => {
 
             {/* Total contributions + Legend */}
             <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm text-gray-400">
-              <p className="text-sm">
-                <span className="text-[#00DC82] font-semibold">{totalCount}</span>{" "}
-                contributions in the last year
-              </p>
-
               <div className="flex items-center gap-2">
                 <span className="font-bold">Less</span>
                 <div className="flex gap-1">

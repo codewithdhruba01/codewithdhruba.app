@@ -61,3 +61,21 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Custom thin scrollbar */
+.thin-scrollbar::-webkit-scrollbar {
+  height: 6px;   /* horizontal scrollbar height */
+}
+
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: #444;   /* scrollbar color */
+  border-radius: 9999px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #00DC82; /* hover color */
+}
