@@ -268,7 +268,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={loading || sent}
-                  className="w-full flex items-center justify-center space-x-2 px-8 py-4 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg text-white font-semibold hover:from-blue-700 hover:to-green-700 transform hover:scale-105 transition-all duration-300 shadow-lg disabled:opacity-70"
+                  className="w-full flex items-center justify-center space-x-2 px-8 py-4 border border-[#00DC82] text-[#00DC82] rounded-lg hover:bg-[#00DC82] hover:text-black font-bold"
                 >
                   {loading ? (
                     <svg
