@@ -24,14 +24,14 @@ const blogPosts = [
     slug: "getting-started-with-vs-code",
   },
   {
-    title: "Mastering Python Packages: Organize and Share Your Code",
+    title: "10 Chrome Keyboard Shortcuts to Boost Your Productivity",
     description:
-      "Understand how Python packages work, how to create them, and how to share your code with the world.",
+      "Discover the most useful Chrome keyboard shortcuts to browse faster, save time, and increase your daily productivity.",
     date: "July 2, 2025",
-    image: "/blog/blog3.jpg",
-    category: ["Python Programming"],
-    readTime: "7 min read",
-    slug: "understanding-python-packages",
+    image: "/blog/chrome_shortcuts.png",
+    category: ["Productivity & Tech Tips"],
+    readTime: "5 min read",
+    slug: "chrome-keyboard-shortcuts",
   },
 ];
 
@@ -108,19 +108,19 @@ const AllPosts = () => {
                 {/* Content */}
                 <div className="p-6">
                   {/* Date + read time */}
-                  <div className="flex items-center text-sm text-gray-400 mb-3 gap-4">
+                  <div className="flex items-center text-sm text-neutral-400 font-outfit mb-3 gap-4">
                     <span className="flex items-center gap-1">
-                      <Calendar size={16} className="text-[#00DC82]" />
+                      <Calendar size={16} className="text-neutral-300" />
                       {post.date}
                     </span>
                     <span className="flex items-center gap-1">
-                      <Clock size={16} className="text-[#00DC82]" />
+                      <Clock size={16} className="text-neutral-300" />
                       {post.readTime}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-semibold mb-3 hover:text-[#00DC82] transition-colors">
+                  <h3 className="text-lg font-semibold mb-3 hover:text-[#ffffff] transition-colors">
                     <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                   </h3>
 
@@ -129,7 +129,7 @@ const AllPosts = () => {
                     {post.category.map((cat, i) => (
                       <span
                         key={i}
-                        className="bg-neutral-800 text-gray-300 text-xs px-3 py-1 rounded-full font-medium"
+                        className="bg-[#1e1e1e] text-neutral-300 font-poppins text-xs px-3 py-1 rounded-full"
                       >
                         {cat}
                       </span>
@@ -137,7 +137,7 @@ const AllPosts = () => {
                   </div>
 
                   {/* Description */}
-                  <p className="text-sm text-neutral-400 leading-relaxed mb-4 font-poppins">
+                  <p className="text-sm text-neutral-400 leading-relaxed mb-4 font-poppins font-light">
                     {post.description}
                   </p>
 

@@ -18,7 +18,7 @@ const Blog = () => {
         "A complete beginner guide to using Visual Studio Code, the world’s most popular code editor.",
       date: "July 2, 2025",
       image: "/blog/blog1.png",
-      category: ["Editor", "development"],
+      category: ["Editor", "Development"],
       slug: "getting-started-with-vs-code",
     },
   ];
@@ -51,12 +51,12 @@ const Blog = () => {
               {/* Content */}
               <div className="p-6 flex flex-col justify-between">
                 {/* Title */}
-                <h3 className="text-lg font-semibold mb-2 text-white hover:text-[#00DC82] transition-colors">
+                <h3 className="text-lg font-semibold mb-3 hover:text-[#ffffff] transition-colors">
                   <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm text-zinc-400 leading-relaxed mb-4">
+                <p className="text-sm text-neutral-400 leading-relaxed mb-4 font-poppins font-light">
                   {post.description}
                 </p>
 
@@ -65,7 +65,7 @@ const Blog = () => {
                   {post.category.map((cat, i) => (
                     <span
                       key={i}
-                      className="bg-zinc-800 text-zinc-300 text-xs px-3 py-1 rounded-full"
+                      className="bg-[#242424] text-neutral-300 text-xs px-3 py-1 rounded-full font-poppins"
                     >
                       {cat}
                     </span>
@@ -73,9 +73,9 @@ const Blog = () => {
                 </div>
 
                 {/* Footer */}
-                <div className="flex items-center justify-between text-sm text-zinc-500 mt-auto">
+                <div className="flex items-center justify-between text-sm text-neutral-400 font-outfit mt-auto">
                   <span className="flex items-center gap-1">
-                    <Calendar size={14} />
+                    <Calendar size={14} className="text-neutral-300" />
                     {post.date}
                   </span>
                   <Link

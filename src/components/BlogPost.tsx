@@ -151,76 +151,56 @@ View > Terminal
   tags: ['VS Code', 'Code Editor', 'Development', 'Productivity']
 },
 
-  'understanding-python-packages': {
-    title: 'Mastering Python Packages: Organize and Share Your Code',
-    date: 'July 2, 2025',
-    author: 'Dhrubaraj Pati',
-    category: 'Python Programming',
-    readTime: '7 min read',
-    content: `
-      <h2>Introduction</h2>
-      <p>As your Python projects grow, organizing your code becomes critical. Python Packages allow you to group related modules together, making your codebase clean, maintainable, and reusable.</p>
+  'chrome-keyboard-shortcuts': {
+  title: '10 Chrome Keyboard Shortcuts to Boost Your Productivity',
+  date: 'October 6, 2025',
+  author: 'Dhrubaraj Pati',
+  category: 'Productivity',
+  readTime: '5 min read',
+  content: `
+    <p>Google Chrome is packed with powerful features that can make your browsing experience smoother and faster — but most people barely scratch the surface. Mastering a few essential <strong>Chrome keyboard shortcuts</strong> can save you precious seconds on every task, adding up to hours of extra productivity each month.</p>
+    <p>Whether you're a student, developer, or professional, these <strong>10 must-know Chrome shortcuts</strong> will help you browse smarter, multitask faster, and get more done — without ever touching your mouse.</p>
 
-      <h2>What is a Package?</h2>
-      <p>A package is simply a directory containing a special <code>__init__.py</code> file, which tells Python it can be imported as a package.</p>
+    <h3>1. Open a New Tab — <kbd>Ctrl</kbd> + <kbd>T</kbd></h3>
+    <p>Instantly open a new tab to start a fresh search or navigate to a new website. No need to reach for the mouse — just press <kbd>Ctrl</kbd> + <kbd>T</kbd> and keep working at lightning speed.</p>
 
-      <h3>Creating a Package</h3>
-      <pre><code>
-my_package/
-  __init__.py
-  module1.py
-  module2.py
-      </code></pre>
-      <p>You can now import modules like:</p>
-      <pre><code>
-from my_package import module1
-      </code></pre>
+    <h3>2. Reopen a Closed Tab — <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd></h3>
+    <p>We've all been there — accidentally closing an important tab. This shortcut brings it back in an instant. Press it repeatedly to restore multiple recently closed tabs in the exact order you closed them. Lifesaver!</p>
 
-      <h2>Why Use Packages?</h2>
-      <ul>
-        <li><strong>Organization:</strong> Group related code logically.</li>
-        <li><strong>Reusability:</strong> Share code across projects.</li>
-        <li><strong>Namespace Management:</strong> Avoid name collisions.</li>
-      </ul>
+    <h3>3. Open a New Window — <kbd>Ctrl</kbd> + <kbd>N</kbd></h3>
+    <p>Need to separate tasks or organize work into different windows? Open a new Chrome window with this quick shortcut. It's great for research, side projects, or separating work and personal browsing.</p>
 
-      <h2>Example: Building a Math Package</h2>
-      <p>Let's create a simple math utilities package.</p>
-      <pre><code>
-math_utils/
-  __init__.py
-  addition.py
-  multiplication.py
-      </code></pre>
+    <h3>4. Go Incognito — <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd></h3>
+    <p>Private browsing at your fingertips. This shortcut launches an <strong>Incognito Window</strong>, which doesn’t save your browsing history, cookies, or search data. Perfect for checking multiple accounts or private research.</p>
 
-      <h3>addition.py</h3>
-      <pre><code>
-def add(a, b):
-    return a + b
-      </code></pre>
+    <h3>5. Switch Between Tabs — <kbd>Ctrl</kbd> + <kbd>Tab</kbd> / <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd></h3>
+    <p>Juggling multiple tabs? Navigate like a pro by cycling through open tabs with <kbd>Ctrl</kbd> + <kbd>Tab</kbd> to go forward and <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd> to go backward. You can also jump directly to a specific tab with <kbd>Ctrl</kbd> + <kbd>1–8</kbd>.</p>
 
-      <h3>multiplication.py</h3>
-      <pre><code>
-def multiply(a, b):
-    return a * b
-      </code></pre>
+    <h3>6. Close the Current Tab — <kbd>Ctrl</kbd> + <kbd>W</kbd></h3>
+    <p>Done with a page? Close it instantly using this shortcut. It’s faster and more fluid than reaching for the “X” on the tab bar, especially when working with dozens of open tabs.</p>
 
-      <h3>Using the Package</h3>
-      <pre><code>
-from math_utils import addition, multiplication
+    <h3>7. Open Downloads Page — <kbd>Ctrl</kbd> + <kbd>J</kbd></h3>
+    <p>Keep track of your downloads easily. This shortcut opens Chrome’s dedicated <strong>Downloads page</strong>, where you can view progress, access previously downloaded files, or retry failed downloads.</p>
 
-print(addition.add(2, 3))       # 5
-print(multiplication.multiply(4, 5))  # 20
-      </code></pre>
+    <h3>8. Open Browsing History — <kbd>Ctrl</kbd> + <kbd>H</kbd></h3>
+    <p>Need to revisit a page you found earlier? Open your full browsing history in seconds. From here, you can search and quickly return to any site without digging through bookmarks or search results again.</p>
 
-      <h2>Distributing Your Package</h2>
-      <p>To share your package, create a <code>setup.py</code> and upload it to PyPI using tools like <code>twine</code>. This way, others can install it via <code>pip install your-package</code>.</p>
+    <h3>9. Zoom In or Out — <kbd>Ctrl</kbd> + <kbd>+</kbd> / <kbd>Ctrl</kbd> + <kbd>-</kbd></h3>
+    <p>Perfect for presentations, reading small text, or detailed inspection. Use these shortcuts to adjust the zoom level of any page instantly. <kbd>Ctrl</kbd> + <kbd>0</kbd> resets it back to default.</p>
 
-      <h2>Conclusion</h2>
-      <p>Python packages are essential for professional Python development. By mastering them, you can create well-organized, modular, and reusable code ready to scale and share with the world.</p>
-    `,
-    image: '/blog/blog3.jpg',
-    tags: ['Python', 'Packages', 'Code Organization', 'Beginner']
-  }
+    <h3>10. Bookmark the Current Page — <kbd>Ctrl</kbd> + <kbd>D</kbd></h3>
+    <p>Found a useful page? Bookmark it in a flash. You can even choose the folder directly to keep your bookmarks neatly organized for future access.</p>
+
+    <h3>Bonus: Open Chrome Task Manager — <kbd>Shift</kbd> + <kbd>Esc</kbd></h3>
+    <p>Chrome’s built-in Task Manager is a hidden gem. This shortcut lets you monitor which tabs or extensions are consuming the most resources — and close them instantly to speed up your browser.</p>
+
+    <h3>Conclusion</h3>
+    <p>Productivity is all about minimizing friction. By mastering these 10 Chrome keyboard shortcuts, you'll navigate the web faster, switch between tasks more efficiently, and spend less time on repetitive actions.</p>
+    <p>Start by picking 2–3 shortcuts to integrate into your daily routine. Once they become second nature, add more — and soon, you’ll browse like a true power user.</p>
+  `,
+  image: '/blog/chrome_shortcuts.png',
+  tags: ['Chrome', 'Productivity', 'Keyboard Shortcuts', 'Time Management', 'Browsing Tips']
+}
 };
 
 const BlogPost = () => {
@@ -237,10 +217,6 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4">Blog Post Not Found</h2>
-          <a href="/blog" className="text-[#00DC82] hover:text-white transition-colors">
-            Return to Blog
-          </a>
         </div>
       </div>
     );
@@ -263,7 +239,7 @@ const BlogPost = () => {
         {/* Header */}
         <header className="mb-12" data-aos="fade-up">
           <div className="mb-6">
-            <span className="bg-[#00DC82] text-black px-3 py-1 rounded-full text-sm font-medium">
+            <span className="bg-[#1e1e1e] text-neutral-300 px-3 py-1 rounded-full text-sm font-poppins">
               {post.category}
             </span>
           </div>
@@ -275,8 +251,8 @@ const BlogPost = () => {
               className="w-10 h-10 rounded-full mr-4"
             />
             <div>
-              <div className="font-medium text-white">{post.author}</div>
-              <div className="text-sm">
+              <div className="text-white font-supreme font-samibold">{post.author}</div>
+              <div className="text-sm font-supreme text-neutral-400">
                 {post.date} · {post.readTime}
               </div>
             </div>
@@ -295,7 +271,7 @@ const BlogPost = () => {
 
         {/* Content */}
         <div
-          className="prose prose-lg prose-invert max-w-none font-satoshi text-base"
+          className="prose prose-lg prose-invert max-w-none text-sm font-light text-neutral-400"
           dangerouslySetInnerHTML={{ __html: post.content }}
           data-aos="fade-up"
         />
@@ -306,7 +282,7 @@ const BlogPost = () => {
             {post.tags.map((tag: string) => (
               <span
                 key={tag}
-                className="bg-[#111111] text-gray-300 px-3 py-1 rounded-full text-sm"
+                className="bg-[#111111] text-neutral-400 font-light px-3 py-1 rounded-full text-sm"
               >
                 #{tag}
               </span>
@@ -316,7 +292,7 @@ const BlogPost = () => {
 
         {/* Share Section */}
         <div className="mt-12 flex items-center justify-between" data-aos="fade-up">
-          <div className="text-gray-400">Share this article:</div>
+          <div className="text-gray-400">Follow More:</div>
           <div className="flex space-x-4">
             <a href="https://x.com/codewithdhruba" className="text-muted-foreground hover:text-foreground">
               <Twitter className="h-5 w-5 hover:text-[#00CAFF]" />
