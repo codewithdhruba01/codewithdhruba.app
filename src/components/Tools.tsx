@@ -23,8 +23,8 @@ const GetInTouch = () => {
                 <Settings className="w-4 h-4 text-green-400" />
               </div>
               <div>
-                <h3 className="text-white font-semibold">Tools & Gears</h3>
-                <p className="text-sm text-gray-400">
+                <h3 className="text-neutral-100 font-semibold">Tools & Gears</h3>
+                <p className="text-sm text-neutral-400 font-poppins">
                  Productivity tools and gears that power my workflow.
                 </p>
               </div>
@@ -43,8 +43,8 @@ const GetInTouch = () => {
                 <CodeXml className="w-4 h-4 text-green-400" />
               </div>
               <div>
-                <h3 className="text-white font-semibold">VS Code</h3>
-                <p className="text-sm text-gray-400">
+                <h3 className="text-neutral-100 font-semibold">VS Code</h3>
+                <p className="text-sm text-neutral-400 font-poppins">
                  My essential VS Code extensions for daily development.
                 </p>
               </div>
