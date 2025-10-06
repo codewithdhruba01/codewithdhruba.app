@@ -108,8 +108,8 @@ const GitHubContributions = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
         <h2 className="text-4xl font-bold mb-4 text-center font-synonym">GitHub Activity</h2>
-        <p className="text-center mb-2 text-sm font-supreme text-gray-400"><strong>codewithdhruba's</strong> coding journey over the past year</p>
-        <div className="text-center mb-10 text-sm font-satoshi">Total contributions in {year}: <span className="text-[#00DC82] font-semibold">{totalCount}</span></div>
+        <p className="text-center mb-2 text-sm font-supreme text-neutral-400"><strong>codewithdhruba's</strong> coding journey over the past year</p>
+        <div className="text-center mb-10 text-sm font-satoshi text-neutral-400">Total contributions in {year}: <span className="text-[#00DC82] font-semibold">{totalCount}</span></div>
 
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Graph Card */}
@@ -117,7 +117,7 @@ const GitHubContributions = () => {
             {/* Scrollable container */}
             <div className="overflow-x-auto thin-scrollbar">
               {/* Month labels */}
-              <div className="ml-8 flex gap-1 text-xs text-gray-400 mb-1">
+              <div className="ml-8 flex gap-1 text-xs text-neutral-400 font-poppins mb-1">
                 {weeks.map((_, weekIndex) => {
                   const label = monthLabels.find((m) => m.index === weekIndex);
                   return (
