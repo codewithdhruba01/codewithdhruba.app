@@ -26,10 +26,10 @@ const GetInTouch = () => {
             <div className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center">
               <Mail className="w-5 h-5 text-teal-400" />
             </div>
-            <h3 className="text-lg font-semibold text-white">
+            <h3 className="text-lg font-semibold text-neutral-100">
               Send Email
             </h3>
-            <p className="text-gray-400 text-sm">
+            <p className="text-neutral-400 font-poppins text-sm">
               Quick and direct communication
             </p>
 
@@ -47,10 +47,10 @@ const GetInTouch = () => {
             <div className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center">
               <MessageSquareText className="w-5 h-5 text-green-400" />
             </div>
-            <h3 className="text-lg font-semibold text-white">
+            <h3 className="text-lg font-semibold text-neutral-100">
               Contact Us
             </h3>
-            <p className="text-gray-400 text-sm">
+            <p className="text-neutral-400 font-poppins text-sm">
               Detailed project discussion
             </p>
 
@@ -63,7 +63,7 @@ const GetInTouch = () => {
 
         {/* Additional Info */}
         <div className="mt-10 text-center">
-          <p className="text-gray-400 text-sm font-supreme">
+          <p className="text-neutral-400 text-sm font-supreme">
             Average response time: <span className="text-green-400 font-medium">Less than 24 hours</span>
           </p>
         </div>
