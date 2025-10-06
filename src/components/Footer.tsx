@@ -14,7 +14,7 @@ const Footer = () => {
              <span  className="h-8 w-8 text-3xl font-outfit text-neutral-200">hrubaraj</span>
            </h2>
            </div>
-            <p className="text-gray-400 mb-6 max-w-md font-supreme">
+            <p className="text-neutral-400 mb-6 max-w-md font-poppins">
               Discovering the frontiers of coding, algorithms, and AI with hands-on projects, clear guides, and a commitment to making complex concepts accessible to everyone.
             </p>
             <div className="flex space-x-4">
@@ -34,30 +34,30 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold text-white mb-4">Quick Links</h3>
             <ul className="space-y-1">
-              <li><a href="/#projects" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">Project</a></li>
-              <li><a href="/#education" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">Education</a></li>
-              <li><a href="/#skills" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">Skills</a></li>
-              <li><a href="/#contributions" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">GitHub Activity</a></li>
+              <li><a href="/#projects" className="text-neutral-400 hover:text-green-400 transition-colors font-poppins">Project</a></li>
+              <li><a href="/#education" className="text-neutral-400 hover:text-green-400 transition-colors font-poppins">Education</a></li>
+              <li><a href="/#skills" className="text-neutral-400 hover:text-green-400 transition-colors font-poppins">Skills</a></li>
+              <li><a href="/#contributions" className="text-neutral-400 hover:text-green-400 transition-colors font-poppins">GitHub Activity</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-lg font-bold text-white mb-4">Pages</h3>
             <ul className="space-y-1">
-              <li><a href="/about" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">About</a></li>
-              <li><a href="/projects" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">Projects</a></li>
-              <li><a href="/all-posts" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">Blogs</a></li>
-              <li><a href="/certificates" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">Achievements</a></li>
-              <li><a href="/contact" className="text-gray-400 hover:text-green-400 transition-colors font-poppins">Contact Us</a></li>
+              <li><a href="/about" className="text-neutral-400 hover:text-green-400 transition-colors font-poppins">About</a></li>
+              <li><a href="/projects" className="text-neutral-400 hover:text-green-400 transition-colors font-poppins">Projects</a></li>
+              <li><a href="/all-posts" className="text-neutral-400 hover:text-green-400 transition-colors font-poppins">Blogs</a></li>
+              <li><a href="/certificates" className="text-neutral-400 hover:text-green-400 transition-colors font-poppins">Achievements</a></li>
+              <li><a href="/contact" className="text-neutral-400 hover:text-green-400 transition-colors font-poppins">Contact Us</a></li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col  justify-between items-center">
-          <p className="text-gray-400 text-sm mb-4 md:mb-0 font-satoshi">
+          <p className="text-neutral-400 text-sm mb-4 md:mb-0 font-satoshi">
             © 2025. All rights reserved.
           </p>
-          <p className="text-gray-400 text-sm flex items-center font-satoshi">
+          <p className="text-neutral-400 text-sm flex items-center font-satoshi">
             Design & Developed by <Coffee className="w-4 h-4 mx-1 text-[#fcda03]" />Dhrubaraj Pati
           </p>
         </div>
