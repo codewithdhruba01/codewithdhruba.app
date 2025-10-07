@@ -57,9 +57,16 @@ const Certificates = () => {
       description: "I have been selected as a Contributor for GirlScript Summer of Code 2025 (GSSoC '25)!"
     },
     {
+      title: "Contributor",
+      organization: "Hacktoberfast",
+      date: "Oct 2025",
+      image: "/certificates/hacktoberfast.png",
+      description: "I've successfully completed my contributions for Hacktoberfest 2025"
+    },
+    {
       title: "Open Source Developer",
       organization: "Recode Hive",
-      date: "May 2025",
+      date: "Present",
       image: "/certificates/recodehive.png",
       description: "Recognized for significant contributions to Python Documentation community projects"
     }
