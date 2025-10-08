@@ -1,9 +1,4 @@
-import {
-  Mail,
-  Github,
-  Twitter,
-  Linkedin,
-} from "lucide-react";
+import { Mail, Github, Twitter, Linkedin } from 'lucide-react';
 
 export default function AboutMe() {
   return (
@@ -27,13 +22,12 @@ export default function AboutMe() {
           <p className="text-[#00DC82] mb-4 font-outfit">Software Engineer</p>
           <div className="flex flex-wrap gap-2 mb-4 justify-center font-supreme">
             {[
-              "Operating System",
-              "Python",
-              "Networking",
-              "Front-End Development",
-              
-              "Full Stack Development",
-              "Networking",
+              'Operating System',
+              'Python',
+              'Networking',
+              'Front-End Development',
+              'Full Stack Development',
+              'Networking',
             ].map((tag) => (
               <span
                 key={tag}
@@ -72,7 +66,8 @@ export default function AboutMe() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 hover:text-[#00DC82] font-satoshi"
             >
-              <Linkedin size={16} />@dhrubaraj-pati
+              <Linkedin size={16} />
+              @dhrubaraj-pati
             </a>
           </div>
         </div>
@@ -83,17 +78,27 @@ export default function AboutMe() {
             About <span className="text-[#00DC82]">Me</span>
           </h1>
           <p className="text-gray-400 font-satoshi text-xl leading-relaxed">
-            I'm a passionate Full Stack Developer based in India, with a strong focus on creating beautiful and functional web applications.
-            My journey as a developer is driven by a genuine curiosity about how technology shapes our lives and a deep commitment to building meaningful solutions.
-            From designing pixel-perfect user interfaces to architecting scalable back-end systems, I find excitement in every part of the development process.
-            On the front end, I specialize in creating responsive and accessible web applications using modern frameworks like React and Tailwind CSS.
+            I'm a passionate Full Stack Developer based in India, with a strong
+            focus on creating beautiful and functional web applications. My
+            journey as a developer is driven by a genuine curiosity about how
+            technology shapes our lives and a deep commitment to building
+            meaningful solutions. From designing pixel-perfect user interfaces
+            to architecting scalable back-end systems, I find excitement in
+            every part of the development process. On the front end, I
+            specialize in creating responsive and accessible web applications
+            using modern frameworks like React and Tailwind CSS.
           </p>
           <p className="text-gray-400 font-satoshi text-xl leading-relaxed">
-            Currently pursuing my <strong>BCA in Computer Science and Engineering,</strong> I love exploring new technologies and building innovative solutions.
+            Currently pursuing my{' '}
+            <strong>BCA in Computer Science and Engineering,</strong> I love
+            exploring new technologies and building innovative solutions.
           </p>
           <p className="text-gray-400 font-satoshi text-xl leading-relaxed">
-            Beyond coding, I'm passionate about exploring cutting-edge technologies, actively contributing to <strong>open-source communities</strong>,
-            and continuously learning about the latest innovations in web development to sharpen my skills and stay ahead in the tech world.
+            Beyond coding, I'm passionate about exploring cutting-edge
+            technologies, actively contributing to{' '}
+            <strong>open-source communities</strong>, and continuously learning
+            about the latest innovations in web development to sharpen my skills
+            and stay ahead in the tech world.
           </p>
 
           {/* Education Section */}
@@ -106,8 +111,10 @@ export default function AboutMe() {
                 </strong>
                 <br />
                 <div className="font-satoshi text-gray-400">
-                  Swami Vivekananda University Kolkata{" "}
-                  <span className="text-[#00DC82] font-satoshi">( 2023 - Present )</span>
+                  Swami Vivekananda University Kolkata{' '}
+                  <span className="text-[#00DC82] font-satoshi">
+                    ( 2023 - Present )
+                  </span>
                 </div>
               </li>
             </ul>
