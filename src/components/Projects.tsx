@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Github, Globe } from 'lucide-react'
+import { Github, Globe } from 'lucide-react';
 
 type Project = {
   title: string;
@@ -18,7 +18,8 @@ const Projects = () => {
   const projects: Project[] = [
     {
       title: 'MultiCalc - Calculator',
-      description: 'A comprehensive calculator website with multiple calculator types and a beautiful UI.',
+      description:
+        'A comprehensive calculator website with multiple calculator types and a beautiful UI.',
       image: '/project/multicalc1.png',
       github: 'https://github.com/codewithdhruba01/MultiCalc',
       demo: 'https://multicalculat.netlify.app/',
@@ -26,7 +27,8 @@ const Projects = () => {
     },
     {
       title: 'Outfit Wallpaper Generator',
-      description: 'Outfit Wallpaper Generator is a modern, interactive web application.',
+      description:
+        'Outfit Wallpaper Generator is a modern, interactive web application.',
       image: '/project/wallpaperapp.png',
       github: 'https://github.com/codewithdhruba01/OutfitWallpaper',
       demo: 'https://outfitwallpaper.netlify.app/',
@@ -34,7 +36,8 @@ const Projects = () => {
     },
     {
       title: 'GitHub Pro Tools',
-      description: 'Advanced GitHub tools for developers follower analytics, README designer, comparison, and documentation.',
+      description:
+        'Advanced GitHub tools for developers follower analytics, README designer, comparison, and documentation.',
       image: '/project/githubprotool.png',
       github: 'https://github.com/codewithdhruba01/GithubProtools',
       demo: 'https://githubprotools.vercel.app/',
@@ -62,10 +65,16 @@ const Projects = () => {
 
       <section id="projects" className="py-20 bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold mb-4 text-center font-synonym" data-aos="fade-up">
+          <h2
+            className="text-4xl font-bold mb-4 text-center font-synonym"
+            data-aos="fade-up"
+          >
             Latest <span className="text-[#00DC82]">Projects</span>
           </h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-white to-green-900 mx-auto rounded-full mb-10" data-aos="fade-up" />
+          <div
+            className="h-1 w-24 bg-gradient-to-r from-white to-green-900 mx-auto rounded-full mb-10"
+            data-aos="fade-up"
+          />
 
           <div className="grid md:grid-cols-3 gap-8">
             {projects.map((project, index) => (
@@ -92,7 +101,7 @@ const Projects = () => {
                   <p className="text-neutral-400 mb-4 leading-relaxed text-sm font-poppins">
                     {project.description}
                   </p>
-                  
+
                   {/* Tech Stack */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.techStack.map((tech, i) => (
@@ -161,7 +170,9 @@ const Projects = () => {
               <h3 className="text-2xl font-bold mb-2 text-white font-synonym">
                 {selectedProject.title}
               </h3>
-              <p className="text-neutral-500 mb-4 font-poppins text-sm">{selectedProject.description}</p>
+              <p className="text-neutral-500 mb-4 font-poppins text-sm">
+                {selectedProject.description}
+              </p>
 
               {/* Tech Stack in Modal */}
               <div className="flex flex-wrap gap-2 mb-4">

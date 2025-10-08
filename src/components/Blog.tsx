@@ -1,25 +1,25 @@
-import { Link } from "react-router-dom";
-import { Calendar, ArrowRight } from "lucide-react";
+import { Link } from 'react-router-dom';
+import { Calendar, ArrowRight } from 'lucide-react';
 
 const Blog = () => {
   const blogPosts = [
     {
-      title: "Getting Started with React project with TypeScript",
+      title: 'Getting Started with React project with TypeScript',
       description:
-        "Learn how to set up a new React project with TypeScript and best practices for type safety.",
-      date: "March 15, 2025",
-      image: "/blog/blog2.png",
-      category: ["React", "Setting", "Setup"],
-      slug: "getting-started-with-react-typescript",
+        'Learn how to set up a new React project with TypeScript and best practices for type safety.',
+      date: 'March 15, 2025',
+      image: '/blog/blog2.png',
+      category: ['React', 'Setting', 'Setup'],
+      slug: 'getting-started-with-react-typescript',
     },
     {
-      title: "Getting Started with Visual Studio Code: The Complete Guide",
+      title: 'Getting Started with Visual Studio Code: The Complete Guide',
       description:
-        "A complete beginner guide to using Visual Studio Code, the world’s most popular code editor.",
-      date: "July 2, 2025",
-      image: "/blog/blog1.png",
-      category: ["Editor", "Development"],
-      slug: "getting-started-with-vs-code",
+        'A complete beginner guide to using Visual Studio Code, the world’s most popular code editor.',
+      date: 'July 2, 2025',
+      image: '/blog/blog1.png',
+      category: ['Editor', 'Development'],
+      slug: 'getting-started-with-vs-code',
     },
   ];
 
@@ -72,7 +72,6 @@ const Blog = () => {
                   ))}
                 </div>
 
-                {/* Footer */}
                 <div className="flex items-center justify-between text-sm text-neutral-400 font-outfit mt-auto">
                   <span className="flex items-center gap-1">
                     <Calendar size={14} className="text-neutral-300" />
@@ -90,7 +89,6 @@ const Blog = () => {
           ))}
         </div>
 
-        {/* View all button */}
         <div
           className="text-center mt-12"
           data-aos="fade-up"

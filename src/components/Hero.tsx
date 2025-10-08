@@ -1,10 +1,17 @@
-import { Github, Twitter, Linkedin, Instagram, User, Download } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import {
+  Github,
+  Twitter,
+  Linkedin,
+  Instagram,
+  User,
+  Download,
+} from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/assets/Dhrubaraj_s_CV.pdf'; 
+    link.href = '/assets/Dhrubaraj_s_CV.pdf';
     link.download = 'Dhrubaraj_Resume.pdf';
     document.body.appendChild(link);
     link.click();
@@ -12,10 +19,11 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16 px-4 bg-[#0A0A0A]">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center pt-16 px-4 bg-[#0A0A0A]"
+    >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        
-        {/* Profile Image */}
         <div data-aos="fade-up">
           <img
             src="/assets/hero-cover.png"
@@ -24,45 +32,61 @@ const Hero = () => {
           />
         </div>
 
-        {/* Name Heading */}
-        <h1 
+        <h1
           className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white font-synonym"
           data-aos="fade-up"
         >
           Hi, I'm <span className="text-[#009a5a] font-synonym">Dhrubaraj</span>
         </h1>
 
-        {/* Subtitle */}
         <p
           className="text-xl md:text-xl text-gray-700 dark:text-gray-500 mb-8  font-satoshi"
           data-aos="fade-up"
           data-aos-delay="150"
         >
-           A Full Stack Developer crafts seamless digital experiences, blending front-end creativity with back-end logic, mastering diverse technologies to build robust, user-friendly, and efficient web applications from start to finish.
+          A Full Stack Developer crafts seamless digital experiences, blending
+          front-end creativity with back-end logic, mastering diverse
+          technologies to build robust, user-friendly, and efficient web
+          applications from start to finish.
         </p>
 
-        {/* Description */}
-        <p 
+        <p
           className="text-base md:text-base text-neutral-500 max-w-6xl md:max-w-6xl lg:max-w-5xl xl:max-w-4xl mb-10 font-outfit"
           data-aos="fade-up"
           data-aos-delay="200"
-        >
-         
-        </p>
+        ></p>
 
-        {/* Social + Button */}
-        <div 
+        <div
           className="flex flex-col items-center space-y-6"
           data-aos="fade-up"
           data-aos-delay="400"
         >
-          {/* Social Icons with Tooltip */}
           <div className="flex space-x-6">
             {[
-              { href: "https://x.com/codewithdhruba", icon: Twitter, label: "Twitter", color: "hover:text-[#00CAFF]" },
-              { href: "https://www.linkedin.com/in/dhrubaraj-pati/", icon: Linkedin, label: "LinkedIn", color: "hover:text-[#3396D3]" },
-              { href: "https://www.instagram.com/dhrubaraj_pati/", icon: Instagram, label: "Instagram", color: "hover:text-[#E4405F]" },
-              { href: "https://github.com/codewithdhruba01", icon: Github, label: "GitHub", color: "hover:text-[#a7a6a6]" },
+              {
+                href: 'https://x.com/codewithdhruba',
+                icon: Twitter,
+                label: 'Twitter',
+                color: 'hover:text-[#00CAFF]',
+              },
+              {
+                href: 'https://www.linkedin.com/in/dhrubaraj-pati/',
+                icon: Linkedin,
+                label: 'LinkedIn',
+                color: 'hover:text-[#3396D3]',
+              },
+              {
+                href: 'https://www.instagram.com/dhrubaraj_pati/',
+                icon: Instagram,
+                label: 'Instagram',
+                color: 'hover:text-[#E4405F]',
+              },
+              {
+                href: 'https://github.com/codewithdhruba01',
+                icon: Github,
+                label: 'GitHub',
+                color: 'hover:text-[#a7a6a6]',
+              },
             ].map(({ href, icon: Icon, label, color }) => (
               <a
                 key={label}
@@ -71,20 +95,21 @@ const Hero = () => {
                 rel="noopener noreferrer"
                 className="relative group"
               >
-                <div className={`p-3 rounded-full border border-gray-500 text-gray-400 transition-all duration-300 hover:bg-white/10 hover:scale-110 ${color}`}>
+                <div
+                  className={`p-3 rounded-full border border-gray-500 text-gray-400 transition-all duration-300 hover:bg-white/10 hover:scale-110 ${color}`}
+                >
                   <Icon className="h-6 w-6" />
                 </div>
-                {/* Tooltip (UP direction) */}
+
                 <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 text-sm text-black bg-white rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
                   {label}
-                  {/* Arrow pointing DOWN (because tooltip is on top) */}
+
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full border-4 border-transparent border-t-white"></span>
                 </span>
               </a>
             ))}
           </div>
 
-          {/* Buttons */}
           <div className="flex flex-wrap justify-center gap-4">
             <button
               onClick={handleDownloadCV}

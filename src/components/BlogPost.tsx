@@ -60,16 +60,16 @@ const UserCard: React.FC<UserCardProps> = ({ name, age }) => (
     <p>Once you get the hang of it, you'll never want to go back to plain JavaScript. Happy coding! 🚀</p>
     `,
     image: '/blog/blog2.png',
-    tags: ['React', 'TypeScript', 'Web Development']
+    tags: ['React', 'TypeScript', 'Web Development'],
   },
 
   'getting-started-with-vs-code': {
-  title: 'Getting Started with Visual Studio Code: The Complete Guide',
-  date: 'July 2, 2025',
-  author: 'Dhrubaraj Pati',
-  category: 'Development Tools',
-  readTime: '8 min read',
-  content: `
+    title: 'Getting Started with Visual Studio Code: The Complete Guide',
+    date: 'July 2, 2025',
+    author: 'Dhrubaraj Pati',
+    category: 'Development Tools',
+    readTime: '8 min read',
+    content: `
     <h2>Introduction</h2>
     <p>Visual Studio Code, commonly known as VS Code, is a lightweight but powerful source-code editor developed by Microsoft. Whether you are a beginner learning to code or a professional building large-scale applications, VS Code provides the tools and flexibility to boost your productivity.</p>
     
@@ -147,17 +147,17 @@ View > Terminal
     <p>Visual Studio Code is a modern, flexible editor that adapts to any project or technology stack. With its powerful extensions, built-in tools, and extensive customization options, it’s an essential tool in every developer’s toolkit.</p>
     <p>Download VS Code today and start building your next project faster and more efficiently!</p>
   `,
-  image: '/blog/blog1.png',
-  tags: ['VS Code', 'Code Editor', 'Development', 'Productivity']
-},
+    image: '/blog/blog1.png',
+    tags: ['VS Code', 'Code Editor', 'Development', 'Productivity'],
+  },
 
   'chrome-keyboard-shortcuts': {
-  title: '10 Chrome Keyboard Shortcuts to Boost Your Productivity',
-  date: 'October 6, 2025',
-  author: 'Dhrubaraj Pati',
-  category: 'Productivity',
-  readTime: '5 min read',
-  content: `
+    title: '10 Chrome Keyboard Shortcuts to Boost Your Productivity',
+    date: 'October 6, 2025',
+    author: 'Dhrubaraj Pati',
+    category: 'Productivity',
+    readTime: '5 min read',
+    content: `
    <p>Google Chrome is not just a browser — it’s a productivity tool hiding in plain sight. While most users rely on their mouse for every action, Chrome offers dozens of keyboard shortcuts that make everyday browsing smoother, faster, and more efficient. By learning just a handful of these shortcuts, you can cut down the time spent on routine actions and focus more on what actually matters.</p>
     <p>Whether you’re on <strong>Windows</strong> or <kbd>⌘</kbd> <strong>Mac</strong>, mastering these 10 essential shortcuts will turn you into a power user — helping you open tabs, switch between tasks, and navigate like a pro without ever taking your hands off the keyboard.</p>
 
@@ -247,17 +247,24 @@ View > Terminal
     <p>Keyboard shortcuts may seem small individually, but together they have a massive impact on your browsing efficiency. By mastering these 10 Chrome shortcuts — on both Windows and Mac — you’ll be able to open, close, switch, and manage tabs like a true power user.</p>
     <p>Start by memorizing a few that you’ll use most often. Over time, your hands will naturally use them without thinking, and you’ll notice just how much faster and smoother your workflow becomes.</p>
   `,
-  image: '/blog/chrome_shortcuts.png',
-  tags: ['Chrome', 'Productivity', 'Keyboard Shortcuts', 'Time Management', 'Browsing Tips']
-},
+    image: '/blog/chrome_shortcuts.png',
+    tags: [
+      'Chrome',
+      'Productivity',
+      'Keyboard Shortcuts',
+      'Time Management',
+      'Browsing Tips',
+    ],
+  },
 
-'openweather-api-guide': {
-  title: 'The Ultimate Guide to OpenWeather API: Features, API Key Generation & Integration',
-  date: 'October 8, 2025',
-  author: 'Dhrubaraj Pati',
-  category: 'Web Development',
-  readTime: '7 min read',
-  content: `
+  'openweather-api-guide': {
+    title:
+      'The Ultimate Guide to OpenWeather API: Features, API Key Generation & Integration',
+    date: 'October 8, 2025',
+    author: 'Dhrubaraj Pati',
+    category: 'Web Development',
+    readTime: '7 min read',
+    content: `
 <p>The OpenWeather API is one of the most popular and reliable weather data services available today. Whether you're building a weather app, adding real-time forecasts to your website, or working on a smart IoT project, OpenWeather provides accurate and comprehensive data to power your ideas.</p>
 
 <p>In this detailed guide, we'll explore everything you need to know about the OpenWeather API — including its features, how to generate your API key, endpoints, integration examples, pricing, and best practices.</p>
@@ -372,9 +379,16 @@ fetch('https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_K
 <li><a href="https://home.openweathermap.org/api_keys" target="_blank">API Key Dashboard</a></li>
 </ul>
 `,
-  image: '/blog/OpenWeather.png',
-  tags: ['OpenWeather', 'API', 'Web Development', 'Weather App', 'JavaScript', 'Beginner Guide']
-}
+    image: '/blog/OpenWeather.png',
+    tags: [
+      'OpenWeather',
+      'API',
+      'Web Development',
+      'Weather App',
+      'JavaScript',
+      'Beginner Guide',
+    ],
+  },
 };
 
 const BlogPost = () => {
@@ -390,8 +404,7 @@ const BlogPost = () => {
   if (!post) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-        </div>
+        <div className="text-center"></div>
       </div>
     );
   }
@@ -425,7 +438,9 @@ const BlogPost = () => {
               className="w-10 h-10 rounded-full mr-4"
             />
             <div>
-              <div className="text-white font-supreme font-samibold">{post.author}</div>
+              <div className="text-white font-supreme font-samibold">
+                {post.author}
+              </div>
               <div className="text-sm font-supreme text-neutral-400">
                 {post.date} · {post.readTime}
               </div>
@@ -465,19 +480,34 @@ const BlogPost = () => {
         </div>
 
         {/* Share Section */}
-        <div className="mt-12 flex items-center justify-between" data-aos="fade-up">
+        <div
+          className="mt-12 flex items-center justify-between"
+          data-aos="fade-up"
+        >
           <div className="text-neutral-400 font-supreme">Follow More:</div>
           <div className="flex space-x-4">
-            <a href="https://x.com/codewithdhruba" className="text-muted-foreground hover:text-foreground">
+            <a
+              href="https://x.com/codewithdhruba"
+              className="text-muted-foreground hover:text-foreground"
+            >
               <Twitter className="h-5 w-5 hover:text-[#00CAFF]" />
             </a>
-            <a href="https://www.linkedin.com/in/dhrubaraj-pati/" className="text-muted-foreground hover:text-foreground">
+            <a
+              href="https://www.linkedin.com/in/dhrubaraj-pati/"
+              className="text-muted-foreground hover:text-foreground"
+            >
               <Linkedin className="h-5 w-5 hover:text-[#5093f7]" />
             </a>
-            <a href="https://www.instagram.com/dhrubaraj_pati/" className="text-muted-foreground hover:text-foreground">
+            <a
+              href="https://www.instagram.com/dhrubaraj_pati/"
+              className="text-muted-foreground hover:text-foreground"
+            >
               <Instagram className="h-5 w-5 hover:text-[#E4405F]" />
             </a>
-            <a href="https://m.facebook.com/dhruba.raj.113858/" className="text-muted-foreground hover:text-foreground">
+            <a
+              href="https://m.facebook.com/dhruba.raj.113858/"
+              className="text-muted-foreground hover:text-foreground"
+            >
               <Facebook className="h-5 w-5 hover:text-[#4a5bf5]" />
             </a>
           </div>

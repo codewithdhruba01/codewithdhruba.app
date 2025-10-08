@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { request, gql } from "graphql-request";
+import { useEffect, useState } from 'react';
+import { request, gql } from 'graphql-request';
 
 interface DayData {
   date: string;
@@ -11,11 +11,11 @@ const GitHubContributions = () => {
   const [totalCount, setTotalCount] = useState<number>(0);
   const [year, setYear] = useState<number>(new Date().getFullYear()); // default latest year
 
-  const GITHUB_USERNAME = "codewithdhruba01";
+  const GITHUB_USERNAME = 'codewithdhruba01';
   const TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
 
   const fetchContributions = async (selectedYear: number) => {
-    const endpoint = "https://api.github.com/graphql";
+    const endpoint = 'https://api.github.com/graphql';
 
     const query = gql`
       query {
@@ -64,7 +64,7 @@ const GitHubContributions = () => {
       setContributions(allDays);
       setTotalCount(calendar.totalContributions);
     } catch (error) {
-      console.error("GitHub API Error:", error);
+      console.error('GitHub API Error:', error);
     }
   };
 
@@ -73,11 +73,11 @@ const GitHubContributions = () => {
   }, [year]);
 
   const getContributionColor = (count: number) => {
-    if (count === 0) return "bg-[#1f1f1f]";
-    if (count <= 2) return "bg-[#00DC82]/20";
-    if (count <= 5) return "bg-[#00DC82]/50";
-    if (count <= 8) return "bg-[#00DC82]/80";
-    return "bg-[#00DC82]";
+    if (count === 0) return 'bg-[#1f1f1f]';
+    if (count <= 2) return 'bg-[#00DC82]/20';
+    if (count <= 5) return 'bg-[#00DC82]/50';
+    if (count <= 8) return 'bg-[#00DC82]/80';
+    return 'bg-[#00DC82]';
   };
 
   const weeks = [];
@@ -95,7 +95,7 @@ const GitHubContributions = () => {
     const firstDay = week[0];
     if (firstDay) {
       const date = new Date(firstDay.date);
-      const month = date.toLocaleString("default", { month: "short" });
+      const month = date.toLocaleString('default', { month: 'short' });
       const prev = monthLabels[monthLabels.length - 1];
       if (!prev || prev.month !== month) {
         monthLabels.push({ index, month });
@@ -107,9 +107,16 @@ const GitHubContributions = () => {
     <section id="contributions" className="py-20 bg-neutral-950">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <h2 className="text-4xl font-bold mb-4 text-center font-synonym">GitHub Activity</h2>
-        <p className="text-center mb-2 text-sm font-supreme text-neutral-400"><strong>codewithdhruba's</strong> coding journey over the past year</p>
-        <div className="text-center mb-10 text-sm font-satoshi text-neutral-400">Total contributions in {year}: <span className="text-[#00DC82] font-semibold">{totalCount}</span></div>
+        <h2 className="text-4xl font-bold mb-4 text-center font-synonym">
+          GitHub Activity
+        </h2>
+        <p className="text-center mb-2 text-sm font-supreme text-neutral-400">
+          <strong>codewithdhruba's</strong> coding journey over the past year
+        </p>
+        <div className="text-center mb-10 text-sm font-satoshi text-neutral-400">
+          Total contributions in {year}:{' '}
+          <span className="text-[#00DC82] font-semibold">{totalCount}</span>
+        </div>
 
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Graph Card */}
@@ -121,11 +128,8 @@ const GitHubContributions = () => {
                 {weeks.map((_, weekIndex) => {
                   const label = monthLabels.find((m) => m.index === weekIndex);
                   return (
-                    <div
-                      key={weekIndex}
-                      className="w-3 text-center shrink-0"
-                    >
-                      {label ? label.month : ""}
+                    <div key={weekIndex} className="w-3 text-center shrink-0">
+                      {label ? label.month : ''}
                     </div>
                   );
                 })}
@@ -138,12 +142,12 @@ const GitHubContributions = () => {
                   {Array.from({ length: 7 }).map((_, dayIndex) => {
                     const label =
                       dayIndex === 1
-                        ? "Mon"
+                        ? 'Mon'
                         : dayIndex === 3
-                        ? "Wed"
+                        ? 'Wed'
                         : dayIndex === 5
-                        ? "Fri"
-                        : "";
+                        ? 'Fri'
+                        : '';
                     return (
                       <div key={dayIndex} className="h-3">
                         {label}
@@ -195,8 +199,8 @@ const GitHubContributions = () => {
                 onClick={() => setYear(y)}
                 className={`px-4 py-2 rounded-md text-sm font-semibold transition-all ${
                   year === y
-                    ? "bg-[#00DC82] text-black"
-                    : "bg-neutral-800 text-gray-400 hover:bg-neutral-700 hover:text-white"
+                    ? 'bg-[#00DC82] text-black'
+                    : 'bg-neutral-800 text-gray-400 hover:bg-neutral-700 hover:text-white'
                 }`}
               >
                 {y}

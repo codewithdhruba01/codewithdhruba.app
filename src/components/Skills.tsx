@@ -1,58 +1,58 @@
 const Skills = () => {
   const sections = [
     {
-      title: "Programming Languages",
+      title: 'Programming Languages',
       skills: [
-        "C Programming",
-        "Python Programming",
-        "Java Programming",
-        "JavaScript",
-        "TypeScript",
-        "C++ Programming",
+        'C Programming',
+        'Python Programming',
+        'Java Programming',
+        'JavaScript',
+        'TypeScript',
+        'C++ Programming',
       ],
     },
     {
-      title: "Full Stack Development",
+      title: 'Full Stack Development',
       skills: [
-        "HTML",
-        "CSS",
-        "Tailwind CSS",
-        "Bootstrap",
-        "Material UI",
-        "JavaScript",
-        "TypeScript",
-        "Node.js",
-        "Vite",
-        "REST APIs",
-        "MongoDB",
+        'HTML',
+        'CSS',
+        'Tailwind CSS',
+        'Bootstrap',
+        'Material UI',
+        'JavaScript',
+        'TypeScript',
+        'Node.js',
+        'Vite',
+        'REST APIs',
+        'MongoDB',
       ],
     },
     {
-      title: "Development Tools",
+      title: 'Development Tools',
       skills: [
-        "Git",
-        "GitHub",
-        "Visual Studio Code",
-        "Pycharm",
-        "intellij",
-        "Eclipse",
-        "Postman",
-        "Figma",
-        "Flaticon",
-        "terminal",
-        "npm",
+        'Git',
+        'GitHub',
+        'Visual Studio Code',
+        'Pycharm',
+        'intellij',
+        'Eclipse',
+        'Postman',
+        'Figma',
+        'Flaticon',
+        'terminal',
+        'npm',
       ],
     },
     {
-      title: "Other Skills",
+      title: 'Other Skills',
       skills: [
-        "Problem Solving",
-        "Competitive Programming",
-        "Data Structures and Algorithms",
-        "Web Development",
-        "Software Development",
-        "UI/UX Design",
-        "Agile Methodologies",
+        'Problem Solving',
+        'Competitive Programming',
+        'Data Structures and Algorithms',
+        'Web Development',
+        'Software Development',
+        'UI/UX Design',
+        'Agile Methodologies',
       ],
     },
   ];
@@ -66,7 +66,10 @@ const Skills = () => {
         >
           Tech Stack
         </h2>
-        <div className="h-1 w-24 bg-gradient-to-r from-white to-green-900 mx-auto rounded-full mb-10" data-aos="fade-up" />
+        <div
+          className="h-1 w-24 bg-gradient-to-r from-white to-green-900 mx-auto rounded-full mb-10"
+          data-aos="fade-up"
+        />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {sections.map((section, idx) => (
             <div

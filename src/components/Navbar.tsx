@@ -10,7 +10,7 @@ const Navbar = () => {
     { href: '/#skills', text: 'Skills' },
     { href: '/#blog', text: 'Blog' },
     { href: '/certificates', text: 'Certificates' },
-    { href: '/contact', text: 'Contact' }
+    { href: '/contact', text: 'Contact' },
   ];
 
   return (
@@ -20,15 +20,11 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="/">
-              <img
-                src="/logo/logo.png"
-                alt="Logo"
-                className="h-10 w-auto"
-              />
+              <img src="/logo/logo.png" alt="Logo" className="h-10 w-auto" />
             </a>
           </div>
 
-          {/* Centered Desktop Navigation */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex mx-auto space-x-2 font-bold">
             {navLinks.map((link) => (
               <a
@@ -52,7 +48,9 @@ const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="text-white hover:text-[#00DC82] focus:outline-none"
             >
-              <i className={`fas ${isOpen ? 'fa-times' : 'fa-bars'} text-2xl`}></i>
+              <i
+                className={`fas ${isOpen ? 'fa-times' : 'fa-bars'} text-2xl`}
+              ></i>
             </button>
           </div>
         </div>

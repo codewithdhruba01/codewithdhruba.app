@@ -6,7 +6,6 @@ const ChatBotLauncher: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Optional: Hide button on the chat page itself
   if (location.pathname === '/chat-assistant') return null;
 
   return (
@@ -19,9 +18,7 @@ const ChatBotLauncher: React.FC = () => {
         <BotMessageSquare size={24} className="text-white" />
       </button>
 
-      {/* Tooltip */}
-      <span className="absolute -top-10 right-1/2 translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all duration-200">
-      </span>
+      <span className="absolute -top-10 right-1/2 translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all duration-200"></span>
     </div>
   );
 };
