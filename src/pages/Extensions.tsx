@@ -1,6 +1,6 @@
-"use client";
-import { useEffect, useState } from "react";
-import { Copy, Check,ArrowUpRight } from "lucide-react";
+'use client';
+import { useEffect, useState } from 'react';
+import { Copy, Check, ArrowUpRight } from 'lucide-react';
 
 export default function Gears() {
   const [copied, setCopied] = useState<string | null>(null);
@@ -40,30 +40,30 @@ export default function Gears() {
           </h2>
           <ul className="space-y-4">
             {[
-              { name: "formulahendry.code-runner" },
-              { name: "royaction.color-manager" },
-              { name: "usernamehw.errorlens" },
-              { name: "dbaeumer.vscode-eslint" },
-              { name: "ritwickdey.LiveServer" },
-              { name: "PKief.material-icon-theme" },
-              { name: "esbenp.prettier-vscode" },
-              { name: "alefragnani.project-manager" },
-              { name: "GitHub.copilot" },
-              { name: "GitHub.copilot-chat" },
-              { name: "eamodio.gitlens" },
-              { name: "ecmel.vscode-html-css" },
-              { name: "dbaeumer.vscode-eslint" },
-              { name: "ms-python.python" },
-              { name: "ms-python.debugpy" },
-              { name: "hiteshchoudharycode.wordhub" },
-              { name: "george-alisson.html-preview-vscode" },
-              { name: "VisualStudioExptTeam.vscodeintellicode" },
-              { name: "Oracle.oracle-java" },
-              { name: "shd101wyy.markdown-preview-enhanced" },
-              { name: "mechatroner.rainbow-csv" },
-              { name: "bradlc.vscode-tailwindcss" },
-              { name: "sidharthachatterjee.vscode-tailwindcss" },
-              { name: "aslamanver.vsc-export" },
+              { name: 'formulahendry.code-runner' },
+              { name: 'royaction.color-manager' },
+              { name: 'usernamehw.errorlens' },
+              { name: 'dbaeumer.vscode-eslint' },
+              { name: 'ritwickdey.LiveServer' },
+              { name: 'PKief.material-icon-theme' },
+              { name: 'esbenp.prettier-vscode' },
+              { name: 'alefragnani.project-manager' },
+              { name: 'GitHub.copilot' },
+              { name: 'GitHub.copilot-chat' },
+              { name: 'eamodio.gitlens' },
+              { name: 'ecmel.vscode-html-css' },
+              { name: 'dbaeumer.vscode-eslint' },
+              { name: 'ms-python.python' },
+              { name: 'ms-python.debugpy' },
+              { name: 'hiteshchoudharycode.wordhub' },
+              { name: 'george-alisson.html-preview-vscode' },
+              { name: 'VisualStudioExptTeam.vscodeintellicode' },
+              { name: 'Oracle.oracle-java' },
+              { name: 'shd101wyy.markdown-preview-enhanced' },
+              { name: 'mechatroner.rainbow-csv' },
+              { name: 'bradlc.vscode-tailwindcss' },
+              { name: 'sidharthachatterjee.vscode-tailwindcss' },
+              { name: 'aslamanver.vsc-export' },
             ].map((ext, i) => (
               <li
                 key={i}
@@ -100,17 +100,34 @@ export default function Gears() {
           </h2>
           <ul className="space-y-4">
             {[
-              { name: "ColorPick Eyedropper", url: "https://chromewebstore.google.com/detail/ohcpnigalekghcmgcdcenkpelffpdolg?utm_source=item-share-cb" },
-              { name: "React Developer Tools", url: "https://chromewebstore.google.com/detail/fmkadmapgofadopljbjfkapdkoienihi?utm_source=item-share-cb" },
-              { name: "Fonts Ninja", url: "https://chromewebstore.google.com/detail/eljapbgkmlngdpckoiiibecpemleclhh?utm_source=item-share-cb" },
-              { name: "Web Editor", url: "https://chromewebstore.google.com/detail/pdmlhckofhkhebmcplblcijijgjiakcm?utm_source=item-share-cb" },
-              { name: "JSON Formatter", url: "https://chromewebstore.google.com/detail/bcjindcccaagfpapjjmafapmmgkkhgoa?utm_source=item-share-cb" },
-              { name: "Mobile simulator", url: "https://chromewebstore.google.com/detail/ckejmhbmlajgoklhgbapkiccekfoccmk?utm_source=item-share-cb" },
-              { name: "Loom", url: "https://www.loom.com/" },
-              { name: "AdBlock", url: "https://getadblock.com/en/" },
-              { name: "Urban VPN", url: "https://www.urban-vpn.com/" },
+              {
+                name: 'ColorPick Eyedropper',
+                url: 'https://chromewebstore.google.com/detail/ohcpnigalekghcmgcdcenkpelffpdolg?utm_source=item-share-cb',
+              },
+              {
+                name: 'React Developer Tools',
+                url: 'https://chromewebstore.google.com/detail/fmkadmapgofadopljbjfkapdkoienihi?utm_source=item-share-cb',
+              },
+              {
+                name: 'Fonts Ninja',
+                url: 'https://chromewebstore.google.com/detail/eljapbgkmlngdpckoiiibecpemleclhh?utm_source=item-share-cb',
+              },
+              {
+                name: 'Web Editor',
+                url: 'https://chromewebstore.google.com/detail/pdmlhckofhkhebmcplblcijijgjiakcm?utm_source=item-share-cb',
+              },
+              {
+                name: 'JSON Formatter',
+                url: 'https://chromewebstore.google.com/detail/bcjindcccaagfpapjjmafapmmgkkhgoa?utm_source=item-share-cb',
+              },
+              {
+                name: 'Mobile simulator',
+                url: 'https://chromewebstore.google.com/detail/ckejmhbmlajgoklhgbapkiccekfoccmk?utm_source=item-share-cb',
+              },
+              { name: 'Loom', url: 'https://www.loom.com/' },
+              { name: 'AdBlock', url: 'https://getadblock.com/en/' },
+              { name: 'Urban VPN', url: 'https://www.urban-vpn.com/' },
             ].map((ext, i) => (
-              
               <li
                 key={i}
                 className="flex items-center gap-3 text-base sm:text-base"
