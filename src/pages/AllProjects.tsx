@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { Github, Globe } from 'lucide-react'
+import { useEffect, useState } from 'react';
+import { Github, Globe } from 'lucide-react';
 
 const categories = [
   'All',
@@ -10,44 +10,48 @@ const categories = [
   'Game',
   'Utility',
   'AI/ML',
-]
+];
 
 const projects = [
   {
-      title: 'MultiCalc - Calculator',
-      description: 'A comprehensive calculator website with multiple calculator types and a beautiful UI.',
-      image: '/project/multicalc1.png',
-      github: 'https://github.com/codewithdhruba01/MultiCalc',
-      demo: 'https://multicalculat.netlify.app/',
-      tags: ['React', 'TypeScript', 'Node.js', 'Full Stack'],
-    },
-    {
-      title: 'Outfit Wallpaper Generator',
-      description: 'Outfit Wallpaper Generator is a modern, interactive web application.',
-      image: '/project/wallpaperapp.png',
-      github: 'https://github.com/codewithdhruba01/OutfitWallpaper',
-      demo: 'https://outfitwallpaper.netlify.app/',
-      tags: ['React', 'TypeScript', 'Frontend'],
-    },
-    {
-      title: 'GitHub Pro Tools',
-      description: 'Advanced GitHub tools for developers follower analytics, README designer, comparison, and documentation.',
-      image: '/project/githubprotool.png',
-      github: 'https://github.com/codewithdhruba01/GithubProtools',
-      demo: 'https://githubprotools.vercel.app/',
-      tags: ['React', 'Next.js', 'REST API', 'Frontend'],
-    },
+    title: 'MultiCalc - Calculator',
+    description:
+      'A comprehensive calculator website with multiple calculator types and a beautiful UI.',
+    image: '/project/multicalc1.png',
+    github: 'https://github.com/codewithdhruba01/MultiCalc',
+    demo: 'https://multicalculat.netlify.app/',
+    tags: ['React', 'TypeScript', 'Node.js', 'Full Stack'],
+  },
+  {
+    title: 'Outfit Wallpaper Generator',
+    description:
+      'Outfit Wallpaper Generator is a modern, interactive web application.',
+    image: '/project/wallpaperapp.png',
+    github: 'https://github.com/codewithdhruba01/OutfitWallpaper',
+    demo: 'https://outfitwallpaper.netlify.app/',
+    tags: ['React', 'TypeScript', 'Frontend'],
+  },
+  {
+    title: 'GitHub Pro Tools',
+    description:
+      'Advanced GitHub tools for developers follower analytics, README designer, comparison, and documentation.',
+    image: '/project/githubprotool.png',
+    github: 'https://github.com/codewithdhruba01/GithubProtools',
+    demo: 'https://githubprotools.vercel.app/',
+    tags: ['React', 'Next.js', 'REST API', 'Frontend'],
+  },
 
   {
     id: 1,
     title: 'Vercual Assistence',
-    description:'A web-based voice assistant designed to provide an interactive user experience.',
+    description:
+      'A web-based voice assistant designed to provide an interactive user experience.',
     image: '/project/vercual-ass-project.jpg',
     github: 'https://github.com/codewithdhruba01/Virtual-Assistant-Application',
     demo: 'https://codewithdhruba01.github.io/Virtual-Assistant-Application/',
     tags: ['Bot Development', 'Full Stack'],
   },
-  
+
   {
     id: 2,
     title: 'ComfortPG-Website',
@@ -56,12 +60,13 @@ const projects = [
     github: 'https://github.com/codewithdhruba01/ComfortPG_Website',
     demo: 'https://comfort-pg.vercel.app/',
     tags: ['Frontend', 'Next JS', 'Type Script'],
-    },
+  },
 
-    {
+  {
     id: 3,
     title: 'Skill Progress',
-    description:'Skillber is a simple and extensible CLI tool built with TypeScript.',
+    description:
+      'Skillber is a simple and extensible CLI tool built with TypeScript.',
     image: '/project/skillsber.jpg',
     github: 'https://github.com/codewithdhruba01/Skillber',
     demo: 'https://github.com/codewithdhruba01/Skillber',
@@ -70,7 +75,8 @@ const projects = [
   {
     id: 4,
     title: 'Weather Forecast App',
-    description:'A modern weather web app using OpenWeatherMap API with weekly forecast.',
+    description:
+      'A modern weather web app using OpenWeatherMap API with weekly forecast.',
     image: '/project/weather.jpg',
     github: 'https://github.com/codewithdhruba01/realtimeWeather',
     demo: 'https://codewithdhruba01.github.io/realtimeWeather/',
@@ -79,7 +85,8 @@ const projects = [
   {
     id: 5,
     title: 'College Fee Payment Portal',
-    description:'A simple and responsive College Fee Payment Portal built using HTML, CSS, and JavaScript.',
+    description:
+      'A simple and responsive College Fee Payment Portal built using HTML, CSS, and JavaScript.',
     image: '/project/collegepayment.png',
     github: 'https://github.com/codewithdhruba01/fPortalcollege',
     demo: 'https://codewithdhruba01.github.io/fPortalcollege/',
@@ -97,7 +104,8 @@ const projects = [
   {
     id: 7,
     title: 'E-Wallet Web App',
-    description:'An interactive and responsive E-Wallet user interface built using HTML, CSS, and JavaScript.',
+    description:
+      'An interactive and responsive E-Wallet user interface built using HTML, CSS, and JavaScript.',
     image: '/project/e-wallet.jpg',
     github: 'https://github.com/codewithdhruba01/E-Wallet',
     demo: 'https://codewithdhruba01.github.io/E-Wallet/',
@@ -114,7 +122,8 @@ const projects = [
   {
     id: 9,
     title: 'Notes App',
-    description:'A lightweight, responsive note-taking app with Classic UI/UX.',
+    description:
+      'A lightweight, responsive note-taking app with Classic UI/UX.',
     image: '/project/zNote.jpg',
     github: 'https://github.com/codewithdhruba01/Znote',
     demo: 'https://codewithdhruba01.github.io/Znote/',
@@ -123,7 +132,8 @@ const projects = [
   {
     id: 10,
     title: 'Face Recognition Real-Time',
-    description:'Real-time Face Attendance System using OpenCV for recognition.',
+    description:
+      'Real-time Face Attendance System using OpenCV for recognition.',
     image: '/project/facesystem.jpg',
     github: 'https://github.com/codewithdhruba01/FaceRecognitionRealTime',
     tags: ['AI/ML'],
@@ -131,13 +141,14 @@ const projects = [
   {
     id: 11,
     title: 'Tic Tac Toe Game',
-    description:'Visually appealing Tic Tac Toe Game built using HTML, CSS, JS.',
+    description:
+      'Visually appealing Tic Tac Toe Game built using HTML, CSS, JS.',
     image: '/project/game-project.jpg',
     github: 'https://github.com/codewithdhruba01/tic-tac-toe-game',
     demo: 'https://codewithdhruba01.github.io/tic-tac-toe-game/',
     tags: ['Game'],
   },
-]
+];
 
 const SkeletonCard = () => (
   <div className="animate-pulse bg-[#1a1a1a] rounded-2xl p-5 space-y-4">
@@ -151,45 +162,47 @@ const SkeletonCard = () => (
     </div>
     <div className="h-5 w-16 bg-[#444] rounded" />
   </div>
-)
+);
 
 const AllProjects = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All')
-  const [loading, setLoading] = useState(true)
-  const [showAll, setShowAll] = useState(false)
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [loading, setLoading] = useState(true);
+  const [showAll, setShowAll] = useState(false);
 
-  const initialCount = 6
+  const initialCount = 6;
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1000)
-    return () => clearTimeout(timer)
-  }, [selectedCategory, showAll])
+    const timer = setTimeout(() => setLoading(false), 1000);
+    return () => clearTimeout(timer);
+  }, [selectedCategory, showAll]);
 
   const filteredProjects =
     selectedCategory === 'All'
       ? projects
-      : projects.filter((project) => project.tags.includes(selectedCategory))
+      : projects.filter((project) => project.tags.includes(selectedCategory));
 
   const visibleProjects = showAll
     ? filteredProjects
-    : filteredProjects.slice(0, initialCount)
+    : filteredProjects.slice(0, initialCount);
 
-  const showToggleBtn = filteredProjects.length > initialCount
+  const showToggleBtn = filteredProjects.length > initialCount;
 
   return (
     <div className="min-h-screen bg-neutral-950 text-white px-4 py-20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10">
-           <p className="mb-10"></p>
-        <h1 className="text-4xl sm:text-5xl font-bold font-excon mb-4">Featured Projects</h1>
-        <p className="text-gray-400 max-w-2xl mx-auto font-poppins">
-           A showcase of my best work across various technologies and domains.
+          <p className="mb-10"></p>
+          <h1 className="text-4xl sm:text-5xl font-bold font-excon mb-4">
+            Featured Projects
+          </h1>
+          <p className="text-gray-400 max-w-2xl mx-auto font-poppins">
+            A showcase of my best work across various technologies and domains.
             Each project represents a unique challenge and different aspects of
             my skills.
-        </p>
-      </div>
+          </p>
+        </div>
 
-      <div className="border-t border-gray-700 max-w-3xl mx-auto mb-12"></div>
+        <div className="border-t border-gray-700 max-w-3xl mx-auto mb-12"></div>
 
         {/* Category */}
         <div className="flex flex-wrap justify-center gap-3 mb-10">
@@ -197,9 +210,9 @@ const AllProjects = () => {
             <button
               key={category}
               onClick={() => {
-                setSelectedCategory(category)
-                setShowAll(false)
-                setLoading(true)
+                setSelectedCategory(category);
+                setShowAll(false);
+                setLoading(true);
               }}
               className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
                 selectedCategory === category
@@ -211,7 +224,7 @@ const AllProjects = () => {
             </button>
           ))}
         </div>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {loading
             ? Array(showAll ? filteredProjects.length : initialCount)
@@ -245,25 +258,25 @@ const AllProjects = () => {
                     <div className="flex gap-4">
                       {project.github && (
                         <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 px-3 py-1.5 rounded-md text-sm bg-[#292929] hover:bg-[#3a3a3a] text-white transition"
-                    >
-                      <Github className="w-4 h-4" />
-                      Code
-                    </a>
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1 px-3 py-1.5 rounded-md text-sm bg-[#292929] hover:bg-[#3a3a3a] text-white transition"
+                        >
+                          <Github className="w-4 h-4" />
+                          Code
+                        </a>
                       )}
                       {project.demo && (
                         <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 px-3 py-1.5 rounded-md text-sm bg-green-700 hover:bg-green-600 text-white transition"
-                    >
-                      <Globe className="w-4 h-4" />
-                      Live
-                    </a>
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1 px-3 py-1.5 rounded-md text-sm bg-green-700 hover:bg-green-600 text-white transition"
+                        >
+                          <Globe className="w-4 h-4" />
+                          Live
+                        </a>
                       )}
                     </div>
                   </div>
@@ -276,8 +289,8 @@ const AllProjects = () => {
           <div className="flex justify-center mt-10">
             <button
               onClick={() => {
-                setLoading(true)
-                setShowAll(!showAll)
+                setLoading(true);
+                setShowAll(!showAll);
               }}
               className="px-6 py-3 bg-gradient-to-r from-green-700 to-green-900 text-white font-semibold rounded-full hover:scale-105 transition"
             >
@@ -287,7 +300,7 @@ const AllProjects = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AllProjects
+export default AllProjects;
