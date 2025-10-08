@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
+import { useEffect } from 'react';
 import {
   Laptop,
   Monitor,
@@ -12,19 +12,21 @@ import {
   Usb,
   HardDrive,
   ArrowUpRight,
-} from "lucide-react";
+} from 'lucide-react';
 
 export default function Gears() {
   useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
-    
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-neutral-950 text-white px-6 py-20 sm:py-20">
       <h2 className="text-4xl font-bold mb-12"></h2>
       {/* Page Heading */}
       <div className="text-center mb-10">
-        <h1 className="text-3xl sm:text-4xl font-bold font-excon">Tools & Gears</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold font-excon">
+          Tools & Gears
+        </h1>
         <p className="text-gray-400 mt-2 text-sm sm:text-base font-supreme">
           Tools and gear I use every day to make work happen.
         </p>
@@ -103,30 +105,50 @@ export default function Gears() {
           </ul>
         </section>
 
-
         <section>
           <h2 className="text-lg sm:text-xl font-semibold mb-6 flex items-center gap-2">
             Software
           </h2>
           <ul className="space-y-4">
             {[
-              { name: "Notion", url: "https://www.notion.com/" },
-              { name: "VS Code", url: "https://code.visualstudio.com/" },
-              { name: "Figma", url: "https://www.figma.com/" },
-              { name: "GitHub Desktop", url: "https://desktop.github.com/download/"},
-              { name: "Pycharm", url: "https://www.jetbrains.com/pycharm/download/?section=windows" },
-              { name: "IntelliJ IDEA", url: "https://www.jetbrains.com/idea/download/?section=windows" },
-              { name: "npm", url: "https://www.npmjs.com/" },
-              { name: "Node.js", url: "https://nodejs.org/en/" },
-              { name: "Postman", url: "https://www.postman.com/downloads/" },
-              { name: "VLC", url: "https://vlc-media-player.en.softonic.com/download?ex=RAMP-3507.0&rex=true" },
-              { name: "IDM", url: "https://www.internetdownloadmanager.com/" },
-              { name: "qBittorrent", url: "https://www.qbittorrent.org/download" },
-              { name: "OBS Studio", url: "https://obsproject.com/download" },
-              { name: "Discord", url: "https://discord.com/download" },
-              { name: "Spotify", url: "https://www.spotify.com/us/download/windows/" },
+              { name: 'Notion', url: 'https://www.notion.com/' },
+              { name: 'VS Code', url: 'https://code.visualstudio.com/' },
+              { name: 'Cursor', url: 'https://cursor.com/download' },
+              { name: 'Figma', url: 'https://www.figma.com/' },
+              {
+                name: 'GitHub Desktop',
+                url: 'https://desktop.github.com/download/',
+              },
+              {
+                name: 'Pycharm',
+                url: 'https://www.jetbrains.com/pycharm/download/?section=windows',
+              },
+              {
+                name: 'IntelliJ IDEA',
+                url: 'https://www.jetbrains.com/idea/download/?section=windows',
+              },
+              { name: 'npm', url: 'https://www.npmjs.com/' },
+              { name: 'Node.js', url: 'https://nodejs.org/en/' },
+              { name: 'Postman', url: 'https://www.postman.com/downloads/' },
+              { name: 'Vercel', url: 'https://vercel.com/home' },
+              { name: 'Netlify', url: 'https://app.netlify.com/' },
+
+              {
+                name: 'VLC',
+                url: 'https://vlc-media-player.en.softonic.com/download?ex=RAMP-3507.0&rex=true',
+              },
+              { name: 'IDM', url: 'https://www.internetdownloadmanager.com/' },
+              {
+                name: 'qBittorrent',
+                url: 'https://www.qbittorrent.org/download',
+              },
+              { name: 'OBS Studio', url: 'https://obsproject.com/download' },
+              { name: 'Discord', url: 'https://discord.com/download' },
+              {
+                name: 'Spotify',
+                url: 'https://www.spotify.com/us/download/windows/',
+              },
             ].map((ext, i) => (
-              
               <li
                 key={i}
                 className="flex items-center gap-3 text-base sm:text-base"
