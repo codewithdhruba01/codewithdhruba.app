@@ -1,67 +1,67 @@
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
 const blogPosts = [
   {
-    title: "Getting Started with React and TypeScript",
+    title: 'Getting Started with React and TypeScript',
     description:
-      "Learn how to set up a new React project with TypeScript and best practices for type safety.",
-    date: "March 15, 2024",
-    image: "/blog/blog2.png",
-    category: ["Development"],
-    readTime: "5 min read",
-    slug: "getting-started-with-react-typescript",
+      'Learn how to set up a new React project with TypeScript and best practices for type safety.',
+    date: 'March 15, 2024',
+    image: '/blog/blog2.png',
+    category: ['Development'],
+    readTime: '5 min read',
+    slug: 'getting-started-with-react-typescript',
   },
   {
-    title: "10 Chrome Keyboard Shortcuts to Boost Your Productivity",
+    title: '10 Chrome Keyboard Shortcuts to Boost Your Productivity',
     description:
-      "Discover the most useful Chrome keyboard shortcuts to browse faster, save time, and increase your daily productivity.",
-    date: "July 2, 2025",
-    image: "/blog/chrome_shortcuts.png",
-    category: ["Productivity & Tech Tips"],
-    readTime: "5 min read",
-    slug: "chrome-keyboard-shortcuts",
+      'Discover the most useful Chrome keyboard shortcuts to browse faster, save time, and increase your daily productivity.',
+    date: 'July 2, 2025',
+    image: '/blog/chrome_shortcuts.png',
+    category: ['Productivity & Tech Tips'],
+    readTime: '5 min read',
+    slug: 'chrome-keyboard-shortcuts',
   },
   {
-    title: "The Ultimate Guide to OpenWeather API: Features, API Key Generation & Integration",
+    title:
+      'The Ultimate Guide to OpenWeather API: Features, API Key Generation & Integration',
     description:
-      "The OpenWeather API is one of the most popular and reliable weather data services available.",
-    date: "Oct 8, 2025",
+      'The OpenWeather API is one of the most popular and reliable weather data services available.',
+    date: 'Oct 8, 2025',
     image: '/blog/OpenWeather.png',
-    category: ["Tools", "API"],
-    readTime: "15 min read",
-    slug: "openweather-api-guide",
+    category: ['Tools', 'API'],
+    readTime: '15 min read',
+    slug: 'openweather-api-guide',
   },
   {
-    title: "Getting Started with Visual Studio Code: The Complete Guide",
+    title: 'Getting Started with Visual Studio Code: The Complete Guide',
     description:
-      "A complete beginner guide to using Visual Studio Code, the world’s most popular code editor.",
-    date: "July 2, 2025",
-    image: "/blog/blog1.png",
-    category: ["Development", "Setup"],
-    readTime: "8 min read",
-    slug: "getting-started-with-vs-code",
+      'A complete beginner guide to using Visual Studio Code, the world’s most popular code editor.',
+    date: 'July 2, 2025',
+    image: '/blog/blog1.png',
+    category: ['Development', 'Setup'],
+    readTime: '8 min read',
+    slug: 'getting-started-with-vs-code',
   },
 ];
 
 const tags = [
-  { name: "All", count: blogPosts.length },
-  { name: "Development", count: 1 },
-  { name: "Tools", count: 2 },
-  { name: "Productivity & Tech Tips", count: 1 },
+  { name: 'All', count: blogPosts.length },
+  { name: 'Development', count: 1 },
+  { name: 'Tools', count: 2 },
+  { name: 'Productivity & Tech Tips', count: 1 },
 ];
 
 const AllPosts = () => {
-  const [activeTag, setActiveTag] = useState("All");
+  const [activeTag, setActiveTag] = useState('All');
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Filter blogs based on tag
   const filteredPosts =
-    activeTag === "All"
+    activeTag === 'All'
       ? blogPosts
       : blogPosts.filter((post) => post.category.includes(activeTag));
 
@@ -69,16 +69,17 @@ const AllPosts = () => {
     <section className="py-20 bg-neutral-950 min-h-screen">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-10">
-        <h1 className="text-4xl sm:text-5xl font-bold font-excon mb-4">Blog & Publications</h1>
-        <p className="text-gray-400 mt-2 text-base sm:text-lg font-poppins">
-           Exploring the art of engineering, the craft of code, and the journey of building impactful tech.
-        </p>
-      </div>
+          <h1 className="text-4xl sm:text-5xl font-bold font-excon mb-4">
+            Blog & Publications
+          </h1>
+          <p className="text-gray-400 mt-2 text-base sm:text-lg font-poppins">
+            Exploring the art of engineering, the craft of code, and the journey
+            of building impactful tech.
+          </p>
+        </div>
 
-      {/* Divider */}
-      <div className="border-t border-gray-700 max-w-3xl mx-auto mb-8"></div>
+        <div className="border-t border-gray-700 max-w-3xl mx-auto mb-8"></div>
 
-        {/* Popular Tags */}
         <div className="mt-10 mb-12">
           <div className="flex flex-wrap gap-3 text-center justify-center">
             {tags.map((tag, i) => (
@@ -87,18 +88,16 @@ const AllPosts = () => {
                 onClick={() => setActiveTag(tag.name)}
                 className={`px-4 py-2 text-sm rounded-full font-outfit ${
                   activeTag === tag.name
-                    ? "bg-gradient-to-r from-green-600 to-green-900 text-white"
-                    : "border-neutral-800 text-gray-300 bg-neutral-900 hover:bg-neutral-800"
+                    ? 'bg-gradient-to-r from-green-600 to-green-900 text-white'
+                    : 'border-neutral-800 text-gray-300 bg-neutral-900 hover:bg-neutral-800'
                 } transition`}
               >
-                {tag.name}{" "}
-                <span className="text-gray-100">({tag.count})</span>
+                {tag.name} <span className="text-gray-100">({tag.count})</span>
               </button>
             ))}
           </div>
         </div>
 
-        {/* Blog Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPosts.length > 0 ? (
             filteredPosts.map((post, index) => (
