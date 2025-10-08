@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { SendHorizonal, MessageSquareText, Linkedin, Mail, Twitter } from 'lucide-react';
+import {
+  SendHorizonal,
+  MessageSquareText,
+  Linkedin,
+  Mail,
+  Twitter,
+} from 'lucide-react';
 
 const ChatAssistant: React.FC = () => {
-  const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
+  const [messages, setMessages] = useState<{ role: string; content: string }[]>(
+    []
+  );
   const [input, setInput] = useState('');
   const [showEndMessage, setShowEndMessage] = useState(false);
 
@@ -28,12 +36,11 @@ const ChatAssistant: React.FC = () => {
       return "I'm Dhrubaraj Pati, a passionate Computer Engineering student exploring full-stack development.";
     if (input.includes('about'))
       return "I'm a passionate Full Stack Developer based in India, with a strong focus on creating beautiful and functional web applications.";
-    if (input.includes('How are you'))
-      return "I’m doing great.";
+    if (input.includes('How are you')) return 'I’m doing great.';
     if (input.includes('skills'))
-      return "My skills include HTML, CSS, JS, React, TypeScript, Tailwind CSS, Node.js, Python, Java.";
+      return 'My skills include HTML, CSS, JS, React, TypeScript, Tailwind CSS, Node.js, Python, Java.';
     if (input.includes('education'))
-      return "Currently pursuing my BCA in Computer Science and Engineering, I love exploring new technologies and building innovative solutions.";
+      return 'Currently pursuing my BCA in Computer Science and Engineering, I love exploring new technologies and building innovative solutions.';
     if (input.includes('project'))
       return `Current projects include:
     • Multi Calculator – A feature-rich calculator with multiple tools.
@@ -47,11 +54,11 @@ Explore more on the Projects page!`;
     • Mastering Python Packages: Organize and Share Your Code.
 Explore more on the blog page!`;
     if (input.includes('contact'))
-      return "You can reach me through the Contact page or via the social icons in the footer.";
+      return 'You can reach me through the Contact page or via the social icons in the footer.';
     if (input.includes('github') || input.includes('contribution'))
       return "You'll find my open source work and contributions on the Contributions page — mostly on GitHub.";
     if (input.includes('portfolio'))
-      return "This website is my personal portfolio! Feel free to explore all the sections.";
+      return 'This website is my personal portfolio! Feel free to explore all the sections.';
 
     setShowEndMessage(true);
     return "Thanks for reaching out! 😊 I'll record your message and get back to you soon.";
@@ -84,7 +91,10 @@ Explore more on the blog page!`;
       <h1 className="text-4xl font-bold mb-5 font-excon" data-aos="fade-up">
         Get in Touch
       </h1>
-      <p className="text-gray-400 mb-10 pb-5 text-center max-w-md font-satoshi" data-aos="fade-up">
+      <p
+        className="text-gray-400 mb-10 pb-5 text-center max-w-md font-satoshi"
+        data-aos="fade-up"
+      >
         Have a question or want to Chat with my assistant below.
       </p>
 
@@ -98,8 +108,12 @@ Explore more on the blog page!`;
             <MessageSquareText className="h-6 w-6" />
           </div>
           <div>
-            <div className="font-semibold text-lg font-synonym">Chat Assistant</div>
-            <div className="text-sm text-green-400 font-outfit">Online · Replies instantly</div>
+            <div className="font-semibold text-lg font-synonym">
+              Chat Assistant
+            </div>
+            <div className="text-sm text-green-400 font-outfit">
+              Online · Replies instantly
+            </div>
           </div>
         </div>
 
@@ -108,7 +122,9 @@ Explore more on the blog page!`;
           {messages.map((msg, idx) => (
             <div
               key={idx}
-              className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+              className={`flex ${
+                msg.role === 'user' ? 'justify-end' : 'justify-start'
+              }`}
             >
               <div
                 className={`rounded-lg px-4 py-2 max-w-[75%] text-sm ${
@@ -159,47 +175,53 @@ Explore more on the blog page!`;
 
       {/* Social Footer */}
       <div className="mt-10 text-center">
-        <h3 className="text-xl font-bold text-white mb-5 font-synonym" data-aos="fade-up">Other Ways to Connect</h3>
-        <div className="flex gap-10 justify-center text-gray-400 text-sm" data-aos="fade-up">
-          
-  {/* LinkedIn */}
-  <a
-    href="https://www.linkedin.com/in/dhrubaraj-pati/"
-    className="flex flex-col items-center group"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <div className="bg-[#1c1c1c] border border-gray-900 rounded-full p-3 group-hover:text-[#499eff] transition">
-      <Linkedin className="h-6 w-6" />
-    </div>
-    <span className="mt-2 group-hover:text-[#499eff]">LinkedIn</span>
-  </a>
+        <h3
+          className="text-xl font-bold text-white mb-5 font-synonym"
+          data-aos="fade-up"
+        >
+          Other Ways to Connect
+        </h3>
+        <div
+          className="flex gap-10 justify-center text-gray-400 text-sm"
+          data-aos="fade-up"
+        >
+          {/* LinkedIn */}
+          <a
+            href="https://www.linkedin.com/in/dhrubaraj-pati/"
+            className="flex flex-col items-center group"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="bg-[#1c1c1c] border border-gray-900 rounded-full p-3 group-hover:text-[#499eff] transition">
+              <Linkedin className="h-6 w-6" />
+            </div>
+            <span className="mt-2 group-hover:text-[#499eff]">LinkedIn</span>
+          </a>
 
-  {/* Email */}
-  <a
-    href="mailto:pati.dhrubaraj@outlook.com"
-    className="flex flex-col items-center group"
-  >
-    <div className="bg-[#1c1c1c] border border-gray-900 rounded-full p-3 group-hover:text-[#b83434] transition">
-      <Mail className="h-6 w-6" />
-    </div>
-    <span className="mt-2 group-hover:text-[#b83434]">Email</span>
-  </a>
+          {/* Email */}
+          <a
+            href="mailto:pati.dhrubaraj@outlook.com"
+            className="flex flex-col items-center group"
+          >
+            <div className="bg-[#1c1c1c] border border-gray-900 rounded-full p-3 group-hover:text-[#b83434] transition">
+              <Mail className="h-6 w-6" />
+            </div>
+            <span className="mt-2 group-hover:text-[#b83434]">Email</span>
+          </a>
 
-  {/* Twitter */}
-  <a
-    href="https://x.com/codewithdhruba" //
-    className="flex flex-col items-center group"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <div className="bg-[#1c1c1c] border border-gray-900 rounded-full p-3 group-hover:text-[#1DA1F2] transition">
-      <Twitter className="h-6 w-6" />
-    </div>
-    <span className="mt-2 group-hover:text-[#1DA1F2]">Twitter</span>
-  </a>
-</div>
-
+          {/* Twitter */}
+          <a
+            href="https://x.com/codewithdhruba" //
+            className="flex flex-col items-center group"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="bg-[#1c1c1c] border border-gray-900 rounded-full p-3 group-hover:text-[#1DA1F2] transition">
+              <Twitter className="h-6 w-6" />
+            </div>
+            <span className="mt-2 group-hover:text-[#1DA1F2]">Twitter</span>
+          </a>
+        </div>
       </div>
     </div>
   );
