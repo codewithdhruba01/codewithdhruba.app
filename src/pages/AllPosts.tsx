@@ -14,16 +14,6 @@ const blogPosts = [
     slug: "getting-started-with-react-typescript",
   },
   {
-    title: "Getting Started with Visual Studio Code: The Complete Guide",
-    description:
-      "A complete beginner guide to using Visual Studio Code, the world’s most popular code editor.",
-    date: "July 2, 2025",
-    image: "/blog/blog1.png",
-    category: ["Development Tools"],
-    readTime: "8 min read",
-    slug: "getting-started-with-vs-code",
-  },
-  {
     title: "10 Chrome Keyboard Shortcuts to Boost Your Productivity",
     description:
       "Discover the most useful Chrome keyboard shortcuts to browse faster, save time, and increase your daily productivity.",
@@ -33,13 +23,33 @@ const blogPosts = [
     readTime: "5 min read",
     slug: "chrome-keyboard-shortcuts",
   },
+  {
+    title: "The Ultimate Guide to OpenWeather API: Features, API Key Generation & Integration",
+    description:
+      "The OpenWeather API is one of the most popular and reliable weather data services available.",
+    date: "Oct 8, 2025",
+    image: '/blog/OpenWeather.png',
+    category: ["Tools", "API"],
+    readTime: "15 min read",
+    slug: "openweather-api-guide",
+  },
+  {
+    title: "Getting Started with Visual Studio Code: The Complete Guide",
+    description:
+      "A complete beginner guide to using Visual Studio Code, the world’s most popular code editor.",
+    date: "July 2, 2025",
+    image: "/blog/blog1.png",
+    category: ["Development", "Setup"],
+    readTime: "8 min read",
+    slug: "getting-started-with-vs-code",
+  },
 ];
 
 const tags = [
   { name: "All", count: blogPosts.length },
   { name: "Development", count: 1 },
-  { name: "Development Tools", count: 1 },
-  { name: "Python Programming", count: 1 },
+  { name: "Tools", count: 2 },
+  { name: "Productivity & Tech Tips", count: 1 },
 ];
 
 const AllPosts = () => {
