@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
-import { getCalApi } from "@calcom/embed-react";
-import { motion } from "framer-motion";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Github,
+  Linkedin,
+  Twitter,
+} from 'lucide-react';
+import { getCalApi } from '@calcom/embed-react';
+import { motion } from 'framer-motion';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
-    message: ''
+    message: '',
   });
 
-   useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
@@ -21,8 +29,8 @@ const Contact = () => {
 
   useEffect(() => {
     (async function () {
-      const cal = await getCalApi({ namespace: "30min" });
-      cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
+      const cal = await getCalApi({ namespace: '30min' });
+      cal('ui', { hideEventTypeDetails: false, layout: 'month_view' });
     })();
   }, []);
 
@@ -33,33 +41,38 @@ const Contact = () => {
     setStatus(null);
 
     try {
-      const response = await fetch(`https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_FORM_ID}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_FORM_ID}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.ok) {
-        setStatus("Message sent successfully!");
-        setFormData({ name: "", email: "", subject: "", message: "" });
+        setStatus('Message sent successfully!');
+        setFormData({ name: '', email: '', subject: '', message: '' });
         setSent(true);
       } else {
-        setStatus("Something went wrong. Please try again.");
+        setStatus('Something went wrong. Please try again.');
       }
     } catch (error) {
       console.error(error);
-      setStatus("Error sending message. Try again later!");
+      setStatus('Error sending message. Try again later!');
     } finally {
       setLoading(false);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -68,8 +81,8 @@ const Contact = () => {
     visible: (i: number) => ({
       opacity: 1,
       y: 0,
-      transition: { duration: 0.7, delay: i * 0.2 }
-    })
+      transition: { duration: 0.7, delay: i * 0.2 },
+    }),
   };
 
   return (
@@ -77,7 +90,7 @@ const Contact = () => {
       className="pt-16 min-h-screen bg-neutral-950"
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
     >
       {/* Header */}
       <motion.section
@@ -94,7 +107,8 @@ const Contact = () => {
             </span>
           </h1>
           <p className="text-lg text-neutral-400 max-w-3xl mx-auto font-poppins">
-            Have a project in mind? I'd love to hear about it. Send me a message and let's discuss how we can bring your ideas to life.
+            Have a project in mind? I'd love to hear about it. Send me a message
+            and let's discuss how we can bring your ideas to life.
           </p>
         </div>
       </motion.section>
@@ -103,7 +117,6 @@ const Contact = () => {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-
             {/* Contact Information */}
             <motion.div
               className="space-y-8"
@@ -113,9 +126,14 @@ const Contact = () => {
               custom={1}
             >
               <div>
-                <h2 className="text-3xl font-bold text-neutral-200 mb-6">Get in Touch</h2>
+                <h2 className="text-3xl font-bold text-neutral-200 mb-6">
+                  Get in Touch
+                </h2>
                 <p className="text-neutral-400 font-supreme text-lg leading-relaxed mb-4">
-                  I'm always open to discussing new opportunities, innovative projects, or just having a friendly chat about technology and development. Feel free to reach out through any of the channels below.
+                  I'm always open to discussing new opportunities, innovative
+                  projects, or just having a friendly chat about technology and
+                  development. Feel free to reach out through any of the
+                  channels below.
                 </p>
               </div>
 
@@ -123,22 +141,22 @@ const Contact = () => {
                 {[
                   {
                     icon: <Mail className="w-6 h-6 text-[#D92C54]" />,
-                    title: "Email",
-                    value: "pati.dhrubaraj@gmail.com",
-                    bg: "bg-purple-500/20"
+                    title: 'Email',
+                    value: 'pati.dhrubaraj@gmail.com',
+                    bg: 'bg-purple-500/20',
                   },
                   {
                     icon: <Phone className="w-6 h-6 text-blue-400" />,
-                    title: "Phone",
-                    value: "+91 9064644809",
-                    bg: "bg-blue-500/20"
+                    title: 'Phone',
+                    value: '+91 9064644809',
+                    bg: 'bg-blue-500/20',
                   },
                   {
                     icon: <MapPin className="w-6 h-6 text-teal-400" />,
-                    title: "Location",
-                    value: "Dumdum, Kolkata",
-                    bg: "bg-teal-500/20"
-                  }
+                    title: 'Location',
+                    value: 'Dumdum, Kolkata',
+                    bg: 'bg-teal-500/20',
+                  },
                 ].map((item, i) => (
                   <motion.div
                     key={i}
@@ -148,7 +166,9 @@ const Contact = () => {
                     animate="visible"
                     custom={i + 2}
                   >
-                    <div className={`w-12 h-12 ${item.bg} rounded-full flex items-center justify-center`}>
+                    <div
+                      className={`w-12 h-12 ${item.bg} rounded-full flex items-center justify-center`}
+                    >
                       {item.icon}
                     </div>
                     <div>
@@ -166,7 +186,9 @@ const Contact = () => {
                 animate="visible"
                 custom={5}
               >
-                <h3 className="text-xl font-bold text-neutral-200 mb-4">Follow Me</h3>
+                <h3 className="text-xl font-bold text-neutral-200 mb-4">
+                  Follow Me
+                </h3>
                 <div className="flex space-x-4">
                   <a
                     href="https://github.com/codewithdhruba01"
@@ -198,11 +220,16 @@ const Contact = () => {
               animate="visible"
               custom={6}
             >
-              <h2 className="text-3xl font-bold text-white mb-6">Send Message</h2>
+              <h2 className="text-3xl font-bold text-white mb-6">
+                Send Message
+              </h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-300 mb-2"
+                  >
                     Full Name
                   </label>
                   <input
@@ -218,7 +245,10 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-300 mb-2"
+                  >
                     Email Address
                   </label>
                   <input
@@ -234,7 +264,10 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium text-gray-300 mb-2"
+                  >
                     Subject
                   </label>
                   <input
@@ -250,7 +283,10 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-300 mb-2"
+                  >
                     Message
                   </label>
                   <textarea
@@ -326,7 +362,8 @@ const Contact = () => {
             Ready to Start Your Project?
           </h2>
           <p className="text-xl text-neutral-400 mb-8">
-            Let's schedule a free consultation to discuss your ideas and requirements.
+            Let's schedule a free consultation to discuss your ideas and
+            requirements.
           </p>
           <button
             data-cal-namespace="30min"
