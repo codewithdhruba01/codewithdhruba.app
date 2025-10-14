@@ -13,13 +13,14 @@ const Blog = () => {
       slug: 'getting-started-with-react-typescript',
     },
     {
-      title: 'Getting Started with Visual Studio Code: The Complete Guide',
+      title:
+        'Building My First Website from Scratch with React and Tailwind CSS',
       description:
-        'A complete beginner guide to using Visual Studio Code, the world’s most popular code editor.',
+        'Learn how I built my first website from scratch using React and Tailwind CSS — from setup to responsive design, with tips and key takeaways.',
       date: 'July 2, 2025',
-      image: '/blog/blog1.png',
-      category: ['Editor', 'Development'],
-      slug: 'getting-started-with-vs-code',
+      image: '/blog/blog3.png',
+      category: ['Development', 'Setup'],
+      slug: 'building-my-first-website-with-react-and-tailwind',
     },
   ];
 

@@ -35,14 +35,14 @@ const blogPosts = [
     slug: 'openweather-api-guide',
   },
   {
-    title: 'Getting Started with Visual Studio Code: The Complete Guide',
+    title: 'Building My First Website from Scratch with React and Tailwind CSS',
     description:
-      'A complete beginner guide to using Visual Studio Code, the world’s most popular code editor.',
-    date: 'July 2, 2025',
-    image: '/blog/blog1.png',
+      'Learn how I built my first website from scratch using React and Tailwind CSS — from setup to responsive design, with tips and key takeaways.',
+    date: 'Oct 10, 2025',
+    image: '/blog/blog3.png',
     category: ['Development', 'Setup'],
-    readTime: '8 min read',
-    slug: 'getting-started-with-vs-code',
+    readTime: '5 min read',
+    slug: 'building-my-first-website-with-react-and-tailwind',
   },
 ];
 

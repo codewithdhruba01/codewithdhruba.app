@@ -63,92 +63,131 @@ const UserCard: React.FC<UserCardProps> = ({ name, age }) => (
     tags: ['React', 'TypeScript', 'Web Development'],
   },
 
-  'getting-started-with-vs-code': {
-    title: 'Getting Started with Visual Studio Code: The Complete Guide',
-    date: 'July 2, 2025',
+  'building-my-first-website-with-react-and-tailwind': {
+    title: 'Building My First Website from Scratch with React and Tailwind CSS',
+    date: 'October 13, 2025',
     author: 'Dhrubaraj Pati',
-    category: 'Development Tools',
-    readTime: '8 min read',
+    category: 'Web Development',
+    readTime: '7 min read',
+    image: '/blog/blog3.png',
+    tags: ['React', 'Tailwind CSS', 'Frontend', 'Portfolio', 'Web Development'],
     content: `
     <h2>Introduction</h2>
-    <p>Visual Studio Code, commonly known as VS Code, is a lightweight but powerful source-code editor developed by Microsoft. Whether you are a beginner learning to code or a professional building large-scale applications, VS Code provides the tools and flexibility to boost your productivity.</p>
-    
-    <h2>Why Use VS Code?</h2>
-    <p>VS Code has become the most popular code editor for several reasons:</p>
+    <p>Building your first website from scratch is a milestone moment for any developer. Instead of relying on templates or pre-built themes, I decided to create my personal website entirely using <strong>React</strong> and <strong>Tailwind CSS</strong>. It was challenging, exciting, and one of the most valuable learning experiences of my journey so far.</p>
+
+    <h2>Why React and Tailwind?</h2>
+    <p>I chose React for its component-based architecture and flexibility, and Tailwind CSS for its lightning-fast styling approach. Together, they allowed me to build a modern, responsive, and clean UI without writing tons of custom CSS.</p>
     <ul>
-      <li><strong>Free and Open Source:</strong> Completely free to use with an active community.</li>
-      <li><strong>Cross-Platform:</strong> Available on Windows, macOS, and Linux.</li>
-      <li><strong>Extensions Marketplace:</strong> Thousands of extensions to add support for any language or tool.</li>
-      <li><strong>Built-in Git Integration:</strong> Manage your repositories without leaving the editor.</li>
-      <li><strong>Customizable:</strong> Themes, icons, keybindings, and settings can be tailored to your workflow.</li>
+      <li><strong>React:</strong> For reusable components and smooth UI interactions.</li>
+      <li><strong>Tailwind CSS:</strong> For utility-first styling, responsive design, and customization.</li>
+      <li><strong>Vite:</strong> As a blazing-fast build tool that made development smooth.</li>
     </ul>
-    
-    <h2>Installing VS Code</h2>
-    <p>You can download the latest version from the <a href="https://code.visualstudio.com/" target="_blank">official website</a>. The installation is straightforward:</p>
-    <ol>
-      <li>Download the installer for your operating system.</li>
-      <li>Run the installer and follow the prompts.</li>
-      <li>Launch VS Code after installation completes.</li>
-    </ol>
-    
-    <h2>Exploring the User Interface</h2>
-    <p>When you first open VS Code, you'll see:</p>
-    <ul>
-      <li><strong>Activity Bar:</strong> On the left side, gives quick access to Explorer, Search, Source Control, Extensions, and more.</li>
-      <li><strong>Side Bar:</strong> Displays your project files and folders.</li>
-      <li><strong>Editor:</strong> Where you write your code.</li>
-      <li><strong>Status Bar:</strong> Shows information about your project and editor state.</li>
-      <li><strong>Command Palette:</strong> Press <code>Ctrl+Shift+P</code> (or <code>Cmd+Shift+P</code> on Mac) to access all commands.</li>
-    </ul>
-    
-    <h2>Essential Extensions</h2>
-    <p>Extensions make VS Code incredibly powerful. Here are some recommended ones:</p>
-    <ul>
-      <li><strong>Python:</strong> Adds rich support for Python development, including IntelliSense and debugging.</li>
-      <li><strong>Prettier:</strong> Automatically formats your code for consistent style.</li>
-      <li><strong>ESLint:</strong> Helps you find and fix problems in JavaScript and TypeScript.</li>
-      <li><strong>GitLens:</strong> Supercharges Git capabilities with blame annotations and history exploration.</li>
-      <li><strong>Live Server:</strong> Launch a development server with live reload for HTML and JavaScript.</li>
-    </ul>
-    
-    <h2>Customizing Your Environment</h2>
-    <p>One of VS Code's strengths is customization:</p>
-    <ul>
-      <li><strong>Themes:</strong> Change the look and feel via <em>Extensions &gt; Themes</em>.</li>
-      <li><strong>Settings:</strong> Configure settings using the <code>settings.json</code> file or the UI editor.</li>
-      <li><strong>Keybindings:</strong> Modify keyboard shortcuts to match your preferences.</li>
-      <li><strong>Snippets:</strong> Create reusable code snippets to speed up your workflow.</li>
-    </ul>
-    
-    <h2>Using the Integrated Terminal</h2>
-    <p>VS Code includes a built-in terminal so you don’t have to leave the editor to run commands:</p>
-    <pre><code>
-View > Terminal
+
+    <h2>Project Setup</h2>
+    <p>I initialized my project using Vite and set up Tailwind CSS as follows:</p>
+    <pre><code>npm create vite@latest my-portfolio
+cd my-portfolio
+npm install
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
     </code></pre>
-    <p>You can open multiple terminals and run different processes simultaneously.</p>
-    
-    <h2>Debugging Your Code</h2>
-    <p>VS Code has excellent debugging support:</p>
-    <ol>
-      <li>Set breakpoints by clicking next to the line numbers.</li>
-      <li>Launch the debugger using the <strong>Run and Debug</strong> icon in the Activity Bar.</li>
-      <li>Use the Debug Console to inspect variables and control execution.</li>
-    </ol>
-    
-    <h2>Working with Git</h2>
-    <p>VS Code makes version control simple:</p>
+
+    <p>In <code>tailwind.config.js</code> I added the following content paths:</p>
+    <pre><code>
+content: [
+  "./index.html",
+  "./src/**/*.{js,jsx,ts,tsx}",
+],
+    </code></pre>
+
+    <p>Then I imported Tailwind directives in <code>index.css</code>:</p>
+    <pre><code>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+    </code></pre>
+
+    <p>Once everything compiled successfully, I was ready to build my layout.</p>
+
+    <h2>Structuring the Website</h2>
+    <p>I started by breaking down the site into logical sections:</p>
     <ul>
-      <li>Initialize a repository or clone an existing one.</li>
-      <li>Stage changes, commit, and push to remote repositories.</li>
-      <li>View diffs and manage branches.</li>
+      <li>Navbar</li>
+      <li>Hero Section</li>
+      <li>About Section</li>
+      <li>Projects Showcase</li>
+      <li>Contact Form & Footer</li>
     </ul>
-    
+
+    <p>Each section was created as a separate React component. For example, the hero section:</p>
+    <pre><code>
+&lt;section className="flex flex-col items-center justify-center h-screen bg-gradient-to-b from-gray-900 to-black text-white"&gt;
+  &lt;h1 className="text-5xl font-bold mb-3"&gt;Hi, I'm Dhrubaraj 👋&lt;/h1&gt;
+  &lt;p className="text-lg text-gray-400"&gt;Frontend Developer & UI Enthusiast&lt;/p&gt;
+&lt;/section&gt;
+    </code></pre>
+
+    <p>Tailwind made it easy to quickly experiment with layouts and responsiveness without switching between HTML and CSS files.</p>
+
+    <h2>Adding Interactivity & Animations</h2>
+    <p>I wanted the site to feel dynamic, so I added small but meaningful interactions:</p>
+    <ul>
+      <li>Dark/Light mode toggle using React state</li>
+      <li>Smooth scrolling navigation with <code>react-scroll</code></li>
+      <li>Subtle fade and slide animations using <a href="https://www.framer.com/motion/" target="_blank">Framer Motion</a></li>
+    </ul>
+
+    <p>For example, my theme toggle looked like this:</p>
+    <pre><code>
+const [darkMode, setDarkMode] = useState(true);
+
+&lt;button
+  onClick={() =&gt; setDarkMode(!darkMode)}
+  className="p-2 rounded-full bg-gray-700 hover:bg-gray-600 transition"
+&gt;
+  {darkMode ? '🌙' : '☀️'}
+&lt;/button&gt;
+    </code></pre>
+
+    <h2>Challenges I Faced</h2>
+    <ul>
+      <li><strong>Tailwind Config Issues:</strong> A small typo in the <code>content</code> array broke all styling for 30 minutes </li>
+      <li><strong>Sticky Navbar Glitch:</strong> Had to debounce scroll events for smooth transitions.</li>
+      <li><strong>Image Optimization:</strong> Switching to WebP format improved performance a lot.</li>
+    </ul>
+
+    <h2>Deploying the Website</h2>
+    <p>I deployed the project on <strong>Netlify</strong> using the following steps:</p>
+    <ol>
+      <li>Pushed the code to GitHub.</li>
+      <li>Connected the repository to Netlify.</li>
+      <li>Set build command to <code>npm run build</code>.</li>
+      <li>Clicked <strong>Deploy</strong> and watched it go live 🚀</li>
+    </ol>
+
+    <p>👉 Live site: <a href="https://codewithdhruba.netlify.app" target="_blank">https://codewithdhruba.netlify.app</a></p>
+
+    <h2>Extra Touches</h2>
+    <p>To make the website feel more professional, I added:</p>
+    <ul>
+      <li>SEO meta tags and Open Graph images</li>
+      <li>Custom 404 page</li>
+      <li>Responsive breakpoints for all screen sizes</li>
+      <li>Twitter card integration for better link previews</li>
+    </ul>
+
+    <h2>Future Plans</h2>
+    <ul>
+      <li>Add a blog section using MDX or Markdown</li>
+      <li>Persist dark mode preference with localStorage</li>
+      <li>Optimize performance with code splitting</li>
+      <li>Implement small admin panel for dynamic content</li>
+    </ul>
+
     <h2>Conclusion</h2>
-    <p>Visual Studio Code is a modern, flexible editor that adapts to any project or technology stack. With its powerful extensions, built-in tools, and extensive customization options, it’s an essential tool in every developer’s toolkit.</p>
-    <p>Download VS Code today and start building your next project faster and more efficiently!</p>
+    <p>This project pushed me out of my comfort zone and helped me deeply understand React, Tailwind, and deployment workflows. Building from scratch might seem intimidating, but it’s the best way to learn how everything fits together.</p>
+    <p>If you're starting out, pick a simple idea, break it into sections, and build it step by step. Every bug you fix and every feature you add makes you a better developer 💪</p>
   `,
-    image: '/blog/blog1.png',
-    tags: ['VS Code', 'Code Editor', 'Development', 'Productivity'],
   },
 
   'chrome-keyboard-shortcuts': {
