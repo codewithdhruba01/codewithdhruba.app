@@ -19,7 +19,7 @@ const projects = [
       'A comprehensive calculator website with multiple calculator types and a beautiful UI.',
     image: '/project/multicalc1.png',
     github: 'https://github.com/codewithdhruba01/MultiCalc',
-    demo: 'https://multicalculat.netlify.app/',
+    demo: 'https://www.multicalc.site/',
     tags: ['React', 'TypeScript', 'Node.js', 'Full Stack'],
   },
   {
