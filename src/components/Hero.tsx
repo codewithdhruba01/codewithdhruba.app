@@ -28,15 +28,15 @@ const Hero = () => {
           <img
             src="/assets/hero-cover.png"
             alt="Dhrubaraj"
-            className="w-40 h-40 mx-auto mb-6 rounded-full object-cover border-4 border-[#28ad28] shadow-md"
+            className="w-40 h-40 mx-auto mb-6 rounded-full object-cover border-4 border-[#28ad28] shadow-md transition-shadow duration-300 hover:shadow-[0_0_20px_#00DC82]"
           />
         </div>
 
         <h1
-          className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white font-synonym"
+          className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 text-white font-synonym"
           data-aos="fade-up"
         >
-          Hi, I'm <span className="text-[#009a5a] font-synonym">Dhrubaraj</span>
+          Hi, I'm <span className="text-[#209620] font-synonym">Dhrubaraj</span>
         </h1>
 
         <p
