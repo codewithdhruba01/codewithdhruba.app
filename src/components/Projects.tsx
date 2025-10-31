@@ -120,7 +120,7 @@ const Projects = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 px-3 py-1.5 rounded-md text-sm bg-[#292929] hover:bg-[#3a3a3a] text-white transition-colors duration-300 ease-in-out"
+                      className="flex items-center gap-1 px-3 py-1.5 rounded-md text-sm font-poppins bg-[#292929] hover:bg-[#3a3a3a] text-white transition-colors duration-300 ease-in-out"
                     >
                       <Github className="w-4 h-4" />
                       Code
@@ -129,7 +129,7 @@ const Projects = () => {
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 px-3 py-1.5 rounded-md text-sm bg-green-700 hover:bg-green-600 text-white transition-colors duration-300 ease-in-out"
+                      className="flex items-center gap-1 px-3 py-1.5 rounded-md text-sm font-poppins bg-green-700 hover:bg-green-600 text-white transition-colors duration-300 ease-in-out"
                     >
                       <Globe className="w-4 h-4" />
                       Live
@@ -144,7 +144,7 @@ const Projects = () => {
           <div className="text-center mt-12">
             <button
               onClick={() => navigate('/projects')}
-              className="inline-flex items-center justify-center font-bold px-8 py-3 border border-[#00DC82] text-[#00DC82] rounded-lg hover:bg-[#00DC82] hover:text-black transition-all duration-500 ease-in-out"
+              className="inline-flex items-center justify-center font-bold font-outfit px-8 py-3 border border-[#00DC82] text-[#00DC82] rounded-lg hover:bg-[#00DC82] hover:text-black transition-all duration-500 ease-in-out"
             >
               View All Projects
               <i className="fas fa-arrow-right ml-2"></i>

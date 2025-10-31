@@ -138,7 +138,7 @@ const GitHubContributions = () => {
               {/* Contribution Grid */}
               <div className="flex">
                 {/* Weekday labels */}
-                <div className="flex flex-col justify-between mr-2 text-xs text-gray-400">
+                <div className="flex flex-col justify-between mr-2 text-xs font-outfit text-gray-400">
                   {Array.from({ length: 7 }).map((_, dayIndex) => {
                     const label =
                       dayIndex === 1
@@ -179,20 +179,20 @@ const GitHubContributions = () => {
             {/* Total contributions + Legend */}
             <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm text-gray-400">
               <div className="flex items-center gap-2">
-                <span className="font-bold">Less</span>
+                <span className="font-bold font-outfit">Less</span>
                 <div className="flex gap-1">
                   <div className="w-3 h-3 rounded-sm bg-[#00DC82]/20"></div>
                   <div className="w-3 h-3 rounded-sm bg-[#00DC82]/50"></div>
                   <div className="w-3 h-3 rounded-sm bg-[#00DC82]/80"></div>
                   <div className="w-3 h-3 rounded-sm bg-[#00DC82]"></div>
                 </div>
-                <span className="font-bold">More</span>
+                <span className="font-bold font-outfit">More</span>
               </div>
             </div>
           </div>
 
           {/* Year Selector */}
-          <div className="flex lg:flex-col gap-2 justify-center">
+          <div className="flex lg:flex-col gap-2 justify-center font-outfit">
             {years.map((y) => (
               <button
                 key={y}

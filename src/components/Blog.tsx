@@ -52,7 +52,7 @@ const Blog = () => {
               {/* Content */}
               <div className="p-6 flex flex-col justify-between">
                 {/* Title */}
-                <h3 className="text-lg font-semibold mb-3 hover:text-[#ffffff] transition-colors">
+                <h3 className="text-lg font-supreme mb-3 hover:text-[#ffffff] transition-colors">
                   <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                 </h3>
 

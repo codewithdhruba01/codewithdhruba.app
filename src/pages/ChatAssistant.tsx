@@ -15,7 +15,7 @@ const ChatAssistant: React.FC = () => {
   const [showEndMessage, setShowEndMessage] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0); // ✅ Scroll to top on mount
+    window.scrollTo(0, 0);
 
     // Initial bot greeting
     setMessages([
@@ -118,7 +118,7 @@ Explore more on the blog page!`;
         </div>
 
         {/* Chat Messages */}
-        <div className="h-[320px] overflow-y-auto space-y-3 pr-1">
+        <div className="h-[320px] overflow-y-auto space-y-3 pr-1 font-poppins">
           {messages.map((msg, idx) => (
             <div
               key={idx}
@@ -141,7 +141,7 @@ Explore more on the blog page!`;
 
         {/* Input Box */}
         {!showEndMessage && (
-          <div className="flex items-center gap-2 border-t border-gray-700 pt-4">
+          <div className="flex items-center font-poppins gap-2 border-t border-gray-700 pt-4">
             <input
               type="text"
               placeholder="Say hello to start..."
@@ -195,7 +195,7 @@ Explore more on the blog page!`;
             <div className="bg-[#1c1c1c] border border-gray-900 rounded-full p-3 group-hover:text-[#499eff] transition">
               <Linkedin className="h-6 w-6" />
             </div>
-            <span className="mt-2 group-hover:text-[#499eff]">LinkedIn</span>
+            <span className="mt-2 font-poppins group-hover:text-[#499eff]">LinkedIn</span>
           </a>
 
           {/* Email */}
@@ -206,7 +206,7 @@ Explore more on the blog page!`;
             <div className="bg-[#1c1c1c] border border-gray-900 rounded-full p-3 group-hover:text-[#b83434] transition">
               <Mail className="h-6 w-6" />
             </div>
-            <span className="mt-2 group-hover:text-[#b83434]">Email</span>
+            <span className="mt-2 font-poppins group-hover:text-[#b83434]">Email</span>
           </a>
 
           {/* Twitter */}
@@ -219,7 +219,7 @@ Explore more on the blog page!`;
             <div className="bg-[#1c1c1c] border border-gray-900 rounded-full p-3 group-hover:text-[#1DA1F2] transition">
               <Twitter className="h-6 w-6" />
             </div>
-            <span className="mt-2 group-hover:text-[#1DA1F2]">Twitter</span>
+            <span className="mt-2 font-poppins group-hover:text-[#1DA1F2]">Twitter</span>
           </a>
         </div>
       </div>

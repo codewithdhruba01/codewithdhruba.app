@@ -129,7 +129,7 @@ const AllPosts = () => {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-semibold mb-3 hover:text-[#ffffff] transition-colors">
+                  <h3 className="text-lg font-outfit font-semibold mb-3 hover:text-[#ffffff] transition-colors">
                     <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                   </h3>
 

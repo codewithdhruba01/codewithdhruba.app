@@ -33,7 +33,7 @@ const Certificates = () => {
       title: 'Bootcamp for Instagram Clone',
       issuer: 'Google Devloper Student Clubs',
       date: 'December 2023',
-      image: '/certificates/gdsc.png',
+      image: '/certificates/GDSC.png',
       credentialId: 'verify/9E1pf',
       description:
         'The certificate affirms that Dhrubaraj Pati has satisfactorily fulfilled the requirements outlined This validation ensures its authenticity',
@@ -256,7 +256,7 @@ const Certificates = () => {
                 </div>
 
                 <div className="p-4">
-                  <h3 className="text-base lg:text-lg font-bold text-neutral-300 mb-2 line-clamp-2">
+                  <h3 className="text-base lg:text-lg font-bold font-outfit text-neutral-300 mb-2 line-clamp-2">
                     {achievement.title}
                   </h3>
 

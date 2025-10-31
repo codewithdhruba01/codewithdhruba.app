@@ -136,11 +136,11 @@ const Education = () => {
                     <div className="text-neutral-400 text-sm mb-1">
                       {item.year}
                     </div>
-                    <h3 className="text-xl font-bold text-neutral-300 mb-2">
+                    <h3 className="text-xl font-bold text-neutral-300 font-outfit mb-2">
                       {item.title}
                     </h3>
-                    <div className="text-neutral-400 mb-2">{item.company}</div>
-                    <p className="text-neutral-400">{item.description}</p>
+                    <div className=" text-neutral-400 text-sm mb-2 font-extrabold font-outfit">{item.company}</div>
+                    <p className="text-neutral-400 text-sm font-satoshi">{item.description}</p>
                   </div>
                 </div>
               ))}

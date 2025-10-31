@@ -110,7 +110,7 @@ const Hero = () => {
             ))}
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center font-outfit gap-4">
             <button
               onClick={handleDownloadCV}
               className="group flex items-center space-x-2 bg-[#00DC82] hover:bg-[#fff]/90 text-black font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-[#00DC82]/80"

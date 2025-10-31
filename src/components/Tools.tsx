@@ -27,7 +27,7 @@ const GetInTouch = () => {
                 <Settings className="w-4 h-4 text-green-400" />
               </div>
               <div>
-                <h3 className="text-neutral-100 font-semibold">
+                <h3 className="text-neutral-100 font-semibold font-outfit">
                   Tools & Gears
                 </h3>
                 <p className="text-sm text-neutral-400 font-poppins">
@@ -48,7 +48,7 @@ const GetInTouch = () => {
                 <CodeXml className="w-4 h-4 text-green-400" />
               </div>
               <div>
-                <h3 className="text-neutral-100 font-semibold">VS Code</h3>
+                <h3 className="text-neutral-100 font-semibold font-outfit">VS Code</h3>
                 <p className="text-sm text-neutral-400 font-poppins">
                   My essential VS Code extensions for daily development.
                 </p>

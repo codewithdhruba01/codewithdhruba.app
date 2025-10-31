@@ -469,7 +469,7 @@ const BlogPost = () => {
               {post.category}
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">{post.title}</h1>
+          <h1 className="text-4xl md:text-5xl font-bold font-outfit mb-6">{post.title}</h1>
           <div className="flex items-center text-gray-400 mb-8">
             <img
               src="https://avatars.githubusercontent.com/u/146111647?v=4"
@@ -510,7 +510,7 @@ const BlogPost = () => {
             {post.tags.map((tag: string) => (
               <span
                 key={tag}
-                className="bg-[#111111] text-neutral-400 font-light px-3 py-1 rounded-full text-sm"
+                className="bg-[#111111] text-neutral-400 font-light font-poppins px-3 py-1 rounded-full text-sm"
               >
                 #{tag}
               </span>

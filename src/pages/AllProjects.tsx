@@ -205,7 +205,7 @@ const AllProjects = () => {
         <div className="border-t border-gray-700 max-w-3xl mx-auto mb-12"></div>
 
         {/* Category */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
+        <div className="flex flex-wrap justify-center font-outfit gap-3 mb-10">
           {categories.map((category) => (
             <button
               key={category}
@@ -241,15 +241,15 @@ const AllProjects = () => {
                     className="w-full h-48 object-cover transition group-hover:scale-105 duration-300 rounded-t-2xl"
                   />
                   <div className="p-5">
-                    <h3 className="text-xl font-bold mb-1">{project.title}</h3>
-                    <p className="text-gray-400 text-sm mb-4">
+                    <h3 className="text-xl font-bold font-synonym mb-2">{project.title}</h3>
+                    <p className="text-gray-400 text-sm mb-4 font-poppins">
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2 text-xs mb-4">
                       {project.tags?.map((tag, tagIndex) => (
                         <span
                           key={tagIndex}
-                          className="bg-green-900/30 text-green-400 px-2 py-1 rounded-full"
+                          className="bg-green-900/30 text-green-400 px-2 py-1 rounded-full font-poppins"
                         >
                           {tag}
                         </span>
@@ -261,7 +261,7 @@ const AllProjects = () => {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-1 px-3 py-1.5 rounded-md text-sm bg-[#292929] hover:bg-[#3a3a3a] text-white transition"
+                          className="flex items-center gap-1 px-3 py-1.5 font-poppins rounded-md text-sm bg-[#292929] hover:bg-[#3a3a3a] text-white transition"
                         >
                           <Github className="w-4 h-4" />
                           Code
@@ -272,7 +272,7 @@ const AllProjects = () => {
                           href={project.demo}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-1 px-3 py-1.5 rounded-md text-sm bg-green-700 hover:bg-green-600 text-white transition"
+                          className="flex items-center gap-1 font-poppins px-3 py-1.5 rounded-md text-sm bg-green-700 hover:bg-green-600 text-white transition"
                         >
                           <Globe className="w-4 h-4" />
                           Live
@@ -292,7 +292,7 @@ const AllProjects = () => {
                 setLoading(true);
                 setShowAll(!showAll);
               }}
-              className="px-6 py-3 bg-gradient-to-r from-green-700 to-green-900 text-white font-semibold rounded-full hover:scale-105 transition"
+              className="px-6 py-3 bg-gradient-to-r from-green-700 to-green-900 text-white hover:font-thin font-supreme rounded-full hover:scale-105 transition"
             >
               {showAll ? 'Show Less' : 'See More Projects'}
             </button>

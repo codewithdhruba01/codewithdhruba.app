@@ -85,7 +85,7 @@ const Skills = () => {
                 {section.skills.map((skill, sIdx) => (
                   <span
                     key={sIdx}
-                    className="bg-[#08350ee0] text-[#00DC82] px-3 py-1 rounded-full text-sm"
+                    className="bg-[#08350ee0] text-[#00DC82] px-3 py-1 rounded-full text-sm font-poppins"
                   >
                     {skill}
                   </span>

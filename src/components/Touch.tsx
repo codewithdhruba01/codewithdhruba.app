@@ -26,7 +26,7 @@ const GetInTouch = () => {
             <div className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center">
               <Mail className="w-5 h-5 text-teal-400" />
             </div>
-            <h3 className="text-lg font-semibold text-neutral-100">
+            <h3 className="text-lg font-semibold font-outfit text-neutral-100">
               Send Email
             </h3>
             <p className="text-neutral-400 font-poppins text-sm">
@@ -43,7 +43,7 @@ const GetInTouch = () => {
             <div className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center">
               <MessageSquareText className="w-5 h-5 text-green-400" />
             </div>
-            <h3 className="text-lg font-semibold text-neutral-100">
+            <h3 className="text-lg font-semibold font-outfit text-neutral-100">
               Contact Us
             </h3>
             <p className="text-neutral-400 font-poppins text-sm">
