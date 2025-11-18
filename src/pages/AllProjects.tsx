@@ -14,92 +14,93 @@ const categories = [
 
 const projects = [
   {
+    id: 1,
     title: 'MultiCalc - Calculator',
     description:
-      'A comprehensive calculator website with multiple calculator types and a beautiful UI.',
+      'MultiCalc is a simple, fast, and user-friendly online calculator that makes everyday arithmetic easy and accessible for everyone.',
     image: '/project/multicalc1.png',
     github: 'https://github.com/codewithdhruba01/MultiCalc',
     demo: 'https://www.multicalc.site/',
     tags: ['React', 'TypeScript', 'Node.js', 'Full Stack'],
   },
   {
+    id: 2,
     title: 'Outfit Wallpaper Generator',
     description:
-      'Outfit Wallpaper Generator is a modern, interactive web application.',
+      'Outfit Wallpaper Generator is a sleek and interactive tool for creating personalized phone wallpapers in your preferred colors, offering both gradient and solid options.',
     image: '/project/wallpaperapp.png',
     github: 'https://github.com/codewithdhruba01/OutfitWallpaper',
-    demo: 'https://outfitwallpaper.netlify.app/',
-    tags: ['React', 'TypeScript', 'Frontend'],
+    demo: 'https://outfitwallpaper.vercel.app/',
+    tags: ['React', 'Tailwind CSS', 'TypeScript', 'Frontend'],
   },
   {
+    id: 3,
     title: 'GitHub Pro Tools',
     description:
       'Advanced GitHub tools for developers follower analytics, README designer, comparison, and documentation.',
-    image: '/project/githubprotool.png',
+    image: '/project/GithubDevloperTools-cover.png',
     github: 'https://github.com/codewithdhruba01/GithubProtools',
     demo: 'https://githubprotools.vercel.app/',
     tags: ['React', 'Next.js', 'REST API', 'Frontend'],
   },
 
   {
-    id: 1,
-    title: 'Vercual Assistence',
+    id: 4,
+    title: 'Dictionary - WebApp',
     description:
-      'A web-based voice assistant designed to provide an interactive user experience.',
-    image: '/project/vercual-ass-project.jpg',
-    github: 'https://github.com/codewithdhruba01/Virtual-Assistant-Application',
-    demo: 'https://codewithdhruba01.github.io/Virtual-Assistant-Application/',
-    tags: ['Bot Development', 'Full Stack'],
+      'A beautifully designed dictionary web app that allows you to look up any English word and explore rich details such as meanings, pronunciations, usage examples, synonyms, and much more.',
+    image: '/project/Dictionary-cover.png',
+    github: 'https://github.com/codewithdhruba01/Dictionary_Website',
+    demo: 'https://dictionary-website-silk.vercel.app/',
+    tags: ['Next.js','Tailwind CSS','Frontend'],
   },
-
   {
     id: 2,
-    title: 'ComfortPG-Website',
-    description: 'A modern, responsive Paying Guest accommodation website',
-    image: '/project/comfortpg.png',
-    github: 'https://github.com/codewithdhruba01/ComfortPG_Website',
-    demo: 'https://comfort-pg.vercel.app/',
-    tags: ['Frontend', 'Next JS', 'Type Script'],
+    title: 'Typing Master',
+    description:
+      'A modern, feature-rich typing test application. Test your typing speed and accuracy with customizable settings, real-time statistics, and professional-grade performance tracking.',
+    image: '/project/typingmaster-cover.png',
+    github: 'https://github.com/codewithdhruba01/TypeMaster',
+    demo: 'https://type-master-iota-three.vercel.app/',
+    tags: ['React','Tailwind CSS','Frontend'],
   },
-
   {
     id: 3,
-    title: 'Skill Progress',
+    title: 'IP Address Tracker',
     description:
-      'Skillber is a simple and extensible CLI tool built with TypeScript.',
-    image: '/project/skillsber.jpg',
-    github: 'https://github.com/codewithdhruba01/Skillber',
-    demo: 'https://github.com/codewithdhruba01/Skillber',
-    tags: ['Frontend'],
+      'A beautiful, modern web application for tracking and locating IP addresses in real-time with an interactive map interface.',
+    image: '/project/IPAddressTracker.png',
+    github: 'https://github.com/codewithdhruba01/IP-AddressTracker',
+    demo: 'https://ip-tracker-cyan-nu.vercel.app/',
+    tags: ['React.js','Tailwind CSS','Frontend'],
   },
   {
     id: 4,
-    title: 'Weather Forecast App',
+    title: 'ColorKit WebApp',
     description:
-      'A modern weather web app using OpenWeatherMap API with weekly forecast.',
-    image: '/project/weather.jpg',
-    github: 'https://github.com/codewithdhruba01/realtimeWeather',
-    demo: 'https://codewithdhruba01.github.io/realtimeWeather/',
-    tags: ['Frontend', 'API'],
+      'A professional, feature-rich color picker and analysis tool Extract colors from images, generate color palettes, analyze accessibility, and explore color theory with an elegant, animated interface.',
+    image: '/project/colorkit-cover.png',
+    github: 'https://github.com/codewithdhruba01/ColorPicker',
+    demo: 'https://colorskit.vercel.app/',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Notion'],
   },
   {
     id: 5,
-    title: 'College Fee Payment Portal',
-    description:
-      'A simple and responsive College Fee Payment Portal built using HTML, CSS, and JavaScript.',
-    image: '/project/collegepayment.png',
-    github: 'https://github.com/codewithdhruba01/fPortalcollege',
-    demo: 'https://codewithdhruba01.github.io/fPortalcollege/',
-    tags: ['Frontend'],
+    title: 'EmojiHub WebApp',
+    description: 'A beautiful and fully functional emoji search-and-copy application featuring smooth animations, intuitive interactions, and a modern, polished interface.',
+    image: '/project/emojihub-cover.png',
+    github: 'https://github.com/codewithdhruba01/EmojiHub',
+    demo: 'https://emojihub.vercel.app/',
+    tags: ['Next.js', 'Tailwind CSS','Frontend'],
   },
   {
     id: 6,
-    title: 'TerminalV1',
-    description: 'This project simulates a Linux terminal interface.',
-    image: '/project/terminal.jpg',
-    github: 'https://github.com/codewithdhruba01/TerminalV1',
-    demo: 'https://terminalv1.netlify.app/',
-    tags: ['Utility'],
+    title: 'FlipClock - Aesthetic Clock',
+    description: 'A modern, minimal digital clock with an elegant flip animation and a clutter-free interface designed to enhance focus, relaxation, and mindfulness.',
+    image: '/project/flipclock-cover.png',
+    github: 'https://github.com/codewithdhruba01/FlipClock',
+    demo: 'https://flip-clocks.vercel.app/',
+    tags: ['Next.js', 'Tailwind CSS', 'shadcn', 'Frontend'],
   },
   {
     id: 7,
@@ -113,10 +114,12 @@ const projects = [
   },
   {
     id: 8,
-    title: 'My Portfolio',
-    description: 'A modern Portfolio web app using Typescript.',
-    image: '/project/portfolio.jpg',
-    demo: 'https://codewithdhruba.netlify.app/',
+    title: 'College Fee Payment Portal',
+    description:
+      'A simple and responsive College Fee Payment Portal built using HTML, CSS, and JavaScript.',
+    image: '/project/collegepayment.png',
+    github: 'https://github.com/codewithdhruba01/fPortalcollege',
+    demo: 'https://codewithdhruba01.github.io/fPortalcollege/',
     tags: ['Frontend'],
   },
   {
@@ -147,6 +150,34 @@ const projects = [
     github: 'https://github.com/codewithdhruba01/tic-tac-toe-game',
     demo: 'https://codewithdhruba01.github.io/tic-tac-toe-game/',
     tags: ['Game'],
+  },
+  {
+    id: 12,
+    title: 'Skill Progress',
+    description:
+      'Skillber is a simple and extensible CLI tool built with TypeScript.',
+    image: '/project/skillsber.jpg',
+    github: 'https://github.com/codewithdhruba01/Skillber',
+    tags: ['HTML','CSS','Frontend'],
+  },
+  {
+    id: 13,
+    title: 'Vercual Assistence',
+    description:
+      'A web-based voice assistant designed to provide an interactive user experience.',
+    image: '/project/vercual-ass-project.jpg',
+    github: 'https://github.com/codewithdhruba01/Virtual-Assistant-Application',
+    demo: 'https://codewithdhruba01.github.io/Virtual-Assistant-Application/',
+    tags: ['Bot Development', 'Full Stack'],
+  },
+  {
+    id: 14,
+    title: 'ComfortPG-Website',
+    description: 'A modern, responsive Paying Guest accommodation website',
+    image: '/project/comfortpg.png',
+    github: 'https://github.com/codewithdhruba01/ComfortPG_Website',
+    demo: 'https://comfort-pg.vercel.app/',
+    tags: ['Frontend', 'Next JS', 'Type Script'],
   },
 ];
 
@@ -241,7 +272,9 @@ const AllProjects = () => {
                     className="w-full h-48 object-cover transition group-hover:scale-105 duration-300 rounded-t-2xl"
                   />
                   <div className="p-5">
-                    <h3 className="text-xl font-bold font-synonym mb-2">{project.title}</h3>
+                    <h3 className="text-xl font-bold font-synonym mb-2">
+                      {project.title}
+                    </h3>
                     <p className="text-gray-400 text-sm mb-4 font-poppins">
                       {project.description}
                     </p>
