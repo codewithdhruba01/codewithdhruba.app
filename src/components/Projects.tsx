@@ -19,7 +19,7 @@ const Projects = () => {
     {
       title: 'MultiCalc - Calculator',
       description:
-        'A comprehensive calculator website with multiple calculator types and a beautiful UI.',
+        'MultiCalc is a simple, fast, and user-friendly online calculator that makes everyday arithmetic easy and accessible for everyone.',
       image: '/project/multicalc1.png',
       github: 'https://github.com/codewithdhruba01/MultiCalc',
       demo: 'https://www.multicalc.site/',
@@ -28,17 +28,17 @@ const Projects = () => {
     {
       title: 'Outfit Wallpaper Generator',
       description:
-        'Outfit Wallpaper Generator is a modern, interactive web application.',
+        'A modern and intuitive tool to create custom phone wallpapers using your favorite colors, with both gradient and solid styles.',
       image: '/project/wallpaperapp.png',
       github: 'https://github.com/codewithdhruba01/OutfitWallpaper',
       demo: 'https://outfitwallpaper.netlify.app/',
       techStack: ['React', 'TypeScript', 'Tailwind CSS'],
     },
     {
-      title: 'GitHub Pro Tools',
+      title: 'GitHub Developer Tools',
       description:
         'Advanced GitHub tools for developers follower analytics, README designer, comparison, and documentation.',
-      image: '/project/githubprotool.png',
+      image: '/project/GithubDevloperTools-cover.png',
       github: 'https://github.com/codewithdhruba01/GithubProtools',
       demo: 'https://githubprotools.vercel.app/',
       techStack: ['React', 'Next.js', 'REST API'],
