@@ -31,7 +31,7 @@ const Projects = () => {
         'A modern and intuitive tool to create custom phone wallpapers using your favorite colors, with both gradient and solid styles.',
       image: '/project/wallpaperapp.png',
       github: 'https://github.com/codewithdhruba01/OutfitWallpaper',
-      demo: 'https://outfitwallpaper.netlify.app/',
+      demo: 'https://outfitwallpaper.vercel.app/',
       techStack: ['React', 'TypeScript', 'Tailwind CSS'],
     },
     {
