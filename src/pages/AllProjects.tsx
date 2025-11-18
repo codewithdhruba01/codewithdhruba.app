@@ -35,7 +35,7 @@ const projects = [
   },
   {
     id: 3,
-    title: 'GitHub Pro Tools',
+    title: 'GitHub Developer Tools',
     description:
       'Advanced GitHub tools for developers follower analytics, README designer, comparison, and documentation.',
     image: '/project/GithubDevloperTools-cover.png',
