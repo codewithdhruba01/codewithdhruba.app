@@ -117,8 +117,16 @@ export default function Gears() {
                 url: 'https://chromewebstore.google.com/detail/pdmlhckofhkhebmcplblcijijgjiakcm?utm_source=item-share-cb',
               },
               {
+                name: 'Microsoft Clarity Live',
+                url: 'https://chromewebstore.google.com/detail/cjfdbemmaeeohgibnhdhlakiahifjjcf?utm_source=item-share-cb',
+              },
+              {
                 name: 'JSON Formatter',
                 url: 'https://chromewebstore.google.com/detail/bcjindcccaagfpapjjmafapmmgkkhgoa?utm_source=item-share-cb',
+              },
+              {
+                name: 'Snippets',
+                url: 'https://chromewebstore.google.com/detail/fakjeijchchmicjllnabpdkclfkpbiag?utm_source=item-share-cb',
               },
               {
                 name: 'Mobile simulator',
