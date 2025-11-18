@@ -39,9 +39,9 @@ const App = () => {
             <>
               <Hero />
               <Projects />
-              <Education />
-              <Skills />
               <GitHubContributions />
+              <Skills />
+              <Education />
               <Blog />
               <Tools/>
               <Touch />
