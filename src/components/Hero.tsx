@@ -28,13 +28,29 @@ const Hero = () => {
         className="absolute inset-0"
         svgOptions={{ duration: 14 }}
       />
+
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div data-aos="fade-up">
+        <div className="relative w-fit mx-auto" data-aos="fade-up">
           <img
             src="/assets/cover-image.png"
             alt="Dhrubaraj"
             className="w-40 h-40 mx-auto mb-6 rounded-full object-cover border-4 border-[#28ad28] shadow-md transition-shadow duration-300 hover:shadow-[0_0_20px_#00DC82]"
           />
+
+          {/* Open to Work Badge */}
+          <div className="absolute bottom-2 right-2 group cursor-pointer select-none">
+            <div className="w-8 h-8 rounded-full bg-[#202020]  border-[#28ad28] flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110">
+              <div className="w-2.5 h-2.5 bg-[#d6d5d5] rounded-full"></div>
+            </div>
+
+            {/* Side Tooltip (Right Side) */}
+            <div className="absolute top-1/2 left-full ml-2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+              <div className="bg-white text-black dark:bg-gray-900 dark:text-white text-xs font-outfit px-2.5 py-1 rounded-md shadow-lg border border-gray-300 dark:border-gray-700 whitespace-nowrap">
+                Open to Work
+              </div>
+              <div className="absolute left-[-3px] top-1/2 -translate-y-1/2 w-2 h-2 bg-white dark:bg-gray-900 rotate-45 border-l border-t border-gray-300 dark:border-gray-700"></div>
+            </div>
+          </div>
         </div>
 
         <h1
@@ -55,7 +71,6 @@ const Hero = () => {
           applications from start to finish.
         </p>
 
-        {/* Social Icons */}
         <div
           className="flex flex-col items-center space-y-6"
           data-aos="fade-up"
@@ -109,7 +124,6 @@ const Hero = () => {
             ))}
           </div>
 
-          {/* Buttons */}
           <div className="flex flex-wrap justify-center font-outfit gap-4">
             <button
               onClick={handleDownloadCV}
