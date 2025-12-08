@@ -44,6 +44,16 @@ const blogPosts = [
     readTime: '5 min read',
     slug: 'building-my-first-website-with-react-and-tailwind',
   },
+  {
+    title: 'Essential Linux Commands: A Comprehensive Guide',
+    description:
+      'Learn the most essential Linux commands every beginner and intermediate user must know. This comprehensive guide explains each command in simple,',
+    date: 'Dec 8, 2025',
+    image: '/blog/linux_commands.png',
+    category: ['CLI', 'Devlopment', 'Terminal'],
+    readTime: '10 min read',
+    slug: 'essential-linux-commands',
+  },
 ];
 
 const tags = [

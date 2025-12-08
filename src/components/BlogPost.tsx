@@ -296,6 +296,163 @@ const [darkMode, setDarkMode] = useState(true);
     ],
   },
 
+  'essential-linux-commands': {
+  title: 'Essential Linux Commands: A Comprehensive Guide',
+  date: 'October 7, 2025',
+  author: 'Dhrubaraj Pati',
+  category: 'Linux',
+  readTime: '7 min read',
+  content: `
+    <p>Linux is one of the most powerful and flexible operating systems in the world, widely used by developers, system administrators, cybersecurity experts, and tech enthusiasts. Although Linux provides a graphical interface, its true power lies in the command line — where simple commands can perform complex tasks efficiently.</p>
+
+    <p>In this guide, we’ll explore the most essential Linux commands every beginner and intermediate user should know. Each command includes a clear explanation of what it does, helping you understand how Linux works behind the scenes.</p>
+
+    <h2>1. <code>pwd</code> — Print Working Directory</h2>
+    <p><strong>Purpose:</strong> Displays the full path of the directory you are currently in.</p>
+    <p>Useful when you get lost in deep directory structures and want to confirm where you are.</p>
+
+    <h2>2. <code>ls</code> — List Files and Directories</h2>
+    <p><strong>Purpose:</strong> Shows all files and folders inside the current directory.</p>
+    <ul>
+      <li><code>ls -l</code> — detailed list</li>
+      <li><code>ls -a</code> — includes hidden files</li>
+    </ul>
+    <p>This command helps you quickly view directory contents without opening a file manager.</p>
+
+    <h2>3. <code>cd</code> — Change Directory</h2>
+    <p><strong>Purpose:</strong> Moves you from one folder to another.</p>
+    <ul>
+      <li><code>cd ..</code> — go one level back</li>
+      <li><code>cd /</code> — go to root directory</li>
+    </ul>
+    <p>One of the most frequently used commands for navigation.</p>
+
+    <h2>4. <code>touch</code> — Create New File</h2>
+    <p><strong>Purpose:</strong> Creates an empty file or updates an existing file’s timestamp.</p>
+    <p>Helpful for quickly creating files during development or testing.</p>
+
+    <h2>5. <code>mkdir</code> — Make Directory</h2>
+    <p><strong>Purpose:</strong> Creates new folders.</p>
+    <ul>
+      <li><code>mkdir -p folder/subfolder</code> — create nested folders</li>
+    </ul>
+
+    <h2>6. <code>cp</code> — Copy Files and Directories</h2>
+    <p><strong>Purpose:</strong> Copies files or entire folders to another location.</p>
+    <ul>
+      <li><code>cp file.txt backup.txt</code></li>
+      <li><code>cp -r folder1 folder2</code> — copy a directory recursively</li>
+    </ul>
+
+    <h2>7. <code>mv</code> — Move or Rename Files</h2>
+    <p><strong>Purpose:</strong> Moves files or renames them.</p>
+    <p>Useful when organizing files or renaming multiple items quickly.</p>
+
+    <h2>8. <code>rm</code> — Remove Files or Directories</h2>
+    <p><strong>Purpose:</strong> Deletes files and folders.</p>
+    <ul>
+      <li><code>rm file.txt</code> — delete file</li>
+      <li><code>rm -r folder</code> — delete directory</li>
+      <li><code>rm -rf folder</code> — force delete (dangerous)</li>
+    </ul>
+
+    <h2>9. <code>cat</code> — View File Content</h2>
+    <p><strong>Purpose:</strong> Displays the entire content of a file in the terminal.</p>
+    <p>Great for reading log files, scripts, or configuration files quickly.</p>
+
+    <h2>10. <code>nano</code> / <code>vim</code> — Text Editors</h2>
+    <p><strong>Purpose:</strong> Allows editing files directly from the terminal.</p>
+    <p><code>nano</code> is beginner-friendly, while <code>vim</code> is powerful for advanced users.</p>
+
+    <h2>11. <code>head</code> — Show First Few Lines</h2>
+    <p><strong>Purpose:</strong> Displays the first 10 lines of a file.</p>
+    <p>Useful for inspecting large files quickly.</p>
+
+    <h2>12. <code>tail</code> — Show Last Few Lines</h2>
+    <p><strong>Purpose:</strong> Displays the last 10 lines — commonly used for monitoring logs.</p>
+
+    <h2>13. <code>less</code> — Scroll Through File</h2>
+    <p><strong>Purpose:</strong> Opens file content in a scrollable viewer.</p>
+    <p>Ideal for reading long files without loading the entire content at once.</p>
+
+    <h2>14. <code>grep</code> — Search Text in Files</h2>
+    <p><strong>Purpose:</strong> Finds lines containing specific words or patterns.</p>
+    <p>Extremely powerful for developers and system admins analyzing logs.</p>
+
+    <h2>15. <code>find</code> — Search Files by Name or Type</h2>
+    <p><strong>Purpose:</strong> Searches the filesystem for matching files or directories.</p>
+
+    <h2>16. <code>tar</code> — Archive or Extract Files</h2>
+    <p><strong>Purpose:</strong> Creates compressed archives or extracts them.</p>
+
+    <h2>17. <code>zip</code> / <code>unzip</code> — Compress or Extract Files</h2>
+    <p><strong>Purpose:</strong> Easily create .zip files or extract them.</p>
+
+    <h2>18. <code>chmod</code> — Change File Permissions</h2>
+    <p><strong>Purpose:</strong> Modifies read, write, and execute permissions for users.</p>
+
+    <h2>19. <code>chown</code> — Change File Ownership</h2>
+    <p><strong>Purpose:</strong> Changes the owner or group of a file.</p>
+
+    <h2>20. <code>sudo</code> — Run Commands as Administrator</h2>
+    <p><strong>Purpose:</strong> Executes commands with root privileges.</p>
+
+    <h2>21. <code>ip</code> — Network Information</h2>
+    <p><strong>Purpose:</strong> Shows IP address, network interfaces, and connection details.</p>
+
+    <h2>22. <code>ping</code> — Test Connectivity</h2>
+    <p><strong>Purpose:</strong> Checks if a server or website is reachable.</p>
+
+    <h2>23. <code>curl</code> — Fetch Data from URLs</h2>
+    <p><strong>Purpose:</strong> Downloads content or sends API requests.</p>
+
+    <h2>24. <code>wget</code> — Download Files</h2>
+    <p><strong>Purpose:</strong> Downloads files directly from the internet.</p>
+
+    <h2>25. <code>top</code> — System Performance Monitor</h2>
+    <p><strong>Purpose:</strong> Shows real-time CPU, memory, and process usage.</p>
+
+    <h2>26. <code>df</code> — Disk Usage</h2>
+    <p><strong>Purpose:</strong> Displays available and used disk space.</p>
+
+    <h2>27. <code>du</code> — Directory Size</h2>
+    <p><strong>Purpose:</strong> Shows how much space a file or folder consumes.</p>
+
+    <h2>28. <code>free</code> — Memory Usage</h2>
+    <p><strong>Purpose:</strong> Shows available and used RAM and swap memory.</p>
+
+    <h2>29. <code>uname</code> — System Information</h2>
+    <p><strong>Purpose:</strong> Displays OS, kernel version, and hardware details.</p>
+
+    <h2>30. <code>apt</code> Commands (Ubuntu/Debian)</h2>
+    <p><strong>Purpose:</strong> Install, update, or remove software packages.</p>
+    <ul>
+      <li><code>sudo apt update</code> — refresh package list</li>
+      <li><code>sudo apt install package</code></li>
+      <li><code>sudo apt remove package</code></li>
+    </ul>
+
+    <h2>31. <code>ps</code> — View Running Processes</h2>
+    <p><strong>Purpose:</strong> Lists all active processes.</p>
+
+    <h2>32. <code>kill</code> — Terminate Processes</h2>
+    <p><strong>Purpose:</strong> Stops programs using their PID.</p>
+
+    <h2>Conclusion</h2>
+    <p>Mastering Linux commands unlocks the true power of the operating system. These essential commands help you navigate the filesystem, manage files, monitor performance, and control system behavior like a true professional.</p>
+    <p>Start by learning the basics such as <code>pwd</code>, <code>ls</code>, and <code>cd</code>. As you grow more comfortable, explore advanced commands like <code>grep</code>, <code>tar</code>, and <code>chmod</code>. With enough practice, the Linux terminal will become one of your most powerful tools.</p>
+  `,
+  image: '/blog/linux_commands.png',
+  tags: [
+    'Linux',
+    'Commands',
+    'CLI',
+    'System Administration',
+    'Terminal Guide',
+  ],
+},
+
+
   'openweather-api-guide': {
     title:
       'The Ultimate Guide to OpenWeather API: Features, API Key Generation & Integration',
