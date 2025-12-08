@@ -7,6 +7,7 @@ import {
   Download,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { BackgroundLines } from '../components/ui/background-lines';
 
 const Hero = () => {
   const handleDownloadCV = () => {
@@ -21,9 +22,13 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center pt-16 px-4 bg-[#0A0A0A]"
+      className="relative min-h-screen flex items-center justify-center pt-16 px-4 bg-[#0A0A0A] overflow-hidden"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <BackgroundLines
+        className="absolute inset-0"
+        svgOptions={{ duration: 14 }}
+      />
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div data-aos="fade-up">
           <img
             src="/assets/cover-image.png"
@@ -40,7 +45,7 @@ const Hero = () => {
         </h1>
 
         <p
-          className="text-xl md:text-xl text-gray-700 dark:text-gray-500 mb-8  font-satoshi"
+          className="text-xl md:text-xl text-gray-700 dark:text-gray-500 mb-8 font-satoshi"
           data-aos="fade-up"
           data-aos-delay="150"
         >
@@ -50,16 +55,11 @@ const Hero = () => {
           applications from start to finish.
         </p>
 
-        <p
-          className="text-base md:text-base text-neutral-500 max-w-6xl md:max-w-6xl lg:max-w-5xl xl:max-w-4xl mb-10 font-outfit"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        ></p>
-
+        {/* Social Icons */}
         <div
           className="flex flex-col items-center space-y-6"
           data-aos="fade-up"
-          data-aos-delay="400"
+          data-aos-delay="300"
         >
           <div className="flex space-x-6">
             {[
@@ -103,20 +103,20 @@ const Hero = () => {
 
                 <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 text-sm text-black bg-white rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
                   {label}
-
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full border-4 border-transparent border-t-white"></span>
                 </span>
               </a>
             ))}
           </div>
 
+          {/* Buttons */}
           <div className="flex flex-wrap justify-center font-outfit gap-4">
             <button
               onClick={handleDownloadCV}
               className="group flex items-center space-x-2 bg-[#00DC82] hover:bg-[#fff]/90 text-black font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-[#00DC82]/80"
             >
               <span>Download CV</span>
-              <Download className="h-6 w-6 text-[#000000] font-bold transition-transform hover:scale-110" />
+              <Download className="h-6 w-6 text-black group-hover:scale-110 transition-transform" />
             </button>
 
             <Link
@@ -124,7 +124,7 @@ const Hero = () => {
               className="group flex items-center space-x-2 bg-white text-black hover:bg-[#00DC82]/90 font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-white/50"
             >
               <span>About Me</span>
-              <User className="h-6 w-6 text-[#000000] transition-transform hover:scale-110" />
+              <User className="h-6 w-6 text-black transition-transform group-hover:scale-110" />
             </Link>
           </div>
         </div>
