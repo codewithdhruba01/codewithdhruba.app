@@ -297,150 +297,218 @@ const [darkMode, setDarkMode] = useState(true);
   },
 
   'essential-linux-commands': {
-  title: 'Essential Linux Commands: A Comprehensive Guide',
-  date: 'October 7, 2025',
+  title: 'Essential Linux Commands: A Comprehensive Guide (50 Commands with Examples)',
+  date: 'Dec 8, 2025',
   author: 'Dhrubaraj Pati',
   category: 'Linux',
-  readTime: '7 min read',
+  readTime: '10 min read',
   content: `
-    <p>Linux is one of the most powerful and flexible operating systems in the world, widely used by developers, system administrators, cybersecurity experts, and tech enthusiasts. Although Linux provides a graphical interface, its true power lies in the command line — where simple commands can perform complex tasks efficiently.</p>
+    <p>Linux is one of the most powerful and flexible operating systems available today. Whether you’re a developer, system administrator, cybersecurity learner, or technology enthusiast, Linux commands help you work faster, automate tasks, and control your entire system from the terminal.</p>
 
-    <p>In this guide, we’ll explore the most essential Linux commands every beginner and intermediate user should know. Each command includes a clear explanation of what it does, helping you understand how Linux works behind the scenes.</p>
+    <p>This guide covers <strong>50 essential Linux commands</strong> with explanations and real examples — perfect for beginners and intermediate users looking to improve their Linux skills.</p>
 
-    <h2>1. <code>pwd</code> — Print Working Directory</h2>
-    <p><strong>Purpose:</strong> Displays the full path of the directory you are currently in.</p>
-    <p>Useful when you get lost in deep directory structures and want to confirm where you are.</p>
+    <h2>1. pwd — Print Working Directory</h2>
+    <p><strong>Purpose:</strong> Shows your current directory path.</p>
+    <p><strong>Example:</strong> <code>pwd</code></p>
 
-    <h2>2. <code>ls</code> — List Files and Directories</h2>
-    <p><strong>Purpose:</strong> Shows all files and folders inside the current directory.</p>
-    <ul>
-      <li><code>ls -l</code> — detailed list</li>
-      <li><code>ls -a</code> — includes hidden files</li>
-    </ul>
-    <p>This command helps you quickly view directory contents without opening a file manager.</p>
+    <h2>2. ls — List Files</h2>
+    <p><strong>Purpose:</strong> Displays files and folders.</p>
+    <p><strong>Example:</strong> <code>ls -la</code></p>
 
-    <h2>3. <code>cd</code> — Change Directory</h2>
-    <p><strong>Purpose:</strong> Moves you from one folder to another.</p>
-    <ul>
-      <li><code>cd ..</code> — go one level back</li>
-      <li><code>cd /</code> — go to root directory</li>
-    </ul>
-    <p>One of the most frequently used commands for navigation.</p>
+    <h2>3. cd — Change Directory</h2>
+    <p><strong>Purpose:</strong> Moves between folders.</p>
+    <p><strong>Example:</strong> <code>cd Documents/</code></p>
 
-    <h2>4. <code>touch</code> — Create New File</h2>
-    <p><strong>Purpose:</strong> Creates an empty file or updates an existing file’s timestamp.</p>
-    <p>Helpful for quickly creating files during development or testing.</p>
+    <h2>4. touch — Create File</h2>
+    <p><strong>Purpose:</strong> Creates an empty file.</p>
+    <p><strong>Example:</strong> <code>touch notes.txt</code></p>
 
-    <h2>5. <code>mkdir</code> — Make Directory</h2>
+    <h2>5. mkdir — Make Directory</h2>
     <p><strong>Purpose:</strong> Creates new folders.</p>
-    <ul>
-      <li><code>mkdir -p folder/subfolder</code> — create nested folders</li>
-    </ul>
+    <p><strong>Example:</strong> <code>mkdir projects</code></p>
 
-    <h2>6. <code>cp</code> — Copy Files and Directories</h2>
-    <p><strong>Purpose:</strong> Copies files or entire folders to another location.</p>
-    <ul>
-      <li><code>cp file.txt backup.txt</code></li>
-      <li><code>cp -r folder1 folder2</code> — copy a directory recursively</li>
-    </ul>
+    <h2>6. rmdir — Remove Empty Directory</h2>
+    <p><strong>Purpose:</strong> Deletes an empty directory.</p>
+    <p><strong>Example:</strong> <code>rmdir oldfolder</code></p>
 
-    <h2>7. <code>mv</code> — Move or Rename Files</h2>
-    <p><strong>Purpose:</strong> Moves files or renames them.</p>
-    <p>Useful when organizing files or renaming multiple items quickly.</p>
+    <h2>7. rm — Remove Files</h2>
+    <p><strong>Purpose:</strong> Deletes files or folders.</p>
+    <p><strong>Example:</strong> <code>rm -rf folder</code></p>
 
-    <h2>8. <code>rm</code> — Remove Files or Directories</h2>
-    <p><strong>Purpose:</strong> Deletes files and folders.</p>
-    <ul>
-      <li><code>rm file.txt</code> — delete file</li>
-      <li><code>rm -r folder</code> — delete directory</li>
-      <li><code>rm -rf folder</code> — force delete (dangerous)</li>
-    </ul>
+    <h2>8. cp — Copy Files</h2>
+    <p><strong>Purpose:</strong> Copies files or directories.</p>
+    <p><strong>Example:</strong> <code>cp file.txt backup.txt</code></p>
 
-    <h2>9. <code>cat</code> — View File Content</h2>
-    <p><strong>Purpose:</strong> Displays the entire content of a file in the terminal.</p>
-    <p>Great for reading log files, scripts, or configuration files quickly.</p>
+    <h2>9. mv — Move or Rename</h2>
+    <p><strong>Purpose:</strong> Moves or renames files.</p>
+    <p><strong>Example:</strong> <code>mv old.txt new.txt</code></p>
 
-    <h2>10. <code>nano</code> / <code>vim</code> — Text Editors</h2>
-    <p><strong>Purpose:</strong> Allows editing files directly from the terminal.</p>
-    <p><code>nano</code> is beginner-friendly, while <code>vim</code> is powerful for advanced users.</p>
+    <h2>10. cat — View File Content</h2>
+    <p><strong>Purpose:</strong> Prints file content to terminal.</p>
+    <p><strong>Example:</strong> <code>cat info.txt</code></p>
 
-    <h2>11. <code>head</code> — Show First Few Lines</h2>
-    <p><strong>Purpose:</strong> Displays the first 10 lines of a file.</p>
-    <p>Useful for inspecting large files quickly.</p>
+    <h2>11. nano — Edit File (Beginner-Friendly)</h2>
+    <p><strong>Purpose:</strong> Opens file in nano editor.</p>
+    <p><strong>Example:</strong> <code>nano config.txt</code></p>
 
-    <h2>12. <code>tail</code> — Show Last Few Lines</h2>
-    <p><strong>Purpose:</strong> Displays the last 10 lines — commonly used for monitoring logs.</p>
+    <h2>12. vim — Advanced Text Editor</h2>
+    <p><strong>Purpose:</strong> Opens file in vim editor.</p>
+    <p><strong>Example:</strong> <code>vim main.py</code></p>
 
-    <h2>13. <code>less</code> — Scroll Through File</h2>
-    <p><strong>Purpose:</strong> Opens file content in a scrollable viewer.</p>
-    <p>Ideal for reading long files without loading the entire content at once.</p>
+    <h2>13. head — Show First Lines</h2>
+    <p><strong>Purpose:</strong> Prints first 10 lines.</p>
+    <p><strong>Example:</strong> <code>head logs.txt</code></p>
 
-    <h2>14. <code>grep</code> — Search Text in Files</h2>
-    <p><strong>Purpose:</strong> Finds lines containing specific words or patterns.</p>
-    <p>Extremely powerful for developers and system admins analyzing logs.</p>
+    <h2>14. tail — Show Last Lines</h2>
+    <p><strong>Purpose:</strong> Prints last 10 lines.</p>
+    <p><strong>Example:</strong> <code>tail logs.txt</code></p>
 
-    <h2>15. <code>find</code> — Search Files by Name or Type</h2>
-    <p><strong>Purpose:</strong> Searches the filesystem for matching files or directories.</p>
+    <h2>15. less — Scroll File Content</h2>
+    <p><strong>Purpose:</strong> Opens file in scroll mode.</p>
+    <p><strong>Example:</strong> <code>less story.txt</code></p>
 
-    <h2>16. <code>tar</code> — Archive or Extract Files</h2>
-    <p><strong>Purpose:</strong> Creates compressed archives or extracts them.</p>
+    <h2>16. grep — Search in Files</h2>
+    <p><strong>Purpose:</strong> Searches text inside files.</p>
+    <p><strong>Example:</strong> <code>grep "error" server.log</code></p>
 
-    <h2>17. <code>zip</code> / <code>unzip</code> — Compress or Extract Files</h2>
-    <p><strong>Purpose:</strong> Easily create .zip files or extract them.</p>
+    <h2>17. find — Search Files</h2>
+    <p><strong>Purpose:</strong> Finds files by name/type.</p>
+    <p><strong>Example:</strong> <code>find / -name "config.json"</code></p>
 
-    <h2>18. <code>chmod</code> — Change File Permissions</h2>
-    <p><strong>Purpose:</strong> Modifies read, write, and execute permissions for users.</p>
+    <h2>18. locate — Fast File Search</h2>
+    <p><strong>Purpose:</strong> Quickly finds file locations.</p>
+    <p><strong>Example:</strong> <code>locate notes.txt</code></p>
 
-    <h2>19. <code>chown</code> — Change File Ownership</h2>
-    <p><strong>Purpose:</strong> Changes the owner or group of a file.</p>
+    <h2>19. df — Disk Usage</h2>
+    <p><strong>Purpose:</strong> Shows free/used disk space.</p>
+    <p><strong>Example:</strong> <code>df -h</code></p>
 
-    <h2>20. <code>sudo</code> — Run Commands as Administrator</h2>
+    <h2>20. du — Directory Size</h2>
+    <p><strong>Purpose:</strong> Shows folder size.</p>
+    <p><strong>Example:</strong> <code>du -sh /var/log</code></p>
+
+    <h2>21. free — Memory Usage</h2>
+    <p><strong>Purpose:</strong> Displays RAM usage.</p>
+    <p><strong>Example:</strong> <code>free -h</code></p>
+
+    <h2>22. uname — System Information</h2>
+    <p><strong>Purpose:</strong> Shows OS, kernel version.</p>
+    <p><strong>Example:</strong> <code>uname -a</code></p>
+
+    <h2>23. top — Process Viewer</h2>
+    <p><strong>Purpose:</strong> Shows real-time CPU and RAM usage.</p>
+    <p><strong>Example:</strong> <code>top</code></p>
+
+    <h2>24. htop — Advanced Process Viewer</h2>
+    <p><strong>Purpose:</strong> Colorful interactive system monitor.</p>
+    <p><strong>Example:</strong> <code>htop</code></p>
+
+    <h2>25. ps — Process Status</h2>
+    <p><strong>Purpose:</strong> Shows running processes.</p>
+    <p><strong>Example:</strong> <code>ps aux</code></p>
+
+    <h2>26. kill — Terminate Process</h2>
+    <p><strong>Purpose:</strong> Stops a process by PID.</p>
+    <p><strong>Example:</strong> <code>kill 1234</code></p>
+
+    <h2>27. ping — Test Connectivity</h2>
+    <p><strong>Purpose:</strong> Checks server connection.</p>
+    <p><strong>Example:</strong> <code>ping google.com</code></p>
+
+    <h2>28. curl — Download or Fetch URLs</h2>
+    <p><strong>Purpose:</strong> Sends API requests or downloads data.</p>
+    <p><strong>Example:</strong> <code>curl https://api.github.com</code></p>
+
+    <h2>29. wget — Download Files</h2>
+    <p><strong>Purpose:</strong> Downloads files from URLs.</p>
+    <p><strong>Example:</strong> <code>wget https://example.com/file.zip</code></p>
+
+    <h2>30. ip a — Network Info</h2>
+    <p><strong>Purpose:</strong> Shows IP addresses & interfaces.</p>
+    <p><strong>Example:</strong> <code>ip a</code></p>
+
+    <h2>31. hostname — Show System Name</h2>
+    <p><strong>Purpose:</strong> Displays device hostname.</p>
+    <p><strong>Example:</strong> <code>hostname</code></p>
+
+    <h2>32. whoami — Current User</h2>
+    <p><strong>Purpose:</strong> Prints the logged-in username.</p>
+    <p><strong>Example:</strong> <code>whoami</code></p>
+
+    <h2>33. history — Command History</h2>
+    <p><strong>Purpose:</strong> Shows previously used commands.</p>
+    <p><strong>Example:</strong> <code>history</code></p>
+
+    <h2>34. sudo — Run as Administrator</h2>
     <p><strong>Purpose:</strong> Executes commands with root privileges.</p>
+    <p><strong>Example:</strong> <code>sudo apt update</code></p>
 
-    <h2>21. <code>ip</code> — Network Information</h2>
-    <p><strong>Purpose:</strong> Shows IP address, network interfaces, and connection details.</p>
+    <h2>35. chmod — Change Permissions</h2>
+    <p><strong>Purpose:</strong> Sets read/write/execute permissions.</p>
+    <p><strong>Example:</strong> <code>chmod +x script.sh</code></p>
 
-    <h2>22. <code>ping</code> — Test Connectivity</h2>
-    <p><strong>Purpose:</strong> Checks if a server or website is reachable.</p>
+    <h2>36. chown — Change File Owner</h2>
+    <p><strong>Purpose:</strong> Changes file ownership.</p>
+    <p><strong>Example:</strong> <code>chown user:user file.txt</code></p>
 
-    <h2>23. <code>curl</code> — Fetch Data from URLs</h2>
-    <p><strong>Purpose:</strong> Downloads content or sends API requests.</p>
+    <h2>37. tar — Archive Files</h2>
+    <p><strong>Purpose:</strong> Create or extract .tar archives.</p>
+    <p><strong>Example:</strong> <code>tar -cvf backup.tar folder/</code></p>
 
-    <h2>24. <code>wget</code> — Download Files</h2>
-    <p><strong>Purpose:</strong> Downloads files directly from the internet.</p>
+    <h2>38. zip — Create Zip File</h2>
+    <p><strong>Purpose:</strong> Compress files into .zip.</p>
+    <p><strong>Example:</strong> <code>zip project.zip file1 file2</code></p>
 
-    <h2>25. <code>top</code> — System Performance Monitor</h2>
-    <p><strong>Purpose:</strong> Shows real-time CPU, memory, and process usage.</p>
+    <h2>39. unzip — Extract Zip File</h2>
+    <p><strong>Purpose:</strong> Extracts .zip files.</p>
+    <p><strong>Example:</strong> <code>unzip project.zip</code></p>
 
-    <h2>26. <code>df</code> — Disk Usage</h2>
-    <p><strong>Purpose:</strong> Displays available and used disk space.</p>
+    <h2>40. man — Command Manual</h2>
+    <p><strong>Purpose:</strong> Displays documentation for commands.</p>
+    <p><strong>Example:</strong> <code>man ls</code></p>
 
-    <h2>27. <code>du</code> — Directory Size</h2>
-    <p><strong>Purpose:</strong> Shows how much space a file or folder consumes.</p>
+    <h2>41. echo — Print Text</h2>
+    <p><strong>Purpose:</strong> Prints text to the terminal.</p>
+    <p><strong>Example:</strong> <code>echo "Hello Linux"</code></p>
 
-    <h2>28. <code>free</code> — Memory Usage</h2>
-    <p><strong>Purpose:</strong> Shows available and used RAM and swap memory.</p>
+    <h2>42. date — Show Date & Time</h2>
+    <p><strong>Purpose:</strong> Prints system date/time.</p>
+    <p><strong>Example:</strong> <code>date</code></p>
 
-    <h2>29. <code>uname</code> — System Information</h2>
-    <p><strong>Purpose:</strong> Displays OS, kernel version, and hardware details.</p>
+    <h2>43. cal — Calendar View</h2>
+    <p><strong>Purpose:</strong> Shows a monthly calendar.</p>
+    <p><strong>Example:</strong> <code>cal</code></p>
 
-    <h2>30. <code>apt</code> Commands (Ubuntu/Debian)</h2>
-    <p><strong>Purpose:</strong> Install, update, or remove software packages.</p>
-    <ul>
-      <li><code>sudo apt update</code> — refresh package list</li>
-      <li><code>sudo apt install package</code></li>
-      <li><code>sudo apt remove package</code></li>
-    </ul>
+    <h2>44. shutdown — Power Off System</h2>
+    <p><strong>Purpose:</strong> Shutdown or restart Linux.</p>
+    <p><strong>Example:</strong> <code>shutdown now</code></p>
 
-    <h2>31. <code>ps</code> — View Running Processes</h2>
-    <p><strong>Purpose:</strong> Lists all active processes.</p>
+    <h2>45. reboot — Restart System</h2>
+    <p><strong>Purpose:</strong> Reboots the computer.</p>
+    <p><strong>Example:</strong> <code>reboot</code></p>
 
-    <h2>32. <code>kill</code> — Terminate Processes</h2>
-    <p><strong>Purpose:</strong> Stops programs using their PID.</p>
+    <h2>46. apt install — Install Software</h2>
+    <p><strong>Purpose:</strong> Installs packages (Debian/Ubuntu).</p>
+    <p><strong>Example:</strong> <code>sudo apt install git</code></p>
+
+    <h2>47. apt remove — Remove Software</h2>
+    <p><strong>Purpose:</strong> Uninstalls packages.</p>
+    <p><strong>Example:</strong> <code>sudo apt remove nodejs</code></p>
+
+    <h2>48. systemctl — Manage Services</h2>
+    <p><strong>Purpose:</strong> Controls system services.</p>
+    <p><strong>Example:</strong> <code>systemctl restart apache2</code></p>
+
+    <h2>49. service — Start/Stop Services</h2>
+    <p><strong>Purpose:</strong> Manually control services.</p>
+    <p><strong>Example:</strong> <code>service ssh start</code></p>
+
+    <h2>50. passwd — Change Password</h2>
+    <p><strong>Purpose:</strong> Updates user password.</p>
+    <p><strong>Example:</strong> <code>passwd</code></p>
 
     <h2>Conclusion</h2>
-    <p>Mastering Linux commands unlocks the true power of the operating system. These essential commands help you navigate the filesystem, manage files, monitor performance, and control system behavior like a true professional.</p>
-    <p>Start by learning the basics such as <code>pwd</code>, <code>ls</code>, and <code>cd</code>. As you grow more comfortable, explore advanced commands like <code>grep</code>, <code>tar</code>, and <code>chmod</code>. With enough practice, the Linux terminal will become one of your most powerful tools.</p>
+    <p>These 50 essential Linux commands will help you navigate, control, and manage your system more efficiently. Whether you're a beginner or aspiring power user, mastering these commands will greatly improve your productivity and confidence in the Linux environment.</p>
   `,
   image: '/blog/linux_commands.png',
   tags: [
@@ -451,7 +519,6 @@ const [darkMode, setDarkMode] = useState(true);
     'Terminal Guide',
   ],
 },
-
 
   'openweather-api-guide': {
     title:
@@ -634,10 +701,10 @@ const BlogPost = () => {
               className="w-10 h-10 rounded-full mr-4"
             />
             <div>
-              <div className="text-white font-supreme font-samibold">
+              <div className="text-white font-synonym font-bold">
                 {post.author}
               </div>
-              <div className="text-sm font-supreme text-neutral-400">
+              <div className="text-sm font-satoshi text-neutral-400">
                 {post.date} · {post.readTime}
               </div>
             </div>
