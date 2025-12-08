@@ -8,6 +8,9 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { BackgroundLines } from '../components/ui/background-lines';
+import { TextGenerateEffect } from '../components/ui/text-generate-effect';
+
+const description = `A Full Stack Developer crafts seamless digital experiences, blending front-end creativity with back-end logic, mastering diverse technologies to build robust, user-friendly, and efficient web applications from start to finish.`;
 
 const Hero = () => {
   const handleDownloadCV = () => {
@@ -30,6 +33,8 @@ const Hero = () => {
       />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+        {/* Hero Image + Badge */}
         <div className="relative w-fit mx-auto" data-aos="fade-up">
           <img
             src="/assets/cover-image.png"
@@ -39,11 +44,11 @@ const Hero = () => {
 
           {/* Open to Work Badge */}
           <div className="absolute bottom-2 right-2 group cursor-pointer select-none">
-            <div className="w-8 h-8 rounded-full bg-[#202020]  border-[#28ad28] flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110">
-              <div className="w-2.5 h-2.5 bg-[#d6d5d5] rounded-full"></div>
+            <div className="w-8 h-8 rounded-full bg-[#202020] border-[#28ad28] flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110">
+              <div className="w-2.5 h-2.5 bg-[#ffffff] rounded-full"></div>
             </div>
 
-            {/* Side Tooltip (Right Side) */}
+            {/* Tooltip */}
             <div className="absolute top-1/2 left-full ml-2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
               <div className="bg-white text-black dark:bg-gray-900 dark:text-white text-xs font-outfit px-2.5 py-1 rounded-md shadow-lg border border-gray-300 dark:border-gray-700 whitespace-nowrap">
                 Open to Work
@@ -53,6 +58,7 @@ const Hero = () => {
           </div>
         </div>
 
+        {/* Heading */}
         <h1
           className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 text-white font-synonym"
           data-aos="fade-up"
@@ -60,17 +66,19 @@ const Hero = () => {
           Hi, I'm <span className="text-[#209620] font-synonym">Dhrubaraj</span>
         </h1>
 
-        <p
-          className="text-xl md:text-xl text-gray-700 dark:text-gray-500 mb-8 font-satoshi"
+        <div
+          className="max-w-3xl mx-auto mb-10"
           data-aos="fade-up"
           data-aos-delay="150"
         >
-          A Full Stack Developer crafts seamless digital experiences, blending
-          front-end creativity with back-end logic, mastering diverse
-          technologies to build robust, user-friendly, and efficient web
-          applications from start to finish.
-        </p>
+          <TextGenerateEffect
+            words={description}
+            className="text-gray-300 dark:text-gray-400 text-lg md:text-xl leading-relaxed"
+            duration={0.3}
+          />
+        </div>
 
+        {/* Social Links */}
         <div
           className="flex flex-col items-center space-y-6"
           data-aos="fade-up"
@@ -124,6 +132,7 @@ const Hero = () => {
             ))}
           </div>
 
+          {/* Buttons */}
           <div className="flex flex-wrap justify-center font-outfit gap-4">
             <button
               onClick={handleDownloadCV}
