@@ -26,7 +26,7 @@ const Hero = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div data-aos="fade-up">
           <img
-            src="/assets/hero-cover.png"
+            src="/assets/cover-image.png"
             alt="Dhrubaraj"
             className="w-40 h-40 mx-auto mb-6 rounded-full object-cover border-4 border-[#28ad28] shadow-md transition-shadow duration-300 hover:shadow-[0_0_20px_#00DC82]"
           />

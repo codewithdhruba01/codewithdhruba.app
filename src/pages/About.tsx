@@ -14,7 +14,7 @@ export default function AboutMe() {
           data-aos="zoom-in"
         >
           <img
-            src="/assets/profilepic.jpg"
+            src="/assets/profilepic.jpeg"
             alt="Profile"
             className="rounded-xl mb-6 w-full object-cover"
           />
