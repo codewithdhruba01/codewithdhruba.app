@@ -111,7 +111,7 @@ const Hero = () => {
                 className="relative group"
               >
                 <div
-                  className={`p-3 rounded-full border border-gray-500 text-gray-400 transition-all duration-300 hover:bg-white/10 hover:scale-110 ${color}`}
+                  className={`p-3 rounded-full border-[2px] border-gray-500 text-gray-400 transition-all duration-300 hover:bg-white/10 hover:scale-110 ${color}`}
                 >
                   <Icon className="h-6 w-6" />
                 </div>
