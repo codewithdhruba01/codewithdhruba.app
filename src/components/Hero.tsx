@@ -40,10 +40,10 @@ const Hero = () => {
             src="/assets/cover-image.png"
             alt="Dhrubaraj"
             className="
-              mx-auto object-cover rounded-full border-4 border-[#28ad28]
-              shadow-md transition-shadow duration-300 hover:shadow-[0_0_20px_#00DC82]
-              w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44
-            "
+      mx-auto object-cover rounded-full border-4 border-[#28ad28]
+      shadow-md transition-shadow duration-300 hover:shadow-[0_0_20px_#00DC82]
+      w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52
+    "
           />
 
           {/* Open To Work Badge */}
@@ -52,7 +52,6 @@ const Hero = () => {
               <div className="w-2.5 h-2.5 bg-[#ffffff] rounded-full"></div>
             </div>
 
-            {/* Tooltip */}
             <div className="absolute top-1/2 left-full ml-2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
               <div className="bg-white text-black dark:bg-gray-900 dark:text-white text-xs px-2.5 py-1 rounded-md shadow-lg border border-gray-300 dark:border-gray-700 whitespace-nowrap">
                 Open to Work
