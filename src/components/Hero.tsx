@@ -25,7 +25,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center pt-24 pb-16 px-4 bg-[#0A0A0A] overflow-hidden"
+      className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center pt-20 pb-6 px-4 bg-[#0A0A0A] overflow-hidden"
     >
       {/* Background Animation */}
       <BackgroundLines
