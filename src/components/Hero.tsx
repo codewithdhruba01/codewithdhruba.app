@@ -1,18 +1,12 @@
-import {
-  Github,
-  Twitter,
-  Linkedin,
-  Instagram,
-  Download,
-} from "lucide-react";
-import { Link } from "react-router-dom";
-import { BackgroundLines } from "../components/ui/background-lines";
+import { Github, Twitter, Linkedin, Instagram, Download } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { BackgroundLines } from '../components/ui/background-lines';
 
 const Hero = () => {
   const handleDownloadCV = () => {
-    const link = document.createElement("a");
-    link.href = "/assets/Dhrubaraj_s_CV.pdf";
-    link.download = "Dhrubaraj_Resume.pdf";
+    const link = document.createElement('a');
+    link.href = '/assets/Dhrubaraj_s_CV.pdf';
+    link.download = 'Dhrubaraj_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -21,7 +15,15 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen bg-[#0A0A0A] flex items-start md:items-center overflow-hidden"
+      className="
+        relative
+        min-h-screen
+        bg-[#0A0A0A]
+        flex
+        items-center
+        overflow-hidden
+        pt-24 md:pt-0
+      "
     >
       {/* Background */}
       <BackgroundLines
@@ -29,61 +31,76 @@ const Hero = () => {
         svgOptions={{ duration: 14 }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 md:gap-16 items-center">
-
+      <div
+        className="
+          relative z-10
+          max-w-7xl mx-auto
+          w-full px-6
+          grid grid-cols-1 md:grid-cols-2
+          gap-10 md:gap-16
+          items-center
+        "
+      >
+        
         {/* ================= RIGHT VISUAL (IMAGE) ================= */}
-        <div className="order-1 md:order-2 flex justify-center md:justify-end mt-12 md:mt-0">
+        <div className="order-1 md:order-2 flex justify-center md:justify-end mt-4 md:mt-0">
           <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80">
+            {/* OUTER BORDER */}
+            <div className="absolute inset-0 rounded-full border-4 border-[#00DC82]/60" />
 
-            {/* OUTLINE BOXES */}
-            <div className="absolute inset-0 rounded-xl border border-[#00DC82]/40" />
-            <div className="absolute inset-4 rounded-xl border border-[#00DC82]/25" />
-            <div className="absolute inset-8 rounded-xl border border-[#00DC82]/15" />
+            {/* MIDDLE BORDER */}
+            <div className="absolute inset-4 rounded-xl border-2 border-[#00DC82]/40" />
 
-            {/* PROFILE IMAGE */}
-            <img
-              src="/assets/cover-image.png"
-              alt="Dhrubaraj"
-              className="
-                absolute inset-10
-                w-[calc(100%-5rem)]
-                h-[calc(100%-5rem)]
-                object-cover
-                rounded-xl
-              "
-            />
+            {/* INNER BORDER */}
+            <div className="absolute inset-8 rounded-xl border-2 border-[#00DC82]/25" />
+
+            <div className="absolute inset-12 rounded-xl overflow-hidden bg-black">
+              <img
+                src="/assets/cover-image.png"
+                alt="Dhrubaraj"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
 
-        {/* ================= LEFT CONTENT ================= */}
+        {/* ================= LEFT CONTENT (UNCHANGED) ================= */}
         <div className="order-2 md:order-1 mt-6 md:mt-0">
           <h1 className="font-bold text-white text-4xl font-outfit sm:text-5xl lg:text-6xl leading-tight">
-            Software engineer, technical writer <br />
-            & open-source Contributor
+            Software engineer, technical writer <br />& open-source Contributor
           </h1>
 
           <p className="mt-5 text-gray-400 font-synonym font-semibold text-lg max-w-xl">
-            I'm{" "}
-            <span className="text-white font-synonym font-bold">
-              Dhrubaraj
-            </span>
-            , a full stack developer passionate about building scalable web
-            applications, crafting clean user experiences, and contributing to
-            meaningful open-source projects.
+            I'm <span className="text-white font-bold">Dhrubaraj</span>, a full
+            stack developer passionate about building scalable web applications,
+            crafting clean user experiences, and contributing to meaningful
+            open-source projects.
           </p>
 
           {/* SOCIAL LINKS */}
           <div className="mt-7 flex flex-wrap gap-6 text-gray-300 text-sm">
-            <a href="https://github.com/codewithdhruba01" className="flex items-center gap-2 hover:text-white">
+            <a
+              href="https://github.com/codewithdhruba01"
+              className="flex items-center gap-2 hover:text-white"
+            >
               <Github size={18} /> GitHub
             </a>
-            <a href="https://x.com/codewithdhruba" className="flex items-center gap-2 hover:text-white">
+            <a
+              href="https://x.com/codewithdhruba"
+              className="flex items-center gap-2 hover:text-white"
+            >
               <Twitter size={18} /> Twitter
             </a>
-            <a href="https://www.linkedin.com/in/dhrubaraj-pati/" className="flex items-center gap-2 hover:text-white">
+            <a
+              href="https://www.linkedin.com/in/dhrubaraj-pati/"
+              className="flex items-center gap-2 hover:text-white"
+            >
               <Linkedin size={18} /> LinkedIn
             </a>
-            <a href="https://www.instagram.com/dhrubaraj_pati/" className="flex items-center gap-2 hover:text-white">
+            <a
+              href="https://www.instagram.com/dhrubaraj_pati/"
+              className="flex items-center gap-2 hover:text-white"
+            >
               <Instagram size={18} /> Instagram
             </a>
           </div>
@@ -106,7 +123,6 @@ const Hero = () => {
             </Link>
           </div>
         </div>
-
       </div>
     </section>
   );
