@@ -6,7 +6,7 @@ import {
   Download,
   Rss,
   Infinity,
-  Codepen
+  Codepen,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { BackgroundLines } from '../components/ui/background-lines';
@@ -26,13 +26,12 @@ const Hero = () => {
       id="home"
       className="
         relative
-        min-h-screen
         bg-[#0A0A0A]
         flex
         items-center
         overflow-hidden
-        pt-24 md:pt-0
-        pb-24 md:pb-32
+        pt-24 md:pt-28
+        pb-12 md:pb-16
       "
     >
       {/* Background */}
@@ -51,34 +50,29 @@ const Hero = () => {
           items-center
         "
       >
-        {/* ================= RIGHT VISUAL (IMAGE) ================= */}
+        {/* RIGHT VISUAL IMAGE  */}
         <div className="order-1 md:order-2 flex justify-center md:justify-end mt-4 md:mt-0">
           <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80">
-            {/* OUTER BORDER */}
             <div className="absolute inset-0 rounded-full border-4 border-[#00DC82]/60" />
-
-            {/* MIDDLE BORDER */}
             <div className="absolute inset-4 rounded-xl border-2 border-[#00DC82]/40" />
-
-            {/* INNER BORDER */}
             <div className="absolute inset-8 rounded-xl border-2 border-[#00DC82]/25" />
 
-            {/* IMAGE */}
             <div className="absolute inset-12 rounded-xl overflow-hidden bg-black group">
               <img
                 src="/assets/cover-image.png"
                 alt="Dhrubaraj"
-                className="w-full h-full object-cover
-                grayscale group-hover:grayscale-0
-                transition-all duration-500
-                ease-in-out"
+                className="
+                  w-full h-full object-cover
+                  grayscale group-hover:grayscale-0
+                  transition-all duration-500 ease-in-out
+                "
               />
             </div>
           </div>
         </div>
 
-        {/* ================= LEFT CONTENT ================= */}
-        <div className="order-2 md:order-1 mt-6 md:mt-0">
+        {/* LEFT CONTENT  */}
+        <div className="order-2 md:order-1 mt-6 md:mt-5">
           <h1 className="font-bold text-white text-4xl font-outfit sm:text-5xl lg:text-6xl leading-tight">
             Software engineer, technical writer <br />& open-source Contributor
           </h1>
@@ -94,43 +88,43 @@ const Hero = () => {
           <div className="mt-7 flex flex-wrap gap-6 text-gray-300 text-base">
             <a
               href="https://github.com/codewithdhruba01"
-              className="flex items-center font-bold font-sans gap-2 hover:text-white"
+              className="flex items-center gap-2 font-bold hover:text-white"
             >
               <Github size={18} /> GitHub
             </a>
             <a
               href="https://x.com/codewithdhruba"
-              className="flex items-center font-bold font-sans gap-2 hover:text-white"
+              className="flex items-center gap-2 font-bold hover:text-white"
             >
               <Twitter size={18} /> Twitter
             </a>
             <a
               href="https://www.linkedin.com/in/dhrubaraj-pati/"
-              className="flex items-center font-bold font-sans gap-2 hover:text-white"
+              className="flex items-center gap-2 font-bold hover:text-white"
             >
               <Linkedin size={18} /> LinkedIn
             </a>
             <a
               href="https://www.instagram.com/dhrubaraj_pati/"
-              className="flex items-center gap-2 font-bold font-sans hover:text-white"
+              className="flex items-center gap-2 font-bold hover:text-white"
             >
               <Instagram size={18} /> Instagram
             </a>
             <a
               href="https://app.daily.dev/codewithdhruba"
-              className="flex items-center gap-2 font-sans font-bold hover:text-white"
+              className="flex items-center gap-2 font-bold hover:text-white"
             >
               <Infinity size={18} /> Daily.dev
             </a>
             <a
-              href="https://app.daily.dev/codewithdhruba"
-              className="flex items-center gap-2 font-sans font-bold hover:text-white"
+              href="https://forem.com/codewithdhruba"
+              className="flex items-center gap-2 font-bold hover:text-white"
             >
               <Rss size={18} /> Forem
             </a>
             <a
-              href="https://app.daily.dev/codewithdhruba"
-              className="flex items-center gap-2 font-sans font-bold hover:text-white"
+              href="#"
+              className="flex items-center gap-2 font-bold hover:text-white"
             >
               <Codepen size={18} /> Codepen
             </a>
