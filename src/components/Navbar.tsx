@@ -5,9 +5,8 @@ const Navbar = () => {
   const [activeLink, setActiveLink] = useState('/#home');
 
   const navLinks = [
-    { href: '/', text: 'Home' },
+    { href: '/about', text: 'About' },
     { href: '/projects', text: 'Projects' },
-    { href: '/#skills', text: 'Skills' },
     { href: '/#blog', text: 'Blog' },
     { href: '/certificates', text: 'Certificates' },
     { href: '/contact', text: 'Contact' },
@@ -25,7 +24,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex mx-auto space-x-2 font-poppins">
+          <div className="hidden md:flex mx-auto space-x-2 font-hind">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -66,7 +65,7 @@ const Navbar = () => {
                   setActiveLink(link.href);
                   setIsOpen(false);
                 }}
-                className={`block px-3 py-2 rounded-md transition-all font-poppins duration-300 ${
+                className={`block px-3 py-2 rounded-md transition-all font-hind duration-300 ${
                   activeLink === link.href
                     ? 'bg-[#00DC82]/20 text-[#00DC82]'
                     : 'text-white hover:bg-[#00DC82]/20 hover:text-[#00DC82]'
