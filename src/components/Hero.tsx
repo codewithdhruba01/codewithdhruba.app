@@ -1,4 +1,13 @@
-import { Github, Twitter, Linkedin, Instagram, Download } from 'lucide-react';
+import {
+  Github,
+  Twitter,
+  Linkedin,
+  Instagram,
+  Download,
+  Rss,
+  Infinity,
+  Codepen
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { BackgroundLines } from '../components/ui/background-lines';
 
@@ -23,6 +32,7 @@ const Hero = () => {
         items-center
         overflow-hidden
         pt-24 md:pt-0
+        pb-24 md:pb-32
       "
     >
       {/* Background */}
@@ -41,7 +51,6 @@ const Hero = () => {
           items-center
         "
       >
-        
         {/* ================= RIGHT VISUAL (IMAGE) ================= */}
         <div className="order-1 md:order-2 flex justify-center md:justify-end mt-4 md:mt-0">
           <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80">
@@ -54,17 +63,21 @@ const Hero = () => {
             {/* INNER BORDER */}
             <div className="absolute inset-8 rounded-xl border-2 border-[#00DC82]/25" />
 
-            <div className="absolute inset-12 rounded-xl overflow-hidden bg-black">
+            {/* IMAGE */}
+            <div className="absolute inset-12 rounded-xl overflow-hidden bg-black group">
               <img
                 src="/assets/cover-image.png"
                 alt="Dhrubaraj"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover
+                grayscale group-hover:grayscale-0
+                transition-all duration-500
+                ease-in-out"
               />
             </div>
           </div>
         </div>
 
-        {/* ================= LEFT CONTENT (UNCHANGED) ================= */}
+        {/* ================= LEFT CONTENT ================= */}
         <div className="order-2 md:order-1 mt-6 md:mt-0">
           <h1 className="font-bold text-white text-4xl font-outfit sm:text-5xl lg:text-6xl leading-tight">
             Software engineer, technical writer <br />& open-source Contributor
@@ -78,30 +91,48 @@ const Hero = () => {
           </p>
 
           {/* SOCIAL LINKS */}
-          <div className="mt-7 flex flex-wrap gap-6 text-gray-300 text-sm">
+          <div className="mt-7 flex flex-wrap gap-6 text-gray-300 text-base">
             <a
               href="https://github.com/codewithdhruba01"
-              className="flex items-center gap-2 hover:text-white"
+              className="flex items-center font-bold font-sans gap-2 hover:text-white"
             >
               <Github size={18} /> GitHub
             </a>
             <a
               href="https://x.com/codewithdhruba"
-              className="flex items-center gap-2 hover:text-white"
+              className="flex items-center font-bold font-sans gap-2 hover:text-white"
             >
               <Twitter size={18} /> Twitter
             </a>
             <a
               href="https://www.linkedin.com/in/dhrubaraj-pati/"
-              className="flex items-center gap-2 hover:text-white"
+              className="flex items-center font-bold font-sans gap-2 hover:text-white"
             >
               <Linkedin size={18} /> LinkedIn
             </a>
             <a
               href="https://www.instagram.com/dhrubaraj_pati/"
-              className="flex items-center gap-2 hover:text-white"
+              className="flex items-center gap-2 font-bold font-sans hover:text-white"
             >
               <Instagram size={18} /> Instagram
+            </a>
+            <a
+              href="https://app.daily.dev/codewithdhruba"
+              className="flex items-center gap-2 font-sans font-bold hover:text-white"
+            >
+              <Infinity size={18} /> Daily.dev
+            </a>
+            <a
+              href="https://app.daily.dev/codewithdhruba"
+              className="flex items-center gap-2 font-sans font-bold hover:text-white"
+            >
+              <Rss size={18} /> Forem
+            </a>
+            <a
+              href="https://app.daily.dev/codewithdhruba"
+              className="flex items-center gap-2 font-sans font-bold hover:text-white"
+            >
+              <Codepen size={18} /> Codepen
             </a>
           </div>
 
