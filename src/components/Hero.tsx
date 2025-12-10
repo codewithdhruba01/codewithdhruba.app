@@ -33,6 +33,7 @@ const Hero = () => {
         pt-24 md:pt-28
         pb-12 md:pb-16
       "
+      data-aos="fade-up"
     >
       {/* Background */}
       <BackgroundLines
