@@ -14,7 +14,7 @@ import { BackgroundLines } from '../components/ui/background-lines';
 const Hero = () => {
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/assets/Dhrubaraj_s_CV.pdf';
+    link.href = '/assets/Dhrubaraj_Resume.pdf';
     link.download = 'Dhrubaraj_Resume.pdf';
     document.body.appendChild(link);
     link.click();
