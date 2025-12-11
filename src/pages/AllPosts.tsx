@@ -76,7 +76,7 @@ const AllPosts = () => {
       : blogPosts.filter((post) => post.category.includes(activeTag));
 
   return (
-    <section className="py-20 bg-neutral-950 min-h-screen">
+    <section className="py-20 bg-neutral-950 min-h-screen" data-aos="fade-up">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-10">
           <h1 className="text-4xl sm:text-5xl font-bold font-excon mb-4">

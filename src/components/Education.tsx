@@ -2,14 +2,14 @@ const Experience = () => {
   const experience = [
     {
       year: '2025 - Present',
-      title: 'Open Source Developer',
-      company: 'Recode Hive, Australia',
+      title: 'Technical writer',
+      company: 'Recode Hive, Australia (Remote)',
       description:
         'Developed responsive web pages using React and Tailwind CSS. Collaborated with designers to improve user experience.',
     },
     {
-      year: '2025',
-      title: 'Freelance Web Developer',
+      year: '2025-Present',
+      title: 'Freelance Engineer',
       company: 'Self-Employed',
       description:
         'Built custom websites for small businesses, including e-commerce and portfolio sites. Implemented SEO best practices.',
