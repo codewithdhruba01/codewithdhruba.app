@@ -76,7 +76,7 @@ const Projects = () => {
             data-aos="fade-up"
           />
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8" data-aos="fade-up">
             {projects.map((project, index) => (
               <div
                 key={index}
