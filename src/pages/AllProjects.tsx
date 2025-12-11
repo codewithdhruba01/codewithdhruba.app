@@ -219,7 +219,7 @@ const AllProjects = () => {
   const showToggleBtn = filteredProjects.length > initialCount;
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-white px-4 py-20">
+    <div className="min-h-screen bg-neutral-950 text-white px-4 py-20" data-aos="fade-up">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10">
           <p className="mb-10"></p>
