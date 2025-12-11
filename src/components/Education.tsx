@@ -1,4 +1,4 @@
-const Education = () => {
+const Experience = () => {
   const experience = [
     {
       year: '2025 - Present',
@@ -77,4 +77,4 @@ const Education = () => {
   );
 };
 
-export default Education;
+export default Experience;
