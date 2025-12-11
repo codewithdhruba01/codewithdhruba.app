@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Github, Globe } from 'lucide-react';
+import { FancyButton } from '../components/ui/FancyButton';
 
 const categories = [
   'All',
@@ -52,7 +53,7 @@ const projects = [
     image: '/project/Dictionary-cover.png',
     github: 'https://github.com/codewithdhruba01/Dictionary_Website',
     demo: 'https://dictionary-website-silk.vercel.app/',
-    tags: ['Next.js','Tailwind CSS','Frontend'],
+    tags: ['Next.js', 'Tailwind CSS', 'Frontend'],
   },
   {
     id: 2,
@@ -62,7 +63,7 @@ const projects = [
     image: '/project/typingmaster-cover.png',
     github: 'https://github.com/codewithdhruba01/TypeMaster',
     demo: 'https://type-master-iota-three.vercel.app/',
-    tags: ['React','Tailwind CSS','Frontend'],
+    tags: ['React', 'Tailwind CSS', 'Frontend'],
   },
   {
     id: 3,
@@ -72,7 +73,7 @@ const projects = [
     image: '/project/IPAddressTracker.png',
     github: 'https://github.com/codewithdhruba01/IP-AddressTracker',
     demo: 'https://ip-tracker-cyan-nu.vercel.app/',
-    tags: ['React.js','Tailwind CSS','Frontend'],
+    tags: ['React.js', 'Tailwind CSS', 'Frontend'],
   },
   {
     id: 4,
@@ -87,16 +88,18 @@ const projects = [
   {
     id: 5,
     title: 'EmojiHub WebApp',
-    description: 'A beautiful and fully functional emoji search-and-copy application featuring smooth animations, intuitive interactions, and a modern, polished interface.',
+    description:
+      'A beautiful and fully functional emoji search-and-copy application featuring smooth animations, intuitive interactions, and a modern, polished interface.',
     image: '/project/emojihub-cover.png',
     github: 'https://github.com/codewithdhruba01/EmojiHub',
     demo: 'https://emojihub.vercel.app/',
-    tags: ['Next.js', 'Tailwind CSS','Frontend'],
+    tags: ['Next.js', 'Tailwind CSS', 'Frontend'],
   },
   {
     id: 6,
     title: 'FlipClock - Aesthetic Clock',
-    description: 'A modern, minimal digital clock with an elegant flip animation and a clutter-free interface designed to enhance focus, relaxation, and mindfulness.',
+    description:
+      'A modern, minimal digital clock with an elegant flip animation and a clutter-free interface designed to enhance focus, relaxation, and mindfulness.',
     image: '/project/flipclock-cover.png',
     github: 'https://github.com/codewithdhruba01/FlipClock',
     demo: 'https://flip-clocks.vercel.app/',
@@ -158,7 +161,7 @@ const projects = [
       'Skillber is a simple and extensible CLI tool built with TypeScript.',
     image: '/project/skillsber.jpg',
     github: 'https://github.com/codewithdhruba01/Skillber',
-    tags: ['HTML','CSS','Frontend'],
+    tags: ['HTML', 'CSS', 'Frontend'],
   },
   {
     id: 13,
@@ -219,7 +222,10 @@ const AllProjects = () => {
   const showToggleBtn = filteredProjects.length > initialCount;
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-white px-4 py-20" data-aos="fade-up">
+    <div
+      className="min-h-screen bg-neutral-950 text-white px-4 py-20"
+      data-aos="fade-up"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10">
           <p className="mb-10"></p>
@@ -235,7 +241,7 @@ const AllProjects = () => {
 
         <div className="border-t border-gray-700 max-w-3xl mx-auto mb-12"></div>
 
-        {/* Category */}
+        {/* Categories */}
         <div className="flex flex-wrap justify-center font-outfit gap-3 mb-10">
           {categories.map((category) => (
             <button
@@ -317,18 +323,16 @@ const AllProjects = () => {
               ))}
         </div>
 
-        {/* Toggle Button */}
+        {/* Button */}
         {showToggleBtn && !loading && (
           <div className="flex justify-center mt-10">
-            <button
+            <FancyButton
               onClick={() => {
                 setLoading(true);
                 setShowAll(!showAll);
               }}
-              className="px-6 py-3 bg-gradient-to-r from-green-700 to-green-900 text-white hover:font-thin font-supreme rounded-full hover:scale-105 transition"
-            >
-              {showAll ? 'Show Less' : 'See More Projects'}
-            </button>
+              text={showAll ? 'Show Less' : 'See More Projects'}
+            />
           </div>
         )}
       </div>
