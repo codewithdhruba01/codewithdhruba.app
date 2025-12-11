@@ -73,7 +73,7 @@ export default function AboutMe() {
         </div>
 
         {/* Right About Me Section */}
-        <div className="md:col-span-2 flex flex-col gap-8 mt-6">
+        <div className="md:col-span-2 flex flex-col gap-8 mt-6" data-aos="fade-up">
           <h1 className="text-6xl font-bold font-excon md:text-7xl mb-4">
             About <span className="text-[#00DC82]">Me</span>
           </h1>
