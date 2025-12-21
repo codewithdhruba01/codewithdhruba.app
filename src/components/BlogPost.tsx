@@ -672,6 +672,38 @@ const BlogPost = () => {
   // Generate a simple user ID (in a real app, this would be from authentication)
   const userId = 'blog-user-' + Math.random().toString(36).substr(2, 9);
 
+  // Load user's reaction history from localStorage
+  const loadUserReactionHistory = () => {
+    if (!slug) return;
+
+    try {
+      const lovedBlogs = JSON.parse(localStorage.getItem('lovedBlogs') || '[]');
+      const likedBlogs = JSON.parse(localStorage.getItem('likedBlogs') || '[]');
+
+      setUserHasLoved(lovedBlogs.includes(slug));
+      setUserHasLiked(likedBlogs.includes(slug));
+    } catch (error) {
+      console.error('Error loading reaction history:', error);
+    }
+  };
+
+  // Save user's reaction to localStorage
+  const saveUserReaction = (type: 'love' | 'like') => {
+    if (!slug) return;
+
+    try {
+      const key = type === 'love' ? 'lovedBlogs' : 'likedBlogs';
+      const existing = JSON.parse(localStorage.getItem(key) || '[]');
+
+      if (!existing.includes(slug)) {
+        existing.push(slug);
+        localStorage.setItem(key, JSON.stringify(existing));
+      }
+    } catch (error) {
+      console.error('Error saving reaction:', error);
+    }
+  };
+
   useEffect(() => {
     if (slug && blogPostsData[slug as keyof typeof blogPostsData]) {
       setPost(blogPostsData[slug as keyof typeof blogPostsData]);
@@ -722,19 +754,19 @@ const BlogPost = () => {
     if (!slug) return;
 
     try {
-      const [lovesCount, hasLoved, likesCount, hasLiked] = await Promise.all([
+      const [lovesCount, likesCount] = await Promise.all([
         commentService.getBlogLovesCount(slug),
-        commentService.hasUserLovedBlog(slug, userId),
-        commentService.getBlogLikesCount(slug),
-        commentService.hasUserLikedBlog(slug, userId)
+        commentService.getBlogLikesCount(slug)
       ]);
 
       setBlogLoves(lovesCount);
-      setUserHasLoved(hasLoved);
       setBlogLikes(likesCount);
-      setUserHasLiked(hasLiked);
+
+      // Load user's personal reaction history from localStorage
+      loadUserReactionHistory();
     } catch (error) {
       console.error('Error loading blog reactions:', error);
+      // Don't show error to user, just log it
     }
   };
 
@@ -747,6 +779,8 @@ const BlogPost = () => {
 
       await commentService.loveBlogPost(slug, userId);
 
+      // Save to localStorage to prevent re-reaction
+      saveUserReaction('love');
       setBlogLoves(prev => prev + 1);
       setUserHasLoved(true);
     } catch (error) {
@@ -766,6 +800,8 @@ const BlogPost = () => {
 
       await commentService.likeBlogPost(slug, userId);
 
+      // Save to localStorage to prevent re-reaction
+      saveUserReaction('like');
       setBlogLikes(prev => prev + 1);
       setUserHasLiked(true);
     } catch (error) {
@@ -872,10 +908,13 @@ const BlogPost = () => {
             {lovingBlog ? (
               <Loader2 className="h-5 w-5 animate-spin" />
             ) : (
-              <Heart className={`h-5 w-5 transition-all duration-300 ${userHasLoved
-                ? 'fill-current text-red-500 scale-110'
-                : 'hover:scale-110'
-                }`} />
+              <div className="flex items-center">
+                <Heart className={`h-5 w-5 transition-all duration-300 ${userHasLoved
+                  ? 'fill-current text-red-500 scale-110'
+                  : 'hover:scale-110'
+                  }`} />
+                {userHasLoved}
+              </div>
             )}
             <span className={`text-sm font-medium transition-colors duration-300 ${userHasLoved ? 'text-red-600' : 'text-gray-600'
               }`}>
@@ -896,10 +935,13 @@ const BlogPost = () => {
             {likingBlog ? (
               <Loader2 className="h-5 w-5 animate-spin" />
             ) : (
-              <ThumbsUp className={`h-5 w-5 transition-all duration-300 ${userHasLiked
-                ? 'fill-current text-blue-500 scale-110'
-                : 'hover:scale-110'
-                }`} />
+              <div className="flex items-center">
+                <ThumbsUp className={`h-5 w-5 transition-all duration-300 ${userHasLiked
+                  ? 'fill-current text-blue-500 scale-110'
+                  : 'hover:scale-110'
+                  }`} />
+                {userHasLiked}
+              </div>
             )}
             <span className={`text-sm font-medium transition-colors duration-300 ${userHasLiked ? 'text-blue-600' : 'text-gray-600'
               }`}>
