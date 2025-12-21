@@ -220,5 +220,67 @@ export const commentService = {
         throw error;
       }
     }
+  },
+
+  // Get blog post view count
+  async getBlogViews(blogSlug: string): Promise<number> {
+    try {
+      const { data, error } = await supabase
+        .from('blog_views')
+        .select('view_count')
+        .eq('blog_slug', blogSlug)
+        .single();
+
+      if (error && error.code !== 'PGRST116') { // PGRST116 = no rows returned
+        throw error;
+      }
+
+      return data?.view_count || 0;
+    } catch (error) {
+      console.warn('Error fetching blog views:', error);
+      return 0;
+    }
+  },
+
+  // Increment blog post view count
+  async incrementBlogViews(blogSlug: string): Promise<void> {
+    try {
+      // First, try to get existing view count
+      const { data: existingData, error: fetchError } = await supabase
+        .from('blog_views')
+        .select('view_count')
+        .eq('blog_slug', blogSlug)
+        .single();
+
+      if (fetchError && fetchError.code !== 'PGRST116') {
+        throw fetchError;
+      }
+
+      if (existingData) {
+        // Update existing record
+        const { error } = await supabase
+          .from('blog_views')
+          .update({
+            view_count: existingData.view_count + 1,
+            updated_at: new Date().toISOString()
+          })
+          .eq('blog_slug', blogSlug);
+
+        if (error) throw error;
+      } else {
+        // Create new record
+        const { error } = await supabase
+          .from('blog_views')
+          .insert({
+            blog_slug: blogSlug,
+            view_count: 1
+          });
+
+        if (error) throw error;
+      }
+    } catch (error) {
+      console.warn('Error incrementing blog views:', error);
+      // Don't throw error to avoid breaking the page load
+    }
   }
 };

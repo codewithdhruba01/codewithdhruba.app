@@ -60,6 +60,26 @@ CREATE POLICY "Anyone can read blog loves" ON blog_loves
 CREATE POLICY "Anyone can insert blog loves" ON blog_loves
   FOR INSERT WITH CHECK (true);
 
+CREATE TABLE IF NOT EXISTS blog_views (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  blog_slug TEXT NOT NULL UNIQUE,
+  view_count INTEGER DEFAULT 0 NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL,
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL
+);
+
+ALTER TABLE blog_views ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Anyone can read blog views" ON blog_views
+  FOR SELECT USING (true);
+
+CREATE POLICY "Anyone can insert blog views" ON blog_views
+  FOR INSERT WITH CHECK (true);
+
+CREATE POLICY "Anyone can update blog views" ON blog_views
+  FOR UPDATE USING (true)
+  WITH CHECK (true);
+
 CREATE TABLE IF NOT EXISTS blog_likes (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   blog_slug TEXT NOT NULL,

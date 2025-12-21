@@ -708,8 +708,20 @@ const BlogPost = () => {
     if (slug && blogPostsData[slug as keyof typeof blogPostsData]) {
       setPost(blogPostsData[slug as keyof typeof blogPostsData]);
       loadBlogReactions();
+      // Increment view count when someone visits the blog post
+      incrementBlogViews();
     }
   }, [slug]);
+
+  const incrementBlogViews = async () => {
+    if (!slug) return;
+    try {
+      await commentService.incrementBlogViews(slug);
+    } catch (error) {
+      console.warn('Error incrementing views:', error);
+      // Don't show error to user for view tracking
+    }
+  };
 
   // Real-time subscription for blog reactions
   useEffect(() => {

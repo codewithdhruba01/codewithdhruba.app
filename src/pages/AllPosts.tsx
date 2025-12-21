@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { Clock, ArrowRight, Eye } from 'lucide-react';
+import { commentService } from '../lib/supabase';
 
 const blogPosts = [
   {
@@ -65,10 +66,39 @@ const tags = [
 
 const AllPosts = () => {
   const [activeTag, setActiveTag] = useState('All');
+  const [blogViews, setBlogViews] = useState<Record<string, number>>({});
+  const [loadingViews, setLoadingViews] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    loadBlogViews();
   }, []);
+
+  const loadBlogViews = async () => {
+    try {
+      setLoadingViews(true);
+      const viewsData: Record<string, number> = {};
+
+      // Load views for all blog posts
+      await Promise.all(
+        blogPosts.map(async (post) => {
+          try {
+            const views = await commentService.getBlogViews(post.slug);
+            viewsData[post.slug] = views;
+          } catch (error) {
+            console.warn(`Error loading views for ${post.slug}:`, error);
+            viewsData[post.slug] = 0;
+          }
+        })
+      );
+
+      setBlogViews(viewsData);
+    } catch (error) {
+      console.error('Error loading blog views:', error);
+    } finally {
+      setLoadingViews(false);
+    }
+  };
 
   const filteredPosts =
     activeTag === 'All'
@@ -96,11 +126,10 @@ const AllPosts = () => {
               <button
                 key={i}
                 onClick={() => setActiveTag(tag.name)}
-                className={`px-4 py-2 text-sm rounded-full font-outfit ${
-                  activeTag === tag.name
-                    ? 'bg-gradient-to-r from-green-600 to-green-900 text-white'
-                    : 'border-neutral-800 text-gray-300 bg-neutral-900 hover:bg-neutral-800'
-                } transition`}
+                className={`px-4 py-2 text-sm rounded-full font-outfit ${activeTag === tag.name
+                  ? 'bg-gradient-to-r from-green-600 to-green-900 text-white'
+                  : 'border-neutral-800 text-gray-300 bg-neutral-900 hover:bg-neutral-800'
+                  } transition`}
               >
                 {tag.name} <span className="text-gray-100">({tag.count})</span>
               </button>
@@ -124,16 +153,15 @@ const AllPosts = () => {
                   />
                 </div>
 
-                {/* Content */}
                 <div className="p-6">
-                  {/* Date + read time */}
+                  {/* Views + read time */}
                   <div className="flex items-center text-sm text-neutral-400 font-outfit mb-3 gap-4">
                     <span className="flex items-center gap-1">
-                      <Calendar size={16} className="text-neutral-300" />
-                      {post.date}
+                      <Eye size={17} style={{ color: '#00DC82' }} />
+                      {loadingViews ? '...' : `${blogViews[post.slug] || 0} views`}
                     </span>
                     <span className="flex items-center gap-1">
-                      <Clock size={16} className="text-neutral-300" />
+                      <Clock size={16} style={{ color: '#00DC82' }} />
                       {post.readTime}
                     </span>
                   </div>
