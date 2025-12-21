@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
+    "@supabase/supabase-js": "^2.89.0",
     "@tailwindcss/typography": "^0.5.10",
     "aos": "^2.3.4",
     "clsx": "^2.1.1",

@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Facebook, Twitter, Linkedin, Instagram, Undo2 } from 'lucide-react';
+import { Undo2, Heart, Loader2, ThumbsUp } from 'lucide-react';
+import CommentsSection from './CommentsSection';
+import { commentService, supabase } from '../lib/supabase';
 
 // Blog post data
 const blogPostsData = {
@@ -297,12 +299,12 @@ const [darkMode, setDarkMode] = useState(true);
   },
 
   'essential-linux-commands': {
-  title: 'Essential Linux Commands: A Comprehensive Guide (50 Commands with Examples)',
-  date: 'Dec 8, 2025',
-  author: 'Dhrubaraj Pati',
-  category: 'Linux',
-  readTime: '10 min read',
-  content: `
+    title: 'Essential Linux Commands: A Comprehensive Guide (50 Commands with Examples)',
+    date: 'Dec 8, 2025',
+    author: 'Dhrubaraj Pati',
+    category: 'Linux',
+    readTime: '10 min read',
+    content: `
     <p>Linux is one of the most powerful and flexible operating systems available today. Whether you’re a developer, system administrator, cybersecurity learner, or technology enthusiast, Linux commands help you work faster, automate tasks, and control your entire system from the terminal.</p>
 
     <p>This guide covers <strong>50 essential Linux commands</strong> with explanations and real examples — perfect for beginners and intermediate users looking to improve their Linux skills.</p>
@@ -510,15 +512,15 @@ const [darkMode, setDarkMode] = useState(true);
     <h2>Conclusion</h2>
     <p>These 50 essential Linux commands will help you navigate, control, and manage your system more efficiently. Whether you're a beginner or aspiring power user, mastering these commands will greatly improve your productivity and confidence in the Linux environment.</p>
   `,
-  image: '/blog/linux_commands.png',
-  tags: [
-    'Linux',
-    'Commands',
-    'CLI',
-    'System Administration',
-    'Terminal Guide',
-  ],
-},
+    image: '/blog/linux_commands.png',
+    tags: [
+      'Linux',
+      'Commands',
+      'CLI',
+      'System Administration',
+      'Terminal Guide',
+    ],
+  },
 
   'openweather-api-guide': {
     title:
@@ -657,12 +659,122 @@ fetch('https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_K
 const BlogPost = () => {
   const { slug } = useParams();
   const [post, setPost] = useState<any>(null);
+  const [blogLoves, setBlogLoves] = useState(0);
+  const [userHasLoved, setUserHasLoved] = useState(false);
+  const [lovingBlog, setLovingBlog] = useState(false);
+
+  const [blogLikes, setBlogLikes] = useState(0);
+  const [userHasLiked, setUserHasLiked] = useState(false);
+  const [likingBlog, setLikingBlog] = useState(false);
+
+  const [blogReactionsError, setBlogReactionsError] = useState<string | null>(null);
+
+  // Generate a simple user ID (in a real app, this would be from authentication)
+  const userId = 'blog-user-' + Math.random().toString(36).substr(2, 9);
 
   useEffect(() => {
     if (slug && blogPostsData[slug as keyof typeof blogPostsData]) {
       setPost(blogPostsData[slug as keyof typeof blogPostsData]);
+      loadBlogReactions();
     }
   }, [slug]);
+
+  // Real-time subscription for blog reactions
+  useEffect(() => {
+    if (!slug) return;
+
+    const channel = supabase
+      .channel(`blog-reactions-${slug}`)
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'blog_loves',
+          filter: `blog_slug=eq.${slug}`
+        },
+        (payload: any) => {
+          console.log('Blog love change received:', payload);
+          loadBlogReactions();
+        }
+      )
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'blog_likes',
+          filter: `blog_slug=eq.${slug}`
+        },
+        (payload: any) => {
+          console.log('Blog like change received:', payload);
+          loadBlogReactions();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [slug]);
+
+  const loadBlogReactions = async () => {
+    if (!slug) return;
+
+    try {
+      const [lovesCount, hasLoved, likesCount, hasLiked] = await Promise.all([
+        commentService.getBlogLovesCount(slug),
+        commentService.hasUserLovedBlog(slug, userId),
+        commentService.getBlogLikesCount(slug),
+        commentService.hasUserLikedBlog(slug, userId)
+      ]);
+
+      setBlogLoves(lovesCount);
+      setUserHasLoved(hasLoved);
+      setBlogLikes(likesCount);
+      setUserHasLiked(hasLiked);
+    } catch (error) {
+      console.error('Error loading blog reactions:', error);
+    }
+  };
+
+  const handleBlogLove = async () => {
+    if (!slug || userHasLoved || lovingBlog) return;
+
+    try {
+      setLovingBlog(true);
+      setBlogReactionsError(null);
+
+      await commentService.loveBlogPost(slug, userId);
+
+      setBlogLoves(prev => prev + 1);
+      setUserHasLoved(true);
+    } catch (error) {
+      console.error('Error loving blog post:', error);
+      setBlogReactionsError('Failed to love the post. Please try again.');
+    } finally {
+      setLovingBlog(false);
+    }
+  };
+
+  const handleBlogLike = async () => {
+    if (!slug || userHasLiked || likingBlog) return;
+
+    try {
+      setLikingBlog(true);
+      setBlogReactionsError(null);
+
+      await commentService.likeBlogPost(slug, userId);
+
+      setBlogLikes(prev => prev + 1);
+      setUserHasLiked(true);
+    } catch (error) {
+      console.error('Error liking blog post:', error);
+      setBlogReactionsError('Failed to like the post. Please try again.');
+    } finally {
+      setLikingBlog(false);
+    }
+  };
 
   if (!post) {
     return (
@@ -675,7 +787,7 @@ const BlogPost = () => {
   return (
     <article className="py-20 px-4">
       <div className="max-w-4xl mx-auto py-10 mb-8">
-        {/* Back Button */}
+
         <div className="mb-8" data-aos="fade-up">
           <a
             href="/all-posts"
@@ -686,7 +798,6 @@ const BlogPost = () => {
           </a>
         </div>
 
-        {/* Header */}
         <header className="mb-12" data-aos="fade-up">
           <div className="mb-6">
             <span className="bg-[#1e1e1e] text-neutral-300 px-3 py-1 rounded-full text-sm font-poppins">
@@ -711,7 +822,6 @@ const BlogPost = () => {
           </div>
         </header>
 
-        {/* Featured Image */}
         <div className="mb-12" data-aos="fade-up">
           <img
             src={post.image}
@@ -721,14 +831,12 @@ const BlogPost = () => {
           />
         </div>
 
-        {/* Content */}
         <div
           className="prose prose-lg prose-invert max-w-none text-base font-poppins font-light text-neutral-400"
           dangerouslySetInnerHTML={{ __html: post.content }}
           data-aos="fade-up"
         />
 
-        {/* Tags */}
         <div className="mt-12 pt-8 border-t border-gray-800" data-aos="fade-up">
           <div className="flex flex-wrap gap-2">
             {post.tags.map((tag: string) => (
@@ -742,39 +850,66 @@ const BlogPost = () => {
           </div>
         </div>
 
-        {/* Share Section */}
+        {/* Blog Reactions Section */}
         <div
-          className="mt-12 flex items-center justify-between"
+          className="mt-12 flex items-center justify-center space-x-4"
           data-aos="fade-up"
         >
-          <div className="text-neutral-400 font-supreme">Follow More:</div>
-          <div className="flex space-x-4">
-            <a
-              href="https://x.com/codewithdhruba"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <Twitter className="h-5 w-5 hover:text-[#00CAFF]" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/dhrubaraj-pati/"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <Linkedin className="h-5 w-5 hover:text-[#5093f7]" />
-            </a>
-            <a
-              href="https://www.instagram.com/dhrubaraj_pati/"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <Instagram className="h-5 w-5 hover:text-[#E4405F]" />
-            </a>
-            <a
-              href="https://m.facebook.com/dhruba.raj.113858/"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <Facebook className="h-5 w-5 hover:text-[#4a5bf5]" />
-            </a>
-          </div>
+          {blogReactionsError && (
+            <p className="text-red-400 text-sm mb-4">{blogReactionsError}</p>
+          )}
+
+          {/* Love Button */}
+          <button
+            onClick={handleBlogLove}
+            disabled={userHasLoved || lovingBlog}
+            className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 ${userHasLoved
+              ? 'bg-red-100 text-red-600 cursor-not-allowed'
+              : 'bg-gray-100 hover:bg-red-50 text-gray-600 hover:text-red-500 hover:scale-110'
+              } border border-gray-200 hover:border-red-200`}
+            title={userHasLoved ? 'You loved this post ❤️' : 'Love this post ❤️'}
+          >
+            {lovingBlog ? (
+              <Loader2 className="h-5 w-5 animate-spin" />
+            ) : (
+              <Heart className={`h-5 w-5 transition-all duration-300 ${userHasLoved
+                ? 'fill-current text-red-500 scale-110'
+                : 'hover:scale-110'
+                }`} />
+            )}
+            <span className={`text-sm font-medium transition-colors duration-300 ${userHasLoved ? 'text-red-600' : 'text-gray-600'
+              }`}>
+              {blogLoves}
+            </span>
+          </button>
+
+          {/* Like Button */}
+          <button
+            onClick={handleBlogLike}
+            disabled={userHasLiked || likingBlog}
+            className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 ${userHasLiked
+              ? 'bg-blue-100 text-blue-600 cursor-not-allowed'
+              : 'bg-gray-100 hover:bg-blue-50 text-gray-600 hover:text-blue-500 hover:scale-110'
+              } border border-gray-200 hover:border-blue-200`}
+            title={userHasLiked ? 'You liked this post 👍' : 'Like this post 👍'}
+          >
+            {likingBlog ? (
+              <Loader2 className="h-5 w-5 animate-spin" />
+            ) : (
+              <ThumbsUp className={`h-5 w-5 transition-all duration-300 ${userHasLiked
+                ? 'fill-current text-blue-500 scale-110'
+                : 'hover:scale-110'
+                }`} />
+            )}
+            <span className={`text-sm font-medium transition-colors duration-300 ${userHasLiked ? 'text-blue-600' : 'text-gray-600'
+              }`}>
+              {blogLikes}
+            </span>
+          </button>
         </div>
+
+        {/* Comments Section */}
+        <CommentsSection blogSlug={slug || ''} />
       </div>
     </article>
   );
