@@ -899,6 +899,7 @@ const BlogPost = () => {
         </div>
 
         {/* Blog Reactions Section */}
+        {/* Blog Reactions Section */}
         <div
           className="mt-12 flex items-center justify-center space-x-4"
           data-aos="fade-up"
@@ -911,56 +912,47 @@ const BlogPost = () => {
           <button
             onClick={handleBlogLove}
             disabled={userHasLoved || lovingBlog}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 ${userHasLoved
-              ? 'bg-red-100 text-red-600 cursor-not-allowed'
-              : 'bg-gray-100 hover:bg-red-50 text-gray-600 hover:text-red-500 hover:scale-110'
-              } border border-gray-200 hover:border-red-200`}
+            className={`group flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md border transition-all duration-300
+      ${userHasLoved
+                ? 'bg-red-500/20 border-red-500/40 text-red-400 cursor-not-allowed'
+                : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-red-500/10 hover:border-red-500/40 hover:text-red-400'
+              }`}
             title={userHasLoved ? 'You loved this post ❤️' : 'Love this post ❤️'}
           >
             {lovingBlog ? (
-              <Loader2 className="h-5 w-5 animate-spin" />
+              <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
-              <div className="flex items-center">
-                <Heart className={`h-5 w-5 transition-all duration-300 ${userHasLoved
-                  ? 'fill-current text-red-500 scale-110'
-                  : 'hover:scale-110'
-                  }`} />
-                {userHasLoved}
-              </div>
+              <Heart
+                className={`h-4 w-4 transition-transform duration-300 group-hover:scale-110 ${userHasLoved ? 'fill-red-400 text-red-400' : ''
+                  }`}
+              />
             )}
-            <span className={`text-sm font-medium transition-colors duration-300 ${userHasLoved ? 'text-red-600' : 'text-gray-600'
-              }`}>
-              {blogLoves}
-            </span>
+            <span className="text-sm font-medium">{blogLoves}</span>
           </button>
 
           {/* Like Button */}
           <button
             onClick={handleBlogLike}
             disabled={userHasLiked || likingBlog}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 ${userHasLiked
-              ? 'bg-blue-100 text-blue-600 cursor-not-allowed'
-              : 'bg-gray-100 hover:bg-blue-50 text-gray-600 hover:text-blue-500 hover:scale-110'
-              } border border-gray-200 hover:border-blue-200`}
+            className={`group flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md border transition-all duration-300
+      ${userHasLiked
+                ? 'bg-blue-500/20 border-blue-500/40 text-blue-400 cursor-not-allowed'
+                : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-blue-500/10 hover:border-blue-500/40 hover:text-blue-400'
+              }`}
             title={userHasLiked ? 'You liked this post 👍' : 'Like this post 👍'}
           >
             {likingBlog ? (
-              <Loader2 className="h-5 w-5 animate-spin" />
+              <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
-              <div className="flex items-center">
-                <ThumbsUp className={`h-5 w-5 transition-all duration-300 ${userHasLiked
-                  ? 'fill-current text-blue-500 scale-110'
-                  : 'hover:scale-110'
-                  }`} />
-                {userHasLiked}
-              </div>
+              <ThumbsUp
+                className={`h-4 w-4 transition-transform duration-300 group-hover:scale-110 ${userHasLiked ? 'fill-blue-400 text-blue-400' : ''
+                  }`}
+              />
             )}
-            <span className={`text-sm font-medium transition-colors duration-300 ${userHasLiked ? 'text-blue-600' : 'text-gray-600'
-              }`}>
-              {blogLikes}
-            </span>
+            <span className="text-sm font-medium">{blogLikes}</span>
           </button>
         </div>
+
 
         {/* Comments Section */}
         <GiscusComments slug={slug || ''} />
