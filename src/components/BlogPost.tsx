@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Undo2, Heart, Loader2, ThumbsUp } from 'lucide-react';
-import CommentsSection from './CommentsSection';
+import GiscusComments from './GiscusComments';
 import { commentService, supabase } from '../lib/supabase';
 
 // Blog post data
@@ -909,7 +909,7 @@ const BlogPost = () => {
         </div>
 
         {/* Comments Section */}
-        <CommentsSection blogSlug={slug || ''} />
+        <GiscusComments slug={slug || ''} />
       </div>
     </article>
   );
