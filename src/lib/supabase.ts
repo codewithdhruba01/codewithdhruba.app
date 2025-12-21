@@ -3,7 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
-// Check if we have valid Supabase credentials (not placeholder values)
+
 const hasValidCredentials = supabaseUrl &&
   supabaseAnonKey &&
   !supabaseUrl.includes('your_supabase') &&
@@ -11,7 +11,7 @@ const hasValidCredentials = supabaseUrl &&
   supabaseUrl.startsWith('https://') &&
   supabaseUrl.includes('.supabase.co');
 
-console.log('🔍 Supabase Debug Info:');
+console.log('Supabase Debug Info:');
 console.log('URL:', supabaseUrl);
 console.log('Key exists:', !!supabaseAnonKey);
 console.log('URL valid:', supabaseUrl?.startsWith('https://') && supabaseUrl?.includes('.supabase.co'));
@@ -23,7 +23,7 @@ if (hasValidCredentials) {
   console.log('Using Supabase database mode');
   supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-  // Test connection
+
   supabase.from('comments').select('count').limit(1).then(({ error }: { error: any }) => {
     if (error) {
       console.error('Supabase connection test failed:', error);
@@ -33,7 +33,7 @@ if (hasValidCredentials) {
   });
 } else {
   console.warn('Supabase not properly configured. Using localStorage mode. Please set valid VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in .env.local');
-  // Create a mock client for development
+
   supabase = {
     from: () => ({
       select: () => ({ eq: () => ({ order: () => ({ ascending: () => Promise.resolve({ data: [], error: null }) }) }) }),
@@ -52,7 +52,7 @@ if (hasValidCredentials) {
 
 export { supabase };
 
-// Database types
+
 export interface Comment {
   id: string;
   blog_slug: string;
@@ -66,9 +66,9 @@ export interface Comment {
   replies?: Comment[];
 }
 
-// Helper functions for comment operations
+
 export const commentService = {
-  // Get all comments for a blog post
+
   async getComments(blogSlug: string): Promise<Comment[]> {
     const { data, error } = await supabase
       .from('comments')
@@ -80,7 +80,7 @@ export const commentService = {
     return data || [];
   },
 
-  // Add a new comment
+
   async addComment(comment: Omit<Comment, 'id' | 'created_at' | 'updated_at' | 'likes' | 'liked_by'>): Promise<Comment> {
     const { data, error } = await supabase
       .from('comments')
@@ -96,9 +96,9 @@ export const commentService = {
     return data;
   },
 
-  // Toggle like on a comment
+
   async toggleLike(commentId: string, userId: string): Promise<Comment> {
-    // First get the current comment
+
     const { data: currentComment, error: fetchError } = await supabase
       .from('comments')
       .select('liked_by, likes')
@@ -128,7 +128,7 @@ export const commentService = {
     return data;
   },
 
-  // Delete a comment (if needed)
+
   async deleteComment(commentId: string): Promise<void> {
     const { error } = await supabase
       .from('comments')
@@ -138,7 +138,7 @@ export const commentService = {
     if (error) throw error;
   },
 
-  // Get blog post loves count (heart reactions)
+
   async getBlogLovesCount(blogSlug: string): Promise<number> {
     const { count, error } = await supabase
       .from('blog_loves')
@@ -149,7 +149,7 @@ export const commentService = {
     return count || 0;
   },
 
-  // Check if user has loved the blog post
+
   async hasUserLovedBlog(blogSlug: string, userId: string): Promise<boolean> {
     const { data, error } = await supabase
       .from('blog_loves')
@@ -162,7 +162,7 @@ export const commentService = {
     return data && data.length > 0;
   },
 
-  // Add love to blog post (one-way - no unlove)
+
   async loveBlogPost(blogSlug: string, userId: string): Promise<void> {
     const { error } = await supabase
       .from('blog_loves')
@@ -173,14 +173,14 @@ export const commentService = {
       .select();
 
     if (error) {
-      // If it's a duplicate key error (user already loved), ignore it
+
       if (error.code !== '23505') {
         throw error;
       }
     }
   },
 
-  // Get blog post likes count (thumbs up reactions)
+
   async getBlogLikesCount(blogSlug: string): Promise<number> {
     const { count, error } = await supabase
       .from('blog_likes')
@@ -191,7 +191,7 @@ export const commentService = {
     return count || 0;
   },
 
-  // Check if user has liked the blog post
+
   async hasUserLikedBlog(blogSlug: string, userId: string): Promise<boolean> {
     const { data, error } = await supabase
       .from('blog_likes')
@@ -204,7 +204,7 @@ export const commentService = {
     return data && data.length > 0;
   },
 
-  // Add like to blog post (one-way - no unlike)
+
   async likeBlogPost(blogSlug: string, userId: string): Promise<void> {
     const { error } = await supabase
       .from('blog_likes')
@@ -215,7 +215,7 @@ export const commentService = {
       .select();
 
     if (error) {
-      // If it's a duplicate key error (user already liked), ignore it
+
       if (error.code !== '23505') {
         throw error;
       }
