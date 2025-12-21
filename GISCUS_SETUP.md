@@ -2,17 +2,17 @@
 
 This guide will help you set up Giscus, a GitHub Discussions-powered comment system for your blog.
 
-## 🚀 What is Giscus?
+## What is Giscus?
 
 Giscus is a comment system powered by GitHub Discussions. It allows visitors to leave comments and reactions on your website using their GitHub account, without requiring them to create an additional account.
 
-## 📋 Prerequisites
+## Prerequisites
 
 1. **GitHub Account** - You need a GitHub account
 2. **Public Repository** - Your blog's GitHub repository must be public
 3. **GitHub Discussions Enabled** - Discussions must be enabled on your repository
 
-## ⚙️ Step-by-Step Setup
+## Step-by-Step Setup
 
 ### Step 1: Enable GitHub Discussions
 
@@ -75,7 +75,7 @@ Giscus is a comment system powered by GitHub Discussions. It allows visitors to 
 4. Try leaving a comment (you'll need to sign in with GitHub)
 5. Check your GitHub repository's Discussions tab to see the comment
 
-## 🎨 Customization Options
+## Customization Options
 
 ### Theme Configuration
 
@@ -116,7 +116,7 @@ Giscus supports multiple languages. Change the `lang` prop to your preferred lan
 />
 ```
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Comments Not Loading
 
@@ -137,7 +137,7 @@ Giscus supports multiple languages. Change the `lang` prop to your preferred lan
 1. **Theme Not Changing**: Make sure your theme detection logic is correct
 2. **Custom Themes**: You can create custom themes using CSS variables
 
-## 🚀 Production Deployment
+## Production Deployment
 
 ### Environment Variables (Optional)
 
@@ -155,7 +155,7 @@ VITE_GISCUS_CATEGORY_ID=DIC_kwDOMxxxxx
 2. **Preloading**: Consider preloading Giscus on important pages
 3. **Caching**: GitHub's API responses are cached for performance
 
-## 🔒 Security & Privacy
+## Security & Privacy
 
 ### Data Storage
 - Comments are stored as GitHub Discussions
@@ -172,7 +172,7 @@ VITE_GISCUS_CATEGORY_ID=DIC_kwDOMxxxxx
 - Use GitHub's built-in moderation tools
 - Comments appear as regular GitHub discussions
 
-## 📊 Analytics & Insights
+## Analytics & Insights
 
 ### GitHub Insights
 - View comment activity in GitHub Insights
@@ -185,15 +185,3 @@ VITE_GISCUS_CATEGORY_ID=DIC_kwDOMxxxxx
 - **Version Control**: Discussion history is maintained
 - **Community Building**: Leverages GitHub's social features
 
-## 🎉 Success!
-
-Once set up, your blog will have:
-- ✅ GitHub-powered comments
-- ✅ No additional user accounts required
-- ✅ Automatic spam filtering via GitHub
-- ✅ Rich text formatting support
-- ✅ Emoji reactions
-- ✅ Threaded discussions
-- ✅ Mobile-responsive design
-
-Your comment system is now powered by GitHub Discussions! 🎉

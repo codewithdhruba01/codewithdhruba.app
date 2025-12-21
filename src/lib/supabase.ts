@@ -20,19 +20,19 @@ console.log('Has valid credentials:', hasValidCredentials);
 let supabase: any = null;
 
 if (hasValidCredentials) {
-  console.log('✅ Using Supabase database mode');
+  console.log('Using Supabase database mode');
   supabase = createClient(supabaseUrl, supabaseAnonKey);
 
   // Test connection
   supabase.from('comments').select('count').limit(1).then(({ error }: { error: any }) => {
     if (error) {
-      console.error('❌ Supabase connection test failed:', error);
+      console.error('Supabase connection test failed:', error);
     } else {
-      console.log('✅ Supabase connection successful');
+      console.log('Supabase connection successful');
     }
   });
 } else {
-  console.warn('⚠️ Supabase not properly configured. Using localStorage mode. Please set valid VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in .env.local');
+  console.warn('Supabase not properly configured. Using localStorage mode. Please set valid VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in .env.local');
   // Create a mock client for development
   supabase = {
     from: () => ({
