@@ -724,7 +724,7 @@ const BlogPost = () => {
               {post.category}
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">{post.title}</h1>
+          <h1 className="text-4xl md:text-4xl font-pally mb-6">{post.title}</h1>
           <div className="flex items-center text-gray-400 mb-8">
             <img
               src="https://avatars.githubusercontent.com/u/146111647?v=4"
