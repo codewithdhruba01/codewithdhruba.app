@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X, Copy, Linkedin, Twitter } from 'lucide-react';
 
 interface ShareModalProps {
@@ -9,7 +9,24 @@ interface ShareModalProps {
 }
 
 const ShareModal = ({ isOpen, onClose, title, slug }: ShareModalProps) => {
-  const [copied, setCopied] = useState<boolean>(false);
+  const [copied, setCopied] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setShouldRender(true);
+      setTimeout(() => setIsAnimating(true), 10);
+    } else {
+      setIsAnimating(false);
+      setTimeout(() => setShouldRender(false), 300);
+    }
+  }, [isOpen]);
+
+  const handleClose = () => {
+    setIsAnimating(false);
+    setTimeout(() => onClose(), 300);
+  };
 
   const getShareUrl = () => {
     return `${window.location.origin}/blog/${slug}`;
@@ -21,72 +38,105 @@ const ShareModal = ({ isOpen, onClose, title, slug }: ShareModalProps) => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error('Failed to copy: ', err);
+      console.error('Copy failed', err);
     }
   };
 
   const shareOnTwitter = () => {
     const url = getShareUrl();
-    const text = `Check out this amazing blog post: "${title}" by @codewithdhruba`;
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+    const text = `Check out this blog: "${title}"`;
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+      text
+    )}&url=${encodeURIComponent(url)}`;
     window.open(twitterUrl, '_blank');
   };
 
   const shareOnLinkedIn = () => {
     const url = getShareUrl();
-    const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+    const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+      url
+    )}`;
     window.open(linkedInUrl, '_blank');
   };
 
-  if (!isOpen) return null;
+  if (!shouldRender) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-gray-900 rounded-lg p-6 max-w-md w-full border border-gray-700">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-semibold text-white">Share this post</h3>
+    <div
+      className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300 ${isAnimating
+        ? 'bg-black/60 backdrop-blur-sm opacity-100'
+        : 'bg-black/0 backdrop-blur-none opacity-0'
+        }`}
+    >
+      <div
+        className={`relative w-full max-w-md rounded-2xl border border-white/10 bg-[#0A0A0A]/95 p-5 shadow-2xl transition-all duration-300 ${isAnimating
+          ? 'scale-100 opacity-100 translate-y-0'
+          : 'scale-95 opacity-0 translate-y-4'
+          }`}
+      >
+        {/* Header */}
+        <div className="flex items-start justify-between mb-4">
+          <div>
+            <h3 className="text-base font-semibold text-white">
+              Share this blog
+            </h3>
+            <p className="text-sm text-neutral-400 mt-1">
+              Share "{title}"
+            </p>
+          </div>
           <button
-            onClick={onClose}
-            className="text-gray-400 hover:text-white transition"
+            onClick={handleClose}
+            className="text-neutral-400 hover:text-white transition"
           >
             <X className="h-5 w-5" />
           </button>
         </div>
 
-        <div className="space-y-4">
-          <div>
-            <label className="block text-sm text-gray-400 mb-2">Share Link</label>
-            <div className="flex gap-2">
-              <input
-                type="text"
-                value={getShareUrl()}
-                readOnly
-                className="flex-1 px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white text-sm focus:outline-none focus:border-purple-500"
-              />
-              <button
-                onClick={copyToClipboard}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition ${
-                  copied
-                    ? 'bg-green-600 text-white'
-                    : 'bg-purple-600 hover:bg-purple-700 text-white'
-                }`}
-              >
-                {copied ? 'Copied!' : <Copy className="h-4 w-4" />}
-              </button>
-            </div>
+        {/* Copy link */}
+        <div className="mb-5">
+          <label className="block text-sm text-neutral-400 mb-2">
+            Copy Link
+          </label>
+          <div className="flex items-center gap-2 rounded-lg bg-white/5 border border-white/10 px-3 py-2">
+            <input
+              type="text"
+              value={getShareUrl()}
+              readOnly
+              className="flex-1 bg-transparent text-sm text-white outline-none"
+            />
+            <button
+              onClick={copyToClipboard}
+              className="p-2 rounded-md bg-white/10 hover:bg-white/20 transition text-white"
+              title="Copy link"
+            >
+              <Copy className="h-4 w-4" />
+            </button>
           </div>
+          {copied && (
+            <p className="text-xs text-green-400 mt-2">
+              copied!
+            </p>
+          )}
+        </div>
 
+        {/* Social buttons */}
+        <div>
+          <p className="text-sm text-neutral-400 mb-3">
+            Share on Social Media
+          </p>
           <div className="flex gap-3">
             <button
               onClick={shareOnTwitter}
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg
+              bg-white/5 border border-white/10 text-white hover:bg-white/10 transition"
             >
               <Twitter className="h-4 w-4" />
-              Twitter
+              X / Twitter
             </button>
             <button
               onClick={shareOnLinkedIn}
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-blue-800 hover:bg-blue-900 text-white rounded-md transition"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg
+              bg-white/5 border border-white/10 text-white hover:bg-white/10 transition"
             >
               <Linkedin className="h-4 w-4" />
               LinkedIn
