@@ -13,6 +13,23 @@ import ShareModal from './modals/ShareModal';
 import { useBlogReactions } from '../hooks/useBlogReactions';
 import { commentService } from '../lib/supabase';
 
+// Prism.js imports for syntax highlighting
+import Prism from 'prismjs';
+import 'prismjs/themes/prism-tomorrow.css';
+
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-jsx';
+import 'prismjs/components/prism-tsx';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-bash';
+import 'prismjs/components/prism-markdown';
+import 'prismjs/components/prism-python';
+import 'prismjs/components/prism-sql';
+import 'prismjs/components/prism-yaml';
+import 'prismjs/components/prism-docker';
+
 // Blog post data
 const blogPostsData = {
   'getting-started-with-react-typescript': {
@@ -685,12 +702,104 @@ const BlogPost = () => {
     handleBlogLike,
   } = useBlogReactions(slug);
 
+
+  const enhanceCodeBlocks = () => {
+
+    const preElements = document.querySelectorAll('pre:not(.code-enhanced)');
+
+    preElements.forEach((pre) => {
+      const preElement = pre as HTMLElement;
+
+
+      preElement.classList.add('code-enhanced');
+
+
+      const codeElement = preElement.querySelector('code');
+      if (!codeElement) return;
+
+
+      const languageClass = Array.from(codeElement.classList).find(cls =>
+        cls.startsWith('language-')
+      );
+      const language = languageClass ? languageClass.replace('language-', '') : 'text';
+
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'code-block-wrapper-modern';
+      wrapper.setAttribute('data-language', language);
+
+
+      const header = document.createElement('div');
+      header.className = 'code-header';
+
+      const languageLabel = document.createElement('span');
+      languageLabel.className = 'code-language';
+      languageLabel.textContent = language.toUpperCase();
+
+      const copyButton = document.createElement('button');
+      copyButton.className = 'code-copy-btn-modern';
+      copyButton.innerHTML = `
+        <svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+        <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+          <polyline points="20,6 9,17 4,12"></polyline>
+        </svg>
+      `;
+
+      copyButton.onclick = () => {
+        const codeText = codeElement.textContent || '';
+        navigator.clipboard.writeText(codeText).then(() => {
+          // Show success state
+          const copyIcon = copyButton.querySelector('.copy-icon') as HTMLElement;
+          const checkIcon = copyButton.querySelector('.check-icon') as HTMLElement;
+
+          if (copyIcon && checkIcon) {
+            copyIcon.style.display = 'none';
+            checkIcon.style.display = 'block';
+            copyButton.classList.add('copied');
+
+            setTimeout(() => {
+              copyIcon.style.display = 'block';
+              checkIcon.style.display = 'none';
+              copyButton.classList.remove('copied');
+            }, 2000);
+          }
+        });
+      };
+
+      header.appendChild(languageLabel);
+      header.appendChild(copyButton);
+
+      // Wrap the pre element
+      preElement.parentNode?.insertBefore(wrapper, preElement);
+      wrapper.appendChild(header);
+      wrapper.appendChild(preElement);
+
+      // Apply Prism.js highlighting
+      Prism.highlightElement(codeElement);
+    });
+  };
+
   useEffect(() => {
     if (slug && blogPostsData[slug as keyof typeof blogPostsData]) {
       setPost(blogPostsData[slug as keyof typeof blogPostsData]);
       incrementBlogViews();
     }
   }, [slug]);
+
+  // Enhance code blocks after content is rendered
+  useEffect(() => {
+    if (post) {
+      // Small delay to ensure DOM is fully rendered
+      const timer = setTimeout(() => {
+        enhanceCodeBlocks();
+      }, 100);
+
+      return () => clearTimeout(timer);
+    }
+  }, [post]);
 
   const incrementBlogViews = async () => {
     if (!slug) return;

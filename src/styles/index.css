@@ -79,3 +79,197 @@ body {
 .thin-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #00DC82; /* hover color */
 }
+
+/* Enhanced Code Blocks with Prism.js */
+.code-block-wrapper-modern {
+  position: relative;
+  margin: 2rem 0;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  border: 1px solid #404040;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid #404040;
+  backdrop-filter: blur(10px);
+}
+
+.code-language {
+  font-size: 11px;
+  font-weight: 600;
+  color: #60a5fa;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: rgba(96, 165, 250, 0.1);
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.code-copy-btn-modern {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.code-copy-btn-modern:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #f1f5f9;
+  transform: scale(1.05);
+}
+
+.code-copy-btn-modern:active {
+  transform: scale(0.95);
+}
+
+.code-copy-btn-modern.copied {
+  background: rgba(34, 197, 94, 0.2);
+  border-color: rgba(34, 197, 94, 0.4);
+  color: #22c55e;
+}
+
+.code-copy-btn-modern svg {
+  transition: all 0.2s ease;
+}
+
+.code-block-wrapper-modern pre {
+  margin: 0;
+  padding: 16px;
+  background: #0f0f0f !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Prism.js Tomorrow theme customizations */
+.code-block-wrapper-modern .token.comment,
+.code-block-wrapper-modern .token.prolog,
+.code-block-wrapper-modern .token.doctype,
+.code-block-wrapper-modern .token.cdata {
+  color: #8e8e93;
+  font-style: italic;
+}
+
+.code-block-wrapper-modern .token.punctuation {
+  color: #d1d5db;
+}
+
+.code-block-wrapper-modern .token.property,
+.code-block-wrapper-modern .token.tag,
+.code-block-wrapper-modern .token.constant,
+.code-block-wrapper-modern .token.symbol,
+.code-block-wrapper-modern .token.deleted {
+  color: #60a5fa;
+}
+
+.code-block-wrapper-modern .token.boolean,
+.code-block-wrapper-modern .token.number {
+  color: #fbbf24;
+}
+
+.code-block-wrapper-modern .token.selector,
+.code-block-wrapper-modern .token.attr-name,
+.code-block-wrapper-modern .token.string,
+.code-block-wrapper-modern .token.char,
+.code-block-wrapper-modern .token.builtin,
+.code-block-wrapper-modern .token.inserted {
+  color: #34d399;
+}
+
+.code-block-wrapper-modern .token.operator,
+.code-block-wrapper-modern .token.entity,
+.code-block-wrapper-modern .token.url,
+.code-block-wrapper-modern .language-css .token.string,
+.code-block-wrapper-modern .style .token.string,
+.code-block-wrapper-modern .token.variable {
+  color: #f87171;
+}
+
+.code-block-wrapper-modern .token.atrule,
+.code-block-wrapper-modern .token.attr-value,
+.code-block-wrapper-modern .token.function,
+.code-block-wrapper-modern .token.class-name {
+  color: #a78bfa;
+}
+
+.code-block-wrapper-modern .token.keyword {
+  color: #c084fc;
+}
+
+.code-block-wrapper-modern .token.regex,
+.code-block-wrapper-modern .token.important {
+  color: #fb7185;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .code-block-wrapper-modern {
+    margin: 1.5rem 0;
+  }
+
+  .code-header {
+    padding: 10px 12px;
+  }
+
+  .code-language {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+
+  .code-copy-btn-modern {
+    width: 28px;
+    height: 28px;
+  }
+
+  .code-copy-btn-modern svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .code-block-wrapper-modern pre {
+    padding: 12px;
+    font-size: 13px;
+  }
+}
+
+/* Scrollbar styling for code blocks */
+.code-block-wrapper-modern pre::-webkit-scrollbar {
+  height: 6px;
+}
+
+.code-block-wrapper-modern pre::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.code-block-wrapper-modern pre::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.code-block-wrapper-modern pre::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
