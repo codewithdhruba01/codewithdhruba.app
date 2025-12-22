@@ -1,0 +1,27 @@
+.giscus-wrapper {
+    margin-top: 2rem;
+}
+
+/* Custom styling for Giscus */
+.giscus-frame {
+    border-radius: 8px !important;
+    border: 1px solid rgb(55, 65, 81) !important;
+}
+
+/* Dark theme adjustments */
+.giscus {
+    --color-border-default: rgb(55, 65, 81);
+    --color-border-muted: rgb(75, 85, 99);
+    --color-canvas-default: rgb(17, 24, 39);
+    --color-canvas-overlay: rgb(31, 41, 55);
+    --color-canvas-subtle: rgb(17, 24, 39);
+}
+
+/* Light theme adjustments */
+.giscus[data-theme="light"] {
+    --color-border-default: rgb(229, 231, 235);
+    --color-border-muted: rgb(209, 213, 219);
+    --color-canvas-default: rgb(255, 255, 255);
+    --color-canvas-overlay: rgb(249, 250, 251);
+    --color-canvas-subtle: rgb(243, 244, 246);
+}

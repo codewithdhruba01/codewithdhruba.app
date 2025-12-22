@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Undo2, Heart, Loader2, ThumbsUp } from 'lucide-react';
+import { Undo2, Heart, Loader2, ThumbsUp, Calendar, MessageCircle } from 'lucide-react';
 import GiscusComments from './GiscusComments';
 import { commentService, supabase } from '../lib/supabase';
 
@@ -656,9 +656,11 @@ fetch('https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_K
   },
 };
 
+
 const BlogPost = () => {
   const { slug } = useParams();
   const [post, setPost] = useState<any>(null);
+
   const [blogLoves, setBlogLoves] = useState(0);
   const [userHasLoved, setUserHasLoved] = useState(false);
   const [lovingBlog, setLovingBlog] = useState(false);
@@ -667,40 +669,63 @@ const BlogPost = () => {
   const [userHasLiked, setUserHasLiked] = useState(false);
   const [likingBlog, setLikingBlog] = useState(false);
 
-  const [blogReactionsError, setBlogReactionsError] = useState<string | null>(null);
+  const [blogReactionsError, setBlogReactionsError] = useState<string | null>(
+    null
+  );
 
-  // Generate a simple user ID (in a real app, this would be from authentication)
+  const [commentCount, setCommentCount] = useState<number>(0);
+  const [loadingComments, setLoadingComments] = useState<boolean>(false);
+
   const userId = 'blog-user-' + Math.random().toString(36).substr(2, 9);
 
-  // Load user's reaction history from localStorage
   const loadUserReactionHistory = () => {
     if (!slug) return;
+    const loved = JSON.parse(localStorage.getItem('lovedBlogs') || '[]');
+    const liked = JSON.parse(localStorage.getItem('likedBlogs') || '[]');
+    setUserHasLoved(loved.includes(slug));
+    setUserHasLiked(liked.includes(slug));
+  };
 
-    try {
-      const lovedBlogs = JSON.parse(localStorage.getItem('lovedBlogs') || '[]');
-      const likedBlogs = JSON.parse(localStorage.getItem('likedBlogs') || '[]');
-
-      setUserHasLoved(lovedBlogs.includes(slug));
-      setUserHasLiked(likedBlogs.includes(slug));
-    } catch (error) {
-      console.error('Error loading reaction history:', error);
+  const saveUserReaction = (type: 'love' | 'like') => {
+    if (!slug) return;
+    const key = type === 'love' ? 'lovedBlogs' : 'likedBlogs';
+    const existing = JSON.parse(localStorage.getItem(key) || '[]');
+    if (!existing.includes(slug)) {
+      existing.push(slug);
+      localStorage.setItem(key, JSON.stringify(existing));
     }
   };
 
-  // Save user's reaction to localStorage
-  const saveUserReaction = (type: 'love' | 'like') => {
+  const fetchCommentCount = async () => {
     if (!slug) return;
 
     try {
-      const key = type === 'love' ? 'lovedBlogs' : 'likedBlogs';
-      const existing = JSON.parse(localStorage.getItem(key) || '[]');
+      setLoadingComments(true);
+      // GitHub REST API to get all discussions
+      const response = await fetch(
+        'https://api.github.com/repos/codewithdhruba01/codewithdhruba.app/discussions?category_id=DIC_kwDOO78xo84C0Eyx',
+        {
+          headers: {
+            'Accept': 'application/vnd.github.v3+json',
+          },
+        }
+      );
 
-      if (!existing.includes(slug)) {
-        existing.push(slug);
-        localStorage.setItem(key, JSON.stringify(existing));
+      if (response.ok) {
+        const discussions = await response.json();
+        // Find discussion that matches our blog post term
+        const discussionTerm = `blog-${slug}`;
+        const discussion = discussions.find((d: any) => d.title === discussionTerm);
+        setCommentCount(discussion?.comments || 0);
+      } else {
+        console.error('Failed to fetch discussions:', response.status);
+        setCommentCount(0);
       }
     } catch (error) {
-      console.error('Error saving reaction:', error);
+      console.error('Error fetching comment count:', error);
+      setCommentCount(0);
+    } finally {
+      setLoadingComments(false);
     }
   };
 
@@ -708,8 +733,8 @@ const BlogPost = () => {
     if (slug && blogPostsData[slug as keyof typeof blogPostsData]) {
       setPost(blogPostsData[slug as keyof typeof blogPostsData]);
       loadBlogReactions();
-      // Increment view count when someone visits the blog post
       incrementBlogViews();
+      fetchCommentCount();
     }
   }, [slug]);
 
@@ -717,13 +742,9 @@ const BlogPost = () => {
     if (!slug) return;
     try {
       await commentService.incrementBlogViews(slug);
-    } catch (error) {
-      console.warn('Error incrementing views:', error);
-      // Don't show error to user for view tracking
-    }
+    } catch { }
   };
 
-  // Real-time subscription for blog reactions
   useEffect(() => {
     if (!slug) return;
 
@@ -735,12 +756,9 @@ const BlogPost = () => {
           event: '*',
           schema: 'public',
           table: 'blog_loves',
-          filter: `blog_slug=eq.${slug}`
+          filter: `blog_slug=eq.${slug}`,
         },
-        (payload: any) => {
-          console.log('Blog love change received:', payload);
-          loadBlogReactions();
-        }
+        () => loadBlogReactions()
       )
       .on(
         'postgres_changes',
@@ -748,12 +766,9 @@ const BlogPost = () => {
           event: '*',
           schema: 'public',
           table: 'blog_likes',
-          filter: `blog_slug=eq.${slug}`
+          filter: `blog_slug=eq.${slug}`,
         },
-        (payload: any) => {
-          console.log('Blog like change received:', payload);
-          loadBlogReactions();
-        }
+        () => loadBlogReactions()
       )
       .subscribe();
 
@@ -764,40 +779,29 @@ const BlogPost = () => {
 
   const loadBlogReactions = async () => {
     if (!slug) return;
-
     try {
-      const [lovesCount, likesCount] = await Promise.all([
+      const [loves, likes] = await Promise.all([
         commentService.getBlogLovesCount(slug),
-        commentService.getBlogLikesCount(slug)
+        commentService.getBlogLikesCount(slug),
       ]);
-
-      setBlogLoves(lovesCount);
-      setBlogLikes(likesCount);
-
-      // Load user's personal reaction history from localStorage
+      setBlogLoves(loves);
+      setBlogLikes(likes);
       loadUserReactionHistory();
-    } catch (error) {
-      console.error('Error loading blog reactions:', error);
-      // Don't show error to user, just log it
+    } catch (e) {
+      console.error(e);
     }
   };
 
   const handleBlogLove = async () => {
     if (!slug || userHasLoved || lovingBlog) return;
-
     try {
       setLovingBlog(true);
-      setBlogReactionsError(null);
-
       await commentService.loveBlogPost(slug, userId);
-
-      // Save to localStorage to prevent re-reaction
       saveUserReaction('love');
-      setBlogLoves(prev => prev + 1);
+      setBlogLoves((p) => p + 1);
       setUserHasLoved(true);
-    } catch (error) {
-      console.error('Error loving blog post:', error);
-      setBlogReactionsError('Failed to love the post. Please try again.');
+    } catch {
+      setBlogReactionsError('Failed to love the post.');
     } finally {
       setLovingBlog(false);
     }
@@ -805,20 +809,14 @@ const BlogPost = () => {
 
   const handleBlogLike = async () => {
     if (!slug || userHasLiked || likingBlog) return;
-
     try {
       setLikingBlog(true);
-      setBlogReactionsError(null);
-
       await commentService.likeBlogPost(slug, userId);
-
-      // Save to localStorage to prevent re-reaction
       saveUserReaction('like');
-      setBlogLikes(prev => prev + 1);
+      setBlogLikes((p) => p + 1);
       setUserHasLiked(true);
-    } catch (error) {
-      console.error('Error liking blog post:', error);
-      setBlogReactionsError('Failed to like the post. Please try again.');
+    } catch {
+      setBlogReactionsError('Failed to like the post.');
     } finally {
       setLikingBlog(false);
     }
@@ -826,33 +824,34 @@ const BlogPost = () => {
 
   if (!post) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center"></div>
-      </div>
+      <div className="min-h-screen flex items-center justify-center" />
     );
   }
 
   return (
     <article className="py-20 px-4">
       <div className="max-w-4xl mx-auto py-10 mb-8">
-
-        <div className="mb-8" data-aos="fade-up">
+        {/* Back */}
+        <div className="mb-8">
           <a
             href="/all-posts"
-            className="inline-flex items-center text-gray-400 hover:text-white transition-colors"
+            className="inline-flex items-center text-gray-400 hover:text-white transition"
           >
             <Undo2 className="h-4 w-4 mr-2" />
             Back to Blog
           </a>
         </div>
 
-        <header className="mb-12" data-aos="fade-up">
+        {/* Header */}
+        <header className="mb-12">
           <div className="mb-6">
-            <span className="bg-[#1e1e1e] text-neutral-300 px-3 py-1 rounded-full text-sm font-poppins">
+            <span className="bg-[#1e1e1e] text-neutral-300 px-3 py-1 rounded-full text-sm">
               {post.category}
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold font-outfit mb-6">{post.title}</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            {post.title}
+          </h1>
           <div className="flex items-center text-gray-400 mb-8">
             <img
               src="https://avatars.githubusercontent.com/u/146111647?v=4"
@@ -860,37 +859,62 @@ const BlogPost = () => {
               className="w-10 h-10 rounded-full mr-4"
             />
             <div>
-              <div className="text-white font-synonym font-bold">
+              <div className="text-white font-bold">
                 {post.author}
               </div>
-              <div className="text-sm font-satoshi text-neutral-400">
-                {post.date} · {post.readTime}
+              <div className="text-sm text-neutral-400">
+                {post.readTime}
               </div>
             </div>
           </div>
         </header>
 
-        <div className="mb-12" data-aos="fade-up">
+        {/* Image */}
+        <div className="mb-6">
           <img
             src={post.image}
-            alt={`Thumbnail for ${post.title}`}
-            className="w-full h-auto rounded-lg"
+            alt={post.title}
+            className="w-full rounded-lg"
             style={{ maxHeight: '500px', objectFit: 'contain' }}
           />
         </div>
 
+        {/* ✅ NEW: Stats synced with reactions */}
+        <div className="mb-10 flex flex-wrap items-center justify-between gap-4 text-sm text-neutral-400">
+          <div className="flex items-center gap-2">
+            <Calendar className="h-4 w-4" />
+            <span>{post.date}</span>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10">
+              <Heart className="h-4 w-4 text-red-400" />
+              <span>{blogLoves}</span>
+            </div>
+            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10">
+              <ThumbsUp className="h-4 w-4 text-blue-400" />
+              <span>{blogLikes}</span>
+            </div>
+            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10">
+              <MessageCircle className="h-4 w-4 text-green-400" />
+              <span>{loadingComments ? '...' : commentCount}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Content */}
         <div
-          className="prose prose-lg prose-invert max-w-none text-base font-poppins font-light text-neutral-400"
+          className="prose prose-lg prose-invert max-w-none text-neutral-400"
           dangerouslySetInnerHTML={{ __html: post.content }}
-          data-aos="fade-up"
         />
 
-        <div className="mt-12 pt-8 border-t border-gray-800" data-aos="fade-up">
+        {/* Tags */}
+        <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-wrap gap-2">
             {post.tags.map((tag: string) => (
               <span
                 key={tag}
-                className="bg-[#111111] text-neutral-400 font-light font-poppins px-3 py-1 rounded-full text-sm"
+                className="bg-[#111111] text-neutral-400 px-3 py-1 rounded-full text-sm"
               >
                 #{tag}
               </span>
@@ -898,63 +922,56 @@ const BlogPost = () => {
           </div>
         </div>
 
-        {/* Blog Reactions Section */}
-        {/* Blog Reactions Section */}
-        <div
-          className="mt-12 flex items-center justify-center space-x-4"
-          data-aos="fade-up"
-        >
+        {/* Reactions (main buttons) */}
+        <div className="mt-12 flex items-center justify-center space-x-4">
           {blogReactionsError && (
-            <p className="text-red-400 text-sm mb-4">{blogReactionsError}</p>
+            <p className="text-red-400 text-sm mb-4">
+              {blogReactionsError}
+            </p>
           )}
 
-          {/* Love Button */}
           <button
             onClick={handleBlogLove}
             disabled={userHasLoved || lovingBlog}
-            className={`group flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md border transition-all duration-300
-      ${userHasLoved
-                ? 'bg-red-500/20 border-red-500/40 text-red-400 cursor-not-allowed'
-                : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-red-500/10 hover:border-red-500/40 hover:text-red-400'
+            className={`flex items-center gap-2 px-5 py-2 rounded-full border transition
+              ${userHasLoved
+                ? 'bg-red-500/20 border-red-500/40 text-red-400'
+                : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-red-500/10'
               }`}
-            title={userHasLoved ? 'You loved this post ❤️' : 'Love this post ❤️'}
           >
             {lovingBlog ? (
               <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
               <Heart
-                className={`h-4 w-4 transition-transform duration-300 group-hover:scale-110 ${userHasLoved ? 'fill-red-400 text-red-400' : ''
+                className={`h-4 w-4 ${userHasLoved ? 'fill-red-400 text-red-400' : ''
                   }`}
               />
             )}
-            <span className="text-sm font-medium">{blogLoves}</span>
+            <span>{blogLoves}</span>
           </button>
 
-          {/* Like Button */}
           <button
             onClick={handleBlogLike}
             disabled={userHasLiked || likingBlog}
-            className={`group flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md border transition-all duration-300
-      ${userHasLiked
-                ? 'bg-blue-500/20 border-blue-500/40 text-blue-400 cursor-not-allowed'
-                : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-blue-500/10 hover:border-blue-500/40 hover:text-blue-400'
+            className={`flex items-center gap-2 px-5 py-2 rounded-full border transition
+              ${userHasLiked
+                ? 'bg-blue-500/20 border-blue-500/40 text-blue-400'
+                : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-blue-500/10'
               }`}
-            title={userHasLiked ? 'You liked this post 👍' : 'Like this post 👍'}
           >
             {likingBlog ? (
               <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
               <ThumbsUp
-                className={`h-4 w-4 transition-transform duration-300 group-hover:scale-110 ${userHasLiked ? 'fill-blue-400 text-blue-400' : ''
+                className={`h-4 w-4 ${userHasLiked ? 'fill-blue-400 text-blue-400' : ''
                   }`}
               />
             )}
-            <span className="text-sm font-medium">{blogLikes}</span>
+            <span>{blogLikes}</span>
           </button>
         </div>
 
-
-        {/* Comments Section */}
+        {/* Comments */}
         <GiscusComments slug={slug || ''} />
       </div>
     </article>
@@ -962,3 +979,4 @@ const BlogPost = () => {
 };
 
 export default BlogPost;
+
