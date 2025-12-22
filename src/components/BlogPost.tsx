@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Undo2, Heart, Loader2, ThumbsUp, Calendar, MessageCircle } from 'lucide-react';
+import { Undo2, Heart, Loader2, ThumbsUp, Calendar, Share2 } from 'lucide-react';
 import GiscusComments from './GiscusComments';
+import ShareModal from './modals/ShareModal';
 import { commentService, supabase } from '../lib/supabase';
 
 // Blog post data
@@ -673,8 +674,7 @@ const BlogPost = () => {
     null
   );
 
-  const [commentCount, setCommentCount] = useState<number>(0);
-  const [loadingComments, setLoadingComments] = useState<boolean>(false);
+  const [showShareModal, setShowShareModal] = useState<boolean>(false);
 
   const userId = 'blog-user-' + Math.random().toString(36).substr(2, 9);
 
@@ -696,45 +696,12 @@ const BlogPost = () => {
     }
   };
 
-  const fetchCommentCount = async () => {
-    if (!slug) return;
-
-    try {
-      setLoadingComments(true);
-      // GitHub REST API to get all discussions
-      const response = await fetch(
-        'https://api.github.com/repos/codewithdhruba01/codewithdhruba.app/discussions?category_id=DIC_kwDOO78xo84C0Eyx',
-        {
-          headers: {
-            'Accept': 'application/vnd.github.v3+json',
-          },
-        }
-      );
-
-      if (response.ok) {
-        const discussions = await response.json();
-        // Find discussion that matches our blog post term
-        const discussionTerm = `blog-${slug}`;
-        const discussion = discussions.find((d: any) => d.title === discussionTerm);
-        setCommentCount(discussion?.comments || 0);
-      } else {
-        console.error('Failed to fetch discussions:', response.status);
-        setCommentCount(0);
-      }
-    } catch (error) {
-      console.error('Error fetching comment count:', error);
-      setCommentCount(0);
-    } finally {
-      setLoadingComments(false);
-    }
-  };
 
   useEffect(() => {
     if (slug && blogPostsData[slug as keyof typeof blogPostsData]) {
       setPost(blogPostsData[slug as keyof typeof blogPostsData]);
       loadBlogReactions();
       incrementBlogViews();
-      fetchCommentCount();
     }
   }, [slug]);
 
@@ -879,7 +846,6 @@ const BlogPost = () => {
           />
         </div>
 
-        {/* ✅ NEW: Stats synced with reactions */}
         <div className="mb-10 flex flex-wrap items-center justify-between gap-4 text-sm text-neutral-400">
           <div className="flex items-center gap-2">
             <Calendar className="h-4 w-4" />
@@ -895,10 +861,13 @@ const BlogPost = () => {
               <ThumbsUp className="h-4 w-4 text-blue-400" />
               <span>{blogLikes}</span>
             </div>
-            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10">
-              <MessageCircle className="h-4 w-4 text-green-400" />
-              <span>{loadingComments ? '...' : commentCount}</span>
-            </div>
+            <button
+              onClick={() => setShowShareModal(true)}
+              className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition"
+            >
+              <Share2 className="h-4 w-4 text-purple-400" />
+              <span>Share</span>
+            </button>
           </div>
         </div>
 
@@ -922,7 +891,7 @@ const BlogPost = () => {
           </div>
         </div>
 
-        {/* Reactions (main buttons) */}
+        {/* Reactions */}
         <div className="mt-12 flex items-center justify-center space-x-4">
           {blogReactionsError && (
             <p className="text-red-400 text-sm mb-4">
@@ -973,6 +942,14 @@ const BlogPost = () => {
 
         {/* Comments */}
         <GiscusComments slug={slug || ''} />
+
+        {/* Share Modal */}
+        <ShareModal
+          isOpen={showShareModal}
+          onClose={() => setShowShareModal(false)}
+          title={post?.title || ''}
+          slug={slug || ''}
+        />
       </div>
     </article>
   );
