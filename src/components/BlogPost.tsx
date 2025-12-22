@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Undo2, Heart, Loader2, ThumbsUp, Calendar, Share2 } from 'lucide-react';
+import {
+  Undo2,
+  Heart,
+  Loader2,
+  ThumbsUp,
+  Calendar,
+  Share2,
+} from 'lucide-react';
 import GiscusComments from './GiscusComments';
 import ShareModal from './modals/ShareModal';
 import { useBlogReactions } from '../hooks/useBlogReactions';
@@ -301,7 +308,8 @@ const [darkMode, setDarkMode] = useState(true);
   },
 
   'essential-linux-commands': {
-    title: 'Essential Linux Commands: A Comprehensive Guide (50 Commands with Examples)',
+    title:
+      'Essential Linux Commands: A Comprehensive Guide (50 Commands with Examples)',
     date: 'Dec 8, 2025',
     author: 'Dhrubaraj Pati',
     category: 'Linux',
@@ -658,11 +666,9 @@ fetch('https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_K
   },
 };
 
-
 const BlogPost = () => {
   const { slug } = useParams();
   const [post, setPost] = useState<any>(null);
-
 
   const [showShareModal, setShowShareModal] = useState<boolean>(false);
 
@@ -690,13 +696,11 @@ const BlogPost = () => {
     if (!slug) return;
     try {
       await commentService.incrementBlogViews(slug);
-    } catch { }
+    } catch {}
   };
 
   if (!post) {
-    return (
-      <div className="min-h-screen flex items-center justify-center" />
-    );
+    return <div className="min-h-screen flex items-center justify-center" />;
   }
 
   return (
@@ -720,9 +724,7 @@ const BlogPost = () => {
               {post.category}
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            {post.title}
-          </h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">{post.title}</h1>
           <div className="flex items-center text-gray-400 mb-8">
             <img
               src="https://avatars.githubusercontent.com/u/146111647?v=4"
@@ -730,12 +732,8 @@ const BlogPost = () => {
               className="w-10 h-10 rounded-full mr-4"
             />
             <div>
-              <div className="text-white font-bold">
-                {post.author}
-              </div>
-              <div className="text-sm text-neutral-400">
-                {post.readTime}
-              </div>
+              <div className="text-white font-bold">{post.author}</div>
+              <div className="text-sm text-neutral-400">{post.readTime}</div>
             </div>
           </div>
         </header>
@@ -760,23 +758,33 @@ const BlogPost = () => {
             <button
               onClick={handleBlogLove}
               disabled={userHasLoved || lovingBlog}
-              className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition ${userHasLoved
-                ? 'bg-red-500/20 border-red-500/40 text-red-400'
-                : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-red-500/10'
-                }`}
+              className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition ${
+                userHasLoved
+                  ? 'bg-red-500/20 border-red-500/40 text-red-400'
+                  : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-red-500/10'
+              }`}
             >
-              <Heart className={`h-4 w-4 ${userHasLoved ? 'fill-red-400 text-red-400' : ''}`} />
+              <Heart
+                className={`h-4 w-4 ${
+                  userHasLoved ? 'fill-red-400 text-red-400' : ''
+                }`}
+              />
               <span>{blogLoves}</span>
             </button>
             <button
               onClick={handleBlogLike}
               disabled={userHasLiked || likingBlog}
-              className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition ${userHasLiked
-                ? 'bg-blue-500/20 border-blue-500/40 text-blue-400'
-                : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-blue-500/10'
-                }`}
+              className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition ${
+                userHasLiked
+                  ? 'bg-blue-500/20 border-blue-500/40 text-blue-400'
+                  : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-blue-500/10'
+              }`}
             >
-              <ThumbsUp className={`h-4 w-4 ${userHasLiked ? 'fill-blue-400 text-blue-400' : ''}`} />
+              <ThumbsUp
+                className={`h-4 w-4 ${
+                  userHasLiked ? 'fill-blue-400 text-blue-400' : ''
+                }`}
+              />
               <span>{blogLikes}</span>
             </button>
             <button
@@ -812,26 +820,26 @@ const BlogPost = () => {
         {/* Reactions */}
         <div className="mt-12 flex items-center justify-center space-x-4">
           {blogReactionsError && (
-            <p className="text-red-400 text-sm mb-4">
-              {blogReactionsError}
-            </p>
+            <p className="text-red-400 text-sm mb-4">{blogReactionsError}</p>
           )}
 
           <button
             onClick={handleBlogLove}
             disabled={userHasLoved || lovingBlog}
             className={`flex items-center gap-2 px-5 py-2 rounded-full border transition
-              ${userHasLoved
-                ? 'bg-red-500/20 border-red-500/40 text-red-400'
-                : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-red-500/10'
+              ${
+                userHasLoved
+                  ? 'bg-red-500/20 border-red-500/40 text-red-400'
+                  : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-red-500/10'
               }`}
           >
             {lovingBlog ? (
               <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
               <Heart
-                className={`h-4 w-4 ${userHasLoved ? 'fill-red-400 text-red-400' : ''
-                  }`}
+                className={`h-4 w-4 ${
+                  userHasLoved ? 'fill-red-400 text-red-400' : ''
+                }`}
               />
             )}
             <span>{blogLoves}</span>
@@ -841,17 +849,19 @@ const BlogPost = () => {
             onClick={handleBlogLike}
             disabled={userHasLiked || likingBlog}
             className={`flex items-center gap-2 px-5 py-2 rounded-full border transition
-              ${userHasLiked
-                ? 'bg-blue-500/20 border-blue-500/40 text-blue-400'
-                : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-blue-500/10'
+              ${
+                userHasLiked
+                  ? 'bg-blue-500/20 border-blue-500/40 text-blue-400'
+                  : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-blue-500/10'
               }`}
           >
             {likingBlog ? (
               <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
               <ThumbsUp
-                className={`h-4 w-4 ${userHasLiked ? 'fill-blue-400 text-blue-400' : ''
-                  }`}
+                className={`h-4 w-4 ${
+                  userHasLiked ? 'fill-blue-400 text-blue-400' : ''
+                }`}
               />
             )}
             <span>{blogLikes}</span>
@@ -874,4 +884,3 @@ const BlogPost = () => {
 };
 
 export default BlogPost;
-
