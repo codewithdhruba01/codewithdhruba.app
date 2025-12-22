@@ -1295,7 +1295,7 @@ const BlogPost = () => {
 
         {/* Content */}
         <div
-          className="prose prose-lg font-poppins text-base prose-invert max-w-none text-neutral-400"
+          className="prose prose-sm md:prose-base lg:prose-lg font-poppins prose-invert max-w-none text-neutral-400"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
 
