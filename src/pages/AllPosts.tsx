@@ -2,67 +2,45 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Clock, ArrowRight, Eye } from 'lucide-react';
 import { commentService } from '../lib/supabase';
+import { blogPostsData } from '../data/blogs';
 
-const blogPosts = [
-  {
-    title: 'Getting Started with React and TypeScript',
-    description:
-      'Learn how to set up a new React project with TypeScript and best practices for type safety.',
-    date: 'March 15, 2024',
-    image: '/blog/blog2.png',
-    category: ['Development'],
-    readTime: '5 min read',
-    slug: 'getting-started-with-react-typescript',
-  },
-  {
-    title: '10 Chrome Keyboard Shortcuts to Boost Your Productivity',
-    description:
-      'Discover the most useful Chrome keyboard shortcuts to browse faster, save time, and increase your daily productivity.',
-    date: 'July 2, 2025',
-    image: '/blog/chrome_shortcuts.png',
-    category: ['Productivity & Tech Tips'],
-    readTime: '5 min read',
-    slug: 'chrome-keyboard-shortcuts',
-  },
-  {
-    title:
-      'The Ultimate Guide to OpenWeather API: Features, API Key Generation & Integration',
-    description:
-      'The OpenWeather API is one of the most popular and reliable weather data services available.',
-    date: 'Oct 8, 2025',
-    image: '/blog/OpenWeather.png',
-    category: ['Tools', 'API'],
-    readTime: '15 min read',
-    slug: 'openweather-api-guide',
-  },
-  {
-    title: 'Building My First Website from Scratch with React and Tailwind CSS',
-    description:
-      'Learn how I built my first website from scratch using React and Tailwind CSS — from setup to responsive design, with tips and key takeaways.',
-    date: 'Oct 10, 2025',
-    image: '/blog/blog3.png',
-    category: ['Development', 'Setup'],
-    readTime: '5 min read',
-    slug: 'building-my-first-website-with-react-and-tailwind',
-  },
-  {
-    title: 'Essential Linux Commands: A Comprehensive Guide',
-    description:
-      'Learn the most essential Linux commands every beginner and intermediate user must know. This comprehensive guide explains each command in simple,',
-    date: 'Dec 8, 2025',
-    image: '/blog/linux_commands.png',
-    category: ['CLI', 'Devlopment', 'Terminal'],
-    readTime: '10 min read',
-    slug: 'essential-linux-commands',
-  },
-];
+// Blog post descriptions for listing
+const blogDescriptions = {
+  'getting-started-with-react-typescript': 'Learn how to set up a new React project with TypeScript and best practices for type safety.',
+  'chrome-keyboard-shortcuts': 'Discover the most useful Chrome keyboard shortcuts to browse faster, save time, and increase your daily productivity.',
+  'openweather-api-guide': 'The OpenWeather API is one of the most popular and reliable weather data services available.',
+  'building-my-first-website-with-react-and-tailwind': 'Learn how I built my first website from scratch using React and Tailwind CSS — from setup to responsive design, with tips and key takeaways.',
+  'essential-linux-commands': 'Learn the most essential Linux commands every beginner and intermediate user must know. This comprehensive guide explains each command in simple terms.',
+};
 
-const tags = [
-  { name: 'All', count: blogPosts.length },
-  { name: 'Development', count: 1 },
-  { name: 'Tools', count: 2 },
-  { name: 'Productivity & Tech Tips', count: 1 },
-];
+// Extract simplified blog post data for listing
+const blogPosts = Object.entries(blogPostsData).map(([slug, post]) => ({
+  title: post.title.replace(/:.*$/, ''), // Remove everything after colon for cleaner titles
+  description: blogDescriptions[slug as keyof typeof blogDescriptions] || 'Read this interesting blog post about web development.',
+  date: post.date,
+  image: post.image,
+  category: [post.category], // Convert single category to array
+  readTime: post.readTime,
+  slug: slug,
+}));
+
+// Calculate tag counts dynamically
+const calculateTagCounts = () => {
+  const tagCounts: Record<string, number> = {};
+
+  blogPosts.forEach(post => {
+    post.category.forEach(cat => {
+      tagCounts[cat] = (tagCounts[cat] || 0) + 1;
+    });
+  });
+
+  return [
+    { name: 'All', count: blogPosts.length },
+    ...Object.entries(tagCounts).map(([name, count]) => ({ name, count }))
+  ];
+};
+
+const tags = calculateTagCounts();
 
 const AllPosts = () => {
   const [activeTag, setActiveTag] = useState('All');
