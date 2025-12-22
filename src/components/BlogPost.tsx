@@ -853,14 +853,28 @@ const BlogPost = () => {
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10">
-              <Heart className="h-4 w-4 text-red-400" />
+            <button
+              onClick={handleBlogLove}
+              disabled={userHasLoved || lovingBlog}
+              className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition ${userHasLoved
+                ? 'bg-red-500/20 border-red-500/40 text-red-400'
+                : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-red-500/10'
+                }`}
+            >
+              <Heart className={`h-4 w-4 ${userHasLoved ? 'fill-red-400 text-red-400' : ''}`} />
               <span>{blogLoves}</span>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10">
-              <ThumbsUp className="h-4 w-4 text-blue-400" />
+            </button>
+            <button
+              onClick={handleBlogLike}
+              disabled={userHasLiked || likingBlog}
+              className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition ${userHasLiked
+                ? 'bg-blue-500/20 border-blue-500/40 text-blue-400'
+                : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-blue-500/10'
+                }`}
+            >
+              <ThumbsUp className={`h-4 w-4 ${userHasLiked ? 'fill-blue-400 text-blue-400' : ''}`} />
               <span>{blogLikes}</span>
-            </div>
+            </button>
             <button
               onClick={() => setShowShareModal(true)}
               className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition"
