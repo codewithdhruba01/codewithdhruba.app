@@ -534,10 +534,10 @@ const [darkMode, setDarkMode] = useState(true);
 
   'openweather-api-guide': {
     title:
-      'The Ultimate Guide to OpenWeather API: Features, API Key Generation & Integration',
+      'The Ultimate Guide to OpenWeather API',
     date: 'October 8, 2025',
     author: 'Dhrubaraj Pati',
-    category: 'Web Development',
+    category: 'API',
     readTime: '7 min read',
     content: `
 <p>The OpenWeather API is one of the most popular and reliable weather data services available today. Whether you're building a weather app, adding real-time forecasts to your website, or working on a smart IoT project, OpenWeather provides accurate and comprehensive data to power your ideas.</p>
@@ -696,7 +696,7 @@ const BlogPost = () => {
     if (!slug) return;
     try {
       await commentService.incrementBlogViews(slug);
-    } catch {}
+    } catch { }
   };
 
   if (!post) {
@@ -719,12 +719,7 @@ const BlogPost = () => {
 
         {/* Header */}
         <header className="mb-12">
-          <div className="mb-6">
-            <span className="bg-[#1e1e1e] text-neutral-300 px-3 py-1 font-outfit rounded-full text-sm">
-              {post.category}
-            </span>
-          </div>
-          <h1 className="text-4xl md:text-4xl font-pally mb-6">{post.title}</h1>
+
           <div className="flex items-center text-gray-400 mb-8">
             <img
               src="https://avatars.githubusercontent.com/u/146111647?v=4"
@@ -743,9 +738,24 @@ const BlogPost = () => {
           <img
             src={post.image}
             alt={post.title}
-            className="w-full rounded-lg"
-            style={{ maxHeight: '500px', objectFit: 'contain' }}
+            className="w-full"
+            style={{
+              maxHeight: '500px',
+              objectFit: 'contain',
+              borderRadius: '16px'
+            }}
           />
+        </div>
+        <div className="mb-6">
+          <span className="bg-[#1e1e1e] text-neutral-300 px-3 py-1 font-outfit rounded-full text-sm">
+            {post.category}
+          </span>
+        </div>
+
+        <div className="mb-6">
+          <h1 className="text-3xl md:text-4xl font-pally text-white leading-tight">
+            {post.title}
+          </h1>
         </div>
 
         <div className="mb-10 flex flex-wrap items-center justify-between gap-4 text-sm text-neutral-400">
@@ -758,32 +768,28 @@ const BlogPost = () => {
             <button
               onClick={handleBlogLove}
               disabled={userHasLoved || lovingBlog}
-              className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition ${
-                userHasLoved
-                  ? 'bg-red-500/20 border-red-500/40 text-red-400'
-                  : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-red-500/10'
-              }`}
+              className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition ${userHasLoved
+                ? 'bg-red-500/20 border-red-500/40 text-red-400'
+                : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-red-500/10'
+                }`}
             >
               <Heart
-                className={`h-4 w-4 ${
-                  userHasLoved ? 'fill-red-400 text-red-400' : ''
-                }`}
+                className={`h-4 w-4 ${userHasLoved ? 'fill-red-400 text-red-400' : ''
+                  }`}
               />
               <span>{blogLoves}</span>
             </button>
             <button
               onClick={handleBlogLike}
               disabled={userHasLiked || likingBlog}
-              className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition ${
-                userHasLiked
-                  ? 'bg-blue-500/20 border-blue-500/40 text-blue-400'
-                  : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-blue-500/10'
-              }`}
+              className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition ${userHasLiked
+                ? 'bg-blue-500/20 border-blue-500/40 text-blue-400'
+                : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-blue-500/10'
+                }`}
             >
               <ThumbsUp
-                className={`h-4 w-4 ${
-                  userHasLiked ? 'fill-blue-400 text-blue-400' : ''
-                }`}
+                className={`h-4 w-4 ${userHasLiked ? 'fill-blue-400 text-blue-400' : ''
+                  }`}
               />
               <span>{blogLikes}</span>
             </button>
@@ -827,19 +833,17 @@ const BlogPost = () => {
             onClick={handleBlogLove}
             disabled={userHasLoved || lovingBlog}
             className={`flex items-center gap-2 px-5 py-2 rounded-full border transition
-              ${
-                userHasLoved
-                  ? 'bg-red-500/20 border-red-500/40 text-red-400'
-                  : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-red-500/10'
+              ${userHasLoved
+                ? 'bg-red-500/20 border-red-500/40 text-red-400'
+                : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-red-500/10'
               }`}
           >
             {lovingBlog ? (
               <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
               <Heart
-                className={`h-4 w-4 ${
-                  userHasLoved ? 'fill-red-400 text-red-400' : ''
-                }`}
+                className={`h-4 w-4 ${userHasLoved ? 'fill-red-400 text-red-400' : ''
+                  }`}
               />
             )}
             <span>{blogLoves}</span>
@@ -849,19 +853,17 @@ const BlogPost = () => {
             onClick={handleBlogLike}
             disabled={userHasLiked || likingBlog}
             className={`flex items-center gap-2 px-5 py-2 rounded-full border transition
-              ${
-                userHasLiked
-                  ? 'bg-blue-500/20 border-blue-500/40 text-blue-400'
-                  : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-blue-500/10'
+              ${userHasLiked
+                ? 'bg-blue-500/20 border-blue-500/40 text-blue-400'
+                : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-blue-500/10'
               }`}
           >
             {likingBlog ? (
               <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
               <ThumbsUp
-                className={`h-4 w-4 ${
-                  userHasLiked ? 'fill-blue-400 text-blue-400' : ''
-                }`}
+                className={`h-4 w-4 ${userHasLiked ? 'fill-blue-400 text-blue-400' : ''
+                  }`}
               />
             )}
             <span>{blogLikes}</span>
