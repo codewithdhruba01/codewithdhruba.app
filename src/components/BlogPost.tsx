@@ -576,7 +576,7 @@ const [darkMode, setDarkMode] = useState(true);
 </ul>
 <p>Pricing details: <a href="https://openweathermap.org/price" target="_blank">OpenWeather Pricing</a></p>
 
-<h2>📝 Step-by-Step: Generate Your API Key</h2>
+<h2>Step-by-Step: Generate Your API Key</h2>
 
 <h3>Step 1 — Create an Account</h3>
 <ol>
@@ -720,7 +720,7 @@ const BlogPost = () => {
         {/* Header */}
         <header className="mb-12">
           <div className="mb-6">
-            <span className="bg-[#1e1e1e] text-neutral-300 px-3 py-1 rounded-full text-sm">
+            <span className="bg-[#1e1e1e] text-neutral-300 px-3 py-1 font-outfit rounded-full text-sm">
               {post.category}
             </span>
           </div>
@@ -799,17 +799,17 @@ const BlogPost = () => {
 
         {/* Content */}
         <div
-          className="prose prose-lg prose-invert max-w-none text-neutral-400"
+          className="prose prose-lg font-poppins text-base prose-invert max-w-none text-neutral-400"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
 
         {/* Tags */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
+        <div className="mt-12 pt-8 border-t font-outfit border-gray-800">
           <div className="flex flex-wrap gap-2">
             {post.tags.map((tag: string) => (
               <span
                 key={tag}
-                className="bg-[#111111] text-neutral-400 px-3 py-1 rounded-full text-sm"
+                className="bg-[#1a1919] text-neutral-400 px-3 py-1 rounded-full text-sm"
               >
                 #{tag}
               </span>
