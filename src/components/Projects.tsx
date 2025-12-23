@@ -81,9 +81,9 @@ const Projects = () => {
               <div
                 key={index}
                 onClick={() => setSelectedProject(project)}
-                className="group bg-neutral-900 rounded-lg overflow-hidden cursor-pointer transform transition-all duration-500 ease-in-out hover:scale-[1.04] hover:shadow-2xl hover:shadow-[#00DC82]/30"
+                className="group bg-[#111111] rounded-lg overflow-hidden cursor-pointer border border-neutral-800 transform transition-all duration-500 ease-in-out hover:scale-[1.04] hover:shadow-2xl hover:shadow-[#00DC82]/30"
                 data-aos="fade-up"
-                data-aos-delay={index * 100}
+                data-aos-delay={index * 100} /// staggered animation
               >
                 {/* Image with smooth zoom */}
                 <div className="overflow-hidden">
