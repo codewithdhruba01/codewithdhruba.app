@@ -75,7 +75,7 @@ const Hero = () => {
               href="https://github.com/codewithdhruba01"
               className="group flex items-center gap-2 font-bold text-gray-300"
             >
-              <GithubIcon size="18" className="group-hover:fill-white" />
+              <GithubIcon size="18" className="group-hover:fill-white transition-all duration-300 ease-in-out" />
               GitHub
             </a>
 
@@ -83,7 +83,7 @@ const Hero = () => {
               href="https://x.com/codewithdhruba"
               className="group flex items-center gap-2 font-bold text-gray-300"
             >
-              <XIcon size="18" className="group-hover:fill-white" />
+              <XIcon size="18" className="group-hover:fill-white transition-all duration-300 ease-in-out" />
               X
             </a>
 
@@ -91,7 +91,7 @@ const Hero = () => {
               href="https://www.linkedin.com/in/dhrubaraj-pati/"
               className="group flex items-center gap-2 font-bold text-gray-300"
             >
-              <LinkedinIcon size="18" className="group-hover:fill-white" />
+              <LinkedinIcon size="18" className="group-hover:fill-white transition-all duration-300 ease-in-out" />
               LinkedIn
             </a>
 
@@ -99,7 +99,7 @@ const Hero = () => {
               href="https://www.instagram.com/dhrubaraj_pati/"
               className="group flex items-center gap-2 font-bold text-gray-300"
             >
-              <InstagramIcon size="18" className="group-hover:stroke-white" />
+              <InstagramIcon size="18" className="group-hover:stroke-white transition-all duration-300 ease-in-out" />
               Instagram
             </a>
 
@@ -107,7 +107,7 @@ const Hero = () => {
               href="https://app.daily.dev/codewithdhruba"
               className="group flex items-center gap-2 font-bold text-gray-300"
             >
-              <DailydotdevIcon size="18" className="group-hover:fill-white" />
+              <DailydotdevIcon size="18" className="group-hover:fill-white transition-all duration-300 ease-in-out" />
               Daily.dev
             </a>
 
@@ -115,7 +115,7 @@ const Hero = () => {
               href="https://forem.com/codewithdhruba"
               className="group flex items-center gap-2 font-bold text-gray-300"
             >
-              <NewsIcon size="18" className="group-hover:fill-white" />
+              <NewsIcon size="18" className="group-hover:fill-white transition-all duration-300 ease-in-out" />
               Forem
             </a>
 
@@ -123,7 +123,7 @@ const Hero = () => {
               href="#"
               className="group flex items-center gap-2 font-bold text-gray-300"
             >
-              <CodepenIcon size="18" className="group-hover:stroke-white" />
+              <CodepenIcon size="18" className="group-hover:stroke-white transition-all duration-300 ease-in-out" />
               Codepen
             </a>
           </div>
