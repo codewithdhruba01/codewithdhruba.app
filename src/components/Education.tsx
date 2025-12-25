@@ -5,7 +5,7 @@ const Experience = () => {
       title: 'Technical writer',
       company: 'Recode Hive, Australia (Remote)',
       description:
-        'Developed responsive web pages using React and Tailwind CSS. Collaborated with designers to improve user experience.',
+        'Authored and maintained product documentation, user guides, and tutorials, simplifying complex technical concepts into clear, accessible content. Collaborated with engineers to ensure accurate and up-to-date documentation & Collaborated with designers to improve user experience.',
     },
     {
       year: '2025-Present',
