@@ -21,9 +21,8 @@ const Footer = () => {
               </h2>
             </div>
             <p className="text-neutral-400 mb-6 max-w-md font-poppins">
-              Discovering the frontiers of coding, algorithms, and AI with
-              hands-on projects, clear guides, and a commitment to making
-              complex concepts accessible to everyone.
+              Crafting modern web experiences with code, creativity,
+              and a commitment to turning ideas into impactful solutions.
             </p>
 
             {/* Social Icons */}
