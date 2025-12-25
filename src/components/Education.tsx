@@ -41,31 +41,26 @@ const Experience = () => {
                 return (
                   <div
                     key={index}
-                    className={`relative flex items-center ${
-                      isEven ? 'justify-start' : 'justify-end'
-                    }`}
+                    className={`relative flex items-center ${isEven ? 'justify-start' : 'justify-end'
+                      }`}
                     data-aos="fade-up"
                     data-aos-delay={index * 200}
                   >
                     {/* Timeline Dot */}
                     <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center group">
-                      <div className={`w-4 h-4 bg-[#00DC82] rounded-full border-4 border-neutral-950 z-20 transition-all duration-500 ease-out ${
-                        hoveredIndex === index ? 'scale-125 animate-pulse' : 'animate-pulse'
-                      }`}></div>
-                      <div className={`absolute w-8 h-8 bg-[#00DC82]/20 rounded-full transition-all duration-700 ease-out ${
-                        hoveredIndex === index ? 'animate-ping scale-125' : 'animate-ping'
-                      }`}></div>
+                      <div className={`w-4 h-4 bg-[#00DC82] rounded-full border-4 border-neutral-950 z-20 transition-all duration-500 ease-out ${hoveredIndex === index ? 'scale-125 animate-pulse' : 'animate-pulse'
+                        }`}></div>
+                      <div className={`absolute w-8 h-8 bg-[#00DC82]/20 rounded-full transition-all duration-700 ease-out ${hoveredIndex === index ? 'animate-ping scale-125' : 'animate-ping'
+                        }`}></div>
                       {/* Extra glow on hover */}
-                      <div className={`absolute w-12 h-12 bg-[#00DC82]/10 rounded-full transition-all duration-500 ease-out ${
-                        hoveredIndex === index ? 'opacity-100 scale-110' : 'opacity-0 scale-100'
-                      }`}></div>
+                      <div className={`absolute w-12 h-12 bg-[#00DC82]/10 rounded-full transition-all duration-500 ease-out ${hoveredIndex === index ? 'opacity-100 scale-110' : 'opacity-0 scale-100'
+                        }`}></div>
                     </div>
 
                     {/* Content Card */}
                     <div
-                      className={`group relative w-full md:w-5/12 p-6 bg-[#111111] border border-gray-800 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-[#00DC82]/20 transition-all duration-700 ease-out hover:border-[#00DC82]/70 hover:scale-[1.02] hover:-translate-y-1 cursor-pointer overflow-hidden ${
-                        isEven ? 'mr-8' : 'ml-8'
-                      }`}
+                      className={`group relative w-full md:w-5/12 p-6 bg-[#111111] border border-gray-800 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-[#00DC82]/20 transition-all duration-700 ease-out hover:border-[#00DC82]/70 hover:scale-[1.02] hover:-translate-y-1 cursor-pointer overflow-hidden ${isEven ? 'mr-8' : 'ml-8'
+                        }`}
                       data-aos={isEven ? "fade-right" : "fade-left"}
                       data-aos-delay={index * 300}
                       onMouseEnter={() => setHoveredIndex(index)}
@@ -102,11 +97,9 @@ const Experience = () => {
 
                     {/* Connecting Line */}
                     <div
-                      className={`hidden md:block absolute top-6 ${
-                        isEven ? 'left-1/2 ml-4' : 'right-1/2 mr-4'
-                      } w-8 h-0.5 bg-gradient-to-r ${
-                        isEven ? 'from-[#00DC82]/50' : 'from-[#00DC82]/50'
-                      }`}
+                      className={`hidden md:block absolute top-6 ${isEven ? 'left-1/2 ml-4' : 'right-1/2 mr-4'
+                        } w-8 h-0.5 bg-gradient-to-r ${isEven ? 'from-[#00DC82]/50' : 'from-[#00DC82]/50'
+                        }`}
                     ></div>
                   </div>
                 );
