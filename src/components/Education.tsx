@@ -1,4 +1,8 @@
+import { useState } from 'react';
+
 const Experience = () => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   const experience = [
     {
       year: '2025 - Present',
@@ -27,48 +31,86 @@ const Experience = () => {
           >
             Experience
           </h2>
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#00DC82]/20"></div>
-            <div className="flex flex-col space-y-16">
-              {experience.map((item, index) => (
-                <div
-                  key={index}
-                  className="relative flex flex-col items-center"
-                  data-aos="fade-up"
-                >
-                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#115036] border-2 border-white z-10">
-                    <svg
-                      className="w-5 h-5 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
+          <div className="relative max-w-4xl mx-auto">
+            {/* Timeline Line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#00DC82]/20 via-[#00DC82]/40 to-[#00DC82]/20"></div>
+
+            <div className="space-y-20">
+              {experience.map((item, index) => {
+                const isEven = index % 2 === 0;
+                return (
+                  <div
+                    key={index}
+                    className={`relative flex items-center ${
+                      isEven ? 'justify-start' : 'justify-end'
+                    }`}
+                    data-aos="fade-up"
+                    data-aos-delay={index * 200}
+                  >
+                    {/* Timeline Dot */}
+                    <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center group">
+                      <div className={`w-4 h-4 bg-[#00DC82] rounded-full border-4 border-neutral-950 z-20 transition-all duration-500 ease-out ${
+                        hoveredIndex === index ? 'scale-125 animate-pulse' : 'animate-pulse'
+                      }`}></div>
+                      <div className={`absolute w-8 h-8 bg-[#00DC82]/20 rounded-full transition-all duration-700 ease-out ${
+                        hoveredIndex === index ? 'animate-ping scale-125' : 'animate-ping'
+                      }`}></div>
+                      {/* Extra glow on hover */}
+                      <div className={`absolute w-12 h-12 bg-[#00DC82]/10 rounded-full transition-all duration-500 ease-out ${
+                        hoveredIndex === index ? 'opacity-100 scale-110' : 'opacity-0 scale-100'
+                      }`}></div>
+                    </div>
+
+                    {/* Content Card */}
+                    <div
+                      className={`group relative w-full md:w-5/12 p-6 bg-[#111111] border border-gray-800 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-[#00DC82]/20 transition-all duration-700 ease-out hover:border-[#00DC82]/70 hover:scale-[1.02] hover:-translate-y-1 cursor-pointer overflow-hidden ${
+                        isEven ? 'mr-8' : 'ml-8'
+                      }`}
+                      data-aos={isEven ? "fade-right" : "fade-left"}
+                      data-aos-delay={index * 300}
+                      onMouseEnter={() => setHoveredIndex(index)}
+                      onMouseLeave={() => setHoveredIndex(null)}
                     >
-                      <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
-                      <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
-                      <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
-                      <path d="M10 6h4" />
-                      <path d="M10 10h4" />
-                      <path d="M10 14h4" />
-                      <path d="M10 18h4" />
-                    </svg>
-                  </div>
-                  <div className="mt-6 w-full md:w-1/2 p-6 bg-[#111111] border border-gray-800 rounded-lg text-center">
-                    <div className="text-neutral-400 text-sm mb-1">
-                      {item.year}
+                      {/* Animated background gradient on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#00DC82]/5 via-transparent to-[#00DC82]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out rounded-lg"></div>
+
+                      {/* Floating particles on hover */}
+                      <div className="absolute top-3 right-3 w-2 h-2 bg-[#00DC82]/40 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-1000 ease-out group-hover:animate-ping"></div>
+                      <div className="absolute bottom-4 left-4 w-1.5 h-1.5 bg-[#00DC82]/30 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-1200 ease-out group-hover:animate-pulse"></div>
+
+                      <div className="relative z-10">
+                        <div className="text-[#00DC82] text-sm font-semibold mb-2 tracking-wide group-hover:text-[#00DC82] transition-colors duration-500 ease-out">
+                          {item.year}
+                        </div>
+                        <h3 className="text-xl font-bold text-white font-outfit mb-2 group-hover:text-[#00DC82] transition-all duration-500 ease-out group-hover:translate-x-1">
+                          {item.title}
+                        </h3>
+                        <div className="text-[#00DC82] text-sm mb-3 font-semibold group-hover:text-white transition-colors duration-500 ease-out">
+                          {item.company}
+                        </div>
+                        <p className="text-neutral-400 text-sm leading-relaxed font-satoshi group-hover:text-neutral-300 transition-colors duration-500 ease-out group-hover:translate-x-0.5">
+                          {item.description}
+                        </p>
+                      </div>
+
+                      {/* Enhanced decorative corner accent */}
+                      <div className="absolute top-4 right-4 w-3 h-3 border-t-2 border-r-2 border-[#00DC82]/30 group-hover:border-[#00DC82]/80 group-hover:w-4 group-hover:h-4 transition-all duration-500 ease-out"></div>
+
+                      {/* Bottom accent line */}
+                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00DC82] to-transparent group-hover:w-full transition-all duration-700 ease-out"></div>
                     </div>
-                    <h3 className="text-xl font-bold text-neutral-300 font-outfit mb-2">
-                      {item.title}
-                    </h3>
-                    <div className=" text-neutral-400 text-sm mb-2 font-extrabold font-outfit">
-                      {item.company}
-                    </div>
-                    <p className="text-neutral-400 text-sm font-satoshi">
-                      {item.description}
-                    </p>
+
+                    {/* Connecting Line */}
+                    <div
+                      className={`hidden md:block absolute top-6 ${
+                        isEven ? 'left-1/2 ml-4' : 'right-1/2 mr-4'
+                      } w-8 h-0.5 bg-gradient-to-r ${
+                        isEven ? 'from-[#00DC82]/50' : 'from-[#00DC82]/50'
+                      }`}
+                    ></div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
