@@ -247,186 +247,188 @@ const BlogPost = () => {
   }
 
   return (
-    <article className={`py-20 px-4 transition-all duration-700 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-      <div className="max-w-4xl mx-auto py-10 mb-8">
-        {/* Back */}
-        <div className={`mb-8 transition-all duration-500 delay-100 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-          <a
-            href="/all-posts"
-            className="inline-flex items-center text-gray-400 hover:text-white transition"
-          >
-            <Undo2 className="h-4 w-4 mr-2" />
-            Back to Blog
-          </a>
-        </div>
+    <>
+      <article className={`py-20 px-4 transition-all duration-700 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+        <div className="max-w-4xl mx-auto py-10 mb-8">
+          {/* Back */}
+          <div className={`mb-8 transition-all duration-500 delay-100 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+            <a
+              href="/all-posts"
+              className="inline-flex items-center text-gray-400 hover:text-white transition"
+            >
+              <Undo2 className="h-4 w-4 mr-2" />
+              Back to Blog
+            </a>
+          </div>
 
-        {/* Header */}
-        <header className={`mb-12 transition-all duration-500 delay-200 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+          {/* Header */}
+          <header className={`mb-12 transition-all duration-500 delay-200 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
 
-          <div className="flex items-center text-gray-400 mb-8">
+            <div className="flex items-center text-gray-400 mb-8">
+              <img
+                src="https://avatars.githubusercontent.com/u/146111647?v=4"
+                alt={post.author}
+                className="w-10 h-10 rounded-full mr-4"
+              />
+              <div>
+                <div className="text-white font-bold">{post.author}</div>
+                <div className="text-sm text-neutral-400">{post.readTime}</div>
+              </div>
+            </div>
+          </header>
+
+          {/* Image */}
+          <div className={`mb-6 transition-all duration-500 delay-300 ${contentLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
             <img
-              src="https://avatars.githubusercontent.com/u/146111647?v=4"
-              alt={post.author}
-              className="w-10 h-10 rounded-full mr-4"
+              src={post.image}
+              alt={post.title}
+              className="w-full"
+              style={{
+                maxHeight: '500px',
+                objectFit: 'contain',
+                borderRadius: '16px'
+              }}
             />
-            <div>
-              <div className="text-white font-bold">{post.author}</div>
-              <div className="text-sm text-neutral-400">{post.readTime}</div>
+          </div>
+          <div className={`mb-6 transition-all duration-500 delay-400 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+            <span className="bg-[#1e1e1e] text-neutral-300 px-3 py-1 font-outfit rounded-full text-sm">
+              {post.category}
+            </span>
+          </div>
+
+          <div className={`mb-6 transition-all duration-500 delay-500 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            <h1 className="text-3xl md:text-4xl font-pally text-white leading-tight">
+              {post.title}
+            </h1>
+          </div>
+
+          <div className={`mb-10 flex flex-wrap items-center justify-between gap-4 text-sm text-neutral-400 transition-all duration-500 delay-600 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+            <div className="flex items-center gap-2">
+              <Calendar className="h-4 w-4" />
+              <span>{post.date}</span>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <button
+                onClick={handleBlogLove}
+                disabled={userHasLoved || lovingBlog}
+                className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition ${userHasLoved
+                  ? 'bg-red-500/20 border-red-500/40 text-red-400'
+                  : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-red-500/10'
+                  }`}
+              >
+                <Heart
+                  className={`h-4 w-4 ${userHasLoved ? 'fill-red-400 text-red-400' : ''
+                    }`}
+                />
+                <span>{blogLoves}</span>
+              </button>
+              <button
+                onClick={handleBlogLike}
+                disabled={userHasLiked || likingBlog}
+                className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition ${userHasLiked
+                  ? 'bg-blue-500/20 border-blue-500/40 text-blue-400'
+                  : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-blue-500/10'
+                  }`}
+              >
+                <ThumbsUp
+                  className={`h-4 w-4 ${userHasLiked ? 'fill-blue-400 text-blue-400' : ''
+                    }`}
+                />
+                <span>{blogLikes}</span>
+              </button>
+              <button
+                onClick={() => setShowShareModal(true)}
+                className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition"
+              >
+                <Share2 className="h-4 w-4 text-purple-400" />
+                <span>Share</span>
+              </button>
             </div>
           </div>
-        </header>
 
-        {/* Image */}
-        <div className={`mb-6 transition-all duration-500 delay-300 ${contentLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-          <img
-            src={post.image}
-            alt={post.title}
-            className="w-full"
-            style={{
-              maxHeight: '500px',
-              objectFit: 'contain',
-              borderRadius: '16px'
-            }}
+          {/* Content */}
+          <div
+            className={`prose prose-sm md:prose-base lg:prose-lg font-poppins prose-invert max-w-none text-neutral-400 transition-all duration-500 delay-700 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+            dangerouslySetInnerHTML={{ __html: post.content }}
           />
-        </div>
-        <div className={`mb-6 transition-all duration-500 delay-400 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-          <span className="bg-[#1e1e1e] text-neutral-300 px-3 py-1 font-outfit rounded-full text-sm">
-            {post.category}
-          </span>
-        </div>
 
-        <div className={`mb-6 transition-all duration-500 delay-500 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <h1 className="text-3xl md:text-4xl font-pally text-white leading-tight">
-            {post.title}
-          </h1>
-        </div>
-
-        <div className={`mb-10 flex flex-wrap items-center justify-between gap-4 text-sm text-neutral-400 transition-all duration-500 delay-600 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-          <div className="flex items-center gap-2">
-            <Calendar className="h-4 w-4" />
-            <span>{post.date}</span>
+          {/* Tags */}
+          <div className={`mt-12 pt-8 border-t font-outfit border-gray-800 transition-all duration-500 delay-800 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+            <div className="flex flex-wrap gap-2">
+              {post.tags.map((tag: string) => (
+                <span
+                  key={tag}
+                  className="bg-[#1a1919] text-neutral-400 px-3 py-1 rounded-full text-sm"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          {/* Reactions */}
+          <div className={`mt-12 flex items-center justify-center space-x-4 transition-all duration-500 delay-900 ${contentLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+            {blogReactionsError && (
+              <p className="text-red-400 text-sm mb-4">{blogReactionsError}</p>
+            )}
+
             <button
               onClick={handleBlogLove}
               disabled={userHasLoved || lovingBlog}
-              className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition ${userHasLoved
-                ? 'bg-red-500/20 border-red-500/40 text-red-400'
-                : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-red-500/10'
+              className={`flex items-center gap-2 px-5 py-2 rounded-full border transition
+              ${userHasLoved
+                  ? 'bg-red-500/20 border-red-500/40 text-red-400'
+                  : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-red-500/10'
                 }`}
             >
-              <Heart
-                className={`h-4 w-4 ${userHasLoved ? 'fill-red-400 text-red-400' : ''
-                  }`}
-              />
+              {lovingBlog ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                <Heart
+                  className={`h-4 w-4 ${userHasLoved ? 'fill-red-400 text-red-400' : ''
+                    }`}
+                />
+              )}
               <span>{blogLoves}</span>
             </button>
+
             <button
               onClick={handleBlogLike}
               disabled={userHasLiked || likingBlog}
-              className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition ${userHasLiked
-                ? 'bg-blue-500/20 border-blue-500/40 text-blue-400'
-                : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-blue-500/10'
+              className={`flex items-center gap-2 px-5 py-2 rounded-full border transition
+              ${userHasLiked
+                  ? 'bg-blue-500/20 border-blue-500/40 text-blue-400'
+                  : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-blue-500/10'
                 }`}
             >
-              <ThumbsUp
-                className={`h-4 w-4 ${userHasLiked ? 'fill-blue-400 text-blue-400' : ''
-                  }`}
-              />
+              {likingBlog ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                <ThumbsUp
+                  className={`h-4 w-4 ${userHasLiked ? 'fill-blue-400 text-blue-400' : ''
+                    }`}
+                />
+              )}
               <span>{blogLikes}</span>
             </button>
-            <button
-              onClick={() => setShowShareModal(true)}
-              className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition"
-            >
-              <Share2 className="h-4 w-4 text-purple-400" />
-              <span>Share</span>
-            </button>
+          </div>
+
+          {/* Comments */}
+          <div className={`transition-all duration-500 delay-1000 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            <GiscusComments slug={slug || ''} />
           </div>
         </div>
+      </article>
 
-        {/* Content */}
-        <div
-          className={`prose prose-sm md:prose-base lg:prose-lg font-poppins prose-invert max-w-none text-neutral-400 transition-all duration-500 delay-700 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
-
-        {/* Tags */}
-        <div className={`mt-12 pt-8 border-t font-outfit border-gray-800 transition-all duration-500 delay-800 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-          <div className="flex flex-wrap gap-2">
-            {post.tags.map((tag: string) => (
-              <span
-                key={tag}
-                className="bg-[#1a1919] text-neutral-400 px-3 py-1 rounded-full text-sm"
-              >
-                #{tag}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Reactions */}
-        <div className={`mt-12 flex items-center justify-center space-x-4 transition-all duration-500 delay-900 ${contentLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-          {blogReactionsError && (
-            <p className="text-red-400 text-sm mb-4">{blogReactionsError}</p>
-          )}
-
-          <button
-            onClick={handleBlogLove}
-            disabled={userHasLoved || lovingBlog}
-            className={`flex items-center gap-2 px-5 py-2 rounded-full border transition
-              ${userHasLoved
-                ? 'bg-red-500/20 border-red-500/40 text-red-400'
-                : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-red-500/10'
-              }`}
-          >
-            {lovingBlog ? (
-              <Loader2 className="h-4 w-4 animate-spin" />
-            ) : (
-              <Heart
-                className={`h-4 w-4 ${userHasLoved ? 'fill-red-400 text-red-400' : ''
-                  }`}
-              />
-            )}
-            <span>{blogLoves}</span>
-          </button>
-
-          <button
-            onClick={handleBlogLike}
-            disabled={userHasLiked || likingBlog}
-            className={`flex items-center gap-2 px-5 py-2 rounded-full border transition
-              ${userHasLiked
-                ? 'bg-blue-500/20 border-blue-500/40 text-blue-400'
-                : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-blue-500/10'
-              }`}
-          >
-            {likingBlog ? (
-              <Loader2 className="h-4 w-4 animate-spin" />
-            ) : (
-              <ThumbsUp
-                className={`h-4 w-4 ${userHasLiked ? 'fill-blue-400 text-blue-400' : ''
-                  }`}
-              />
-            )}
-            <span>{blogLikes}</span>
-          </button>
-        </div>
-
-        {/* Comments */}
-        <div className={`transition-all duration-500 delay-1000 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <GiscusComments slug={slug || ''} />
-        </div>
-
-        {/* Share Modal */}
-        <ShareModal
-          isOpen={showShareModal}
-          onClose={() => setShowShareModal(false)}
-          title={post?.title || ''}
-          slug={slug || ''}
-        />
-      </div>
-    </article>
+      {/* Share Modal */}
+      <ShareModal
+        isOpen={showShareModal}
+        onClose={() => setShowShareModal(false)}
+        title={post?.title || ''}
+        slug={slug || ''}
+      />
+    </>
   );
 };
 export default BlogPost;
