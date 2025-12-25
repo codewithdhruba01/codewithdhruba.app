@@ -19,15 +19,17 @@ export default function AboutMe() {
             className="rounded-xl mb-6 w-full object-cover"
           />
           <h2 className="text-xl font-semibold font-synonym">Dhrubaraj Pati</h2>
-          <p className="text-[#00DC82] mb-4 font-outfit">Software Engineer</p>
+          <p className="text-[#00DC82] mb-4 font-outfit">Frontend Developer</p>
           <div className="flex flex-wrap gap-2 mb-4 justify-center font-supreme">
             {[
-              'Operating System',
-              'Python',
-              'Networking',
+              'HTML',
+              'CSS',
+              'JavaScript',
+              'Tailwind CSS',
+              'React',
+              'Next.js',
+              'Node.js',
               'Front-End Development',
-              'Full Stack Development',
-              'Networking',
             ].map((tag) => (
               <span
                 key={tag}
@@ -78,27 +80,22 @@ export default function AboutMe() {
             About <span className="text-[#00DC82]">Me</span>
           </h1>
           <p className="text-gray-400 font-satoshi text-xl leading-relaxed">
-            I'm a passionate Full Stack Developer based in India, with a strong
-            focus on creating beautiful and functional web applications. My
-            journey as a developer is driven by a genuine curiosity about how
-            technology shapes our lives and a deep commitment to building
-            meaningful solutions. From designing pixel-perfect user interfaces
-            to architecting scalable back-end systems, I find excitement in
-            every part of the development process. On the front end, I
-            specialize in creating responsive and accessible web applications
-            using modern frameworks like React and Tailwind CSS.
+            I am a passionate <span className="text-white font-bold">Frontend Developer</span> with a strong focus on building modern,
+            visually appealing, and user-centric web applications. My journey into development
+            is fueled by curiosity about how technology can solve real-world problems and a
+            constant desire to learn and grow. I enjoy crafting pixel-perfect user interfaces and building scalable,
+            maintainable frontend architectures. With hands-on experience in modern
+            tools and frameworks like <span className="text-white font-bold">React, TypeScript, Tailwind CSS and Next.js </span>
+            I create responsive, accessible, and performance-optimized web applications.
           </p>
           <p className="text-gray-400 font-satoshi text-xl leading-relaxed">
-            Currently pursuing my{' '}
-            <strong>BCA in Computer Science and Engineering,</strong> I love
-            exploring new technologies and building innovative solutions.
+            Beyond writing code, I care deeply about delivering great user experiences,
+            <span className="text-white font-bold"> writing clean and reusable code, and collaborating effectively within a team. </span>
+            I’m always eager to explore new technologies and apply them to meaningful projects.
           </p>
           <p className="text-gray-400 font-satoshi text-xl leading-relaxed">
-            Beyond coding, I'm passionate about exploring cutting-edge
-            technologies, actively contributing to{' '}
-            <strong>open-source communities</strong>, and continuously learning
-            about the latest innovations in web development to sharpen my skills
-            and stay ahead in the tech world.
+            I am seeking opportunities where I can contribute my skills to impactful products
+            while continuing to evolve as a developer and professional.
           </p>
 
           {/* Education Section */}

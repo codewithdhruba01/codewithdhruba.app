@@ -59,12 +59,11 @@ const Hero = () => {
         {/* LEFT CONTENT */}
         <div className="order-2 md:order-1 mt-6 md:mt-5">
           <h1 className="font-bold text-white text-4xl font-outfit sm:text-5xl lg:text-6xl leading-tight">
-            Software engineer, technical writer <br />& open-source Contributor
+            Frontend engineer, technical writer <br />& open-source Contributor
           </h1>
 
           <p className="mt-5 text-gray-400 font-synonym font-semibold text-lg max-w-xl">
-            I'm <span className="text-white font-bold">Dhrubaraj</span>, a full
-            stack developer passionate about building scalable web applications,
+            I'm <span className="text-white font-bold">Dhrubaraj Pati</span>, a <span className="text-white font-bold">Frontend developer</span> passionate about building scalable web applications,
             crafting clean user experiences, and contributing to meaningful
             open-source projects.
           </p>
