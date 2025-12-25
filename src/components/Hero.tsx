@@ -63,13 +63,14 @@ const Hero = () => {
           </h1>
 
           <p className="mt-5 text-gray-400 font-synonym font-semibold text-lg max-w-xl">
-            I'm <span className="text-white font-bold">Dhrubaraj Pati</span>, a <span className="text-white font-bold">Frontend developer</span> passionate about building scalable web applications,
-            crafting clean user experiences, and contributing to meaningful
-            open-source projects.
+            I'm <span className="text-white font-bold">Dhrubaraj Pati</span>, a{' '}
+            <span className="text-white font-bold">Frontend developer</span>{' '}
+            passionate about building scalable web applications, crafting clean
+            user experiences, and contributing to meaningful open-source
+            projects.
           </p>
 
-          {/* SOCIAL LINKS */}
-          <div className="mt-7 flex flex-wrap gap-6 text-gray-300 text-base">
+          <div className="mt-7 flex flex-wrap gap-x-4 gap-y-2 text-gray-300 text-base">
             <a
               href="https://github.com/codewithdhruba01"
               className="group flex items-center gap-2 font-bold text-gray-300"

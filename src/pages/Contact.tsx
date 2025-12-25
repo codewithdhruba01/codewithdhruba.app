@@ -6,8 +6,8 @@ import {
   Send,
   Github,
   Linkedin,
-  Twitter,
 } from 'lucide-react';
+import { XIcon } from '../components/icons/SocialIcons';
 import { getCalApi } from '@calcom/embed-react';
 import { motion } from 'framer-motion';
 
@@ -206,7 +206,7 @@ const Contact = () => {
                     href="https://x.com/codewithdhruba"
                     className="p-3 border-neutral-800 bg-[#101010] border hover:bg-sky-600 rounded-lg transition-all duration-300 hover:scale-110"
                   >
-                    <Twitter className="w-6 h-6 text-white" />
+                    <XIcon size="22" className="text-white hover:fill-white transition-colors duration-300" />
                   </a>
                 </div>
               </motion.div>
@@ -304,7 +304,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={loading || sent}
-                  className="w-full flex items-center justify-center space-x-2 px-8 py-4 border border-[#00DC82] text-[#00DC82] rounded-lg hover:bg-[#00DC82] hover:text-black font-outfit"
+                  className="w-full flex items-center justify-center space-x-2 px-8 py-4 border border-[#00DC82] text-[#00DC82] rounded-lg hover:bg-[#00DC82] hover:text-black font-outfit transition-all duration-300 ease-in-out"
                 >
                   {loading ? (
                     <svg
