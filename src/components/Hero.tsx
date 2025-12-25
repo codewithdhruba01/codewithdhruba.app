@@ -1,7 +1,7 @@
 import { Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { BackgroundLines } from '../components/ui/background-lines';
-
+import { TextGenerateEffect } from '../components/ui/text-generate-effect';
+import { ImageCarousel } from '../components/ui/image-carousel';
 import {
   GithubIcon,
   LinkedinIcon,
@@ -31,8 +31,6 @@ const Hero = () => {
       "
       data-aos="fade-up"
     >
-      {/* Background */}
-      <BackgroundLines className="absolute inset-0" svgOptions={{ duration: 14 }} />
 
       <div
         className="
@@ -40,35 +38,32 @@ const Hero = () => {
           grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center
         "
       >
-        {/* RIGHT IMAGE */}
+        {/* IMAGE CAROUSEL */}
         <div className="order-1 md:order-2 flex justify-center md:justify-end mt-4 md:mt-0">
-          <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80">
-            <div className="absolute inset-0 rounded-full border-4 border-[#00DC82]/60" />
-            <div className="absolute inset-4 rounded-xl border-2 border-[#00DC82]/40" />
-            <div className="absolute inset-8 rounded-xl border-2 border-[#00DC82]/25" />
-            <div className="absolute inset-12 rounded-xl overflow-hidden bg-black group">
-              <img
-                src="/assets/cover-image.png"
-                alt="Dhrubaraj"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 ease-in-out"
-              />
-            </div>
-          </div>
+          <ImageCarousel
+            images={[
+              "/assets/image2.png",
+              "/assets/image2.png",
+              "/assets/image1.png",
+              "/assets/image2.png",
+              "/assets/image2.png",
+            ]}
+            className="w-full max-w-sm md:max-w-md"
+          />
         </div>
 
         {/* LEFT CONTENT */}
-        <div className="order-2 md:order-1 mt-6 md:mt-5">
-          <h1 className="font-bold text-white text-4xl font-outfit sm:text-5xl lg:text-6xl leading-tight">
+        <div className="order-2 md:order-1 mt-6 md:mt-12">
+          <h1 className="font-bold text-white text-4xl font-outfit sm:text-5xl lg:text-5xl leading-tight">
             Frontend engineer, technical writer <br />& open-source Contributor
           </h1>
 
-          <p className="mt-5 text-gray-400 font-synonym font-semibold text-lg max-w-xl">
-            I'm <span className="text-white font-bold">Dhrubaraj Pati</span>, a{' '}
-            <span className="text-white font-bold">Frontend developer</span>{' '}
-            passionate about building scalable web applications, crafting clean
-            user experiences, and contributing to meaningful open-source
-            projects.
-          </p>
+          <div className="mt-8 text-gray-400 font-synonym text-lg max-w-xl">
+            <TextGenerateEffect
+              words="I'm Dhrubaraj Pati, a Frontend developer passionate about building scalable web applications, crafting clean user experiences, and contributing to meaningful open-source projects."
+              className="[&>div]:justify-start"
+            />
+          </div>
 
           <div className="mt-7 flex flex-wrap gap-x-4 gap-y-2 text-gray-300 text-base">
             <a

@@ -332,3 +332,12 @@ html {
   transition-property: opacity, transform, background-color, border-color, color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* Hide scrollbar for image carousel */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
