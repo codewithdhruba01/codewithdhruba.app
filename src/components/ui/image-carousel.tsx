@@ -10,32 +10,27 @@ export const ImageCarousel = ({ images, className = '' }: ImageCarouselProps) =>
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Trigger entrance animation after component mounts
     const timer = setTimeout(() => setIsVisible(true), 300);
     return () => clearTimeout(timer);
   }, []);
 
-  // Color cycle for indicators
   const getIndicatorColor = (index: number) => {
     const colors = [
-      { active: 'bg-red-500', hover: 'hover:bg-red-400', glow: 'shadow-red-500/30' }, // Red
-      { active: 'bg-green-500', hover: 'hover:bg-green-400', glow: 'shadow-green-500/30' }, // Green
-      { active: 'bg-yellow-500', hover: 'hover:bg-yellow-400', glow: 'shadow-yellow-500/30' } // Yellow
+      { active: 'bg-red-500', hover: 'hover:bg-red-400', glow: 'shadow-red-500/30' },
+      { active: 'bg-green-500', hover: 'hover:bg-green-400', glow: 'shadow-green-500/30' },
+      { active: 'bg-yellow-500', hover: 'hover:bg-yellow-400', glow: 'shadow-yellow-500/30' }
     ];
     return colors[index % 3];
   };
 
   return (
     <div className={`relative w-full max-w-md mx-auto ${className}`}>
-      {/* Stacked Images Container */}
       <div className="relative w-64 h-64 mx-auto">
         {images.map((image, index) => {
-          // Calculate position for stacked effect
-          const offsetX = (index - 2) * 15; // Spread images horizontally
-          const offsetY = Math.abs(index - 2) * 8; // Slight vertical offset
-          const rotation = (index - 2) * 3; // Slight rotation for depth
+          const offsetX = (index - 2) * 15;
+          const offsetY = Math.abs(index - 2) * 8;
+          const rotation = (index - 2) * 3;
 
-          // Entrance animation delay
           const entranceDelay = index * 150;
 
           return (
@@ -57,7 +52,6 @@ export const ImageCarousel = ({ images, className = '' }: ImageCarouselProps) =>
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* Animated background glow */}
               <div
                 className="absolute inset-0 rounded-2xl transition-all duration-700 ease-out"
                 style={{
@@ -67,7 +61,6 @@ export const ImageCarousel = ({ images, className = '' }: ImageCarouselProps) =>
                 }}
               />
 
-              {/* Floating particles effect */}
               {hoveredIndex === index && (
                 <>
                   <div className="absolute top-4 right-4 w-2 h-2 bg-[#00DC82] rounded-full animate-bounce" style={{ animationDelay: '0s', animationDuration: '2s' }} />
@@ -87,7 +80,6 @@ export const ImageCarousel = ({ images, className = '' }: ImageCarouselProps) =>
                 draggable={false}
               />
 
-              {/* Overlay with animated info */}
               <div
                 className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-all duration-500 ease-out ${hoveredIndex === index ? 'opacity-100' : 'opacity-0'}`}
                 style={{
@@ -107,7 +99,6 @@ export const ImageCarousel = ({ images, className = '' }: ImageCarouselProps) =>
                 </div>
               </div>
 
-              {/* Animated border effect */}
               <div
                 className="absolute inset-0 rounded-2xl border-2 transition-all duration-500 ease-out"
                 style={{
@@ -139,7 +130,6 @@ export const ImageCarousel = ({ images, className = '' }: ImageCarouselProps) =>
               {hoveredIndex === index && (
                 <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
               )}
-              {/* Ripple effect */}
               <div className={`absolute inset-0 rounded-full transition-all duration-500 ease-out ${hoveredIndex === index ? `${colors.active}/20 scale-150 opacity-100` : 'opacity-0 scale-100'
                 }`} />
             </button>
@@ -147,13 +137,11 @@ export const ImageCarousel = ({ images, className = '' }: ImageCarouselProps) =>
         })}
       </div>
 
-      {/* Hover instruction with smooth animation */}
       <div className="text-center mt-6">
         <p className={`text-gray-400 text-sm transition-all duration-700 ease-out ${isVisible ? 'opacity-70 transform translate-y-0' : 'opacity-0 transform translate-y-4'
           }`}>
           Hover over images to explore
         </p>
-        {/* Animated underline */}
         <div className={`w-24 h-0.5 bg-gradient-to-r from-transparent via-[#00DC82] to-transparent mx-auto mt-2 transition-all duration-1000 ease-out ${isVisible ? 'opacity-60' : 'opacity-0'
           }`} style={{ transitionDelay: '500ms' }} />
       </div>
