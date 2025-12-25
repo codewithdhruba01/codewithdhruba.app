@@ -1,5 +1,5 @@
 import Giscus from '@giscus/react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import './ui/giscus-comments.css';
 
 interface GiscusCommentsProps {
@@ -7,46 +7,28 @@ interface GiscusCommentsProps {
 }
 
 const GiscusComments = ({ slug }: GiscusCommentsProps) => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     console.log('🗨️ GiscusComments component loaded for slug:', slug);
 
-    // Check for theme preference
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Set loaded state after a brief delay to prevent initial loading issues
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
 
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setTheme('dark');
-    } else {
-      setTheme('light');
-    }
+    return () => clearTimeout(timer);
+  }, [slug]);
 
-    console.log('🎨 Giscus theme set to:', theme);
-
-    // Listen for theme changes
-    const handleThemeChange = (e: MediaQueryListEvent) => {
-      const newTheme = e.matches ? 'dark' : 'light';
-      setTheme(newTheme);
-      console.log('🎨 Giscus theme changed to:', newTheme);
-    };
-
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handleThemeChange);
-
-    return () => {
-      window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', handleThemeChange);
-    };
-  }, [slug, theme]);
-
-  // Giscus loading will be detected by the timeout in useEffect
+  if (!isLoaded) {
+    return null;
+  }
 
   return (
     <div className="mt-16 pt-8 border-t border-gray-800">
-
-
-
       <div className="giscus-wrapper">
         <Giscus
+          key={`giscus-${slug}`} // Force re-mount only when slug changes
           id="comments"
           repo="codewithdhruba01/codewithdhruba.app"
           repoId="R_kgDOO78xow"
@@ -59,12 +41,11 @@ const GiscusComments = ({ slug }: GiscusCommentsProps) => {
           inputPosition="bottom"
           theme="preferred_color_scheme"
           lang="en"
-          loading="lazy"
+          loading="eager" // Changed from lazy to eager to prevent loading delays
         />
-
       </div>
     </div>
   );
 };
 
-export default GiscusComments;
+export default memo(GiscusComments);
