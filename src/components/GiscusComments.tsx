@@ -12,7 +12,6 @@ const GiscusComments = ({ slug }: GiscusCommentsProps) => {
   useEffect(() => {
     console.log('🗨️ GiscusComments component loaded for slug:', slug);
 
-    // Set loaded state after a brief delay to prevent initial loading issues
     const timer = setTimeout(() => {
       setIsLoaded(true);
     }, 100);
@@ -26,9 +25,12 @@ const GiscusComments = ({ slug }: GiscusCommentsProps) => {
 
   return (
     <div className="mt-16 pt-8 border-t border-gray-800">
+      <h2 className="text-2xl font-bold text-white mb-6 font-pally">
+        Comments & Discussion
+      </h2>
       <div className="giscus-wrapper">
         <Giscus
-          key={`giscus-${slug}`} // Force re-mount only when slug changes
+          key={`giscus-${slug}`}
           id="comments"
           repo="codewithdhruba01/codewithdhruba.app"
           repoId="R_kgDOO78xow"
@@ -41,7 +43,7 @@ const GiscusComments = ({ slug }: GiscusCommentsProps) => {
           inputPosition="bottom"
           theme="preferred_color_scheme"
           lang="en"
-          loading="eager" // Changed from lazy to eager to prevent loading delays
+          loading="eager"
         />
       </div>
     </div>
