@@ -10,11 +10,13 @@ const GitHubContributions = () => {
   const [contributions, setContributions] = useState<DayData[]>([]);
   const [totalCount, setTotalCount] = useState<number>(0);
   const [year, setYear] = useState<number>(new Date().getFullYear()); // default latest year
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const GITHUB_USERNAME = 'codewithdhruba01';
   const TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
 
   const fetchContributions = async (selectedYear: number) => {
+    setIsLoading(true);
     const endpoint = 'https://api.github.com/graphql';
 
     const query = gql`
@@ -61,10 +63,15 @@ const GitHubContributions = () => {
         (week: any) => week.contributionDays
       );
 
-      setContributions(allDays);
-      setTotalCount(calendar.totalContributions);
+      // Add small delay for smooth transition effect
+      setTimeout(() => {
+        setContributions(allDays);
+        setTotalCount(calendar.totalContributions);
+        setIsLoading(false);
+      }, 300);
     } catch (error) {
       console.error('GitHub API Error:', error);
+      setIsLoading(false);
     }
   };
 
@@ -115,7 +122,9 @@ const GitHubContributions = () => {
         </p>
         <div className="text-center mb-10 text-sm font-satoshi text-neutral-400">
           Total contributions in {year}:{' '}
-          <span className="text-[#00DC82] font-semibold">{totalCount}</span>
+          <span className={`text-[#00DC82] font-semibold transition-all duration-300 ${isLoading ? 'animate-shimmer bg-gradient-to-r from-[#00DC82]/20 via-[#00DC82]/60 to-[#00DC82]/20 bg-[length:200%_100%] rounded px-2' : ''}`}>
+            {isLoading ? 'Loading...' : totalCount}
+          </span>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-6">
@@ -144,10 +153,10 @@ const GitHubContributions = () => {
                       dayIndex === 1
                         ? 'Mon'
                         : dayIndex === 3
-                        ? 'Wed'
-                        : dayIndex === 5
-                        ? 'Fri'
-                        : '';
+                          ? 'Wed'
+                          : dayIndex === 5
+                            ? 'Fri'
+                            : '';
                     return (
                       <div key={dayIndex} className="h-3">
                         {label}
@@ -158,20 +167,43 @@ const GitHubContributions = () => {
 
                 {/* Grid */}
                 <div className="inline-flex gap-1">
-                  {weeks.map((week, weekIndex) => (
-                    <div key={weekIndex} className="flex flex-col gap-1">
-                      {week.map((day, dayIndex) => (
-                        <div
-                          key={`${weekIndex}-${dayIndex}`}
-                          className={`w-3 h-3 rounded-sm ${getContributionColor(
-                            day.contributionCount
-                          )} 
-                            hover:ring-2 hover:ring-[#00DC82]/30 transition-all duration-300 cursor-pointer group relative`}
-                          title={`${day.contributionCount} contributions on ${day.date}`}
-                        ></div>
-                      ))}
-                    </div>
-                  ))}
+                  {isLoading ? (
+                    // Skeleton loading effect
+                    Array.from({ length: 53 }).map((_, weekIndex) => (
+                      <div key={`skeleton-${weekIndex}`} className="flex flex-col gap-1">
+                        {Array.from({ length: 7 }).map((_, dayIndex) => (
+                          <div
+                            key={`skeleton-${weekIndex}-${dayIndex}`}
+                            className="w-3 h-3 rounded-sm bg-neutral-700 animate-pulse"
+                            style={{
+                              animationDelay: `${(weekIndex * 7 + dayIndex) * 30}ms`,
+                              animationDuration: '1.5s'
+                            }}
+                          ></div>
+                        ))}
+                      </div>
+                    ))
+                  ) : (
+                    weeks.map((week, weekIndex) => (
+                      <div key={weekIndex} className="flex flex-col gap-1">
+                        {week.map((day, dayIndex) => (
+                          <div
+                            key={`${weekIndex}-${dayIndex}`}
+                            className={`w-3 h-3 rounded-sm ${getContributionColor(
+                              day.contributionCount
+                            )}
+                              hover:ring-2 hover:ring-[#00DC82]/30 transition-all duration-300 cursor-pointer group relative
+                              animate-fade-in`}
+                            style={{
+                              animationDelay: `${(weekIndex * 7 + dayIndex) * 15}ms`,
+                              animationFillMode: 'both'
+                            }}
+                            title={`${day.contributionCount} contributions on ${day.date}`}
+                          ></div>
+                        ))}
+                      </div>
+                    ))
+                  )}
                 </div>
               </div>
             </div>
@@ -197,11 +229,10 @@ const GitHubContributions = () => {
               <button
                 key={y}
                 onClick={() => setYear(y)}
-                className={`px-4 py-2 rounded-md text-sm font-semibold transition-all ${
-                  year === y
-                    ? 'bg-[#00DC82] text-black'
-                    : 'bg-neutral-800 text-gray-400 hover:bg-neutral-700 hover:text-white'
-                }`}
+                className={`px-4 py-2 rounded-md text-sm font-semibold transition-all ${year === y
+                  ? 'bg-[#00DC82] text-black'
+                  : 'bg-neutral-800 text-gray-400 hover:bg-neutral-700 hover:text-white'
+                  }`}
               >
                 {y}
               </button>
