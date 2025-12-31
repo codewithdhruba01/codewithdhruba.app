@@ -1,117 +1,214 @@
 export const buildingMyFirstWebsiteWithReactAndTailwind = {
   title: 'Building My First Website from Scratch with React and Tailwind CSS',
-  date: 'October 13, 2025',
+  date: 'December 29, 2025',
   author: 'Dhrubaraj Pati',
   category: 'Web Development',
-  readTime: '7 min read',
+  readTime: '8 min read',
   image: '/blog/blog3.png',
-  tags: ['React', 'Tailwind CSS', 'Frontend', 'Portfolio', 'Web Development'],
+  tags: ['React', 'Tailwind CSS', 'TypeScript', 'Portfolio', 'GitHub API', 'AOS'],
   content: `
     <h2>Introduction</h2>
-    <p>Building your first website from scratch is a milestone moment for any developer. Instead of relying on templates or pre-built themes, I decided to create my personal website entirely using <strong>React</strong> and <strong>Tailwind CSS</strong>. It was challenging, exciting, and one of the most valuable learning experiences of my journey so far.</p>
+    <p>As a Computer Engineering student passionate about full-stack development, I wanted to create a portfolio website that truly represents my journey as a developer. This website you're currently viewing is my personal portfolio - a comprehensive showcase of my skills, projects, and experience. Built entirely from scratch using <strong>React</strong>, <strong>TypeScript</strong>, and <strong>Tailwind CSS</strong>, this project has been both challenging and incredibly rewarding.</p>
 
-    <h2>Why React and Tailwind?</h2>
-    <p>I chose React for its component-based architecture and flexibility, and Tailwind CSS for its lightning-fast styling approach. Together, they allowed me to build a modern, responsive, and clean UI without writing tons of custom CSS.</p>
+    <h2>Why This Tech Stack?</h2>
+    <p>After experimenting with various frameworks, I settled on this powerful combination:</p>
     <ul>
-      <li><strong>React:</strong> For reusable components and smooth UI interactions.</li>
-      <li><strong>Tailwind CSS:</strong> For utility-first styling, responsive design, and customization.</li>
-      <li><strong>Vite:</strong> As a blazing-fast build tool that made development smooth.</li>
+      <li><strong>React + TypeScript:</strong> For type-safe, component-based architecture that scales</li>
+      <li><strong>Tailwind CSS:</strong> For rapid, utility-first styling with consistent design system</li>
+      <li><strong>Vite:</strong> Lightning-fast development server and optimized production builds</li>
+      <li><strong>AOS (Animate On Scroll):</strong> For smooth scroll-triggered animations</li>
+      <li><strong>React Router:</strong> For seamless client-side navigation</li>
     </ul>
 
-    <h2>Project Setup</h2>
-    <p>I initialized my project using Vite and set up Tailwind CSS as follows:</p>
-    <pre><code class="language-bash">npm create vite@latest my-portfolio
-cd my-portfolio
+    <h2>Project Setup & Configuration</h2>
+    <p>I started with Vite's React TypeScript template and configured Tailwind CSS:</p>
+    <pre><code class="language-bash">npm create vite@latest codewithdhruba.app -- --template react-ts
+cd codewithdhruba.app
 npm install
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p</code></pre>
 
-    <p>In <code>tailwind.config.js</code> I added the following content paths:</p>
-    <pre><code class="language-javascript">content: [
-  "./index.html",
-  "./src/**/*.{js,jsx,ts,tsx}",
-],</code></pre>
+    <p>Then configured Tailwind to scan all React components:</p>
+    <pre><code class="language-javascript">/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#00DC82',
+      },
+      fontFamily: {
+        'synonym': ['Synonym', 'sans-serif'],
+        'outfit': ['Outfit', 'sans-serif'],
+        'poppins': ['Poppins', 'sans-serif'],
+        'satoshi': ['Satoshi', 'sans-serif'],
+      }
+    },
+  },
+  plugins: [],
+}</code></pre>
 
-    <p>Then I imported Tailwind directives in <code>index.css</code>:</p>
-    <pre><code class="language-css">@tailwind base;
-@tailwind components;
-@tailwind utilities;</code></pre>
-
-    <p>Once everything compiled successfully, I was ready to build my layout.</p>
-
-    <h2>Structuring the Website</h2>
-    <p>I started by breaking down the site into logical sections:</p>
+    <h2>Building the Core Architecture</h2>
+    <p>The website follows a modular structure with distinct sections:</p>
     <ul>
-      <li>Navbar</li>
-      <li>Hero Section</li>
-      <li>About Section</li>
-      <li>Projects Showcase</li>
-      <li>Contact Form & Footer</li>
+      <li><strong>Hero Section:</strong> Dynamic image carousel with social links</li>
+      <li><strong>Projects Showcase:</strong> Interactive project cards with modal details</li>
+      <li><strong>GitHub Contributions:</strong> Real-time contribution visualization</li>
+      <li><strong>Skills & Education:</strong> Technical expertise display</li>
+      <li><strong>Blog System:</strong> MDX-powered blog with routing</li>
+      <li><strong>AI Chat Assistant:</strong> Interactive chatbot for user engagement</li>
     </ul>
 
-    <p>Each section was created as a separate React component. For example, the hero section:</p>
-    <pre><code class="language-jsx">&lt;section className="flex flex-col items-center justify-center h-screen bg-gradient-to-b from-gray-900 to-black text-white"&gt;
-  &lt;h1 className="text-5xl font-bold mb-3"&gt;Hi, I'm Dhrubaraj &lt;/h1&gt;
-  &lt;p className="text-lg text-gray-400"&gt;Frontend Developer & UI Enthusiast&lt;/p&gt;
-&lt;/section&gt;</code></pre>
+    <p>The hero section uses a custom image carousel component:</p>
+    <pre><code class="language-jsx">const Hero = () => {
+  return (
+    &lt;section className="relative bg-[#0A0A0A] flex items-center overflow-hidden pt-24 md:pt-28"&gt;
+      &lt;div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center"&gt;
+        &lt;div className="mt-6 md:mt-12"&gt;
+          &lt;h1 className="font-bold text-white text-4xl font-outfit sm:text-5xl lg:text-5xl"&gt;
+            Frontend engineer, technical writer & open-source Contributor
+          &lt;/h1&gt;
+          &lt;TextGenerateEffect words="I'm Dhrubaraj Pati, a Frontend developer..." /&gt;
+        &lt;/div&gt;
+        &lt;ImageCarousel images={[...]} className="w-full max-w-sm md:max-w-md" /&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  );
+};</code></pre>
 
-    <p>Tailwind made it easy to quickly experiment with layouts and responsiveness without switching between HTML and CSS files.</p>
+    <h2>Implementing Advanced Features</h2>
+    <h3>GitHub Contributions Integration</h3>
+    <p>One of the most complex features was the GitHub contributions calendar. I used GraphQL to fetch real contribution data:</p>
+    <pre><code class="language-typescript">const fetchContributions = async (selectedYear: number) => {
+  const query = gql\`
+    query {
+      user(login: "codewithdhruba01") {
+        contributionsCollection(from: "\${selectedYear}-01-01T00:00:00Z") {
+          contributionCalendar {
+            totalContributions
+            weeks {
+              contributionDays {
+                date
+                contributionCount
+              }
+            }
+          }
+        }
+      }
+    }
+  \`;
 
-    <h2>Adding Interactivity & Animations</h2>
-    <p>I wanted the site to feel dynamic, so I added small but meaningful interactions:</p>
+  const data = await request('https://api.github.com/graphql', query, {}, {
+    Authorization: \`Bearer \${TOKEN}\`
+  });
+};</code></pre>
+
+    <h3>Interactive Chat Assistant</h3>
+    <p>The AI chat assistant uses simple pattern matching to provide contextual responses:</p>
+    <pre><code class="language-typescript">const getBotReply = (userInput: string): string => {
+  const input = userInput.toLowerCase();
+
+  if (input.includes('project'))
+    return \`Current projects include MultiCalc, Outfit Wallpaper Generator, and GitHub Developer Tools...\`;
+
+  if (input.includes('skills'))
+    return 'My skills include HTML, CSS, JS, React, TypeScript, Tailwind CSS...';
+
+  return "Thanks for reaching out! I'll record your message and get back to you soon.";
+};</code></pre>
+
+    <h2>Animation & User Experience</h2>
+    <p>I implemented multiple animation libraries for smooth interactions:</p>
     <ul>
-      <li>Dark/Light mode toggle using React state</li>
-      <li>Smooth scrolling navigation with <code>react-scroll</code></li>
-      <li>Subtle fade and slide animations using <a href="https://www.framer.com/motion/" target="_blank">Framer Motion</a></li>
+      <li><strong>AOS:</strong> Scroll-triggered animations for section reveals</li>
+      <li><strong>Framer Motion:</strong> Complex component transitions</li>
+      <li><strong>CSS Transitions:</strong> Hover effects and micro-interactions</li>
+      <li><strong>Custom Keyframes:</strong> Loading states and shimmer effects</li>
     </ul>
 
-    <p>For example, my theme toggle looked like this:</p>
-    <pre><code class="language-javascript">const [darkMode, setDarkMode] = useState(true);
+    <p>The contribution grid uses staggered animations:</p>
+    <pre><code class="language-css">@keyframes fade-in {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
 
-&lt;button
-  onClick={() =&gt; setDarkMode(!darkMode)}
-  className="p-2 rounded-full bg-gray-700 hover:bg-gray-600 transition"
-&gt;
-  {darkMode ? '🌙' : '☀️'}
-&lt;/button&gt;</code></pre>
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}</code></pre>
 
-    <h2>Challenges I Faced</h2>
+    <h2>Challenges & Solutions</h2>
+    <h3>GitHub API Integration</h3>
+    <p>Implementing the GitHub GraphQL API required careful token management and rate limiting:</p>
     <ul>
-      <li><strong>Tailwind Config Issues:</strong> A small typo in the <code>content</code> array broke all styling for 30 minutes </li>
-      <li><strong>Sticky Navbar Glitch:</strong> Had to debounce scroll events for smooth transitions.</li>
-      <li><strong>Image Optimization:</strong> Switching to WebP format improved performance a lot.</li>
+      <li>Environment variable setup for secure token storage</li>
+      <li>Error handling for API failures and network issues</li>
+      <li>Loading states with skeleton animations</li>
+      <li>Data transformation from GraphQL response to calendar format</li>
     </ul>
 
-    <h2>Deploying the Website</h2>
-    <p>I deployed the project on <strong>Netlify</strong> using the following steps:</p>
+    <h3>Responsive Design Complexity</h3>
+    <p>The image carousel and contribution grid presented unique responsive challenges:</p>
+    <ul>
+      <li>Custom breakpoints for mobile, tablet, and desktop layouts</li>
+      <li>Touch-friendly interactions for mobile devices</li>
+      <li>Optimized image loading with lazy loading</li>
+      <li>Scrollbar customization for better UX</li>
+    </ul>
+
+    <h3>Performance Optimization</h3>
+    <p>Vite's build optimization combined with code splitting reduced bundle size significantly:</p>
+    <ul>
+      <li>Lazy loading of route components</li>
+      <li>Image optimization and WebP format usage</li>
+      <li>Dynamic imports for heavy libraries</li>
+      <li>Efficient re-rendering with React.memo and useMemo</li>
+    </ul>
+
+    <h2>Deployment & Hosting</h2>
+    <p>The website is deployed on <strong>Vercel</strong> with automated deployments from GitHub:</p>
     <ol>
-      <li>Pushed the code to GitHub.</li>
-      <li>Connected the repository to Netlify.</li>
-      <li>Set build command to <code>npm run build</code>.</li>
-      <li>Clicked <strong>Deploy</strong> and watched it go live 🚀</li>
+      <li>Connected GitHub repository to Vercel dashboard</li>
+      <li>Configured build settings (<code>npm run build</code>)</li>
+      <li>Set up environment variables for GitHub API token</li>
+      <li>Enabled automatic deployments on push to main branch</li>
     </ol>
 
-    <p>👉 Live site: <a href="https://codewithdhruba.netlify.app" target="_blank">https://codewithdhruba.netlify.app</a></p>
+    <p>👉 Live site: <a href="https://codewithdhruba.vercel.app/" target="_blank">https://codewithdhruba.app</a></p>
 
-    <h2>Extra Touches</h2>
-    <p>To make the website feel more professional, I added:</p>
+    <h2>Key Features Implemented</h2>
     <ul>
-      <li>SEO meta tags and Open Graph images</li>
-      <li>Custom 404 page</li>
-      <li>Responsive breakpoints for all screen sizes</li>
-      <li>Twitter card integration for better link previews</li>
+      <li><strong>Dynamic Content:</strong> Real-time GitHub contributions and project data</li>
+      <li><strong>SEO Optimization:</strong> Meta tags, structured data, and performance optimization</li>
+      <li><strong>Accessibility:</strong> ARIA labels, keyboard navigation, and screen reader support</li>
+      <li><strong>PWA Ready:</strong> Service worker setup for offline functionality</li>
+      <li><strong>Analytics:</strong> Integrated tracking for user behavior insights</li>
     </ul>
 
-    <h2>Future Plans</h2>
+    <h2>Future Enhancements</h2>
     <ul>
-      <li>Add a blog section using MDX or Markdown</li>
-      <li>Persist dark mode preference with localStorage</li>
-      <li>Optimize performance with code splitting</li>
-      <li>Implement small admin panel for dynamic content</li>
+      <li>Add a CMS for dynamic blog content management</li>
+      <li>Implement dark/light theme toggle with localStorage persistence</li>
+      <li>Enhanced AI chat with actual API integration</li>
+      <li>Add project filtering and search functionality</li>
+      <li>Implement contact form with email integration</li>
+    </ul>
+
+    <h2>Lessons Learned</h2>
+    <p>This project taught me invaluable lessons about modern web development:</p>
+    <ul>
+      <li><strong>Component Architecture:</strong> Building reusable, maintainable React components</li>
+      <li><strong>API Integration:</strong> Handling asynchronous data and error states</li>
+      <li><strong>Performance:</strong> Optimizing for Core Web Vitals and user experience</li>
+      <li><strong>Design Systems:</strong> Creating consistent UI patterns with Tailwind CSS</li>
+      <li><strong>Deployment:</strong> CI/CD pipelines and environment management</li>
     </ul>
 
     <h2>Conclusion</h2>
-    <p>This project pushed me out of my comfort zone and helped me deeply understand React, Tailwind, and deployment workflows. Building from scratch might seem intimidating, but it's the best way to learn how everything fits together.</p>
-    <p>If you're starting out, pick a simple idea, break it into sections, and build it step by step. Every bug you fix and every feature you add makes you a better developer 💪</p>
+    <p>Building this portfolio website from scratch has been transformative. It represents not just my technical skills, but my growth as a developer. Every component, every animation, and every feature tells a story of problem-solving and continuous learning.</p>
+    <p>The journey from a simple "Hello World" to a fully-featured portfolio has reinforced my belief that building from scratch is the best way to truly understand web development. This website isn't just a showcase—it's a testament to the power of modern web technologies and the importance of attention to detail.</p>
+    <p>If you're considering building your own portfolio, start small but think big. Focus on clean code, great UX, and features that genuinely solve problems. Your portfolio is often the first impression potential employers or clients will have of you—make it count! 🚀</p>
   `,
 };
