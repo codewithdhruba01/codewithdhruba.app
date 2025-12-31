@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import GiscusComments from './GiscusComments';
 import ShareModal from './modals/ShareModal';
+import ChatBotLauncher from './ChatBotLauncher';
 import { useBlogReactions } from '../hooks/useBlogReactions';
 import { commentService } from '../lib/supabase';
 
@@ -779,6 +780,14 @@ const BlogPost = () => {
           </div>
         </>
       )}
+
+      {/* Mobile ChatBot Launcher with dynamic positioning */}
+      <div className="md:hidden">
+        <ChatBotLauncher
+          bottomOffset={isMobileSheetOpen ? 'bottom-4' : 'bottom-20'}
+          zIndex="z-30"
+        />
+      </div>
 
     </>
   );

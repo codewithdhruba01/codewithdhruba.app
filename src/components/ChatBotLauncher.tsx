@@ -2,14 +2,24 @@ import React from 'react';
 import { BotMessageSquare } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-const ChatBotLauncher: React.FC = () => {
+interface ChatBotLauncherProps {
+  bottomOffset?: string;
+  zIndex?: string;
+}
+
+const ChatBotLauncher: React.FC<ChatBotLauncherProps> = ({
+  bottomOffset = 'bottom-20',
+  zIndex = 'z-50'
+}) => {
   const navigate = useNavigate();
   const location = useLocation();
 
   if (location.pathname === '/chat-assistant') return null;
 
+  if (location.pathname.startsWith('/blog/')) return null;
+
   return (
-    <div className="group fixed bottom-20 right-5 z-50">
+    <div className={`group fixed ${bottomOffset} right-5 ${zIndex} transition-all duration-300`}>
       <button
         onClick={() => navigate('/chat-assistant')}
         className="bg-[#333333b7] hover:bg-[#222222] p-3 rounded-full shadow-lg transition-all"
