@@ -106,8 +106,8 @@ const AllPosts = () => {
                 onClick={() => setActiveTag(tag.name)}
                 className={`px-4 py-2 text-sm rounded-full font-outfit ${activeTag === tag.name
                   ? 'bg-gradient-to-r from-green-600 to-green-900 text-white'
-                  : 'border-neutral-800 text-gray-300 bg-neutral-900 hover:bg-neutral-800'
-                  } transition`}
+                  : 'border-neutral-800 text-gray-300 bg-neutral-900'
+                  }`}
               >
                 {tag.name} <span className="text-gray-100">({tag.count})</span>
               </button>
@@ -120,14 +120,14 @@ const AllPosts = () => {
             filteredPosts.map((post, index) => (
               <article
                 key={index}
-                className="bg-[#141414] border border-neutral-800 rounded-2xl overflow-hidden hover:shadow-[0_0_20px_rgba(0,220,130,0.25)] hover:-translate-y-2 transition-all duration-300 w-full max-w-[360px] mx-auto"
+                className="bg-[#141414] border border-neutral-800 rounded-2xl overflow-hidden w-full max-w-[360px] mx-auto"
               >
                 {/* Image */}
                 <div className="h-48 overflow-hidden">
                   <img
                     src={post.image}
                     alt={post.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover"
                   />
                 </div>
 
@@ -145,7 +145,7 @@ const AllPosts = () => {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-outfit font-semibold mb-3 hover:text-[#ffffff] transition-colors">
+                  <h3 className="text-lg font-outfit font-semibold mb-3">
                     <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                   </h3>
 
@@ -169,7 +169,7 @@ const AllPosts = () => {
                   {/* Read More */}
                   <Link
                     to={`/blog/${post.slug}`}
-                    className="inline-flex items-center text-[#00DC82] hover:text-white transition-colors text-sm font-medium font-outfit"
+                    className="inline-flex items-center text-[#00DC82] text-sm font-medium font-outfit"
                   >
                     Read More
                     <ArrowRight size={16} className="ml-1" />
