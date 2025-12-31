@@ -48,6 +48,7 @@ const BlogPost = () => {
   // Font size zoom functionality
   const [fontSize, setFontSize] = useState<number>(100); // percentage
   const [isMobileSheetOpen, setIsMobileSheetOpen] = useState<boolean>(false);
+  const [isAnimating, setIsAnimating] = useState<boolean>(false);
 
   // Gesture handling for bottom sheet
   const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -64,6 +65,23 @@ const BlogPost = () => {
 
   const resetZoom = () => {
     setFontSize(100);
+  };
+
+  // Bottom sheet animation controls
+  const handleOpenSheet = () => {
+    setIsMobileSheetOpen(true);
+    setCurrentTranslateY(0);
+    // Small delay to ensure DOM is ready before animation
+    setTimeout(() => setIsAnimating(true), 10);
+  };
+
+  const handleCloseSheet = () => {
+    setIsAnimating(false);
+    // Delay closing to allow exit animation to complete
+    setTimeout(() => {
+      setIsMobileSheetOpen(false);
+      setCurrentTranslateY(0);
+    }, 300);
   };
 
   // Convert percentage to pixel size for display
@@ -105,10 +123,9 @@ const BlogPost = () => {
     const CLOSE_THRESHOLD = 100;
 
     if (currentTranslateY > CLOSE_THRESHOLD) {
-      setIsMobileSheetOpen(false);
-      setCurrentTranslateY(0);
+      handleCloseSheet();
     } else {
-      // Snap back to original position
+      // Snap back to original position with animation
       setCurrentTranslateY(0);
     }
   };
@@ -649,7 +666,7 @@ const BlogPost = () => {
       {/* Mobile Zoom Controls - Floating Settings Button */}
       <div className="md:hidden fixed right-4 top-20 z-40">
         <button
-          onClick={() => setIsMobileSheetOpen(true)}
+          onClick={handleOpenSheet}
           className="w-14 h-14 rounded-full
                    bg-black/40 backdrop-blur-xl
                    border border-white/20
@@ -669,20 +686,30 @@ const BlogPost = () => {
         <>
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 md:hidden"
-            onClick={() => setIsMobileSheetOpen(false)}
+            className={`fixed inset-0 z-50 md:hidden transition-all duration-300
+                        ${isAnimating
+                ? 'bg-black/50 backdrop-blur-sm opacity-100'
+                : 'bg-black/0 backdrop-blur-none opacity-0'
+              }`}
+            onClick={handleCloseSheet}
           />
 
           {/* Bottom Sheet */}
           <div
-            className="fixed bottom-0 left-0 right-0 z-50 md:hidden
+            className={`fixed bottom-0 left-0 right-0 z-50 md:hidden
                         bg-neutral-950/95 backdrop-blur-xl
                         border-t border-white/10
                         rounded-t-3xl
                         shadow-[0_0_60px_rgba(0,0,0,0.8)]
-                        transform transition-all duration-300 ease-out"
+                        transform transition-all duration-300 ease-out
+                        ${isAnimating
+                ? 'translate-y-0 opacity-100'
+                : 'translate-y-full opacity-0'
+              }`}
             style={{
-              transform: `translateY(${currentTranslateY}px)`
+              transform: isAnimating
+                ? `translateY(${currentTranslateY}px)`
+                : 'translateY(100%)'
             }}
           >
 
