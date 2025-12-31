@@ -7,6 +7,8 @@ import {
   ThumbsUp,
   Calendar,
   Share2,
+  Plus,
+  Minus,
 } from 'lucide-react';
 import GiscusComments from './GiscusComments';
 import ShareModal from './modals/ShareModal';
@@ -39,6 +41,36 @@ const BlogPost = () => {
   const [contentLoaded, setContentLoaded] = useState<boolean>(false);
 
   const [showShareModal, setShowShareModal] = useState<boolean>(false);
+
+  // Font size zoom functionality
+  const [fontSize, setFontSize] = useState<number>(100); // percentage
+
+  const zoomIn = () => {
+    setFontSize(prev => Math.min(prev + 10, 150)); // max 150%
+  };
+
+  const zoomOut = () => {
+    setFontSize(prev => Math.max(prev - 10, 80)); // min 80%
+  };
+
+  // Keyboard shortcuts for zoom
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      // Ctrl/Cmd + + for zoom in
+      if ((event.ctrlKey || event.metaKey) && event.key === '=') {
+        event.preventDefault();
+        zoomIn();
+      }
+      // Ctrl/Cmd + - for zoom out
+      if ((event.ctrlKey || event.metaKey) && event.key === '-') {
+        event.preventDefault();
+        zoomOut();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   // Blog reactions hook
   const {
@@ -350,6 +382,7 @@ const BlogPost = () => {
           {/* Content */}
           <div
             className={`prose prose-sm md:prose-base lg:prose-lg font-poppins prose-invert max-w-none text-neutral-400 transition-all duration-500 delay-700 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+            style={{ fontSize: `${fontSize}%` }}
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
@@ -428,6 +461,56 @@ const BlogPost = () => {
         title={post?.title || ''}
         slug={slug || ''}
       />
+
+      {/* Zoom Controls */}
+      <div className="fixed right-4 md:right-6 bottom-1/2 translate-y-1/2 z-40">
+        <div className="flex flex-col items-center gap-3 
+                  rounded-2xl 
+                  bg-black/40 
+                  backdrop-blur-md 
+                  border border-white/10 
+                  shadow-[0_0_30px_rgba(0,0,0,0.6)]
+                  px-3 py-4">
+
+          {/* Zoom In */}
+          <button
+            onClick={zoomIn}
+            disabled={fontSize >= 150}
+            className="w-10 h-10 rounded-xl 
+                 bg-white/5 
+                 hover:bg-white/10 
+                 disabled:opacity-40 
+                 disabled:cursor-not-allowed
+                 flex items-center justify-center
+                 transition"
+            title="Zoom In"
+          >
+            <Plus className="w-5 h-5 text-white" />
+          </button>
+
+          {/* Font Size Indicator */}
+          <div className="text-xs text-white/80 font-medium select-none">
+            {Math.round(fontSize * 0.24)}px
+          </div>
+
+          {/* Zoom Out */}
+          <button
+            onClick={zoomOut}
+            disabled={fontSize <= 80}
+            className="w-10 h-10 rounded-xl 
+                 bg-white/5 
+                 hover:bg-white/10 
+                 disabled:opacity-40 
+                 disabled:cursor-not-allowed
+                 flex items-center justify-center
+                 transition"
+            title="Zoom Out"
+          >
+            <Minus className="w-5 h-5 text-white" />
+          </button>
+        </div>
+      </div>
+
     </>
   );
 };
