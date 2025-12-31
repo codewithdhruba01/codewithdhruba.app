@@ -721,13 +721,13 @@ const BlogPost = () => {
               onTouchEnd={handleTouchEnd}
               onMouseDown={handleMouseDown}
             >
-              <div className={`w-12 h-1.5 bg-white/30 rounded-full transition-transform duration-200
+              <div className={`w-16 h-1.5 bg-white/20 rounded-full transition-transform duration-200
                             ${isDragging ? 'scale-110' : 'scale-100'}`}></div>
             </div>
 
             {/* Header */}
             <div className="px-6 pb-6">
-              <h3 className="text-lg font-semibold text-white text-center">Font Size</h3>
+              <h3 className="text-lg font-semibold text-white font-synonym text-center">Font Size</h3>
             </div>
 
             {/* Content */}
@@ -738,7 +738,7 @@ const BlogPost = () => {
                 <div className="text-3xl font-bold text-white mb-1">
                   {getFontSizeInPx()}px
                 </div>
-                <div className="text-sm text-white/60">
+                <div className="text-sm text-white/60 font-satoshi">
                   Current font size
                 </div>
               </div>
