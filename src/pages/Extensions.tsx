@@ -64,6 +64,7 @@ export default function Gears() {
               { name: 'bradlc.vscode-tailwindcss' },
               { name: 'sidharthachatterjee.vscode-tailwindcss' },
               { name: 'aslamanver.vsc-export' },
+              { name: 'EliverLara.andromeda' },
             ].map((ext, i) => (
               <li
                 key={i}
