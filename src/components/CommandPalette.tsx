@@ -50,7 +50,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       title: 'Go to Home',
       description: 'Navigate to the homepage',
       icon: <Home size={18} />,
-      shortcut: 'H',
+      shortcut: 'Shift + H',
       category: 'recent',
       action: () => navigate('/')
     },
@@ -61,7 +61,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       title: 'Go to About',
       description: 'Learn more about me',
       icon: <User size={18} />,
-      shortcut: 'A',
+      shortcut: 'Shift + A',
       category: 'navigation',
       action: () => navigate('/about')
     },
@@ -70,7 +70,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       title: 'Go to Projects',
       description: 'View my projects',
       icon: <FolderOpen size={18} />,
-      shortcut: 'P',
+      shortcut: 'Shift + P',
       category: 'navigation',
       action: () => navigate('/projects')
     },
@@ -79,7 +79,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       title: 'Go to Blogs',
       description: 'Read my blog posts',
       icon: <Rss size={18} />,
-      shortcut: 'B',
+      shortcut: 'Shift + B',
       category: 'navigation',
       action: () => navigate('/all-posts')
     },
@@ -88,7 +88,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       title: 'Go to Certificates',
       description: 'View my certificates',
       icon: <Award size={18} />,
-      shortcut: 'C',
+      shortcut: 'Shift + C',
       category: 'navigation',
       action: () => navigate('/certificates')
     },
@@ -97,7 +97,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       title: 'Go to Contact',
       description: 'Get in touch',
       icon: <Phone size={18} />,
-      shortcut: 'T',
+      shortcut: 'Shift + T',
       category: 'navigation',
       action: () => navigate('/contact')
     },
@@ -106,16 +106,16 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       title: 'Go to Tools & Gears',
       description: 'Explore my development tools and gear',
       icon: <Wrench size={18} />,
-      shortcut: 'O',
+      shortcut: 'Shift + O',
       category: 'navigation',
-      action: () => navigate('/tools')
+      action: () => navigate('/gears')
     },
     {
       id: 'vscode-extensions',
       title: 'Go to VS Code Extensions',
       description: 'Check out my recommended extensions',
       icon: <Settings size={18} />,
-      shortcut: 'X',
+      shortcut: 'Shift + X',
       category: 'navigation',
       action: () => navigate('/extensions')
     },
@@ -145,7 +145,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       title: 'Copy Email Address',
       description: 'Copy my email to clipboard',
       icon: <Mail size={18} />,
-      shortcut: 'E',
+      shortcut: 'Shift + E',
       category: 'actions',
       action: () => {
         navigator.clipboard.writeText('pati.dhrubaraj@outlook.com');
@@ -157,7 +157,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       title: 'View Source Code',
       description: 'Open GitHub repository',
       icon: <Code size={18} />,
-      shortcut: 'V',
+      shortcut: 'Shift + V',
       category: 'actions',
       action: () => window.open('https://github.com/codewithdhruba01/codewithdhruba.app', '_blank')
     },
@@ -166,7 +166,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       title: 'Open GitHub Profile',
       description: 'Visit my GitHub profile',
       icon: <Github size={18} />,
-      shortcut: 'G',
+      shortcut: 'Shift + G',
       category: 'actions',
       action: () => window.open('https://github.com/codewithdhruba01', '_blank')
     },
@@ -175,7 +175,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       title: 'Open LinkedIn Profile',
       description: 'Connect on LinkedIn',
       icon: <Linkedin size={18} />,
-      shortcut: 'L',
+      shortcut: 'Shift + L',
       category: 'actions',
       action: () => window.open('https://www.linkedin.com/in/dhrubaraj-pati/', '_blank')
     },
@@ -184,7 +184,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       title: 'Open Daily.dev',
       description: 'Follow me on Daily.dev',
       icon: <Newspaper size={18} />,
-      shortcut: 'D',
+      shortcut: 'Shift + D',
       category: 'actions',
       action: () => window.open('https://app.daily.dev/codewithdhruba', '_blank')
     },
@@ -193,7 +193,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       title: 'Open CodePen',
       description: 'View my CodePen creations',
       icon: <Codepen size={18} />,
-      shortcut: 'N',
+      shortcut: 'Shift + N',
       category: 'actions',
       action: () => window.open('https://codepen.io/codewithdhruba01', '_blank')
     }
@@ -255,8 +255,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       }
 
       // Shortcut keys
-      const shortcutItem = filteredItems.find(item => item.shortcut === event.key);
-      if (shortcutItem && !event.ctrlKey && !event.metaKey && !event.altKey) {
+      const shortcutItem = filteredItems.find(item => item.shortcut === `Shift + ${event.key.toUpperCase()}`);
+      if (shortcutItem && event.shiftKey && !event.ctrlKey && !event.metaKey && !event.altKey) {
         event.preventDefault();
         shortcutItem.action();
       }
