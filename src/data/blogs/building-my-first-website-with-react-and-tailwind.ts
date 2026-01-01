@@ -1,5 +1,5 @@
 export const buildingMyFirstWebsiteWithReactAndTailwind = {
-  title: 'Building My First Website from Scratch with React and Tailwind CSS',
+  title: 'Building My portfolio Website from Scratch',
   date: 'December 29, 2025',
   author: 'Dhrubaraj Pati',
   category: 'Web Development',

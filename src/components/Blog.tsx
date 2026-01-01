@@ -4,9 +4,9 @@ import { Calendar, ArrowRight } from 'lucide-react';
 const Blog = () => {
   const blogPosts = [
     {
-      title: 'Essential Linux Commands: A Comprehensive Guide',
+      title: 'Essential Linux Commands',
       description:
-        'Learn the most essential Linux commands every beginner and intermediate user must know. This comprehensive guide explains each command in simple',
+        'Learn the most essential Linux commands every beginner and intermediate user must know. This comprehensive guide explains each command..',
       date: 'Dec 8, 2025',
       image: '/blog/linux_commands.png',
       category: ['CLI', 'Devlopment', 'Terminal'],
@@ -15,9 +15,9 @@ const Blog = () => {
     },
     {
       title:
-        'Building My First Website from Scratch with React and Tailwind CSS',
+        'Building My portfolio Website from Scratch',
       description:
-        'Learn how I built my first website from scratch using React and Tailwind CSS — from setup to responsive design, with tips and key takeaways.',
+        'Learn how I built my portfolio website from scratch using React and Tailwind CSS — from setup to responsive design, with tips and key takeaways.',
       date: 'July 2, 2025',
       image: '/blog/blog3.png',
       category: ['Development', 'Setup'],

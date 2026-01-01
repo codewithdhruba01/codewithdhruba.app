@@ -9,7 +9,7 @@ const blogDescriptions = {
   'getting-started-with-react-typescript': 'Learn how to set up a new React project with TypeScript and best practices for type safety.',
   'chrome-keyboard-shortcuts': 'Discover the most useful Chrome keyboard shortcuts to browse faster, save time, and increase your daily productivity.',
   'openweather-api-guide': 'Master OpenWeather API with production-ready patterns, advanced integrations, and enterprise-grade implementations.',
-  'building-my-first-website-with-react-and-tailwind': 'Learn how I built my first website from scratch using React and Tailwind CSS — from setup to responsive design, with tips and key takeaways.',
+  'building-my-first-website-with-react-and-tailwind': 'Learn how I built my Portfolio website from scratch using React and Tailwind CSS — from setup to responsive design, with tips and key takeaways.',
   'essential-linux-commands': 'Learn the most essential Linux commands every beginner and intermediate user must know. This comprehensive guide explains each command in simple terms.',
 };
 
