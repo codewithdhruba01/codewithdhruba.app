@@ -49,6 +49,7 @@ const BlogPost = () => {
   const [fontSize, setFontSize] = useState<number>(100); // percentage
   const [isMobileSheetOpen, setIsMobileSheetOpen] = useState<boolean>(false);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
+  const [isJumping, setIsJumping] = useState<boolean>(false);
 
   // Gesture handling for bottom sheet
   const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -232,6 +233,17 @@ const BlogPost = () => {
     handleBlogLike,
   } = useBlogReactions(slug);
 
+  const handleLoveClick = (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent any default scrolling behavior
+    e.stopPropagation(); // Stop event propagation
+
+    // Trigger jumping animation
+    setIsJumping(true);
+    setTimeout(() => setIsJumping(false), 600); // Reset after animation
+
+    // Call the actual love handler
+    handleBlogLove();
+  };
 
   const enhanceCodeBlocks = () => {
 
@@ -547,50 +559,51 @@ const BlogPost = () => {
             </div>
           </div>
 
-          {/* Reactions */}
-          <div className={`mt-12 flex items-center justify-center space-x-4 transition-all duration-500 delay-900 ${contentLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+          {/* Love Reaction Section */}
+          <div className={`mt-24 mb-20 flex flex-col items-center justify-center transition-all duration-700 delay-900 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             {blogReactionsError && (
-              <p className="text-red-400 text-sm mb-4">{blogReactionsError}</p>
+              <p className="text-red-400 text-sm mb-8">{blogReactionsError}</p>
             )}
 
+            {/* Large Reaction Count - Atmospheric/Watermark Style */}
+            <div className="-mb-8">
+              <span className="text-8xl md:text-9xl font-bold text-neutral-700/30 font-outfit tracking-wider select-none">
+                {blogLoves}
+              </span>
+            </div>
+
+            {/* Circular Love Button - Always Active/Filled State */}
             <button
-              onClick={handleBlogLove}
+              onClick={handleLoveClick}
               disabled={userHasLoved || lovingBlog}
-              className={`flex items-center gap-2 px-5 py-2 rounded-full border transition
-              ${userHasLoved
-                  ? 'bg-red-500/20 border-red-500/40 text-red-400'
-                  : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-red-500/10'
-                }`}
+              className="relative w-28 h-28 rounded-full border border-neutral-700/30 flex items-center justify-center bg-neutral-950 hover:border-neutral-600/30 transition-all duration-300 ease-out"
             >
               {lovingBlog ? (
-                <Loader2 className="h-4 w-4 animate-spin" />
+                <Loader2 className="h-7 w-7 animate-spin text-[#00DC82]/70" />
               ) : (
                 <Heart
-                  className={`h-4 w-4 ${userHasLoved ? 'fill-red-400 text-red-400' : ''
-                    }`}
-                />
-              )}
-              <span>{blogLoves}</span>
-            </button>
+                  className={`h-14 w-14 transition-all duration-300 ease-out ${userHasLoved
 
-            <button
-              onClick={handleBlogLike}
-              disabled={userHasLiked || likingBlog}
-              className={`flex items-center gap-2 px-5 py-2 rounded-full border transition
-              ${userHasLiked
-                  ? 'bg-blue-500/20 border-blue-500/40 text-blue-400'
-                  : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-blue-500/10'
-                }`}
-            >
-              {likingBlog ? (
-                <Loader2 className="h-4 w-4 animate-spin" />
-              ) : (
-                <ThumbsUp
-                  className={`h-4 w-4 ${userHasLiked ? 'fill-blue-400 text-blue-400' : ''
+                    ? 'fill-[#00DC82] text-[#00DC82]'
+                    : 'fill-[#1f1f1f] text-[#1f1f1f]'
                     }`}
+                  style={{
+                    transform: isJumping ? 'scale(1.2) translateY(-8px)' : 'scale(1) translateY(0px)',
+                    transition: 'transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+                    ...(userHasLoved
+                      ? {
+                        filter:
+                          'drop-shadow(0 0 8px rgba(0, 220, 130, 0.3)) brightness(1.05)',
+                      }
+                      : {
+                        // subtle depth for dark heart (matches screenshot)
+                        filter: 'brightness(0.95)',
+                      }
+                    )
+                  }}
                 />
+
               )}
-              <span>{blogLikes}</span>
             </button>
           </div>
 
