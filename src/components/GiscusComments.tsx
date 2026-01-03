@@ -25,9 +25,9 @@ const GiscusComments = ({ slug }: GiscusCommentsProps) => {
 
   return (
     <div className="mt-16 pt-8 border-t border-gray-800">
-      <h2 className="text-2xl font-bold text-white mb-6 font-pally">
+      <h4 className="text-2xl font-bold text-white mb-6 font-synonym">
         Comments & Discussion
-      </h2>
+      </h4>
       <div className="giscus-wrapper">
         <Giscus
           key={`giscus-${slug}`}
