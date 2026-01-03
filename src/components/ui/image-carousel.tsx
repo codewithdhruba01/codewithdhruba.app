@@ -8,11 +8,16 @@ interface ImageCarouselProps {
 export const ImageCarousel = ({ images, className = '' }: ImageCarouselProps) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 300);
     return () => clearTimeout(timer);
   }, []);
+
+  const handleImageLoad = (index: number) => {
+    setLoadedImages(prev => new Set([...prev, index]));
+  };
 
   const getIndicatorColor = (index: number) => {
     const colors = [
@@ -75,8 +80,9 @@ export const ImageCarousel = ({ images, className = '' }: ImageCarouselProps) =>
                 className="w-full h-full object-cover transition-all duration-700 ease-out"
                 style={{
                   transform: hoveredIndex === index ? 'scale(1.08) rotate(-1deg)' : 'scale(1) rotate(0deg)',
-                  filter: hoveredIndex === index ? 'brightness(1.1) contrast(1.05)' : 'brightness(1) contrast(1)'
+                  filter: `blur(${loadedImages.has(index) ? '0px' : '20px'}) ${hoveredIndex === index ? 'brightness(1.1) contrast(1.05)' : 'brightness(1) contrast(1)'}`
                 }}
+                onLoad={() => handleImageLoad(index)}
                 draggable={false}
               />
 
