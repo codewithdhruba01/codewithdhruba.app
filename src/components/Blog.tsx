@@ -1,7 +1,14 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, ArrowRight } from 'lucide-react';
 
 const Blog = () => {
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
+
+  const handleImageLoad = (index: number) => {
+    setLoadedImages(prev => new Set([...prev, index]));
+  };
+
   const blogPosts = [
     {
       title: 'Essential Linux Commands',
@@ -47,7 +54,11 @@ const Blog = () => {
               <img
                 src={post.image}
                 alt={post.title}
-                className="w-full h-70 object-cover rounded-t-2xl"
+                className="w-full h-70 object-cover rounded-t-2xl transition-all duration-700 ease-out"
+                style={{
+                  filter: `blur(${loadedImages.has(index) ? '0px' : '20px'})`
+                }}
+                onLoad={() => handleImageLoad(index)}
               />
 
               {/* Content */}
