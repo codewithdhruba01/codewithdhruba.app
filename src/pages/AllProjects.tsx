@@ -269,7 +269,7 @@ const AllProjects = () => {
             : visibleProjects.map((project, idx) => (
               <div
                 key={idx}
-                className="bg-neutral-900 rounded-2xl shadow-md overflow-hidden group border border-[#222]"
+                className="group bg-[#111111] rounded-lg overflow-hidden cursor-pointer border border-neutral-800"
               >
                 <img
                   src={project.image}
