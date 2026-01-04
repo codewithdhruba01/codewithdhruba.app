@@ -81,7 +81,7 @@ const Projects = () => {
               <div
                 key={index}
                 onClick={() => setSelectedProject(project)}
-                className="group bg-[#111111] rounded-lg overflow-hidden cursor-pointer border border-neutral-800 transform transition-all duration-500 ease-in-out hover:scale-[1.04] hover:shadow-2xl hover:shadow-[#00DC82]/30"
+                className="group bg-[#111111] rounded-lg overflow-hidden cursor-pointer border border-neutral-800"
                 data-aos="fade-up"
                 data-aos-delay={index * 100} /// staggered animation
               >
@@ -90,12 +90,12 @@ const Projects = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+                    className="w-full h-48 object-cover transition-transform duration-700 ease-in-out hover:scale-110"
                   />
                 </div>
 
-                <div className="p-6 transition-colors duration-500 ease-in-out group-hover:bg-neutral-900">
-                  <h3 className="text-xl font-bold mb-2 font-synonym transition-colors duration-500 ease-in-out group-hover:text-[#00DC82]">
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 font-synonym">
                     {project.title}
                   </h3>
                   <p className="text-neutral-400 mb-4 leading-relaxed text-sm font-poppins">
@@ -107,7 +107,7 @@ const Projects = () => {
                     {project.techStack.map((tech, i) => (
                       <span
                         key={i}
-                        className="px-2 py-1 text-xs rounded-full bg-[#1f1f1f] text-[#00DC82] border border-[#00DC82]/40  transition-all duration-500 ease-in-out group-hover:border-[#00DC82]/70"
+                        className="px-2 py-1 text-xs rounded-full bg-[#1f1f1f] text-[#00DC82] border border-[#00DC82]/40"
                       >
                         {tech}
                       </span>

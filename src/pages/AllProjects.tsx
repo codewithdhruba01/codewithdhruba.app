@@ -251,11 +251,10 @@ const AllProjects = () => {
                 setShowAll(false);
                 setLoading(true);
               }}
-              className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
-                selectedCategory === category
-                  ? 'bg-gradient-to-r from-green-600 to-green-900 text-white'
-                  : 'bg-[#1A1A1A] text-gray-300 hover:bg-[#333]'
-              }`}
+              className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${selectedCategory === category
+                ? 'bg-gradient-to-r from-green-600 to-green-900 text-white'
+                : 'bg-[#1A1A1A] text-gray-300 hover:bg-[#333]'
+                }`}
             >
               {category}
             </button>
@@ -265,62 +264,62 @@ const AllProjects = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {loading
             ? Array(showAll ? filteredProjects.length : initialCount)
-                .fill(0)
-                .map((_, i) => <SkeletonCard key={i} />)
+              .fill(0)
+              .map((_, i) => <SkeletonCard key={i} />)
             : visibleProjects.map((project, idx) => (
-                <div
-                  key={idx}
-                  className="bg-neutral-900 rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 group border border-[#222]"
-                >
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover transition group-hover:scale-105 duration-300 rounded-t-2xl"
-                  />
-                  <div className="p-5">
-                    <h3 className="text-xl font-bold font-synonym mb-2">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-400 text-sm mb-4 font-poppins">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2 text-xs mb-4">
-                      {project.tags?.map((tag, tagIndex) => (
-                        <span
-                          key={tagIndex}
-                          className="bg-green-900/30 text-green-400 px-2 py-1 rounded-full font-poppins"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="flex gap-4">
-                      {project.github && (
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1 px-3 py-1.5 font-poppins rounded-md text-sm bg-[#292929] hover:bg-[#3a3a3a] text-white transition"
-                        >
-                          <Github className="w-4 h-4" />
-                          Code
-                        </a>
-                      )}
-                      {project.demo && (
-                        <a
-                          href={project.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1 font-poppins px-3 py-1.5 rounded-md text-sm bg-green-700 hover:bg-green-600 text-white transition"
-                        >
-                          <Globe className="w-4 h-4" />
-                          Live
-                        </a>
-                      )}
-                    </div>
+              <div
+                key={idx}
+                className="bg-neutral-900 rounded-2xl shadow-md overflow-hidden group border border-[#222]"
+              >
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover transition-transform duration-700 ease-in-out hover:scale-110"
+                />
+                <div className="p-5">
+                  <h3 className="text-xl font-bold font-synonym mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm mb-4 font-poppins">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 text-xs mb-4">
+                    {project.tags?.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className="bg-green-900/30 text-green-400 px-2 py-1 rounded-full font-poppins"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex gap-4">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1 px-3 py-1.5 font-poppins rounded-md text-sm bg-[#292929] hover:bg-[#3a3a3a] text-white transition"
+                      >
+                        <Github className="w-4 h-4" />
+                        Code
+                      </a>
+                    )}
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1 font-poppins px-3 py-1.5 rounded-md text-sm bg-green-700 hover:bg-green-600 text-white transition"
+                      >
+                        <Globe className="w-4 h-4" />
+                        Live
+                      </a>
+                    )}
                   </div>
                 </div>
-              ))}
+              </div>
+            ))}
         </div>
 
         {/* Button */}
