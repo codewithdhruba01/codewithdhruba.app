@@ -5,7 +5,14 @@ const Experience = () => {
 
   const experience = [
     {
-      year: '2025 - Present',
+      year: 'Jan 2026 - Present',
+      title: 'Full Stack Developer',
+      company: 'SpacECE India Foundation, Pune',
+      description:
+        'Working as a Full Stack Developer Intern, focusing on designing and developing RESTful APIs for internal and production-level applications. Worked with databases (MySQL / relational DBs) for data storage, retrieval, and optimization.',
+    },
+    {
+      year: 'May 2025 - Dec 2025',
       title: 'Technical writer',
       company: 'Recode Hive, Australia (Remote)',
       description:
