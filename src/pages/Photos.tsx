@@ -5,6 +5,7 @@ import { photos, categories } from '../data/photos';
 const Photos = () => {
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
 
     const filteredPhotos =
         selectedCategory === 'All'
@@ -35,6 +36,10 @@ const Photos = () => {
     };
 
     const visiblePhotos = getVisiblePhotos();
+
+    const handleImageLoad = (imageSrc: string) => {
+        setLoadedImages(prev => new Set(prev).add(imageSrc));
+    };
 
     return (
         <div className="min-h-screen bg-neutral-950 text-white">
@@ -78,7 +83,7 @@ const Photos = () => {
                     ))}
                 </div>
 
-                {/* Layered Photography Carousel */}
+
                 <div
                     className="relative mb-24 px-4 md:px-8 lg:px-12"
                     data-aos="fade-up"
@@ -127,10 +132,13 @@ const Photos = () => {
                                         <img
                                             src={photo.image}
                                             alt={photo.title}
-                                            className="w-full h-full object-cover"
+                                            className={`w-full h-full object-cover transition-all duration-700 ease-out ${loadedImages.has(photo.image) ? 'filter-none' : 'blur-sm scale-110'
+                                                }`}
+                                            onLoad={() => handleImageLoad(photo.image)}
                                             onError={(e) => {
                                                 const target = e.target as HTMLImageElement;
                                                 target.src = '/placeholder-photo.jpg';
+                                                handleImageLoad(photo.image);
                                             }}
                                         />
 
