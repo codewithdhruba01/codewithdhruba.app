@@ -18,6 +18,7 @@ import Extensions from './pages/Extensions';
 import GitHubContributions from './components/GitHubContributions';
 import ChatBotLauncher from './components/ChatBotLauncher';
 import Certificates from './pages/Certificates';
+import Photos from './pages/Photos';
 import Tools from './components/Tools';
 import Touch from './components/Touch';
 import AOS from 'aos';
@@ -53,6 +54,7 @@ const App = () => {
           <Route path="/projects" element={<AllProjects />} />
           <Route path="/chat-assistant" element={<ChatAssistant />} />
           <Route path="/certificates" element={<Certificates />} />
+          <Route path="/photos" element={<Photos />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/gears" element={<Gears />} />
           <Route path="/extensions" element={<Extensions />} />

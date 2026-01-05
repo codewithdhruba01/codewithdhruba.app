@@ -17,7 +17,8 @@ import {
   Wrench,
   Phone,
   Newspaper,
-  Mail
+  Mail,
+  Camera
 } from 'lucide-react';
 
 interface CommandPaletteProps {
@@ -73,6 +74,15 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       shortcut: 'Shift + P',
       category: 'navigation',
       action: () => navigate('/projects')
+    },
+    {
+      id: 'photos',
+      title: 'Go to Photos',
+      description: 'View my photography portfolio',
+      icon: <Camera size={18} />,
+      shortcut: 'Shift + H',
+      category: 'navigation',
+      action: () => navigate('/photos')
     },
     {
       id: 'blogs',
