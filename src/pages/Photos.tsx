@@ -13,26 +13,26 @@ interface Photo {
 const photos: Photo[] = [
     {
         id: 1,
-        title: "Urban Reflections",
-        description: "City lights dancing on wet pavement after monsoon rains",
-        location: "Mumbai, India",
-        image: "/photo/WhatsApp Image 2026-01-04 at 11.37.07 PM.jpeg",
+        title: "King Cobra",
+        description: "The Indian Cobra is a member of the Big Four venomous snakes in South Asia. Its most iconic feature is the hood, which it expands by spreading its neck ribs when it feels threatened",
+        location: "Kolkata, India",
+        image: "/photo/photo1.jpeg",
         category: "Street"
     },
     {
         id: 2,
-        title: "Mountain Serenity",
-        description: "Peaceful valley shrouded in morning mist",
-        location: "Himachal Pradesh, India",
-        image: "/photo/WhatsApp Image 2026-01-04 at 11.37.07 PM (1).jpeg",
+        title: "King Cobra",
+        description: "The Indian Cobra is a member of the Big Four venomous snakes in South Asia. Its most iconic feature is the hood, which it expands by spreading its neck ribs when it feels threatened",
+        location: "Kolkata, India",
+        image: "/photo/photo2.jpg",
         category: "Landscapes"
     },
     {
         id: 3,
-        title: "Street Photography",
+        title: "Checkered Keelback",
         description: "Everyday moments captured in the bustling city life",
         location: "Delhi, India",
-        image: "/photo/WhatsApp Image 2026-01-04 at 11.37.08 PM.jpeg",
+        image: "/photo/photo3.jpg",
         category: "Street"
     },
     {
@@ -40,7 +40,7 @@ const photos: Photo[] = [
         title: "Golden Hour Magic",
         description: "Sunset painting the sky in hues of orange and pink",
         location: "Goa, India",
-        image: "/photo/WhatsApp Image 2026-01-04 at 11.37.08 PM (1).jpeg",
+        image: "/photo/photo4.jpg",
         category: "Landscapes"
     },
     {
@@ -48,7 +48,7 @@ const photos: Photo[] = [
         title: "Architectural Beauty",
         description: "Modern architecture blending with traditional Indian design",
         location: "Ahmedabad, India",
-        image: "/photo/WhatsApp Image 2026-01-04 at 11.37.08 PM (2).jpeg",
+        image: "/photo/photo5.jpg",
         category: "Architecture"
     },
     {
@@ -56,7 +56,7 @@ const photos: Photo[] = [
         title: "Nature's Canvas",
         description: "Wildflowers blooming in the valley of colors",
         location: "Uttarakhand, India",
-        image: "/photo/WhatsApp Image 2026-01-04 at 11.37.09 PM.jpeg",
+        image: "/photo/photo6.jpg",
         category: "Nature"
     },
     {
@@ -64,7 +64,7 @@ const photos: Photo[] = [
         title: "Cultural Heritage",
         description: "Ancient temples standing tall against time",
         location: "Rajasthan, India",
-        image: "/photo/WhatsApp Image 2026-01-04 at 11.37.10 PM.jpeg",
+        image: "/photo/photo7.jpg",
         category: "Architecture"
     },
     {
@@ -72,7 +72,7 @@ const photos: Photo[] = [
         title: "Urban Exploration",
         description: "Hidden gems discovered in the concrete jungle",
         location: "Pune, India",
-        image: "/photo/WhatsApp Image 2026-01-04 at 11.37.10 PM (1).jpeg",
+        image: "/photo/photo8.jpg",
         category: "Street"
     },
     {
@@ -80,7 +80,7 @@ const photos: Photo[] = [
         title: "Market Vibes",
         description: "Colorful markets telling stories of local culture",
         location: "Jaipur, India",
-        image: "/photo/WhatsApp Image 2026-01-04 at 11.37.10 PM (2).jpeg",
+        image: "/photo/photo9.jpg",
         category: "Street"
     },
     {
@@ -88,7 +88,127 @@ const photos: Photo[] = [
         title: "Natural Wonders",
         description: "Breathtaking landscapes carved by nature itself",
         location: "Kashmir, India",
-        image: "/photo/WhatsApp Image 2026-01-04 at 11.37.11 PM.jpeg",
+        image: "/photo/photo10.jpg",
+        category: "Landscapes"
+    },
+    {
+        id: 11,
+        title: "Natural Wonders",
+        description: "Breathtaking landscapes carved by nature itself",
+        location: "Kashmir, India",
+        image: "/photo/photo11.jpg",
+        category: "Landscapes"
+    },
+    {
+        id: 12,
+        title: "Natural Wonders",
+        description: "Breathtaking landscapes carved by nature itself",
+        location: "Kashmir, India",
+        image: "/photo/photo12.jpg",
+        category: "Landscapes"
+    },
+    {
+        id: 13,
+        title: "Natural Wonders",
+        description: "Breathtaking landscapes carved by nature itself",
+        location: "Kashmir, India",
+        image: "/photo/photo13.jpg",
+        category: "Landscapes"
+    },
+    {
+        id: 14,
+        title: "Natural Wonders",
+        description: "Breathtaking landscapes carved by nature itself",
+        location: "Kashmir, India",
+        image: "/photo/photo14.jpg",
+        category: "Landscapes"
+    },
+    {
+        id: 15,
+        title: "Natural Wonders",
+        description: "Breathtaking landscapes carved by nature itself",
+        location: "Kashmir, India",
+        image: "/photo/photo15.jpg",
+        category: "Landscapes"
+    },
+    {
+        id: 16,
+        title: "Natural Wonders",
+        description: "Breathtaking landscapes carved by nature itself",
+        location: "Kashmir, India",
+        image: "/photo/photo16.jpg",
+        category: "Landscapes"
+    },
+    {
+        id: 17,
+        title: "Natural Wonders",
+        description: "Breathtaking landscapes carved by nature itself",
+        location: "Kashmir, India",
+        image: "/photo/photo17.jpg",
+        category: "Landscapes"
+    },
+    {
+        id: 18,
+        title: "Natural Wonders",
+        description: "Breathtaking landscapes carved by nature itself",
+        location: "Kashmir, India",
+        image: "/photo/photo18.jpg",
+        category: "Landscapes"
+    },
+    {
+        id: 19,
+        title: "Natural Wonders",
+        description: "Breathtaking landscapes carved by nature itself",
+        location: "Kashmir, India",
+        image: "/photo/photo19.jpg",
+        category: "Landscapes"
+    },
+    {
+        id: 20,
+        title: "Natural Wonders",
+        description: "Breathtaking landscapes carved by nature itself",
+        location: "Kashmir, India",
+        image: "/photo/photo20.jpg",
+        category: "Landscapes"
+    },
+    {
+        id: 21,
+        title: "Natural Wonders",
+        description: "Breathtaking landscapes carved by nature itself",
+        location: "Kashmir, India",
+        image: "/photo/photo21.jpg",
+        category: "Landscapes"
+    },
+    {
+        id: 22,
+        title: "Natural Wonders",
+        description: "Breathtaking landscapes carved by nature itself",
+        location: "Kashmir, India",
+        image: "/photo/photo22.jpg",
+        category: "Landscapes"
+    },
+    {
+        id: 23,
+        title: "Natural Wonders",
+        description: "Breathtaking landscapes carved by nature itself",
+        location: "Kashmir, India",
+        image: "/photo/photo23.jpg",
+        category: "Landscapes"
+    },
+    {
+        id: 24,
+        title: "Natural Wonders",
+        description: "Breathtaking landscapes carved by nature itself",
+        location: "Kashmir, India",
+        image: "/photo/photo24.jpg",
+        category: "Landscapes"
+    },
+    {
+        id: 25,
+        title: "Natural Wonders",
+        description: "Breathtaking landscapes carved by nature itself",
+        location: "Kashmir, India",
+        image: "/photo/photo25.jpg",
         category: "Landscapes"
     }
 ];
