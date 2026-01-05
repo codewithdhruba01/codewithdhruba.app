@@ -76,9 +76,6 @@ const Photos = () => {
                             {category}
                         </button>
                     ))}
-                    <button className="px-4 py-2 rounded-full text-sm font-semibold bg-[#1A1A1A] text-gray-300 hover:bg-[#333] transition-all duration-200">
-                        View More →
-                    </button>
                 </div>
 
                 {/* Layered Photography Carousel */}

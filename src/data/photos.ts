@@ -14,6 +14,7 @@ export const categories = [
   'Butterfly',
   'Nature',
   'Wildlife',
+  'Creative',
 ];
 
 export const photos: Photo[] = [
@@ -87,7 +88,7 @@ export const photos: Photo[] = [
       'A stealthy Indian Leopard captured in natural light. These elusive big cats are masters of camouflage and solitary hunters of the night.',
     location: 'Pune, India',
     image: '/photo/photo8.jpg',
-    category: 'Butterfly',
+    category: 'Creative',
   },
   {
     id: 9,
@@ -195,7 +196,7 @@ export const photos: Photo[] = [
       'The largest antelope in Asia, the Nilgai. These majestic herbivores are known for their distinctive bluish-gray coat and can weigh up to 300 kg.',
     location: 'Kashmir, India',
     image: '/photo/photo20.jpg',
-    category: 'Butterfly',
+    category: 'Creative',
   },
   {
     id: 21,
@@ -205,6 +206,15 @@ export const photos: Photo[] = [
     location: 'Kashmir, India',
     image: '/photo/photo21.jpg',
     category: 'Nature',
+  },
+  {
+    id: 26,
+    title: 'Indian Skimmer',
+    description:
+      "The rare Indian Skimmer with its distinctive bill. These unique birds 'skim' the water surface to catch fish and are critically endangered in India.",
+    location: 'Kashmir, India',
+    image: '/photo/photo26.jpeg',
+    category: 'Creative',
   },
   {
     id: 22,
@@ -242,4 +252,5 @@ export const photos: Photo[] = [
     image: '/photo/photo25.jpg',
     category: 'Nature',
   },
+
 ];
