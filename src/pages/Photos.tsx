@@ -11,6 +11,11 @@ const Photos = () => {
     const [userLovedPhotos, setUserLovedPhotos] = useState<Set<number>>(new Set());
     const [lovingPhoto, setLovingPhoto] = useState(false);
 
+    // Swipe functionality
+    const [touchStart, setTouchStart] = useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = useState<number | null>(null);
+    const [isSwiping, setIsSwiping] = useState(false);
+
     const userId = 'photos-user-' + Math.random().toString(36).substr(2, 9);
 
     const filteredPhotos =
@@ -45,6 +50,85 @@ const Photos = () => {
 
     const handleImageLoad = (imageSrc: string) => {
         setLoadedImages(prev => new Set(prev).add(imageSrc));
+    };
+
+    // Swipe handlers
+    const minSwipeDistance = 50;
+
+    // Touch events for mobile
+    const onTouchStart = (e: React.TouchEvent) => {
+        setIsSwiping(true);
+        setTouchEnd(null);
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const onTouchMove = (e: React.TouchEvent) => {
+        if (!isSwiping || !touchStart) return;
+        e.preventDefault(); // Prevent scrolling
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd || !isSwiping) {
+            setIsSwiping(false);
+            return;
+        }
+
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+
+        if (isLeftSwipe) {
+            nextPhoto();
+        } else if (isRightSwipe) {
+            prevPhoto();
+        }
+
+        setIsSwiping(false);
+        setTouchStart(null);
+        setTouchEnd(null);
+    };
+
+    // Mouse events for desktop
+    const onMouseDown = (e: React.MouseEvent) => {
+        setIsSwiping(true);
+        setTouchEnd(null);
+        setTouchStart(e.clientX);
+    };
+
+    const onMouseMove = (e: React.MouseEvent) => {
+        if (!isSwiping || !touchStart) return;
+        e.preventDefault(); // Prevent text selection
+        setTouchEnd(e.clientX);
+    };
+
+    const onMouseUp = () => {
+        if (!touchStart || !touchEnd || !isSwiping) {
+            setIsSwiping(false);
+            return;
+        }
+
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+
+        if (isLeftSwipe) {
+            nextPhoto();
+        } else if (isRightSwipe) {
+            prevPhoto();
+        }
+
+        setIsSwiping(false);
+        setTouchStart(null);
+        setTouchEnd(null);
+    };
+
+    const onMouseLeave = () => {
+        if (isSwiping) {
+            setIsSwiping(false);
+            setTouchStart(null);
+            setTouchEnd(null);
+        }
     };
 
     // Load photo love data from Supabase and localStorage on component mount
@@ -157,7 +241,26 @@ const Photos = () => {
                     className="relative mb-24 px-4 md:px-8 lg:px-12"
                     data-aos="fade-up"
                 >
-                    <div className="relative flex items-center justify-center min-h-[450px] md:min-h-[550px] lg:min-h-[600px]">
+                    <div
+                        className="relative flex items-center justify-center min-h-[450px] md:min-h-[550px] lg:min-h-[600px] transition-transform duration-800 ease-out"
+                        style={{
+                            touchAction: 'pan-y pinch-zoom',
+                            userSelect: 'none',
+                            cursor: isSwiping ? 'grabbing' : 'grab'
+                        }}
+                        onTouchStart={onTouchStart}
+                        onTouchMove={onTouchMove}
+                        onTouchEnd={onTouchEnd}
+                        onTouchCancel={() => {
+                            setIsSwiping(false);
+                            setTouchStart(null);
+                            setTouchEnd(null);
+                        }}
+                        onMouseDown={onMouseDown}
+                        onMouseMove={onMouseMove}
+                        onMouseUp={onMouseUp}
+                        onMouseLeave={onMouseLeave}
+                    >
                         {visiblePhotos.map((photo, index) => {
                             const isCenter = photo.position === 0;
                             const isNearSide = Math.abs(photo.position) === 1;
@@ -225,6 +328,12 @@ const Photos = () => {
                                         {/* Love Icon - positioned after overlays to ensure it's clickable */}
                                         <button
                                             onClick={(e) => handleLoveClick(photo.id, e)}
+                                            onTouchStart={(e) => e.stopPropagation()}
+                                            onTouchMove={(e) => e.stopPropagation()}
+                                            onTouchEnd={(e) => e.stopPropagation()}
+                                            onMouseDown={(e) => e.stopPropagation()}
+                                            onMouseMove={(e) => e.stopPropagation()}
+                                            onMouseUp={(e) => e.stopPropagation()}
                                             disabled={userLovedPhotos.has(photo.id) || lovingPhoto}
                                             className={`absolute top-3 left-3 z-20 p-2 rounded-full bg-black/20 backdrop-blur-sm transition-all duration-200 group flex items-center gap-1 ${userLovedPhotos.has(photo.id)
                                                 ? 'cursor-default'
