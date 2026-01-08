@@ -222,6 +222,71 @@ export const commentService = {
     }
   },
 
+  // Photo loves functions
+  async getPhotoLovesCount(photoId: number): Promise<number> {
+    const { count, error } = await supabase
+      .from('photo_loves')
+      .select('*', { count: 'exact', head: true })
+      .eq('photo_id', photoId);
+
+    if (error) throw error;
+    return count || 0;
+  },
+
+  async getAllPhotoLovesCounts(): Promise<Record<number, number>> {
+    const { data, error } = await supabase
+      .from('photo_loves')
+      .select('photo_id');
+
+    if (error) throw error;
+
+    // Count occurrences of each photo_id
+    const counts: Record<number, number> = {};
+    data?.forEach((item: { photo_id: number }) => {
+      counts[item.photo_id] = (counts[item.photo_id] || 0) + 1;
+    });
+
+    return counts;
+  },
+
+  async hasUserLovedPhoto(photoId: number, userId: string): Promise<boolean> {
+    const { data, error } = await supabase
+      .from('photo_loves')
+      .select('id')
+      .eq('photo_id', photoId)
+      .eq('user_id', userId)
+      .limit(1);
+
+    if (error) throw error;
+    return data && data.length > 0;
+  },
+
+  async lovePhoto(photoId: number, userId: string): Promise<void> {
+    const { error } = await supabase
+      .from('photo_loves')
+      .insert({
+        photo_id: photoId,
+        user_id: userId
+      })
+      .select();
+
+    if (error) {
+      if (error.code !== '23505') { // 23505 is unique constraint violation
+        throw error;
+      }
+    }
+  },
+
+  async unlikePhoto(photoId: number, userId: string): Promise<void> {
+    const { error } = await supabase
+      .from('photo_loves')
+      .delete()
+      .eq('photo_id', photoId)
+      .eq('user_id', userId);
+
+    if (error) throw error;
+  },
+
   // Get blog post view count
   async getBlogViews(blogSlug: string): Promise<number> {
     try {

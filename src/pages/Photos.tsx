@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Heart } from 'lucide-react';
 import { photos, categories } from '../data/photos';
+import { commentService } from '../lib/supabase';
 
 const Photos = () => {
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [currentIndex, setCurrentIndex] = useState(0);
     const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
-    const [lovedPhotos, setLovedPhotos] = useState<Set<number>>(new Set());
+    const [photoLoveCounts, setPhotoLoveCounts] = useState<Record<number, number>>({});
+    const [userLovedPhotos, setUserLovedPhotos] = useState<Set<number>>(new Set());
+    const [lovingPhoto, setLovingPhoto] = useState(false);
+
+    const userId = 'photos-user-' + Math.random().toString(36).substr(2, 9);
 
     const filteredPhotos =
         selectedCategory === 'All'
@@ -42,30 +47,67 @@ const Photos = () => {
         setLoadedImages(prev => new Set(prev).add(imageSrc));
     };
 
-    // Load loved photos from localStorage on component mount
+    // Load photo love data from Supabase and localStorage on component mount
     useEffect(() => {
-        const savedLovedPhotos = localStorage.getItem('lovedPhotos');
-        if (savedLovedPhotos) {
-            setLovedPhotos(new Set(JSON.parse(savedLovedPhotos)));
-        }
+        const loadPhotoLoveData = async () => {
+            // Load user love history from localStorage immediately
+            const loadUserLoveHistory = () => {
+                const loved = JSON.parse(localStorage.getItem('lovedPhotos') || '[]');
+                setUserLovedPhotos(new Set(loved));
+            };
+
+            // Initialize all photo love counts to 0
+            const loveCounts: Record<number, number> = {};
+            photos.forEach(photo => {
+                loveCounts[photo.id] = 0;
+            });
+
+            // Load all love counts from Supabase in a single call
+            try {
+                const allCounts = await commentService.getAllPhotoLovesCounts();
+                // Merge the Supabase counts with the initialized counts
+                Object.keys(allCounts).forEach(photoId => {
+                    loveCounts[Number(photoId)] = allCounts[Number(photoId)];
+                });
+            } catch (error) {
+                console.warn('Supabase not available for photo love counts:', error);
+                // Keep the default 0 counts
+            }
+
+            setPhotoLoveCounts(loveCounts);
+            loadUserLoveHistory();
+        };
+
+        loadPhotoLoveData();
     }, []);
 
-    // Save loved photos to localStorage whenever lovedPhotos changes
-    useEffect(() => {
-        localStorage.setItem('lovedPhotos', JSON.stringify(Array.from(lovedPhotos)));
-    }, [lovedPhotos]);
+    const saveUserPhotoLove = (photoId: number) => {
+        const existing = JSON.parse(localStorage.getItem('lovedPhotos') || '[]');
+        if (!existing.includes(photoId)) {
+            existing.push(photoId);
+            localStorage.setItem('lovedPhotos', JSON.stringify(existing));
+        }
+    };
 
-    const handleLoveClick = (photoId: number, e: React.MouseEvent) => {
+    const handleLoveClick = async (photoId: number, e: React.MouseEvent) => {
         e.stopPropagation(); // Prevent triggering carousel navigation
-        setLovedPhotos(prev => {
-            const newLoved = new Set(prev);
-            if (newLoved.has(photoId)) {
-                newLoved.delete(photoId);
-            } else {
-                newLoved.add(photoId);
-            }
-            return newLoved;
-        });
+
+        if (userLovedPhotos.has(photoId) || lovingPhoto) return;
+
+        try {
+            setLovingPhoto(true);
+            await commentService.lovePhoto(photoId, userId);
+            saveUserPhotoLove(photoId);
+            setPhotoLoveCounts(prev => ({
+                ...prev,
+                [photoId]: (prev[photoId] || 0) + 1
+            }));
+            setUserLovedPhotos(prev => new Set(prev).add(photoId));
+        } catch (error) {
+            console.error('Error adding photo love:', error);
+        } finally {
+            setLovingPhoto(false);
+        }
     };
 
     return (
@@ -183,16 +225,26 @@ const Photos = () => {
                                         {/* Love Icon - positioned after overlays to ensure it's clickable */}
                                         <button
                                             onClick={(e) => handleLoveClick(photo.id, e)}
-                                            className="absolute top-3 left-3 z-20 p-2 rounded-full bg-black/20 backdrop-blur-sm hover:bg-black/40 transition-all duration-200 group"
-                                            aria-label={lovedPhotos.has(photo.id) ? "Remove from favorites" : "Add to favorites"}
+                                            disabled={userLovedPhotos.has(photo.id) || lovingPhoto}
+                                            className={`absolute top-3 left-3 z-20 p-2 rounded-full bg-black/20 backdrop-blur-sm transition-all duration-200 group flex items-center gap-1 ${userLovedPhotos.has(photo.id)
+                                                ? 'cursor-default'
+                                                : 'hover:bg-black/40 cursor-pointer'
+                                                }`}
+                                            aria-label={userLovedPhotos.has(photo.id) ? "Already loved" : "Add to favorites"}
                                         >
                                             <Heart
-                                                className={`w-5 h-5 transition-all duration-200 ${lovedPhotos.has(photo.id)
+                                                className={`w-5 h-5 transition-all duration-200 ${userLovedPhotos.has(photo.id)
                                                     ? 'text-red-500 fill-red-500 drop-shadow-lg'
                                                     : 'text-white/70 group-hover:text-white'
                                                     }`}
-                                                fill={lovedPhotos.has(photo.id) ? "currentColor" : "none"}
+                                                fill={userLovedPhotos.has(photo.id) ? "currentColor" : "none"}
                                             />
+                                            <span className={`text-xs font-medium transition-all duration-200 ${userLovedPhotos.has(photo.id)
+                                                ? 'text-white/70'
+                                                : 'text-white/70 group-hover:text-white'
+                                                }`}>
+                                                {photoLoveCounts[photo.id] || 0}
+                                            </span>
                                         </button>
                                     </div>
                                 </div>

@@ -98,3 +98,22 @@ CREATE POLICY "Anyone can read blog likes" ON blog_likes
 
 CREATE POLICY "Anyone can insert blog likes" ON blog_likes
   FOR INSERT WITH CHECK (true);
+
+CREATE TABLE IF NOT EXISTS photo_loves (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  photo_id INTEGER NOT NULL,
+  user_id TEXT NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL,
+  UNIQUE(photo_id, user_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_photo_loves_photo_id ON photo_loves(photo_id);
+CREATE INDEX IF NOT EXISTS idx_photo_loves_user_id ON photo_loves(user_id);
+
+ALTER TABLE photo_loves ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Anyone can read photo loves" ON photo_loves
+  FOR SELECT USING (true);
+
+CREATE POLICY "Anyone can insert photo loves" ON photo_loves
+  FOR INSERT WITH CHECK (true);
