@@ -1,11 +1,12 @@
-import { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight, Heart } from 'lucide-react';
 import { photos, categories } from '../data/photos';
 
 const Photos = () => {
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [currentIndex, setCurrentIndex] = useState(0);
     const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
+    const [lovedPhotos, setLovedPhotos] = useState<Set<number>>(new Set());
 
     const filteredPhotos =
         selectedCategory === 'All'
@@ -39,6 +40,32 @@ const Photos = () => {
 
     const handleImageLoad = (imageSrc: string) => {
         setLoadedImages(prev => new Set(prev).add(imageSrc));
+    };
+
+    // Load loved photos from localStorage on component mount
+    useEffect(() => {
+        const savedLovedPhotos = localStorage.getItem('lovedPhotos');
+        if (savedLovedPhotos) {
+            setLovedPhotos(new Set(JSON.parse(savedLovedPhotos)));
+        }
+    }, []);
+
+    // Save loved photos to localStorage whenever lovedPhotos changes
+    useEffect(() => {
+        localStorage.setItem('lovedPhotos', JSON.stringify(Array.from(lovedPhotos)));
+    }, [lovedPhotos]);
+
+    const handleLoveClick = (photoId: number, e: React.MouseEvent) => {
+        e.stopPropagation(); // Prevent triggering carousel navigation
+        setLovedPhotos(prev => {
+            const newLoved = new Set(prev);
+            if (newLoved.has(photoId)) {
+                newLoved.delete(photoId);
+            } else {
+                newLoved.add(photoId);
+            }
+            return newLoved;
+        });
     };
 
     return (
@@ -152,6 +179,21 @@ const Photos = () => {
                                         {isCenter && (
                                             <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-black/5 rounded-3xl" />
                                         )}
+
+                                        {/* Love Icon - positioned after overlays to ensure it's clickable */}
+                                        <button
+                                            onClick={(e) => handleLoveClick(photo.id, e)}
+                                            className="absolute top-3 left-3 z-20 p-2 rounded-full bg-black/20 backdrop-blur-sm hover:bg-black/40 transition-all duration-200 group"
+                                            aria-label={lovedPhotos.has(photo.id) ? "Remove from favorites" : "Add to favorites"}
+                                        >
+                                            <Heart
+                                                className={`w-5 h-5 transition-all duration-200 ${lovedPhotos.has(photo.id)
+                                                    ? 'text-red-500 fill-red-500 drop-shadow-lg'
+                                                    : 'text-white/70 group-hover:text-white'
+                                                    }`}
+                                                fill={lovedPhotos.has(photo.id) ? "currentColor" : "none"}
+                                            />
+                                        </button>
                                     </div>
                                 </div>
                             );
