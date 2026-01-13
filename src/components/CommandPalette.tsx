@@ -20,6 +20,7 @@ import {
   Mail,
   Camera
 } from 'lucide-react';
+import { BookIcon } from './icons/SocialIcons';
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -101,6 +102,15 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       shortcut: 'Shift + C',
       category: 'navigation',
       action: () => navigate('/certificates')
+    },
+    {
+      id: 'resume',
+      title: 'Go to Resume',
+      description: 'View my resume and experience',
+      icon: <BookIcon size="18" />,
+      shortcut: 'Shift + R',
+      category: 'navigation',
+      action: () => navigate('/resume')
     },
     {
       id: 'contact',
