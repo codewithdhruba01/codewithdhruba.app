@@ -1,4 +1,3 @@
-import { Download } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { TextGenerateEffect } from '../components/ui/text-generate-effect';
 import { ImageCarousel } from '../components/ui/image-carousel';
@@ -10,6 +9,9 @@ import {
   DailydotdevIcon,
   CodepenIcon,
   NewsIcon,
+  BookIcon,
+  ThreadsIcon,
+  LeetcodeIcon,
 } from '../components/icons/SocialIcons';
 
 const Hero = () => {
@@ -118,6 +120,22 @@ const Hero = () => {
               <CodepenIcon size="18" className="group-hover:stroke-white transition-all duration-300 ease-in-out" />
               Codepen
             </a>
+
+            <a
+              href="#"
+              className="group flex items-center gap-2 font-bold text-gray-300"
+            >
+              <LeetcodeIcon size="18" className="group-hover:fill-white transition-all duration-300 ease-in-out" />
+              Leetcode
+            </a>
+
+            <a
+              href="https://www.threads.net/@dhrubaraj_pati"
+              className="group flex items-center gap-2 font-bold text-gray-300"
+            >
+              <ThreadsIcon size="18" className="group-hover:fill-white transition-all duration-300 ease-in-out" />
+              Threads
+            </a>
           </div>
 
           {/* BUTTONS */}
@@ -126,7 +144,7 @@ const Hero = () => {
               onClick={handleDownloadCV}
               className="flex items-center gap-2 bg-[#00DC82] text-black font-semibold px-6 py-3 rounded-lg hover:shadow-lg hover:shadow-[#00DC82]/70 transition"
             >
-              <Download size={18} />
+              <BookIcon size="18" className="fill-black" />
               Resume / CV
             </button>
 

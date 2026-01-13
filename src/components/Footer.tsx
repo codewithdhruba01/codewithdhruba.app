@@ -1,10 +1,8 @@
-import { Coffee } from 'lucide-react';
 import {
   GithubIcon,
   LinkedinIcon,
   XIcon,
 } from '../components/icons/SocialIcons';
-import BlueskyLine from '../components/icons/SocialIcons';
 
 const Footer = () => {
   return (
@@ -38,7 +36,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/in/dhrubaraj-pati/"
                 className="group p-2 rounded-lg transition-all duration-300 ease-in-out hover:bg-gray-800/50"
               >
-                <LinkedinIcon size="20" className="group-hover:fill-white transition-colors duration-300" />
+                <LinkedinIcon size="22" className="group-hover:fill-white transition-colors duration-300" />
               </a>
 
               <a
@@ -46,12 +44,6 @@ const Footer = () => {
                 className="group p-2 rounded-lg transition-all duration-300 ease-in-out hover:bg-gray-800/50"
               >
                 <XIcon size="20" className="group-hover:fill-white transition-colors duration-300" />
-              </a>
-              <a
-                href="https://bsky.app/profile/codewithdhruba.bsky.social"
-                className="group p-2 rounded-lg transition-all duration-300 ease-in-out hover:bg-gray-800/50"
-              >
-                <BlueskyLine size="21" className="group-hover:fill-white transition-colors duration-300" />
               </a>
             </div>
           </div>
@@ -102,11 +94,10 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col justify-between items-center">
           <p className="text-neutral-400 text-sm mb-4 md:mb-0 font-satoshi">
-            © 2025. All rights reserved.
+            © 2026. All rights reserved.
           </p>
           <p className="text-neutral-400 text-sm flex items-center font-satoshi">
-            Design & Developed by <Coffee className="w-4 h-4 mx-1 text-[#fcda03]" />
-            Dhrubaraj Pati
+            Design & Developed by Dhrubaraj Pati
           </p>
         </div>
       </div>
