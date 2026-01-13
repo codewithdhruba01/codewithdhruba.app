@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { X, Copy, Linkedin } from 'lucide-react';
-import { XIcon } from '../icons/SocialIcons';
+import { X, Copy } from 'lucide-react';
+import { XIcon, LinkedinIcon } from '../icons/SocialIcons';
 
 interface ShareModalProps {
   isOpen: boolean;
@@ -139,7 +139,7 @@ const ShareModal = ({ isOpen, onClose, title, slug }: ShareModalProps) => {
               className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg
               bg-white/5 border border-white/10 text-white hover:bg-white/10 transition"
             >
-              <Linkedin className="h-4 w-4" />
+              <LinkedinIcon size="18" />
               LinkedIn
             </button>
           </div>

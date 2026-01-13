@@ -4,9 +4,7 @@ import {
   Undo2,
   Heart,
   Loader2,
-  ThumbsUp,
   Calendar,
-  Share2,
   Plus,
   Minus,
   Settings,
@@ -14,6 +12,7 @@ import {
 } from 'lucide-react';
 import GiscusComments from './GiscusComments';
 import ShareModal from './modals/ShareModal';
+import { ShareIcon, ClappingHandsIcon } from './icons/SocialIcons';
 import ChatBotLauncher from './ChatBotLauncher';
 import { useBlogReactions } from '../hooks/useBlogReactions';
 import { commentService } from '../lib/supabase';
@@ -522,9 +521,9 @@ const BlogPost = () => {
                   : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-blue-500/10'
                   }`}
               >
-                <ThumbsUp
-                  className={`h-4 w-4 ${userHasLiked ? 'fill-blue-400 text-blue-400' : ''
-                    }`}
+                <ClappingHandsIcon
+                  size="18"
+                  className={userHasLiked ? 'fill-blue-400' : ''}
                 />
                 <span>{blogLikes}</span>
               </button>
@@ -532,7 +531,7 @@ const BlogPost = () => {
                 onClick={() => setShowShareModal(true)}
                 className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition"
               >
-                <Share2 className="h-4 w-4 text-purple-400" />
+                <ShareIcon size="18" />
                 <span>Share</span>
               </button>
             </div>

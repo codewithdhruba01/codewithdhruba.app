@@ -2,6 +2,9 @@ import {
   GithubIcon,
   LinkedinIcon,
   XIcon,
+  InstagramIcon,
+  ThreadsIcon,
+  BlueskyLine,
 } from '../components/icons/SocialIcons';
 
 const Footer = () => {
@@ -29,7 +32,7 @@ const Footer = () => {
                 href="https://github.com/codewithdhruba01"
                 className="group p-2 rounded-lg transition-all duration-300 ease-in-out hover:bg-gray-800/50"
               >
-                <GithubIcon size="20" className="group-hover:fill-white transition-colors duration-300" />
+                <GithubIcon size="20" className="group-hover:stroke-white transition-all duration-300 ease-in-out" />
               </a>
 
               <a
@@ -44,6 +47,27 @@ const Footer = () => {
                 className="group p-2 rounded-lg transition-all duration-300 ease-in-out hover:bg-gray-800/50"
               >
                 <XIcon size="20" className="group-hover:fill-white transition-colors duration-300" />
+              </a>
+
+              <a
+                href="https://www.instagram.com/dhrubaraj_pati/"
+                className="group p-2 rounded-lg transition-all duration-300 ease-in-out hover:bg-gray-800/50"
+              >
+                <InstagramIcon size="20" className="group-hover:stroke-white transition-all duration-300 ease-in-out" />
+              </a>
+
+              <a
+                href="https://www.threads.com/@dhrubaraj_pati"
+                className="group p-2 rounded-lg transition-all duration-300 ease-in-out hover:bg-gray-800/50"
+              >
+                <ThreadsIcon size="20" className="group-hover:fill-white transition-colors duration-300" />
+              </a>
+
+              <a
+                href="https://bsky.app/profile/dhrubaraj.bsky.social"
+                className="group p-2 rounded-lg transition-all duration-300 ease-in-out hover:bg-gray-800/50"
+              >
+                <BlueskyLine size="20" className="group-hover:fill-white transition-colors duration-300" />
               </a>
             </div>
           </div>

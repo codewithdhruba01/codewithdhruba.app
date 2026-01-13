@@ -69,7 +69,7 @@ const Hero = () => {
               href="https://github.com/codewithdhruba01"
               className="group flex items-center gap-2 font-bold text-gray-300"
             >
-              <GithubIcon size="18" className="group-hover:fill-white transition-all duration-300 ease-in-out" />
+              <GithubIcon size="18" className="group-hover:stroke-white transition-all duration-300 ease-in-out" />
               GitHub
             </a>
 
