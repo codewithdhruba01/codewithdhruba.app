@@ -1,13 +1,13 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import {
-  DownloadIcon,
-} from '../components/icons/SocialIcons';
+import { DownloadIcon } from '../components/icons/SocialIcons';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 const Resume = () => {
   const [showFallback, setShowFallback] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [pageMounted, setPageMounted] = useState(false);
 
   const pdfUrl = '/assets/Dhrubaraj_Resume.pdf';
 
@@ -17,8 +17,20 @@ const Resume = () => {
   const pdfDownloadUrl =
     'https://drive.google.com/uc?export=download&id=1oHW2CrfLdRfuC4oiN4eDOxZZ-9tGXmRk';
 
+  useEffect(() => {
+    setPageMounted(true);
+  }, []);
+
+  const onDocumentLoadSuccess = useCallback(() => {
+    // Gradually remove blur after a short delay
+    setTimeout(() => {
+      setIsLoaded(true);
+    }, 300);
+  }, []);
+
   const onDocumentLoadError = useCallback(() => {
     setShowFallback(true);
+    setIsLoaded(true);
   }, []);
 
   const handleDownload = () => {
@@ -33,9 +45,15 @@ const Resume = () => {
   const isMobile = window.innerWidth < 640;
 
   return (
-    <div className="min-h-screen bg-[#0f0f0f] flex flex-col items-center px-4 py-8">
+    <div
+      className={`min-h-screen bg-[#0f0f0f] flex flex-col items-center px-4 py-8 transition-all duration-700 ease-out ${pageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
+    >
       {/* Header */}
-      <div className="text-center mb-8 mt-10 sm:mb-12 sm:mt-16">
+      <div
+        className={`text-center mb-8 mt-10 sm:mb-12 sm:mt-16 transition-all duration-700 delay-100 ease-out ${pageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+      >
         <h1 className="text-4xl md:text-6xl font-bold font-excon text-white mb-4">
           Resume
         </h1>
@@ -46,7 +64,7 @@ const Resume = () => {
 
       {/* Resume Viewer */}
       <div className="w-full flex justify-center">
-        <div className="bg-white rounded-lg shadow-2xl overflow-hidden w-[95vw] sm:w-auto">
+        <div className="relative bg-white rounded-lg shadow-2xl overflow-hidden w-[95vw] sm:w-auto">
           {showFallback ? (
             <iframe
               src={googleDriveEmbedUrl}
@@ -55,35 +73,54 @@ const Resume = () => {
               allowFullScreen
             />
           ) : (
-            <Document
-              file={pdfUrl}
-              onLoadError={onDocumentLoadError}
-              loading={
-                <div className="flex items-center justify-center h-[65vh] sm:h-[90vh] w-full sm:w-[900px]">
+            <>
+              <div
+                className={`absolute inset-0 z-10 bg-white/80 backdrop-blur-md transition-all duration-1000 ease-out ${isLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                  }`}
+              >
+                <div className="flex items-center justify-center h-full w-full">
                   <div className="text-center">
-                    <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-gray-800 mx-auto mb-4"></div>
-                    <p className="text-gray-600">Loading resume...</p>
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-800 mx-auto mb-4"></div>
+                    <p className="text-gray-600 font-medium">Loading resume...</p>
                   </div>
                 </div>
-              }
-              className="flex justify-center"
-            >
-              <Page
-                pageNumber={1}
-                scale={isMobile ? 0.75 : 1.15}
-                renderTextLayer={false}
-                renderAnnotationLayer={false}
-              />
-            </Document>
+              </div>
+              <Document
+                file={pdfUrl}
+                onLoadSuccess={onDocumentLoadSuccess}
+                onLoadError={onDocumentLoadError}
+                loading={
+                  <div className="flex items-center justify-center h-[65vh] sm:h-[90vh] w-full sm:w-[900px]">
+                    <div className="text-center">
+                      <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-gray-800 mx-auto mb-4"></div>
+                      <p className="text-gray-600">Loading resume...</p>
+                    </div>
+                  </div>
+                }
+                className="flex justify-center"
+              >
+                <Page
+                  pageNumber={1}
+                  scale={isMobile ? 0.75 : 1.15}
+                  renderTextLayer={false}
+                  renderAnnotationLayer={false}
+                  className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'
+                    }`}
+                />
+              </Document>
+            </>
           )}
         </div>
       </div>
 
       {/* Download Button */}
-      <div className="text-center mt-8 sm:mt-12">
+      <div
+        className={`text-center mt-8 sm:mt-12 transition-all duration-700 delay-200 ease-out ${pageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+      >
         <button
           onClick={handleDownload}
-          className="inline-flex items-center gap-2 px-8 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white rounded-full transition-all duration-300 hover:scale-105"
+          className="inline-flex items-center gap-2 px-8 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white font-synonym font-semibold rounded-full transition-all duration-300 hover:scale-105"
         >
           <DownloadIcon size="18" />
           Download PDF
@@ -91,8 +128,11 @@ const Resume = () => {
       </div>
 
       {/* Footer */}
-      <div className="text-center mt-6 sm:mt-8">
-        <p className="text-sm text-gray-400">
+      <div
+        className={`text-center mt-6 sm:mt-8 transition-all duration-700 delay-300 ease-out ${pageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+      >
+        <p className="text-sm text-gray-400 font-satoshi">
           Resume last updated: December 2025
         </p>
       </div>
