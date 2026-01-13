@@ -21,11 +21,13 @@
     "graphql-request": "^7.2.0",
     "lucide-react": "^0.525.0",
     "motion": "^12.23.25",
+    "pdfjs-dist": "^5.4.530",
     "prismjs": "^1.30.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^4.0.12",
     "react-icons": "^5.5.0",
+    "react-pdf": "^10.3.0",
     "react-router-dom": "^6.21.1",
     "styled-components": "^6.1.19",
     "tailwind-merge": "^3.4.0"

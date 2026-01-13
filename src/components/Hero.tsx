@@ -1,5 +1,5 @@
 import { Download } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { TextGenerateEffect } from '../components/ui/text-generate-effect';
 import { ImageCarousel } from '../components/ui/image-carousel';
 import {
@@ -13,13 +13,10 @@ import {
 } from '../components/icons/SocialIcons';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   const handleDownloadCV = () => {
-    const link = document.createElement('a');
-    link.href = '/assets/Dhrubaraj_Resume.pdf';
-    link.download = 'Dhrubaraj_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    navigate('/resume');
   };
 
   return (
@@ -130,7 +127,7 @@ const Hero = () => {
               className="flex items-center gap-2 bg-[#00DC82] text-black font-semibold px-6 py-3 rounded-lg hover:shadow-lg hover:shadow-[#00DC82]/70 transition"
             >
               <Download size={18} />
-              Download CV
+              Resume / CV
             </button>
 
             <Link
