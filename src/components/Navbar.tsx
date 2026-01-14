@@ -3,7 +3,7 @@ import CommandPalette from './CommandPalette';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState('/#home');
+  const [activeLink, setActiveLink] = useState(window.location.pathname);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
 
   // Keyboard shortcut for command palette
@@ -20,6 +20,18 @@ const Navbar = () => {
 
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setActiveLink(window.location.pathname);
+    };
+
+    window.addEventListener('popstate', handleLocationChange);
+
+    handleLocationChange();
+
+    return () => window.removeEventListener('popstate', handleLocationChange);
   }, []);
 
   const navLinks = [
@@ -113,6 +125,7 @@ const Navbar = () => {
       <CommandPalette
         isOpen={isCommandPaletteOpen}
         onClose={() => setIsCommandPaletteOpen(false)}
+        onNavigate={setActiveLink}
       />
     </nav>
   );

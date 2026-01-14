@@ -25,6 +25,7 @@ import { BookIcon, LeetcodeIcon } from './icons/SocialIcons';
 interface CommandPaletteProps {
   isOpen: boolean;
   onClose: () => void;
+  onNavigate?: (path: string) => void;
 }
 
 interface SearchItem {
@@ -37,7 +38,7 @@ interface SearchItem {
   category: 'recent' | 'navigation' | 'actions';
 }
 
-const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
+const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavigate }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -54,7 +55,11 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       icon: <Home size={18} />,
       shortcut: 'Shift + H',
       category: 'recent',
-      action: () => navigate('/')
+      action: () => {
+        navigate('/');
+        onNavigate?.('/');
+        onClose();
+      }
     },
 
     // Navigation
@@ -65,7 +70,11 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       icon: <User size={18} />,
       shortcut: 'Shift + A',
       category: 'navigation',
-      action: () => navigate('/about')
+      action: () => {
+        navigate('/about');
+        onNavigate?.('/about');
+        onClose();
+      }
     },
     {
       id: 'projects',
@@ -74,7 +83,11 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       icon: <FolderOpen size={18} />,
       shortcut: 'Shift + P',
       category: 'navigation',
-      action: () => navigate('/projects')
+      action: () => {
+        navigate('/projects');
+        onNavigate?.('/projects');
+        onClose();
+      }
     },
     {
       id: 'photos',
@@ -83,7 +96,11 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       icon: <Camera size={18} />,
       shortcut: 'Shift + H',
       category: 'navigation',
-      action: () => navigate('/photos')
+      action: () => {
+        navigate('/photos');
+        onNavigate?.('/photos');
+        onClose();
+      }
     },
     {
       id: 'blogs',
@@ -92,7 +109,11 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       icon: <Rss size={18} />,
       shortcut: 'Shift + B',
       category: 'navigation',
-      action: () => navigate('/all-posts')
+      action: () => {
+        navigate('/all-posts');
+        onNavigate?.('/all-posts');
+        onClose();
+      }
     },
     {
       id: 'certificates',
@@ -101,7 +122,11 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       icon: <Award size={18} />,
       shortcut: 'Shift + C',
       category: 'navigation',
-      action: () => navigate('/certificates')
+      action: () => {
+        navigate('/certificates');
+        onNavigate?.('/certificates');
+        onClose();
+      }
     },
     {
       id: 'resume',
@@ -110,7 +135,11 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       icon: <BookIcon size="18" />,
       shortcut: 'Shift + R',
       category: 'navigation',
-      action: () => navigate('/resume')
+      action: () => {
+        navigate('/resume');
+        onNavigate?.('/resume');
+        onClose();
+      }
     },
     {
       id: 'contact',
@@ -119,7 +148,11 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       icon: <Phone size={18} />,
       shortcut: 'Shift + T',
       category: 'navigation',
-      action: () => navigate('/contact')
+      action: () => {
+        navigate('/contact');
+        onNavigate?.('/contact');
+        onClose();
+      }
     },
     {
       id: 'tools-gears',
@@ -128,7 +161,11 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       icon: <Wrench size={18} />,
       shortcut: 'Shift + O',
       category: 'navigation',
-      action: () => navigate('/gears')
+      action: () => {
+        navigate('/gears');
+        onNavigate?.('/gears');
+        onClose();
+      }
     },
     {
       id: 'vscode-extensions',
@@ -137,7 +174,11 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       icon: <Settings size={18} />,
       shortcut: 'Shift + X',
       category: 'navigation',
-      action: () => navigate('/extensions')
+      action: () => {
+        navigate('/extensions');
+        onNavigate?.('/extensions');
+        onClose();
+      }
     },
 
     // Actions

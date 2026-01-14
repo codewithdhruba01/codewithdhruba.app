@@ -46,20 +46,21 @@ const Resume = () => {
 
   return (
     <div
-      className={`min-h-screen bg-[#0f0f0f] flex flex-col items-center px-4 py-8 transition-all duration-700 ease-out ${pageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      className={`min-h-screen bg-neutral-950 flex flex-col items-center px-4 py-8 transition-all duration-700 ease-out ${pageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
     >
       {/* Header */}
       <div
-        className={`text-center mb-8 mt-10 sm:mb-12 sm:mt-16 transition-all duration-700 delay-100 ease-out ${pageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        className={`text-center mb-8 mt-12 sm:mb-12 sm:mt-20 transition-all duration-700 delay-100 ease-out ${pageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
       >
         <h1 className="text-4xl md:text-6xl font-bold font-excon text-white mb-4">
           Resume
         </h1>
-        <p className="text-gray-300 max-w-md mx-auto">
+        <p className="text-gray-300 max-w-md mx-auto font-poppins">
           My professional resume and experience overview.
         </p>
+        <div className="border-t border-gray-700 max-w-3xl mx-auto mb-12"></div>
       </div>
 
       {/* Resume Viewer */}
