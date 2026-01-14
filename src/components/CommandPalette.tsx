@@ -20,7 +20,7 @@ import {
   Mail,
   Camera
 } from 'lucide-react';
-import { BookIcon } from './icons/SocialIcons';
+import { BookIcon, LeetcodeIcon } from './icons/SocialIcons';
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -215,7 +215,16 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       icon: <Codepen size={18} />,
       shortcut: 'Shift + N',
       category: 'actions',
-      action: () => window.open('https://codepen.io/codewithdhruba01', '_blank')
+      action: () => window.open('https://codepen.io/Dhrubaraj-Pati-the-looper', '_blank')
+    },
+    {
+      id: 'leetcode',
+      title: 'Open Leetcode',
+      description: 'View my CodePen creations',
+      icon: <LeetcodeIcon size="18" />,
+      shortcut: 'Shift + N',
+      category: 'actions',
+      action: () => window.open('https://leetcode.com/u/codewithdhruba/', '_blank')
     }
   ];
 

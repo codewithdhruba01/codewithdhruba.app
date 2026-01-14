@@ -114,7 +114,7 @@ const Hero = () => {
             </a>
 
             <a
-              href="#"
+              href="https://codepen.io/Dhrubaraj-Pati-the-looper"
               className="group flex items-center gap-2 font-bold text-gray-300"
             >
               <CodepenIcon size="18" className="group-hover:stroke-white transition-all duration-300 ease-in-out" />
@@ -122,7 +122,7 @@ const Hero = () => {
             </a>
 
             <a
-              href="#"
+              href="https://leetcode.com/u/codewithdhruba/"
               className="group flex items-center gap-2 font-bold text-gray-300"
             >
               <LeetcodeIcon size="18" className="group-hover:fill-white transition-all duration-300 ease-in-out" />
