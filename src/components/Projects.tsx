@@ -72,7 +72,7 @@ const Projects = () => {
             Latest <span className="text-[#00DC82]">Projects</span>
           </h2>
           <div
-            className="h-1 w-24 bg-gradient-to-r from-white to-green-900 mx-auto rounded-full mb-10"
+            className="w-24 h-0.5 bg-gradient-to-r from-transparent via-[#00DC82] to-transparent mx-auto mt-2 mb-12"
             data-aos="fade-up"
           />
 
