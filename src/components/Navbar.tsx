@@ -89,19 +89,21 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white hover:text-[#00DC82] focus:outline-none"
+              className="text-white hover:text-[#00DC82] focus:outline-none transition-transform duration-300 ease-in-out"
             >
               <i
-                className={`fas ${isOpen ? 'fa-times' : 'fa-bars'} text-2xl`}
+                className={`fas ${isOpen ? 'fa-times' : 'fa-bars'} text-2xl transition-transform duration-300 ease-in-out ${isOpen ? 'rotate-90' : 'rotate-0'
+                  }`}
               ></i>
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`${isOpen ? 'block' : 'hidden'} md:hidden`}>
+        <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          }`}>
           <div className="px-2 pt-2 pb-3 space-y-1">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -109,10 +111,11 @@ const Navbar = () => {
                   setActiveLink(link.href);
                   setIsOpen(false);
                 }}
-                className={`block px-3 py-2 rounded-md transition-all font-hind duration-300 ${activeLink === link.href
-                  ? 'bg-[#00DC82]/20 text-[#00DC82]'
-                  : 'text-white hover:bg-[#00DC82]/20 hover:text-[#00DC82]'
+                className={`block px-3 py-2 rounded-md transition-all font-hind duration-300 transform ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
                   }`}
+                style={{
+                  transitionDelay: isOpen ? `${index * 50}ms` : '0ms'
+                }}
               >
                 {link.text}
               </a>
