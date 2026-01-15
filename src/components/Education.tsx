@@ -9,7 +9,7 @@ const Experience = () => {
       title: 'Full Stack Developer',
       company: 'SpacECE India Foundation, Pune',
       description:
-        'Working as a Full Stack Developer Intern, focusing on designing and developing RESTful APIs for internal and production-level applications. Worked with databases (MySQL / relational DBs) for data storage, retrieval, and optimization.',
+        'I am currently working as a Full Stack Developer Intern at SpacECE India Foundation, contributing to the backend development of the organization’s website. My responsibilities include developing RESTful APIs, managing MySQL databases, and integrating backend services with frontend components. I focus on building secure, scalable, and performance-optimized solutions for production-level applications.',
     },
     {
       year: 'May 2025 - Dec 2025',
