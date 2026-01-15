@@ -1,7 +1,12 @@
 import { motion } from 'framer-motion';
 import { Calendar, CheckCircle } from 'lucide-react';
+import { useState } from 'react';
 
 const Certificates = () => {
+  const [loadedCertificateImages, setLoadedCertificateImages] = useState<Record<number, boolean>>({});
+  const [loadedAchievementImages, setLoadedAchievementImages] = useState<Record<number, boolean>>({});
+  const [loadedBadgeImages, setLoadedBadgeImages] = useState<Record<number, boolean>>({});
+
   const certificates = [
     {
       title: 'The Complete Full-Stack Web Development',
@@ -123,6 +128,18 @@ const Certificates = () => {
     },
   ];
 
+  const handleCertificateImageLoad = (index: number) => {
+    setLoadedCertificateImages(prev => ({ ...prev, [index]: true }));
+  };
+
+  const handleAchievementImageLoad = (index: number) => {
+    setLoadedAchievementImages(prev => ({ ...prev, [index]: true }));
+  };
+
+  const handleBadgeImageLoad = (index: number) => {
+    setLoadedBadgeImages(prev => ({ ...prev, [index]: true }));
+  };
+
   return (
     <div className="min-h-screen pt-24 pb-12 px-4 bg-neutral-950">
       <div className="max-w-7xl mx-auto">
@@ -164,7 +181,9 @@ const Certificates = () => {
                   <img
                     src={cert.image}
                     alt={cert.title}
-                    className="w-full h-full transition-transform duration-300 group-hover:scale-105"
+                    className={`w-full h-full transition-all duration-500 group-hover:scale-105 ${loadedCertificateImages[index] ? 'blur-0' : 'blur-md'
+                      }`}
+                    onLoad={() => handleCertificateImageLoad(index)}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                   <span className="absolute top-2 right-2 bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded-md">
@@ -250,7 +269,9 @@ const Certificates = () => {
                   <img
                     src={achievement.image}
                     alt={achievement.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    className={`w-full h-full object-cover group-hover:scale-110 transition-all duration-500 ${loadedAchievementImages[index] ? 'blur-0' : 'blur-md'
+                      }`}
+                    onLoad={() => handleAchievementImageLoad(index)}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
@@ -298,7 +319,9 @@ const Certificates = () => {
                     <img
                       src={badge.img}
                       alt={badge.name}
-                      className="h-16 w-16 object-contain"
+                      className={`h-16 w-16 object-contain transition-all duration-500 ${loadedBadgeImages[index] ? 'blur-0' : 'blur-md'
+                        }`}
+                      onLoad={() => handleBadgeImageLoad(index)}
                     />
                     {badge.count && (
                       <span className="absolute bottom-0 right-0 bg-white text-black text-xs font-bold px-1 rounded-full">

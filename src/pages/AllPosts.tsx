@@ -46,6 +46,7 @@ const AllPosts = () => {
   const [activeTag, setActiveTag] = useState('All');
   const [blogViews, setBlogViews] = useState<Record<string, number>>({});
   const [loadingViews, setLoadingViews] = useState(true);
+  const [loadedImages, setLoadedImages] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -76,6 +77,10 @@ const AllPosts = () => {
     } finally {
       setLoadingViews(false);
     }
+  };
+
+  const handleImageLoad = (slug: string) => {
+    setLoadedImages(prev => ({ ...prev, [slug]: true }));
   };
 
   const filteredPosts =
@@ -127,7 +132,10 @@ const AllPosts = () => {
                   <img
                     src={post.image}
                     alt={post.title}
-                    className="w-full h-full object-cover"
+                    className={`w-full h-full object-cover transition-all duration-500 ${
+                      loadedImages[post.slug] ? 'blur-0' : 'blur-md'
+                    }`}
+                    onLoad={() => handleImageLoad(post.slug)}
                   />
                 </div>
 

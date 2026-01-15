@@ -202,6 +202,7 @@ const AllProjects = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [loading, setLoading] = useState(true);
   const [showAll, setShowAll] = useState(false);
+  const [loadedImages, setLoadedImages] = useState<Record<number, boolean>>({});
 
   const initialCount = 6;
 
@@ -214,6 +215,10 @@ const AllProjects = () => {
     selectedCategory === 'All'
       ? projects
       : projects.filter((project) => project.tags.includes(selectedCategory));
+
+  const handleImageLoad = (projectId: number) => {
+    setLoadedImages(prev => ({ ...prev, [projectId]: true }));
+  };
 
   const visibleProjects = showAll
     ? filteredProjects
@@ -274,7 +279,10 @@ const AllProjects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-700 ease-in-out hover:scale-110"
+                  className={`w-full h-48 object-cover transition-all duration-500 hover:scale-110 ${
+                    loadedImages[project.id] ? 'blur-0' : 'blur-md'
+                  }`}
+                  onLoad={() => handleImageLoad(project.id)}
                 />
                 <div className="p-5">
                   <h3 className="text-xl font-bold font-synonym mb-2">

@@ -54,10 +54,8 @@ const Blog = () => {
               <img
                 src={post.image}
                 alt={post.title}
-                className="w-full h-70 object-cover rounded-t-2xl transition-all duration-700 ease-out"
-                style={{
-                  filter: `blur(${loadedImages.has(index) ? '0px' : '20px'})`
-                }}
+                className={`w-full h-70 object-cover rounded-t-2xl transition-all duration-500 ${loadedImages.has(index) ? 'blur-0' : 'blur-md'
+                  }`}
                 onLoad={() => handleImageLoad(index)}
               />
 

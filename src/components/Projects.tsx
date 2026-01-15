@@ -14,6 +14,11 @@ type Project = {
 const Projects = () => {
   const navigate = useNavigate();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [loadedImages, setLoadedImages] = useState<Record<number, boolean>>({});
+
+  const handleImageLoad = (index: number) => {
+    setLoadedImages(prev => ({ ...prev, [index]: true }));
+  };
 
   const projects: Project[] = [
     {
@@ -90,7 +95,9 @@ const Projects = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-700 ease-in-out hover:scale-110"
+                    className={`w-full h-48 object-cover transition-all duration-500 hover:scale-110 ${loadedImages[index] ? 'blur-0' : 'blur-md'
+                      }`}
+                    onLoad={() => handleImageLoad(index)}
                   />
                 </div>
 

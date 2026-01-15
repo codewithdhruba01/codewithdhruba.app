@@ -1,6 +1,9 @@
 import { Mail, Github, Twitter, Linkedin } from 'lucide-react';
+import { useState } from 'react';
 
 export default function AboutMe() {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <section
       id="about"
@@ -16,7 +19,10 @@ export default function AboutMe() {
           <img
             src="/assets/profilepic.jpeg"
             alt="Profile"
-            className="rounded-xl mb-6 w-full object-cover"
+            className={`rounded-xl mb-6 w-full object-cover transition-all duration-500 ${
+              imageLoaded ? 'blur-0' : 'blur-md'
+            }`}
+            onLoad={() => setImageLoaded(true)}
           />
           <h2 className="text-xl font-semibold font-synonym">Dhrubaraj Pati</h2>
           <p className="text-[#00DC82] mb-4 font-outfit">Frontend Developer</p>
