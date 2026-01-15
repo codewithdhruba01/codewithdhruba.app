@@ -19,9 +19,8 @@ export default function AboutMe() {
           <img
             src="/assets/profilepic.jpeg"
             alt="Profile"
-            className={`rounded-xl mb-6 w-full object-cover transition-all duration-500 ${
-              imageLoaded ? 'blur-0' : 'blur-md'
-            }`}
+            className={`rounded-xl mb-6 w-full object-cover transition-all duration-500 ${imageLoaded ? 'blur-0' : 'blur-md'
+              }`}
             onLoad={() => setImageLoaded(true)}
           />
           <h2 className="text-xl font-semibold font-synonym">Dhrubaraj Pati</h2>
@@ -86,7 +85,7 @@ export default function AboutMe() {
             About <span className="text-[#00DC82]">Me</span>
           </h1>
           <p className="text-gray-400 font-satoshi text-xl leading-relaxed">
-            I am a passionate <span className="text-white font-bold">Frontend Developer</span> with a strong focus on building modern,
+            I am a <span className="text-white font-bold">Frontend Developer</span> with a strong focus on building modern,
             visually appealing, and user-centric web applications. My journey into development
             is fueled by curiosity about how technology can solve real-world problems and a
             constant desire to learn and grow. I enjoy crafting pixel-perfect user interfaces and building scalable,
