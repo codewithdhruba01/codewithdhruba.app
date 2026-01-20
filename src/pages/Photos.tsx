@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Heart } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { photos, categories } from '../data/photos';
 import { commentService } from '../lib/supabase';
 
@@ -326,7 +327,8 @@ const Photos = () => {
                                         )}
 
                                         {/* Love Icon - positioned after overlays to ensure it's clickable */}
-                                        <button
+                                        <motion.button
+                                            whileTap={{ scale: 0.8 }}
                                             onClick={(e) => handleLoveClick(photo.id, e)}
                                             onTouchStart={(e) => e.stopPropagation()}
                                             onTouchMove={(e) => e.stopPropagation()}
@@ -335,26 +337,52 @@ const Photos = () => {
                                             onMouseMove={(e) => e.stopPropagation()}
                                             onMouseUp={(e) => e.stopPropagation()}
                                             disabled={userLovedPhotos.has(photo.id) || lovingPhoto}
-                                            className={`absolute top-3 left-3 z-20 p-2 rounded-full bg-black/20 backdrop-blur-sm transition-all duration-200 group flex items-center gap-1 ${userLovedPhotos.has(photo.id)
+                                            className={`absolute top-3 left-3 z-20 p-2 rounded-full bg-black/20 backdrop-blur-sm transition-colors duration-200 group flex items-center gap-1 ${userLovedPhotos.has(photo.id)
                                                 ? 'cursor-default'
                                                 : 'hover:bg-black/40 cursor-pointer'
                                                 }`}
                                             aria-label={userLovedPhotos.has(photo.id) ? "Already loved" : "Add to favorites"}
                                         >
-                                            <Heart
-                                                className={`w-5 h-5 transition-all duration-200 ${userLovedPhotos.has(photo.id)
-                                                    ? 'text-red-500 fill-red-500 drop-shadow-lg'
-                                                    : 'text-white/70 group-hover:text-white'
-                                                    }`}
-                                                fill={userLovedPhotos.has(photo.id) ? "currentColor" : "none"}
-                                            />
+                                            <div className="relative">
+                                                <AnimatePresence>
+                                                    {userLovedPhotos.has(photo.id) && (
+                                                        <motion.div
+                                                            initial={{ scale: 0, opacity: 0 }}
+                                                            animate={{ scale: 1.5, opacity: 0 }}
+                                                            exit={{ opacity: 0 }}
+                                                            transition={{ duration: 0.5, ease: "easeOut" }}
+                                                            className="absolute inset-0 z-10"
+                                                        >
+                                                            <Heart className="w-5 h-5 text-red-500 fill-red-500" />
+                                                        </motion.div>
+                                                    )}
+                                                </AnimatePresence>
+                                                <motion.div
+                                                    initial={false}
+                                                    animate={{
+                                                        scale: userLovedPhotos.has(photo.id) ? [1, 1.4, 1] : 1,
+                                                        color: userLovedPhotos.has(photo.id) ? "#ef4444" : "rgba(255, 255, 255, 0.7)"
+                                                    }}
+                                                    transition={{
+                                                        duration: 0.4,
+                                                        ease: [0.175, 0.885, 0.32, 1.275] // spring-like easing
+                                                    }}
+                                                >
+                                                    <Heart
+                                                        className={`w-5 h-5 ${userLovedPhotos.has(photo.id)
+                                                            ? 'fill-red-500 drop-shadow-lg'
+                                                            : 'group-hover:text-white'
+                                                            }`}
+                                                    />
+                                                </motion.div>
+                                            </div>
                                             <span className={`text-xs font-medium transition-all duration-200 ${userLovedPhotos.has(photo.id)
                                                 ? 'text-white/70'
                                                 : 'text-white/70 group-hover:text-white'
                                                 }`}>
                                                 {photoLoveCounts[photo.id] || 0}
                                             </span>
-                                        </button>
+                                        </motion.button>
                                     </div>
                                 </div>
                             );
