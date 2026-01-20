@@ -15,7 +15,7 @@ import { ShareIcon, ClappingHandsIcon } from './icons/SocialIcons';
 import ChatBotLauncher from './ChatBotLauncher';
 import { useBlogReactions } from '../hooks/useBlogReactions';
 import { commentService } from '../lib/supabase';
-import LoveReactionButton from './LoveReactionButton';
+import LoveReactionButton from './ui/LoveReactionButton';
 
 // Prism.js imports for syntax highlighting
 import Prism from 'prismjs';
@@ -548,10 +548,7 @@ const BlogPost = () => {
           </div>
 
           {/* Love Reaction Section */}
-          import LoveReactionButton from './LoveReactionButton';
-          // ... existing imports
 
-          // Inside the component return (Love Reaction Section)
           <div className={`mt-24 mb-20 flex flex-col items-center justify-center transition-all duration-700 delay-900 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             {blogReactionsError && (
               <p className="text-red-400 text-sm mb-8">{blogReactionsError}</p>
