@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import {
   Undo2,
   Heart,
-  Loader2,
   Calendar,
   Plus,
   Minus,
@@ -16,6 +15,7 @@ import { ShareIcon, ClappingHandsIcon } from './icons/SocialIcons';
 import ChatBotLauncher from './ChatBotLauncher';
 import { useBlogReactions } from '../hooks/useBlogReactions';
 import { commentService } from '../lib/supabase';
+import LoveReactionButton from './LoveReactionButton';
 
 // Prism.js imports for syntax highlighting
 import Prism from 'prismjs';
@@ -48,7 +48,6 @@ const BlogPost = () => {
   const [fontSize, setFontSize] = useState<number>(100); // percentage
   const [isMobileSheetOpen, setIsMobileSheetOpen] = useState<boolean>(false);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
-  const [isJumping, setIsJumping] = useState<boolean>(false);
 
   // Gesture handling for bottom sheet
   const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -232,17 +231,7 @@ const BlogPost = () => {
     handleBlogLike,
   } = useBlogReactions(slug);
 
-  const handleLoveClick = (e: React.MouseEvent) => {
-    e.preventDefault(); // Prevent any default scrolling behavior
-    e.stopPropagation(); // Stop event propagation
 
-    // Trigger jumping animation
-    setIsJumping(true);
-    setTimeout(() => setIsJumping(false), 600); // Reset after animation
-
-    // Call the actual love handler
-    handleBlogLove();
-  };
 
   const enhanceCodeBlocks = () => {
 
@@ -559,51 +548,31 @@ const BlogPost = () => {
           </div>
 
           {/* Love Reaction Section */}
+          import LoveReactionButton from './LoveReactionButton';
+          // ... existing imports
+
+          // Inside the component return (Love Reaction Section)
           <div className={`mt-24 mb-20 flex flex-col items-center justify-center transition-all duration-700 delay-900 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             {blogReactionsError && (
               <p className="text-red-400 text-sm mb-8">{blogReactionsError}</p>
             )}
 
             {/* Large Reaction Count - Atmospheric/Watermark Style */}
-            <div className="-mb-8">
-              <span className="text-8xl md:text-9xl font-bold text-neutral-700/30 font-outfit tracking-wider select-none">
+            <div className="-mb-8 z-0">
+              <span className="text-8xl md:text-9xl font-bold text-neutral-700/30 font-outfit tracking-wider select-none relative z-0">
                 {blogLoves}
               </span>
             </div>
 
-            {/* Circular Love Button - Always Active/Filled State */}
-            <button
-              onClick={handleLoveClick}
-              disabled={userHasLoved || lovingBlog}
-              className="relative w-28 h-28 rounded-full border border-neutral-700/30 flex items-center justify-center bg-neutral-950 hover:border-neutral-600/30 transition-all duration-300 ease-out"
-            >
-              {lovingBlog ? (
-                <Loader2 className="h-7 w-7 animate-spin text-[#00DC82]/70" />
-              ) : (
-                <Heart
-                  className={`h-14 w-14 transition-all duration-300 ease-out ${userHasLoved
-
-                    ? 'fill-[#00DC82] text-[#00DC82]'
-                    : 'fill-[#1f1f1f] text-[#1f1f1f]'
-                    }`}
-                  style={{
-                    transform: isJumping ? 'scale(1.2) translateY(-8px)' : 'scale(1) translateY(0px)',
-                    transition: 'transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
-                    ...(userHasLoved
-                      ? {
-                        filter:
-                          'drop-shadow(0 0 8px rgba(0, 220, 130, 0.3)) brightness(1.05)',
-                      }
-                      : {
-                        // subtle depth for dark heart (matches screenshot)
-                        filter: 'brightness(0.95)',
-                      }
-                    )
-                  }}
-                />
-
-              )}
-            </button>
+            {/* New Reusable Love Button */}
+            <div className="relative z-10">
+              <LoveReactionButton
+                initialCount={blogLoves}
+                onLove={handleBlogLove}
+                isLoved={userHasLoved}
+                isLoading={lovingBlog}
+              />
+            </div>
           </div>
 
           {/* Comments */}
