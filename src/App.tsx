@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from './components/layout/Navbar';
 import Hero from './components/Hero';
 import About from './pages/About';
 import Education from './components/Education';
@@ -8,7 +8,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Blog from './components/Blog';
 import BlogPost from './components/BlogPost';
-import Footer from './components/Footer';
+import Footer from './components/layout/Footer';
 import AllPosts from './pages/AllPosts';
 import AllProjects from './pages/AllProjects';
 import ChatAssistant from './pages/ChatAssistant';

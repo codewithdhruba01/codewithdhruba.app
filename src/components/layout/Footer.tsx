@@ -5,7 +5,7 @@ import {
   InstagramIcon,
   ThreadsIcon,
   BlueskyLine,
-} from '../components/icons/SocialIcons';
+} from '../icons/SocialIcons';
 
 const Footer = () => {
   return (
