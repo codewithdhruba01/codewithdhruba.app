@@ -31,13 +31,13 @@ const Projects = () => {
       techStack: ['React', 'TypeScript', 'Node.js'],
     },
     {
-      title: 'Outfit Wallpaper Generator',
+      title: 'ColorKit WebApp',
       description:
-        'A modern and intuitive tool to create custom phone wallpapers using your favorite colors, with both gradient and solid styles.',
-      image: '/project/wallpaperapp.png',
-      github: 'https://github.com/codewithdhruba01/OutfitWallpaper',
-      demo: 'https://outfitwallpaper.vercel.app/',
-      techStack: ['React', 'TypeScript', 'Tailwind CSS'],
+        'A professional, feature-rich color picker and analysis tool Extract colors from images, generate color palettes, analyze accessibility, and explore color theory with an elegant, animated interface.',
+      image: '/project/colorkit-cover.png',
+      github: 'https://github.com/codewithdhruba01/ColorPicker',
+      demo: 'https://colorskit.vercel.app/',
+      techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Notion'],
     },
     {
       title: 'GitHub Developer Tools',

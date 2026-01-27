@@ -279,9 +279,8 @@ const AllProjects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className={`w-full h-48 object-cover transition-all duration-500 hover:scale-110 ${
-                    loadedImages[project.id] ? 'blur-0' : 'blur-md'
-                  }`}
+                  className={`w-full h-48 object-cover transition-all duration-500 hover:scale-110 ${loadedImages[project.id] ? 'blur-0' : 'blur-md'
+                    }`}
                   onLoad={() => handleImageLoad(project.id)}
                 />
                 <div className="p-5">
