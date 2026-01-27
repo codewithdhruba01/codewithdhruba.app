@@ -9,13 +9,13 @@ const Resume = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [pageMounted, setPageMounted] = useState(false);
 
-  const pdfUrl = '/assets/Dhrubaraj_Resume.pdf';
+  const pdfUrl = '/assets/Dhrubaraj-Resume.pdf';
 
   const googleDriveEmbedUrl =
-    'https://drive.google.com/file/d/1oHW2CrfLdRfuC4oiN4eDOxZZ-9tGXmRk/preview';
+    'https://drive.google.com/file/d/1cG4JpomPxjYArI2Q-WyYb15h6y95Nlu0/preview';
 
   const pdfDownloadUrl =
-    'https://drive.google.com/uc?export=download&id=1oHW2CrfLdRfuC4oiN4eDOxZZ-9tGXmRk';
+    'https://drive.google.com/uc?export=download&id=1cG4JpomPxjYArI2Q-WyYb15h6y95Nlu0';
 
   useEffect(() => {
     setPageMounted(true);
@@ -134,7 +134,7 @@ const Resume = () => {
           }`}
       >
         <p className="text-sm text-gray-400 font-satoshi">
-          Resume last updated: December 2025
+          Resume last updated: January 2026
         </p>
       </div>
     </div>
