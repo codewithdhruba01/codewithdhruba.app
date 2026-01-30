@@ -3,6 +3,7 @@ import { buildingMyFirstWebsiteWithReactAndTailwind } from './building-my-first-
 import { chromeKeyboardShortcuts } from './chrome-keyboard-shortcuts';
 import { essentialLinuxCommands } from './essential-linux-commands';
 import { openweatherApiGuide } from './openweather-api-guide';
+import { howNextAuthWorks } from './how-nextauth-works';
 
 export const blogPostsData = {
   'getting-started-with-react-typescript': gettingStartedWithReactTypescript,
@@ -10,6 +11,7 @@ export const blogPostsData = {
   'chrome-keyboard-shortcuts': chromeKeyboardShortcuts,
   'essential-linux-commands': essentialLinuxCommands,
   'openweather-api-guide': openweatherApiGuide,
+  'how-nextauth-works': howNextAuthWorks,
 };
 
 export type BlogPostKey = keyof typeof blogPostsData;
