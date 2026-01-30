@@ -179,7 +179,7 @@ const AllPosts = () => {
                       <img
                         src={post.image}
                         alt={post.title}
-                        className={`w-full aspect-video md:aspect-[4/3] object-cover transform group-hover:scale-105 transition-all duration-500 ${loadedImages[post.slug] ? 'blur-0' : 'blur-md'
+                        className={`w-full aspect-video md:aspect-[4/3] object-cover transition-all duration-500 ${loadedImages[post.slug] ? 'blur-0' : 'blur-md'
                           }`}
                         onLoad={() => handleImageLoad(post.slug)}
                       />
