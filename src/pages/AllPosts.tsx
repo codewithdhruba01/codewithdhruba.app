@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Clock, ArrowRight, Eye } from 'lucide-react';
+import { Clock, Eye } from 'lucide-react';
 import { commentService } from '../lib/supabase';
 import { blogPostsData } from '../data/blogs';
 
@@ -120,73 +120,81 @@ const AllPosts = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-col space-y-8 max-w-4xl mx-auto">
           {filteredPosts.length > 0 ? (
             filteredPosts.map((post, index) => (
-              <article
-                key={index}
-                className="bg-[#141414] border border-neutral-800 rounded-2xl overflow-hidden w-full max-w-[360px] mx-auto"
-              >
-                {/* Image */}
-                <div className="h-48 overflow-hidden">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className={`w-full h-full object-cover transition-all duration-500 ${
-                      loadedImages[post.slug] ? 'blur-0' : 'blur-md'
-                    }`}
-                    onLoad={() => handleImageLoad(post.slug)}
-                  />
-                </div>
+              <div key={index} className="group">
+                <article className="flex flex-col md:flex-row gap-5 md:gap-8 items-start">
+                  {/* Content - 70% width */}
+                  <div className="flex-1 order-2 md:order-1 w-full">
+                    {/* Date */}
+                    <div className="text-neutral-500 text-xs mb-1.5 font-outfit">
+                      {post.date}
+                    </div>
 
-                <div className="p-6">
-                  {/* Views + read time */}
-                  <div className="flex items-center text-sm text-neutral-400 font-outfit mb-3 gap-4">
-                    <span className="flex items-center gap-1">
-                      <Eye size={17} style={{ color: '#00DC82' }} />
-                      {loadingViews ? '...' : `${blogViews[post.slug] || 0} views`}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Clock size={16} style={{ color: '#00DC82' }} />
-                      {post.readTime}
-                    </span>
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-lg font-outfit font-semibold mb-3">
-                    <Link to={`/blog/${post.slug}`}>{post.title}</Link>
-                  </h3>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {post.category.map((cat, i) => (
-                      <span
-                        key={i}
-                        className="bg-[#1e1e1e] text-neutral-300 font-poppins text-xs px-3 py-1 rounded-full"
+                    {/* Title */}
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-2 font-outfit leading-tight">
+                      <Link
+                        to={`/blog/${post.slug}`}
+                        className="transition-all duration-200 group-hover:bg-[#00DC82]/10 group-hover:text-[#00DC82] rounded-md px-1 -ml-1"
                       >
-                        {cat}
-                      </span>
-                    ))}
+                        {post.title}
+                      </Link>
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-neutral-400 text-sm leading-relaxed mb-4 font-poppins font-light line-clamp-2">
+                      {post.description}
+                    </p>
+
+                    {/* Metadata & Tags */}
+                    <div className="flex flex-wrap items-center justify-between gap-4 mt-auto">
+                      <div className="flex items-center gap-4 text-xs text-neutral-400 font-outfit">
+                        <span className="flex items-center gap-1.5">
+                          <Clock size={14} className="text-[#00DC82]" />
+                          {post.readTime}
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                          <Eye size={15} className="text-[#00DC82]" />
+                          {loadingViews ? '...' : `${blogViews[post.slug] || 0} views`}
+                        </span>
+                      </div>
+
+                      <div className="flex flex-wrap gap-2">
+                        {post.category.map((cat, i) => (
+                          <span
+                            key={i}
+                            className="bg-[#1e1e1e] text-neutral-500 px-2.5 py-0.5 rounded-md text-[10px] font-medium font-poppins border border-neutral-800"
+                          >
+                            {cat}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Description */}
-                  <p className="text-sm text-neutral-400 leading-relaxed mb-4 font-poppins font-light">
-                    {post.description}
-                  </p>
+                  {/* Image - 30% width */}
+                  <div className="w-full md:w-[220px] shrink-0 order-1 md:order-2">
+                    <Link to={`/blog/${post.slug}`} className="block overflow-hidden rounded-lg border border-neutral-800">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className={`w-full aspect-video md:aspect-[4/3] object-cover transform group-hover:scale-105 transition-all duration-500 ${loadedImages[post.slug] ? 'blur-0' : 'blur-md'
+                          }`}
+                        onLoad={() => handleImageLoad(post.slug)}
+                      />
+                    </Link>
+                  </div>
+                </article>
 
-                  {/* Read More */}
-                  <Link
-                    to={`/blog/${post.slug}`}
-                    className="inline-flex items-center text-[#00DC82] text-sm font-medium font-outfit"
-                  >
-                    Read More
-                    <ArrowRight size={16} className="ml-1" />
-                  </Link>
-                </div>
-              </article>
+                {/* Separator Line (except for last item) */}
+                {index !== filteredPosts.length - 1 && (
+                  <div className="border-t border-dashed border-neutral-800 mt-8"></div>
+                )}
+              </div>
             ))
           ) : (
-            <p className="text-gray-400 col-span-full text-center">
+            <p className="text-gray-400 col-span-full text-center py-20 text-lg">
               No posts found for "{activeTag}"
             </p>
           )}
