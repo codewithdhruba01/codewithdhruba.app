@@ -121,10 +121,10 @@ const Resume = () => {
       >
         <button
           onClick={handleDownload}
-          className="inline-flex items-center gap-2 px-8 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white font-synonym font-semibold rounded-full transition-all duration-300 hover:scale-105"
+          className="inline-flex items-center justify-center font-bold font-outfit px-8 py-3 bg-[#00DC82] text-black rounded-lg hover:bg-[#00b368] hover:text-black transition-all duration-500 ease-in-out gap-2"
         >
-          <DownloadIcon size="18" />
-          Download PDF
+          <DownloadIcon size="18" className="!fill-black" />
+          Download
         </button>
       </div>
 
