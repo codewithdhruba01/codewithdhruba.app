@@ -1,5 +1,6 @@
 import { Mail, Github, Twitter, Linkedin } from 'lucide-react';
 import { useState } from 'react';
+import HoverInfo from '../components/ui/HoverInfo';
 
 export default function AboutMe() {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -85,13 +86,41 @@ export default function AboutMe() {
             About <span className="text-[#00DC82]">Me</span>
           </h1>
           <p className="text-gray-400 font-satoshi text-xl leading-relaxed">
-            I am a <span className="text-white font-bold">Frontend Developer</span> with a strong focus on building modern,
+            I am a <HoverInfo
+              trigger={<span className="text-white font-bold">Frontend Developer</span>}
+              title="Frontend Developer"
+              description="Specializing in building responsive, accessible, and high-performance web interfaces using modern technologies."
+            /> with a strong focus on building modern,
             visually appealing, and user-centric web applications. My journey into development
             is fueled by curiosity about how technology can solve real-world problems and a
             constant desire to learn and grow. I enjoy crafting pixel-perfect user interfaces and building scalable,
             maintainable frontend architectures. With hands-on experience in modern
-            tools and frameworks like <span className="text-white font-bold">React, TypeScript, Tailwind CSS and Next.js </span>
-            I create responsive, accessible, and performance-optimized web applications.
+            tools and frameworks like{' '}
+            <HoverInfo
+              trigger={<span className="text-white font-bold">React</span>}
+              title="React"
+              description="The library for web and native user interfaces. I use it to build component-based architecture."
+              joinedDate="May 2013"
+            />,{' '}
+            <HoverInfo
+              trigger={<span className="text-white font-bold">TypeScript</span>}
+              title="TypeScript"
+              description="TypeScript is a strongly typed programming language that builds on JavaScript."
+              joinedDate="Oct 2012"
+            />,{' '}
+            <HoverInfo
+              trigger={<span className="text-white font-bold">Tailwind CSS</span>}
+              title="Tailwind CSS"
+              description="A utility-first CSS framework packed with classes that can be composed to build any design, directly in your markup."
+              joinedDate="Nov 2017"
+            />{' '}and{' '}
+            <HoverInfo
+              trigger={<span className="text-white font-bold">Next.js</span>}
+              title="Next.js"
+              description="The React Framework for the Web. Used for server-side rendering and static site generation."
+              joinedDate="Oct 2016"
+            />{' '}I
+            create responsive, accessible, and performance-optimized web applications.
           </p>
           <p className="text-gray-400 font-satoshi text-xl leading-relaxed">
             Beyond writing code, I care deeply about delivering great user experiences,
