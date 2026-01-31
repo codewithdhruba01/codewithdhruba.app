@@ -42,6 +42,15 @@ const calculateTagCounts = () => {
 
 const tags = calculateTagCounts();
 
+// Distinct gradients for loading placeholders
+const placeholderGradients = [
+  'bg-gradient-to-br from-blue-900/40 via-neutral-900 to-black',
+  'bg-gradient-to-br from-emerald-900/40 via-neutral-900 to-black',
+  'bg-gradient-to-br from-purple-900/40 via-neutral-900 to-black',
+  'bg-gradient-to-br from-orange-900/40 via-neutral-900 to-black',
+  'bg-gradient-to-br from-cyan-900/40 via-neutral-900 to-black',
+];
+
 const AllPosts = () => {
   const [activeTag, setActiveTag] = useState('All');
   const [blogViews, setBlogViews] = useState<Record<string, number>>({});
@@ -175,11 +184,24 @@ const AllPosts = () => {
 
                   {/* Image - 30% width */}
                   <div className="w-full md:w-[220px] shrink-0 order-1 md:order-2">
-                    <Link to={`/blog/${post.slug}`} className="block overflow-hidden rounded-lg border border-neutral-800">
+                    <Link to={`/blog/${post.slug}`} className="block relative overflow-hidden rounded-lg border border-neutral-800 aspect-video md:aspect-[4/3]">
+
+                      {/* Gradient Placeholder */}
+                      <div
+                        className={`absolute inset-0 transition-opacity duration-700 ${loadedImages[post.slug] ? 'opacity-0' : 'opacity-100'
+                          } ${placeholderGradients[index % placeholderGradients.length]}`}
+                      >
+                        {/* Noise/Texture overlay for more realism */}
+                        <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+                      </div>
+
+                      {/* Actual Image */}
                       <img
                         src={post.image}
                         alt={post.title}
-                        className={`w-full aspect-video md:aspect-[4/3] object-cover transition-all duration-500 ${loadedImages[post.slug] ? 'blur-0' : 'blur-md'
+                        className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 transform ${loadedImages[post.slug]
+                          ? 'opacity-100 scale-100 blur-0'
+                          : 'opacity-0 scale-110 blur-xl'
                           }`}
                         onLoad={() => handleImageLoad(post.slug)}
                       />
