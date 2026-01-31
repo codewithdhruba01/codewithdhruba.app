@@ -33,7 +33,7 @@ const Projects = () => {
     {
       title: 'ColorKit WebApp',
       description:
-        'A professional, feature-rich color picker and analysis tool Extract colors from images, generate color palettes, analyze accessibility, and explore color theory with an elegant, animated interface.',
+        'A professional, feature-rich color picker and analysis tool Extract colors from images, generate color palettes, analyze accessibility.',
       image: '/project/colorkit-cover.png',
       github: 'https://github.com/codewithdhruba01/ColorPicker',
       demo: 'https://colorskit.vercel.app/',
