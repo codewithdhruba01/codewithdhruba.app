@@ -57,7 +57,7 @@ const Resume = () => {
         <h1 className="text-4xl md:text-6xl font-bold font-excon text-white mb-4">
           Resume
         </h1>
-        <p className="text-gray-300 max-w-md mx-auto font-poppins">
+        <p className="text-[#9C9C9C] max-w-md mx-auto font-poppins">
           My professional resume and experience overview.
         </p>
         <div className="border-t border-gray-700 max-w-3xl mx-auto mb-12"></div>

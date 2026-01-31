@@ -63,7 +63,7 @@ const Navbar = () => {
                 onClick={() => setActiveLink(link.href)}
                 className={`px-4 py-2 rounded-full transition-all duration-300 ${activeLink === link.href
                   ? 'bg-[#00DC82]/20 text-[#00DC82]'
-                  : 'text-gray-300 hover:bg-[#00DC82]/20 hover:text-[#00DC82]'
+                  : 'text-[#E5E5E5] hover:bg-[#00DC82]/20 hover:text-[#00DC82]'
                   }`}
               >
                 {link.text}

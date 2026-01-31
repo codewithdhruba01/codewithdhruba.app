@@ -104,7 +104,7 @@ const AllPosts = () => {
           <h1 className="text-4xl sm:text-5xl font-bold font-excon mb-4">
             Blog & Publications
           </h1>
-          <p className="text-gray-400 mt-2 text-base sm:text-lg font-poppins">
+          <p className="text-[#A3A3A3] mt-2 text-base sm:text-lg font-poppins">
             Exploring the art of engineering, the craft of code, and the journey
             of building impactful tech.
           </p>

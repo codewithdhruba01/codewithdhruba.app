@@ -476,7 +476,7 @@ const BlogPost = () => {
           </div>
 
           <div className={`mb-6 transition-all duration-500 delay-500 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <h1 className="text-3xl md:text-4xl font-pally text-white leading-tight">
+            <h1 className="text-3xl md:text-4xl font-supreme font-bold text-[#F5F5F5] leading-tight">
               {post.title}
             </h1>
           </div>
@@ -528,7 +528,7 @@ const BlogPost = () => {
 
           {/* Content */}
           <div
-            className={`prose prose-sm md:prose-base lg:prose-lg font-poppins prose-invert max-w-none text-neutral-400 transition-all duration-500 delay-700 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+            className={`prose prose-sm md:prose-base lg:prose-lg font-poppins prose-invert max-w-none text-[#A3A3A3] transition-all duration-500 delay-700 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
             style={{ fontSize: `${fontSize}%` }}
             dangerouslySetInnerHTML={{ __html: post.content }}
           />

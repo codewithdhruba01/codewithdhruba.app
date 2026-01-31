@@ -85,7 +85,7 @@ export default function AboutMe() {
           <h1 className="text-6xl font-bold font-excon md:text-7xl mb-4">
             About <span className="text-[#00DC82]">Me</span>
           </h1>
-          <p className="text-gray-400 font-satoshi text-xl leading-relaxed">
+          <p className="text-[#A3A3A3] font-satoshi text-lg leading-relaxed">
             I am a <HoverInfo
               trigger={<span className="text-white font-bold">Frontend Developer</span>}
               title="Frontend Developer"
@@ -97,7 +97,7 @@ export default function AboutMe() {
             maintainable frontend architectures. With hands-on experience in modern
             tools and frameworks like{' '}
             <HoverInfo
-              trigger={<span className="text-white font-bold">React</span>}
+              trigger={<span className="text-white font-bold text-lg">React</span>}
               title="React"
               description="The library for web and native user interfaces. I use it to build component-based architecture."
               joinedDate="May 2013"
@@ -122,12 +122,12 @@ export default function AboutMe() {
             />{' '}I
             create responsive, accessible, and performance-optimized web applications.
           </p>
-          <p className="text-gray-400 font-satoshi text-xl leading-relaxed">
+          <p className="text-[#A3A3A3] font-satoshi text-lg leading-relaxed">
             Beyond writing code, I care deeply about delivering great user experiences,
-            <span className="text-white font-bold"> writing clean and reusable code, and collaborating effectively within a team. </span>
+            <span className="text-white"> writing clean and reusable code, and collaborating effectively within a team. </span>
             I’m always eager to explore new technologies and apply them to meaningful projects.
           </p>
-          <p className="text-gray-400 font-satoshi text-xl leading-relaxed">
+          <p className="text-[#A3A3A3] font-satoshi text-lg leading-relaxed">
             I am seeking opportunities where I can contribute my skills to impactful products
             while continuing to evolve as a developer and professional.
           </p>
@@ -141,7 +141,7 @@ export default function AboutMe() {
                   Bachelor of Computer Application
                 </strong>
                 <br />
-                <div className="font-satoshi text-gray-400">
+                <div className="font-satoshi text-[#A3A3A3]">
                   Swami Vivekananda University Kolkata{' '}
                   <span className="text-[#00DC82] font-satoshi">
                     ( 2023 - Present )
