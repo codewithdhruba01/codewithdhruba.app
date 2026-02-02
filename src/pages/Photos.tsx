@@ -205,7 +205,7 @@ const Photos = () => {
                             GALLERY
                         </span>
                     </div>
-                    <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 font-serif">
+                    <h1 className="text-5xl md:text-6xl font-bold mb-6 font-serif bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
                         Wildlife Chronicles
                     </h1>
                     <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed font-light font-satoshi">

@@ -234,7 +234,7 @@ const AllProjects = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10">
           <p className="mb-10"></p>
-          <h1 className="text-4xl sm:text-5xl font-bold font-excon mb-4">
+          <h1 className="text-4xl sm:text-5xl font-bold font-excon mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
             Featured Projects
           </h1>
           <p className="text-gray-400 max-w-2xl mx-auto font-poppins">

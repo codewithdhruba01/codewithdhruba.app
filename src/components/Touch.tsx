@@ -8,7 +8,7 @@ const GetInTouch = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-neutral-200 bg-clip-text font-excon">
+            <span className="text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400">
               Get In Touch
             </span>
           </h2>

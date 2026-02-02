@@ -54,7 +54,7 @@ const Resume = () => {
         className={`text-center mb-8 mt-12 sm:mb-12 sm:mt-20 transition-all duration-700 delay-100 ease-out ${pageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
       >
-        <h1 className="text-4xl md:text-6xl font-bold font-excon text-white mb-4">
+        <h1 className="text-4xl md:text-6xl font-bold font-excon mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
           Resume
         </h1>
         <p className="text-[#9C9C9C] max-w-md mx-auto font-poppins">

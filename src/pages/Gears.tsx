@@ -24,7 +24,7 @@ export default function Gears() {
       <h2 className="text-4xl font-bold mb-12"></h2>
       {/* Page Heading */}
       <div className="text-center mb-10">
-        <h1 className="text-3xl sm:text-4xl font-bold font-excon">
+        <h1 className="text-3xl sm:text-4xl font-bold font-excon bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
           Tools & Gears
         </h1>
         <p className="text-gray-400 mt-2 text-sm sm:text-base font-supreme">

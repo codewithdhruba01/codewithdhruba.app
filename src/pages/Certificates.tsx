@@ -150,7 +150,7 @@ const Certificates = () => {
           className="text-center mb-12"
         >
           <div className="mb-8"></div>
-          <h1 className="text-3xl sm:text-4xl font-bold font-excon mb-4">
+          <h1 className="text-3xl sm:text-4xl font-bold font-excon mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
             Certificates & Achievements
           </h1>
           <p className="text-gray-400 mt-2 text-base sm:text-base font-poppins">
