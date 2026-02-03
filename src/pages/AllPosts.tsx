@@ -192,7 +192,7 @@ const AllPosts = () => {
                           } ${placeholderGradients[index % placeholderGradients.length]}`}
                       >
                         {/* Noise/Texture overlay for more realism */}
-                        <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+                        <div className="absolute inset-0 opacity-20 bg-[url('/assets/noise.svg')]"></div>
                       </div>
 
                       {/* Actual Image */}

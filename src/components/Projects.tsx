@@ -91,11 +91,21 @@ const Projects = () => {
                 data-aos-delay={index * 100} /// staggered animation
               >
                 {/* Image with smooth zoom */}
-                <div className="overflow-hidden">
+                <div className="relative overflow-hidden h-48">
+                  {/* Gradient Placeholder with Noise */}
+                  <div
+                    className={`absolute inset-0 z-10 transition-opacity duration-700 ${loadedImages[index] ? 'opacity-0' : 'opacity-100'
+                      } ${['bg-gradient-to-br from-blue-900/40 via-neutral-900 to-black',
+                        'bg-gradient-to-br from-emerald-900/40 via-neutral-900 to-black',
+                        'bg-gradient-to-br from-purple-900/40 via-neutral-900 to-black'][index % 3]}`}
+                  >
+                    <div className="absolute inset-0 opacity-20 bg-[url('/assets/noise.svg')]"></div>
+                  </div>
+
                   <img
                     src={project.image}
                     alt={project.title}
-                    className={`w-full h-48 object-cover transition-all duration-500 hover:scale-110 ${loadedImages[index] ? 'blur-0' : 'blur-md'
+                    className={`w-full h-full object-cover transition-all duration-500 hover:scale-110 ${loadedImages[index] ? 'blur-0' : 'blur-md'
                       }`}
                     onLoad={() => handleImageLoad(index)}
                   />

@@ -175,9 +175,21 @@ const Certificates = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 + index * 0.1 }}
-                className="bg-neutral-900 backdrop-blur-md rounded-xl overflow-hidden border border-gray-700/30 hover:bg-gray-900/90 transition-all duration-300 group shadow-lg"
+                className="bg-neutral-900 backdrop-blur-md rounded-xl overflow-hidden border border-gray-700/30 transition-all duration-300 group shadow-lg"
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden flex items-center justify-center bg-black">
+                  {/* Grainy Gradient Placeholder */}
+                  <div
+                    className={`absolute inset-0 z-10 transition-opacity duration-700 ${loadedCertificateImages[index] ? 'opacity-0' : 'opacity-100'
+                      } ${[
+                        'bg-gradient-to-br from-blue-900/40 via-neutral-900 to-black',
+                        'bg-gradient-to-br from-emerald-900/40 via-neutral-900 to-black',
+                        'bg-gradient-to-br from-purple-900/40 via-neutral-900 to-black'
+                      ][index % 3]}`}
+                  >
+                    <div className="absolute inset-0 opacity-20 bg-[url('/assets/noise.svg')]"></div>
+                  </div>
+
                   <img
                     src={cert.image}
                     alt={cert.title}
@@ -186,7 +198,7 @@ const Certificates = () => {
                     onLoad={() => handleCertificateImageLoad(index)}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  <span className="absolute top-2 right-2 bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded-md">
+                  <span className="absolute top-2 right-2 bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded-md z-20">
                     Complete
                   </span>
                 </div>
@@ -248,7 +260,7 @@ const Certificates = () => {
         >
           <div className="flex items-center mb-8">
             <CheckCircle className="text-green-500 mb-4 mr-3" size={32} />
-            <h2 className="text-3xl md:text-3xl mb-4 font-bold text-white font-excon">
+            <h2 className="text-3xl md:text-3xl mb-4 font-bold font-excon bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
               Open Source &{' '}
               <span className="font-bold font-excon bg-gradient-to-r from-blue-400 to-green-600 bg-clip-text text-transparent">
                 Contribution
@@ -266,6 +278,18 @@ const Certificates = () => {
                 className="bg-neutral-900 backdrop-blur-md rounded-xl overflow-hidden border border-gray-700/30 hover:bg-gray-900/80 transition-all duration-300 group shadow-lg"
               >
                 <div className="relative h-32 lg:h-44 overflow-hidden">
+                  {/* Grainy Gradient Placeholder */}
+                  <div
+                    className={`absolute inset-0 z-10 transition-opacity duration-700 ${loadedAchievementImages[index] ? 'opacity-0' : 'opacity-100'
+                      } ${[
+                        'bg-gradient-to-br from-blue-900/40 via-neutral-900 to-black',
+                        'bg-gradient-to-br from-emerald-900/40 via-neutral-900 to-black',
+                        'bg-gradient-to-br from-purple-900/40 via-neutral-900 to-black'
+                      ][index % 3]}`}
+                  >
+                    <div className="absolute inset-0 opacity-20 bg-[url('/assets/noise.svg')]"></div>
+                  </div>
+
                   <img
                     src={achievement.image}
                     alt={achievement.title}
@@ -305,7 +329,7 @@ const Certificates = () => {
 
         {/* GitHub Badges Section */}
         <section className="py-16 bg-neutral-950 text-center">
-          <h2 className="text-4xl font-bold text-white mb-10 font-synonym">
+          <h2 className="text-4xl font-bold mb-10 font-synonym bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
             All Badges
           </h2>
           <div className="overflow-hidden whitespace-nowrap">
@@ -356,7 +380,7 @@ const Certificates = () => {
           className="text-center mt-16"
         >
           <div className="bg-neutral-950 backdrop-blur-md rounded-xl p-6 lg:p-8 border border-gray-600/30 shadow-lg">
-            <h3 className="text-3xl font-bold text-[#fff] mb-4 font-synonym">
+            <h3 className="text-3xl font-bold mb-4 font-synonym bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
               Continuous Learning
             </h3>
             <p className="text-gray-400 text-sm leading-relaxed font-satoshi">

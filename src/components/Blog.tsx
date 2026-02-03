@@ -53,13 +53,27 @@ const Blog = () => {
               data-aos-delay={index * 100}
             >
               {/* Image */}
-              <img
-                src={post.image}
-                alt={post.title}
-                className={`w-full h-70 object-cover rounded-t-2xl transition-all duration-500 ${loadedImages.has(index) ? 'blur-0' : 'blur-md'
-                  }`}
-                onLoad={() => handleImageLoad(index)}
-              />
+              {/* Image Container with Noise Placeholder */}
+              <div className="relative w-full h-70 overflow-hidden bg-neutral-900">
+                <div
+                  className={`absolute inset-0 z-10 transition-opacity duration-700 ${loadedImages.has(index) ? 'opacity-0' : 'opacity-100'
+                    } ${[
+                      'bg-gradient-to-br from-blue-900/40 via-neutral-900 to-black',
+                      'bg-gradient-to-br from-emerald-900/40 via-neutral-900 to-black',
+                      'bg-gradient-to-br from-purple-900/40 via-neutral-900 to-black'
+                    ][index % 3]}`}
+                >
+                  <div className="absolute inset-0 opacity-20 bg-[url('/assets/noise.svg')]"></div>
+                </div>
+
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className={`w-full h-full object-cover transition-all duration-500 hover:scale-105 ${loadedImages.has(index) ? 'blur-0' : 'blur-md'
+                    }`}
+                  onLoad={() => handleImageLoad(index)}
+                />
+              </div>
 
               {/* Content */}
               <div className="p-6 flex flex-col justify-between">
