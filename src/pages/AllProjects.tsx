@@ -358,7 +358,7 @@ const AllProjects = () => {
                                   href={project.demo}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-neutral-400 hover:text-[#00DC82] transition-colors"
+                                  className="text-neutral-400 hover:text-white transition-colors"
                                   onClick={(e) => e.stopPropagation()}
                                 >
                                   <Globe className="w-5 h-5" />
