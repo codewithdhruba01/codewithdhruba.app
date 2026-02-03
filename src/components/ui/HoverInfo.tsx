@@ -7,20 +7,22 @@ interface HoverInfoProps {
     title: string;
     description: string;
     joinedDate?: string; // Optional "Joined" date like the screenshot
+    icon?: React.ElementType; // Optional icon component
 }
 
 const HoverInfo: React.FC<HoverInfoProps> = ({
     trigger,
     title,
     description,
-    joinedDate = 'December 2021' // Default matching the screenshot vibe
+    joinedDate = 'December 2021', // Default matching the screenshot vibe
+    icon: Icon
 }) => {
     const [isVisible, setIsVisible] = useState(false);
     const [coords, setCoords] = useState({ top: 0, left: 0 });
     const triggerRef = useRef<HTMLSpanElement>(null);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-    const handleMouseEnter = () => {
+    const handleInteraction = () => {
         if (timeoutRef.current) clearTimeout(timeoutRef.current);
 
         if (triggerRef.current) {
@@ -46,7 +48,8 @@ const HoverInfo: React.FC<HoverInfoProps> = ({
             <span
                 ref={triggerRef}
                 className="cursor-pointer underline decoration-neutral-500 decoration-dotted underline-offset-4 hover:decoration-white hover:text-white transition-colors duration-300"
-                onMouseEnter={handleMouseEnter}
+                onMouseEnter={handleInteraction}
+                onClick={handleInteraction}
                 onMouseLeave={handleMouseLeave}
             >
                 {trigger}
@@ -66,22 +69,23 @@ const HoverInfo: React.FC<HoverInfoProps> = ({
                     }}
                     onMouseLeave={handleMouseLeave}
                 >
-                    {/* Hover Card Content - Shadcn Style Match */}
-                    <div className="bg-[#09090b] border border-neutral-800 rounded-xl p-4 w-[320px] shadow-2xl relative">
+                    {/* Hover Card Content - Responsive Width */}
+                    <div className="bg-[#09090b] border border-neutral-800 rounded-xl p-3 sm:p-4 w-[260px] sm:w-[320px] shadow-2xl relative">
 
                         {/* Header / Title */}
-                        <div className="mb-2">
-                            <h4 className="font-bold text-white text-base">@{title.replace(/\s+/g, '').toLowerCase()}</h4>
+                        <div className="mb-2 flex items-center gap-2">
+                            {Icon && <Icon className="w-4 h-4 text-white" />}
+                            <h4 className="font-bold text-white text-sm sm:text-base">@{title.replace(/\s+/g, '').toLowerCase()}</h4>
                         </div>
 
                         {/* Description */}
-                        <p className="text-neutral-300 text-sm leading-relaxed mb-4 font-sans">
+                        <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 font-sans">
                             {description}
                         </p>
 
                         {/* Footer / Meta */}
-                        <div className="flex items-center gap-2 text-xs text-neutral-500 font-sans">
-                            <CalendarDays size={14} />
+                        <div className="flex items-center gap-2 text-[10px] sm:text-xs text-neutral-500 font-sans">
+                            <CalendarDays className="w-3 h-3 sm:w-[14px] sm:h-[14px]" />
                             <span>Joined {joinedDate}</span>
                         </div>
                     </div>

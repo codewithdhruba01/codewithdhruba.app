@@ -1,6 +1,6 @@
-export default function NextJs() {
+export default function NextJs({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 128 128">
+    <svg viewBox="0 0 128 128" className={className}>
       <circle cx="64" cy="64" r="64"></circle>
       <path
         fill="url(#a)"

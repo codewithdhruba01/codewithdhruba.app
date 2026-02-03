@@ -2,6 +2,12 @@ import { Mail, Github, Twitter, Linkedin } from 'lucide-react';
 import { useState } from 'react';
 import HoverInfo from '../components/ui/HoverInfo';
 
+// Import SVG Icons for HoverInfo
+import ReactIcon from '../components/svgs/ReactIcon';
+import TypeScript from '../components/svgs/TypeScript';
+import TailwindCss from '../components/svgs/TailwindCss';
+import NextJs from '../components/svgs/NextJs';
+
 export default function AboutMe() {
   const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -111,24 +117,28 @@ export default function AboutMe() {
               title="React"
               description="The library for web and native user interfaces. I use it to build component-based architecture."
               joinedDate="May 2013"
+              icon={ReactIcon}
             />,{' '}
             <HoverInfo
               trigger={<span className="text-white font-bold">TypeScript</span>}
               title="TypeScript"
               description="TypeScript is a strongly typed programming language that builds on JavaScript."
               joinedDate="Oct 2012"
+              icon={TypeScript}
             />,{' '}
             <HoverInfo
               trigger={<span className="text-white font-bold">Tailwind CSS</span>}
               title="Tailwind CSS"
               description="A utility-first CSS framework packed with classes that can be composed to build any design, directly in your markup."
               joinedDate="Nov 2017"
+              icon={TailwindCss}
             />{' '}and{' '}
             <HoverInfo
               trigger={<span className="text-white font-bold">Next.js</span>}
               title="Next.js"
               description="The React Framework for the Web. Used for server-side rendering and static site generation."
               joinedDate="Oct 2016"
+              icon={NextJs}
             />{' '}I
             create responsive, accessible, and performance-optimized web applications.
           </p>

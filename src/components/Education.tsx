@@ -235,8 +235,6 @@ function ExperienceList({ experiences }: ExperienceListProps) {
       ))}
     </div>
 
-
-
   );
 }
 
@@ -285,13 +283,15 @@ const Experience = () => {
         'Authored and maintained product documentation, user guides, and tutorials, simplifying complex technical concepts into clear, accessible content.',
         'Collaborated with engineers to ensure accurate and up-to-date documentation.',
         'Collaborated with designers to improve user experience.',
+        'Sponsorship: Recognized for quality contributions and received sponsorship from Recode Hive for consistent and impactful work.',
+        'Participated: in issue tracking, pull requests, and code reviews following GitHub open-source workflows.'
       ],
       technologies: [
         { name: 'MDX', icon: <MDXIcon /> },
-        { name: 'ReactIcon', icon: <ReactIcon /> },
+        { name: 'React.Js', icon: <ReactIcon /> },
         { name: 'TypeScript', icon: <TypeScript /> },
-        { name: 'NodeJs', icon: <NodeJs /> },
-        { name: 'TailwindCss', icon: <TailwindCss /> },
+        { name: 'Node.Js', icon: <NodeJs /> },
+        { name: 'Tailwind CSS', icon: <TailwindCss /> },
         { name: 'Shadcn', icon: <Shadcn /> },
         { name: 'Github', icon: <Github className="w-3 h-3 text-white-500" /> },
       ],
@@ -313,8 +313,8 @@ const Experience = () => {
         { name: 'CSS3', icon: <CSS /> },
         { name: 'JavaScript', icon: <JavaScript /> },
         { name: 'TypeScript', icon: <TypeScript /> },
-        { name: 'NodeJs', icon: <NodeJs /> },
-        { name: 'TailwindCss', icon: <TailwindCss /> },
+        { name: 'Node.Js', icon: <NodeJs /> },
+        { name: 'Tailwind CSS', icon: <TailwindCss /> },
         { name: 'Shadcn', icon: <Shadcn /> },
       ],
     },
