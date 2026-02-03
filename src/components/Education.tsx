@@ -51,9 +51,8 @@ interface ExperienceCardProps {
 function ExperienceCard({ experience, isOpen, onClick }: ExperienceCardProps) {
   return (
     <div
-      onClick={onClick}
       className={cn(
-        "flex flex-col gap-0 transition-all duration-300 cursor-pointer group",
+        "flex flex-col gap-0 transition-all duration-300 group",
         isOpen
           ? "bg-transparent"
           : "bg-transparent"
@@ -69,9 +68,12 @@ function ExperienceCard({ experience, isOpen, onClick }: ExperienceCardProps) {
               alt={experience.company}
               className="w-10 h-10 sm:w-12 sm:h-12 rounded-md object-cover bg-neutral-900 border border-neutral-800"
             />
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-0">
               <div className="flex items-center gap-2 flex-wrap">
-                <h3 className="text-base sm:text-lg font-bold font-outfit text-white leading-tight">
+                <h3 className={cn(
+                  "text-base sm:text-lg font-bold font-outfit text-white leading-tight",
+                  experience.isBlur && "blur-[6px] select-none opacity-80"
+                )}>
                   {experience.company}
                 </h3>
 
@@ -120,15 +122,18 @@ function ExperienceCard({ experience, isOpen, onClick }: ExperienceCardProps) {
                 </div>
 
                 {experience.isCurrent && (
-                  <div className="flex items-center gap-1.5 rounded-full border border-[#00DC82]/20 bg-[#00DC82]/10 px-2 py-0.5 text-[10px] text-[#00DC82] font-medium ml-1">
-                    <div className="w-1.5 h-1.5 animate-pulse rounded-full bg-[#00DC82]"></div>
+                  <div className="flex items-center gap-1 rounded-md bg-[#022c1b] px-2 py-0.5 text-[10px] font-outfit text-[#ffffff] font-semibold ml-1 border border-black shadow-[0_0_10px_-3px_rgba(0,220,130,0.3)]">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#00DC82] animate-pulse"></div>
                     Working
                   </div>
                 )}
 
                 <Tooltip>
                   <TooltipTrigger>
-                    <div className="ml-2 w-6 h-6 flex items-center justify-center rounded-lg border border-transparent bg-transparent hover:bg-[#161616] hover:border-[#222] transition-all duration-300">
+                    <div
+                      onClick={onClick}
+                      className="ml-0 w-6 h-6 flex items-center justify-center rounded-lg border border-transparent bg-transparent hover:bg-[#161616] hover:border-[#222] transition-all duration-300 cursor-pointer"
+                    >
                       <ChevronDown className={cn(
                         "w-3.5 h-3.5 text-neutral-500 transition-transform duration-300",
                         isOpen ? "rotate-180" : ""
@@ -239,11 +244,12 @@ const Experience = () => {
   const experiences: ExperienceInterface[] = [
     {
       company: 'SpacECE India Foundation',
+      isBlur: true,
       location: 'Pune',
       position: 'Full Stack Developer (Intern)',
       startDate: 'Jan 2026',
       isCurrent: true,
-      image: 'https://avatars.githubusercontent.com/u/86948116?s=200&v=4',
+      image: '/logo/SpacECE.jpg',
       website: 'https://www.spacece.in/',
       github: 'https://github.com/SpacECE-India-Foundation',
       description: [
@@ -272,7 +278,7 @@ const Experience = () => {
       position: 'Technical Writer',
       startDate: 'May 2025',
       endDate: 'Dec 2025',
-      image: 'https://avatars.githubusercontent.com/u/85428829?s=200&v=4',
+      image: '/logo/Recodehive.png',
       website: 'https://recodehive.com/',
       github: 'https://github.com/recodehive',
       description: [
@@ -291,13 +297,12 @@ const Experience = () => {
       ],
     },
     {
-      company: 'Self-Employed',
+      company: 'Upwork',
       location: 'Remote',
       position: 'Freelance Engineer',
       startDate: '2025',
       isCurrent: true,
-      image:
-        'https://ui-avatars.com/api/?name=Freelance&background=random&rounded=true&bold=true',
+      image: '/logo/Upwork.jpeg',
       description: [
         'Built custom websites for small businesses, including e-commerce and portfolio sites.',
         'Implemented SEO best practices to improve visibility and performance.',
