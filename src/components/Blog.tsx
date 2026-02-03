@@ -48,7 +48,7 @@ const Blog = () => {
           {blogPosts.map((post, index) => (
             <article
               key={index}
-              className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300"
+              className="bg-[#111111] border border-zinc-800 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300"
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
