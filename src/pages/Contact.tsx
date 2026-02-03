@@ -358,7 +358,7 @@ const Contact = () => {
         custom={7}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-excon md:text-4xl font-bold text-neutral-200 mb-6">
+          <h2 className="text-3xl font-excon md:text-4xl font-bold text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400 mb-6">
             Ready to Start Your Project?
           </h2>
           <p className="text-xl font-poppins text-neutral-400 mb-8">

@@ -316,14 +316,17 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-[#0A0A0A]">
+    <section id="experience" className="pt-8 pb-8 bg-[#0A0A0A]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-          className="text-5xl md:text-5xl font-bold mb-16 text-center font-excon bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400"
-          data-aos="fade-up"
-        >
-          Experience
-        </h2>
+        <div className="mb-8">
+          <p className="text-lg text-neutral-400 font-outfit text-center">
+            Featured
+          </p>
+          <h2 className="text-3xl font-bold text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400 text-center font-excon">
+            Experience
+          </h2>
+
+        </div>
 
         <TooltipProvider>
           <div data-aos="fade-up" data-aos-delay="100">

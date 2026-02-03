@@ -55,18 +55,17 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-neutral-950">
+    <section id="skills" className="pt-8 pb-8 bg-neutral-950">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-          className="text-4xl font-bold mb-4 text-center font-synonym text-white"
-          data-aos="fade-up"
-        >
-          Tech Stack
-        </h2>
-        <div
-          className="w-24 h-0.5 bg-gradient-to-r from-transparent via-[#00DC82] to-transparent mx-auto mt-2 mb-12"
-          data-aos="fade-up"
-        />
+        <div className="mb-8">
+          <p className="text-lg text-neutral-400 font-outfit text-center">
+            Latest
+          </p>
+          <h2 className="text-3xl font-bold text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400 text-center font-excon">
+            Tech Stack
+          </h2>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {sections.map((section, idx) => (
             <div

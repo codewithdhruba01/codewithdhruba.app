@@ -237,7 +237,7 @@ const AllProjects = () => {
           <h1 className="text-4xl sm:text-5xl font-bold font-excon mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
             Featured Projects
           </h1>
-          <p className="text-gray-400 max-w-2xl mx-auto font-poppins">
+          <p className="text-[#A3A3A3] max-w-2xl mx-auto font-poppins">
             A showcase of my best work across various technologies and domains.
             Each project represents a unique challenge and different aspects of
             my skills.

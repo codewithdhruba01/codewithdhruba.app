@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const GetInTouch = () => {
   return (
-    <section id="get-in-touch" className="py-20 bg-neutral-950">
+    <section id="get-in-touch" className="pt-8 pb-20 bg-neutral-950">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
