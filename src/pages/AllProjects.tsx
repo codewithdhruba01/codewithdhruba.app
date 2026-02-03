@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Github, Globe } from 'lucide-react';
 import { FancyButton } from '../components/ui/FancyButton';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../components/ui/tooltip';
 
 const categories = [
   'All',
@@ -274,22 +275,70 @@ const AllProjects = () => {
             : visibleProjects.map((project, idx) => (
               <div
                 key={idx}
-                className="group bg-[#111111] rounded-lg overflow-hidden cursor-pointer border border-neutral-800"
+                className="group bg-[#111111] rounded-lg cursor-pointer border border-neutral-800"
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className={`w-full h-48 object-cover transition-all duration-500 hover:scale-110 ${loadedImages[project.id] ? 'blur-0' : 'blur-md'
-                    }`}
-                  onLoad={() => handleImageLoad(project.id)}
-                />
-                <div className="p-5">
-                  <h3 className="text-xl font-bold font-synonym mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm mb-4 font-poppins">
+                <div className="relative overflow-hidden h-48 rounded-t-lg">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className={`w-full h-full object-cover transition-all duration-500 hover:scale-110 ${loadedImages[project.id] ? 'blur-0' : 'blur-md'
+                      }`}
+                    onLoad={() => handleImageLoad(project.id)}
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex justify-between items-center mb-2">
+                    <h3 className="text-xl font-bold font-synonym text-white">
+                      {project.title}
+                    </h3>
+                    <div className="flex gap-3">
+                      {project.demo && (
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <a
+                                href={project.demo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-neutral-400 hover:text-[#00DC82] transition-colors"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <Globe className="w-5 h-5" />
+                              </a>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>View Website</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      )}
+
+                      {project.github && (
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <a
+                                href={project.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-neutral-400 hover:text-white transition-colors"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <Github className="w-5 h-5" />
+                              </a>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>View GitHub</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      )}
+                    </div>
+                  </div>
+                  <p className="text-neutral-400 mb-4 leading-relaxed text-sm font-poppins">
                     {project.description}
                   </p>
+
                   <div className="flex flex-wrap gap-2 text-xs mb-4">
                     {project.tags?.map((tag, tagIndex) => (
                       <span
@@ -299,30 +348,6 @@ const AllProjects = () => {
                         {tag}
                       </span>
                     ))}
-                  </div>
-                  <div className="flex gap-4">
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1 px-3 py-1.5 font-poppins rounded-md text-sm bg-[#292929] hover:bg-[#3a3a3a] text-white transition"
-                      >
-                        <Github className="w-4 h-4" />
-                        Code
-                      </a>
-                    )}
-                    {project.demo && (
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1 font-poppins px-3 py-1.5 rounded-md text-sm bg-green-700 hover:bg-green-600 text-white transition"
-                      >
-                        <Globe className="w-4 h-4" />
-                        Live
-                      </a>
-                    )}
                   </div>
                 </div>
               </div>

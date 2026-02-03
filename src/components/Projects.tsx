@@ -1,6 +1,33 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Github, Globe } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
+
+// Import SVG Icons
+import ReactIcon from './svgs/ReactIcon';
+import TypeScript from './svgs/TypeScript';
+import NodeJs from './svgs/NodeJs';
+import NextJs from './svgs/NextJs';
+import TailwindCss from './svgs/TailwindCss';
+import Postman from './svgs/Postman';
+import MDXIcon from './svgs/MDXIcon';
+import Motion from './svgs/Motion';
+import Shadcn from './svgs/Shadcn';
+import Vercel from './svgs/Vercel';
+
+
+const iconMap: Record<string, React.ElementType> = {
+  'React': ReactIcon,
+  'TypeScript': TypeScript,
+  'Node.js': NodeJs,
+  'Next.js': NextJs,
+  'Tailwind CSS': TailwindCss,
+  'REST API': Postman,
+  'MDX': MDXIcon,
+  'Motion': Motion,
+  'Shadcn': Shadcn,
+  'Vercel': Vercel,
+};
 
 type Project = {
   title: string;
@@ -22,13 +49,13 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
-      title: 'MultiCalc - Calculator',
+      title: 'MultiCalc',
       description:
         'MultiCalc is a simple, fast, and user-friendly online calculator that makes everyday arithmetic easy and accessible for everyone.',
       image: '/project/multicalc1.png',
       github: 'https://github.com/codewithdhruba01/MultiCalc',
       demo: 'https://www.multicalc.site/',
-      techStack: ['React', 'TypeScript', 'Node.js'],
+      techStack: ['TypeScript', 'React', 'Tailwind CSS', 'Node.js', 'MDX', 'Motion', 'Vercel',],
     },
     {
       title: 'ColorKit WebApp',
@@ -37,7 +64,7 @@ const Projects = () => {
       image: '/project/colorkit-cover.png',
       github: 'https://github.com/codewithdhruba01/ColorPicker',
       demo: 'https://colorskit.vercel.app/',
-      techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Notion'],
+      techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Motion', 'Shadcn', 'Vercel', 'Node.js'],
     },
     {
       title: 'GitHub Developer Tools',
@@ -46,7 +73,7 @@ const Projects = () => {
       image: '/project/GithubDevloperTools-cover.png',
       github: 'https://github.com/codewithdhruba01/GithubProtools',
       demo: 'https://githubprotools.vercel.app/',
-      techStack: ['React', 'Next.js', 'REST API'],
+      techStack: ['TypeScript', 'Next.js', 'Tailwind CSS', 'REST API', 'Shadcn', 'Vercel', 'Node.js'],
     },
   ];
 
@@ -70,28 +97,28 @@ const Projects = () => {
 
       <section id="projects" className="pt-1 pb-8 bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            className="text-4xl font-bold mb-4 text-center font-excon text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400"
-            data-aos="fade-up"
-          >
-            Latest <span className="text-[#00DC82]">Projects</span>
-          </h2>
-          <div
-            className="w-24 h-0.5 bg-gradient-to-r from-transparent via-[#00DC82] to-transparent mx-auto mt-2 mb-12"
-            data-aos="fade-up"
-          />
+          <div className="mb-8">
+
+            <h2
+              className="text-4xl font-bold mb-4 text-center font-excon text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400 text-center font-excon"
+              data-aos="fade-up"
+            >
+              Latest Projects
+            </h2>
+
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8" data-aos="fade-up">
             {projects.map((project, index) => (
               <div
                 key={index}
                 onClick={() => setSelectedProject(project)}
-                className="group bg-[#111111] rounded-lg overflow-hidden cursor-pointer border border-neutral-800"
+                className="group bg-[#111111] rounded-lg cursor-default border border-neutral-800"
                 data-aos="fade-up"
                 data-aos-delay={index * 100} /// staggered animation
               >
                 {/* Image with smooth zoom */}
-                <div className="relative overflow-hidden h-48">
+                <div className="relative overflow-hidden h-48 rounded-t-lg">
                   {/* Gradient Placeholder with Noise */}
                   <div
                     className={`absolute inset-0 z-10 transition-opacity duration-700 ${loadedImages[index] ? 'opacity-0' : 'opacity-100'
@@ -112,46 +139,89 @@ const Projects = () => {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 font-synonym">
-                    {project.title}
-                  </h3>
+                  <div className="flex justify-between items-center mb-2">
+                    <h3 className="text-xl font-bold font-synonym text-white">
+                      {project.title}
+                    </h3>
+                    <div className="flex gap-3">
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger>
+                            <a
+                              href={project.demo}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-neutral-400 hover:text-[#00DC82] transition-colors"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <Globe className="w-5 h-5" />
+                            </a>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>View Website</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger>
+                            <a
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-neutral-400 hover:text-white transition-colors"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <Github className="w-5 h-5" />
+                            </a>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>View GitHub</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    </div>
+                  </div>
                   <p className="text-neutral-400 mb-4 leading-relaxed text-sm font-poppins">
                     {project.description}
                   </p>
 
                   {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.techStack.map((tech, i) => (
-                      <span
-                        key={i}
-                        className="px-2 py-1 text-xs rounded-full bg-[#1f1f1f] text-[#00DC82] border border-[#00DC82]/40"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                  <div className="flex flex-col gap-2 mb-2">
+                    <p className="text-neutral-500 text-sm font-outfit">Technologies :</p>
+                    <div className="flex flex-wrap gap-1">
+                      {project.techStack.map((tech, i) => {
+                        const Icon = iconMap[tech];
+                        return (
+                          <TooltipProvider key={i}>
+                            <Tooltip>
+                              <TooltipTrigger>
+                                {Icon ? (
+                                  <div
+                                    className={`flex items-center justify-center w-6 h-6 rounded-lg text-neutral-400 hover:text-white transition-all duration-300 hover:scale-110 cursor-pointer group/icon ${tech === 'MDX' ? '[&>svg]:w-7 [&>svg]:h-7' : '[&>svg]:w-5 [&>svg]:h-5'}`}
+                                  >
+                                    <Icon />
+                                  </div>
+                                ) : (
+                                  <span
+                                    className="px-2 py-1 text-xs rounded-full bg-[#1f1f1f] text-[#00DC82] border border-[#00DC82]/40"
+                                  >
+                                    {tech}
+                                  </span>
+                                )}
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>{tech}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        );
+                      })}
+                    </div>
                   </div>
 
-                  {/* Buttons */}
-                  <div className="flex space-x-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 px-3 py-1.5 rounded-md text-sm font-poppins bg-[#292929] hover:bg-[#3a3a3a] text-white transition-colors duration-300 ease-in-out"
-                    >
-                      <Github className="w-4 h-4" />
-                      Code
-                    </a>
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 px-3 py-1.5 rounded-md text-sm font-poppins bg-green-700 hover:bg-green-600 text-white transition-colors duration-300 ease-in-out"
-                    >
-                      <Globe className="w-4 h-4" />
-                      Live
-                    </a>
-                  </div>
+
                 </div>
               </div>
             ))}
@@ -184,45 +254,87 @@ const Projects = () => {
                 alt={selectedProject.title}
                 className="w-full h-48 md:h-64 object-cover rounded mb-4"
               />
-              <h3 className="text-2xl font-bold mb-2 text-white font-synonym">
-                {selectedProject.title}
-              </h3>
+              <div className="flex justify-between items-center mb-2">
+                <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 font-synonym">
+                  {selectedProject.title}
+                </h3>
+                <div className="flex gap-4">
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <a
+                          href={selectedProject.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-neutral-400 hover:text-[#00DC82] transition-colors"
+                        >
+                          <Globe className="w-6 h-6" />
+                        </a>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>View Website</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <a
+                          href={selectedProject.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-neutral-400 hover:text-white transition-colors"
+                        >
+                          <Github className="w-6 h-6" />
+                        </a>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>View GitHub</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </div>
+              </div>
               <p className="text-neutral-500 mb-4 font-poppins text-sm">
                 {selectedProject.description}
               </p>
 
               {/* Tech Stack in Modal */}
-              <div className="flex flex-wrap gap-2 mb-4">
-                {selectedProject.techStack.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1 text-xs rounded-full bg-[#1f1f1f] text-[#00DC82] border border-[#00DC82]/30"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <div className="flex flex-col gap-2 mb-4">
+                <p className="text-neutral-500 text-sm font-outfit">Technologies :</p>
+                <div className="flex flex-wrap gap-2">
+                  {selectedProject.techStack.map((tech, i) => {
+                    const Icon = iconMap[tech];
+                    return (
+                      <TooltipProvider key={i}>
+                        <Tooltip>
+                          <TooltipTrigger>
+                            {Icon ? (
+                              <div
+                                className={`flex items-center justify-center w-6 h-6 rounded-lg text-neutral-400 hover:text-white transition-all duration-300 hover:scale-110 cursor-pointer group/icon ${tech === 'MDX' ? '[&>svg]:w-7 [&>svg]:h-7' : '[&>svg]:w-5 [&>svg]:h-5'}`}
+                              >
+                                <Icon />
+                              </div>
+                            ) : (
+                              <span
+                                className="px-3 py-1 text-xs rounded-full bg-[#1f1f1f] text-[#00DC82] border border-[#00DC82]/30"
+                              >
+                                {tech}
+                              </span>
+                            )}
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>{tech}</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    );
+                  })}
+                </div>
               </div>
 
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href={selectedProject.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-4 py-2 border border-[#f8f8f8] text-[#faf9fa] rounded hover:bg-[#ffffff] hover:text-black transition-all duration-300 ease-in-out font-semibold"
-                >
-                  <i className="fab fa-github mr-2"></i>
-                  GitHub
-                </a>
-                <a
-                  href={selectedProject.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center font-poppins px-4 py-2 border border-[#00DC82] text-[#00DC82] rounded hover:bg-[#00DC82] hover:text-black transition-all duration-300 ease-in-out font-semibold"
-                >
-                  <i className="fa-solid fa-globe mr-2"></i>
-                  Live
-                </a>
-              </div>
+
             </div>
 
             {/* Close Button */}
