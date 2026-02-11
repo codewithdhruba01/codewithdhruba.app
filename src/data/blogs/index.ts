@@ -4,8 +4,10 @@ import { chromeKeyboardShortcuts } from './chrome-keyboard-shortcuts';
 import { essentialLinuxCommands } from './essential-linux-commands';
 import { openweatherApiGuide } from './openweather-api-guide';
 import { howNextAuthWorks } from './how-nextauth-works';
+import { essentialToolsForNextJsAndReact } from './essential-tools-for-nextjs-and-react';
 
 export const blogPostsData = {
+  'essential-tools-for-nextjs-and-react': essentialToolsForNextJsAndReact,
   'getting-started-with-react-typescript': gettingStartedWithReactTypescript,
   'building-my-first-website-with-react-and-tailwind': buildingMyFirstWebsiteWithReactAndTailwind,
   'chrome-keyboard-shortcuts': chromeKeyboardShortcuts,

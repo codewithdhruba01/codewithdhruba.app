@@ -11,6 +11,7 @@ const blogDescriptions = {
   'openweather-api-guide': 'Master OpenWeather API with production-ready patterns, advanced integrations, and enterprise-grade implementations.',
   'building-my-first-website-with-react-and-tailwind': 'Learn how I built my Portfolio website from scratch using React and Tailwind CSS — from setup to responsive design, with tips and key takeaways.',
   'essential-linux-commands': 'Learn the most essential Linux commands every beginner and intermediate user must know. This comprehensive guide explains each command in simple terms.',
+  'essential-tools-for-nextjs-and-react': 'A curated list of the best UI libraries, icons, animation tools, and utilities to supercharge your Next.js and React development workflow.',
 };
 
 // Extract simplified blog post data for listing
