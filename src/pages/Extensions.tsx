@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { Copy, Check, ArrowUpRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function Gears() {
   const [copied, setCopied] = useState<string | null>(null);
@@ -16,7 +17,12 @@ export default function Gears() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-white px-6 py-20 sm:py-20">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="min-h-screen bg-neutral-950 text-white px-6 py-20 sm:py-20"
+    >
       <h2 className="text-4xl font-bold mb-12"></h2>
 
       {/* Page Heading */}
@@ -158,6 +164,6 @@ export default function Gears() {
           </ul>
         </section>
       </div>
-    </div>
+    </motion.div>
   );
 }
