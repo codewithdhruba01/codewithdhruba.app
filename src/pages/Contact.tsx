@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Mail,
   Phone,
-  MapPin,
   Send,
   Github,
   Linkedin,
 } from 'lucide-react';
+import { Gmail } from '../components/svgs/Gmail';
+import { GoogleMaps } from '../components/svgs/GoogleMaps';
 import { XIcon } from '../components/icons/SocialIcons';
 import { getCalApi } from '@calcom/embed-react';
 import { motion } from 'framer-motion';
@@ -140,7 +140,7 @@ const Contact = () => {
               <div className="space-y-6 font-outfit">
                 {[
                   {
-                    icon: <Mail className="w-6 h-6 text-[#D92C54]" />,
+                    icon: <Gmail className="w-6 h-6 text-[#D92C54]" />,
                     title: 'Email',
                     value: 'pati.dhrubaraj@gmail.com',
                     bg: 'bg-purple-500/20',
@@ -152,9 +152,9 @@ const Contact = () => {
                     bg: 'bg-blue-500/20',
                   },
                   {
-                    icon: <MapPin className="w-6 h-6 text-teal-400" />,
+                    icon: <GoogleMaps className="w-6 h-6 text-teal-400" />,
                     title: 'Location',
-                    value: 'Dumdum, Kolkata',
+                    value: 'North Dumdum, Kolkata - 700065',
                     bg: 'bg-teal-500/20',
                   },
                 ].map((item, i) => (

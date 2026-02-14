@@ -1,6 +1,7 @@
 'use client';
-import { Mail, MessageSquareText, ArrowRight } from 'lucide-react';
+import { MessageSquareText, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Gmail } from './svgs/Gmail';
 
 const GetInTouch = () => {
   return (
@@ -24,7 +25,7 @@ const GetInTouch = () => {
             className="group relative flex flex-col items-start space-y-2 p-6 bg-neutral-900/50 border border-neutral-800 backdrop-blur-sm rounded-xl hover:bg-neutral-900/80 hover:border-neutral-700 transition-all duration-300"
           >
             <div className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center">
-              <Mail className="w-5 h-5 text-teal-400" />
+              <Gmail className="w-5 h-5" />
             </div>
             <h3 className="text-lg font-semibold font-outfit text-neutral-100">
               Send Email
