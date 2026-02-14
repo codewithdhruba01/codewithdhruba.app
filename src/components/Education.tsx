@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
-import { Database, Github, Globe, Linkedin, Twitter, ChevronDown } from 'lucide-react';
+import { Github, Globe, Linkedin, Twitter, ChevronDown } from 'lucide-react';
 import { cn } from '../lib/utils';
 import Skill from './common/Skill';
 
 // Import SVG Icons
-import NextJs from './svgs/NextJs';
+import { FastAPI } from './svgs/FastAPI';
 import TailwindCss from './svgs/TailwindCss';
 import TypeScript from './svgs/TypeScript';
 import ReactIcon from './svgs/ReactIcon';
@@ -15,8 +15,11 @@ import Html from './svgs/Html';
 import CSS from './svgs/CSS';
 import JavaScript from './svgs/JavaScript';
 import Postman from './svgs/Postman';
-import PostgreSQL from './svgs/PostgreSQL';
+import { MySQL } from './svgs/MySQL';
 import Shadcn from './svgs/Shadcn';
+import { Php } from './svgs/Php';
+import { AmazonWebServices } from './svgs/AmazonWebServices';
+import { Python } from './svgs/Python';
 
 // --- Types ---
 export interface ExperienceInterface {
@@ -257,17 +260,14 @@ const Experience = () => {
         'Implemented: secure authentication, validation, and error-handling to ensure application reliability. Collaborated with cross-functional teams to understand requirements and deliver features aligned with organizational goals.',
       ],
       technologies: [
-        { name: 'Next.js', icon: <NextJs /> },
-        { name: 'Tailwind CSS', icon: <TailwindCss /> },
-        { name: 'TypeScript', icon: <TypeScript /> },
-        { name: 'Node.js', icon: <NodeJs /> },
-        { name: 'PostgreSQL', icon: <PostgreSQL /> },
-        {
-          name: 'MySQL',
-          icon: <Database className="w-3 h-3 text-[#00758F]" />,
-        },
-        { name: 'Postman', icon: <Postman /> },
+        { name: 'Php', icon: <Php /> },
         { name: 'JavaScript', icon: <JavaScript /> },
+        { name: 'Python', icon: <Python /> },
+        { name: 'MySQL', icon: <MySQL /> },
+        { name: 'FastAPI', icon: <FastAPI /> },
+        { name: 'Node.js', icon: <NodeJs /> },
+        { name: 'Postman', icon: <Postman /> },
+        { name: 'AWS', icon: <AmazonWebServices /> },
       ],
     },
     {
@@ -288,11 +288,11 @@ const Experience = () => {
       ],
       technologies: [
         { name: 'MDX', icon: <MDXIcon /> },
+        { name: 'Python', icon: <Python /> },
         { name: 'React.Js', icon: <ReactIcon /> },
         { name: 'TypeScript', icon: <TypeScript /> },
         { name: 'Node.Js', icon: <NodeJs /> },
         { name: 'Tailwind CSS', icon: <TailwindCss /> },
-        { name: 'Shadcn', icon: <Shadcn /> },
         { name: 'Github', icon: <Github className="w-3 h-3 text-white-500" /> },
       ],
     },
