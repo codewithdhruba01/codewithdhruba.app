@@ -21,7 +21,7 @@ const GetInTouch = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <a
             href="mailto:pati.dhrubaraj@outlook.com"
-            className="group relative flex flex-col items-start space-y-2 p-6 bg-[#101010] rounded-xl border border-gray-700/50 hover:border-teal-500/50 transition-all duration-300"
+            className="group relative flex flex-col items-start space-y-2 p-6 bg-neutral-900/50 border border-neutral-800 backdrop-blur-sm rounded-xl hover:bg-neutral-900/80 hover:border-neutral-700 transition-all duration-300"
           >
             <div className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center">
               <Mail className="w-5 h-5 text-teal-400" />
@@ -38,7 +38,7 @@ const GetInTouch = () => {
 
           <Link
             to="/contact"
-            className="group relative flex flex-col items-start space-y-2 p-6 bg-[#101010] rounded-xl border border-gray-700/50 hover:border-green-500/50 transition-all duration-300"
+            className="group relative flex flex-col items-start space-y-2 p-6 bg-neutral-900/50 border border-neutral-800 backdrop-blur-sm rounded-xl hover:bg-neutral-900/80 hover:border-neutral-700 transition-all duration-300"
           >
             <div className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center">
               <MessageSquareText className="w-5 h-5 text-green-400" />
