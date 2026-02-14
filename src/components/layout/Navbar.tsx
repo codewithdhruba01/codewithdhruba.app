@@ -1,20 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import CommandPalette from '../CommandPalette';
+import useUIStore from '../../store/useUIStore';
+import useAppStore from '../../store/useAppStore';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState(window.location.pathname);
-  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+  const { isMobileMenuOpen, toggleMobileMenu, setMobileMenuOpen, isCommandPaletteOpen, setCommandPaletteOpen } = useUIStore();
+  const { activeLink, setActiveLink } = useAppStore();
 
   // Keyboard shortcut for command palette
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
         event.preventDefault();
-        setIsCommandPaletteOpen(true);
+        setCommandPaletteOpen(true);
       }
       if (event.key === 'Escape') {
-        setIsCommandPaletteOpen(false);
+        setCommandPaletteOpen(false);
       }
     };
 
@@ -74,7 +75,7 @@ const Navbar = () => {
           {/* Search Button - Right Side */}
           <div className="hidden md:flex">
             <button
-              onClick={() => setIsCommandPaletteOpen(true)}
+              onClick={() => setCommandPaletteOpen(true)}
               className="px-3 py-1.5 rounded-full bg-neutral-800/50 border border-neutral-700 text-neutral-300 hover:bg-neutral-700/50 hover:border-neutral-600 transition-all duration-200 flex items-center gap-2 text-sm"
               title="Search (Ctrl+K)"
             >
@@ -88,11 +89,11 @@ const Navbar = () => {
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={toggleMobileMenu}
               className="text-white hover:text-[#00DC82] focus:outline-none transition-transform duration-300 ease-in-out"
             >
               <i
-                className={`fas ${isOpen ? 'fa-times' : 'fa-bars'} text-2xl transition-transform duration-300 ease-in-out ${isOpen ? 'rotate-90' : 'rotate-0'
+                className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'} text-2xl transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'rotate-90' : 'rotate-0'
                   }`}
               ></i>
             </button>
@@ -100,7 +101,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
           }`}>
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navLinks.map((link, index) => (
@@ -109,12 +110,12 @@ const Navbar = () => {
                 href={link.href}
                 onClick={() => {
                   setActiveLink(link.href);
-                  setIsOpen(false);
+                  setMobileMenuOpen(false);
                 }}
-                className={`block px-3 py-2 rounded-md transition-all font-hind duration-300 transform ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
+                className={`block px-3 py-2 rounded-md transition-all font-hind duration-300 transform ${isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
                   }`}
                 style={{
-                  transitionDelay: isOpen ? `${index * 50}ms` : '0ms'
+                  transitionDelay: isMobileMenuOpen ? `${index * 50}ms` : '0ms'
                 }}
               >
                 {link.text}
@@ -127,7 +128,7 @@ const Navbar = () => {
       {/* Command Palette */}
       <CommandPalette
         isOpen={isCommandPaletteOpen}
-        onClose={() => setIsCommandPaletteOpen(false)}
+        onClose={() => setCommandPaletteOpen(false)}
         onNavigate={setActiveLink}
       />
     </nav>

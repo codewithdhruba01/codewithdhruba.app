@@ -32,7 +32,8 @@
     "react-pdf": "^10.3.0",
     "react-router-dom": "^6.21.1",
     "styled-components": "^6.1.19",
-    "tailwind-merge": "^3.4.0"
+    "tailwind-merge": "^3.4.0",
+    "zustand": "^5.0.11"
   },
   "devDependencies": {
     "@types/aos": "^3.0.7",
