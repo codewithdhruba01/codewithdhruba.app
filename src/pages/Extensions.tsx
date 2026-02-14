@@ -2,6 +2,14 @@
 import { useEffect, useState } from 'react';
 import { Copy, Check, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '../components/ui/tooltip';
+import { VisualStudioCode } from '../components/svgs/VisualStudioCode';
+import { Chrome } from '../components/svgs/Chrome';
 
 export default function Gears() {
   const [copied, setCopied] = useState<string | null>(null);
@@ -41,7 +49,10 @@ export default function Gears() {
       <div className="max-w-3xl mx-auto space-y-12">
         {/* VS Code Extensions Section */}
         <section>
-          <h2 className="text-base sm:text-xl font-bold mb-6 flex items-center gap-2">
+          <h2 className="text-base sm:text-xl font-bold mb-6 flex items-center gap-3">
+            <span className="w-10 h-10 flex items-center justify-center rounded-xl border border-neutral-800 bg-neutral-900/50">
+              <VisualStudioCode className="w-6 h-6" />
+            </span>
             VS Code Extensions
           </h2>
           <ul className="space-y-4">
@@ -84,16 +95,25 @@ export default function Gears() {
                 {/* Extension Name with Copy Icon */}
                 <span className="flex items-center gap-2 text-neutral-400 hover:text-white transition font-supreme">
                   {ext.name}
-                  <button
-                    onClick={() => handleCopy(ext.name)}
-                    className="text-gray-400 hover:text-white transition"
-                  >
-                    {copied === ext.name ? (
-                      <Check className="w-4 h-4 text-green-400" />
-                    ) : (
-                      <Copy className="w-4 h-4" />
-                    )}
-                  </button>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <button
+                          onClick={() => handleCopy(ext.name)}
+                          className="text-gray-400 hover:text-white transition"
+                        >
+                          {copied === ext.name ? (
+                            <Check className="w-4 h-4 text-green-400" />
+                          ) : (
+                            <Copy className="w-4 h-4" />
+                          )}
+                        </button>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p className="font-outfit text-[#2b2a2a]">Copy Extension</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 </span>
               </li>
             ))}
@@ -102,7 +122,10 @@ export default function Gears() {
 
         {/* Web Extensions Section */}
         <section>
-          <h2 className="text-lg sm:text-xl font-semibold mb-6 flex items-center gap-2">
+          <h2 className="text-lg sm:text-xl font-semibold mb-6 flex items-center gap-3">
+            <span className="w-10 h-10 flex items-center justify-center rounded-xl border border-neutral-800 bg-neutral-900/50">
+              <Chrome className="w-6 h-6" />
+            </span>
             Chrome Extensions
           </h2>
           <ul className="space-y-4">
