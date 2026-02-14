@@ -14,6 +14,8 @@ import {
   ArrowUpRight,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Devices } from '../components/svgs/Devices';
+import { AppStore } from '../components/svgs/AppStore';
 
 export default function Gears() {
   useEffect(() => {
@@ -44,7 +46,10 @@ export default function Gears() {
       <div className="max-w-3xl mx-auto space-y-12">
         {/* Devices Section */}
         <section>
-          <h2 className="text-lg sm:text-xl font-semibold mb-6 flex items-center gap-2">
+          <h2 className="text-lg sm:text-xl font-semibold mb-6 flex items-center gap-3">
+            <span className="w-10 h-10 flex items-center justify-center rounded-xl border border-neutral-800 bg-neutral-900/50">
+              <Devices className="w-5 h-5" />
+            </span>
             Devices
           </h2>
           <ul className="space-y-4">
@@ -112,7 +117,10 @@ export default function Gears() {
         </section>
 
         <section>
-          <h2 className="text-lg sm:text-xl font-semibold mb-6 flex items-center gap-2">
+          <h2 className="text-lg sm:text-xl font-semibold mb-6 flex items-center gap-3">
+            <span className="w-10 h-10 flex items-center justify-center rounded-xl border border-neutral-800 bg-neutral-900/50">
+              <AppStore className="w-5 h-5" />
+            </span>
             Software
           </h2>
           <ul className="space-y-4">
