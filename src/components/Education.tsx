@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
-import { Github, Globe, Linkedin, Twitter, ChevronDown } from 'lucide-react';
+import { Github, Globe, Linkedin, Twitter, ChevronDown, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { cn } from '../lib/utils';
 import Skill from './common/Skill';
 
@@ -327,7 +328,7 @@ const Experience = () => {
           <p className="text-lg text-neutral-400 font-outfit text-center">
             Featured
           </p>
-          <h2 className="text-3xl font-bold text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400 text-center font-excon">
+          <h2 className="text-3xl font-bold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-center font-excon">
             Experience
           </h2>
 
@@ -336,6 +337,16 @@ const Experience = () => {
         <TooltipProvider>
           <div data-aos="fade-up" data-aos-delay="100">
             <ExperienceList experiences={experiences} />
+
+            <div className="text-center mt-12">
+              <Link
+                to="/experience"
+                className="inline-flex items-center justify-center font-bold font-outfit px-8 py-3 border border-[#00DC82] text-[#00DC82] rounded-lg hover:bg-[#00DC82] hover:text-black transition-all duration-500 ease-in-out"
+              >
+                View all Experience
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </TooltipProvider>
       </div>

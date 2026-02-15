@@ -23,6 +23,7 @@ import Photos from './pages/Photos';
 import Resume from './pages/Resume';
 import Tools from './components/Tools';
 import Touch from './components/Touch';
+import WorkExperience from './pages/WorkExperience';
 import AOS from 'aos';
 
 const App = () => {
@@ -59,6 +60,7 @@ const App = () => {
             <Route path="/certificates" element={<Certificates />} />
             <Route path="/photos" element={<Photos />} />
             <Route path="/resume" element={<Resume />} />
+            <Route path="/experience" element={<WorkExperience />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/gears" element={<Gears />} />
             <Route path="/extensions" element={<Extensions />} />
