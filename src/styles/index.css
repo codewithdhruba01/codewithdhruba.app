@@ -17,9 +17,11 @@ body {
   h1 {
     font-size: 2.5rem !important;
   }
+
   h2 {
     font-size: 2rem !important;
   }
+
   .container {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -31,16 +33,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0A0A0A;
+  background: #323131;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #00DC82;
+  background: #FFFFFF;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00b368;
+  background: #E5E5E5;
 }
 
 /* Add smooth transition for mobile menu */
@@ -58,13 +60,15 @@ body {
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 /* Custom thin scrollbar */
 .thin-scrollbar::-webkit-scrollbar {
-  height: 6px;   /* horizontal scrollbar height */
+  height: 6px;
+  /* horizontal scrollbar height */
 }
 
 .thin-scrollbar::-webkit-scrollbar-track {
@@ -72,12 +76,14 @@ body {
 }
 
 .thin-scrollbar::-webkit-scrollbar-thumb {
-  background: #444;   /* scrollbar color */
+  background: #444;
+  /* scrollbar color */
   border-radius: 9999px;
 }
 
 .thin-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #00DC82; /* hover color */
+  background: #FFFFFF;
+  /* hover color */
 }
 
 /* Enhanced Code Blocks with Prism.js */
@@ -280,6 +286,7 @@ body {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -291,6 +298,7 @@ body {
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -301,6 +309,7 @@ body {
   0% {
     background-position: -200px 0;
   }
+
   100% {
     background-position: calc(200px + 100%) 0;
   }
@@ -311,6 +320,7 @@ body {
     opacity: 0;
     transform: scale(0.8);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -326,7 +336,7 @@ body {
   animation: fadeInUp 0.6s ease-out;
 }
 
-.blog-content-enter > * {
+.blog-content-enter>* {
   animation: fadeInUp 0.4s ease-out;
 }
 
@@ -353,6 +363,7 @@ html {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -386,8 +397,10 @@ html {
   -ms-user-select: none;
   user-select: none;
 }
+
 /* Lenis Recommended CSS */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
