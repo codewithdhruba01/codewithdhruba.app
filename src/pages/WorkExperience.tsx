@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { experiences } from '../constants/experience';
 import { ExperienceCard } from '../components/ExperienceCard';
+import { motion } from 'framer-motion';
 
 
 const WorkExperience = () => {
@@ -13,7 +14,12 @@ const WorkExperience = () => {
 
     return (
         <div className="min-h-screen bg-[#0A0A0A] pt-28 md:pt-36 pb-16 px-4 md:px-8">
-            <div className="max-w-4xl mx-auto">
+            <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="max-w-4xl mx-auto"
+            >
 
 
                 {/* Header */}
@@ -50,7 +56,7 @@ const WorkExperience = () => {
                         ))}
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 };
