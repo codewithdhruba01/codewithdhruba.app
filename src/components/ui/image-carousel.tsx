@@ -47,9 +47,9 @@ export const ImageCarousel = ({ images, className = '' }: ImageCarouselProps) =>
                 top: '50%',
                 transform: `translate(-50%, -50%) translate(${offsetX}px, ${offsetY}px) rotate(${rotation}deg) ${isVisible ? 'scale(1)' : 'scale(0.8)'}`,
                 zIndex: hoveredIndex === index ? 20 : 10 - Math.abs(index - 2),
-                borderColor: hoveredIndex === index ? '#00DC82' : 'rgba(0, 220, 130, 0.3)',
+                borderColor: hoveredIndex === index ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 0.1)',
                 boxShadow: hoveredIndex === index
-                  ? '0 25px 50px rgba(0, 220, 130, 0.4), 0 0 30px rgba(0, 220, 130, 0.3)'
+                  ? '0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 255, 255, 0.1)'
                   : '0 10px 20px rgba(0, 0, 0, 0.4)',
                 transition: `all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform ${isVisible ? '0.8s' : '0s'} cubic-bezier(0.25, 0.46, 0.45, 0.94) ${entranceDelay}ms`,
                 opacity: isVisible ? 1 : 0
@@ -61,18 +61,11 @@ export const ImageCarousel = ({ images, className = '' }: ImageCarouselProps) =>
                 className="absolute inset-0 rounded-2xl transition-all duration-700 ease-out"
                 style={{
                   background: hoveredIndex === index
-                    ? 'linear-gradient(135deg, rgba(0, 220, 130, 0.2) 0%, rgba(0, 220, 130, 0.05) 50%, transparent 100%)'
+                    ? 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 50%, transparent 100%)'
                     : 'transparent'
                 }}
               />
 
-              {hoveredIndex === index && (
-                <>
-                  <div className="absolute top-4 right-4 w-2 h-2 bg-[#00DC82] rounded-full animate-bounce" style={{ animationDelay: '0s', animationDuration: '2s' }} />
-                  <div className="absolute bottom-6 left-6 w-1.5 h-1.5 bg-[#00DC82] rounded-full animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '2.5s' }} />
-                  <div className="absolute top-8 left-8 w-1 h-1 bg-[#00DC82] rounded-full animate-bounce" style={{ animationDelay: '1s', animationDuration: '3s' }} />
-                </>
-              )}
 
               <img
                 src={image}
@@ -100,7 +93,7 @@ export const ImageCarousel = ({ images, className = '' }: ImageCarouselProps) =>
                 >
                   <p className="text-white text-sm font-semibold tracking-wide">Image {index + 1}</p>
                   <p className="text-gray-200 text-xs mt-1 opacity-90">codewithdhruba</p>
-                  <div className="w-8 h-0.5 bg-[#00DC82] mt-2 rounded-full transform transition-all duration-500 ease-out"
+                  <div className="w-8 h-0.5 bg-white mt-2 rounded-full transform transition-all duration-500 ease-out"
                     style={{ transform: hoveredIndex === index ? 'scaleX(1)' : 'scaleX(0)', transformOrigin: 'left' }} />
                 </div>
               </div>
@@ -108,8 +101,8 @@ export const ImageCarousel = ({ images, className = '' }: ImageCarouselProps) =>
               <div
                 className="absolute inset-0 rounded-2xl border-2 transition-all duration-500 ease-out"
                 style={{
-                  borderColor: hoveredIndex === index ? '#00DC82' : 'transparent',
-                  boxShadow: hoveredIndex === index ? 'inset 0 0 20px rgba(0, 220, 130, 0.3)' : 'none'
+                  borderColor: hoveredIndex === index ? 'rgba(255, 255, 255, 0.3)' : 'transparent',
+                  boxShadow: hoveredIndex === index ? 'inset 0 0 20px rgba(255, 255, 255, 0.05)' : 'none'
                 }}
               />
             </div>
@@ -127,7 +120,7 @@ export const ImageCarousel = ({ images, className = '' }: ImageCarouselProps) =>
               onClick={() => setHoveredIndex(hoveredIndex === index ? null : index)}
               className={`relative transition-all duration-500 ease-out rounded-full flex items-center justify-center group ${hoveredIndex === index
                 ? `w-8 h-8 ${colors.active} scale-110 shadow-lg ${colors.glow}`
-                : `w-6 h-6 bg-gray-600 ${colors.hover} hover:scale-105`
+                : `w-6 h-6 bg-neutral-800 ${colors.hover} hover:scale-105`
                 }`}
               style={{
                 transitionDelay: `${index * 50}ms`

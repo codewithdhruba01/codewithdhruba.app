@@ -41,11 +41,11 @@ const Hero = () => {
         <div className="order-1 md:order-2 flex justify-center md:justify-end mt-4 md:mt-0">
           <ImageCarousel
             images={[
-              "/assets/image2.png",
-              "/assets/image2.png",
+              "/assets/avaterlogo.jpg",
+              "/assets/avaterlogo.png",
               "/assets/image1.png",
-              "/assets/image2.png",
-              "/assets/image2.png",
+              "/assets/avaterlogo1.png",
+              "/assets/avaterlogo3.png",
             ]}
             className="w-full max-w-sm md:max-w-md"
           />
