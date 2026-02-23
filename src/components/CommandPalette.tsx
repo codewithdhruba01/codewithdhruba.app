@@ -21,7 +21,6 @@ import {
   Camera
 } from 'lucide-react';
 import { BookIcon, LeetcodeIcon } from './icons/SocialIcons';
-import { ReactLenis } from '@studio-freight/react-lenis';
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -45,7 +44,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
   const [isAnimating, setIsAnimating] = useState(false);
   const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement>(null);
-  const scrollContainerRef = useRef<any>(null); // Using any to avoid type conflict with Lenis ref
   const activeItemRef = useRef<HTMLButtonElement>(null);
 
   // Define all search items with proper categorization
@@ -392,16 +390,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
           </div>
 
           {/* Results */}
-          <ReactLenis
-            ref={scrollContainerRef}
-            className="max-h-96 overflow-y-auto overscroll-contain"
-            options={{
-              lerp: 0.1,
-              duration: 1.5,
-
-
-            }}
-          >
+          <div className="max-h-96 overflow-y-auto overscroll-contain">
             {Object.entries(groupedItems).map(([category, items]) => (
               <div key={category} className="px-2 py-3">
                 <div className="text-xs font-medium text-neutral-400 uppercase tracking-wide mb-2 px-2">
@@ -447,7 +436,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
                 No results found for "{searchQuery}"
               </div>
             )}
-          </ReactLenis>
+          </div>
 
           {/* Footer */}
           <div className="px-4 py-2 border-t border-neutral-700 bg-neutral-900/50">

@@ -1,5 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { TextGenerateEffect } from '../components/ui/text-generate-effect';
 import { ImageCarousel } from '../components/ui/image-carousel';
 import {
@@ -10,10 +9,10 @@ import {
   DailydotdevIcon,
   CodepenIcon,
   NewsIcon,
-  BookIcon,
   ThreadsIcon,
   LeetcodeIcon,
 } from '../components/icons/SocialIcons';
+import { InteractiveHoverButton } from './ui/interactive-hover-button';
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -141,32 +140,20 @@ const Hero = () => {
 
           {/* BUTTONS */}
           <div className="mt-8 flex flex-wrap gap-4">
-            <button
+            <InteractiveHoverButton
               onClick={handleDownloadCV}
-              className="group relative flex items-center justify-center gap-2 bg-[#00DC82] text-black font-semibold px-6 py-3 rounded-lg overflow-hidden hover:shadow-lg hover:shadow-[#00DC82]/70 transition-all duration-300"
+              className="bg-[#171717] text-white border border-[#5c5c5cbb]"
+              circleClassName="bg-[#00DC82]"
             >
-              <span className="flex items-center gap-2 translate-y-0 group-hover:-translate-y-[150%] transition-transform duration-300">
-                <BookIcon size="18" className="fill-black" />
-                Resume / CV
-              </span>
-              <div className="absolute inset-0 flex items-center justify-center gap-2 translate-y-[150%] group-hover:translate-y-0 transition-transform duration-300">
-                <span>Click Me</span>
-                <ArrowRight size={18} />
-              </div>
-            </button>
+              Resume / CV
+            </InteractiveHoverButton>
 
-            <Link
-              to="/about"
-              className="group relative flex items-center justify-center gap-2 bg-white text-black font-semibold px-6 py-3 rounded-lg overflow-hidden hover:bg-[#00DC82]/90 transition-all duration-300"
+            <InteractiveHoverButton
+              onClick={() => navigate('/about')}
+              className="bg-white text-black border-none"
             >
-              <span className="translate-y-0 group-hover:-translate-y-[150%] transition-transform duration-300 block">
-                About Me
-              </span>
-              <div className="absolute inset-0 flex items-center justify-center gap-2 translate-y-[150%] group-hover:translate-y-0 transition-transform duration-300">
-                <span>Click Me</span>
-                <ArrowRight size={18} />
-              </div>
-            </Link>
+              About Me
+            </InteractiveHoverButton>
           </div>
         </div>
       </div>

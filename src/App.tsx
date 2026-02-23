@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import SmoothScroll from './components/SmoothScroll';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/Hero';
 import About from './pages/About';
@@ -23,6 +22,7 @@ import Photos from './pages/Photos';
 import Resume from './pages/Resume';
 import Tools from './components/Tools';
 import Touch from './components/Touch';
+import VisitorCounter from './components/VisitorCounter';
 import WorkExperience from './pages/WorkExperience';
 import AOS from 'aos';
 
@@ -36,39 +36,38 @@ const App = () => {
 
   return (
     <Router>
-      <SmoothScroll>
-        <div className="min-h-screen bg-[#0A0A0A] text-white overflow-x-hidden relative">
-          <Navbar />
-          <Routes>
-            <Route path="/" element={
-              <>
-                <Hero />
-                <Projects />
-                <GitHubContributions />
-                <Skills />
-                <Education />
-                <Blog />
-                <Tools />
-                <Touch />
-              </>
-            } />
-            <Route path="/about" element={<About />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/all-posts" element={<AllPosts />} />
-            <Route path="/projects" element={<AllProjects />} />
-            <Route path="/chat-assistant" element={<ChatAssistant />} />
-            <Route path="/certificates" element={<Certificates />} />
-            <Route path="/photos" element={<Photos />} />
-            <Route path="/resume" element={<Resume />} />
-            <Route path="/experience" element={<WorkExperience />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/gears" element={<Gears />} />
-            <Route path="/extensions" element={<Extensions />} />
-          </Routes>
-          <ChatBotLauncher />
-          <Footer />
-        </div>
-      </SmoothScroll>
+      <div className="min-h-screen bg-[#0A0A0A] text-white overflow-x-hidden relative">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Hero />
+              <Projects />
+              <GitHubContributions />
+              <Skills />
+              <Education />
+              <Blog />
+              <Tools />
+              <Touch />
+              <VisitorCounter />
+            </>
+          } />
+          <Route path="/about" element={<About />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/all-posts" element={<AllPosts />} />
+          <Route path="/projects" element={<AllProjects />} />
+          <Route path="/chat-assistant" element={<ChatAssistant />} />
+          <Route path="/certificates" element={<Certificates />} />
+          <Route path="/photos" element={<Photos />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/experience" element={<WorkExperience />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/gears" element={<Gears />} />
+          <Route path="/extensions" element={<Extensions />} />
+        </Routes>
+        <ChatBotLauncher />
+        <Footer />
+      </div>
     </Router>
   );
 };

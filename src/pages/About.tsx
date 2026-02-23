@@ -7,6 +7,7 @@ import ReactIcon from '../components/svgs/ReactIcon';
 import TypeScript from '../components/svgs/TypeScript';
 import TailwindCss from '../components/svgs/TailwindCss';
 import NextJs from '../components/svgs/NextJs';
+import VisitorCounter from '../components/VisitorCounter';
 
 export default function AboutMe() {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -172,6 +173,8 @@ export default function AboutMe() {
           </div>
         </div>
       </div>
+      <VisitorCounter className="pt-20 pb-10 w-full" />
     </section>
+
   );
 }
