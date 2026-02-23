@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Github, Globe } from 'lucide-react';
-import { FancyButton } from '../components/ui/FancyButton';
+import { SectionButton } from '../components/ui/SectionButton';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../components/ui/tooltip';
 
 // Import SVG Icons
@@ -438,7 +438,7 @@ const AllProjects = () => {
           {/* Button */}
           {showToggleBtn && !loading && (
             <div className="flex justify-center mt-10">
-              <FancyButton
+              <SectionButton
                 onClick={() => {
                   setLoading(true);
                   setShowAll(!showAll);

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Github, Globe } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
+import { SectionButton } from './ui/SectionButton';
 
 // Import SVG Icons
 import ReactIcon from './svgs/ReactIcon';
@@ -39,7 +39,6 @@ type Project = {
 };
 
 const Projects = () => {
-  const navigate = useNavigate();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [loadedImages, setLoadedImages] = useState<Record<number, boolean>>({});
 
@@ -100,7 +99,7 @@ const Projects = () => {
           <div className="mb-8">
 
             <h2
-              className="text-4xl font-bold mb-4 text-center font-excon text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400 text-center font-excon"
+              className="text-4xl font-bold mb-4 text-center font-excon text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400"
               data-aos="fade-up"
             >
               Latest Projects
@@ -227,15 +226,8 @@ const Projects = () => {
             ))}
           </div>
 
-          {/* View All Projects Button */}
           <div className="text-center mt-12">
-            <button
-              onClick={() => navigate('/projects')}
-              className="inline-flex items-center justify-center font-bold font-outfit px-8 py-3 border border-[#00DC82] text-[#00DC82] rounded-lg hover:bg-[#00DC82] hover:text-black transition-all duration-500 ease-in-out"
-            >
-              View All Projects
-              <i className="fas fa-arrow-right ml-2"></i>
-            </button>
+            <SectionButton to="/projects" text="View All Projects" />
           </div>
         </div>
 

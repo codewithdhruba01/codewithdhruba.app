@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
-import { Github, Globe, Linkedin, Twitter, ChevronDown, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Github, Globe, Linkedin, Twitter, ChevronDown } from 'lucide-react';
 import { cn } from '../lib/utils';
+import { SectionButton } from './ui/SectionButton';
 import Skill from './common/Skill';
 
 // Import SVG Icons
@@ -339,13 +339,7 @@ const Experience = () => {
             <ExperienceList experiences={experiences} />
 
             <div className="text-center mt-12">
-              <Link
-                to="/experience"
-                className="inline-flex items-center justify-center font-bold font-outfit px-8 py-3 border border-[#00DC82] text-[#00DC82] rounded-lg hover:bg-[#00DC82] hover:text-black transition-all duration-500 ease-in-out"
-              >
-                View all Experience
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
+              <SectionButton to="/experience" text="View all Experience" />
             </div>
           </div>
         </TooltipProvider>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, ArrowRight } from 'lucide-react';
+import { SectionButton } from './ui/SectionButton';
 
 const Blog = () => {
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
@@ -39,7 +40,7 @@ const Blog = () => {
           <p className="text-lg text-neutral-400 font-outfit text-center">
             Latest
           </p>
-          <h2 className="text-3xl font-bold text-center font-excon text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400">
+          <h2 className="text-3xl font-bold text-center font-excon text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
             Blog Posts
           </h2>
         </div>
@@ -121,13 +122,7 @@ const Blog = () => {
           data-aos="fade-up"
           data-aos-delay="400"
         >
-          <Link
-            to="/all-posts"
-            className="inline-flex items-center justify-center px-8 py-3 border border-[#00DC82] text-[#00DC82] font-outfit font-bold rounded-lg hover:bg-[#00DC82] hover:text-black transition-all duration-300"
-          >
-            Show all blogs
-            <ArrowRight size={18} className="ml-2" />
-          </Link>
+          <SectionButton to="/all-posts" text="Show all blogs" />
         </div>
       </div>
     </section>
