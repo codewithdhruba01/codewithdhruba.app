@@ -1,17 +1,8 @@
-import { Mail, Github, Twitter, Linkedin } from 'lucide-react';
-import { useState } from 'react';
-import HoverInfo from '../components/ui/HoverInfo';
-
-// Import SVG Icons for HoverInfo
-import ReactIcon from '../components/svgs/ReactIcon';
-import TypeScript from '../components/svgs/TypeScript';
-import TailwindCss from '../components/svgs/TailwindCss';
-import NextJs from '../components/svgs/NextJs';
 import VisitorCounter from '../components/VisitorCounter';
+import { AboutProfile } from '../components/about/AboutProfile';
+import { AboutContent } from '../components/about/AboutContent';
 
 export default function AboutMe() {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
   return (
     <section
       id="about"
@@ -19,162 +10,10 @@ export default function AboutMe() {
       data-aos="fade-up"
     >
       <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
-        {/* Left Profile Card */}
-        <div
-          className="bg-[#101010] border border-neutral-800 rounded-2xl p-6 flex flex-col items-center shadow-lg mt-6"
-          data-aos="zoom-in"
-        >
-          <div className="relative w-full rounded-xl mb-6 overflow-hidden">
-            {/* Gradient Placeholder with Noise */}
-            <div
-              className={`absolute inset-0 z-10 transition-opacity duration-700 ${imageLoaded ? 'opacity-0' : 'opacity-100'
-                } bg-gradient-to-br from-emerald-900/40 via-neutral-900 to-black`}
-            >
-              <div className="absolute inset-0 opacity-20 bg-[url('/assets/noise.svg')]"></div>
-            </div>
-
-            <img
-              src="/assets/profilepic.jpeg"
-              alt="Profile"
-              className={`w-full object-cover transition-all duration-500 ${imageLoaded ? 'blur-0' : 'blur-md'
-                }`}
-              onLoad={() => setImageLoaded(true)}
-            />
-          </div>
-          <h2 className="text-xl font-semibold font-synonym">Dhrubaraj Pati</h2>
-          <p className="text-[#00DC82] mb-4 font-outfit">Frontend Developer</p>
-          <div className="flex flex-wrap gap-2 mb-4 justify-center font-supreme">
-            {[
-              'HTML',
-              'CSS',
-              'JavaScript',
-              'Tailwind CSS',
-              'React',
-              'Next.js',
-              'Node.js',
-              'Front-End Development',
-            ].map((tag) => (
-              <span
-                key={tag}
-                className="bg-[#222] text-sm px-3 py-1 rounded-full text-[#00DC82]"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-          <div className="flex flex-col gap-2 text-sm w-full">
-            <a
-              href="mailto:pati.dhrubaraj@outlook.com"
-              className="flex items-center gap-2 hover:text-[#00DC82] font-satoshi"
-            >
-              <Mail size={16} /> pati.dhrubaraj@outlook.com
-            </a>
-            <a
-              href="https://github.com/codewithdhruba01"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 hover:text-[#00DC82] font-satoshi"
-            >
-              <Github size={16} /> github.com/codewithdhruba01
-            </a>
-            <a
-              href="https://x.com/codewithdhruba"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 hover:text-[#00DC82] font-satoshi"
-            >
-              <Twitter size={16} /> @codewithdhruba
-            </a>
-            <a
-              href="https://www.linkedin.com/in/dhrubaraj-pati/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 hover:text-[#00DC82] font-satoshi"
-            >
-              <Linkedin size={16} />
-              @dhrubaraj-pati
-            </a>
-          </div>
-        </div>
-
-        {/* Right About Me Section */}
-        <div className="md:col-span-2 flex flex-col gap-8 mt-6" data-aos="fade-up">
-          <h1 className="text-6xl font-bold font-excon md:text-7xl mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
-            About <span className="text-[#00DC82]">Me</span>
-          </h1>
-          <p className="text-[#A3A3A3] font-satoshi text-lg leading-relaxed">
-            I am a <HoverInfo
-              trigger={<span className="text-white font-bold">Frontend Developer</span>}
-              title="Frontend Developer"
-              description="Specializing in building responsive, accessible, and high-performance web interfaces using modern technologies."
-            /> with a strong focus on building modern,
-            visually appealing, and user-centric web applications. My journey into development
-            is fueled by curiosity about how technology can solve real-world problems and a
-            constant desire to learn and grow. I enjoy crafting pixel-perfect user interfaces and building scalable,
-            maintainable frontend architectures. With hands-on experience in modern
-            tools and frameworks like{' '}
-            <HoverInfo
-              trigger={<span className="text-white font-bold text-lg">React</span>}
-              title="React"
-              description="The library for web and native user interfaces. I use it to build component-based architecture."
-              joinedDate="May 2013"
-              icon={ReactIcon}
-            />,{' '}
-            <HoverInfo
-              trigger={<span className="text-white font-bold">TypeScript</span>}
-              title="TypeScript"
-              description="TypeScript is a strongly typed programming language that builds on JavaScript."
-              joinedDate="Oct 2012"
-              icon={TypeScript}
-            />,{' '}
-            <HoverInfo
-              trigger={<span className="text-white font-bold">Tailwind CSS</span>}
-              title="Tailwind CSS"
-              description="A utility-first CSS framework packed with classes that can be composed to build any design, directly in your markup."
-              joinedDate="Nov 2017"
-              icon={TailwindCss}
-            />{' '}and{' '}
-            <HoverInfo
-              trigger={<span className="text-white font-bold">Next.js</span>}
-              title="Next.js"
-              description="The React Framework for the Web. Used for server-side rendering and static site generation."
-              joinedDate="Oct 2016"
-              icon={NextJs}
-            />{' '}I
-            create responsive, accessible, and performance-optimized web applications.
-          </p>
-          <p className="text-[#A3A3A3] font-satoshi text-lg leading-relaxed">
-            Beyond writing code, I care deeply about delivering great user experiences,
-            <span className="text-white"> writing clean and reusable code, and collaborating effectively within a team. </span>
-            I’m always eager to explore new technologies and apply them to meaningful projects.
-          </p>
-          <p className="text-[#A3A3A3] font-satoshi text-lg leading-relaxed">
-            I am seeking opportunities where I can contribute my skills to impactful products
-            while continuing to evolve as a developer and professional.
-          </p>
-
-          {/* Education Section */}
-          <div>
-            <h2 className="text-3xl font-bold mb-3 font-synonym">Education</h2>
-            <ul className="space-y-2">
-              <li>
-                <strong className="text-[#949494] font-outfit">
-                  Bachelor of Computer Application
-                </strong>
-                <br />
-                <div className="font-satoshi text-[#A3A3A3]">
-                  Swami Vivekananda University Kolkata{' '}
-                  <span className="text-[#00DC82] font-satoshi">
-                    ( 2023 - Present )
-                  </span>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <AboutProfile />
+        <AboutContent />
       </div>
       <VisitorCounter className="pt-20 pb-10 w-full" />
     </section>
-
   );
 }
