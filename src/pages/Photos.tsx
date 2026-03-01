@@ -390,27 +390,72 @@ const Photos = () => {
                     </div>
                 </div>
 
-                {/* Editorial Navigation */}
-                <div className="flex justify-center gap-8 -mt-8" data-aos="fade-up">
-                    <button
-                        onClick={prevPhoto}
-                        className="w-16 h-16 rounded-full border border-gray-300/60 flex items-center justify-center hover:border-gray-400/80 transition-all duration-500 hover:bg-white/5 backdrop-blur-sm"
-                    >
-                        <ChevronLeft className="w-7 h-7 text-gray-400" />
-                    </button>
-                    <button
-                        onClick={nextPhoto}
-                        className="w-16 h-16 rounded-full border border-gray-300/60 flex items-center justify-center hover:border-gray-400/80 transition-all duration-500 hover:bg-white/5 backdrop-blur-sm"
-                    >
-                        <ChevronRight className="w-7 h-7 text-gray-400" />
-                    </button>
-                </div>
+                {/* New Pagination Design */}
+                <div className="flex flex-col items-center gap-8 mt-4" data-aos="fade-up">
+                    <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center px-4 py-3 bg-[#0A0A0A]/50 backdrop-blur-sm rounded-2xl border border-neutral-900/50">
+                        {(() => {
+                            const totalPages = filteredPhotos.length;
+                            const pages = [];
+                            const range = 1; // Number of pages to show around current page
 
-                {/* Photo Counter */}
-                <div className="text-center mt-12">
-                    <span className="text-sm text-gray-400 font-medium">
-                        {currentIndex + 1} of {filteredPhotos.length}
-                    </span>
+                            // Always show first page
+                            pages.push(0);
+
+                            if (currentIndex > range + 1) {
+                                pages.push('ellipsis-start');
+                            }
+
+                            for (let i = Math.max(1, currentIndex - range); i <= Math.min(totalPages - 2, currentIndex + range); i++) {
+                                pages.push(i);
+                            }
+
+                            if (currentIndex < totalPages - range - 2) {
+                                pages.push('ellipsis-end');
+                            }
+
+                            // Always show last page if it exists
+                            if (totalPages > 1) {
+                                pages.push(totalPages - 1);
+                            }
+
+                            return pages.map((page) => {
+                                if (typeof page === 'string') {
+                                    return (
+                                        <span key={page} className="text-gray-600 px-2 select-none">...</span>
+                                    );
+                                }
+
+                                const isActive = currentIndex === page;
+                                return (
+                                    <button
+                                        key={page}
+                                        onClick={() => setCurrentIndex(page)}
+                                        className={`w-10 h-10 flex items-center justify-center rounded-xl text-lg font-medium transition-all duration-300 ${isActive
+                                            ? 'bg-[#1C1C1E] text-white shadow-xl shadow-black/40 border border-white/5'
+                                            : 'text-gray-500 hover:text-gray-300 hover:bg-neutral-900/50'
+                                            }`}
+                                    >
+                                        {page + 1}
+                                    </button>
+                                );
+                            });
+                        })()}
+                    </div>
+
+                    <div className="flex gap-4">
+                        <button
+                            onClick={prevPhoto}
+                            className="p-3 rounded-xl border border-neutral-700/50 flex items-center justify-center hover:border-neutral-800 transition-all duration-300 hover:bg-white/5"
+                        >
+                            <ChevronLeft className="w-5 h-5 text-gray-500" />
+                        </button>
+                        <button
+                            onClick={nextPhoto}
+                            className="p-3 rounded-xl border border-neutral-700/50 flex items-center justify-center hover:border-neutral-800 transition-all duration-300 hover:bg-white/5"
+                        >
+                            <ChevronRight className="w-5 h-5 text-gray-500" />
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
