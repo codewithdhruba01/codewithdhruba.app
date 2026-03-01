@@ -13,7 +13,7 @@ const GetInTouch = () => {
               Get In Touch
             </span>
           </h2>
-          <p className="text-lg text-neutral-400 max-w-2xl mx-auto font-supreme">
+          <p className="text-neutral-400 max-w-2xl mx-auto text-base font-supreme">
             Ready to start your project? Choose how you'd <br /> like to connect
             with me.
           </p>
@@ -34,7 +34,7 @@ const GetInTouch = () => {
               Quick and direct communication
             </p>
 
-            <ArrowRight className="absolute right-6 top-1/2 -translate-y-1/2 text-teal-400 opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+            <ArrowRight className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
           </a>
 
           <Link
@@ -42,7 +42,7 @@ const GetInTouch = () => {
             className="group relative flex flex-col items-start space-y-2 p-6 bg-neutral-900/50 border border-neutral-800 backdrop-blur-sm rounded-xl hover:bg-neutral-900/80 hover:border-neutral-700 transition-all duration-300"
           >
             <div className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center">
-              <MessageSquareText className="w-5 h-5 text-green-400" />
+              <MessageSquareText className="w-5 h-5 text-white" />
             </div>
             <h3 className="text-lg font-semibold font-outfit text-neutral-100">
               Contact Us
@@ -51,14 +51,14 @@ const GetInTouch = () => {
               Detailed project discussion
             </p>
 
-            <ArrowRight className="absolute right-6 top-1/2 -translate-y-1/2 text-green-400 opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+            <ArrowRight className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
           </Link>
         </div>
 
         <div className="mt-10 text-center">
           <p className="text-neutral-400 text-sm font-supreme">
             Average response time:{' '}
-            <span className="text-green-400 font-medium">
+            <span className="text-gray-100 font-medium">
               Less than 24 hours
             </span>
           </p>

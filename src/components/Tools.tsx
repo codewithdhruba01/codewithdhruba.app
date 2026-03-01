@@ -24,7 +24,7 @@ const GetInTouch = () => {
           >
             <div className="flex items-center gap-4 min-w-0">
               <div className="min-w-10 min-h-10 w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center shrink-0">
-                <Settings className="w-5 h-5 text-green-400" />
+                <Settings className="w-5 h-5 text-white" />
               </div>
 
               <div className="min-w-0">
@@ -37,7 +37,7 @@ const GetInTouch = () => {
               </div>
             </div>
 
-            <ArrowRight className="w-5 h-5 text-green-400 opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0" />
+            <ArrowRight className="w-5 h-5 text-gray-400 opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0" />
           </Link>
 
           <Link
@@ -46,7 +46,7 @@ const GetInTouch = () => {
           >
             <div className="flex items-center gap-4 min-w-0">
               <div className="min-w-10 min-h-10 w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center shrink-0">
-                <CodeXml className="w-5 h-5 text-green-400" />
+                <CodeXml className="w-5 h-5 text-white" />
               </div>
 
               <div className="min-w-0">
@@ -59,7 +59,7 @@ const GetInTouch = () => {
               </div>
             </div>
 
-            <ArrowRight className="w-5 h-5 text-green-400 opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0" />
+            <ArrowRight className="w-5 h-5 text-gray-400 opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0" />
           </Link>
         </div>
       </div>
