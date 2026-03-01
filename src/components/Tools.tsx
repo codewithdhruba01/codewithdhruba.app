@@ -7,7 +7,7 @@ const GetInTouch = () => {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="mb-8">
-          <h2 className="text-3xl font-bold text-center font-excon text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400">
+          <h2 className="text-3xl font-bold text-center text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400">
             Development
           </h2>
           <p className="text-lg text-neutral-400 font-outfit text-center">

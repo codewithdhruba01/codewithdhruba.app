@@ -3,6 +3,8 @@ import ReactIcon from '../svgs/ReactIcon';
 import TypeScript from '../svgs/TypeScript';
 import TailwindCss from '../svgs/TailwindCss';
 import NextJs from '../svgs/NextJs';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 
 export const AboutContent = () => {
     return (
@@ -60,6 +62,17 @@ export const AboutContent = () => {
                 I am seeking opportunities where I can contribute my skills to impactful products
                 while continuing to evolve as a developer and professional.
             </p>
+
+            {/* Bucket List Link */}
+            <div className="mt-4">
+                <Link
+                    to="/bucket-list"
+                    className="inline-flex items-center gap-3 px-6 py-3 bg-[#111111] border border-[#2d2e2d] rounded-xl text-[#d3d1d1] hover:border-[#A3A3A3]/50 hover:bg-[#1a1a1a] transition-all duration-300 group shadow-lg shadow-black/20"
+                >
+                    <span className="text-lg font-bold font-outfit">View My Bucket List</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+            </div>
 
             {/* Education Section */}
             <div>

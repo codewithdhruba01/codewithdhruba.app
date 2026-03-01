@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import { DownloadIcon } from '../components/icons/SocialIcons';
+import { Download } from 'lucide-react';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
@@ -121,10 +121,10 @@ const Resume = () => {
       >
         <button
           onClick={handleDownload}
-          className="inline-flex items-center justify-center font-bold font-outfit px-8 py-3 bg-[#00DC82] text-black rounded-lg hover:bg-[#00b368] hover:text-black transition-all duration-500 ease-in-out gap-2"
+          className="inline-flex items-center gap-3 px-6 py-3 bg-[#111111] border border-[#2d2e2d] rounded-xl text-[#d3d1d1] hover:border-[#A3A3A3]/50 hover:bg-[#1a1a1a] transition-all duration-300 group shadow-lg shadow-black/20"
         >
-          <DownloadIcon size="18" className="!fill-black" />
-          Download
+          <span className="text-lg font-bold font-outfit">Download Resume</span>
+          <Download className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
         </button>
       </div>
 

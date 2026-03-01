@@ -6,7 +6,7 @@ export const AboutProfile = () => {
 
     return (
         <div
-            className="bg-[#101010] border border-neutral-800 rounded-2xl p-6 flex flex-col items-center shadow-lg mt-6"
+            className="bg-[#101010] border border-neutral-800 rounded-2xl p-6 flex flex-col items-center shadow-lg mt-6 h-fit md:sticky md:top-32"
             data-aos="zoom-in"
         >
             <div className="relative w-full rounded-xl mb-6 overflow-hidden">

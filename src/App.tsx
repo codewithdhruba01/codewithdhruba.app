@@ -24,6 +24,7 @@ import Tools from './components/Tools';
 import Touch from './components/Touch';
 import VisitorCounter from './components/VisitorCounter';
 import WorkExperience from './pages/WorkExperience';
+import BucketList from './pages/BucketList';
 import AOS from 'aos';
 
 const App = () => {
@@ -64,6 +65,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/gears" element={<Gears />} />
           <Route path="/extensions" element={<Extensions />} />
+          <Route path="/bucket-list" element={<BucketList />} />
         </Routes>
         <ChatBotLauncher />
         <Footer />

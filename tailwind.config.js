@@ -22,7 +22,8 @@ export default {
         amulya: ['Amulya', 'sans-serif'],
         neco: ['Neco', 'serif'],
         pally: ['Pally', 'sans-serif'],
-        hind: ['Hind', 'sans-serif']
+        hind: ['Hind', 'sans-serif'],
+        dancing: ['Dancing Script', 'cursive']
       },
       typography: {
         DEFAULT: {
