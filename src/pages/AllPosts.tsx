@@ -147,7 +147,7 @@ const AllPosts = () => {
                     <h3 className="text-xl md:text-2xl font-bold text-white mb-2 font-outfit leading-tight">
                       <Link
                         to={`/blog/${post.slug}`}
-                        className="transition-all duration-200 group-hover:bg-[#00DC82]/10 group-hover:text-[#00DC82] rounded-md px-1 -ml-1"
+                        className="transition-all duration-200 group-hover:bg-[#00DC82]/20 rounded-md px-1 -ml-1"
                       >
                         {post.title}
                       </Link>
