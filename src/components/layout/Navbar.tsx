@@ -45,7 +45,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed w-full z-50 bg-[#0A0A0A]/80 backdrop-blur-md">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-[#0A0A0A]/80 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -62,9 +62,9 @@ const Navbar = () => {
                 key={link.href}
                 href={link.href}
                 onClick={() => setActiveLink(link.href)}
-                className={`px-3 py-1.5 rounded-md transition-all duration-300 ${activeLink === link.href
-                  ? 'bg-[#00DC82]/20 text-[#ffffff]'
-                  : 'text-[#E5E5E5] hover:bg-[#00DC82]/20 hover:text-[#00DC82]'
+                className={`px-3 py-1.5 rounded-md transition-all duration-300 font-medium ${activeLink === link.href
+                  ? 'text-[#00DC82]'
+                  : 'text-[#E5E5E5] hover:text-[#00DC82]'
                   }`}
               >
                 {link.text}
@@ -112,8 +112,7 @@ const Navbar = () => {
                   setActiveLink(link.href);
                   setMobileMenuOpen(false);
                 }}
-                className={`block px-3 py-2 rounded-md transition-all font-hind duration-300 transform ${isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
-                  }`}
+                className={`block px-3 py-2 rounded-md transition-all font-hind duration-300 transform hover:text-[#00DC82] ${isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'} ${activeLink === link.href ? 'text-[#00DC82]' : 'text-[#E5E5E5]'}`}
                 style={{
                   transitionDelay: isMobileMenuOpen ? `${index * 50}ms` : '0ms'
                 }}
