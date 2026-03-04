@@ -11,6 +11,7 @@ const Photos = () => {
     const [photoLoveCounts, setPhotoLoveCounts] = useState<Record<number, number>>({});
     const [userLovedPhotos, setUserLovedPhotos] = useState<Set<number>>(new Set());
     const [lovingPhoto, setLovingPhoto] = useState(false);
+    const [showHeart, setShowHeart] = useState<Record<number, boolean>>({});
 
     // Swipe functionality
     const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -174,8 +175,14 @@ const Photos = () => {
         }
     };
 
-    const handleLoveClick = async (photoId: number, e: React.MouseEvent) => {
-        e.stopPropagation(); // Prevent triggering carousel navigation
+    const handleLoveClick = async (photoId: number, e?: React.MouseEvent) => {
+        if (e) e.stopPropagation(); // Prevent triggering carousel navigation
+
+        // Trigger big heart animation regardless of whether already loved
+        setShowHeart(prev => ({ ...prev, [photoId]: true }));
+        setTimeout(() => {
+            setShowHeart(prev => ({ ...prev, [photoId]: false }));
+        }, 1000);
 
         if (userLovedPhotos.has(photoId) || lovingPhoto) return;
 
@@ -308,12 +315,33 @@ const Photos = () => {
                                             className={`w-full h-full object-cover transition-all duration-700 ease-out ${loadedImages.has(photo.image) ? 'filter-none' : 'blur-sm scale-110'
                                                 }`}
                                             onLoad={() => handleImageLoad(photo.image)}
+                                            onDoubleClick={() => isCenter && handleLoveClick(photo.id)}
                                             onError={(e) => {
                                                 const target = e.target as HTMLImageElement;
                                                 target.src = '/placeholder-photo.jpg';
                                                 handleImageLoad(photo.image);
                                             }}
                                         />
+
+                                        {/* Large Animated Heart */}
+                                        <AnimatePresence>
+                                            {showHeart[photo.id] && (
+                                                <motion.div
+                                                    initial={{ opacity: 0, scale: 0, x: "-50%", y: "-50%" }}
+                                                    animate={{
+                                                        opacity: [0, 1, 1, 0],
+                                                        scale: [0, 1.2, 1, 1.5],
+                                                        x: "-50%",
+                                                        y: "-50%"
+                                                    }}
+                                                    exit={{ opacity: 0, scale: 2, x: "-50%", y: "-50%" }}
+                                                    transition={{ duration: 0.8, ease: "easeOut" }}
+                                                    className="absolute top-1/2 left-1/2 z-50 pointer-events-none"
+                                                >
+                                                    <Heart className="w-24 h-24 text-red-500 fill-red-500 drop-shadow-[0_0_15px_rgba(239,68,68,0.6)]" />
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
 
                                         {isNearSide && (
                                             <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-black/10 to-black/30 rounded-3xl" />
