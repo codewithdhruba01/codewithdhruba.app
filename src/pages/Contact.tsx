@@ -4,6 +4,7 @@ import {
   Send,
   Github,
   Linkedin,
+  Plus,
 } from 'lucide-react';
 import { Gmail } from '../components/svgs/Gmail';
 import { GoogleMaps } from '../components/svgs/GoogleMaps';
@@ -11,6 +12,7 @@ import { XIcon } from '../components/icons/SocialIcons';
 import { getCalApi } from '@calcom/embed-react';
 import { motion } from 'framer-motion';
 import { SectionButton } from '../components/ui/SectionButton';
+import { GoogleMeet } from '../components/svgs/GoogleMeet';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -363,13 +365,50 @@ const Contact = () => {
               requirements.
             </p>
             <div className="flex justify-center">
-              <SectionButton
+              <motion.button
                 data-cal-namespace="30min"
                 data-cal-link="dhrubaraj-pati-7zugw9/30min"
                 data-cal-config='{"layout":"month_view"}'
-                text="Book a Free Call"
-                icon={<Phone className="w-5 h-5" />}
-              />
+                initial="initial"
+                whileHover="hover"
+                whileTap="tap"
+                variants={{
+                  hover: { scale: 1.02 },
+                  tap: { scale: 0.98 }
+                }}
+                className="group relative flex items-center px-6 py-3 bg-[#111111] border border-[#2d2e2d] rounded-2xl hover:border-[#A3A3A3]/50 transition-all duration-300 shadow-xl overflow-hidden"
+              >
+                {/* Avatar - Always visible */}
+                <div className="flex items-center shrink-0">
+                  <img
+                    src="/assets/avaterlogo.png"
+                    alt="Avatar"
+                    className="w-8 h-8 rounded-full object-cover border border-neutral-700 shadow-lg shadow-black/40"
+                  />
+                </div>
+
+                {/* Plus + Google Meet - Reveal on hover */}
+                <motion.div
+                  className="flex items-center overflow-hidden h-9"
+                  variants={{
+                    initial: { width: 0, opacity: 0, marginLeft: 0 },
+                    hover: { width: "auto", opacity: 1, marginLeft: 12 }
+                  }}
+                  transition={{ duration: 0.4, ease: "circOut" }}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Plus className="text-neutral-500 w-4 h-4 shrink-0" strokeWidth={3} />
+                    <div className="w-9 h-9 rounded-full bg-neutral-800 flex items-center justify-center border border-neutral-700/50">
+                      <GoogleMeet className="w-5 h-5" />
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Always visible text */}
+                <span className="text-[#d3d1d1] group-hover:text-white font-outfit font-bold text-lg whitespace-nowrap transition-colors duration-300 ml-3">
+                  Book a Free Call
+                </span>
+              </motion.button>
             </div>
           </div>
         </div>
