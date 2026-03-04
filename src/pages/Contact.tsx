@@ -3,6 +3,7 @@ import {
   Phone,
   Send,
   Plus,
+  X,
 } from 'lucide-react';
 import { Gmail } from '../components/svgs/Gmail';
 import { GoogleMaps } from '../components/svgs/GoogleMaps';
@@ -13,8 +14,8 @@ import {
   InstagramIcon,
 } from '../components/icons/SocialIcons';
 import { Tooltip, TooltipTrigger, TooltipContent } from '../components/ui/tooltip';
-import { getCalApi } from '@calcom/embed-react';
-import { motion } from 'framer-motion';
+import Cal, { getCalApi } from '@calcom/embed-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { SectionButton } from '../components/ui/SectionButton';
 import { GoogleMeet } from '../components/svgs/GoogleMeet';
 
@@ -34,10 +35,12 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
 
+  const [showCal, setShowCal] = useState(false);
+
   useEffect(() => {
     (async function () {
-      const cal = await getCalApi({ namespace: '30min' });
-      cal('ui', { hideEventTypeDetails: false, layout: 'month_view' });
+      const cal = await getCalApi();
+      cal('ui', { theme: 'dark', hideEventTypeDetails: false, layout: 'month_view' });
     })();
   }, []);
 
@@ -379,8 +382,8 @@ const Contact = () => {
         animate="visible"
         custom={7}
       >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#111111] border border-neutral-800 rounded-2xl p-8 md:p-12 text-center shadow-2xl shadow-black/40">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="bg-[#111111] border border-neutral-800 rounded-2xl p-8 md:p-12 text-center shadow-2xl shadow-black/40 relative">
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400 mb-6">
               Ready to Start Your Project?
             </h2>
@@ -388,11 +391,9 @@ const Contact = () => {
               Let's schedule a free consultation to discuss your ideas and
               requirements.
             </p>
-            <div className="flex justify-center">
+            <div className="flex flex-col items-center">
               <motion.button
-                data-cal-namespace="30min"
-                data-cal-link="dhrubaraj-pati-7zugw9/30min"
-                data-cal-config='{"layout":"month_view"}'
+                onClick={() => setShowCal(true)}
                 initial="initial"
                 whileHover="hover"
                 whileTap="tap"
@@ -434,10 +435,63 @@ const Contact = () => {
                 </span>
               </motion.button>
             </div>
+
+            {/* Popup Card Scheduler */}
+            <AnimatePresence>
+              {showCal && (
+                <>
+                  {/* Full-screen Backdrop */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onClick={() => setShowCal(false)}
+                    className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm cursor-pointer"
+                  />
+
+                  {/* Premium Glassmorphism Card */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9, y: 40 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, y: 40 }}
+                    transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                    className="fixed inset-0 z-[101] flex items-center justify-center p-4 md:p-8 pointer-events-none"
+                  >
+                    <div className="relative w-full max-w-4xl h-[75vh] bg-[#111111]/95 backdrop-blur-2xl border border-white/10 rounded-[2rem] shadow-[0_0_50px_-12px_rgba(0,0,0,0.5)] overflow-hidden pointer-events-auto flex flex-col">
+                      {/* Header */}
+                      <div className="flex items-center justify-between px-8 py-6 border-b border-white/5">
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-8 bg-green-500 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.5)]" />
+                          <h3 className="text-2xl font-bold font-excon text-white">
+                            Schedule your Free Call
+                          </h3>
+                        </div>
+                        <button
+                          onClick={() => setShowCal(false)}
+                          className="p-2 rounded-full bg-white/5 border border-white/10 text-neutral-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 group"
+                        >
+                          <X className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" />
+                        </button>
+                      </div>
+
+                      {/* Cal Embed Container */}
+                      <div className="flex-1 w-full overflow-hidden p-2">
+                        <Cal
+                          namespace="30min"
+                          calLink="dhrubaraj-pati-7zugw9/30min"
+                          style={{ width: "100%", height: "100%", overflow: "scroll" }}
+                          config={{ layout: 'month_view', theme: 'dark' }}
+                        />
+                      </div>
+                    </div>
+                  </motion.div>
+                </>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </motion.section>
-    </motion.div>
+    </motion.div >
   );
 };
 
