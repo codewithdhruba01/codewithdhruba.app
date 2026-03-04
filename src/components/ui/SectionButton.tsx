@@ -15,16 +15,14 @@ export const SectionButton = ({
     to,
     onClick,
     className,
-    icon = <ArrowRight size={18} className="ml-2" />
+    icon = <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
 }: SectionButtonProps) => {
-    const baseClasses = "inline-flex items-center justify-center font-bold font-outfit px-8 py-3 border border-[#00DC82] text-[#00DC82] rounded-lg hover:bg-[#00DC82] hover:text-black transition-all duration-500 ease-in-out group";
+    const baseClasses = "inline-flex items-center gap-3 px-6 py-3 bg-[#111111] border border-[#2d2e2d] rounded-xl text-[#d3d1d1] hover:border-[#A3A3A3]/50 hover:bg-[#1a1a1a] transition-all duration-300 group shadow-lg shadow-black/20 text-lg font-bold font-outfit";
 
     const content = (
         <>
             {text}
-            <span className="transition-transform duration-300 group-hover:translate-x-1">
-                {icon}
-            </span>
+            {icon}
         </>
     );
 
