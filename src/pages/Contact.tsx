@@ -10,6 +10,7 @@ import { GoogleMaps } from '../components/svgs/GoogleMaps';
 import { XIcon } from '../components/icons/SocialIcons';
 import { getCalApi } from '@calcom/embed-react';
 import { motion } from 'framer-motion';
+import { SectionButton } from '../components/ui/SectionButton';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -301,41 +302,36 @@ const Contact = () => {
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={loading || sent}
-                  className="w-full flex items-center justify-center space-x-2 px-8 py-4 border border-[#00DC82] text-[#00DC82] rounded-lg hover:bg-[#00DC82] hover:text-black font-outfit transition-all duration-300 ease-in-out"
-                >
-                  {loading ? (
-                    <svg
-                      className="animate-spin h-5 w-5 text-white"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      ></circle>
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8v4l3.5-3.5L12 0v4a8 8 0 00-8 8h4z"
-                      ></path>
-                    </svg>
-                  ) : sent ? (
-                    <span>Message Sent</span>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5" />
-                      <span>Send Message</span>
-                    </>
-                  )}
-                </button>
+                <div className="flex justify-center">
+                  <SectionButton
+                    type="submit"
+                    disabled={loading || sent}
+                    className=""
+                    text={loading ? "Sending..." : sent ? "Message Sent" : "Send Message"}
+                    icon={loading ? (
+                      <svg
+                        className="animate-spin h-5 w-5 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8v4l3.5-3.5L12 0v4a8 8 0 00-8 8h4z"
+                        ></path>
+                      </svg>
+                    ) : sent ? null : <Send className="w-5 h-5" />}
+                  />
+                </div>
               </form>
 
               {/* Status Message */}
@@ -351,29 +347,31 @@ const Contact = () => {
 
       {/* Call to Action */}
       <motion.section
-        className="py-20 bg-gray-800/30"
+        className="py-20"
         variants={fadeUp}
         initial="hidden"
         animate="visible"
         custom={7}
       >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-excon md:text-4xl font-bold text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400 mb-6">
-            Ready to Start Your Project?
-          </h2>
-          <p className="text-xl font-poppins text-neutral-400 mb-8">
-            Let's schedule a free consultation to discuss your ideas and
-            requirements.
-          </p>
-          <button
-            data-cal-namespace="30min"
-            data-cal-link="dhrubaraj-pati-7zugw9/30min"
-            data-cal-config='{"layout":"month_view"}'
-            className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-teal-600 to-blue-600 rounded-full text-white font-semibold hover:from-teal-700 hover:to-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg"
-          >
-            <Phone className="w-5 h-5" />
-            <span>Book a Free Call</span>
-          </button>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#111111] border border-neutral-800 rounded-2xl p-8 md:p-12 text-center shadow-2xl shadow-black/40">
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400 mb-6">
+              Ready to Start Your Project?
+            </h2>
+            <p className="text-xl font-poppins text-neutral-400 mb-8">
+              Let's schedule a free consultation to discuss your ideas and
+              requirements.
+            </p>
+            <div className="flex justify-center">
+              <SectionButton
+                data-cal-namespace="30min"
+                data-cal-link="dhrubaraj-pati-7zugw9/30min"
+                data-cal-config='{"layout":"month_view"}'
+                text="Book a Free Call"
+                icon={<Phone className="w-5 h-5" />}
+              />
+            </div>
+          </div>
         </div>
       </motion.section>
     </motion.div>
