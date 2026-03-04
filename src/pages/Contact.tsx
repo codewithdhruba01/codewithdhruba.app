@@ -2,13 +2,17 @@ import React, { useState, useEffect } from 'react';
 import {
   Phone,
   Send,
-  Github,
-  Linkedin,
   Plus,
 } from 'lucide-react';
 import { Gmail } from '../components/svgs/Gmail';
 import { GoogleMaps } from '../components/svgs/GoogleMaps';
-import { XIcon } from '../components/icons/SocialIcons';
+import {
+  GithubIcon,
+  LinkedinIcon,
+  XIcon,
+  InstagramIcon,
+} from '../components/icons/SocialIcons';
+import { Tooltip, TooltipTrigger, TooltipContent } from '../components/ui/tooltip';
 import { getCalApi } from '@calcom/embed-react';
 import { motion } from 'framer-motion';
 import { SectionButton } from '../components/ui/SectionButton';
@@ -192,25 +196,45 @@ const Contact = () => {
                 <h3 className="text-xl font-bold font-outfit text-neutral-200 mb-4">
                   Follow Me
                 </h3>
-                <div className="flex space-x-4">
-                  <a
-                    href="https://github.com/codewithdhruba01"
-                    className="p-3 border-neutral-800 bg-[#101010] border hover:bg-gray-900/50 rounded-lg transition-all duration-300 hover:scale-110"
-                  >
-                    <Github className="w-6 h-6 text-white" />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/dhrubaraj-pati/"
-                    className="p-3 border-neutral-800 bg-[#101010] border hover:bg-blue-600 rounded-lg transition-all duration-300 hover:scale-110"
-                  >
-                    <Linkedin className="w-6 h-6 text-white" />
-                  </a>
-                  <a
-                    href="https://x.com/codewithdhruba"
-                    className="p-3 border-neutral-800 bg-[#101010] border hover:bg-sky-600 rounded-lg transition-all duration-300 hover:scale-110"
-                  >
-                    <XIcon size="22" className="text-white hover:fill-white transition-colors duration-300" />
-                  </a>
+                <div className="flex items-center gap-6">
+                  {[
+                    {
+                      icon: <GithubIcon size="22" className="group-hover:stroke-white transition-all duration-300" />,
+                      href: "https://github.com/codewithdhruba01",
+                      label: "GitHub"
+                    },
+                    {
+                      icon: <LinkedinIcon size="22" className="group-hover:fill-white transition-all duration-300" />,
+                      href: "https://www.linkedin.com/in/dhrubaraj-pati/",
+                      label: "LinkedIn"
+                    },
+                    {
+                      icon: <XIcon size="18" className="group-hover:fill-white transition-all duration-300" />,
+                      href: "https://x.com/codewithdhruba",
+                      label: "X (Twitter)"
+                    },
+                    {
+                      icon: <InstagramIcon size="20" className="group-hover:stroke-white transition-all duration-300" />,
+                      href: "https://www.instagram.com/silent.coder5/",
+                      label: "Instagram"
+                    }
+                  ].map((social, i) => (
+                    <Tooltip key={i}>
+                      <TooltipTrigger>
+                        <a
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group relative flex items-center justify-center transition-all duration-300 hover:scale-125"
+                        >
+                          {social.icon}
+                        </a>
+                      </TooltipTrigger>
+                      <TooltipContent side="top">
+                        {social.label}
+                      </TooltipContent>
+                    </Tooltip>
+                  ))}
                 </div>
               </motion.div>
             </motion.div>

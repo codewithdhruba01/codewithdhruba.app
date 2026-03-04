@@ -90,7 +90,7 @@ const Hero = () => {
             </a>
 
             <a
-              href="https://www.instagram.com/dhrubaraj_pati/"
+              href="https://www.instagram.com/silent.coder5/"
               className="group flex items-center gap-2 font-bold text-gray-300"
             >
               <InstagramIcon size="18" className="group-hover:stroke-white transition-all duration-300 ease-in-out" />
@@ -130,7 +130,7 @@ const Hero = () => {
             </a>
 
             <a
-              href="https://www.threads.net/@dhrubaraj_pati"
+              href="https://www.threads.com/@silent.coder5"
               className="group flex items-center gap-2 font-bold text-gray-300"
             >
               <ThreadsIcon size="18" className="group-hover:fill-white transition-all duration-300 ease-in-out" />
