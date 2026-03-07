@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
+import { SectionButton } from '../components/ui/SectionButton';
+import ScheduleModal from '../components/modals/ScheduleModal';
 
 const BucketList = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const leftItems = [
         { text: "Visit Darjeeling and experience its beautiful hills", completed: false },
         { text: "Travel to Manali to experience snowfall", completed: false },
@@ -11,10 +15,11 @@ const BucketList = () => {
     ];
 
     const rightItems = [
-        { text: "I will buy a MacBook with my own money.", completed: false },
+        { text: "Buy a MacBook with my own money.", completed: false },
+        { text: "Buy a Monitor with my own money.", completed: true },
         { text: "Daily Practice Problem Solving", completed: true },
         { text: "Buy a luxury camera", completed: false },
-        { text: "READ A BOOK SERIES", completed: false },
+        { text: "READ A BOOK SERIES", completed: true },
         { text: "Create my dream desk setup for better focus, productivity", completed: false },
         { text: "Practice coding daily to improve my programming skills", completed: true },
     ];
@@ -94,7 +99,20 @@ const BucketList = () => {
                         ))}
                     </div>
                 </div>
+
+                {/* All Schedule Button */}
+                <div className="mt-20 flex justify-center">
+                    <SectionButton
+                        text="View all Schedule"
+                        onClick={() => setIsModalOpen(true)}
+                    />
+                </div>
             </div>
+
+            <ScheduleModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+            />
         </div>
     );
 };
