@@ -396,7 +396,7 @@ const Contact = () => {
                 onClick={() => setShowCal(true)}
                 initial="initial"
                 whileHover="hover"
-                whileTap="tap"
+                whileTap={["tap", "hover"]}
                 variants={{
                   hover: { scale: 1.02 },
                   tap: { scale: 0.98 }
