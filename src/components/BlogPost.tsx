@@ -735,12 +735,10 @@ const BlogPost = () => {
 
                 <button
                   onClick={resetZoom}
-                  className="px-4 py-2 rounded-lg bg-[#00DC82]/20 hover:bg-[#00DC82]/30
-                           border border-[#00DC82]/30 text-[#00DC82] text-sm font-medium
-                           transition-all duration-200 flex items-center gap-2"
+                  className="px-6 py-2.5 bg-[#111111] border border-[#2d2e2d] rounded-xl text-[#d3d1d1] hover:border-[#A3A3A3]/50 hover:bg-[#1a1a1a] transition-all duration-300 group shadow-lg shadow-black/20 flex items-center gap-2"
                 >
-                  <RotateCcw className="w-4 h-4" />
-                  Reset
+                  <RotateCcw className="w-4 h-4 group-hover:rotate-[-45deg] transition-transform duration-300" />
+                  <span className="text-sm font-bold font-outfit">Reset</span>
                 </button>
 
                 <button
