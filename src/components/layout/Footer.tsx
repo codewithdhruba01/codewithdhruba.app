@@ -109,13 +109,18 @@ const Footer = () => {
             </h3>
             <ul className="space-y-1">
               <li>
+                <a href="/" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">
+                  Home
+                </a>
+              </li>
+              <li>
                 <a href="/#projects" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">
                   Project
                 </a>
               </li>
               <li>
-                <a href="/#education" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">
-                  Education
+                <a href="/experience" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">
+                  Experience
                 </a>
               </li>
               <li>
@@ -126,6 +131,11 @@ const Footer = () => {
               <li>
                 <a href="/#contributions" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">
                   GitHub Activity
+                </a>
+              </li>
+              <li>
+                <a href="/bucket-list" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">
+                  Bucket List
                 </a>
               </li>
             </ul>
@@ -140,6 +150,7 @@ const Footer = () => {
               <li><a href="/about" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">About</a></li>
               <li><a href="/projects" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">Projects</a></li>
               <li><a href="/all-posts" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">Blogs</a></li>
+              <li><a href="/photos" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">Photography</a></li>
               <li><a href="/certificates" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">Achievements</a></li>
               <li><a href="/contact" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">Contact Us</a></li>
             </ul>
