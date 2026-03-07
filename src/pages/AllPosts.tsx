@@ -13,12 +13,13 @@ const blogDescriptions = {
   'building-my-first-website-with-react-and-tailwind': 'Learn how I built my Portfolio website from scratch using React and Tailwind CSS — from setup to responsive design, with tips and key takeaways.',
   'essential-linux-commands': 'Learn the most essential Linux commands every beginner and intermediate user must know. This comprehensive guide explains each command in simple terms.',
   'essential-tools-for-nextjs-and-react': 'A curated list of the best UI libraries, icons, animation tools, and utilities to supercharge your Next.js and React development workflow.',
+  'rag-ai-chatbot': 'Learn how to build a personalized AI chatbot that answers questions from your own data using RAG, LangChain, and local LLMs.',
 };
 
 // Extract simplified blog post data for listing
 const blogPosts = Object.entries(blogPostsData).map(([slug, post]) => ({
   title: post.title.replace(/:.*$/, ''), // Remove everything after colon for cleaner titles
-  description: blogDescriptions[slug as keyof typeof blogDescriptions] || 'Read this interesting blog post about web development.',
+  description: blogDescriptions[slug as keyof typeof blogDescriptions] || 'NextAuth.js is a complete open-source authentication solution for Next.js applications. It handles authentication, authorization, and session management',
   date: post.date,
   image: post.image,
   category: [post.category], // Convert single category to array

@@ -12,24 +12,24 @@ const Blog = () => {
 
   const blogPosts = [
     {
-      title: 'Essential Linux Commands',
+      title: 'How NextAuth.js Works',
       description:
-        'Learn the most essential Linux commands every beginner and intermediate user must know. This comprehensive guide explains each command..',
-      date: 'Dec 8, 2025',
-      image: '/blog/linux_commands.png',
-      category: ['CLI', 'Devlopment', 'Terminal'],
+        'NextAuth.js is a complete open-source authentication solution for Next.js applications. It handles authentication, authorization, and session management',
+      date: 'January 31, 2026',
+      image: '/blog/blog6.png',
+      category: ['NextAuth.js', 'Authentication'],
       readTime: '10 min read',
-      slug: 'essential-linux-commands',
+      slug: 'how-nextauth-works',
     },
     {
       title:
-        'Building My portfolio Website from Scratch',
+        'Built a RAG-based own AI Chatbot',
       description:
-        'Learn how I built my portfolio website from scratch using React and Tailwind CSS — from setup to responsive design, with tips and key takeaways.',
-      date: 'July 2, 2025',
-      image: '/blog/blog3.png',
-      category: ['Development', 'Setup'],
-      slug: 'building-my-first-website-with-react-and-tailwind',
+        'This blog explains how I built a RAG-based AI chatbot that can answer questions from personal documents like PDFs, notes, and images using LangChain, Chroma DB, Ollama (Llama 3), and Streamlit.',
+      date: 'March 07, 2026',
+      image: '/blog/ragCover.png',
+      category: ['AI', 'ML', 'RAG', 'LLM'],
+      slug: 'rag-ai-chatbot',
     },
   ];
 
