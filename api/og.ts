@@ -1,6 +1,6 @@
 import { getMetaForPath, toAbsoluteUrl } from '../og-meta.config';
 
-export const config = { runtime: 'edge' as const };
+export const config = { runtime: 'edge' };
 
 export default async function handler(req: Request): Promise<Response> {
   try {
