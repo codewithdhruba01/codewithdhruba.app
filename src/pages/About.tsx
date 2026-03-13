@@ -1,4 +1,3 @@
-import VisitorCounter from '../components/VisitorCounter';
 import { AboutProfile } from '../components/about/AboutProfile';
 import { AboutContent } from '../components/about/AboutContent';
 
@@ -13,7 +12,6 @@ export default function AboutMe() {
         <AboutProfile />
         <AboutContent />
       </div>
-      <VisitorCounter className="pt-20 pb-10 w-full" />
     </section>
   );
 }

@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { Clock, Eye } from 'lucide-react';
 import { commentService } from '../lib/supabase';
 import { blogPostsData } from '../data/blogs';
-import VisitorCounter from '../components/VisitorCounter';
 
 // Blog post descriptions for listing
 const blogDescriptions = {
@@ -224,7 +223,6 @@ const AllPosts = () => {
             </p>
           )}
         </div>
-        <VisitorCounter className="pt-20 pb-10" />
       </div>
     </section>
   );

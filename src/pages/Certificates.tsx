@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Calendar, CheckCircle } from 'lucide-react';
 import { useState } from 'react';
-import VisitorCounter from '../components/VisitorCounter';
 
 const Certificates = () => {
   const [loadedCertificateImages, setLoadedCertificateImages] = useState<Record<number, boolean>>({});
@@ -392,9 +391,6 @@ const Certificates = () => {
             </p>
           </div>
         </motion.div>
-        <div className="mt-12">
-          <VisitorCounter />
-        </div>
       </div>
     </div>
   );

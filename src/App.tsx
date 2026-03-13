@@ -23,7 +23,6 @@ import Photos from './pages/Photos';
 import Resume from './pages/Resume';
 import Tools from './components/Tools';
 import Touch from './components/Touch';
-import VisitorCounter from './components/VisitorCounter';
 import WorkExperience from './pages/WorkExperience';
 import BucketList from './pages/BucketList';
 import AOS from 'aos';
@@ -52,7 +51,6 @@ const App = () => {
               <Blog />
               <Tools />
               <Touch />
-              <VisitorCounter />
             </>
           } />
           <Route path="/about" element={<About />} />

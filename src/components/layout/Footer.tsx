@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import {
   GithubIcon,
   LinkedinIcon,
@@ -6,8 +7,32 @@ import {
   ThreadsIcon,
   BlueskyLine,
 } from '../icons/SocialIcons';
+import { supabase } from '../../lib/supabase';
+
+const getOrdinalSuffix = (n: number) => {
+  const s = ['th', 'st', 'nd', 'rd'];
+  const v = n % 100;
+  return s[(v - 20) % 10] || s[v] || s[0];
+};
 
 const Footer = () => {
+  const [visitorCount, setVisitorCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    const fetchViews = async () => {
+      try {
+        const { data } = await supabase
+          .from('blog_views')
+          .select('view_count')
+          .eq('blog_slug', 'site-total')
+          .single();
+        if (data) setVisitorCount(data.view_count);
+      } catch {
+        // Silently ignore
+      }
+    };
+    fetchViews();
+  }, []);
   return (
     <footer className="bg-neutral-950 pt-20 pb-8 relative">
       {/* Top Gradient Line: Fade from transparent to #333333 to transparent */}
@@ -157,13 +182,26 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 relative flex flex-col justify-between items-center">
+        <div className="mt-12 pt-8 relative flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#333333] to-transparent"></div>
-          <p className="text-[#737373] text-sm mb-4 md:mb-0 font-satoshi">
-            © 2026. All rights reserved.
+          <p className="text-[#737373] text-sm font-satoshi">
+            © 2026 Dhrubaraj Pati. All rights reserved.
           </p>
-          <p className="text-[#737373] text-sm flex items-center font-satoshi">
-            Design & Developed by Dhrubaraj Pati
+          <p className="text-[#737373] text-sm font-satoshi">
+            You're the{' '}
+            {visitorCount !== null ? (
+              <>
+                <span className="text-white/90 font-medium">
+                  {visitorCount.toLocaleString()}
+                  <sup className="text-[10px] opacity-80 ml-0.5">
+                    {getOrdinalSuffix(visitorCount)}
+                  </sup>
+                </span>
+                {' '}visitor to my website.
+              </>
+            ) : (
+              'Loading...'
+            )}
           </p>
         </div>
       </div>
