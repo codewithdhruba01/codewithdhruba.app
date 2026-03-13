@@ -42,7 +42,7 @@ export const experiences: ExperienceInterface[] = [
         position: 'Full Stack Developer (Intern)',
         startDate: 'Jan 2026',
         isCurrent: true,
-        image: '/logo/SpacECE.jpg',
+        image: '/company/SpacECE.jpg',
         website: 'https://www.spacece.in/',
         github: 'https://github.com/SpacECE-India-Foundation',
         description: [
@@ -68,7 +68,7 @@ export const experiences: ExperienceInterface[] = [
         position: 'Technical Writer',
         startDate: 'May 2025',
         endDate: 'Dec 2025',
-        image: '/logo/Recodehive.png',
+        image: '/company/Recodehive.png',
         website: 'https://recodehive.com/',
         github: 'https://github.com/recodehive',
         description: [
@@ -94,7 +94,7 @@ export const experiences: ExperienceInterface[] = [
         position: 'Freelance Engineer',
         startDate: '2025',
         isCurrent: true,
-        image: '/logo/Upwork.jpeg',
+        image: '/company/Upwork.jpeg',
         description: [
             'Built custom websites for small businesses, including e-commerce and portfolio sites.',
             'Implemented SEO best practices to improve visibility and performance.',

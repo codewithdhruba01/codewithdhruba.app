@@ -1,7 +1,4 @@
 #  Dhrubaraj Portfolio
-
-<div align="center">
-  <img src="public/logo/logo.png" alt="Portfolio Logo" width="120" height="120" style="border-radius: 20px;">
   
   [![React](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.2.2-blue.svg)](https://www.typescriptlang.org/)
@@ -57,8 +54,8 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/codewithdhruba01/myProfile.git
-   cd myProfile
+   git clone https://github.com/codewithdhruba01/codewithdhruba.app.git
+   cd codewithdhruba.app
    ```
 
 2. **Install dependencies**

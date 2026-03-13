@@ -18,7 +18,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-6">
             <div>
               <h2 className="text-white text-xl font-bold flex items-center space-x-2 mb-2">
-                <img src="/logo/logo.png" alt="Logo" className="h-9 w-8" />
+                <img src="/assets/logo.png" alt="Logo" className="h-9 w-8" />
                 <span className="h-8 w-8 text-3xl font-outfit text-[#FFFFFF]">
                   hrubaraj
                 </span>

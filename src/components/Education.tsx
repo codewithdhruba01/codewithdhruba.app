@@ -251,7 +251,7 @@ const Experience = () => {
       position: 'Full Stack Developer (Intern)',
       startDate: 'Jan 2026',
       isCurrent: true,
-      image: '/logo/SpacECE.jpg',
+      image: '/company/SpacECE.jpg',
       website: 'https://www.spacece.in/',
       github: 'https://github.com/SpacECE-India-Foundation',
       description: [
@@ -277,7 +277,7 @@ const Experience = () => {
       position: 'Technical Writer',
       startDate: 'May 2025',
       endDate: 'Dec 2025',
-      image: '/logo/Recodehive.png',
+      image: '/company/Recodehive.png',
       website: 'https://recodehive.com/',
       github: 'https://github.com/recodehive',
       description: [
@@ -303,7 +303,7 @@ const Experience = () => {
       position: 'Freelance Engineer',
       startDate: '2025',
       isCurrent: true,
-      image: '/logo/Upwork.jpeg',
+      image: '/company/Upwork.jpeg',
       description: [
         'Built custom websites for small businesses, including e-commerce and portfolio sites.',
         'Implemented SEO best practices to improve visibility and performance.',
