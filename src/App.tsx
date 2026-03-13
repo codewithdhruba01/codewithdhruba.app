@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SEO from './components/SEO';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/Hero';
 import About from './pages/About';
@@ -37,6 +38,7 @@ const App = () => {
 
   return (
     <Router>
+      <SEO />
       <div className="min-h-screen bg-[#0A0A0A] text-white overflow-x-hidden relative">
         <Navbar />
         <Routes>
