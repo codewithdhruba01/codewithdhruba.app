@@ -22,15 +22,15 @@ export default async function handler(req: Request): Promise<Response> {
       s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
     const replacements: Array<[RegExp, string]> = [
-      [/<title>.*?<\/title>/, `<title>${escape(meta.title)}</title>`],
-      [/<meta name="description" content="[^"]*"/, `<meta name="description" content="${escape(meta.description)}"`],
-      [/<meta property="og:title" content="[^"]*"/, `<meta property="og:title" content="${escape(meta.title)}"`],
-      [/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="${escape(meta.description)}"`],
-      [/<meta property="og:url" content="[^"]*"/, `<meta property="og:url" content="${escape(fullUrl)}"`],
-      [/<meta property="og:image" content="[^"]*"/, `<meta property="og:image" content="${escape(imageUrl)}"`],
-      [/<meta name="twitter:title" content="[^"]*"/, `<meta name="twitter:title" content="${escape(meta.title)}"`],
-      [/<meta name="twitter:description" content="[^"]*"/, `<meta name="twitter:description" content="${escape(meta.description)}"`],
-      [/<meta name="twitter:image" content="[^"]*"/, `<meta name="twitter:image" content="${escape(imageUrl)}"`],
+      [/<title>.*?<\/title>/s, `<title>${escape(meta.title)}</title>`],
+      [/<meta\s+name="description"\s+content="[^"]*"/is, `<meta name="description" content="${escape(meta.description)}"`],
+      [/<meta\s+property="og:title"\s+content="[^"]*"/is, `<meta property="og:title" content="${escape(meta.title)}"`],
+      [/<meta\s+property="og:description"\s+content="[^"]*"/is, `<meta property="og:description" content="${escape(meta.description)}"`],
+      [/<meta\s+property="og:url"\s+content="[^"]*"/is, `<meta property="og:url" content="${escape(fullUrl)}"`],
+      [/<meta\s+property="og:image"\s+content="[^"]*"/is, `<meta property="og:image" content="${escape(imageUrl)}"`],
+      [/<meta\s+name="twitter:title"\s+content="[^"]*"/is, `<meta name="twitter:title" content="${escape(meta.title)}"`],
+      [/<meta\s+name="twitter:description"\s+content="[^"]*"/is, `<meta name="twitter:description" content="${escape(meta.description)}"`],
+      [/<meta\s+name="twitter:image"\s+content="[^"]*"/is, `<meta name="twitter:image" content="${escape(imageUrl)}"`],
     ];
 
     for (const [regex, repl] of replacements) html = html.replace(regex, repl);
