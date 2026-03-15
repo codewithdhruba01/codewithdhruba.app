@@ -62,6 +62,45 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 
+  <!-- Structured Data: WebSite & Person -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://codewithdhruba.in#website",
+          "url": "https://codewithdhruba.in",
+          "name": "Dhrubaraj Pati Portfolio - Software Developer",
+          "description": "I'm a Full Stack web developer and open source contributor. I love building products to solve real-world problems. Explore my work.",
+          "inLanguage": "en",
+          "publisher": {
+            "@id": "https://codewithdhruba.in#person"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://codewithdhruba.in/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://codewithdhruba.in#person",
+          "name": "Dhrubaraj Pati",
+          "url": "https://codewithdhruba.in",
+          "image": "https://codewithdhruba.in/preview.png",
+          "jobTitle": "Full Stack Web Developer",
+          "description": "I'm a Full Stack web developer and open source contributor. I love building products to solve real-world problems. Explore my work.",
+          "sameAs": [
+            "https://github.com/codewithdhruba01",
+            "https://www.linkedin.com/in/dhrubaraj-pati/",
+            "https://x.com/codewithdhruba"
+          ]
+        }
+      ]
+    }
+  </script>
+
 </head>
 
 <body class="bg-[#0A0A0A]">
