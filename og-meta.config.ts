@@ -13,7 +13,7 @@ export type PageMeta = {
 
 const staticPages: Record<string, PageMeta> = {
   '/': {
-    title: 'Dhrubaraj Pati | Software Developer',
+    title: 'Dhrubaraj Pati Portfolio - Software Developer',
     description:
       "I'm a Full Stack web developer and open source contributor. I love building products to solve real-world problems. Explore my work.",
     image: '/preview.png',
