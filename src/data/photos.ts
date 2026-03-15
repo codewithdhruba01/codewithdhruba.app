@@ -213,7 +213,7 @@ export const photos: Photo[] = [
     description:
       "The rare Indian Skimmer with its distinctive bill. These unique birds 'skim' the water surface to catch fish and are critically endangered in India.",
     location: 'Kashmir, India',
-    image: '/photo/photo26.jpeg',
+    image: '/photo/photo26.jpg',
     category: 'Creative',
   },
   {

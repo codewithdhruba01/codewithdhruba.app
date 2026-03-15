@@ -459,7 +459,7 @@ const Photos = () => {
                                         key={page}
                                         onClick={() => setCurrentIndex(page)}
                                         className={`w-10 h-10 flex items-center justify-center rounded-xl text-lg font-medium transition-all duration-300 ${isActive
-                                            ? 'bg-[#1C1C1E] text-white shadow-xl shadow-black/40 border border-white/5'
+                                            ? 'bg-[#1C1C1E] text-white shadow-xl shadow-black/40'
                                             : 'text-gray-500 hover:text-gray-300 hover:bg-neutral-900/50'
                                             }`}
                                     >
