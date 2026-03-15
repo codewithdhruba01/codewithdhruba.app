@@ -115,6 +115,8 @@ text = pytesseract.image_to_string(image)</code></pre>
 
     <h2>2. Splitting Text into Chunks</h2>
 
+    <img src="/blog/chank.jpeg" alt="Splitting text into chunks" style="width: 100%; border-radius: 12px; margin: 20px 0;" />
+
     <p>Documents can often be very large, sometimes containing thousands of words. Since LLMs have <strong>context length limitations</strong>, the text must be divided into smaller sections called <strong>chunks</strong>.</p>
 
     <p>Chunking improves both performance and retrieval accuracy. LangChain provides a built-in text splitter for this purpose.</p>
