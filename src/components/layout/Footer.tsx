@@ -7,7 +7,7 @@ import {
   ThreadsIcon,
   BlueskyLine,
 } from '../icons/SocialIcons';
-import { supabase } from '../../lib/supabase';
+import { commentService } from '../../lib/supabase';
 
 const getOrdinalSuffix = (n: number) => {
   const s = ['th', 'st', 'nd', 'rd'];
@@ -19,19 +19,25 @@ const Footer = () => {
   const [visitorCount, setVisitorCount] = useState<number | null>(null);
 
   useEffect(() => {
-    const fetchViews = async () => {
+    const handleVisitorCount = async () => {
       try {
-        const { data } = await supabase
-          .from('blog_views')
-          .select('view_count')
-          .eq('blog_slug', 'site-total')
-          .single();
-        if (data) setVisitorCount(data.view_count);
-      } catch {
-        // Silently ignore
+        const hasVisited = localStorage.getItem('site_visited');
+        
+        if (!hasVisited) {
+          // Increment the view count for the entire site
+          await commentService.incrementBlogViews('site-total');
+          localStorage.setItem('site_visited', 'true');
+        }
+
+        // Fetch the updated count
+        const count = await commentService.getBlogViews('site-total');
+        setVisitorCount(count);
+      } catch (error) {
+        console.warn('Error handling visitor count:', error);
       }
     };
-    fetchViews();
+    
+    handleVisitorCount();
   }, []);
   return (
     <footer className="bg-neutral-950 pt-20 pb-8 relative">
