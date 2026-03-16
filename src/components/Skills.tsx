@@ -61,7 +61,7 @@ const Skills = () => {
           <p className="text-lg text-neutral-400 font-outfit text-center">
             Latest
           </p>
-          <h2 className="text-3xl font-bold text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400 text-center font-excon">
+          <h2 className="text-3xl font-bold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-center font-excon">
             Tech Stack
           </h2>
         </div>
@@ -81,7 +81,7 @@ const Skills = () => {
                 {section.skills.map((skill, sIdx) => (
                   <span
                     key={sIdx}
-                    className="bg-[#08350ee0] text-[#00DC82] px-3 py-1 rounded-full text-sm font-poppins"
+                    className="bg-[#1c1d1ce0] text-[#00DC82] px-3 py-1 rounded-full text-sm font-poppins"
                   >
                     {skill}
                   </span>
