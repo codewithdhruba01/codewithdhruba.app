@@ -114,8 +114,8 @@ const AllPosts = () => {
 
         <div className="border-t border-gray-700 max-w-3xl mx-auto mb-8"></div>
 
-        <div className="mt-10 mb-12">
-          <div className="flex flex-wrap gap-3 text-center justify-center">
+        <div className="mt-10 mb-12 max-w-4xl mx-auto">
+          <div className="flex flex-wrap gap-3 justify-start">
             {tags.map((tag, i) => (
               <button
                 key={i}
