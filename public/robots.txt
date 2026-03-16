@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+
+# Allow crawlers to find the sitemap quickly
+Sitemap: https://codewithdhruba.in/sitemap.xml
