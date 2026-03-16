@@ -1,8 +1,12 @@
 {
   "rewrites": [
     {
+      "source": "/((?!api/|assets/|.*\\..*).*)",
+      "destination": "/api/og?path=$1"
+    },
+    {
       "source": "/((?!api/).*)",
-      "destination": "/"
+      "destination": "/index.html"
     }
   ]
 }

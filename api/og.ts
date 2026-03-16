@@ -5,15 +5,21 @@ export const config = { runtime: 'edge' };
 export default async function handler(req: Request): Promise<Response> {
   try {
     const url = new URL(req.url);
-    const path = url.searchParams.get('path') || '/';
+    let path = url.searchParams.get('path') || '/';
+    if (!path.startsWith('/')) path = '/' + path;
     const origin = url.origin;
     const meta = getMetaForPath(path);
 
-    if (!meta) return new Response('Not found', { status: 404 });
-
-    const baseUrl = `${origin}/`;
+    const baseUrl = `${origin}/index.html`;
     const htmlResponse = await fetch(baseUrl);
     let html = await htmlResponse.text();
+
+    if (!meta) {
+      return new Response(html, {
+        status: 200,
+        headers: { 'Content-Type': 'text/html; charset=utf-8' },
+      });
+    }
 
     const fullUrl = toAbsoluteUrl(path.startsWith('/') ? path : '/' + path);
     const imageUrl = toAbsoluteUrl(meta.image);
