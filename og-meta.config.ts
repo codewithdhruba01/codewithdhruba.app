@@ -87,19 +87,19 @@ const blogMeta: Record<string, PageMeta> = {
     title: 'How I Built a RAG-based AI Chatbot | Dhrubaraj Pati',
     description:
       'Learn how to build a personalized AI chatbot using RAG, LangChain, and local LLMs.',
-    image: '/blog/ragCover.png',
+    image: '/meta/ragCover.jpg',
   },
   'how-nextauth-works': {
     title: 'How NextAuth.js Works | Dhrubaraj Pati',
     description:
       'NextAuth.js - complete open-source authentication solution for Next.js applications.',
-    image: '/blog/blog6.png',
+    image: '/meta/blog6.jpg',
   },
   'getting-started-with-react-typescript': {
     title: 'Getting Started with React and TypeScript | Dhrubaraj Pati',
     description:
       'Set up React with TypeScript and best practices for type safety.',
-    image: '/blog/blog2.png',
+    image: '/meta/blog2.jpg',
   },
   'chrome-keyboard-shortcuts': {
     title: '10 Chrome Keyboard Shortcuts | Dhrubaraj Pati',
@@ -117,7 +117,7 @@ const blogMeta: Record<string, PageMeta> = {
     title: 'Building My Portfolio from Scratch | Dhrubaraj Pati',
     description:
       'Build a Portfolio website with React and Tailwind CSS - setup to responsive design.',
-    image: '/blog/blog3.png',
+    image: '/meta/blog3.jpg',
   },
   'essential-linux-commands': {
     title: 'Essential Linux Commands | Dhrubaraj Pati',
@@ -129,7 +129,7 @@ const blogMeta: Record<string, PageMeta> = {
     title: 'Essential Tools for Next.js & React | Dhrubaraj Pati',
     description:
       'Best UI libraries, icons, and utilities for Next.js and React development.',
-    image: '/blog/blog7.png',
+    image: '/meta/blog7.jpg',
   },
 };
 
