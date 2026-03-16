@@ -17,6 +17,9 @@ const Photos = () => {
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [touchEnd, setTouchEnd] = useState<number | null>(null);
     const [isSwiping, setIsSwiping] = useState(false);
+    
+    // Custom double tap detection for mobile
+    const [lastTap, setLastTap] = useState<number>(0);
 
     const userId = 'photos-user-' + Math.random().toString(36).substr(2, 9);
 
@@ -66,7 +69,7 @@ const Photos = () => {
 
     const onTouchMove = (e: React.TouchEvent) => {
         if (!isSwiping || !touchStart) return;
-        e.preventDefault(); // Prevent scrolling
+        // e.preventDefault(); // Removed because it interferes with passive event listeners and touch-action: pan-y
         setTouchEnd(e.targetTouches[0].clientX);
     };
 
@@ -100,7 +103,7 @@ const Photos = () => {
 
     const onMouseMove = (e: React.MouseEvent) => {
         if (!isSwiping || !touchStart) return;
-        e.preventDefault(); // Prevent text selection
+        // e.preventDefault(); // Removed because draggable=false on img handles this cleanly
         setTouchEnd(e.clientX);
     };
 
@@ -308,14 +311,44 @@ const Photos = () => {
                                                 : 'brightness(0.6) contrast(0.7) blur(2px) saturate(0.7)',
                                     }}
                                 >
-                                    <div className="relative overflow-hidden rounded-3xl shadow-2xl shadow-black/40">
+                                    <div 
+                                        className="relative overflow-hidden rounded-3xl shadow-2xl shadow-black/40 h-full w-full cursor-pointer"
+                                        onDoubleClick={() => isCenter && handleLoveClick(photo.id)}
+                                        onClick={() => {
+                                            // Handle tapping on side cards to navigate to them (often expected when swiping is requested)
+                                            if (isNearSide) {
+                                                if (isLeft) prevPhoto();
+                                                else nextPhoto();
+                                            } else if (isFarSide) {
+                                                // Jump two cards
+                                                if (isLeft) {
+                                                    prevPhoto();
+                                                    setTimeout(prevPhoto, 150);
+                                                } else {
+                                                    nextPhoto();
+                                                    setTimeout(nextPhoto, 150);
+                                                }
+                                            }
+                                        }}
+                                        onTouchEnd={() => {
+                                            if (!isCenter) return;
+                                            const now = Date.now();
+                                            const DOUBLE_PRESS_DELAY = 300;
+                                            if (lastTap && (now - lastTap) < DOUBLE_PRESS_DELAY) {
+                                                handleLoveClick(photo.id);
+                                                setLastTap(0);
+                                            } else {
+                                                setLastTap(now);
+                                            }
+                                        }}
+                                    >
                                         <img
                                             src={photo.image}
                                             alt={photo.title}
+                                            draggable={false}
                                             className={`w-full h-full object-cover transition-all duration-700 ease-out ${loadedImages.has(photo.image) ? 'filter-none' : 'blur-sm scale-110'
                                                 }`}
                                             onLoad={() => handleImageLoad(photo.image)}
-                                            onDoubleClick={() => isCenter && handleLoveClick(photo.id)}
                                             onError={(e) => {
                                                 const target = e.target as HTMLImageElement;
                                                 target.src = '/placeholder-photo.jpg';
@@ -344,14 +377,14 @@ const Photos = () => {
                                         </AnimatePresence>
 
                                         {isNearSide && (
-                                            <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-black/10 to-black/30 rounded-3xl" />
+                                            <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-black/10 to-black/30 rounded-3xl pointer-events-none" />
                                         )}
                                         {isFarSide && (
-                                            <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-black/50 rounded-3xl" />
+                                            <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-black/50 rounded-3xl pointer-events-none" />
                                         )}
 
                                         {isCenter && (
-                                            <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-black/5 rounded-3xl" />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-black/5 rounded-3xl pointer-events-none" />
                                         )}
 
                                         {/* Love Icon - positioned after overlays to ensure it's clickable */}
