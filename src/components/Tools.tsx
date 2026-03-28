@@ -31,7 +31,7 @@ const GetInTouch = () => {
                 <h3 className="text-neutral-100 font-semibold font-outfit whitespace-nowrap">
                   Tools & Gears
                 </h3>
-                <p className="text-sm text-neutral-400 font-poppins leading-snug break-words">
+                <p className="text-sm text-[#909092] font-poppins leading-snug break-words">
                   Productivity tools and gears that power my workflow.
                 </p>
               </div>
@@ -53,7 +53,7 @@ const GetInTouch = () => {
                 <h3 className="text-neutral-100 font-semibold font-outfit whitespace-nowrap">
                   VS Code
                 </h3>
-                <p className="text-sm text-neutral-400 font-poppins leading-snug break-words">
+                <p className="text-sm text-[#909092] font-poppins leading-snug break-words">
                   My essential VS Code extensions for daily development.
                 </p>
               </div>

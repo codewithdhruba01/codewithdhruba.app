@@ -22,7 +22,7 @@ const Footer = () => {
     const handleVisitorCount = async () => {
       try {
         const hasVisited = localStorage.getItem('site_visited');
-        
+
         if (!hasVisited) {
           // Increment the view count for the entire site
           await commentService.incrementBlogViews('site-total');
@@ -36,7 +36,7 @@ const Footer = () => {
         console.warn('Error handling visitor count:', error);
       }
     };
-    
+
     handleVisitorCount();
   }, []);
   return (
@@ -50,12 +50,12 @@ const Footer = () => {
             <div>
               <h2 className="text-white text-xl font-bold flex items-center space-x-2 mb-2">
                 <img src="/assets/logo.png" alt="Logo" className="h-9 w-8" />
-                <span className="h-8 w-8 text-3xl font-outfit text-[#FFFFFF]">
+                <span className="h-8 w-8 text-3xl font-outfit text-[#f4f4f4]">
                   hrubaraj
                 </span>
               </h2>
             </div>
-            <p className="text-[#737373] mb-6 max-w-md font-poppins">
+            <p className="text-[#909092] mb-6 max-w-md font-outfit">
               Crafting modern web experiences with code, creativity,
               and a commitment to turning ideas into impactful solutions.
             </p>
@@ -81,7 +81,7 @@ const Footer = () => {
                   My Ordinary Life
                 </span>
                 <span className="text-gray-600">—</span>
-                <span className="text-[#737373] group-hover:text-[#FFFFFF] transition-colors">
+                <span className="text-[#909092] group-hover:text-[#f4f4f4] transition-colors">
                   Everyday Feelings
                 </span>
               </div>
@@ -140,32 +140,32 @@ const Footer = () => {
             </h3>
             <ul className="space-y-1">
               <li>
-                <a href="/" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">
+                <a href="/" className="text-[#909092] hover:text-green-400 transition-colors font-outfit">
                   Home
                 </a>
               </li>
               <li>
-                <a href="/#projects" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">
+                <a href="/#projects" className="text-[#909092] hover:text-green-400 transition-colors font-outfit">
                   Project
                 </a>
               </li>
               <li>
-                <a href="/experience" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">
+                <a href="/experience" className="text-[#909092] hover:text-green-400 transition-colors font-outfit">
                   Experience
                 </a>
               </li>
               <li>
-                <a href="/#skills" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">
+                <a href="/#skills" className="text-[#909092] hover:text-green-400 transition-colors font-outfit">
                   Skills
                 </a>
               </li>
               <li>
-                <a href="/#contributions" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">
+                <a href="/#contributions" className="text-[#909092] hover:text-green-400 transition-colors font-outfit">
                   GitHub Activity
                 </a>
               </li>
               <li>
-                <a href="/bucket-list" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">
+                <a href="/bucket-list" className="text-[#909092] hover:text-green-400 transition-colors font-outfit">
                   Bucket List
                 </a>
               </li>
@@ -178,12 +178,12 @@ const Footer = () => {
               Pages
             </h3>
             <ul className="space-y-1">
-              <li><a href="/about" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">About</a></li>
-              <li><a href="/projects" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">Projects</a></li>
-              <li><a href="/all-posts" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">Blogs</a></li>
-              <li><a href="/photos" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">Photography</a></li>
-              <li><a href="/certificates" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">Achievements</a></li>
-              <li><a href="/contact" className="text-[#A3A3A3] hover:text-green-400 transition-colors font-outfit">Contact Us</a></li>
+              <li><a href="/about" className="text-[#909092] hover:text-green-400 transition-colors font-outfit">About</a></li>
+              <li><a href="/projects" className="text-[#909092] hover:text-green-400 transition-colors font-outfit">Projects</a></li>
+              <li><a href="/all-posts" className="text-[#909092] hover:text-green-400 transition-colors font-outfit">Blogs</a></li>
+              <li><a href="/photos" className="text-[#909092] hover:text-green-400 transition-colors font-outfit">Photography</a></li>
+              <li><a href="/certificates" className="text-[#909092] hover:text-green-400 transition-colors font-outfit">Achievements</a></li>
+              <li><a href="/contact" className="text-[#909092] hover:text-green-400 transition-colors font-outfit">Contact Us</a></li>
             </ul>
           </div>
         </div>

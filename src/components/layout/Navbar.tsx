@@ -63,8 +63,8 @@ const Navbar = () => {
                 href={link.href}
                 onClick={() => setActiveLink(link.href)}
                 className={`px-3 py-1.5 rounded-md transition-all duration-300 font-medium ${activeLink === link.href
-                  ? 'text-[#00DC82]'
-                  : 'text-[#E5E5E5] hover:text-[#00DC82]'
+                  ? 'text-[#f4f4f4]'
+                  : 'text-[#909092] hover:text-[#f4f4f4]'
                   }`}
               >
                 {link.text}
@@ -76,7 +76,7 @@ const Navbar = () => {
           <div className="hidden md:flex">
             <button
               onClick={() => setCommandPaletteOpen(true)}
-              className="px-3 py-1.5 rounded-full bg-neutral-800/50 border border-neutral-700 text-neutral-300 hover:bg-neutral-700/50 hover:border-neutral-600 transition-all duration-200 flex items-center gap-2 text-sm"
+              className="px-3 py-1.5 rounded-full bg-neutral-800/50 border border-neutral-700 text-[#909092] hover:bg-neutral-700/50 hover:border-neutral-600 transition-all duration-200 flex items-center gap-2 text-sm"
               title="Search (Ctrl+K)"
             >
               <span>Search</span>

@@ -13,9 +13,8 @@ const GetInTouch = () => {
               Get In Touch
             </span>
           </h2>
-          <p className="text-neutral-400 max-w-2xl mx-auto text-base font-supreme">
-            Ready to start your project? Choose how you'd <br /> like to connect
-            with me.
+          <p className="text-[#909092] max-w-2xl mx-auto text-base font-supreme">
+            Ready to start your project.
           </p>
         </div>
 
@@ -30,7 +29,7 @@ const GetInTouch = () => {
             <h3 className="text-lg font-semibold font-outfit text-neutral-100">
               Send Email
             </h3>
-            <p className="text-neutral-400 font-poppins text-sm">
+            <p className="text-[#909092] font-poppins text-sm">
               Quick and direct communication
             </p>
 
@@ -47,7 +46,7 @@ const GetInTouch = () => {
             <h3 className="text-lg font-semibold font-outfit text-neutral-100">
               Contact Us
             </h3>
-            <p className="text-neutral-400 font-poppins text-sm">
+            <p className="text-[#909092] font-poppins text-sm">
               Detailed project discussion
             </p>
 
