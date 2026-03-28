@@ -43,7 +43,7 @@ export function ExperienceCard({ experience, isOpen, onClick, transparentOnOpen 
                         <div className="flex flex-col gap-1 sm:gap-0 w-full">
                             <div className="flex flex-wrap items-center gap-2">
                                 <h3 className={cn(
-                                    "text-base sm:text-lg font-bold font-outfit text-white leading-tight",
+                                    "text-base sm:text-lg font-bold font-outfit text-[#f4f4f4] leading-tight",
                                     experience.isBlur && "blur-[6px] select-none opacity-80"
                                 )}>
                                     {experience.company}
@@ -119,7 +119,7 @@ export function ExperienceCard({ experience, isOpen, onClick, transparentOnOpen 
                                     </Tooltip>
                                 )}
                             </div>
-                            <p className="text-neutral-400 font-outfit font-semibold text-sm sm:text-base leading-snug">{experience.position}</p>
+                            <p className="text-[#909092] font-outfit font-semibold text-sm sm:text-base leading-snug">{experience.position}</p>
                         </div>
                     </div>
 
@@ -144,7 +144,7 @@ export function ExperienceCard({ experience, isOpen, onClick, transparentOnOpen 
                     <div className="p-4 sm:p-6 pt-0 sm:pt-0 flex flex-col gap-4 sm:gap-6">
                         {/* Technologies */}
                         <div>
-                            <h4 className="text-sm font-synonym font-semibold text-neutral-200 mb-2 sm:mb-3">Technologies & Tools</h4>
+                            <h4 className="text-sm font-synonym font-semibold text-[#909092] mb-2 sm:mb-3">Technologies & Tools</h4>
                             <div className="flex flex-wrap gap-1.5 sm:gap-2 text-white font-synonym ">
                                 {experience.technologies.map((technology, techIndex: number) => (
                                     <Skill
@@ -159,7 +159,7 @@ export function ExperienceCard({ experience, isOpen, onClick, transparentOnOpen 
                         </div>
 
                         {/* Description */}
-                        <div className="text-neutral-400 flex flex-col gap-2 text-sm sm:text-base font-satoshi leading-relaxed">
+                        <div className="text-[#909092] flex flex-col gap-2 text-sm sm:text-base font-supreme leading-relaxed">
                             {experience.description.map(
                                 (description: string, descIndex: number) => (
                                     <p

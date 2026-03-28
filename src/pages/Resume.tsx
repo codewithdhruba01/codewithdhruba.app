@@ -57,7 +57,7 @@ const Resume = () => {
         <h1 className="text-4xl md:text-6xl font-bold font-excon mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
           Resume
         </h1>
-        <p className="text-[#9C9C9C] max-w-md mx-auto font-poppins">
+        <p className="text-[#909092] max-w-md mx-auto font-poppins">
           My professional resume and experience overview.
         </p>
         <div className="border-t border-gray-700 max-w-3xl mx-auto mb-12"></div>
@@ -82,7 +82,7 @@ const Resume = () => {
                 <div className="flex items-center justify-center h-full w-full">
                   <div className="text-center">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-800 mx-auto mb-4"></div>
-                    <p className="text-gray-600 font-medium">Loading resume...</p>
+                    <p className="text-[#909092] font-medium">Loading resume...</p>
                   </div>
                 </div>
               </div>
@@ -94,7 +94,7 @@ const Resume = () => {
                   <div className="flex items-center justify-center h-[65vh] sm:h-[90vh] w-full sm:w-[900px]">
                     <div className="text-center">
                       <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-gray-800 mx-auto mb-4"></div>
-                      <p className="text-gray-600">Loading resume...</p>
+                      <p className="text-[#909092]">Loading resume...</p>
                     </div>
                   </div>
                 }
@@ -124,7 +124,7 @@ const Resume = () => {
           className="inline-flex items-center gap-3 px-6 py-3 bg-[#111111] border border-[#2d2e2d] rounded-xl text-[#d3d1d1] hover:border-[#A3A3A3]/50 hover:bg-[#1a1a1a] transition-all duration-300 group shadow-lg shadow-black/20"
         >
           <span className="text-lg font-bold font-outfit">Download Resume</span>
-          <Download className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+          <Download className="w-5 h-5" />
         </button>
       </div>
 
@@ -133,7 +133,7 @@ const Resume = () => {
         className={`text-center mt-6 sm:mt-8 transition-all duration-700 delay-300 ease-out ${pageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
       >
-        <p className="text-sm text-gray-400 font-satoshi">
+        <p className="text-sm text-[#909092] font-satoshi">
           Resume last updated: January 2026
         </p>
       </div>

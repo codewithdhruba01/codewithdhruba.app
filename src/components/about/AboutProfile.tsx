@@ -41,7 +41,7 @@ export const AboutProfile = () => {
                 ].map((tag) => (
                     <span
                         key={tag}
-                        className="bg-[#222] text-sm px-3 py-1 rounded-full text-[#00DC82]"
+                        className="bg-[#1c1c1c] text-sm px-3 py-1 rounded-full text-[#00DC82]"
                     >
                         {tag}
                     </span>

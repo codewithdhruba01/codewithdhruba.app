@@ -53,11 +53,11 @@ const Hero = () => {
 
         {/* LEFT CONTENT */}
         <div className="order-2 md:order-1 mt-6 md:mt-12">
-          <h1 className="font-bold text-white text-4xl font-outfit sm:text-5xl lg:text-5xl leading-tight">
+          <h1 className="font-bold text-[#CDCBCD] text-4xl font-outfit sm:text-5xl lg:text-5xl leading-tight">
             Frontend engineer, technical writer <br />& open-source Contributor
           </h1>
 
-          <div className="mt-8 text-gray-400 font-synonym text-lg max-w-xl">
+          <div className="mt-8 text-[#909092] font-synonym text-lg max-w-xl">
             <TextGenerateEffect
               words="I'm Dhrubaraj Pati, a Frontend developer passionate about building scalable web applications, crafting clean user experiences, and contributing to meaningful open-source projects."
               className="[&>div]:justify-start"

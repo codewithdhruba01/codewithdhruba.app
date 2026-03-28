@@ -116,9 +116,8 @@ const Contact = () => {
               Let's Work Together
             </span>
           </h1>
-          <p className="text-lg text-neutral-400 max-w-3xl mx-auto font-poppins">
-            Have a project in mind? I'd love to hear about it. Send me a message
-            and let's discuss how we can bring your ideas to life.
+          <p className="text-[#909092] max-w-2xl mx-auto font-poppins">
+            Have a project in mind? Send me a message and let's discuss how we can bring your ideas to life.
           </p>
         </div>
       </motion.section>
@@ -139,7 +138,7 @@ const Contact = () => {
                 <h2 className="text-3xl font-bold font-excon text-neutral-200 mb-6">
                   Get in Touch
                 </h2>
-                <p className="text-neutral-400 font-supreme text-lg leading-relaxed mb-4">
+                <p className="text-[#909092] font-poppins text-base leading-relaxed mb-4">
                   I'm always open to discussing new opportunities, innovative
                   projects, or just having a friendly chat about technology and
                   development. Feel free to reach out through any of the
@@ -182,8 +181,8 @@ const Contact = () => {
                       {item.icon}
                     </div>
                     <div>
-                      <h3 className="font-semibold text-white">{item.title}</h3>
-                      <p className="text-gray-400">{item.value}</p>
+                      <h3 className="font-semibold text-[#909092]">{item.title}</h3>
+                      <p className="text-[#909092]">{item.value}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -258,7 +257,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium font-poppins text-gray-300 mb-2"
+                    className="block text-sm font-medium font-poppins text-[#909092] mb-2"
                   >
                     Full Name
                   </label>
@@ -269,7 +268,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-neutral-800 bg-[#101010] border rounded-lg text-white font-poppins placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors"
+                    className="w-full px-4 py-3 border-neutral-800 bg-[#101010] border rounded-lg text-white font-poppins placeholder-[#909092] focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors"
                     placeholder="Your Name"
                   />
                 </div>
@@ -277,7 +276,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium font-poppins text-gray-300 mb-2"
+                    className="block text-sm font-medium font-poppins text-[#909092] mb-2"
                   >
                     Email Address
                   </label>
@@ -288,7 +287,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-neutral-800 bg-[#101010] border rounded-lg text-white font-poppins placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors"
+                    className="w-full px-4 py-3 border-neutral-800 bg-[#101010] border rounded-lg text-white font-poppins placeholder-[#909092] focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -296,7 +295,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="subject"
-                    className="block text-sm font-medium font-poppins text-gray-300 mb-2"
+                    className="block text-sm font-medium font-poppins text-[#909092] mb-2"
                   >
                     Subject
                   </label>
@@ -307,7 +306,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 font-poppins border-neutral-800 bg-[#101010] border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors"
+                    className="w-full px-4 py-3 font-poppins border-neutral-800 bg-[#101010] border rounded-lg text-white placeholder-[#909092] focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors"
                     placeholder="Project Discussion"
                   />
                 </div>
@@ -315,7 +314,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium font-poppins text-gray-300 mb-2"
+                    className="block text-sm font-medium font-poppins text-[#909092] mb-2"
                   >
                     Message
                   </label>
@@ -326,7 +325,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 font-poppins border-neutral-800 bg-[#101010] border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors resize-none"
+                    className="w-full px-4 py-3 font-poppins border-neutral-800 bg-[#101010] border rounded-lg text-white placeholder-[#909092] focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors resize-none"
                     placeholder="Tell me about your project..."
                   />
                 </div>
@@ -365,7 +364,7 @@ const Contact = () => {
 
               {/* Status Message */}
               {status && (
-                <p className="mt-4 text-center text-sm text-gray-300">
+                <p className="mt-4 text-center text-sm text-[#909092]">
                   {status}
                 </p>
               )}
@@ -387,8 +386,8 @@ const Contact = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400 mb-6">
               Ready to Start Your Project?
             </h2>
-            <p className="text-xl font-poppins text-neutral-400 mb-8">
-              Let's schedule a free consultation to discuss your ideas and
+            <p className="text-base font-poppins text-[#909092] mb-8">
+              Let's schedule a free consultation <br /> to discuss your ideas and
               requirements.
             </p>
             <div className="flex flex-col items-center">

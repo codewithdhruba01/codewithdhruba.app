@@ -114,13 +114,13 @@ const GitHubContributions = () => {
     <section id="contributions" className="pt-8 pb-8 bg-neutral-950">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <h2 className="text-4xl font-bold mb-4 text-center font-excon text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400">
+        <h2 className="text-4xl font-bold mb-4 text-center text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400">
           GitHub Activity
         </h2>
-        <p className="text-center mb-2 text-sm font-supreme text-neutral-400">
+        <p className="text-center mb-2 text-sm font-supreme text-[#909092]">
           <strong>codewithdhruba's</strong> coding journey over the past year
         </p>
-        <div className="text-center mb-10 text-sm font-satoshi text-neutral-400">
+        <div className="text-center mb-10 text-sm font-satoshi text-[#909092]">
           Total contributions in {year}:{' '}
           <span className={`text-[#00DC82] font-semibold transition-all duration-300 ${isLoading ? 'animate-shimmer bg-gradient-to-r from-[#00DC82]/20 via-[#00DC82]/60 to-[#00DC82]/20 bg-[length:200%_100%] rounded px-2' : ''}`}>
             {isLoading ? 'Loading...' : totalCount}
@@ -133,7 +133,7 @@ const GitHubContributions = () => {
             {/* Scrollable container */}
             <div className="overflow-x-auto thin-scrollbar">
               {/* Month labels */}
-              <div className="ml-8 flex gap-1 text-xs text-neutral-400 font-poppins mb-1">
+              <div className="ml-8 flex gap-1 text-xs text-[#909092] font-supreme mb-1">
                 {weeks.map((_, weekIndex) => {
                   const label = monthLabels.find((m) => m.index === weekIndex);
                   return (
@@ -147,7 +147,7 @@ const GitHubContributions = () => {
               {/* Contribution Grid */}
               <div className="flex">
                 {/* Weekday labels */}
-                <div className="flex flex-col justify-between mr-2 text-xs font-outfit text-gray-400">
+                <div className="flex flex-col justify-between mr-2 text-xs font-supreme text-[#909092]">
                   {Array.from({ length: 7 }).map((_, dayIndex) => {
                     const label =
                       dayIndex === 1
@@ -211,14 +211,14 @@ const GitHubContributions = () => {
             {/* Total contributions + Legend */}
             <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm text-gray-400">
               <div className="flex items-center gap-2">
-                <span className="font-bold font-outfit">Less</span>
+                <span className="font-bold font-supreme">Less</span>
                 <div className="flex gap-1">
                   <div className="w-3 h-3 rounded-sm bg-[#00DC82]/20"></div>
                   <div className="w-3 h-3 rounded-sm bg-[#00DC82]/50"></div>
                   <div className="w-3 h-3 rounded-sm bg-[#00DC82]/80"></div>
                   <div className="w-3 h-3 rounded-sm bg-[#00DC82]"></div>
                 </div>
-                <span className="font-bold font-outfit">More</span>
+                <span className="font-bold font-supreme">More</span>
               </div>
             </div>
           </div>
@@ -231,7 +231,7 @@ const GitHubContributions = () => {
                 onClick={() => setYear(y)}
                 className={`px-4 py-2 rounded-md text-sm font-semibold transition-all ${year === y
                   ? 'bg-[#00DC82] text-black'
-                  : 'bg-neutral-800 text-gray-400 hover:bg-neutral-700 hover:text-white'
+                  : 'bg-neutral-800 text-[#909092] hover:bg-neutral-900 hover:text-white'
                   }`}
               >
                 {y}

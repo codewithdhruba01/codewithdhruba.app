@@ -139,7 +139,7 @@ const Projects = () => {
 
                 <div className="p-6">
                   <div className="flex justify-between items-center mb-2">
-                    <h3 className="text-xl font-bold font-synonym text-white">
+                    <h3 className="text-xl font-bold font-synonym text-[#CDCBCD]">
                       {project.title}
                     </h3>
                     <div className="flex gap-3">
@@ -182,13 +182,13 @@ const Projects = () => {
                       </TooltipProvider>
                     </div>
                   </div>
-                  <p className="text-neutral-400 mb-4 leading-relaxed text-sm font-poppins">
+                  <p className="text-[#909092] mb-4 leading-relaxed text-sm font-poppins">
                     {project.description}
                   </p>
 
                   {/* Tech Stack */}
                   <div className="flex flex-col gap-2 mb-2">
-                    <p className="text-neutral-500 text-sm font-outfit">Technologies :</p>
+                    <p className="text-[#909092] text-sm font-outfit">Technologies :</p>
                     <div className="flex flex-wrap gap-1">
                       {project.techStack.map((tech, i) => {
                         const Icon = iconMap[tech];

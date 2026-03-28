@@ -75,7 +75,7 @@ function ExperienceCard({ experience, isOpen, onClick }: ExperienceCardProps) {
             <div className="flex flex-col gap-0">
               <div className="flex items-center gap-2 flex-wrap">
                 <h3 className={cn(
-                  "text-base sm:text-lg font-bold font-outfit text-white leading-tight",
+                  "text-base sm:text-lg font-bold font-outfit text-[#f4f4f4] leading-tight",
                   experience.isBlur && "blur-[6px] select-none opacity-80"
                 )}>
                   {experience.company}
@@ -149,7 +149,7 @@ function ExperienceCard({ experience, isOpen, onClick }: ExperienceCardProps) {
                   </TooltipContent>
                 </Tooltip>
               </div>
-              <p className="text-neutral-400 font-outfit font-semibold text-sm sm:text-base">{experience.position}</p>
+              <p className="text-[#909092] font-outfit font-semibold text-sm sm:text-base">{experience.position}</p>
             </div>
           </div>
 
@@ -174,7 +174,7 @@ function ExperienceCard({ experience, isOpen, onClick }: ExperienceCardProps) {
           <div className="p-6 pt-0 flex flex-col gap-6">
             {/* Technologies */}
             <div>
-              <h4 className="text-sm font-synonym font-semibold text-neutral-200 mb-3">Technologies & Tools</h4>
+              <h4 className="text-sm font-supreme font-semibold text-[#909092] mb-3">Technologies & Tools</h4>
               <div className="flex flex-wrap gap-2 text-white font-synonym ">
                 {experience.technologies.map((technology, techIndex: number) => (
                   <Skill
@@ -189,7 +189,7 @@ function ExperienceCard({ experience, isOpen, onClick }: ExperienceCardProps) {
             </div>
 
             {/* Description */}
-            <div className="text-neutral-400 flex flex-col gap-2 text-sm sm:text-base font-satoshi leading-relaxed">
+            <div className="text-[#909092] flex flex-col gap-2 text-sm sm:text-base font-supreme leading-relaxed">
               {experience.description.map(
                 (description: string, descIndex: number) => (
                   <p
