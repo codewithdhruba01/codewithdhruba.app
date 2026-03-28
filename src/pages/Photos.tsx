@@ -17,7 +17,7 @@ const Photos = () => {
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [touchEnd, setTouchEnd] = useState<number | null>(null);
     const [isSwiping, setIsSwiping] = useState(false);
-    
+
     // Custom double tap detection for mobile
     const [lastTap, setLastTap] = useState<number>(0);
 
@@ -211,14 +211,14 @@ const Photos = () => {
                 {/* Header Section */}
                 <div className="text-center mb-20" data-aos="fade-up">
                     <div className="mb-6">
-                        <span className="text-sm font-medium text-gray-400 tracking-widest uppercase">
+                        <span className="text-sm font-medium text-[#909092] tracking-widest uppercase">
                             GALLERY
                         </span>
                     </div>
                     <h1 className="text-5xl md:text-6xl font-bold mb-6 font-serif bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
                         Wildlife Chronicles
                     </h1>
-                    <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed font-light font-satoshi">
+                    <p className="text-lg text-[#909092] max-w-2xl mx-auto leading-relaxed font-light font-satoshi">
                         A visual journey through India's diverse wildlife, capturing the
                         beauty and mystery of nature's creatures. Each encounter tells a
                         story of survival, adaptation, and the delicate balance of life.
@@ -237,9 +237,9 @@ const Photos = () => {
                                 setSelectedCategory(category);
                                 setCurrentIndex(0);
                             }}
-                            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${selectedCategory === category
+                            className={`px-4 py-2 rounded-full text-sm font-semibold font-outfit transition-all duration-200 ${selectedCategory === category
                                 ? 'bg-gradient-to-r from-green-600 to-green-900 text-white'
-                                : 'bg-[#1A1A1A] text-gray-300 hover:bg-[#333]'
+                                : 'bg-[#1A1A1A] text-[#909092] hover:bg-[#262626] hover:text-white'
                                 }`}
                         >
                             {category}
@@ -311,7 +311,7 @@ const Photos = () => {
                                                 : 'brightness(0.6) contrast(0.7) blur(2px) saturate(0.7)',
                                     }}
                                 >
-                                    <div 
+                                    <div
                                         className="relative overflow-hidden rounded-3xl shadow-2xl shadow-black/40 h-full w-full cursor-pointer"
                                         onDoubleClick={() => isCenter && handleLoveClick(photo.id)}
                                         onClick={() => {

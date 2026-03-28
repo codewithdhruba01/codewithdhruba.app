@@ -38,13 +38,13 @@ export default function Gears() {
         <h1 className="text-3xl sm:text-4xl font-bold font-excon bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
           Tools & Extensions
         </h1>
-        <p className="text-gray-400 mt-2 text-sm sm:text-base font-supreme">
+        <p className="text-[#909092] mt-2 text-sm sm:text-base font-supreme">
           VS Code extensions I use daily to speed up my workflow.
         </p>
       </div>
 
       {/* Divider */}
-      <div className="border-t border-gray-700 max-w-3xl mx-auto mb-12"></div>
+      <div className="border-t border-[#2b2a2a] max-w-3xl mx-auto mb-12"></div>
 
       <div className="max-w-3xl mx-auto space-y-12">
         {/* VS Code Extensions Section */}
@@ -93,7 +93,7 @@ export default function Gears() {
                 </span>
 
                 {/* Extension Name with Copy Icon */}
-                <span className="flex items-center gap-2 text-neutral-400 hover:text-white transition font-supreme">
+                <span className="flex items-center gap-2 text-[#909092] hover:text-white transition font-supreme">
                   {ext.name}
                   <TooltipProvider>
                     <Tooltip>
@@ -177,11 +177,11 @@ export default function Gears() {
                 <a
                   href={ext.url}
                   target="_blank"
-                  className="text-neutral-400 hover:text-white transition font-supreme"
+                  className="text-[#909092] hover:text-white transition font-supreme"
                 >
                   {ext.name}
                 </a>
-                <ArrowUpRight className="w-4 h-4 text-neutral-400 hover:text-white" />
+                <ArrowUpRight className="w-4 h-4 text-[#909092] hover:text-white" />
               </li>
             ))}
           </ul>

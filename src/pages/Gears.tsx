@@ -35,13 +35,13 @@ export default function Gears() {
         <h1 className="text-3xl sm:text-4xl font-bold font-excon bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
           Tools & Gears
         </h1>
-        <p className="text-gray-400 mt-2 text-sm sm:text-base font-supreme">
+        <p className="text-[#909092] mt-2 text-sm sm:text-base font-supreme">
           Tools and gear I use every day to make work happen.
         </p>
       </div>
 
       {/* Divider */}
-      <div className="border-t border-gray-700 max-w-3xl mx-auto mb-12"></div>
+      <div className="border-t border-[#262626] max-w-3xl mx-auto mb-12"></div>
 
       <div className="max-w-3xl mx-auto space-y-12">
         {/* Devices Section */}
@@ -53,61 +53,61 @@ export default function Gears() {
             Devices
           </h2>
           <ul className="space-y-4">
-            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-neutral-400">
+            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
               <span className="w-8 h-8 flex items-center justify-center border border-neutral-700 rounded-md bg-neutral-800">
                 <Laptop className="w-4 h-4 text-gray-300" />
               </span>
               Infinix INBook X1
             </li>
-            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-neutral-400">
+            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
               <span className="w-8 h-8 flex items-center justify-center border border-neutral-700 rounded-md bg-neutral-800">
                 <Monitor className="w-4 h-4 text-gray-300" />
               </span>
               BenQ GW2490 (24 inch, 60.96 cm)
             </li>
-            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-neutral-400">
+            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
               <span className="w-8 h-8 flex items-center justify-center border border-neutral-700 rounded-md bg-neutral-800">
                 <Keyboard className="w-4 h-4 text-gray-300" />
               </span>
               Kreo Hive Mechanical Keyboard
             </li>
-            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-neutral-400">
+            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
               <span className="w-8 h-8 flex items-center justify-center border border-neutral-700 rounded-md bg-neutral-800">
                 <Mouse className="w-4 h-4 text-gray-300" />
               </span>
               HP Gaming Mouse M270
             </li>
-            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-neutral-400">
+            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
               <span className="w-8 h-8 flex items-center justify-center border border-neutral-700 rounded-md bg-neutral-800">
                 <LampDesk className="w-4 h-4 text-gray-300" />
               </span>
               AKR Desk Lamp 1740
             </li>
-            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-neutral-400">
+            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
               <span className="w-8 h-8 flex items-center justify-center border border-neutral-700 rounded-md bg-neutral-800">
                 <Headphones className="w-4 h-4 text-gray-300" />
               </span>
               Soundcore Anker H30i
             </li>
-            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-neutral-400">
+            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
               <span className="w-8 h-8 flex items-center justify-center border border-neutral-700 rounded-md bg-neutral-800">
                 <Smartphone className="w-4 h-4 text-gray-300" />
               </span>
               Motorola Edge 50 Fusion (256 GB)
             </li>
-            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-neutral-400">
+            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
               <span className="w-8 h-8 flex items-center justify-center border border-neutral-700 rounded-md bg-neutral-800">
                 <Usb className="w-4 h-4 text-gray-300" />
               </span>
               USB 9in1 Hub (9V555AA)
             </li>
-            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-neutral-400">
+            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
               <span className="w-8 h-8 flex items-center justify-center border border-neutral-700 rounded-md bg-neutral-800">
                 <HardDrive className="w-4 h-4 text-gray-300" />
               </span>
               Seagate 1TB (STKY1000400)
             </li>
-            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-neutral-400">
+            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
               <span className="w-8 h-8 flex items-center justify-center rounded-md border border-neutral-700 bg-neutral-800">
                 <HardDrive className="w-4 h-4 text-gray-300" />
               </span>
@@ -174,7 +174,7 @@ export default function Gears() {
                 <a
                   href={ext.url}
                   target="_blank"
-                  className="text-neutral-400 hover:text-white transition font-supreme"
+                  className="text-[#909092] hover:text-white transition font-supreme"
                 >
                   {ext.name}
                 </a>

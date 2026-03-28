@@ -285,7 +285,7 @@ const AllProjects = () => {
             <h1 className="text-4xl sm:text-5xl font-bold font-excon mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
               Featured Projects
             </h1>
-            <p className="text-[#A3A3A3] max-w-2xl mx-auto font-poppins">
+            <p className="text-[#909092] max-w-2xl mx-auto font-poppins">
               A showcase of my best work across various technologies and domains.
               Each project represents a unique challenge and different aspects of
               my skills.
@@ -306,7 +306,7 @@ const AllProjects = () => {
                 }}
                 className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${selectedCategory === category
                   ? 'bg-gradient-to-r from-green-600 to-green-900 text-white'
-                  : 'bg-[#1A1A1A] text-gray-300 hover:bg-[#333]'
+                  : 'bg-[#1A1A1A] text-[#909092] hover:bg-[#1e1e1e] hover:text-[#f4f4f4]'
                   }`}
               >
                 {category}
@@ -346,7 +346,7 @@ const AllProjects = () => {
                   </div>
                   <div className="p-6">
                     <div className="flex justify-between items-center mb-2">
-                      <h3 className="text-xl font-bold font-synonym text-white">
+                      <h3 className="text-xl font-bold font-synonym text-[#CDCBCD]">
                         {project.title}
                       </h3>
                       <div className="flex gap-3">
@@ -393,13 +393,13 @@ const AllProjects = () => {
                         )}
                       </div>
                     </div>
-                    <p className="text-neutral-400 mb-4 leading-relaxed text-sm font-poppins">
+                    <p className="text-[#909092] mb-4 leading-relaxed text-sm font-poppins">
                       {project.description}
                     </p>
 
                     {/* Tech Stack */}
                     <div className="flex flex-col gap-2 mb-2">
-                      <p className="text-neutral-500 text-sm font-outfit">Technologies :</p>
+                      <p className="text-[#909092] text-sm font-outfit">Technologies :</p>
                       <div className="flex flex-wrap gap-1">
                         {project.tags?.filter(tag => !categories.includes(tag)).map((tag, tagIndex) => {
                           const Icon = iconMap[tag];
