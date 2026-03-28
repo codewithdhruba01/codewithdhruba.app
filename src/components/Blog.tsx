@@ -79,12 +79,12 @@ const Blog = () => {
               {/* Content */}
               <div className="p-6 flex flex-col justify-between">
                 {/* Title */}
-                <h3 className="text-lg font-outfit mb-3 hover:text-[#ffffff] transition-colors">
+                <h3 className="text-lg font-outfit mb-3 hover:text-[#f4f4f4] transition-colors">
                   <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm text-neutral-400 leading-relaxed mb-4 font-poppins font-light">
+                <p className="text-sm text-[#909092] leading-relaxed mb-4 font-poppins font-light">
                   {post.description}
                 </p>
 
@@ -93,7 +93,7 @@ const Blog = () => {
                   {post.category.map((cat, i) => (
                     <span
                       key={i}
-                      className="bg-[#242424] text-neutral-300 text-xs px-3 py-1 rounded-full font-poppins"
+                      className="bg-[#1f1e1e] text-[#909092] text-xs px-3 py-1 rounded-full font-poppins"
                     >
                       {cat}
                     </span>

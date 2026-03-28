@@ -144,7 +144,7 @@ const AllPosts = () => {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl md:text-2xl font-bold text-white mb-2 font-outfit leading-tight">
+                    <h3 className="text-xl md:text-2xl font-bold text-[#f4f4f4] mb-2 font-outfit leading-tight">
                       <Link
                         to={`/blog/${post.slug}`}
                         className="transition-all duration-200 group-hover:bg-[#00DC82]/20 rounded-md px-1 -ml-1"
@@ -154,7 +154,7 @@ const AllPosts = () => {
                     </h3>
 
                     {/* Description */}
-                    <p className="text-neutral-400 text-sm leading-relaxed mb-4 font-poppins font-light line-clamp-2">
+                    <p className="text-[#909092] text-sm leading-relaxed mb-4 font-poppins font-light line-clamp-2">
                       {post.description}
                     </p>
 
