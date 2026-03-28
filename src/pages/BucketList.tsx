@@ -65,12 +65,12 @@ const BucketList = () => {
                                 transition={{ delay: 0.3 + index * 0.1 }}
                                 className="flex items-start gap-4 group"
                             >
-                                <div className="w-6 h-6 border-2 border-[#2d2e2d] rounded flex-shrink-0 mt-1 cursor-pointer hover:bg-[#00DC82]/10 transition-colors flex items-center justify-center relative">
+                                <div className={`w-6 h-6 rounded-full flex-shrink-0 mt-1 cursor-pointer transition-all duration-300 flex items-center justify-center relative ${item.completed ? 'bg-[#01b369]' : 'bg-white'}`}>
                                     {item.completed && (
-                                        <Check className="text-white absolute -top-1.5 -right-1.5 w-6 h-6 drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
+                                        <Check className="text-white w-4 h-4" />
                                     )}
                                 </div>
-                                <p className="text-sm md:text-base font-medium tracking-wide text-gray-300 leading-tight pt-1">
+                                <p className="text-sm md:text-base font-supreme tracking-wide text-[#909092] leading-tight pt-1">
                                     {item.text}
                                 </p>
                             </motion.div>
@@ -87,12 +87,12 @@ const BucketList = () => {
                                 transition={{ delay: 0.3 + index * 0.1 }}
                                 className="flex items-start gap-4 group"
                             >
-                                <div className="w-6 h-6 border-2 border-[#2d2e2d] rounded flex-shrink-0 mt-1 cursor-pointer hover:bg-[#00DC82]/10 transition-colors flex items-center justify-center relative">
+                                <div className={`w-6 h-6 rounded-full flex-shrink-0 mt-1 cursor-pointer transition-all duration-300 flex items-center justify-center relative ${item.completed ? 'bg-[#01b369]' : 'bg-white'}`}>
                                     {item.completed && (
-                                        <Check className="text-white absolute -top-1.5 -right-1.5 w-6 h-6 drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
+                                        <Check className="text-white w-4 h-4" />
                                     )}
                                 </div>
-                                <p className="text-sm md:text-base font-medium tracking-wide text-gray-300 leading-tight pt-1">
+                                <p className="text-sm md:text-base font-supreme tracking-wide text-[#909092] leading-tight pt-1">
                                     {item.text}
                                 </p>
                             </motion.div>
