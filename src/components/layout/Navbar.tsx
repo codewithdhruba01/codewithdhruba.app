@@ -90,7 +90,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMobileMenu}
-              className="text-white hover:text-[#00DC82] focus:outline-none transition-transform duration-300 ease-in-out"
+              className="text-white hover:text-[#f4f4f4] focus:outline-none transition-transform duration-300 ease-in-out"
             >
               <i
                 className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'} text-2xl transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'rotate-90' : 'rotate-0'
@@ -112,7 +112,7 @@ const Navbar = () => {
                   setActiveLink(link.href);
                   setMobileMenuOpen(false);
                 }}
-                className={`block px-3 py-2 rounded-md transition-all font-hind duration-300 transform hover:text-[#00DC82] ${isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'} ${activeLink === link.href ? 'text-[#00DC82]' : 'text-[#E5E5E5]'}`}
+                className={`block px-3 py-2 rounded-md transition-all font-hind duration-300 transform hover:text-[#f4f4f4] ${isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'} ${activeLink === link.href ? 'text-[#f4f4f4]' : 'text-[#909092]'}`}
                 style={{
                   transitionDelay: isMobileMenuOpen ? `${index * 50}ms` : '0ms'
                 }}

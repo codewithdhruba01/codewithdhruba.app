@@ -137,7 +137,7 @@ export const ImageCarousel = ({ images, className = '' }: ImageCarouselProps) =>
       </div>
 
       <div className="text-center mt-6">
-        <p className={`text-gray-400 text-sm transition-all duration-700 ease-out ${isVisible ? 'opacity-70 transform translate-y-0' : 'opacity-0 transform translate-y-4'
+        <p className={`text-[#909092] text-sm transition-all duration-700 ease-out ${isVisible ? 'opacity-70 transform translate-y-0' : 'opacity-0 transform translate-y-4'
           }`}>
           Hover over images to explore
         </p>

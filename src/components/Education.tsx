@@ -213,7 +213,7 @@ interface ExperienceListProps {
 }
 
 function ExperienceList({ experiences }: ExperienceListProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0); // Default open first item
+  const [openIndex, setOpenIndex] = useState<number | null>(null); // All collapsed by default
 
   const handleToggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
