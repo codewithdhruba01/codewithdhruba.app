@@ -38,7 +38,7 @@ const Hero = () => {
         "
       >
         {/* IMAGE CAROUSEL */}
-        <div className="order-1 md:order-2 flex justify-center md:justify-end mt-4 md:mt-0 md:translate-x-16 lg:translate-x-24 xl:translate-x-32">
+        <div className="order-1 md:order-2 flex justify-center md:justify-end mt-4 md:mt-0 md:translate-x-4 lg:translate-x-8 xl:translate-x-12">
           <ImageCarousel
             images={[
               "/assets/avaterlogo.jpg",
