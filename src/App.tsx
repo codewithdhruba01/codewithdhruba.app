@@ -44,10 +44,11 @@ const App = () => {
           <Route path="/" element={
             <>
               <Hero />
+              <Education />
               <Projects />
               <GitHubContributions />
               <Skills />
-              <Education />
+
               <Blog />
               <Tools />
               <Touch />

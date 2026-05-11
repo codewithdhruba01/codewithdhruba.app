@@ -33,8 +33,8 @@ const Hero = () => {
 
       <div
         className="
-          relative z-10 max-w-7xl mx-auto w-full px-6
-          grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center
+          relative z-10 max-w-5xl mx-auto w-full px-6
+          grid grid-cols-1 md:grid-cols-[1.3fr_0.7fr] gap-10 md:gap-8 items-center
         "
       >
         {/* IMAGE CAROUSEL */}
@@ -64,7 +64,7 @@ const Hero = () => {
             />
           </div>
 
-          <div className="mt-7 flex flex-wrap gap-x-4 gap-y-2 text-gray-300 text-base">
+          <div className="mt-7 flex flex-wrap gap-x-3 gap-y-2 text-gray-300 text-base">
             <a
               href="https://github.com/codewithdhruba01"
               className="group flex items-center gap-2 font-bold text-gray-300"
@@ -121,21 +121,23 @@ const Hero = () => {
               Codepen
             </a>
 
-            <a
-              href="https://leetcode.com/u/codewithdhruba/"
-              className="group flex items-center gap-2 font-bold text-gray-300"
-            >
-              <LeetcodeIcon size="18" className="group-hover:fill-white transition-all duration-300 ease-in-out" />
-              Leetcode
-            </a>
+            <div className="flex gap-x-4">
+              <a
+                href="https://leetcode.com/u/codewithdhruba/"
+                className="group flex items-center gap-2 font-bold text-gray-300"
+              >
+                <LeetcodeIcon size="18" className="group-hover:fill-white transition-all duration-300 ease-in-out" />
+                Leetcode
+              </a>
 
-            <a
-              href="https://www.threads.com/@silent.coder5"
-              className="group flex items-center gap-2 font-bold text-gray-300"
-            >
-              <ThreadsIcon size="18" className="group-hover:fill-white transition-all duration-300 ease-in-out" />
-              Threads
-            </a>
+              <a
+                href="https://www.threads.com/@silent.coder5"
+                className="group flex items-center gap-2 font-bold text-gray-300"
+              >
+                <ThreadsIcon size="18" className="group-hover:fill-white transition-all duration-300 ease-in-out" />
+                Threads
+              </a>
+            </div>
           </div>
 
           {/* BUTTONS */}
