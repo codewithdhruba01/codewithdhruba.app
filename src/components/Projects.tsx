@@ -96,15 +96,13 @@ const Projects = () => {
 
       <section id="projects" className="pt-1 pb-8 bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
-
-            <h2
-              className="text-4xl font-bold mb-4 text-center font-excon text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400"
-              data-aos="fade-up"
-            >
-              Latest Projects
+          <div className="mb-8" data-aos="fade-up">
+            <p className="text-lg text-neutral-400 font-outfit text-center">
+              Latest
+            </p>
+            <h2 className="text-3xl font-bold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-center font-excon">
+              Projects
             </h2>
-
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto" data-aos="fade-up">

@@ -112,7 +112,7 @@ const GitHubContributions = () => {
 
   return (
     <section id="contributions" className="pt-8 pb-8 bg-neutral-950">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
         <h2 className="text-4xl font-bold mb-4 text-center text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400">
           GitHub Activity
