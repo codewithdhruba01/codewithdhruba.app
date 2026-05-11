@@ -107,17 +107,17 @@ const Projects = () => {
 
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8" data-aos="fade-up">
-            {projects.map((project, index) => (
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto" data-aos="fade-up">
+            {projects.slice(0, 2).map((project, index) => (
               <div
                 key={index}
                 onClick={() => setSelectedProject(project)}
-                className="group bg-[#111111] rounded-lg cursor-default border border-neutral-800"
+                className="group bg-[#111111] border border-zinc-800 rounded-2xl overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-300"
                 data-aos="fade-up"
                 data-aos-delay={index * 100} /// staggered animation
               >
                 {/* Image with smooth zoom */}
-                <div className="relative overflow-hidden h-48 rounded-t-lg">
+                <div className="relative w-full h-70 overflow-hidden bg-neutral-900">
                   {/* Gradient Placeholder with Noise */}
                   <div
                     className={`absolute inset-0 z-10 transition-opacity duration-700 ${loadedImages[index] ? 'opacity-0' : 'opacity-100'
