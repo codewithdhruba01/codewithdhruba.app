@@ -49,14 +49,14 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 ml-8">
             <a href="/">
               <img src="/assets/logo.png" alt="Logo" className="h-10 w-auto" />
             </a>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex mx-auto space-x-2 font-hind">
+          <div className="hidden md:flex mx-auto translate-x-4 space-x-2 font-hind">
             {navLinks.map((link) => (
               <a
                 key={link.href}
