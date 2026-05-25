@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 const GetInTouch = () => {
   return (
     <section id="get-in-touch" className="pt-8 pb-8 bg-neutral-950">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto w-full px-6">
         {/* Heading */}
         <div className="mb-8">
-          <h2 className="text-3xl font-bold text-center text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400">
+          <p className="text-lg text-neutral-400 font-outfit text-left">
             Development
-          </h2>
-          <p className="text-lg text-neutral-400 font-outfit text-center">
-            Tools
           </p>
+          <h2 className="text-3xl font-bold text-left text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400">
+            Tools
+          </h2>
         </div>
 
         {/* Cards */}
