@@ -55,16 +55,16 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="pt-8 pb-8 bg-neutral-950">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <p className="text-lg text-neutral-400 font-outfit text-center">
-            Latest
-          </p>
-          <h2 className="text-3xl font-bold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-center font-excon">
-            Tech Stack
-          </h2>
-        </div>
+      <section id="skills" className="pt-8 pb-8 bg-neutral-950">
+        <div className="max-w-4xl mx-auto w-full px-6">
+          <div className="mb-8">
+            <p className="text-lg text-neutral-400 font-outfit text-left">
+              Latest
+            </p>
+            <h2 className="text-3xl font-bold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-excon">
+              Tech Stack
+            </h2>
+          </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {sections.map((section, idx) => (

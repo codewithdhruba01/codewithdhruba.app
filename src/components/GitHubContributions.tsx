@@ -112,24 +112,43 @@ const GitHubContributions = () => {
 
   return (
     <section id="contributions" className="pt-8 pb-8 bg-neutral-950">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto w-full px-6">
         {/* Title */}
-        <h2 className="text-4xl font-bold mb-4 text-center text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400">
+        <h2 className="text-4xl font-bold mb-4 text-left text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400">
           GitHub Activity
         </h2>
-        <p className="text-center mb-2 text-sm font-supreme text-[#909092]">
+        <p className="text-left mb-2 text-sm font-supreme text-[#909092]">
           <strong>codewithdhruba's</strong> coding journey over the past year
         </p>
-        <div className="text-center mb-10 text-sm font-satoshi text-[#909092]">
-          Total contributions in {year}:{' '}
-          <span className={`text-[#00DC82] font-semibold transition-all duration-300 ${isLoading ? 'animate-shimmer bg-gradient-to-r from-[#00DC82]/20 via-[#00DC82]/60 to-[#00DC82]/20 bg-[length:200%_100%] rounded px-2' : ''}`}>
-            {isLoading ? 'Loading...' : totalCount}
-          </span>
-        </div>
-
-        <div className="flex flex-col lg:flex-row gap-6 justify-center items-center lg:items-start w-full">
+        <div className="w-full mt-8">
           {/* Graph Card */}
-          <div className="w-full sm:w-fit max-w-full border border-neutral-800 bg-neutral-900/60 rounded-lg p-4 sm:p-6 shadow-lg">
+          <div className="w-full border border-neutral-800 bg-neutral-900/60 rounded-lg p-4 sm:p-6 shadow-lg">
+            {/* Card Header: Total Contributions + Year Selector */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+              <div className="text-sm font-satoshi text-[#909092]">
+                Total contributions in {year}:{' '}
+                <span className={`text-[#00DC82] font-semibold transition-all duration-300 ${isLoading ? 'animate-shimmer bg-gradient-to-r from-[#00DC82]/20 via-[#00DC82]/60 to-[#00DC82]/20 bg-[length:200%_100%] rounded px-2' : ''}`}>
+                  {isLoading ? 'Loading...' : totalCount}
+                </span>
+              </div>
+
+              {/* Year Selector */}
+              <div className="flex gap-1.5 font-outfit">
+                {years.map((y) => (
+                  <button
+                    key={y}
+                    onClick={() => setYear(y)}
+                    className={`px-3 py-1 rounded text-xs font-semibold transition-all duration-200 cursor-pointer ${year === y
+                      ? 'bg-[#00DC82] text-black'
+                      : 'bg-neutral-800 text-[#909092] hover:bg-neutral-700 hover:text-white'
+                      }`}
+                  >
+                    {y}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             {/* Scrollable container */}
             <div className="overflow-x-auto thin-scrollbar">
               {/* Month labels */}
@@ -221,22 +240,6 @@ const GitHubContributions = () => {
                 <span className="font-bold font-supreme">More</span>
               </div>
             </div>
-          </div>
-
-          {/* Year Selector */}
-          <div className="flex lg:flex-col gap-2 justify-center font-outfit">
-            {years.map((y) => (
-              <button
-                key={y}
-                onClick={() => setYear(y)}
-                className={`px-4 py-2 rounded-md text-sm font-semibold transition-all ${year === y
-                  ? 'bg-[#00DC82] text-black'
-                  : 'bg-neutral-800 text-[#909092] hover:bg-neutral-900 hover:text-white'
-                  }`}
-              >
-                {y}
-              </button>
-            ))}
           </div>
         </div>
       </div>
