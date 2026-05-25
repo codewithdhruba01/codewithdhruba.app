@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Sun, FileText, Send } from 'lucide-react';
+import { Sun, FileText } from 'lucide-react';
 import {
   GithubIcon,
   LinkedinIcon,
@@ -69,9 +69,8 @@ const Hero = () => {
         {/* Avatar and GitHub Stats Overlap Row */}
         <div className="relative px-4 flex justify-between items-end -mt-10 sm:-mt-12 md:-mt-14 z-10">
           {/* Avatar */}
-          <div className={`relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-[#0A0A0A] shadow-md transition-colors duration-300 ${
-            avatarBg === 'black' ? 'bg-[#0A0A0A]' : avatarBg === 'white' ? 'bg-[#FAF9F6]' : 'bg-[#bae6fd]'
-          }`}>
+          <div className={`relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-[#0A0A0A] shadow-md transition-colors duration-300 ${avatarBg === 'black' ? 'bg-[#0A0A0A]' : avatarBg === 'white' ? 'bg-[#FAF9F6]' : 'bg-[#bae6fd]'
+            }`}>
             <img
               src="/assets/my_avater.png"
               alt="Dhrubaraj Pati"
@@ -208,7 +207,7 @@ const Hero = () => {
             I build from scratch.
           </h2>
           <p className="text-neutral-400 leading-relaxed text-base">
-            Currently a Full-Stack Developer passionate about building scalable web applications with{' '}
+            I am a 22 year old Full-Stack Developer dedicated to building scalable, high-performance web applications with{' '}
             <a
               href="https://www.typescriptlang.org/"
               target="_blank"
@@ -282,9 +281,7 @@ const Hero = () => {
               </svg>
               <span>Next.js</span>
             </a>{' '}
-            , crafting clean user experiences, and contributing to meaningful open-source projects.
-            I work across the entire lifecycle — from UI/UX design to deployment and user feedback,
-            focusing on delivering results that people love using.
+            . Guided by a user-first mindset, I translate complex engineering challenges into seamless, intuitive interfaces, write clean code, and contribute to impactful open-source projects. Always eager to push boundaries, I focus on delivering modern digital solutions that are robust, beautiful, and highly functional.
           </p>
         </div>
 
@@ -301,7 +298,7 @@ const Hero = () => {
             to="/about"
             className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-white hover:bg-neutral-200 text-black font-medium text-xs transition-all duration-200 shadow-sm"
           >
-            <Send className="w-3.5 h-3.5" />
+            <img src="/assets/my_avater.png" alt="Avatar" className="w-4 h-4 rounded-full object-cover" />
             About Me
           </Link>
         </div>
