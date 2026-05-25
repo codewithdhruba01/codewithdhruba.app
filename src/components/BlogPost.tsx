@@ -351,8 +351,8 @@ const BlogPost = () => {
 
   // Loading skeleton component
   const LoadingSkeleton = () => (
-    <article className="py-20 px-4 animate-in fade-in duration-500">
-      <div className="max-w-4xl mx-auto py-10 mb-8">
+    <article className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#0A0A0A] animate-in fade-in duration-500">
+      <div className="max-w-4xl mx-auto w-full px-6">
         {/* Back button skeleton */}
         <div className="mb-8">
           <div className="inline-flex items-center text-gray-400">
@@ -427,8 +427,8 @@ const BlogPost = () => {
 
   return (
     <>
-      <article className={`py-20 px-4 transition-all duration-700 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-        <div className="max-w-4xl mx-auto py-10 mb-8">
+      <article className={`pt-28 md:pt-36 pb-16 min-h-screen bg-[#0A0A0A] transition-all duration-700 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+        <div className="max-w-4xl mx-auto w-full px-6">
           {/* Back */}
           <div className={`mb-8 transition-all duration-500 delay-100 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
             <a

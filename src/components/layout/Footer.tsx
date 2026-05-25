@@ -154,7 +154,7 @@ const Footer = () => {
             <span className="text-[#f4f4f4] text-xs font-bold uppercase tracking-wider font-outfit">
               Connect
             </span>
-            <div className="grid grid-cols-4 gap-2">
+            <div className="flex flex-wrap md:grid md:grid-cols-4 gap-2">
               {socialLinks.map((link, i) => (
                 <a
                   key={i}
@@ -170,7 +170,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 relative flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="mt-12 pt-8 relative flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
           <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#333333] to-transparent"></div>
           <p className="text-[#737373] text-sm font-satoshi">
             © 2026 Dhrubaraj Pati. All rights reserved.
