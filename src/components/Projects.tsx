@@ -95,17 +95,17 @@ const Projects = () => {
       `}</style>
 
       <section id="projects" className="pt-1 pb-8 bg-neutral-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto w-full px-6">
           <div className="mb-8" data-aos="fade-up">
-            <p className="text-lg text-neutral-400 font-outfit text-center">
+            <p className="text-lg text-neutral-400 font-outfit text-left">
               Latest
             </p>
-            <h2 className="text-3xl font-bold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-center font-excon">
+            <h2 className="text-3xl font-bold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-excon">
               Projects
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto" data-aos="fade-up">
+          <div className="grid md:grid-cols-2 gap-8" data-aos="fade-up">
             {projects.slice(0, 2).map((project, index) => (
               <div
                 key={index}
