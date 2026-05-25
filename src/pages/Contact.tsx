@@ -97,35 +97,35 @@ const Contact = () => {
 
   return (
     <motion.div
-      className="pt-16 min-h-screen bg-neutral-950"
+      className="pt-16 min-h-screen bg-[#0A0A0A]"
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
     >
       {/* Header */}
       <motion.section
-        className="py-20 bg-gradient-to-br from-neutral-950 via-green-900/20 to-neutral-950"
+        className="py-20 bg-gradient-to-br from-[#0A0A0A] via-green-900/20 to-[#0A0A0A] mb-12"
         variants={fadeUp}
         initial="hidden"
         animate="visible"
         custom={0}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent font-excon">
+        <div className="max-w-4xl mx-auto w-full px-6 text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 font-excon">
+            <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
               Let's Work Together
             </span>
           </h1>
-          <p className="text-[#909092] max-w-2xl mx-auto font-poppins">
+          <p className="text-[#909092] max-w-2xl mx-auto font-poppins text-base">
             Have a project in mind? Send me a message and let's discuss how we can bring your ideas to life.
           </p>
         </div>
       </motion.section>
 
       {/* Contact Content */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <section className="pb-16">
+        <div className="max-w-4xl mx-auto w-full px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* Contact Information */}
             <motion.div
               className="space-y-8"
@@ -375,14 +375,14 @@ const Contact = () => {
 
       {/* Call to Action */}
       <motion.section
-        className="py-20"
+        className="pb-16"
         variants={fadeUp}
         initial="hidden"
         animate="visible"
         custom={7}
       >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="bg-[#111111] border border-neutral-800 rounded-2xl p-8 md:p-12 text-center shadow-2xl shadow-black/40 relative">
+        <div className="max-w-4xl mx-auto w-full px-6 relative">
+          <div className="p-8 md:p-12 text-center relative">
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400 mb-6">
               Ready to Start Your Project?
             </h2>
