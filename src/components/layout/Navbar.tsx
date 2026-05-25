@@ -36,51 +36,53 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { href: '/about', text: 'About' },
+    { href: '/', text: 'Home' },
+    { href: '/experience', text: 'Work' },
+    { href: '/all-posts', text: 'Blog' },
     { href: '/projects', text: 'Projects' },
     { href: '/photos', text: 'Photos' },
-    { href: '/all-posts', text: 'Blog' },
-    { href: '/certificates', text: 'Certificates' },
-    { href: '/contact', text: 'Contact' },
+
   ];
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#0A0A0A]/80 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto w-full px-6">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0 ml-8">
-            <a href="/">
-              <img src="/assets/logo.png" alt="Logo" className="h-10 w-auto" />
-            </a>
-          </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex mx-auto translate-x-4 space-x-2 font-hind">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setActiveLink(link.href)}
-                className={`px-3 py-1.5 rounded-md transition-all duration-300 font-medium ${activeLink === link.href
-                  ? 'text-[#f4f4f4]'
-                  : 'text-[#909092] hover:text-[#f4f4f4]'
-                  }`}
-              >
-                {link.text}
+          {/* Left: Logo & Links */}
+          <div className="flex items-center gap-8">
+            <div className="flex-shrink-0">
+              <a href="/">
+                <img src="/assets/logo.png" alt="Logo" className="h-9 w-auto" />
               </a>
-            ))}
+            </div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-1 font-outfit text-sm">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setActiveLink(link.href)}
+                  className={`px-3 py-1.5 rounded-md transition-all duration-300 font-medium ${activeLink === link.href
+                    ? 'text-[#f4f4f4]'
+                    : 'text-[#909092] hover:text-[#f4f4f4]'
+                    }`}
+                >
+                  {link.text}
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Search Button - Right Side */}
-          <div className="hidden md:flex">
+          {/* Right Side: Search */}
+          <div className="hidden md:flex items-center">
             <button
               onClick={() => setCommandPaletteOpen(true)}
-              className="px-3 py-1.5 rounded-full bg-neutral-800/50 border border-neutral-700 text-[#909092] hover:bg-neutral-700/50 hover:border-neutral-600 transition-all duration-200 flex items-center gap-2 text-sm"
+              className="pl-3.5 pr-1.5 py-1 rounded-full bg-[#121214] border border-neutral-800/80 hover:bg-neutral-900 hover:border-neutral-700 transition-all duration-200 flex items-center gap-3 text-sm font-outfit"
               title="Search (Ctrl+K)"
             >
-              <span>Search</span>
-              <span className="text-neutral-500 text-xs bg-neutral-700/50 px-1.5 py-0.5 rounded border border-neutral-600/50">
+              <span className="text-[#909092]">Search</span>
+              <span className="bg-[#202022] text-[#909092] text-[11px] px-2 py-0.5 rounded-md font-sans">
                 Ctrl+K
               </span>
             </button>
