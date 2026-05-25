@@ -141,25 +141,21 @@ const Certificates = () => {
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-12 px-4 bg-neutral-950">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen pt-28 md:pt-36 pb-16 bg-[#0A0A0A]">
+      <div className="max-w-4xl mx-auto w-full px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          className="text-left mb-10"
         >
-          <div className="mb-8"></div>
-          <h1 className="text-3xl sm:text-4xl font-bold font-excon mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
+          <h1 className="text-3xl md:text-4xl font-bold font-outfit mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
             Certificates & Achievements
           </h1>
-          <p className="text-gray-400 mt-2 text-base sm:text-base font-poppins">
+          <p className="text-[#909092] mt-2 text-base font-poppins">
             A Journey of Learning, Certifications, and Professional Recognition
           </p>
         </motion.div>
-
-        {/* Divider */}
-        <div className="border-t border-gray-700 max-w-3xl mx-auto mb-12"></div>
 
         {/* Certificates Section */}
         <motion.div
@@ -168,7 +164,7 @@ const Certificates = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-16"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {certificates.map((cert, index) => (
               <motion.div
                 key={index}
@@ -373,24 +369,6 @@ const Certificates = () => {
         `}
           </style>
         </section>
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="text-center mt-16"
-        >
-          <div className="bg-neutral-950 backdrop-blur-md rounded-xl p-6 lg:p-8 border border-gray-600/30 shadow-lg">
-            <h3 className="text-3xl font-bold mb-4 font-synonym bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
-              Continuous Learning
-            </h3>
-            <p className="text-gray-400 text-sm leading-relaxed font-satoshi">
-              I believe in continuous improvement and staying updated with the
-              latest technologies. These certifications and achievements <br />{' '}
-              represent my commitment to excellence and professional growth in
-              the ever-evolving field of technology.
-            </p>
-          </div>
-        </motion.div>
       </div>
     </div>
   );
