@@ -8,11 +8,12 @@ import { ArrowRight } from 'lucide-react';
 
 export const AboutContent = () => {
     return (
-        <div className="md:col-span-2 flex flex-col gap-8 mt-6" data-aos="fade-up">
-            <h1 className="text-6xl font-bold font-excon md:text-7xl mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
+        <div className="md:col-span-2 flex flex-col mt-6" data-aos="fade-up">
+            <h1 className="text-3xl md:text-4xl font-bold font-excon mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
                 About <span className="text-[#00DC82]">Me</span>
             </h1>
-            <p className="text-[#909092] font-satoshi text-lg leading-relaxed">
+            <div className="flex flex-col gap-6">
+                <p className="text-[#909092] font-satoshi text-lg leading-relaxed">
                 I am a <HoverInfo
                     trigger={<span className="text-[#b5b5b6] font-bold">Frontend Developer</span>}
                     title="Frontend Developer"
@@ -20,7 +21,7 @@ export const AboutContent = () => {
                 /> with a strong focus on building modern,
                 visually appealing, and user-centric web applications. My journey into development
                 is fueled by curiosity about how technology can solve real-world problems and a
-                constant desire to learn and grow. I enjoy crafting pixel-perfect user interfaces and building scalable,
+                constant desire to learn and grow.. I enjoy crafting pixel-perfect user interfaces and building scalable,
                 maintainable frontend architectures. With hands-on experience in modern
                 tools and frameworks like{' '}
                 <HoverInfo
@@ -73,24 +74,6 @@ export const AboutContent = () => {
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
             </div>
-
-            {/* Education Section */}
-            <div>
-                <h2 className="text-3xl font-bold mb-3 font-synonym">Education</h2>
-                <ul className="space-y-2">
-                    <li>
-                        <strong className="text-[#909092] font-outfit">
-                            Bachelor of Computer Application
-                        </strong>
-                        <br />
-                        <div className="font-satoshi text-[#909092]">
-                            Swami Vivekananda University Kolkata{' '}
-                            <span className="text-[#00DC82] font-satoshi">
-                                ( 2023 - Present )
-                            </span>
-                        </div>
-                    </li>
-                </ul>
             </div>
         </div>
     );

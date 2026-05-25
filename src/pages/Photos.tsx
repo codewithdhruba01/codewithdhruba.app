@@ -206,10 +206,10 @@ const Photos = () => {
     };
 
     return (
-        <div className="min-h-screen bg-neutral-950 text-white">
-            <div className="max-w-6xl mx-auto px-6 py-20">
+        <div className="min-h-screen bg-neutral-950 text-white pt-28 md:pt-36 pb-16">
+            <div className="max-w-6xl mx-auto px-6 mb-16">
                 {/* Header Section */}
-                <div className="text-center mb-20" data-aos="fade-up">
+                <div className="text-center" data-aos="fade-up">
                     <div className="mb-6">
                         <span className="text-sm font-medium text-[#909092] tracking-widest uppercase">
                             GALLERY
@@ -224,7 +224,9 @@ const Photos = () => {
                         story of survival, adaptation, and the delicate balance of life.
                     </p>
                 </div>
+            </div>
 
+            <div className="max-w-4xl mx-auto w-full px-6">
                 {/* Category Pills */}
                 <div
                     className="flex flex-wrap justify-center gap-3 mb-16"
@@ -249,7 +251,7 @@ const Photos = () => {
 
 
                 <div
-                    className="relative mb-24 px-4 md:px-8 lg:px-12"
+                    className="relative mb-6"
                     data-aos="fade-up"
                 >
                     <div

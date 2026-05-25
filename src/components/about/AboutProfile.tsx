@@ -6,7 +6,7 @@ export const AboutProfile = () => {
 
     return (
         <div
-            className="bg-[#101010] border border-neutral-800 rounded-2xl p-6 flex flex-col items-center shadow-lg mt-6 h-fit md:sticky md:top-32"
+            className="bg-[#101010] border border-neutral-800 rounded-2xl p-6 flex flex-col items-center shadow-lg mt-6 w-full"
             data-aos="zoom-in"
         >
             <div className="relative w-full rounded-xl mb-6 overflow-hidden">
@@ -27,26 +27,7 @@ export const AboutProfile = () => {
                 />
             </div>
             <h2 className="text-xl font-semibold font-synonym">Dhrubaraj Pati</h2>
-            <p className="text-[#00DC82] mb-4 font-outfit">Frontend Developer</p>
-            <div className="flex flex-wrap gap-2 mb-4 justify-center font-supreme">
-                {[
-                    'HTML',
-                    'CSS',
-                    'JavaScript',
-                    'Tailwind CSS',
-                    'React',
-                    'Next.js',
-                    'Node.js',
-                    'Front-End Development',
-                ].map((tag) => (
-                    <span
-                        key={tag}
-                        className="bg-[#1c1c1c] text-sm px-3 py-1 rounded-full text-[#00DC82]"
-                    >
-                        {tag}
-                    </span>
-                ))}
-            </div>
+            <p className="text-[#646565] mb-6 font-outfit">Frontend Developer</p>
             <div className="flex flex-col gap-2 text-sm w-full">
                 <a
                     href="mailto:pati.dhrubaraj@outlook.com"
@@ -60,7 +41,7 @@ export const AboutProfile = () => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 hover:text-[#00DC82] font-satoshi"
                 >
-                    <Github size={16} /> github.com/codewithdhruba01
+                    <Github size={16} />codewithdhruba01
                 </a>
                 <a
                     href="https://x.com/codewithdhruba"

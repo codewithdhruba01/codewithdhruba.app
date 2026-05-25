@@ -276,26 +276,21 @@ const AllProjects = () => {
         }
       `}</style>
       <div
-        className="min-h-screen bg-neutral-950 text-white px-4 py-20"
+        className="min-h-screen bg-[#0A0A0A] text-white pt-28 md:pt-36 pb-16"
         data-aos="fade-up"
       >
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            <p className="mb-10"></p>
-            <h1 className="text-4xl sm:text-5xl font-bold font-excon mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
+        <div className="max-w-4xl mx-auto w-full px-6">
+          <div className="text-left mb-10">
+            <h1 className="text-3xl md:text-4xl font-bold font-outfit mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
               Featured Projects
             </h1>
-            <p className="text-[#909092] max-w-2xl mx-auto font-poppins">
-              A showcase of my best work across various technologies and domains.
-              Each project represents a unique challenge and different aspects of
-              my skills.
+            <p className="text-[#909092] mt-2 text-base font-poppins">
+              A showcase of featured projects, built to solve real-world problems and explore new technologies.
             </p>
           </div>
 
-          <div className="border-t border-gray-700 max-w-3xl mx-auto mb-12"></div>
-
           {/* Categories */}
-          <div className="flex flex-wrap justify-center font-outfit gap-3 mb-10">
+          <div className="flex flex-wrap justify-start font-outfit gap-2.5 mb-10">
             {categories.map((category) => (
               <button
                 key={category}
@@ -314,7 +309,7 @@ const AllProjects = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {loading
               ? Array(showAll ? filteredProjects.length : initialCount)
                 .fill(0)
