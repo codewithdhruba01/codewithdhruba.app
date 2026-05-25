@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Paperclip, Sun, FileText, Send } from 'lucide-react';
+import { Sun, FileText, Send } from 'lucide-react';
 import {
   GithubIcon,
   LinkedinIcon,
   XIcon,
+  LeetcodeIcon,
 } from './icons/SocialIcons';
 import { Tooltip, TooltipTrigger, TooltipContent } from './ui/tooltip';
 
@@ -66,15 +67,22 @@ const Hero = () => {
 
           {/* GitHub followers badge */}
           <div className="pb-2 md:pb-4">
-            <a
-              href="https://github.com/codewithdhruba01"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#111111]/80 backdrop-blur-sm border border-neutral-800 text-neutral-300 hover:text-white text-xs font-medium transition duration-200 select-none shadow-sm hover:scale-105 active:scale-95 cursor-pointer"
-            >
-              <GithubIcon size="14" className="stroke-neutral-300 inline" />
-              <span>{formatFollowers(githubFollowers)}</span>
-            </a>
+            <Tooltip>
+              <TooltipTrigger>
+                <a
+                  href="https://github.com/codewithdhruba01"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#111111]/80 backdrop-blur-sm border border-neutral-800 text-neutral-300 hover:text-white text-xs font-medium transition duration-200 select-none shadow-sm cursor-pointer"
+                >
+                  <GithubIcon size="14" className="stroke-neutral-300 inline" />
+                  <span>{formatFollowers(githubFollowers)}</span>
+                </a>
+              </TooltipTrigger>
+              <TooltipContent side="top">
+                <p>Follow me!</p>
+              </TooltipContent>
+            </Tooltip>
           </div>
         </div>
 
@@ -122,22 +130,7 @@ const Hero = () => {
                 </a>
               </TooltipTrigger>
               <TooltipContent side="top">
-                <p>X (formerly Twitter)</p>
-              </TooltipContent>
-            </Tooltip>
-
-            {/* Resume Link */}
-            <Tooltip>
-              <TooltipTrigger>
-                <Link
-                  to="/resume"
-                  className="p-2.5 rounded-full border border-neutral-800 bg-[#111111]/50 hover:bg-neutral-800 text-neutral-400 hover:text-white transition duration-200 flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95"
-                >
-                  <Paperclip className="w-4 h-4" />
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent side="top">
-                <p>Resume / CV</p>
+                <p>X (Twitter)</p>
               </TooltipContent>
             </Tooltip>
 
@@ -155,6 +148,23 @@ const Hero = () => {
               </TooltipTrigger>
               <TooltipContent side="top">
                 <p>LinkedIn</p>
+              </TooltipContent>
+            </Tooltip>
+
+            {/* Leetcode Link */}
+            <Tooltip>
+              <TooltipTrigger>
+                <a
+                  href="https://leetcode.com/u/codewithdhruba/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 rounded-full border border-neutral-800 bg-[#111111]/50 hover:bg-neutral-800 text-neutral-400 hover:text-white transition duration-200 flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95"
+                >
+                  <LeetcodeIcon size="16" className="fill-current" />
+                </a>
+              </TooltipTrigger>
+              <TooltipContent side="top">
+                <p>LeetCode</p>
               </TooltipContent>
             </Tooltip>
 
@@ -180,7 +190,7 @@ const Hero = () => {
         {/* Bio Section */}
         <div className="px-1">
           <h2 className="font-bold text-neutral-200 text-lg mb-3">
-            I build from zero.
+            I build from scratch.
           </h2>
           <p className="text-neutral-400 leading-relaxed text-base">
             Currently a Full-Stack Developer passionate about building scalable web applications with{' '}
@@ -267,14 +277,14 @@ const Hero = () => {
         <div className="flex flex-wrap items-center gap-4 mt-8 px-1">
           <Link
             to="/resume"
-            className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-neutral-800 bg-[#171717] hover:bg-neutral-800 text-neutral-200 hover:text-white font-medium text-sm transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-neutral-800 bg-[#171717] hover:bg-neutral-800 text-neutral-200 hover:text-white font-medium text-sm transition-all duration-200 shadow-sm"
           >
             <FileText className="w-4 h-4" />
             Resume / CV
           </Link>
           <Link
             to="/about"
-            className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white hover:bg-neutral-200 text-black font-medium text-sm transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white hover:bg-neutral-200 text-black font-medium text-sm transition-all duration-200 shadow-sm"
           >
             <Send className="w-4 h-4" />
             About Me
