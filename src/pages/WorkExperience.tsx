@@ -13,21 +13,19 @@ const WorkExperience = () => {
 
 
     return (
-        <div className="min-h-screen bg-[#0A0A0A] pt-28 md:pt-36 pb-16 px-4 md:px-8">
+        <div className="min-h-screen bg-[#0A0A0A] pt-28 md:pt-36 pb-16">
             <motion.div
                 initial={{ opacity: 0, y: 20, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="max-w-4xl mx-auto"
+                className="max-w-4xl mx-auto w-full px-6"
             >
-
-
                 {/* Header */}
                 <div className="text-center mb-16 space-y-4">
-                    <h1 className="text-4xl sm:text-5xl font-bold font-excon mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
+                    <h1 className="text-3xl sm:text-4xl font-bold font-excon mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
                         Work Experience
                     </h1>
-                    <p className="text-neutral-400 text-lg max-w-2xl mx-auto font-synonym">
+                    <p className="text-neutral-450 text-base sm:text-lg max-w-2xl mx-auto font-synonym">
                         My work experiences across different companies and roles.
                     </p>
                 </div>
