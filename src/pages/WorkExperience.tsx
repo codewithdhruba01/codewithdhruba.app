@@ -21,11 +21,11 @@ const WorkExperience = () => {
                 className="max-w-4xl mx-auto w-full px-6"
             >
                 {/* Header */}
-                <div className="text-center mb-16 space-y-4">
-                    <h1 className="text-3xl sm:text-4xl font-bold font-excon mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
+                <div className="text-left mb-10">
+                    <h1 className="text-3xl md:text-4xl font-bold font-outfit mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
                         Work Experience
                     </h1>
-                    <p className="text-neutral-450 text-base sm:text-lg max-w-2xl mx-auto font-synonym">
+                    <p className="text-[#909092] mt-2 text-base font-poppins">
                         My work experiences across different companies and roles.
                     </p>
                 </div>

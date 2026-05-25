@@ -100,38 +100,46 @@ const AllPosts = () => {
       : blogPosts.filter((post) => post.category.includes(activeTag));
 
   return (
-    <section className="py-20 bg-neutral-950 min-h-screen" data-aos="fade-up">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-10">
-          <h1 className="text-4xl sm:text-5xl font-bold font-excon mb-4">
+    <section className="bg-[#0A0A0A] min-h-screen pt-28 md:pt-36 pb-16" data-aos="fade-up">
+      <div className="max-w-4xl mx-auto w-full px-6">
+        <div className="text-left mb-10">
+          <h1 className="text-3xl md:text-4xl font-bold font-outfit mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
             Blog & Publications
           </h1>
-          <p className="text-[#909092] mt-2 text-base sm:text-lg font-poppins">
-            Exploring the art of engineering, the craft of code, and the journey
-            of building impactful tech.
+          <p className="text-[#909092] mt-2 text-base font-poppins">
+            Exploring the art of engineering, and the journey of building impactful tech.
           </p>
         </div>
 
-        <div className="border-t border-gray-700 max-w-3xl mx-auto mb-8"></div>
-
-        <div className="mt-10 mb-12 max-w-4xl mx-auto">
-          <div className="flex flex-wrap gap-3 justify-start">
-            {tags.map((tag, i) => (
-              <button
-                key={i}
-                onClick={() => setActiveTag(tag.name)}
-                className={`px-4 py-2 text-sm rounded-full font-outfit ${activeTag === tag.name
-                  ? 'bg-gradient-to-r from-green-600 to-green-900 text-white'
-                  : 'border-neutral-800 text-gray-300 bg-neutral-900'
-                  }`}
-              >
-                {tag.name} <span className="text-gray-100">({tag.count})</span>
-              </button>
-            ))}
+        <div className="mt-10 mb-12">
+          <div className="flex flex-wrap gap-2.5 justify-start items-center">
+            {tags.map((tag, i) => {
+              const isActive = activeTag === tag.name;
+              return (
+                <button
+                  key={i}
+                  onClick={() => setActiveTag(tag.name)}
+                  className={`pl-4 pr-2.5 py-1.5 text-sm rounded-full font-outfit font-medium transition-all duration-200 flex items-center gap-2 ${isActive
+                    ? 'bg-[#E4E4E7] text-[#121214]'
+                    : 'bg-[#18181A] hover:bg-[#202024] text-[#909092] hover:text-white'
+                    }`}
+                >
+                  <span>{tag.name}</span>
+                  <span
+                    className={`text-[10px] px-2 py-0.5 rounded-full font-sans font-semibold ${isActive
+                      ? 'bg-black/10 text-[#27272A]'
+                      : 'bg-[#0F0F10] text-[#52525B]'
+                      }`}
+                  >
+                    {tag.count}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        <div className="flex flex-col space-y-8 max-w-4xl mx-auto">
+        <div className="flex flex-col space-y-8">
           {filteredPosts.length > 0 ? (
             filteredPosts.map((post, index) => (
               <div key={index} className="group">
