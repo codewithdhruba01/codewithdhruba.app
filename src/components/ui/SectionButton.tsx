@@ -16,11 +16,11 @@ export const SectionButton = ({
     to,
     onClick,
     className,
-    icon = <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />,
+    icon = <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />,
     type = 'button',
     ...props
 }: SectionButtonProps) => {
-    const baseClasses = "inline-flex items-center gap-3 px-6 py-3 bg-[#111111] border border-[#2d2e2d] rounded-xl text-[#d3d1d1] hover:border-[#A3A3A3]/50 hover:bg-[#1a1a1a] transition-all duration-300 group shadow-lg shadow-black/20 text-lg font-bold font-outfit";
+    const baseClasses = "inline-flex items-center gap-2 px-4 py-2.5 bg-[#111111] border border-[#2d2e2d] rounded-lg text-[#d3d1d1] hover:border-[#A3A3A3]/50 hover:bg-[#1a1a1a] transition-all duration-300 group shadow-lg shadow-black/20 text-sm font-bold font-outfit";
 
     const content = (
         <>

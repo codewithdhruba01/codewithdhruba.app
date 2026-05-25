@@ -114,12 +114,17 @@ const GitHubContributions = () => {
     <section id="contributions" className="pt-8 pb-8 bg-neutral-950">
       <div className="max-w-4xl mx-auto w-full px-6">
         {/* Title */}
-        <h2 className="text-4xl font-bold mb-4 text-left text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400">
-          GitHub Activity
-        </h2>
-        <p className="text-left mb-2 text-sm font-supreme text-[#909092]">
-          <strong>codewithdhruba's</strong> coding journey over the past year
-        </p>
+        <div className="mb-6">
+          <p className="text-lg text-neutral-400 font-outfit text-left">
+            Contributions
+          </p>
+          <h2 className="text-3xl font-bold text-left font-excon text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
+            GitHub Activity
+          </h2>
+          <p className="text-left mt-2 text-sm font-supreme text-[#909092]">
+            <strong>codewithdhruba's</strong> coding journey over the past year
+          </p>
+        </div>
         <div className="w-full mt-8">
           {/* Graph Card */}
           <div className="w-full border border-neutral-800 bg-neutral-900/60 rounded-lg p-4 sm:p-6 shadow-lg">
