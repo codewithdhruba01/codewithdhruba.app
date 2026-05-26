@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import SEO from './components/SEO';
@@ -27,7 +26,6 @@ import Tools from './components/Tools';
 import Touch from './components/Touch';
 import WorkExperience from './pages/WorkExperience';
 import BucketList from './pages/BucketList';
-import AOS from 'aos';
 import ScrollToTop from './components/common/ScrollToTop';
 import PageTransition from './components/ui/PageTransition';
 
@@ -72,13 +70,6 @@ const AnimatedRoutes = () => {
 };
 
 const App = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
-  }, []);
-
   return (
     <Router>
       <ScrollToTop />

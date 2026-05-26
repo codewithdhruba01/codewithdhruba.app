@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { SectionButton } from '../components/ui/SectionButton';
 import ScheduleModal from '../components/modals/ScheduleModal';
+import ScrollReveal from '../components/ui/ScrollReveal';
 
 const BucketList = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -37,34 +37,21 @@ const BucketList = () => {
                 </div>
 
                 <div className="relative pt-20 md:pt-32 pb-8 md:pb-12 text-center z-10">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="font-dancing text-12xl md:text-8xl text-[#d4c5b9] mb-[-14px] md:mb-[-20px] relative z-10"
-                    >
-                        Personal
-                    </motion.h1>
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="font-satoshi text-4xl md:text-4xl font-light text-[#01b369] tracking-tight"
-                    >
-                        Bucket List
-                    </motion.h2>
+                    <ScrollReveal>
+                        <h1 className="font-dancing text-12xl md:text-8xl text-[#d4c5b9] mb-[-14px] md:mb-[-20px] relative z-10">
+                            Personal
+                        </h1>
+                        <h2 className="font-satoshi text-4xl md:text-4xl font-light text-[#01b369] tracking-tight">
+                            Bucket List
+                        </h2>
+                    </ScrollReveal>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-x-12 gap-y-6 mt-8">
                     {/* Left Column */}
                     <div className="space-y-6">
                         {leftItems.map((item, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.3 + index * 0.1 }}
-                                className="flex items-start gap-4 group"
-                            >
+                            <ScrollReveal key={index} delay={index * 0.05} className="flex items-start gap-4 group">
                                 <div className={`w-6 h-6 rounded-full flex-shrink-0 mt-1 cursor-pointer transition-all duration-300 flex items-center justify-center relative ${item.completed ? 'bg-[#01b369]' : 'bg-white'}`}>
                                     {item.completed && (
                                         <Check className="text-white w-4 h-4" />
@@ -73,20 +60,14 @@ const BucketList = () => {
                                 <p className="text-sm md:text-base font-supreme tracking-wide text-[#909092] leading-tight pt-1">
                                     {item.text}
                                 </p>
-                            </motion.div>
+                            </ScrollReveal>
                         ))}
                     </div>
 
                     {/* Right Column */}
                     <div className="space-y-6">
                         {rightItems.map((item, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.3 + index * 0.1 }}
-                                className="flex items-start gap-4 group"
-                            >
+                            <ScrollReveal key={index} delay={index * 0.05} className="flex items-start gap-4 group">
                                 <div className={`w-6 h-6 rounded-full flex-shrink-0 mt-1 cursor-pointer transition-all duration-300 flex items-center justify-center relative ${item.completed ? 'bg-[#01b369]' : 'bg-white'}`}>
                                     {item.completed && (
                                         <Check className="text-white w-4 h-4" />
@@ -95,18 +76,20 @@ const BucketList = () => {
                                 <p className="text-sm md:text-base font-supreme tracking-wide text-[#909092] leading-tight pt-1">
                                     {item.text}
                                 </p>
-                            </motion.div>
+                            </ScrollReveal>
                         ))}
                     </div>
                 </div>
 
                 {/* All Schedule Button */}
-                <div className="mt-20 flex justify-center">
-                    <SectionButton
-                        text="View all Schedule"
-                        onClick={() => setIsModalOpen(true)}
-                    />
-                </div>
+                <ScrollReveal delay={0.2} className="mt-20 flex justify-center">
+                    <div>
+                        <SectionButton
+                            text="View all Schedule"
+                            onClick={() => setIsModalOpen(true)}
+                        />
+                    </div>
+                </ScrollReveal>
             </div>
 
             <ScheduleModal

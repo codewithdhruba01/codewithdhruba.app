@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { Copy, Check, ArrowUpRight } from 'lucide-react';
-import { motion } from 'framer-motion';
 import {
   Tooltip,
   TooltipContent,
@@ -10,6 +9,7 @@ import {
 } from '../components/ui/tooltip';
 import { VisualStudioCode } from '../components/svgs/VisualStudioCode';
 import { Chrome } from '../components/svgs/Chrome';
+import ScrollReveal from '../components/ui/ScrollReveal';
 
 export default function Gears() {
   const [copied, setCopied] = useState<string | null>(null);
@@ -25,23 +25,20 @@ export default function Gears() {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen bg-neutral-950 text-white px-6 py-20 sm:py-20"
-    >
+    <div className="min-h-screen bg-neutral-950 text-white px-6 py-20 sm:py-20">
       <h2 className="text-4xl font-bold mb-12"></h2>
 
       {/* Page Heading */}
-      <div className="text-center mb-10">
-        <h1 className="text-3xl sm:text-4xl font-bold font-excon bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
-          Tools & Extensions
-        </h1>
-        <p className="text-[#909092] mt-2 text-sm sm:text-base font-supreme">
-          VS Code extensions I use daily to speed up my workflow.
-        </p>
-      </div>
+      <ScrollReveal>
+        <div className="text-center mb-10">
+          <h1 className="text-3xl sm:text-4xl font-bold font-excon bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
+            Tools & Extensions
+          </h1>
+          <p className="text-[#909092] mt-2 text-sm sm:text-base font-supreme">
+            VS Code extensions I use daily to speed up my workflow.
+          </p>
+        </div>
+      </ScrollReveal>
 
       {/* Divider */}
       <div className="border-t border-[#2b2a2a] max-w-3xl mx-auto mb-12"></div>
@@ -49,12 +46,15 @@ export default function Gears() {
       <div className="max-w-3xl mx-auto space-y-12">
         {/* VS Code Extensions Section */}
         <section>
-          <h2 className="text-base sm:text-xl font-bold mb-6 flex items-center gap-3">
-            <span className="w-10 h-10 flex items-center justify-center rounded-xl border border-neutral-800 bg-neutral-900/50">
-              <VisualStudioCode className="w-6 h-6" />
-            </span>
-            VS Code Extensions
-          </h2>
+          <ScrollReveal delay={0.1}>
+            <h2 className="text-base sm:text-xl font-bold mb-6 flex items-center gap-3">
+              <span className="w-10 h-10 flex items-center justify-center rounded-xl border border-neutral-800 bg-neutral-900/50">
+                <VisualStudioCode className="w-6 h-6" />
+              </span>
+              VS Code Extensions
+            </h2>
+          </ScrollReveal>
+          
           <ul className="space-y-4">
             {[
               { name: 'formulahendry.code-runner' },
@@ -83,10 +83,7 @@ export default function Gears() {
               { name: 'aslamanver.vsc-export' },
               { name: 'EliverLara.andromeda' },
             ].map((ext, i) => (
-              <li
-                key={i}
-                className="flex items-center gap-3 text-base sm:text-base"
-              >
+              <ScrollReveal key={i} delay={i * 0.02} className="flex items-center gap-3 text-base sm:text-base">
                 {/* Number Circle */}
                 <span className="w-7 h-7 flex items-center justify-center rounded-md bg-neutral-800 text-sm text-gray-300">
                   {i + 1}
@@ -115,19 +112,22 @@ export default function Gears() {
                     </Tooltip>
                   </TooltipProvider>
                 </span>
-              </li>
+              </ScrollReveal>
             ))}
           </ul>
         </section>
 
         {/* Web Extensions Section */}
         <section>
-          <h2 className="text-lg sm:text-xl font-semibold mb-6 flex items-center gap-3">
-            <span className="w-10 h-10 flex items-center justify-center rounded-xl border border-neutral-800 bg-neutral-900/50">
-              <Chrome className="w-6 h-6" />
-            </span>
-            Chrome Extensions
-          </h2>
+          <ScrollReveal delay={0.15}>
+            <h2 className="text-lg sm:text-xl font-semibold mb-6 flex items-center gap-3">
+              <span className="w-10 h-10 flex items-center justify-center rounded-xl border border-neutral-800 bg-neutral-900/50">
+                <Chrome className="w-6 h-6" />
+              </span>
+              Chrome Extensions
+            </h2>
+          </ScrollReveal>
+
           <ul className="space-y-4">
             {[
               {
@@ -166,10 +166,7 @@ export default function Gears() {
               { name: 'AdBlock', url: 'https://getadblock.com/en/' },
               { name: 'Urban VPN', url: 'https://www.urban-vpn.com/' },
             ].map((ext, i) => (
-              <li
-                key={i}
-                className="flex items-center gap-3 text-base sm:text-base"
-              >
+              <ScrollReveal key={i} delay={i * 0.02} className="flex items-center gap-3 text-base sm:text-base">
                 {/* Number Circle */}
                 <span className="w-7 h-7 flex items-center justify-center rounded-md bg-neutral-800 text-sm text-gray-300">
                   {i + 1}
@@ -182,11 +179,11 @@ export default function Gears() {
                   {ext.name}
                 </a>
                 <ArrowUpRight className="w-4 h-4 text-[#909092] hover:text-white" />
-              </li>
+              </ScrollReveal>
             ))}
           </ul>
         </section>
       </div>
-    </motion.div>
+    </div>
   );
 }

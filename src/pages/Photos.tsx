@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, Heart } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { photos, categories } from '../data/photos';
 import { commentService } from '../lib/supabase';
+import ScrollReveal from '../components/ui/ScrollReveal';
 
 const Photos = () => {
     const [selectedCategory, setSelectedCategory] = useState('All');
@@ -209,53 +210,51 @@ const Photos = () => {
         <div className="min-h-screen bg-neutral-950 text-white pt-28 md:pt-36 pb-16">
             <div className="max-w-6xl mx-auto px-6 mb-16">
                 {/* Header Section */}
-                <div className="text-center" data-aos="fade-up">
-                    <div className="mb-6">
-                        <span className="text-sm font-medium text-[#909092] tracking-widest uppercase">
-                            GALLERY
-                        </span>
+                <ScrollReveal>
+                    <div className="text-center">
+                        <div className="mb-6">
+                            <span className="text-sm font-medium text-[#909092] tracking-widest uppercase">
+                                GALLERY
+                            </span>
+                        </div>
+                        <h1 className="text-5xl md:text-6xl font-bold mb-6 font-serif bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
+                            Wildlife Chronicles
+                        </h1>
+                        <p className="text-lg text-[#909092] max-w-2xl mx-auto leading-relaxed font-light font-satoshi">
+                            A visual journey through India's diverse wildlife, capturing the
+                            beauty and mystery of nature's creatures. Each encounter tells a
+                            story of survival, adaptation, and the delicate balance of life.
+                        </p>
                     </div>
-                    <h1 className="text-5xl md:text-6xl font-bold mb-6 font-serif bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
-                        Wildlife Chronicles
-                    </h1>
-                    <p className="text-lg text-[#909092] max-w-2xl mx-auto leading-relaxed font-light font-satoshi">
-                        A visual journey through India's diverse wildlife, capturing the
-                        beauty and mystery of nature's creatures. Each encounter tells a
-                        story of survival, adaptation, and the delicate balance of life.
-                    </p>
-                </div>
+                </ScrollReveal>
             </div>
 
             <div className="max-w-4xl mx-auto w-full px-6">
                 {/* Category Pills */}
-                <div
-                    className="flex flex-wrap justify-center gap-3 mb-16"
-                    data-aos="fade-up"
-                >
-                    {categories.map((category) => (
-                        <button
-                            key={category}
-                            onClick={() => {
-                                setSelectedCategory(category);
-                                setCurrentIndex(0);
-                            }}
-                            className={`px-4 py-2 rounded-full text-sm font-semibold font-outfit transition-all duration-200 ${selectedCategory === category
-                                ? 'bg-gradient-to-r from-green-600 to-green-900 text-white'
-                                : 'bg-[#1A1A1A] text-[#909092] hover:bg-[#262626] hover:text-white'
-                                }`}
-                        >
-                            {category}
-                        </button>
-                    ))}
-                </div>
+                <ScrollReveal delay={0.1}>
+                    <div className="flex flex-wrap justify-center gap-3 mb-16">
+                        {categories.map((category) => (
+                            <button
+                                key={category}
+                                onClick={() => {
+                                    setSelectedCategory(category);
+                                    setCurrentIndex(0);
+                                }}
+                                className={`px-4 py-2 rounded-full text-sm font-semibold font-outfit transition-all duration-200 ${selectedCategory === category
+                                    ? 'bg-gradient-to-r from-green-600 to-green-900 text-white'
+                                    : 'bg-[#1A1A1A] text-[#909092] hover:bg-[#262626] hover:text-white'
+                                    }`}
+                            >
+                                {category}
+                            </button>
+                        ))}
+                    </div>
+                </ScrollReveal>
 
-
-                <div
-                    className="relative mb-6"
-                    data-aos="fade-up"
-                >
-                    <div
-                        className="relative flex items-center justify-center min-h-[450px] md:min-h-[550px] lg:min-h-[600px] transition-transform duration-800 ease-out"
+                <ScrollReveal delay={0.15}>
+                    <div className="relative mb-6">
+                        <div
+                            className="relative flex items-center justify-center min-h-[450px] md:min-h-[550px] lg:min-h-[600px] transition-transform duration-800 ease-out"
                         style={{
                             touchAction: 'pan-y pinch-zoom',
                             userSelect: 'none',
@@ -452,9 +451,11 @@ const Photos = () => {
                         })}
                     </div>
                 </div>
+            </ScrollReveal>
 
-                {/* New Pagination Design */}
-                <div className="flex flex-col items-center gap-8 mt-4" data-aos="fade-up">
+            {/* New Pagination Design */}
+            <ScrollReveal delay={0.2}>
+                <div className="flex flex-col items-center gap-8 mt-4">
                     <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center px-4 py-3 bg-[#0A0A0A]/50 backdrop-blur-sm rounded-2xl border border-neutral-900/50">
                         {(() => {
                             const totalPages = filteredPhotos.length;
@@ -520,9 +521,10 @@ const Photos = () => {
                         </button>
                     </div>
                 </div>
-            </div>
+            </ScrollReveal>
         </div>
-    );
+    </div>
+);
 };
 
 export default Photos;

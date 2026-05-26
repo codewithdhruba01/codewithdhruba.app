@@ -8,7 +8,7 @@ import { ArrowRight } from 'lucide-react';
 
 export const AboutContent = () => {
     return (
-        <div className="md:col-span-2 flex flex-col mt-6" data-aos="fade-up">
+        <div className="flex flex-col mt-6">
             <h1 className="text-3xl md:text-4xl font-bold font-excon mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
                 About <span className="text-[#00DC82]">Me</span>
             </h1>

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Clock, Eye } from 'lucide-react';
 import { commentService } from '../lib/supabase';
 import { blogPostsData } from '../data/blogs';
+import ScrollReveal from '../components/ui/ScrollReveal';
 
 // Blog post descriptions for listing
 const blogDescriptions = {
@@ -100,49 +101,53 @@ const AllPosts = () => {
       : blogPosts.filter((post) => post.category.includes(activeTag));
 
   return (
-    <section className="bg-[#0A0A0A] min-h-screen pt-28 md:pt-36 pb-16" data-aos="fade-up">
+    <section className="bg-[#0A0A0A] min-h-screen pt-28 md:pt-36 pb-16">
       <div className="max-w-4xl mx-auto w-full px-6">
-        <div className="text-left mb-10">
-          <h1 className="text-3xl md:text-4xl font-bold font-outfit mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
-            Blog & Publications
-          </h1>
-          <p className="text-[#909092] mt-2 text-base font-poppins">
-            Exploring the art of engineering, and the journey of building impactful tech.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-left mb-10">
+            <h1 className="text-3xl md:text-4xl font-bold font-outfit mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
+              Blog & Publications
+            </h1>
+            <p className="text-[#909092] mt-2 text-base font-poppins">
+              Exploring the art of engineering, and the journey of building impactful tech.
+            </p>
+          </div>
+        </ScrollReveal>
 
-        <div className="mt-10 mb-12">
-          <div className="flex flex-wrap gap-2.5 justify-start items-center">
-            {tags.map((tag, i) => {
-              const isActive = activeTag === tag.name;
-              return (
-                <button
-                  key={i}
-                  onClick={() => setActiveTag(tag.name)}
-                  className={`pl-4 pr-2.5 py-1.5 text-sm rounded-full font-outfit font-medium transition-all duration-200 flex items-center gap-2 ${isActive
-                    ? 'bg-[#E4E4E7] text-[#121214]'
-                    : 'bg-[#18181A] hover:bg-[#202024] text-[#909092] hover:text-white'
-                    }`}
-                >
-                  <span>{tag.name}</span>
-                  <span
-                    className={`text-[10px] px-2 py-0.5 rounded-full font-sans font-semibold ${isActive
-                      ? 'bg-black/10 text-[#27272A]'
-                      : 'bg-[#0F0F10] text-[#52525B]'
+        <ScrollReveal delay={0.1}>
+          <div className="mt-10 mb-12">
+            <div className="flex flex-wrap gap-2.5 justify-start items-center">
+              {tags.map((tag, i) => {
+                const isActive = activeTag === tag.name;
+                return (
+                  <button
+                    key={i}
+                    onClick={() => setActiveTag(tag.name)}
+                    className={`pl-4 pr-2.5 py-1.5 text-sm rounded-full font-outfit font-medium transition-all duration-200 flex items-center gap-2 ${isActive
+                      ? 'bg-[#E4E4E7] text-[#121214]'
+                      : 'bg-[#18181A] hover:bg-[#202024] text-[#909092] hover:text-white'
                       }`}
                   >
-                    {tag.count}
-                  </span>
-                </button>
-              );
-            })}
+                    <span>{tag.name}</span>
+                    <span
+                      className={`text-[10px] px-2 py-0.5 rounded-full font-sans font-semibold ${isActive
+                        ? 'bg-black/10 text-[#27272A]'
+                        : 'bg-[#0F0F10] text-[#52525B]'
+                        }`}
+                    >
+                      {tag.count}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         <div className="flex flex-col space-y-8">
           {filteredPosts.length > 0 ? (
             filteredPosts.map((post, index) => (
-              <div key={index} className="group">
+              <ScrollReveal key={index} delay={index * 0.05} className="group">
                 <article className="flex flex-col md:flex-row gap-5 md:gap-8 items-start">
                   {/* Content - 70% width */}
                   <div className="flex-1 order-2 md:order-1 w-full">
@@ -223,7 +228,7 @@ const AllPosts = () => {
                 {index !== filteredPosts.length - 1 && (
                   <div className="border-t border-dashed border-neutral-800 mt-8"></div>
                 )}
-              </div>
+              </ScrollReveal>
             ))
           ) : (
             <p className="text-gray-400 col-span-full text-center py-20 text-lg">

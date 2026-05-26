@@ -13,32 +13,42 @@ import {
   HardDrive,
   ArrowUpRight,
 } from 'lucide-react';
-import { motion } from 'framer-motion';
 import { Devices } from '../components/svgs/Devices';
 import { AppStore } from '../components/svgs/AppStore';
+import ScrollReveal from '../components/ui/ScrollReveal';
 
 export default function Gears() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const devicesList = [
+    { icon: Laptop, text: "Infinix INBook X1" },
+    { icon: Monitor, text: "BenQ GW2490 (24 inch, 60.96 cm)" },
+    { icon: Keyboard, text: "Kreo Hive Mechanical Keyboard" },
+    { icon: Mouse, text: "HP Gaming Mouse M270" },
+    { icon: LampDesk, text: "AKR Desk Lamp 1740" },
+    { icon: Headphones, text: "Soundcore Anker H30i" },
+    { icon: Smartphone, text: "Motorola Edge 50 Fusion (256 GB)" },
+    { icon: Usb, text: "USB 9in1 Hub (9V555AA)" },
+    { icon: HardDrive, text: "Seagate 1TB (STKY1000400)" },
+    { icon: HardDrive, text: "SanDisk (256GB, 64GB, 32GB, 32GB)" },
+  ];
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen bg-neutral-950 text-white px-6 py-20 sm:py-20"
-    >
+    <div className="min-h-screen bg-neutral-950 text-white px-6 py-20 sm:py-20">
       <h2 className="text-4xl font-bold mb-12"></h2>
       {/* Page Heading */}
-      <div className="text-center mb-10">
-        <h1 className="text-3xl sm:text-4xl font-bold font-excon bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
-          Tools & Gears
-        </h1>
-        <p className="text-[#909092] mt-2 text-sm sm:text-base font-supreme">
-          Tools and gear I use every day to make work happen.
-        </p>
-      </div>
+      <ScrollReveal>
+        <div className="text-center mb-10">
+          <h1 className="text-3xl sm:text-4xl font-bold font-excon bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
+            Tools & Gears
+          </h1>
+          <p className="text-[#909092] mt-2 text-sm sm:text-base font-supreme">
+            Tools and gear I use every day to make work happen.
+          </p>
+        </div>
+      </ScrollReveal>
 
       {/* Divider */}
       <div className="border-t border-[#262626] max-w-3xl mx-auto mb-12"></div>
@@ -46,83 +56,40 @@ export default function Gears() {
       <div className="max-w-3xl mx-auto space-y-12">
         {/* Devices Section */}
         <section>
-          <h2 className="text-lg sm:text-xl font-semibold mb-6 flex items-center gap-3">
-            <span className="w-10 h-10 flex items-center justify-center rounded-xl border border-neutral-800 bg-neutral-900/50">
-              <Devices className="w-5 h-5" />
-            </span>
-            Devices
-          </h2>
+          <ScrollReveal delay={0.1}>
+            <h2 className="text-lg sm:text-xl font-semibold mb-6 flex items-center gap-3">
+              <span className="w-10 h-10 flex items-center justify-center rounded-xl border border-neutral-800 bg-neutral-900/50">
+                <Devices className="w-5 h-5" />
+              </span>
+              Devices
+            </h2>
+          </ScrollReveal>
+
           <ul className="space-y-4">
-            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
-              <span className="w-8 h-8 flex items-center justify-center border border-neutral-700 rounded-md bg-neutral-800">
-                <Laptop className="w-4 h-4 text-gray-300" />
-              </span>
-              Infinix INBook X1
-            </li>
-            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
-              <span className="w-8 h-8 flex items-center justify-center border border-neutral-700 rounded-md bg-neutral-800">
-                <Monitor className="w-4 h-4 text-gray-300" />
-              </span>
-              BenQ GW2490 (24 inch, 60.96 cm)
-            </li>
-            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
-              <span className="w-8 h-8 flex items-center justify-center border border-neutral-700 rounded-md bg-neutral-800">
-                <Keyboard className="w-4 h-4 text-gray-300" />
-              </span>
-              Kreo Hive Mechanical Keyboard
-            </li>
-            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
-              <span className="w-8 h-8 flex items-center justify-center border border-neutral-700 rounded-md bg-neutral-800">
-                <Mouse className="w-4 h-4 text-gray-300" />
-              </span>
-              HP Gaming Mouse M270
-            </li>
-            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
-              <span className="w-8 h-8 flex items-center justify-center border border-neutral-700 rounded-md bg-neutral-800">
-                <LampDesk className="w-4 h-4 text-gray-300" />
-              </span>
-              AKR Desk Lamp 1740
-            </li>
-            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
-              <span className="w-8 h-8 flex items-center justify-center border border-neutral-700 rounded-md bg-neutral-800">
-                <Headphones className="w-4 h-4 text-gray-300" />
-              </span>
-              Soundcore Anker H30i
-            </li>
-            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
-              <span className="w-8 h-8 flex items-center justify-center border border-neutral-700 rounded-md bg-neutral-800">
-                <Smartphone className="w-4 h-4 text-gray-300" />
-              </span>
-              Motorola Edge 50 Fusion (256 GB)
-            </li>
-            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
-              <span className="w-8 h-8 flex items-center justify-center border border-neutral-700 rounded-md bg-neutral-800">
-                <Usb className="w-4 h-4 text-gray-300" />
-              </span>
-              USB 9in1 Hub (9V555AA)
-            </li>
-            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
-              <span className="w-8 h-8 flex items-center justify-center border border-neutral-700 rounded-md bg-neutral-800">
-                <HardDrive className="w-4 h-4 text-gray-300" />
-              </span>
-              Seagate 1TB (STKY1000400)
-            </li>
-            <li className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
-              <span className="w-8 h-8 flex items-center justify-center rounded-md border border-neutral-700 bg-neutral-800">
-                <HardDrive className="w-4 h-4 text-gray-300" />
-              </span>
-              SanDisk (256GB, 64GB, 32GB, 32GB)
-            </li>
+            {devicesList.map((dev, i) => {
+              const Icon = dev.icon;
+              return (
+                <ScrollReveal key={i} delay={i * 0.02} className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
+                  <span className="w-8 h-8 flex items-center justify-center border border-neutral-700 rounded-md bg-neutral-800">
+                    <Icon className="w-4 h-4 text-gray-300" />
+                  </span>
+                  {dev.text}
+                </ScrollReveal>
+              );
+            })}
           </ul>
         </section>
 
         <section>
-          <h2 className="text-lg sm:text-xl font-semibold mb-6 flex items-center gap-3">
-            <span className="w-10 h-10 flex items-center justify-center rounded-xl border border-neutral-800 bg-neutral-900/50">
-              <AppStore className="w-5 h-5" />
-            </span>
-            Software
-          </h2>
+          <ScrollReveal delay={0.15}>
+            <h2 className="text-lg sm:text-xl font-semibold mb-6 flex items-center gap-3">
+              <span className="w-10 h-10 flex items-center justify-center rounded-xl border border-neutral-800 bg-neutral-900/50">
+                <AppStore className="w-5 h-5" />
+              </span>
+              Software
+            </h2>
+          </ScrollReveal>
+
           <ul className="space-y-4">
             {[
               { name: 'Notion', url: 'https://www.notion.com/' },
@@ -163,10 +130,7 @@ export default function Gears() {
                 url: 'https://www.spotify.com/us/download/windows/',
               },
             ].map((ext, i) => (
-              <li
-                key={i}
-                className="flex items-center gap-3 text-base sm:text-base"
-              >
+              <ScrollReveal key={i} delay={i * 0.02} className="flex items-center gap-3 text-base sm:text-base">
                 {/* Number Circle */}
                 <span className="w-7 h-7 flex items-center justify-center rounded-md bg-neutral-800 text-sm text-gray-300">
                   {i + 1}
@@ -179,11 +143,11 @@ export default function Gears() {
                   {ext.name}
                 </a>
                 <ArrowUpRight className="w-4 h-4 text-neutral-400 hover:text-white" />
-              </li>
+              </ScrollReveal>
             ))}
           </ul>
         </section>
       </div>
-    </motion.div>
+    </div>
   );
 }

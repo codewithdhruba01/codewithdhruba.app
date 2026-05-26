@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
 import { Calendar, CheckCircle } from 'lucide-react';
 import { useState } from 'react';
+import ScrollReveal from '../components/ui/ScrollReveal';
 
 const Certificates = () => {
   const [loadedCertificateImages, setLoadedCertificateImages] = useState<Record<number, boolean>>({});
@@ -143,232 +143,216 @@ const Certificates = () => {
   return (
     <div className="min-h-screen pt-28 md:pt-36 pb-16 bg-[#0A0A0A]">
       <div className="max-w-4xl mx-auto w-full px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-left mb-10"
-        >
-          <h1 className="text-3xl md:text-4xl font-bold font-outfit mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
-            Certificates & Achievements
-          </h1>
-          <p className="text-[#909092] mt-2 text-base font-poppins">
-            A Journey of Learning, Certifications, and Professional Recognition
-          </p>
-        </motion.div>
+        <ScrollReveal>
+          <div className="text-left mb-10">
+            <h1 className="text-3xl md:text-4xl font-bold font-outfit mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
+              Certificates & Achievements
+            </h1>
+            <p className="text-[#909092] mt-2 text-base font-poppins">
+              A Journey of Learning, Certifications, and Professional Recognition
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Certificates Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-16"
-        >
+        <div className="mb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {certificates.map((cert, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 + index * 0.1 }}
-                className="bg-neutral-900 backdrop-blur-md rounded-xl overflow-hidden border border-gray-700/30 transition-all duration-300 group shadow-lg"
-              >
-                <div className="relative aspect-[4/3] w-full overflow-hidden flex items-center justify-center bg-black">
-                  {/* Grainy Gradient Placeholder */}
-                  <div
-                    className={`absolute inset-0 z-10 transition-opacity duration-700 ${loadedCertificateImages[index] ? 'opacity-0' : 'opacity-100'
-                      } ${[
-                        'bg-gradient-to-br from-blue-900/40 via-neutral-900 to-black',
-                        'bg-gradient-to-br from-emerald-900/40 via-neutral-900 to-black',
-                        'bg-gradient-to-br from-purple-900/40 via-neutral-900 to-black'
-                      ][index % 3]}`}
-                  >
-                    <div className="absolute inset-0 opacity-20 bg-[url('/assets/noise.svg')]"></div>
-                  </div>
-
-                  <img
-                    src={cert.image}
-                    alt={cert.title}
-                    className={`w-full h-full transition-all duration-500 group-hover:scale-105 ${loadedCertificateImages[index] ? 'blur-0' : 'blur-md'
-                      }`}
-                    onLoad={() => handleCertificateImageLoad(index)}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  <span className="absolute top-2 right-2 bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded-md z-20">
-                    Complete
-                  </span>
-                </div>
-
-                <div className="p-5">
-                  <h3 className="text-lg lg:text-xl font-bold text-neutral-300 mb-2 line-clamp-2 font-synonym">
-                    {cert.title}
-                  </h3>
-
-                  {/* Issuer + Date in one row */}
-                  <div className="flex justify-between items-center mb-2 text-sm lg:text-base">
-                    <h4 className="text-green-600 font-semibold font-outfit">
-                      {cert.issuer}
-                    </h4>
-                    <div className="flex items-center text-gray-300">
-                      <Calendar className="mr-1 text-neutral-400" size={14} />
-                      <span className="font-synonym text-sm text-neutral-400">
-                        {cert.date}
-                      </span>
+              <ScrollReveal key={index} delay={index * 0.05}>
+                <div className="bg-neutral-900 backdrop-blur-md rounded-xl overflow-hidden border border-gray-700/30 transition-all duration-300 group shadow-lg h-full">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden flex items-center justify-center bg-black">
+                    {/* Grainy Gradient Placeholder */}
+                    <div
+                      className={`absolute inset-0 z-10 transition-opacity duration-700 ${loadedCertificateImages[index] ? 'opacity-0' : 'opacity-100'
+                        } ${[
+                          'bg-gradient-to-br from-blue-900/40 via-neutral-900 to-black',
+                          'bg-gradient-to-br from-emerald-900/40 via-neutral-900 to-black',
+                          'bg-gradient-to-br from-purple-900/40 via-neutral-900 to-black'
+                        ][index % 3]}`}
+                    >
+                      <div className="absolute inset-0 opacity-20 bg-[url('/assets/noise.svg')]"></div>
                     </div>
-                  </div>
 
-                  <p className="text-neutral-400 mb-3 text-sm line-clamp-2 font-satoshi">
-                    {cert.description}
-                  </p>
-
-                  <div className="mb-3">
-                    <span className="text-xs text-gray-400">
-                      ID: {cert.credentialId}
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      className={`w-full h-full transition-all duration-500 group-hover:scale-105 ${loadedCertificateImages[index] ? 'blur-0' : 'blur-md'
+                        }`}
+                      onLoad={() => handleCertificateImageLoad(index)}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    <span className="absolute top-2 right-2 bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded-md z-20">
+                      Complete
                     </span>
                   </div>
 
-                  <div>
-                    <div className="flex items-center flex-wrap gap-2">
-                      <h5 className="text-white font-semibold text-sm font-synonym">
-                        Skills:
-                      </h5>
-                      {cert.skills.map((skill, i) => (
-                        <span
-                          key={i}
-                          className="whitespace-nowrap bg-green-600/20 text-green-500 px-2 py-1 rounded-full text-xs font-satoshi"
-                        >
-                          {skill}
+                  <div className="p-5">
+                    <h3 className="text-lg lg:text-xl font-bold text-neutral-300 mb-2 line-clamp-2 font-synonym">
+                      {cert.title}
+                    </h3>
+
+                    {/* Issuer + Date in one row */}
+                    <div className="flex justify-between items-center mb-2 text-sm lg:text-base">
+                      <h4 className="text-green-600 font-semibold font-outfit">
+                        {cert.issuer}
+                      </h4>
+                      <div className="flex items-center text-gray-300">
+                        <Calendar className="mr-1 text-neutral-400" size={14} />
+                        <span className="font-synonym text-sm text-neutral-400">
+                          {cert.date}
                         </span>
-                      ))}
+                      </div>
+                    </div>
+
+                    <p className="text-neutral-400 mb-3 text-sm line-clamp-2 font-satoshi">
+                      {cert.description}
+                    </p>
+
+                    <div className="mb-3">
+                      <span className="text-xs text-gray-400">
+                        ID: {cert.credentialId}
+                      </span>
+                    </div>
+
+                    <div>
+                      <div className="flex items-center flex-wrap gap-2">
+                        <h5 className="text-white font-semibold text-sm font-synonym">
+                          Skills:
+                        </h5>
+                        {cert.skills.map((skill, i) => (
+                          <span
+                            key={i}
+                            className="whitespace-nowrap bg-green-600/20 text-green-500 px-2 py-1 rounded-full text-xs font-satoshi"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </ScrollReveal>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Achievements Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <div className="flex items-center mb-8">
-            <CheckCircle className="text-green-500 mb-4 mr-3" size={32} />
-            <h2 className="text-3xl md:text-3xl mb-4 font-bold font-excon bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
-              Open Source &{' '}
-              <span className="font-bold font-excon bg-gradient-to-r from-blue-400 to-green-600 bg-clip-text text-transparent">
-                Contribution
-              </span>
-            </h2>
-          </div>
+        <div>
+          <ScrollReveal delay={0.1}>
+            <div className="flex items-center mb-8">
+              <CheckCircle className="text-green-500 mb-4 mr-3" size={32} />
+              <h2 className="text-3xl md:text-3xl mb-4 font-bold font-excon bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
+                Open Source &{' '}
+                <span className="font-bold font-excon bg-gradient-to-r from-blue-400 to-green-600 bg-clip-text text-transparent">
+                  Contribution
+                </span>
+              </h2>
+            </div>
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
             {achievements.map((achievement, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 + index * 0.1 }}
-                className="bg-neutral-900 backdrop-blur-md rounded-xl overflow-hidden border border-gray-700/30 hover:bg-gray-900/80 transition-all duration-300 group shadow-lg"
-              >
-                <div className="relative h-32 lg:h-44 overflow-hidden">
-                  {/* Grainy Gradient Placeholder */}
-                  <div
-                    className={`absolute inset-0 z-10 transition-opacity duration-700 ${loadedAchievementImages[index] ? 'opacity-0' : 'opacity-100'
-                      } ${[
-                        'bg-gradient-to-br from-blue-900/40 via-neutral-900 to-black',
-                        'bg-gradient-to-br from-emerald-900/40 via-neutral-900 to-black',
-                        'bg-gradient-to-br from-purple-900/40 via-neutral-900 to-black'
-                      ][index % 3]}`}
-                  >
-                    <div className="absolute inset-0 opacity-20 bg-[url('/assets/noise.svg')]"></div>
-                  </div>
-
-                  <img
-                    src={achievement.image}
-                    alt={achievement.title}
-                    className={`w-full h-full object-cover group-hover:scale-110 transition-all duration-500 ${loadedAchievementImages[index] ? 'blur-0' : 'blur-md'
-                      }`}
-                    onLoad={() => handleAchievementImageLoad(index)}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                </div>
-
-                <div className="p-4">
-                  <h3 className="text-base lg:text-lg font-bold font-outfit text-neutral-300 mb-2 line-clamp-2">
-                    {achievement.title}
-                  </h3>
-
-                  {/* Org + Date same row */}
-                  <div className="flex justify-between items-center mb-2 text-xs lg:text-sm">
-                    <h4 className="text-green-600 font-semibold line-clamp-1">
-                      {achievement.organization}
-                    </h4>
-                    <div className="flex items-center text-gray-300">
-                      <Calendar className="mr-1" size={10} />
-                      <span className="font-synonym text-xs text-neutral-400">
-                        {achievement.date}
-                      </span>
+              <ScrollReveal key={index} delay={index * 0.05}>
+                <div className="bg-neutral-900 backdrop-blur-md rounded-xl overflow-hidden border border-gray-700/30 hover:bg-gray-900/80 transition-all duration-300 group shadow-lg h-full">
+                  <div className="relative h-32 lg:h-44 overflow-hidden">
+                    {/* Grainy Gradient Placeholder */}
+                    <div
+                      className={`absolute inset-0 z-10 transition-opacity duration-700 ${loadedAchievementImages[index] ? 'opacity-0' : 'opacity-100'
+                        } ${[
+                          'bg-gradient-to-br from-blue-900/40 via-neutral-900 to-black',
+                          'bg-gradient-to-br from-emerald-900/40 via-neutral-900 to-black',
+                          'bg-gradient-to-br from-purple-900/40 via-neutral-900 to-black'
+                        ][index % 3]}`}
+                    >
+                      <div className="absolute inset-0 opacity-20 bg-[url('/assets/noise.svg')]"></div>
                     </div>
+
+                    <img
+                      src={achievement.image}
+                      alt={achievement.title}
+                      className={`w-full h-full object-cover group-hover:scale-110 transition-all duration-500 ${loadedAchievementImages[index] ? 'blur-0' : 'blur-md'
+                        }`}
+                      onLoad={() => handleAchievementImageLoad(index)}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   </div>
 
-                  <p className="text-neutral-400 text-xs line-clamp-3 font-poppins">
-                    {achievement.description}
-                  </p>
+                  <div className="p-4">
+                    <h3 className="text-base lg:text-lg font-bold font-outfit text-neutral-300 mb-2 line-clamp-2">
+                      {achievement.title}
+                    </h3>
+
+                    {/* Org + Date same row */}
+                    <div className="flex justify-between items-center mb-2 text-xs lg:text-sm">
+                      <h4 className="text-green-600 font-semibold line-clamp-1">
+                        {achievement.organization}
+                      </h4>
+                      <div className="flex items-center text-gray-300">
+                        <Calendar className="mr-1" size={10} />
+                        <span className="font-synonym text-xs text-neutral-400">
+                          {achievement.date}
+                        </span>
+                      </div>
+                    </div>
+
+                    <p className="text-neutral-400 text-xs line-clamp-3 font-poppins">
+                      {achievement.description}
+                    </p>
+                  </div>
                 </div>
-              </motion.div>
+              </ScrollReveal>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* GitHub Badges Section */}
-        <section className="py-16 bg-neutral-950 text-center">
-          <h2 className="text-4xl font-bold mb-10 font-synonym bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
-            All Badges
-          </h2>
-          <div className="overflow-hidden whitespace-nowrap">
-            <div className="inline-flex animate-marquee space-x-8">
-              {githubBadges.map((badge, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center min-w-[150px]"
-                >
-                  <div className="relative">
-                    <img
-                      src={badge.img}
-                      alt={badge.name}
-                      className={`h-16 w-16 object-contain transition-all duration-500 ${loadedBadgeImages[index] ? 'blur-0' : 'blur-md'
-                        }`}
-                      onLoad={() => handleBadgeImageLoad(index)}
-                    />
-                    {badge.count && (
-                      <span className="absolute bottom-0 right-0 bg-white text-black text-xs font-bold px-1 rounded-full">
-                        {badge.count}
-                      </span>
-                    )}
+        <ScrollReveal delay={0.2}>
+          <section className="py-16 bg-neutral-950 text-center">
+            <h2 className="text-4xl font-bold mb-10 font-synonym bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
+              All Badges
+            </h2>
+            <div className="overflow-hidden whitespace-nowrap">
+              <div className="inline-flex animate-marquee space-x-8">
+                {githubBadges.map((badge, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center min-w-[150px]"
+                  >
+                    <div className="relative">
+                      <img
+                        src={badge.img}
+                        alt={badge.name}
+                        className={`h-16 w-16 object-contain transition-all duration-500 ${loadedBadgeImages[index] ? 'blur-0' : 'blur-md'
+                          }`}
+                        onLoad={() => handleBadgeImageLoad(index)}
+                      />
+                      {badge.count && (
+                        <span className="absolute bottom-0 right-0 bg-white text-black text-xs font-bold px-1 rounded-full">
+                          {badge.count}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-gray-300 text-sm mt-2">{badge.name}</p>
                   </div>
-                  <p className="text-gray-300 text-sm mt-2">{badge.name}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Marquee Animation */}
-          <style>
-            {`
-          @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-100%); }
-          }
-          .animate-marquee {
-            display: inline-flex;
-            animation: marquee 15s linear infinite;
-          }
-        `}
-          </style>
-        </section>
+            {/* Marquee Animation */}
+            <style>
+              {`
+            @keyframes marquee {
+              0% { transform: translateX(0%); }
+              100% { transform: translateX(-100%); }
+            }
+            .animate-marquee {
+              display: inline-flex;
+              animation: marquee 15s linear infinite;
+            }
+          `}
+            </style>
+          </section>
+        </ScrollReveal>
       </div>
     </div>
   );
