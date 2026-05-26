@@ -17,8 +17,9 @@ export default function ReadingProgressPill({ postTitle, isHidden = false }: Rea
     const handleScroll = () => {
       // 1. Calculate Scroll Progress
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      let progress = 0;
       if (totalHeight > 0) {
-        const progress = (window.scrollY / totalHeight) * 100;
+        progress = (window.scrollY / totalHeight) * 100;
         setScrollProgress(Math.min(100, Math.max(0, progress)));
       }
 
@@ -39,14 +40,14 @@ export default function ReadingProgressPill({ postTitle, isHidden = false }: Rea
       }
 
       setActiveHeading(currentActiveText);
-      
+
       // Update direction and index ref
       if (currentActiveIndex !== activeHeadingIndexRef.current) {
         setDirection(currentActiveIndex > activeHeadingIndexRef.current ? 'down' : 'up');
         activeHeadingIndexRef.current = currentActiveIndex;
       }
 
-      setIsVisible(window.scrollY > 200);
+      setIsVisible(window.scrollY > 200 && progress < 99);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -79,7 +80,7 @@ export default function ReadingProgressPill({ postTitle, isHidden = false }: Rea
         >
           {/* White Dot on the left */}
           <span className="w-2 h-2 rounded-full bg-white shrink-0 block" />
-          
+
           {/* Dynamic Title Indicator Wrapper with hidden overflow and fixed height for ticker effect */}
           <div className="relative overflow-hidden h-5 flex-grow select-none ml-1 pr-2">
             <AnimatePresence mode="popLayout" custom={direction}>
@@ -110,33 +111,33 @@ export default function ReadingProgressPill({ postTitle, isHidden = false }: Rea
               </motion.span>
             </AnimatePresence>
           </div>
-          
+
           {/* Circular Progress Tracker Button */}
           <button
             onClick={scrollToTop}
-            className="relative flex items-center justify-center w-7 h-7 rounded-full bg-transparent hover:bg-white/5 border-none transition-all duration-200 shrink-0 cursor-pointer"
+            className="relative flex items-center justify-center w-8 h-8 rounded-full bg-transparent hover:bg-white/5 border-none transition-all duration-200 shrink-0 cursor-pointer"
             title="Scroll to Top"
           >
-            <svg className="w-6 h-6 transform -rotate-90" viewBox="0 0 24 24">
+            <svg className="w-7 h-7 transform -rotate-90" viewBox="0 0 24 24">
               {/* Track */}
               <circle
                 cx="12"
                 cy="12"
-                r="9.5"
+                r="10.2"
                 className="stroke-white/10"
-                strokeWidth="2.5"
+                strokeWidth="3"
                 fill="transparent"
               />
               {/* Progress */}
               <circle
                 cx="12"
                 cy="12"
-                r="9.5"
+                r="10.2"
                 className="stroke-white transition-all duration-300 ease-out"
-                strokeWidth="2.5"
+                strokeWidth="3"
                 fill="transparent"
-                strokeDasharray={2 * Math.PI * 9.5}
-                strokeDashoffset={2 * Math.PI * 9.5 - (scrollProgress / 100) * (2 * Math.PI * 9.5)}
+                strokeDasharray={2 * Math.PI * 10.2}
+                strokeDashoffset={2 * Math.PI * 10.2 - (scrollProgress / 100) * (2 * Math.PI * 10.2)}
                 strokeLinecap="round"
               />
             </svg>
