@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { request, gql } from 'graphql-request';
+import ScrollReveal from './ui/ScrollReveal';
 
 interface DayData {
   date: string;
@@ -114,7 +115,7 @@ const GitHubContributions = () => {
     <section id="contributions" className="pt-8 pb-8 bg-neutral-950">
       <div className="max-w-4xl mx-auto w-full px-6">
         {/* Title */}
-        <div className="mb-6">
+        <ScrollReveal className="mb-6">
           <p className="text-lg text-neutral-400 font-outfit text-left">
             Contributions
           </p>
@@ -124,8 +125,8 @@ const GitHubContributions = () => {
           <p className="text-left mt-2 text-sm font-supreme text-[#909092]">
             <strong>codewithdhruba's</strong> coding journey over the past year
           </p>
-        </div>
-        <div className="w-full mt-8">
+        </ScrollReveal>
+        <ScrollReveal className="w-full mt-8" delay={0.15}>
           {/* Graph Card */}
           <div className="w-full border border-neutral-800 bg-neutral-900/60 rounded-lg p-4 sm:p-6 shadow-lg">
             {/* Card Header: Total Contributions + Year Selector */}
@@ -246,7 +247,7 @@ const GitHubContributions = () => {
               </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

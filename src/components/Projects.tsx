@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Github, Globe } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 import { SectionButton } from './ui/SectionButton';
+import ScrollReveal from './ui/ScrollReveal';
 
 // Import SVG Icons
 import ReactIcon from './svgs/ReactIcon';
@@ -96,24 +97,26 @@ const Projects = () => {
 
       <section id="projects" className="pt-1 pb-8 bg-neutral-950">
         <div className="max-w-4xl mx-auto w-full px-6">
-          <div className="mb-8" data-aos="fade-up">
+          <ScrollReveal className="mb-8">
             <p className="text-lg text-neutral-400 font-outfit text-left">
               Latest
             </p>
             <h2 className="text-3xl font-bold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-excon">
               Projects
             </h2>
-          </div>
+          </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 gap-8" data-aos="fade-up">
+          <div className="grid md:grid-cols-2 gap-8">
             {projects.slice(0, 2).map((project, index) => (
-              <div
+              <ScrollReveal
                 key={index}
-                onClick={() => setSelectedProject(project)}
-                className="group bg-[#111111] border border-zinc-800 rounded-2xl overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-300"
-                data-aos="fade-up"
-                data-aos-delay={index * 100} /// staggered animation
+                delay={index * 0.15}
+                className="h-full"
               >
+                <div
+                  onClick={() => setSelectedProject(project)}
+                  className="group bg-[#111111] border border-zinc-800 rounded-2xl overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-300 h-full"
+                >
                 {/* Image with smooth zoom */}
                 <div className="relative w-full h-70 overflow-hidden bg-neutral-900">
                   {/* Gradient Placeholder with Noise */}
@@ -217,11 +220,10 @@ const Projects = () => {
                       })}
                     </div>
                   </div>
-
-
                 </div>
               </div>
-            ))}
+            </ScrollReveal>
+          ))}
           </div>
 
           <div className="text-center mt-12">

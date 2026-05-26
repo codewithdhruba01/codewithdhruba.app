@@ -9,6 +9,8 @@ import {
 } from './icons/SocialIcons';
 import { Tooltip, TooltipTrigger, TooltipContent } from './ui/tooltip';
 
+import ScrollReveal from './ui/ScrollReveal';
+
 const Hero = () => {
   const [githubFollowers, setGithubFollowers] = useState<number | null>(null);
   const [avatarBg, setAvatarBg] = useState<'black' | 'white' | 'sky'>(() => {
@@ -49,9 +51,8 @@ const Hero = () => {
     <section
       id="home"
       className="relative bg-[#0A0A0A] pt-24 md:pt-28 pb-12 md:pb-16"
-      data-aos="fade-up"
     >
-      <div className="max-w-4xl mx-auto w-full px-6 flex flex-col">
+      <ScrollReveal className="max-w-4xl mx-auto w-full px-6 flex flex-col">
         {/* Banner Image Container */}
         <div className="relative w-full rounded-2xl overflow-hidden aspect-[13/5] sm:aspect-[3/1] bg-neutral-900 border border-neutral-800">
           <img
@@ -302,7 +303,7 @@ const Hero = () => {
             About Me
           </Link>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 };

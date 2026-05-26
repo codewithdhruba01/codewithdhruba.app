@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, ArrowRight } from 'lucide-react';
 import { SectionButton } from './ui/SectionButton';
+import ScrollReveal from './ui/ScrollReveal';
 
 const Blog = () => {
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
@@ -36,94 +37,96 @@ const Blog = () => {
   return (
     <section id="blog" className="pt-8 pb-8 bg-neutral-950">
       <div className="max-w-4xl mx-auto w-full px-6">
-        <div className="mb-8">
+        <ScrollReveal className="mb-8">
           <p className="text-lg text-neutral-400 font-outfit text-left">
             Latest
           </p>
           <h2 className="text-3xl font-bold text-left font-excon text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
             Blog Posts
           </h2>
-        </div>
+        </ScrollReveal>
 
         <div className="grid md:grid-cols-2 gap-8">
           {blogPosts.map((post, index) => (
-            <article
+            <ScrollReveal
               key={index}
-              className="bg-[#111111] border border-zinc-800 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300"
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
+              delay={index * 0.15}
+              className="h-full"
             >
-              {/* Image */}
-              {/* Image Container with Noise Placeholder */}
-              <div className="relative w-full h-70 overflow-hidden bg-neutral-900">
-                <div
-                  className={`absolute inset-0 z-10 transition-opacity duration-700 ${loadedImages.has(index) ? 'opacity-0' : 'opacity-100'
-                    } ${[
-                      'bg-gradient-to-br from-blue-900/40 via-neutral-900 to-black',
-                      'bg-gradient-to-br from-emerald-900/40 via-neutral-900 to-black',
-                      'bg-gradient-to-br from-purple-900/40 via-neutral-900 to-black'
-                    ][index % 3]}`}
-                >
-                  <div className="absolute inset-0 opacity-20 bg-[url('/assets/noise.svg')]"></div>
-                </div>
-
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className={`w-full h-full object-cover transition-all duration-500 hover:scale-105 ${loadedImages.has(index) ? 'blur-0' : 'blur-md'
-                    }`}
-                  onLoad={() => handleImageLoad(index)}
-                />
-              </div>
-
-              {/* Content */}
-              <div className="p-6 flex flex-col justify-between">
-                {/* Title */}
-                <h3 className="text-lg font-outfit mb-3 hover:text-[#f4f4f4] transition-colors">
-                  <Link to={`/blog/${post.slug}`}>{post.title}</Link>
-                </h3>
-
-                {/* Description */}
-                <p className="text-sm text-[#909092] leading-relaxed mb-4 font-poppins font-light">
-                  {post.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {post.category.map((cat, i) => (
-                    <span
-                      key={i}
-                      className="bg-[#1f1e1e] text-[#909092] text-xs px-3 py-1 rounded-full font-poppins"
-                    >
-                      {cat}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex items-center justify-between text-sm text-neutral-400 font-outfit mt-auto">
-                  <span className="flex items-center gap-1">
-                    <Calendar size={14} className="text-neutral-300" />
-                    {post.date}
-                  </span>
-                  <Link
-                    to={`/blog/${post.slug}`}
-                    className="flex items-center text-neutral-400 hover:text-white transition-colors font-medium"
+              <article
+                className="bg-[#111111] border border-zinc-800 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col"
+              >
+                {/* Image */}
+                {/* Image Container with Noise Placeholder */}
+                <div className="relative w-full h-70 overflow-hidden bg-neutral-900">
+                  <div
+                    className={`absolute inset-0 z-10 transition-opacity duration-700 ${loadedImages.has(index) ? 'opacity-0' : 'opacity-100'
+                      } ${[
+                        'bg-gradient-to-br from-blue-900/40 via-neutral-900 to-black',
+                        'bg-gradient-to-br from-emerald-900/40 via-neutral-900 to-black',
+                        'bg-gradient-to-br from-purple-900/40 via-neutral-900 to-black'
+                      ][index % 3]}`}
                   >
-                    Read More <ArrowRight size={16} className="ml-1" />
-                  </Link>
+                    <div className="absolute inset-0 opacity-20 bg-[url('/assets/noise.svg')]"></div>
+                  </div>
+
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className={`w-full h-full object-cover transition-all duration-500 hover:scale-105 ${loadedImages.has(index) ? 'blur-0' : 'blur-md'
+                      }`}
+                    onLoad={() => handleImageLoad(index)}
+                  />
                 </div>
-              </div>
-            </article>
+
+                {/* Content */}
+                <div className="p-6 flex flex-col justify-between flex-grow">
+                  {/* Title */}
+                  <h3 className="text-lg font-outfit mb-3 hover:text-[#f4f4f4] transition-colors">
+                    <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-sm text-[#909092] leading-relaxed mb-4 font-poppins font-light">
+                    {post.description}
+                  </p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {post.category.map((cat, i) => (
+                      <span
+                        key={i}
+                        className="bg-[#1f1e1e] text-[#909092] text-xs px-3 py-1 rounded-full font-poppins"
+                      >
+                        {cat}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center justify-between text-sm text-neutral-400 font-outfit mt-auto">
+                    <span className="flex items-center gap-1">
+                      <Calendar size={14} className="text-neutral-300" />
+                      {post.date}
+                    </span>
+                    <Link
+                      to={`/blog/${post.slug}`}
+                      className="flex items-center text-neutral-400 hover:text-white transition-colors font-medium"
+                    >
+                      Read More <ArrowRight size={16} className="ml-1" />
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            </ScrollReveal>
           ))}
         </div>
 
-        <div
+        <ScrollReveal
           className="text-center mt-12"
-          data-aos="fade-up"
-          data-aos-delay="400"
+          delay={0.3}
         >
           <SectionButton to="/all-posts" text="Show all blogs" />
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

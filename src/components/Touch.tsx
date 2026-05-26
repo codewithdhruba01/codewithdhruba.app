@@ -1,13 +1,13 @@
-'use client';
 import { MessageSquareText, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Gmail } from './svgs/Gmail';
+import ScrollReveal from './ui/ScrollReveal';
 
 const GetInTouch = () => {
   return (
     <section id="get-in-touch" className="pt-8 pb-20 bg-neutral-950">
       <div className="max-w-4xl mx-auto w-full px-6">
-        <div className="text-center mb-12">
+        <ScrollReveal className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400">
               Get In Touch
@@ -16,52 +16,56 @@ const GetInTouch = () => {
           <p className="text-[#909092] max-w-2xl mx-auto text-base font-supreme">
             Ready to start your project.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <a
-            href="mailto:pati.dhrubaraj@outlook.com"
-            className="group relative flex flex-col items-start space-y-2 p-6 bg-neutral-900/50 border border-neutral-800 backdrop-blur-sm rounded-xl hover:bg-neutral-900/80 hover:border-neutral-700 transition-all duration-300"
-          >
-            <div className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center">
-              <Gmail className="w-5 h-5" />
-            </div>
-            <h3 className="text-lg font-semibold font-outfit text-neutral-100">
-              Send Email
-            </h3>
-            <p className="text-[#909092] font-poppins text-sm">
-              Quick and direct communication
-            </p>
+          <ScrollReveal delay={0.1} className="h-full">
+            <a
+              href="mailto:pati.dhrubaraj@outlook.com"
+              className="group relative flex flex-col items-start space-y-2 p-6 bg-neutral-900/50 border border-neutral-800 backdrop-blur-sm rounded-xl hover:bg-neutral-900/80 hover:border-neutral-700 transition-all duration-300 h-full w-full"
+            >
+              <div className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center">
+                <Gmail className="w-5 h-5" />
+              </div>
+              <h3 className="text-lg font-semibold font-outfit text-neutral-100">
+                Send Email
+              </h3>
+              <p className="text-[#909092] font-poppins text-sm">
+                Quick and direct communication
+              </p>
 
-            <ArrowRight className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
-          </a>
+              <ArrowRight className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+            </a>
+          </ScrollReveal>
 
-          <Link
-            to="/contact"
-            className="group relative flex flex-col items-start space-y-2 p-6 bg-neutral-900/50 border border-neutral-800 backdrop-blur-sm rounded-xl hover:bg-neutral-900/80 hover:border-neutral-700 transition-all duration-300"
-          >
-            <div className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center">
-              <MessageSquareText className="w-5 h-5 text-white" />
-            </div>
-            <h3 className="text-lg font-semibold font-outfit text-neutral-100">
-              Contact Us
-            </h3>
-            <p className="text-[#909092] font-poppins text-sm">
-              Detailed project discussion
-            </p>
+          <ScrollReveal delay={0.2} className="h-full">
+            <Link
+              to="/contact"
+              className="group relative flex flex-col items-start space-y-2 p-6 bg-neutral-900/50 border border-neutral-800 backdrop-blur-sm rounded-xl hover:bg-neutral-900/80 hover:border-neutral-700 transition-all duration-300 h-full w-full"
+            >
+              <div className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center">
+                <MessageSquareText className="w-5 h-5 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold font-outfit text-neutral-100">
+                Contact Us
+              </h3>
+              <p className="text-[#909092] font-poppins text-sm">
+                Detailed project discussion
+              </p>
 
-            <ArrowRight className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
-          </Link>
+              <ArrowRight className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+            </Link>
+          </ScrollReveal>
         </div>
 
-        <div className="mt-10 text-center">
+        <ScrollReveal className="mt-10 text-center" delay={0.3}>
           <p className="text-neutral-400 text-sm font-supreme">
             Average response time:{' '}
             <span className="text-gray-100 font-medium">
               Less than 24 hours
             </span>
           </p>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

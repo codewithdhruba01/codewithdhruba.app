@@ -1,5 +1,5 @@
-
 import { Heart } from 'lucide-react';
+import ScrollReveal from './ui/ScrollReveal';
 
 interface Sponsor {
   name: string;
@@ -31,7 +31,7 @@ const Sponsors = () => {
     <section id="sponsors" className="pt-8 pb-8 bg-neutral-950">
       <div className="max-w-4xl mx-auto w-full px-6">
         {/* Header Row */}
-        <div className="flex items-center justify-between gap-4 mb-8">
+        <ScrollReveal className="flex items-center justify-between gap-4 mb-8">
           <h2 className="text-3xl font-bold text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400">
             Sponsors
           </h2>
@@ -44,15 +44,19 @@ const Sponsors = () => {
             <Heart className="w-4 h-4 text-rose-500 fill-rose-500" />
             <span>Sponsor Me</span>
           </a>
-        </div>
+        </ScrollReveal>
 
         {/* Sponsors Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {sponsorsData.map((sponsor, idx) => (
-            <div
+            <ScrollReveal
               key={idx}
-              className="bg-[#111111] border border-neutral-700/50 rounded-2xl p-5 flex gap-5 items-start"
+              delay={idx * 0.15}
+              className="h-full"
             >
+              <div
+                className="bg-[#111111] border border-neutral-700/50 rounded-2xl p-5 flex gap-5 items-start h-full"
+              >
               <div className="flex flex-col border border-neutral-700/50 rounded-xl p-2 items-center w-20 sm:w-24 shrink-0 bg-transparent">
                 {/* Avatar wrapper box with its own border */}
                 <div className="w-full aspect-square rounded-lg overflow-hidden border border-neutral-700/50 bg-[#161616]">
@@ -119,6 +123,7 @@ const Sponsors = () => {
                 </div>
               </div>
             </div>
+          </ScrollReveal>
           ))}
         </div>
       </div>

@@ -40,6 +40,8 @@ export interface ExperienceInterface {
   description: string[];
 }
 
+import ScrollReveal from './ui/ScrollReveal';
+
 // --- Components ---
 
 const parseDescription = (text: string): string => {
@@ -135,7 +137,7 @@ function ExperienceCard({ experience, isOpen, onClick }: ExperienceCardProps) {
                 <Tooltip>
                   <TooltipTrigger>
                     <div
-                      onClick={onClick}
+                       onClick={onClick}
                       className="ml-0 w-6 h-6 flex items-center justify-center rounded-lg border border-transparent bg-transparent hover:bg-[#161616] hover:border-[#222] transition-all duration-300 cursor-pointer"
                     >
                       <ChevronDown className={cn(
@@ -324,23 +326,23 @@ const Experience = () => {
   return (
     <section id="experience" className="pt-8 pb-8 bg-[#0A0A0A]">
       <div className="max-w-4xl mx-auto w-full px-6">
-        <div className="mb-8">
+        <ScrollReveal className="mb-8">
           <p className="text-lg text-neutral-400 font-outfit text-left">
             Featured
           </p>
           <h2 className="text-3xl font-bold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-excon">
             Experience
           </h2>
-        </div>
+        </ScrollReveal>
 
         <TooltipProvider>
-          <div data-aos="fade-up" data-aos-delay="100">
+          <ScrollReveal delay={0.1}>
             <ExperienceList experiences={experiences} />
 
             <div className="text-center mt-12">
               <SectionButton to="/experience" text="View all Experience" />
             </div>
-          </div>
+          </ScrollReveal>
         </TooltipProvider>
       </div>
     </section>
