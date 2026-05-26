@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import {
   Undo2,
   Heart,
@@ -431,13 +431,13 @@ const BlogPost = () => {
         <div className="max-w-4xl mx-auto w-full px-6">
           {/* Back */}
           <div className={`mb-8 transition-all duration-500 delay-100 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-            <a
-              href="/all-posts"
+            <Link
+              to="/all-posts"
               className="inline-flex items-center text-gray-400 hover:text-white transition"
             >
               <Undo2 className="h-4 w-4 mr-2" />
               Back to Blog
-            </a>
+            </Link>
           </div>
 
           {/* Header */}

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import CommandPalette from '../CommandPalette';
 import useUIStore from '../../store/useUIStore';
 import useAppStore from '../../store/useAppStore';
@@ -41,7 +42,6 @@ const Navbar = () => {
     { href: '/all-posts', text: 'Blog' },
     { href: '/projects', text: 'Projects' },
     { href: '/photos', text: 'Photos' },
-
   ];
 
   return (
@@ -51,17 +51,17 @@ const Navbar = () => {
           {/* Left: Logo & Links */}
           <div className="flex items-center gap-8">
             <div className="flex-shrink-0">
-              <a href="/">
+              <Link to="/">
                 <img src="/assets/logo.png" alt="Logo" className="h-9 w-auto" />
-              </a>
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-1 font-outfit text-sm">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   onClick={() => setActiveLink(link.href)}
                   className={`px-3 py-1.5 rounded-md transition-all duration-300 font-medium ${activeLink === link.href
                     ? 'text-[#f4f4f4]'
@@ -69,7 +69,7 @@ const Navbar = () => {
                     }`}
                 >
                   {link.text}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -107,9 +107,9 @@ const Navbar = () => {
           }`}>
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navLinks.map((link, index) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 onClick={() => {
                   setActiveLink(link.href);
                   setMobileMenuOpen(false);
@@ -120,7 +120,7 @@ const Navbar = () => {
                 }}
               >
                 {link.text}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

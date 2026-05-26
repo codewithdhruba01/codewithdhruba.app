@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import SEO from './components/SEO';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/Hero';
@@ -27,6 +28,48 @@ import Touch from './components/Touch';
 import WorkExperience from './pages/WorkExperience';
 import BucketList from './pages/BucketList';
 import AOS from 'aos';
+import ScrollToTop from './components/common/ScrollToTop';
+import PageTransition from './components/ui/PageTransition';
+
+const AnimatedRoutes = () => {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route
+          path="/"
+          element={
+            <PageTransition>
+              <Hero />
+              <Projects />
+              <GitHubContributions />
+              <Sponsors />
+              <Skills />
+              <Education />
+              <Blog />
+              <Tools />
+              <Touch />
+            </PageTransition>
+          }
+        />
+        <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+        <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
+        <Route path="/all-posts" element={<PageTransition><AllPosts /></PageTransition>} />
+        <Route path="/projects" element={<PageTransition><AllProjects /></PageTransition>} />
+        <Route path="/chat-assistant" element={<PageTransition><ChatAssistant /></PageTransition>} />
+        <Route path="/certificates" element={<PageTransition><Certificates /></PageTransition>} />
+        <Route path="/photos" element={<PageTransition><Photos /></PageTransition>} />
+        <Route path="/resume" element={<PageTransition><Resume /></PageTransition>} />
+        <Route path="/experience" element={<PageTransition><WorkExperience /></PageTransition>} />
+        <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+        <Route path="/gears" element={<PageTransition><Gears /></PageTransition>} />
+        <Route path="/extensions" element={<PageTransition><Extensions /></PageTransition>} />
+        <Route path="/bucket-list" element={<PageTransition><BucketList /></PageTransition>} />
+      </Routes>
+    </AnimatePresence>
+  );
+};
 
 const App = () => {
   useEffect(() => {
@@ -38,37 +81,11 @@ const App = () => {
 
   return (
     <Router>
+      <ScrollToTop />
       <SEO />
       <div className="min-h-screen bg-[#0A0A0A] text-white overflow-x-hidden relative">
         <Navbar />
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Hero />
-              <Projects />
-              <GitHubContributions />
-              <Sponsors />
-              <Skills />
-              <Education />
-              <Blog />
-              <Tools />
-              <Touch />
-            </>
-          } />
-          <Route path="/about" element={<About />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/all-posts" element={<AllPosts />} />
-          <Route path="/projects" element={<AllProjects />} />
-          <Route path="/chat-assistant" element={<ChatAssistant />} />
-          <Route path="/certificates" element={<Certificates />} />
-          <Route path="/photos" element={<Photos />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="/experience" element={<WorkExperience />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/gears" element={<Gears />} />
-          <Route path="/extensions" element={<Extensions />} />
-          <Route path="/bucket-list" element={<BucketList />} />
-        </Routes>
+        <AnimatedRoutes />
         <ChatBotLauncher />
         <Footer />
       </div>
