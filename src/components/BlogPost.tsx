@@ -16,6 +16,7 @@ import ChatBotLauncher from './ChatBotLauncher';
 import { useBlogReactions } from '../hooks/useBlogReactions';
 import { commentService } from '../lib/supabase';
 import LoveReactionButton from './ui/LoveReactionButton';
+import ReadingProgressPill from './ui/ReadingProgressPill';
 
 // Prism.js imports for syntax highlighting
 import Prism from 'prismjs';
@@ -51,6 +52,8 @@ const BlogPost = () => {
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [dragStartY, setDragStartY] = useState<number>(0);
   const [currentTranslateY, setCurrentTranslateY] = useState<number>(0);
+
+
 
   const zoomIn = () => {
     setFontSize(prev => Math.min(prev + 10, 150)); // max 150%
@@ -332,6 +335,8 @@ const BlogPost = () => {
       await commentService.incrementBlogViews(slug);
     } catch { }
   };
+
+
 
   if (!post) {
     return (
@@ -709,6 +714,8 @@ const BlogPost = () => {
         />
       </div>
 
+      {/* Floating Reading Progress Pill */}
+      <ReadingProgressPill postTitle={post.title} />
     </>
   );
 };
