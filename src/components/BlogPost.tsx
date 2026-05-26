@@ -38,9 +38,7 @@ import { blogPostsData } from '../data/blogs';
 
 const BlogPost = () => {
   const { slug } = useParams();
-  const [post, setPost] = useState<any>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [contentLoaded, setContentLoaded] = useState<boolean>(false);
+  const post = slug ? blogPostsData[slug as keyof typeof blogPostsData] : null;
 
   const [showShareModal, setShowShareModal] = useState<boolean>(false);
 
@@ -313,32 +311,18 @@ const BlogPost = () => {
   };
 
   useEffect(() => {
-    // Smooth scroll to top when page loads
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Reset scroll to top instantly
+    window.scrollTo(0, 0);
 
-    // Simulate loading time for smooth animation
-    const loadTimer = setTimeout(() => {
-      if (slug && blogPostsData[slug as keyof typeof blogPostsData]) {
-        setPost(blogPostsData[slug as keyof typeof blogPostsData]);
-        setIsLoading(false);
-        incrementBlogViews();
-      }
-    }, 300); // Small delay for smooth transition
-
-    return () => clearTimeout(loadTimer);
+    if (slug && blogPostsData[slug as keyof typeof blogPostsData]) {
+      incrementBlogViews();
+    }
   }, [slug]);
 
   // Enhance code blocks after content is rendered
   useEffect(() => {
     if (post) {
-      // Small delay to ensure DOM is fully rendered
-      const timer = setTimeout(() => {
-        enhanceCodeBlocks();
-        // Trigger content animation after code blocks are enhanced
-        setTimeout(() => setContentLoaded(true), 200);
-      }, 100);
-
-      return () => clearTimeout(timer);
+      enhanceCodeBlocks();
     }
   }, [post]);
 
@@ -349,88 +333,23 @@ const BlogPost = () => {
     } catch { }
   };
 
-  // Loading skeleton component
-  const LoadingSkeleton = () => (
-    <article className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#0A0A0A] animate-in fade-in duration-500">
-      <div className="max-w-4xl mx-auto w-full px-6">
-        {/* Back button skeleton */}
-        <div className="mb-8">
-          <div className="inline-flex items-center text-gray-400">
-            <div className="h-4 w-4 bg-gray-600 rounded mr-2 animate-shimmer"></div>
-            <div className="h-4 w-20 bg-gray-600 rounded animate-shimmer"></div>
-          </div>
-        </div>
-
-        {/* Header skeleton */}
-        <header className="mb-12">
-          <div className="flex items-center text-gray-400 mb-8">
-            <div className="w-10 h-10 bg-gray-600 rounded-full mr-4 animate-shimmer"></div>
-            <div>
-              <div className="h-5 w-32 bg-gray-600 rounded mb-1 animate-shimmer"></div>
-              <div className="h-4 w-24 bg-gray-600 rounded animate-shimmer"></div>
-            </div>
-          </div>
-        </header>
-
-        {/* Image skeleton */}
-        <div className="mb-6">
-          <div className="w-full h-64 bg-gray-600 rounded-2xl animate-shimmer"></div>
-        </div>
-
-        {/* Category skeleton */}
-        <div className="mb-6">
-          <div className="h-6 w-24 bg-gray-600 rounded-full animate-shimmer"></div>
-        </div>
-
-        {/* Title skeleton */}
-        <div className="mb-6">
-          <div className="h-10 w-3/4 bg-gray-600 rounded mb-2 animate-shimmer"></div>
-          <div className="h-10 w-1/2 bg-gray-600 rounded animate-shimmer"></div>
-        </div>
-
-        {/* Meta info skeleton */}
-        <div className="mb-10 flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <div className="h-4 w-4 bg-gray-600 rounded animate-shimmer"></div>
-            <div className="h-4 w-16 bg-gray-600 rounded animate-shimmer"></div>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="h-8 w-20 bg-gray-600 rounded-full animate-shimmer"></div>
-            <div className="h-8 w-20 bg-gray-600 rounded-full animate-shimmer"></div>
-            <div className="h-8 w-20 bg-gray-600 rounded-full animate-shimmer"></div>
-          </div>
-        </div>
-
-        {/* Content skeleton */}
-        <div className="space-y-4">
-          <div className="h-4 w-full bg-gray-600 rounded animate-shimmer"></div>
-          <div className="h-4 w-5/6 bg-gray-600 rounded animate-shimmer"></div>
-          <div className="h-4 w-4/5 bg-gray-600 rounded animate-shimmer"></div>
-          <div className="h-4 w-full bg-gray-600 rounded animate-shimmer"></div>
-          <div className="h-4 w-3/4 bg-gray-600 rounded animate-shimmer"></div>
-          <div className="h-4 w-4/6 bg-gray-600 rounded animate-shimmer"></div>
-          <div className="h-4 w-full bg-gray-600 rounded animate-shimmer"></div>
-        </div>
-
-        {/* Comments skeleton */}
-        <div className="mt-12 space-y-4">
-          <div className="h-6 w-32 bg-gray-600 rounded animate-shimmer"></div>
-          <div className="h-32 w-full bg-gray-600 rounded animate-shimmer"></div>
-        </div>
+  if (!post) {
+    return (
+      <div className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#0A0A0A] flex flex-col items-center justify-center">
+        <h1 className="text-2xl font-bold text-white mb-4">Post Not Found</h1>
+        <Link to="/all-posts" className="text-[#00DC82] hover:underline font-outfit">
+          Back to Blog
+        </Link>
       </div>
-    </article>
-  );
-
-  if (isLoading || !post) {
-    return <LoadingSkeleton />;
+    );
   }
 
   return (
     <>
-      <article className={`pt-28 md:pt-36 pb-16 min-h-screen bg-[#0A0A0A] transition-all duration-700 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+      <article className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#0A0A0A]">
         <div className="max-w-4xl mx-auto w-full px-6">
           {/* Back */}
-          <div className={`mb-8 transition-all duration-500 delay-100 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+          <div className="mb-8">
             <Link
               to="/all-posts"
               className="inline-flex items-center text-gray-400 hover:text-white transition"
@@ -441,8 +360,7 @@ const BlogPost = () => {
           </div>
 
           {/* Header */}
-          <header className={`mb-12 transition-all duration-500 delay-200 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-
+          <header className="mb-12">
             <div className="flex items-center text-gray-400 mb-8">
               <img
                 src="https://avatars.githubusercontent.com/u/146111647?v=4"
@@ -457,7 +375,7 @@ const BlogPost = () => {
           </header>
 
           {/* Image */}
-          <div className={`mb-6 transition-all duration-500 delay-300 ${contentLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+          <div className="mb-6">
             <img
               src={post.image}
               alt={post.title}
@@ -469,19 +387,19 @@ const BlogPost = () => {
               }}
             />
           </div>
-          <div className={`mb-6 transition-all duration-500 delay-400 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+          <div className="mb-6">
             <span className="bg-[#1e1e1e] text-neutral-300 px-3 py-1 font-outfit rounded-full text-sm">
               {post.category}
             </span>
           </div>
 
-          <div className={`mb-6 transition-all duration-500 delay-500 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <div className="mb-6">
             <h1 className="text-3xl md:text-4xl font-supreme font-bold text-[#F5F5F5] leading-tight">
               {post.title}
             </h1>
           </div>
 
-          <div className={`mb-10 flex flex-wrap items-center justify-between gap-4 text-sm text-neutral-400 transition-all duration-500 delay-600 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+          <div className="mb-10 flex flex-wrap items-center justify-between gap-4 text-sm text-neutral-400">
             <div className="flex items-center gap-2">
               <Calendar className="h-4 w-4" />
               <span>{post.date}</span>
@@ -528,13 +446,13 @@ const BlogPost = () => {
 
           {/* Content */}
           <div
-            className={`prose prose-sm md:prose-base lg:prose-lg font-poppins prose-invert max-w-none text-[#A3A3A3] transition-all duration-500 delay-700 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+            className="prose prose-sm md:prose-base lg:prose-lg font-poppins prose-invert max-w-none text-[#A3A3A3]"
             style={{ fontSize: `${fontSize}%` }}
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
           {/* Tags */}
-          <div className={`mt-12 pt-8 border-t font-outfit border-gray-800 transition-all duration-500 delay-800 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+          <div className="mt-12 pt-8 border-t font-outfit border-gray-800">
             <div className="flex flex-wrap gap-2">
               {post.tags.map((tag: string) => (
                 <span
@@ -548,8 +466,7 @@ const BlogPost = () => {
           </div>
 
           {/* Love Reaction Section */}
-
-          <div className={`mt-24 mb-20 flex flex-col items-center justify-center transition-all duration-700 delay-900 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="mt-24 mb-20 flex flex-col items-center justify-center">
             {blogReactionsError && (
               <p className="text-red-400 text-sm mb-8">{blogReactionsError}</p>
             )}
@@ -573,7 +490,7 @@ const BlogPost = () => {
           </div>
 
           {/* Comments */}
-          <div className={`transition-all duration-500 delay-1000 ${contentLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <div>
             <GiscusComments slug={slug || ''} />
           </div>
         </div>
