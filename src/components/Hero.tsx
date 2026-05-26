@@ -103,9 +103,9 @@ const Hero = () => {
         <div className="mt-6 px-1 flex flex-col md:flex-row md:items-center justify-between gap-4">
           {/* Name and subtitle */}
           <div>
-            <h1 className="font-serif text-3xl md:text-4xl font-bold tracking-tight text-neutral-200">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-tight text-neutral-200">
               Dhrubaraj Pati
-            </h1>
+            </h2>
             <p className="mt-1.5 font-mono text-xs md:text-sm text-neutral-500">
               engineer • developer • builder
             </p>
@@ -203,11 +203,11 @@ const Hero = () => {
 
         {/* Bio Section */}
         <div className="px-1">
-          <h2 className="font-bold text-neutral-200 text-lg mb-3">
+          <h3 className="font-bold text-neutral-200 text-base sm:text-lg mb-3">
             I build from scratch.
-          </h2>
+          </h3>
           <p className="text-neutral-400 leading-relaxed text-base">
-            I am a 22 year old Full-Stack Developer dedicated to building scalable, high-performance web applications with{' '}
+            I am a <strong className="text-neutral-200">22 Year Old Full-Stack Developer</strong> dedicated to building scalable, high-performance web applications with{' '}
             <a
               href="https://www.typescriptlang.org/"
               target="_blank"
