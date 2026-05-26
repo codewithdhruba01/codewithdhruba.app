@@ -3,9 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 interface ReadingProgressPillProps {
   postTitle: string;
+  isHidden?: boolean;
 }
 
-export default function ReadingProgressPill({ postTitle }: ReadingProgressPillProps) {
+export default function ReadingProgressPill({ postTitle, isHidden = false }: ReadingProgressPillProps) {
   const [scrollProgress, setScrollProgress] = useState<number>(0);
   const [activeHeading, setActiveHeading] = useState<string>('');
   const activeHeadingIndexRef = useRef<number>(-1);
@@ -68,7 +69,7 @@ export default function ReadingProgressPill({ postTitle }: ReadingProgressPillPr
 
   return (
     <AnimatePresence>
-      {isVisible && (
+      {isVisible && !isHidden && (
         <motion.div
           initial={{ opacity: 0, y: 55, x: '-50%' }}
           animate={{ opacity: 1, y: 0, x: '-50%' }}

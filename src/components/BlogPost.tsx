@@ -715,7 +715,7 @@ const BlogPost = () => {
       </div>
 
       {/* Floating Reading Progress Pill */}
-      <ReadingProgressPill postTitle={post.title} />
+      <ReadingProgressPill postTitle={post.title} isHidden={isMobileSheetOpen} />
     </>
   );
 };
