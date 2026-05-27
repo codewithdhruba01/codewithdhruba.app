@@ -4,8 +4,7 @@ import ReactIcon from '../svgs/ReactIcon';
 import TypeScript from '../svgs/TypeScript';
 import TailwindCss from '../svgs/TailwindCss';
 import NextJs from '../svgs/NextJs';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Sun, Moon } from 'lucide-react';
+import { Sun, Moon } from 'lucide-react';
 import { Tooltip, TooltipTrigger, TooltipContent } from '../ui/tooltip';
 
 export const AboutContent = () => {
@@ -16,21 +15,19 @@ export const AboutContent = () => {
             {/* Banner Image Card with Premium Cross-fade Animation */}
             <div className="relative w-full rounded-2xl overflow-hidden border border-neutral-800 shadow-xl mb-8 group bg-[#101010]">
                 {/* Dark Banner */}
-                <img 
-                    src="/assets/Aboutbanner.png" 
-                    alt="About Banner Dark" 
-                    className={`w-full h-auto object-cover transition-all duration-700 ease-in-out group-hover:scale-[1.03] ${
-                        isLightMode ? 'opacity-0 pointer-events-none' : 'opacity-100'
-                    }`}
+                <img
+                    src="/assets/Aboutbanner.png"
+                    alt="About Banner Dark"
+                    className={`w-full h-auto object-cover transition-all duration-700 ease-in-out group-hover:scale-[1.03] ${isLightMode ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                        }`}
                     loading="lazy"
                 />
                 {/* Light Banner */}
-                <img 
-                    src="/assets/Aboutbannerlight.png" 
-                    alt="About Banner Light" 
-                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out group-hover:scale-[1.03] ${
-                        isLightMode ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                    }`}
+                <img
+                    src="/assets/Aboutbannerlight.png"
+                    alt="About Banner Light"
+                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out group-hover:scale-[1.03] ${isLightMode ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                        }`}
                     loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
@@ -60,67 +57,85 @@ export const AboutContent = () => {
                 </Tooltip>
             </div>
             <div className="flex flex-col gap-6">
-                <p className="text-[#909092] font-satoshi text-lg leading-relaxed">
-                I am a <HoverInfo
-                    trigger={<span className="text-[#b5b5b6] font-bold">Frontend Developer</span>}
-                    title="Frontend Developer"
-                    description="Specializing in building responsive, accessible, and high-performance web interfaces using modern technologies."
-                /> with a strong focus on building modern,
-                visually appealing, and user-centric web applications. My journey into development
-                is fueled by curiosity about how technology can solve real-world problems and a
-                constant desire to learn and grow.. I enjoy crafting pixel-perfect user interfaces and building scalable,
-                maintainable frontend architectures. With hands-on experience in modern
-                tools and frameworks like{' '}
-                <HoverInfo
-                    trigger={<span className="text-[#b5b5b6] font-bold text-lg">React</span>}
-                    title="React"
-                    description="The library for web and native user interfaces. I use it to build component-based architecture."
-                    joinedDate="May 2013"
-                    icon={ReactIcon}
-                />,{' '}
-                <HoverInfo
-                    trigger={<span className="text-[#b5b5b6] font-bold">TypeScript</span>}
-                    title="TypeScript"
-                    description="TypeScript is a strongly typed programming language that builds on JavaScript."
-                    joinedDate="Oct 2012"
-                    icon={TypeScript}
-                />,{' '}
-                <HoverInfo
-                    trigger={<span className="text-[#b5b5b6] font-bold">Tailwind CSS</span>}
-                    title="Tailwind CSS"
-                    description="A utility-first CSS framework packed with classes that can be composed to build any design, directly in your markup."
-                    joinedDate="Nov 2017"
-                    icon={TailwindCss}
-                />{' '}and{' '}
-                <HoverInfo
-                    trigger={<span className="text-[#b5b5b6] font-bold">Next.js</span>}
-                    title="Next.js"
-                    description="The React Framework for the Web. Used for server-side rendering and static site generation."
-                    joinedDate="Oct 2016"
-                    icon={NextJs}
-                />{' '}I
-                create responsive, accessible, and performance-optimized web applications.
-            </p>
-            <p className="text-[#909092] font-satoshi text-lg leading-relaxed">
-                Beyond writing code, I care deeply about delivering great user experiences,
-                <span className="text-[#b5b5b6]"> writing clean and reusable code, and collaborating effectively within a team. </span>
-                I’m always eager to explore new technologies and apply them to meaningful projects.
-            </p>
-            <p className="text-[#909092] font-satoshi text-lg leading-relaxed">
-                I am seeking opportunities where I can contribute my skills to impactful products
-                while continuing to evolve as a developer and professional.
-            </p>
-
-            {/* Bucket List Link */}
-            <div className="mt-4">
-                <Link
-                    to="/bucket-list"
-                    className="inline-flex items-center gap-3 px-6 py-3 bg-[#111111] border border-[#2d2e2d] rounded-xl text-[#909092] hover:border-[#A3A3A3]/50 hover:bg-[#1a1a1a] transition-all duration-300 group shadow-lg shadow-black/20"
-                >
-                    <span className="text-lg font-bold font-outfit">View My Bucket List</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                <p className="text-neutral-400 font-satoshi text-sm md:text-base leading-relaxed">
+                    I am a <HoverInfo
+                        trigger={<span className="text-[#b5b5b6] font-bold">Frontend Developer</span>}
+                        title="Frontend Developer"
+                        description="Specializing in building responsive, accessible, and high-performance web interfaces using modern technologies."
+                    />{' '}with a strong focus on building modern,
+                    visually appealing, and user-centric web applications. My journey into development
+                    is fueled by curiosity about how technology can solve real-world problems and a
+                    constant desire to learn and grow.. I enjoy crafting pixel-perfect user interfaces and building scalable,
+                    maintainable frontend architectures. With hands-on experience in modern
+                    tools and frameworks like{' '}
+                    <HoverInfo
+                        trigger={<span className="text-[#b5b5b6] font-bold text-base">React</span>}
+                        title="React"
+                        description="The library for web and native user interfaces. I use it to build component-based architecture."
+                        joinedDate="May 2013"
+                        icon={ReactIcon}
+                    />,{' '}
+                    <HoverInfo
+                        trigger={<span className="text-[#b5b5b6] font-bold">TypeScript</span>}
+                        title="TypeScript"
+                        description="TypeScript is a strongly typed programming language that builds on JavaScript."
+                        joinedDate="Oct 2012"
+                        icon={TypeScript}
+                    />,{' '}
+                    <HoverInfo
+                        trigger={<span className="text-[#b5b5b6] font-bold">Tailwind CSS</span>}
+                        title="Tailwind CSS"
+                        description="A utility-first CSS framework packed with classes that can be composed to build any design, directly in your markup."
+                        joinedDate="Nov 2017"
+                        icon={TailwindCss}
+                    />{' '}and{' '}
+                    <HoverInfo
+                        trigger={<span className="text-[#b5b5b6] font-bold">Next.js</span>}
+                        title="Next.js"
+                        description="The React Framework for the Web. Used for server-side rendering and static site generation."
+                        joinedDate="Oct 2016"
+                        icon={NextJs}
+                    />{' '}I
+                    create responsive, accessible, and performance-optimized web applications.
+                </p>
+                <p className="text-neutral-400 font-satoshi text-sm md:text-base leading-relaxed">
+                    Beyond writing code, I care deeply about delivering great user experiences,
+                    <span className="text-[#b5b5b6]"> writing clean and reusable code, and collaborating effectively within a team. </span>
+                    I’m always eager to explore new technologies and apply them to meaningful projects.
+                </p>
+                <p className="text-neutral-400 font-satoshi text-sm md:text-base leading-relaxed">
+                    I am seeking opportunities where I can contribute my skills to impactful products
+                    while continuing to evolve as a developer and professional.
+                </p>
             </div>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-10 py-6 text-left">
+                <div className="md:col-span-1 flex items-center md:items-start gap-4 text-xs font-semibold uppercase tracking-widest text-[#909092] font-mono">
+                    <span>Education</span>
+                    <div className="hidden md:block h-[1px] flex-1 bg-neutral-800/80 mt-2"></div>
+                </div>
+                <div className="md:col-span-3 flex flex-col gap-8">
+                    <div className="flex flex-col gap-1 group/title w-fit cursor-default">
+                        <div className="flex items-center gap-2.5">
+                            <h4 className="text-lg md:text-xl font-bold font-outfit text-white">Bachelors of Computer Application</h4>
+                            <Tooltip>
+                                <TooltipTrigger>
+                                    <a
+                                        href="https://swamivivekanandauniversity.ac.in/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-neutral-700 bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-neutral-500 transition-all duration-300 ease-out select-none cursor-pointer"
+                                    >
+                                        <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
+                                    </a>
+                                </TooltipTrigger>
+                                <TooltipContent side="top">
+                                    <span className="text-xs font-mono">Link</span>
+                                </TooltipContent>
+                            </Tooltip>
+                        </div>
+                        <p className="text-xs font-mono text-[#00DC82] mt-0.5">Swami Vivekananda University (2023-2027)</p>
+                    </div>
+                </div>
             </div>
         </div>
     );
