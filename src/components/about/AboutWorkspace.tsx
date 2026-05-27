@@ -12,7 +12,7 @@ export const AboutWorkspace = () => {
 
             {/* Photo Card */}
             <ScrollReveal delay={0.1}>
-                <div className="relative w-full rounded-2xl overflow-hidden border border-neutral-800 shadow-xl mb-6 md:mb-12 group bg-[#101010]">
+                <div className="relative w-full rounded-2xl overflow-hidden border border-none shadow-xl mb-6 md:mb-12 group bg-[#101010]">
                     <img
                         src="/assets/workspace.jpeg"
                         alt="Workspace Setup"

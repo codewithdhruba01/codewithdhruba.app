@@ -13,7 +13,7 @@ export const AboutContent = () => {
     return (
         <div className="flex flex-col mt-6">
             {/* Banner Image Card with Premium Cross-fade Animation */}
-            <div className="relative w-full rounded-2xl overflow-hidden border border-neutral-800 shadow-xl mb-8 group bg-[#101010]">
+            <div className="relative w-full rounded-2xl overflow-hidden border border-none shadow-xl mb-8 group bg-[#101010]">
                 {/* Dark Banner */}
                 <img
                     src="/assets/Aboutbanner.png"
