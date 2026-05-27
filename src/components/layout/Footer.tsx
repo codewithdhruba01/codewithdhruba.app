@@ -7,6 +7,7 @@ import {
   InstagramIcon,
   ThreadsIcon,
   BlueskyLine,
+  CodepenIcon,
 } from '../icons/SocialIcons';
 import { commentService } from '../../lib/supabase';
 
@@ -48,20 +49,16 @@ const socialLinks = [
     icon: <BlueskyLine size="18" className="fill-[#909092] group-hover:fill-white transition-colors duration-300" />
   },
   {
-    href: 'https://www.instagram.com/dhrubaraj_pati/',
+    href: 'https://www.instagram.com/silent.coder5/',
     icon: <InstagramIcon size="18" className="stroke-[#909092] group-hover:stroke-white transition-all duration-300" />
   },
   {
-    href: 'https://www.threads.com/@dhrubaraj_pati',
+    href: 'https://www.threads.com/@silent.coder5',
     icon: <ThreadsIcon size="18" className="fill-[#909092] group-hover:fill-white transition-colors duration-300" />
   },
   {
-    href: 'https://open.spotify.com/playlist/7vcmvUAHBN1KU4KUQqDP03?si=03momC0tQ_a1SSmzOlE7-A',
-    icon: (
-      <svg viewBox="0 0 24 24" width="18" height="18" className="fill-[#909092] group-hover:fill-[#1DB954] transition-colors duration-300">
-        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.894-.982-.335.076-.668-.135-.744-.47-.076-.336.135-.668.47-.743 3.856-.88 7.15-.506 9.822 1.13.295.178.387.563.206.858zm1.225-2.72c-.226.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.08-1.182-.413.125-.85-.107-.975-.52-.125-.413.107-.85.52-.975 3.66-1.11 8.224-.57 11.35 1.35.366.226.487.707.26 1.074zm.107-2.846C14.524 8.783 9.07 8.6 5.897 9.563c-.497.15-1.022-.13-1.172-.627-.15-.497.13-1.022.627-1.172C8.937 6.64 14.935 6.843 18.9 9.2c.448.267.595.845.328 1.293-.267.448-.845.595-1.293.328z" />
-      </svg>
-    )
+    href: 'https://codepen.io/codewithdhruba',
+    icon: <CodepenIcon size="18" className="fill-[#909092] group-hover:fill-white transition-colors duration-300" />
   },
   {
     href: 'mailto:pati.dhrubaraj@outlook.com',

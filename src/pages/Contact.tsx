@@ -353,7 +353,7 @@ const Contact = () => {
                 requirements.
               </p>
               <div className="flex flex-col items-center">
-                <motion.button
+                 <motion.button
                   onClick={() => setShowCal(true)}
                   initial="initial"
                   whileHover="hover"
@@ -362,36 +362,36 @@ const Contact = () => {
                     hover: { scale: 1.02 },
                     tap: { scale: 0.98 }
                   }}
-                  className="group relative flex items-center px-6 py-3 bg-[#111111] border border-[#2d2e2d] rounded-2xl hover:border-[#A3A3A3]/50 transition-all duration-300 shadow-xl overflow-hidden"
+                  className="group relative flex items-center px-5 py-2.5 bg-[#111111] border border-[#2d2e2d] rounded-xl hover:border-[#A3A3A3]/50 transition-all duration-300 shadow-xl overflow-hidden"
                 >
                   {/* Avatar - Always visible */}
                   <div className="flex items-center shrink-0">
                     <img
                       src="/assets/avaterlogo.png"
                       alt="Avatar"
-                      className="w-8 h-8 rounded-full object-cover border border-neutral-700 shadow-lg shadow-black/40"
+                      className="w-7 h-7 rounded-full object-cover border border-neutral-700 shadow-lg shadow-black/40"
                     />
                   </div>
 
                   {/* Plus + Google Meet - Reveal on hover */}
                   <motion.div
-                    className="flex items-center overflow-hidden h-9"
+                    className="flex items-center overflow-hidden h-8"
                     variants={{
                       initial: { width: 0, opacity: 0, marginLeft: 0 },
-                      hover: { width: "auto", opacity: 1, marginLeft: 12 }
+                      hover: { width: "auto", opacity: 1, marginLeft: 10 }
                     }}
                     transition={{ duration: 0.4, ease: "circOut" }}
                   >
-                    <div className="flex items-center gap-2.5">
-                      <Plus className="text-neutral-500 w-4 h-4 shrink-0" strokeWidth={3} />
-                      <div className="w-9 h-9 rounded-full bg-neutral-800 flex items-center justify-center border border-neutral-700/50">
-                        <GoogleMeet className="w-5 h-5" />
+                    <div className="flex items-center gap-2">
+                      <Plus className="text-neutral-500 w-3.5 h-3.5 shrink-0" strokeWidth={3} />
+                      <div className="w-8 h-8 rounded-full bg-neutral-800 flex items-center justify-center border border-neutral-700/50">
+                        <GoogleMeet className="w-4 h-4" />
                       </div>
                     </div>
                   </motion.div>
 
                   {/* Always visible text */}
-                  <span className="text-[#d3d1d1] group-hover:text-white font-outfit font-bold text-lg whitespace-nowrap transition-colors duration-300 ml-3">
+                  <span className="text-[#d3d1d1] group-hover:text-white font-outfit font-bold text-sm whitespace-nowrap transition-colors duration-300 ml-2.5">
                     Book a Free Call
                   </span>
                 </motion.button>
