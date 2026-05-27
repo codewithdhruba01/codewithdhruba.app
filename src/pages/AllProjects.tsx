@@ -289,7 +289,6 @@ const AllProjects = () => {
             </div>
           </ScrollReveal>
 
-          {/* Categories */}
           <ScrollReveal delay={0.1}>
             <div className="flex flex-wrap justify-start font-outfit gap-2.5 mb-10">
               {categories.map((category) => (
@@ -300,9 +299,9 @@ const AllProjects = () => {
                     setShowAll(false);
                     setLoading(true);
                   }}
-                  className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${selectedCategory === category
-                    ? 'bg-gradient-to-r from-green-600 to-green-900 text-white'
-                    : 'bg-[#1A1A1A] text-[#909092] hover:bg-[#1e1e1e] hover:text-[#f4f4f4]'
+                  className={`px-4 py-1.5 rounded-full text-xs md:text-sm font-medium transition-all duration-300 ${selectedCategory === category
+                    ? 'bg-white text-neutral-950 shadow-lg shadow-white/5 scale-102 font-semibold'
+                    : 'bg-[#121214]/80 text-[#909092] border border-neutral-800/40 hover:border-neutral-700/50 hover:text-neutral-200 hover:bg-[#161619]'
                     }`}
                 >
                   {category}

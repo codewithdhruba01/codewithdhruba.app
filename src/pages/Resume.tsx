@@ -113,10 +113,10 @@ const Resume = () => {
           <div className="text-center mt-8 sm:mt-12">
             <button
               onClick={handleDownload}
-              className="inline-flex items-center gap-3 px-6 py-3 bg-[#111111] border border-[#2d2e2d] rounded-xl text-[#d3d1d1] hover:border-[#A3A3A3]/50 hover:bg-[#1a1a1a] transition-all duration-300 group shadow-lg shadow-black/20"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[#111111] border border-neutral-800 rounded-xl text-neutral-300 hover:border-neutral-700 hover:bg-[#1a1a1a] transition-all duration-300 group shadow-lg shadow-black/20 text-xs font-semibold font-outfit"
             >
-              <span className="text-lg font-bold font-outfit">Download Resume</span>
-              <Download className="w-5 h-5" />
+              <span>Download Resume</span>
+              <Download className="w-3.5 h-3.5 text-neutral-300 group-hover:text-white transition-colors" />
             </button>
           </div>
         </ScrollReveal>
