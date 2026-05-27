@@ -1,17 +1,64 @@
+import { useState } from 'react';
 import HoverInfo from '../ui/HoverInfo';
 import ReactIcon from '../svgs/ReactIcon';
 import TypeScript from '../svgs/TypeScript';
 import TailwindCss from '../svgs/TailwindCss';
 import NextJs from '../svgs/NextJs';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Sun, Moon } from 'lucide-react';
+import { Tooltip, TooltipTrigger, TooltipContent } from '../ui/tooltip';
 
 export const AboutContent = () => {
+    const [isLightMode, setIsLightMode] = useState(false);
+
     return (
         <div className="flex flex-col mt-6">
-            <h1 className="text-3xl md:text-4xl font-bold font-excon mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
-                About <span className="text-[#00DC82]">Me</span>
-            </h1>
+            {/* Banner Image Card with Premium Cross-fade Animation */}
+            <div className="relative w-full rounded-2xl overflow-hidden border border-neutral-800 shadow-xl mb-8 group bg-[#101010]">
+                {/* Dark Banner */}
+                <img 
+                    src="/assets/Aboutbanner.png" 
+                    alt="About Banner Dark" 
+                    className={`w-full h-auto object-cover transition-all duration-700 ease-in-out group-hover:scale-[1.03] ${
+                        isLightMode ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                    }`}
+                    loading="lazy"
+                />
+                {/* Light Banner */}
+                <img 
+                    src="/assets/Aboutbannerlight.png" 
+                    alt="About Banner Light" 
+                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out group-hover:scale-[1.03] ${
+                        isLightMode ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                    }`}
+                    loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+            </div>
+
+            <div className="flex items-center justify-between mb-4">
+                <h1 className="text-3xl md:text-4xl font-bold font-excon bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
+                    About <span className="text-[#00DC82]">Me</span>
+                </h1>
+                <Tooltip>
+                    <TooltipTrigger>
+                        <button
+                            onClick={() => setIsLightMode(!isLightMode)}
+                            className="p-2.5 rounded-xl bg-[#111111] border border-neutral-800 text-white hover:border-neutral-700 hover:bg-[#161616] active:scale-95 transition-all duration-300 shadow-md shadow-black/20 flex items-center justify-center group"
+                            aria-label="Toggle Banner Theme"
+                        >
+                            {isLightMode ? (
+                                <Moon className="w-5 h-5 text-white transition-transform duration-500 group-hover:rotate-12" />
+                            ) : (
+                                <Sun className="w-5 h-5 text-white transition-transform duration-500 group-hover:rotate-45" />
+                            )}
+                        </button>
+                    </TooltipTrigger>
+                    <TooltipContent side="top">
+                        {isLightMode ? "Switch to Dark Mode" : "Switch to Light Mode"}
+                    </TooltipContent>
+                </Tooltip>
+            </div>
             <div className="flex flex-col gap-6">
                 <p className="text-[#909092] font-satoshi text-lg leading-relaxed">
                 I am a <HoverInfo
