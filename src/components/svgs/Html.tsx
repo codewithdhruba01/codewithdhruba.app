@@ -1,6 +1,6 @@
-export default function Html() {
+export default function Html({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 128 128">
+    <svg viewBox="0 0 128 128" className={className}>
       <path
         fill="#E44D26"
         d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z"

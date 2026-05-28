@@ -1,6 +1,6 @@
-export default function Postman() {
+export default function Postman({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 128 128">
+    <svg viewBox="0 0 128 128" className={className}>
       <path
         fill="#f37036"
         d="M113.117 26.066C92.168-1.062 53.191-6.07 26.062 14.883c-27.125 20.953-32.128 59.93-11.175 87.055 20.957 27.124 59.937 32.124 87.058 11.167 27.114-20.953 32.118-59.918 11.172-87.039Zm0 0"

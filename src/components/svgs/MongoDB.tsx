@@ -1,6 +1,6 @@
-export default function MongoDB() {
+export default function MongoDB({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 128 128">
+    <svg viewBox="0 0 128 128" className={className}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"
