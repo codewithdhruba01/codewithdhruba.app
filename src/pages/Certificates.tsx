@@ -94,7 +94,7 @@ const Certificates = () => {
 
   const certificates = [
     {
-      title: 'The Complete Full-Stack Web Development',
+      title: 'Complete Full-Stack Web Development',
       issuer: 'Udemy',
       date: '12.2022',
       href: 'https://www.udemy.com/certificate/UC-dcc34792-26f4-4e13-a573-023b6b988d1f/',

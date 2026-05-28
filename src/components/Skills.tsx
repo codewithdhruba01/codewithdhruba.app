@@ -42,7 +42,6 @@ const Skills = () => {
     { name: 'Next.js', icon: NextJs, href: 'https://nextjs.org/' },
     { name: 'Tailwind CSS', icon: TailwindCss, href: 'https://tailwindcss.com/' },
     { name: 'shadcn/ui', icon: Shadcn, href: 'https://ui.shadcn.com/' },
-    { name: 'Radix UI', href: 'https://www.radix-ui.com/' }, // No icon in folder, will render as text-only pill
     { name: 'Motion', icon: Motion, href: 'https://motion.dev/' },
     // Backend & DB
     { name: 'Node.js', icon: NodeJs, href: 'https://nodejs.org/' },

@@ -8,12 +8,9 @@ const GetInTouch = () => {
       <div className="max-w-4xl mx-auto w-full px-6">
         {/* Heading */}
         <ScrollReveal className="mb-8">
-          <p className="text-lg text-neutral-400 font-outfit text-left">
+          <h4 className="text-2xl font-bold text-left text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400">
             Development
-          </p>
-          <h2 className="text-3xl font-bold text-left text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400">
-            Tools
-          </h2>
+          </h4>
         </ScrollReveal>
 
         {/* Cards */}

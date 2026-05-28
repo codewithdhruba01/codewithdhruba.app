@@ -37,7 +37,7 @@ const WorkExperience = () => {
                         </div>
                     </ScrollReveal>
 
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-2">
                         {experiences.map((experience, index) => (
                             <ScrollReveal key={index} delay={index * 0.05}>
                                 <ExperienceCard

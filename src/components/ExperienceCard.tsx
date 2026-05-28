@@ -31,7 +31,10 @@ export function ExperienceCard({ experience, isOpen, onClick, transparentOnOpen 
             )}
         >
             {/* Company Header - Always Visible */}
-            <div className="flex flex-col p-4 sm:p-6 gap-4">
+            <div className={cn(
+                "flex flex-col py-3 sm:py-4 gap-4",
+                transparentOnOpen ? "px-0" : "px-4 sm:px-6"
+            )}>
                 <div className="flex flex-col sm:flex-row items-start justify-between gap-2 sm:gap-4">
                     {/* Left Side: Logo & Info */}
                     <div className="flex items-start gap-3 sm:gap-4 w-full sm:w-auto">
@@ -141,7 +144,10 @@ export function ExperienceCard({ experience, isOpen, onClick, transparentOnOpen 
                 )}
             >
                 <div className="overflow-hidden">
-                    <div className="p-4 sm:p-6 pt-0 sm:pt-0 flex flex-col gap-4 sm:gap-6">
+                    <div className={cn(
+                        "pb-4 sm:pb-5 pt-0 flex flex-col gap-4 sm:gap-6",
+                        transparentOnOpen ? "px-0" : "px-4 sm:px-6"
+                    )}>
                         {/* Technologies */}
                         <div>
                             <h4 className="text-sm font-synonym font-semibold text-[#909092] mb-2 sm:mb-3">Technologies & Tools</h4>

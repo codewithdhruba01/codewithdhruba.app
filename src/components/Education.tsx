@@ -65,7 +65,7 @@ function ExperienceCard({ experience, isOpen, onClick }: ExperienceCardProps) {
       )}
     >
       {/* Company Header - Always Visible */}
-      <div className="flex flex-col p-4 sm:p-6 gap-4">
+      <div className="flex flex-col py-3 sm:py-4 px-0 gap-4">
         <div className="flex items-start justify-between gap-4">
           {/* Left Side: Logo & Info */}
           <div className="flex items-start gap-4">
@@ -137,7 +137,7 @@ function ExperienceCard({ experience, isOpen, onClick }: ExperienceCardProps) {
                 <Tooltip>
                   <TooltipTrigger>
                     <div
-                       onClick={onClick}
+                      onClick={onClick}
                       className="ml-0 w-6 h-6 flex items-center justify-center rounded-lg border border-transparent bg-transparent hover:bg-[#161616] hover:border-[#222] transition-all duration-300 cursor-pointer"
                     >
                       <ChevronDown className={cn(
@@ -173,7 +173,7 @@ function ExperienceCard({ experience, isOpen, onClick }: ExperienceCardProps) {
         )}
       >
         <div className="overflow-hidden">
-          <div className="p-6 pt-0 flex flex-col gap-6">
+          <div className="px-0 pb-4 sm:pb-5 pt-0 flex flex-col gap-6">
             {/* Technologies */}
             <div>
               <h4 className="text-sm font-supreme font-semibold text-[#909092] mb-3">Technologies & Tools</h4>
@@ -249,10 +249,10 @@ const Experience = () => {
     {
       company: 'SpacECE India Foundation',
       isBlur: true,
-      location: 'Pune',
+      location: 'Pune, Maharashtra',
       position: 'Full Stack Developer (Intern)',
       startDate: 'Jan 2026',
-      isCurrent: true,
+      endDate: 'Apr 2026',
       image: '/company/SpacECE.jpg',
       website: 'https://www.spacece.in/',
       github: 'https://github.com/SpacECE-India-Foundation',
@@ -339,7 +339,7 @@ const Experience = () => {
           <ScrollReveal delay={0.1}>
             <ExperienceList experiences={experiences} />
 
-            <div className="text-center mt-12">
+            <div className="text-center mt-3">
               <SectionButton to="/experience" text="View all Experience" />
             </div>
           </ScrollReveal>
