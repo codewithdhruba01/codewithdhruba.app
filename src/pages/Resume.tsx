@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import { Download } from 'lucide-react';
 import ScrollReveal from '../components/ui/ScrollReveal';
@@ -12,10 +12,10 @@ const Resume = () => {
   const pdfUrl = '/assets/Dhrubaraj-Resume.pdf';
 
   const googleDriveEmbedUrl =
-    'https://drive.google.com/file/d/1cG4JpomPxjYArI2Q-WyYb15h6y95Nlu0/preview';
+    'https://drive.google.com/file/d/1TgvTdHcIS5NU6A7DsnAnLPkUeR1rB693/preview';
 
   const pdfDownloadUrl =
-    'https://drive.google.com/uc?export=download&id=1cG4JpomPxjYArI2Q-WyYb15h6y95Nlu0';
+    'https://drive.google.com/uc?export=download&id=1TgvTdHcIS5NU6A7DsnAnLPkUeR1rB693';
 
   const onDocumentLoadSuccess = useCallback(() => {
     // Gradually remove blur after a short delay
@@ -41,14 +41,14 @@ const Resume = () => {
   const isMobile = window.innerWidth < 640;
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] pt-28 md:pt-36 pb-16">
+    <div className="min-h-screen bg-[#0A0A0A] pt-20 md:pt-28 pb-16">
       <div className="max-w-4xl mx-auto w-full px-6">
         {/* Header */}
         <ScrollReveal>
           <div className="text-center mb-8 sm:mb-12">
-            <h1 className="text-3xl md:text-5xl font-bold font-excon mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
+            <h4 className="text-3xl md:text-5xl font-bold font-excon mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
               Resume
-            </h1>
+            </h4>
             <p className="text-[#909092] max-w-md mx-auto font-poppins pb-4 border-b border-neutral-800/60">
               My professional resume and experience overview.
             </p>

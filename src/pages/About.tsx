@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { AboutContent } from '../components/about/AboutContent';
 import { AboutWorkspace } from '../components/about/AboutWorkspace';
+import Skills from '../components/Skills';
 import ScrollReveal from '../components/ui/ScrollReveal';
 
 export default function AboutMe() {
@@ -14,7 +15,12 @@ export default function AboutMe() {
         <ScrollReveal delay={0.1}>
           <AboutContent />
         </ScrollReveal>
+      </div>
 
+      {/* Skills Section */}
+      <Skills />
+
+      <div className="max-w-3xl mx-auto w-full px-6 flex flex-col gap-6 md:gap-10">
         {/* Workspace Section */}
         <AboutWorkspace />
 

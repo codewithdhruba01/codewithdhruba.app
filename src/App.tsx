@@ -5,7 +5,6 @@ import Navbar from './components/layout/Navbar';
 import Hero from './components/Hero';
 import About from './pages/About';
 import Education from './components/Education';
-import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Blog from './components/Blog';
 import BlogPost from './components/BlogPost';
@@ -43,7 +42,6 @@ const AnimatedRoutes = () => {
               <GitHubContributions />
               <Education />
               <Blog />
-              <Skills />
               <Tools />
               <Touch />
             </PageTransition>
