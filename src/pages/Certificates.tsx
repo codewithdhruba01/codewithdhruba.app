@@ -1,57 +1,145 @@
-import { Calendar, CheckCircle } from 'lucide-react';
 import { useState } from 'react';
+import { Link as LinkIcon, ChevronDown, ChevronUp } from 'lucide-react';
 import ScrollReveal from '../components/ui/ScrollReveal';
+import Sponsors from '../components/Sponsors';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../components/ui/tooltip';
+
+// Dynamic, premium issuer logo component with company asset support
+const IssuerLogo = ({ issuer, logo }: { issuer: string; logo?: string }) => {
+  const normalized = issuer.toLowerCase();
+
+  if (logo) {
+    return (
+      <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800/80 flex items-center justify-center p-1.5 shrink-0 overflow-hidden group-hover:border-neutral-700 transition-all duration-300">
+        <img
+          src={logo}
+          alt={issuer}
+          className="w-full h-full object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+          onError={(e) => {
+            // Hide failed image
+            (e.target as HTMLElement).style.display = 'none';
+          }}
+        />
+      </div>
+    );
+  }
+
+  if (normalized.includes('google')) {
+    return (
+      <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800/80 flex items-center justify-center text-neutral-400 group-hover:text-blue-400 transition-colors duration-200 shrink-0">
+        <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
+          <path d="M12.24 10.285V13.4h6.887c-.275 1.565-1.88 4.604-6.887 4.604-4.33 0-7.866-3.577-7.866-8s3.536-8 7.866-8c2.46 0 4.105 1.025 5.047 1.926l2.427-2.334C17.955 2.192 15.34 1 12.24 1 6.033 1 1 6.033 1 12.24s5.033 11.24 11.24 11.24c6.478 0 10.793-4.537 10.793-10.986 0-.74-.08-1.3-.176-1.836h-10.62z" />
+        </svg>
+      </div>
+    );
+  }
+
+  if (normalized.includes('udemy')) {
+    return (
+      <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800/80 flex items-center justify-center text-neutral-400 group-hover:text-red-400 transition-colors duration-200 shrink-0">
+        <span className="font-outfit font-extrabold text-base text-red-500 leading-none">U</span>
+      </div>
+    );
+  }
+
+  if (normalized.includes('postman')) {
+    return (
+      <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800/80 flex items-center justify-center text-neutral-400 group-hover:text-orange-400 transition-colors duration-200 shrink-0">
+        <span className="font-outfit font-extrabold text-base text-orange-500 leading-none">P</span>
+      </div>
+    );
+  }
+
+  if (normalized.includes('girlscript') || normalized.includes('gssoc')) {
+    return (
+      <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800/80 flex items-center justify-center text-neutral-400 group-hover:text-[#f05123] transition-colors duration-200 shrink-0">
+        <span className="font-outfit font-extrabold text-base text-[#f05123] leading-none">G</span>
+      </div>
+    );
+  }
+
+  if (normalized.includes('hacktoberfest') || normalized.includes('hacktoberfast')) {
+    return (
+      <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800/80 flex items-center justify-center text-neutral-400 group-hover:text-rose-400 transition-colors duration-200 shrink-0">
+        <span className="font-outfit font-extrabold text-base text-[#ff0a78] leading-none">H</span>
+      </div>
+    );
+  }
+
+  // General fallback - Verified badge
+  return (
+    <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800/80 flex items-center justify-center text-neutral-400 group-hover:text-[#00DC82] transition-colors duration-200 shrink-0">
+      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+        <path d="m9 12 2 2 4-4" />
+      </svg>
+    </div>
+  );
+};
 
 const Certificates = () => {
-  const [loadedCertificateImages, setLoadedCertificateImages] = useState<Record<number, boolean>>({});
-  const [loadedAchievementImages, setLoadedAchievementImages] = useState<Record<number, boolean>>({});
-  const [loadedBadgeImages, setLoadedBadgeImages] = useState<Record<number, boolean>>({});
+  const [visibleCertCount, setVisibleCertCount] = useState(3);
+  const [visibleAchieveCount, setVisibleAchieveCount] = useState(3);
+
+  const [expandedCertIndex, setExpandedCertIndex] = useState<number | null>(null);
+  const [expandedAchieveIndex, setExpandedAchieveIndex] = useState<number | null>(null);
+
+  const toggleCertExpand = (idx: number) => {
+    setExpandedCertIndex(expandedCertIndex === idx ? null : idx);
+  };
+
+  const toggleAchieveExpand = (idx: number) => {
+    setExpandedAchieveIndex(expandedAchieveIndex === idx ? null : idx);
+  };
 
   const certificates = [
     {
       title: 'The Complete Full-Stack Web Development',
       issuer: 'Udemy',
-      date: 'December 2022',
-      image: '/certificates/udamy.png',
-      credentialId: 'UC-dcc34792-26f4-4e13-a573-023b6b988d1f',
-      description:
-        'successfully completed the course The Complete Full-Stack Web Development Bootcamp',
-      skills: [
-        'Full Stack Development',
-        'React',
-        'Node.js',
-        'MongoDB',
-        'Express.js',
-      ],
+      date: '12.2022',
+      href: 'https://www.udemy.com/certificate/UC-dcc34792-26f4-4e13-a573-023b6b988d1f/',
+      logo: '/company/udemy.png',
+      details: [
+        'Completed comprehensive training on full-stack technologies including React, Node.js, Express, and MongoDB.',
+        'Built real-world responsive applications integrating front-end styling with secure back-end API routing.',
+        'Credential Verification ID: UC-dcc34792-26f4-4e13-a573-023b6b988d1f.'
+      ]
     },
     {
       title: 'Postman API Fundamentals Student Expert',
       issuer: 'Postman',
-      date: 'June 2025',
-      image: '/certificates/postman.png',
-      credentialId: 'GCP-PCD-2023-67890',
-      description:
-        'Postman Student Experts are proficient in the essential skills required for consuming APIs in Postman and applications',
-      skills: ['API Development', 'Postman', 'API Testing'],
+      date: '06.2025',
+      href: 'https://badges.parchment.com/public/assertions/wr0NTzwXSZiEuORGzNlwVg?utm_source=url_copy&identity__email=patidhrubaraj%40gmail.com',
+      logo: '/company/postman.png',
+      details: [
+        'Mastered core API concepts: HTTP methods, response codes, query parameters, headers, and body structures.',
+        'Acquired hand-on proficiency in designing, testing, and debugging RESTful APIs using the Postman client.',
+        'Constructed automated API test collections with JavaScript script assertions.'
+      ]
     },
     {
       title: 'Bootcamp for Instagram Clone',
-      issuer: 'Google Devloper Student Clubs',
-      date: 'December 2023',
-      image: '/certificates/GDSC.png',
-      credentialId: 'verify/9E1pf',
-      description:
-        'The certificate affirms that Dhrubaraj Pati has satisfactorily fulfilled the requirements outlined This validation ensures its authenticity',
-      skills: ['HTML', 'CSS', 'JavaScript', 'JSX'],
+      issuer: 'Google Developer Student Clubs',
+      date: '12.2023',
+      href: 'https://www.cert.devtown.in/verify/9E1pf',
+      logo: '/company/GDC.png',
+      details: [
+        'Engineered a responsive pixel-perfect clone of Instagram’s user interface during a multi-week intensive bootcamp.',
+        'Implemented custom React JSX components, responsive design grids, and dynamic user states.',
+        'Recognized for exceptional UI implementation and strict adherence to modern clean code principles.'
+      ]
     },
     {
       title: 'Acodemy Of Skill Development',
       issuer: 'Swami Vivekananda University',
-      date: 'August 2023',
-      image: '/certificates/cprogram.png',
-      credentialId: 'ASD/ADV/SWA/B/48918',
-      description: 'Professional MongoDB database development certification',
-      skills: ['C Programming'],
+      date: '08.2023',
+      href: 'https://verify.svu.edu.in/',
+      logo: '/company/SVU.png',
+      details: [
+        'Successfully completed deep-dive coursework in software structures and algorithmic problem solving.',
+        'Developed production-grade database structures and efficient memory-mapped data handlers.',
+        'Validated with credentials registered under SVU Acodemy.'
+      ]
     },
   ];
 
@@ -59,301 +147,257 @@ const Certificates = () => {
     {
       title: 'Contributor',
       organization: 'Open Source Connect',
-      date: 'August 2025',
-      image: '/certificates/OpenSourceConnect.png',
-      description:
-        'I’ve been selected as a Contributor for Open Source Connect India - one of the largest collaborative open source initiatives in the country.',
+      date: '08.2025',
+      href: 'https://github.com/codewithdhruba01',
+      logo: '/company/OSC.png',
+      details: [
+        'Selected for the highly collaborative Open Source Connect India developer cohort.',
+        'Contributed high-quality patches and features to production-level open-source infrastructure projects.',
+        'Collaborated with senior industry developers to establish robust clean code practices.'
+      ]
     },
     {
       title: 'Contributor',
       organization: 'GSSoC',
-      date: 'August  2025',
-      image: '/certificates/GirlScript.png',
-      description:
-        "I have been selected as a Contributor for GirlScript Summer of Code 2025 (GSSoC '25)!",
+      date: '08.2025',
+      href: 'https://gssoc.girlscript.tech/',
+      logo: '/company/GSSoC.png',
+      details: [
+        'Participated as a key contributor in GirlScript Summer of Code 2025 (GSSoC \'25).',
+        'Authored and shipped multiple merged Pull Requests for modern frontend and backend repositories.',
+        'Ranked among active participants for consistent open-source contribution and community mentorship.'
+      ]
     },
     {
       title: 'Contributor',
-      organization: 'Hacktoberfast',
-      date: 'Oct 2025',
-      image: '/certificates/hacktoberfast.png',
-      description:
-        "I've successfully completed my contributions for Hacktoberfest 2025",
+      organization: 'Hacktoberfest',
+      date: '10.2025',
+      href: 'https://hacktoberfest.com/',
+      logo: '/company/hacktoberfast.png',
+      details: [
+        'Completed quality contributions for Hacktoberfest 2025 across multiple global open-source projects.',
+        'Engaged in code reviews, resolved outstanding repository issues, and optimized static styles.',
+        'Earned the official 2025 digital check and profile badge recognition.'
+      ]
     },
     {
       title: 'Open Source Developer',
       organization: 'Recode Hive',
       date: 'Present',
-      image: '/certificates/recodehive.png',
-      description:
-        'Recognized for significant contributions to Python Documentation community projects',
+      href: 'https://recodehive.com/',
+      logo: '/company/Recodehive.png',
+      details: [
+        'Recognized for significant commits to Python Documentation and core repository structures.',
+        'Authored learning paths and educational markdown tutorials for upcoming developers.',
+        'Mentored global contributors on git workflows and branch tracking strategies.'
+      ]
     },
   ];
-
-  const githubBadges = [
-    {
-      name: 'Pull Shark',
-      img: 'https://github.githubassets.com/images/modules/profile/achievements/pull-shark-default.png',
-      count: 'x3',
-    },
-    {
-      name: 'Pair Extraordinaire',
-      img: 'https://github.githubassets.com/images/modules/profile/achievements/pair-extraordinaire-default.png',
-      count: 'x3',
-    },
-    {
-      name: 'Starstruck',
-      img: 'https://github.githubassets.com/images/modules/profile/achievements/starstruck-default.png',
-    },
-    {
-      name: 'Galaxy Brain',
-      img: 'https://github.githubassets.com/images/modules/profile/achievements/galaxy-brain-default.png',
-      count: 'x2',
-    },
-    {
-      name: 'Quickdraw',
-      img: 'https://github.githubassets.com/images/modules/profile/achievements/quickdraw-default.png',
-    },
-    {
-      name: 'YOLO',
-      img: 'https://github.githubassets.com/images/modules/profile/achievements/yolo-default.png',
-    },
-    {
-      name: 'POSTMAN',
-      img: 'https://github.com/codewithdhruba01/codewithdhruba01/raw/main/Assets/Postman%20-%20Postman.png',
-    },
-    {
-      name: 'Arcade',
-      img: 'https://cdn.qwiklabs.com/4MlP8X6Zqepz7nED0fOVdlLiiDTgLW6D79lZtC4j64M%3D',
-    },
-  ];
-
-  const handleCertificateImageLoad = (index: number) => {
-    setLoadedCertificateImages(prev => ({ ...prev, [index]: true }));
-  };
-
-  const handleAchievementImageLoad = (index: number) => {
-    setLoadedAchievementImages(prev => ({ ...prev, [index]: true }));
-  };
-
-  const handleBadgeImageLoad = (index: number) => {
-    setLoadedBadgeImages(prev => ({ ...prev, [index]: true }));
-  };
 
   return (
-    <div className="min-h-screen pt-28 md:pt-36 pb-16 bg-[#0A0A0A]">
+    <div className="min-h-screen pt-28 md:pt-36 pb-6 bg-[#0A0A0A]">
       <div className="max-w-4xl mx-auto w-full px-6">
-        <ScrollReveal>
-          <div className="text-left mb-10">
-            <h1 className="text-3xl md:text-4xl font-bold font-outfit mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
-              Certificates & Achievements
-            </h1>
-            <p className="text-[#909092] mt-2 text-base font-poppins">
-              A Journey of Learning, Certifications, and Professional Recognition
-            </p>
-          </div>
-        </ScrollReveal>
 
-        {/* Certificates Section */}
+
+        {/* Certifications Section */}
         <div className="mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {certificates.map((cert, index) => (
-              <ScrollReveal key={index} delay={index * 0.05}>
-                <div className="bg-neutral-900 backdrop-blur-md rounded-xl overflow-hidden border border-gray-700/30 transition-all duration-300 group shadow-lg h-full">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden flex items-center justify-center bg-black">
-                    {/* Grainy Gradient Placeholder */}
+          <ScrollReveal>
+            <h4 className="text-xl sm:text-2xl font-bold text-neutral-200 font-excon text-left border-b border-neutral-800/60 pb-3 mb-2 flex items-center gap-1.5">
+              Certifications <span className="text-xs text-neutral-500 font-mono font-normal">[{certificates.length}]</span>
+            </h4>
+          </ScrollReveal>
+
+          <div className="flex flex-col gap-2">
+            {certificates.slice(0, visibleCertCount).map((cert, index) => {
+              const isExpanded = expandedCertIndex === index;
+              return (
+                <ScrollReveal key={index} delay={index * 0.05}>
+                  <div className="border-b border-neutral-900">
                     <div
-                      className={`absolute inset-0 z-10 transition-opacity duration-700 ${loadedCertificateImages[index] ? 'opacity-0' : 'opacity-100'
-                        } ${[
-                          'bg-gradient-to-br from-blue-900/40 via-neutral-900 to-black',
-                          'bg-gradient-to-br from-emerald-900/40 via-neutral-900 to-black',
-                          'bg-gradient-to-br from-purple-900/40 via-neutral-900 to-black'
-                        ][index % 3]}`}
+                      onClick={() => toggleCertExpand(index)}
+                      className="flex items-center gap-4 py-3.5 sm:py-4.5 px-3 -mx-3 rounded-2xl hover:bg-[#111112]/45 cursor-pointer group transition-all duration-300"
                     >
-                      <div className="absolute inset-0 opacity-20 bg-[url('/assets/noise.svg')]"></div>
-                    </div>
-
-                    <img
-                      src={cert.image}
-                      alt={cert.title}
-                      className={`w-full h-full transition-all duration-500 group-hover:scale-105 ${loadedCertificateImages[index] ? 'blur-0' : 'blur-md'
-                        }`}
-                      onLoad={() => handleCertificateImageLoad(index)}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                    <span className="absolute top-2 right-2 bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded-md z-20">
-                      Complete
-                    </span>
-                  </div>
-
-                  <div className="p-5">
-                    <h3 className="text-lg lg:text-xl font-bold text-neutral-300 mb-2 line-clamp-2 font-synonym">
-                      {cert.title}
-                    </h3>
-
-                    {/* Issuer + Date in one row */}
-                    <div className="flex justify-between items-center mb-2 text-sm lg:text-base">
-                      <h4 className="text-green-600 font-semibold font-outfit">
-                        {cert.issuer}
-                      </h4>
-                      <div className="flex items-center text-gray-300">
-                        <Calendar className="mr-1 text-neutral-400" size={14} />
-                        <span className="font-synonym text-sm text-neutral-400">
-                          {cert.date}
-                        </span>
-                      </div>
-                    </div>
-
-                    <p className="text-neutral-400 mb-3 text-sm line-clamp-2 font-satoshi">
-                      {cert.description}
-                    </p>
-
-                    <div className="mb-3">
-                      <span className="text-xs text-gray-400">
-                        ID: {cert.credentialId}
-                      </span>
-                    </div>
-
-                    <div>
-                      <div className="flex items-center flex-wrap gap-2">
-                        <h5 className="text-white font-semibold text-sm font-synonym">
-                          Skills:
-                        </h5>
-                        {cert.skills.map((skill, i) => (
-                          <span
-                            key={i}
-                            className="whitespace-nowrap bg-green-600/20 text-green-500 px-2 py-1 rounded-full text-xs font-satoshi"
-                          >
-                            {skill}
+                      <IssuerLogo issuer={cert.issuer} logo={cert.logo} />
+                      <div className="flex-1 min-w-0 flex flex-col gap-1">
+                        <h3 className="text-sm sm:text-base font-semibold font-outfit text-neutral-300 group-hover:text-neutral-100 transition-colors duration-200 line-clamp-2">
+                          {cert.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-neutral-500 font-poppins flex items-center flex-wrap gap-1.5">
+                          <span className="text-neutral-400 flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-neutral-600 inline-block"></span>
+                            {cert.issuer}
                           </span>
-                        ))}
+                          <span className="text-neutral-700">|</span>
+                          <span>{cert.date}</span>
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-2 sm:gap-3 px-1">
+                        {cert.href && (
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <a
+                                  href={cert.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={(e) => e.stopPropagation()}
+                                  className="p-2 rounded-xl bg-neutral-950/40 border border-neutral-800/60 text-neutral-500 hover:text-white hover:border-neutral-700/80 hover:bg-neutral-900/60 transition-all duration-300"
+                                >
+                                  <LinkIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                                </a>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Verify Credentials</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        )}
+                        <div className="text-neutral-600 group-hover:text-neutral-300 transition-colors duration-300 p-1">
+                          {isExpanded ? (
+                            <ChevronUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                          ) : (
+                            <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                          )}
+                        </div>
                       </div>
                     </div>
+
+                    {/* Expandable Details Block */}
+                    {isExpanded && (
+                      <div className="pl-14 pr-4 pb-4.5 pt-1.5 flex flex-col gap-2.5 animate-fadeIn">
+                        <ul className="list-disc pl-4 space-y-2 text-xs sm:text-sm text-neutral-400 font-poppins leading-relaxed">
+                          {cert.details.map((detail, dIdx) => (
+                            <li key={dIdx} className="hover:text-neutral-200 transition-colors duration-150">
+                              {detail}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
-                </div>
-              </ScrollReveal>
-            ))}
+                </ScrollReveal>
+              );
+            })}
           </div>
+
+          {/* Toggle Button styled like the standard buttons */}
+          {certificates.length > 3 && (
+            <ScrollReveal className="flex justify-center mt-6">
+              <button
+                onClick={() => setVisibleCertCount(visibleCertCount === 3 ? certificates.length : 3)}
+                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#111111] border border-[#2d2e2d] rounded-lg text-[#d3d1d1] hover:border-[#A3A3A3]/50 hover:bg-[#1a1a1a] active:scale-95 transition-all duration-300 group shadow-lg shadow-black/20 text-sm font-bold font-outfit"
+              >
+                <span>{visibleCertCount === 3 ? 'Show More' : 'Show Less'}</span>
+                {visibleCertCount === 3 ? (
+                  <ChevronDown className="w-4 h-4 text-neutral-400 group-hover:translate-y-0.5 transition-transform" />
+                ) : (
+                  <ChevronUp className="w-4 h-4 text-neutral-400 group-hover:-translate-y-0.5 transition-transform" />
+                )}
+              </button>
+            </ScrollReveal>
+          )}
         </div>
 
         {/* Achievements Section */}
-        <div>
-          <ScrollReveal delay={0.1}>
-            <div className="flex items-center mb-8">
-              <CheckCircle className="text-green-500 mb-4 mr-3" size={32} />
-              <h2 className="text-3xl md:text-3xl mb-4 font-bold font-excon bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
-                Open Source &{' '}
-                <span className="font-bold font-excon bg-gradient-to-r from-blue-400 to-green-600 bg-clip-text text-transparent">
-                  Contribution
-                </span>
-              </h2>
-            </div>
+        <div className="mb-6">
+          <ScrollReveal>
+            <h4 className="text-xl sm:text-2xl font-bold text-neutral-200 font-excon text-left border-b border-neutral-800/60 pb-3 mb-2 flex items-center gap-1.5">
+              Contributions <span className="text-xs text-neutral-500 font-mono font-normal">[{achievements.length}]</span>
+            </h4>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-            {achievements.map((achievement, index) => (
-              <ScrollReveal key={index} delay={index * 0.05}>
-                <div className="bg-neutral-900 backdrop-blur-md rounded-xl overflow-hidden border border-gray-700/30 hover:bg-gray-900/80 transition-all duration-300 group shadow-lg h-full">
-                  <div className="relative h-32 lg:h-44 overflow-hidden">
-                    {/* Grainy Gradient Placeholder */}
+          <div className="flex flex-col gap-2">
+            {achievements.slice(0, visibleAchieveCount).map((achievement, index) => {
+              const isExpanded = expandedAchieveIndex === index;
+              return (
+                <ScrollReveal key={index} delay={index * 0.05}>
+                  <div className="border-b border-neutral-900">
                     <div
-                      className={`absolute inset-0 z-10 transition-opacity duration-700 ${loadedAchievementImages[index] ? 'opacity-0' : 'opacity-100'
-                        } ${[
-                          'bg-gradient-to-br from-blue-900/40 via-neutral-900 to-black',
-                          'bg-gradient-to-br from-emerald-900/40 via-neutral-900 to-black',
-                          'bg-gradient-to-br from-purple-900/40 via-neutral-900 to-black'
-                        ][index % 3]}`}
+                      onClick={() => toggleAchieveExpand(index)}
+                      className="flex items-center gap-4 py-3.5 sm:py-4.5 px-3 -mx-3 rounded-2xl hover:bg-[#111112]/45 cursor-pointer group transition-all duration-300"
                     >
-                      <div className="absolute inset-0 opacity-20 bg-[url('/assets/noise.svg')]"></div>
-                    </div>
-
-                    <img
-                      src={achievement.image}
-                      alt={achievement.title}
-                      className={`w-full h-full object-cover group-hover:scale-110 transition-all duration-500 ${loadedAchievementImages[index] ? 'blur-0' : 'blur-md'
-                        }`}
-                      onLoad={() => handleAchievementImageLoad(index)}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  </div>
-
-                  <div className="p-4">
-                    <h3 className="text-base lg:text-lg font-bold font-outfit text-neutral-300 mb-2 line-clamp-2">
-                      {achievement.title}
-                    </h3>
-
-                    {/* Org + Date same row */}
-                    <div className="flex justify-between items-center mb-2 text-xs lg:text-sm">
-                      <h4 className="text-green-600 font-semibold line-clamp-1">
-                        {achievement.organization}
-                      </h4>
-                      <div className="flex items-center text-gray-300">
-                        <Calendar className="mr-1" size={10} />
-                        <span className="font-synonym text-xs text-neutral-400">
-                          {achievement.date}
-                        </span>
+                      <IssuerLogo issuer={achievement.organization} logo={achievement.logo} />
+                      <div className="flex-1 min-w-0 flex flex-col gap-1">
+                        <h3 className="text-sm sm:text-base font-semibold font-outfit text-neutral-300 group-hover:text-neutral-100 transition-colors duration-200 line-clamp-2">
+                          {achievement.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-neutral-500 font-poppins flex items-center flex-wrap gap-1.5">
+                          <span className="text-neutral-400 flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-neutral-600 inline-block"></span>
+                            {achievement.organization}
+                          </span>
+                          <span className="text-neutral-700">|</span>
+                          <span>{achievement.date}</span>
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-2 sm:gap-3 px-1">
+                        {achievement.href && (
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <a
+                                  href={achievement.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={(e) => e.stopPropagation()}
+                                  className="p-2 rounded-xl bg-neutral-950/40 border border-neutral-800/60 text-neutral-500 hover:text-white hover:border-neutral-700/80 hover:bg-neutral-900/60 transition-all duration-300"
+                                >
+                                  <LinkIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                                </a>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Verify Contribution</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        )}
+                        <div className="text-neutral-600 group-hover:text-neutral-300 transition-colors duration-300 p-1">
+                          {isExpanded ? (
+                            <ChevronUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                          ) : (
+                            <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                          )}
+                        </div>
                       </div>
                     </div>
 
-                    <p className="text-neutral-400 text-xs line-clamp-3 font-poppins">
-                      {achievement.description}
-                    </p>
+                    {/* Expandable Details Block */}
+                    {isExpanded && (
+                      <div className="pl-14 pr-4 pb-4.5 pt-1.5 flex flex-col gap-2.5 animate-fadeIn">
+                        <ul className="list-disc pl-4 space-y-2 text-xs sm:text-sm text-neutral-400 font-poppins leading-relaxed">
+                          {achievement.details.map((detail, dIdx) => (
+                            <li key={dIdx} className="hover:text-neutral-200 transition-colors duration-150">
+                              {detail}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
-                </div>
-              </ScrollReveal>
-            ))}
+                </ScrollReveal>
+              );
+            })}
           </div>
+
+          {/* Toggle Button styled like the standard buttons */}
+          {achievements.length > 3 && (
+            <ScrollReveal className="flex justify-center mt-6">
+              <button
+                onClick={() => setVisibleAchieveCount(visibleAchieveCount === 3 ? achievements.length : 3)}
+                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#111111] border border-[#2d2e2d] rounded-lg text-[#d3d1d1] hover:border-[#A3A3A3]/50 hover:bg-[#1a1a1a] active:scale-95 transition-all duration-300 group shadow-lg shadow-black/20 text-sm font-bold font-outfit"
+              >
+                <span>{visibleAchieveCount === 3 ? 'Show More' : 'Show Less'}</span>
+                {visibleAchieveCount === 3 ? (
+                  <ChevronDown className="w-4 h-4 text-neutral-400 group-hover:translate-y-0.5 transition-transform" />
+                ) : (
+                  <ChevronUp className="w-4 h-4 text-neutral-400 group-hover:-translate-y-0.5 transition-transform" />
+                )}
+              </button>
+            </ScrollReveal>
+          )}
         </div>
-
-        {/* GitHub Badges Section */}
-        <ScrollReveal delay={0.2}>
-          <section className="py-16 bg-neutral-950 text-center">
-            <h2 className="text-4xl font-bold mb-10 font-synonym bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
-              All Badges
-            </h2>
-            <div className="overflow-hidden whitespace-nowrap">
-              <div className="inline-flex animate-marquee space-x-8">
-                {githubBadges.map((badge, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center min-w-[150px]"
-                  >
-                    <div className="relative">
-                      <img
-                        src={badge.img}
-                        alt={badge.name}
-                        className={`h-16 w-16 object-contain transition-all duration-500 ${loadedBadgeImages[index] ? 'blur-0' : 'blur-md'
-                          }`}
-                        onLoad={() => handleBadgeImageLoad(index)}
-                      />
-                      {badge.count && (
-                        <span className="absolute bottom-0 right-0 bg-white text-black text-xs font-bold px-1 rounded-full">
-                          {badge.count}
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-gray-300 text-sm mt-2">{badge.name}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Marquee Animation */}
-            <style>
-              {`
-            @keyframes marquee {
-              0% { transform: translateX(0%); }
-              100% { transform: translateX(-100%); }
-            }
-            .animate-marquee {
-              display: inline-flex;
-              animation: marquee 15s linear infinite;
-            }
-          `}
-            </style>
-          </section>
-        </ScrollReveal>
       </div>
+      <Sponsors />
     </div>
   );
 };

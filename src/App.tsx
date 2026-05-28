@@ -17,7 +17,6 @@ import Contact from './pages/Contact';
 import Gears from './pages/Gears';
 import Extensions from './pages/Extensions';
 import GitHubContributions from './components/GitHubContributions';
-import Sponsors from './components/Sponsors';
 import ChatBotLauncher from './components/ChatBotLauncher';
 import Certificates from './pages/Certificates';
 import Photos from './pages/Photos';
@@ -42,7 +41,6 @@ const AnimatedRoutes = () => {
               <Hero />
               <Projects />
               <GitHubContributions />
-              <Sponsors />
               <Skills />
               <Education />
               <Blog />
