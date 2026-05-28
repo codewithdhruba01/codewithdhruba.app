@@ -16,7 +16,7 @@ export const AboutContent = () => {
             <div className="relative w-full rounded-2xl overflow-hidden border border-none shadow-xl mb-8 group bg-[#101010]">
                 {/* Dark Banner */}
                 <img
-                    src="/assets/Aboutbanner.png"
+                    src="/assets/Aboutbanner.jpg"
                     alt="About Banner Dark"
                     className={`w-full h-auto object-cover transition-all duration-700 ease-in-out group-hover:scale-[1.03] ${isLightMode ? 'opacity-0 pointer-events-none' : 'opacity-100'
                         }`}
@@ -24,7 +24,7 @@ export const AboutContent = () => {
                 />
                 {/* Light Banner */}
                 <img
-                    src="/assets/Aboutbannerlight.png"
+                    src="/assets/Aboutbannerlight.jpg"
                     alt="About Banner Light"
                     className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out group-hover:scale-[1.03] ${isLightMode ? 'opacity-100' : 'opacity-0 pointer-events-none'
                         }`}
