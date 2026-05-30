@@ -14,6 +14,13 @@ const Photos = () => {
     const [lovingPhoto, setLovingPhoto] = useState(false);
     const [showHeart, setShowHeart] = useState<Record<number, boolean>>({});
 
+    // Play click audio sound from public/Audio/
+    const playClickSound = () => {
+        const audio = new Audio('/Audio/public_audio_toggle-on.MP3');
+        audio.volume = 0.1; // Lower volume for a very soft and pleasant click
+        audio.play().catch((err) => console.log('Audio play blocked or failed:', err));
+    };
+
     // Swipe functionality
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [touchEnd, setTouchEnd] = useState<number | null>(null);
@@ -239,6 +246,7 @@ const Photos = () => {
                                 onClick={() => {
                                     setSelectedCategory(category);
                                     setCurrentIndex(0);
+                                    playClickSound();
                                 }}
                                 className={`px-4 py-1.5 rounded-full text-xs md:text-sm font-medium font-outfit transition-all duration-300 ${selectedCategory === category
                                     ? 'bg-white text-neutral-950 shadow-lg shadow-white/5 scale-102 font-semibold'

@@ -60,6 +60,13 @@ const AllPosts = () => {
   const [loadingViews, setLoadingViews] = useState(true);
   const [loadedImages, setLoadedImages] = useState<Record<string, boolean>>({});
 
+  // Play click audio sound from public/Audio/
+  const playClickSound = () => {
+    const audio = new Audio('/Audio/public_audio_toggle-on.MP3');
+    audio.volume = 0.1; // Lower volume for a very soft and pleasant click
+    audio.play().catch((err) => console.log('Audio play blocked or failed:', err));
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
     loadBlogViews();
@@ -122,7 +129,10 @@ const AllPosts = () => {
                 return (
                   <button
                     key={i}
-                    onClick={() => setActiveTag(tag.name)}
+                    onClick={() => {
+                      setActiveTag(tag.name);
+                      playClickSound();
+                    }}
                     className={`pl-4 pr-2.5 py-1.5 text-sm rounded-full font-outfit font-medium transition-all duration-200 flex items-center gap-2 ${isActive
                       ? 'bg-[#E4E4E7] text-[#121214]'
                       : 'bg-[#18181A] hover:bg-[#202024] text-[#909092] hover:text-white'

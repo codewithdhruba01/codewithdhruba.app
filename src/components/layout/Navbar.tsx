@@ -8,6 +8,13 @@ const Navbar = () => {
   const { isMobileMenuOpen, toggleMobileMenu, setMobileMenuOpen, isCommandPaletteOpen, setCommandPaletteOpen } = useUIStore();
   const { activeLink, setActiveLink } = useAppStore();
 
+  // Play click audio sound from public/Audio/
+  const playClickSound = () => {
+    const audio = new Audio('/Audio/public_audio_toggle-on.MP3');
+    audio.volume = 0.1; // Lower volume for a very soft and pleasant click
+    audio.play().catch((err) => console.log('Audio play blocked or failed:', err));
+  };
+
   // Keyboard shortcut for command palette
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -51,7 +58,7 @@ const Navbar = () => {
           {/* Left: Logo & Links */}
           <div className="flex items-center gap-8">
             <div className="flex-shrink-0">
-              <Link to="/">
+              <Link to="/" onClick={playClickSound}>
                 <img src="/assets/logo.png" alt="Logo" className="h-9 w-auto" />
               </Link>
             </div>
@@ -62,7 +69,10 @@ const Navbar = () => {
                 <Link
                   key={link.href}
                   to={link.href}
-                  onClick={() => setActiveLink(link.href)}
+                  onClick={() => {
+                    setActiveLink(link.href);
+                    playClickSound();
+                  }}
                   className={`px-3 py-1.5 rounded-md transition-all duration-300 font-medium ${activeLink === link.href
                     ? 'text-[#f4f4f4]'
                     : 'text-[#909092] hover:text-[#f4f4f4]'
@@ -77,7 +87,10 @@ const Navbar = () => {
           {/* Right Side: Search */}
           <div className="hidden md:flex items-center">
             <button
-              onClick={() => setCommandPaletteOpen(true)}
+              onClick={() => {
+                setCommandPaletteOpen(true);
+                playClickSound();
+              }}
               className="pl-3.5 pr-1.5 py-1 rounded-full bg-[#121214] border border-neutral-800/80 hover:bg-neutral-900 hover:border-neutral-700 transition-all duration-200 flex items-center gap-3 text-sm font-outfit"
               title="Search (Ctrl+K)"
             >
@@ -91,7 +104,10 @@ const Navbar = () => {
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
-              onClick={toggleMobileMenu}
+              onClick={() => {
+                toggleMobileMenu();
+                playClickSound();
+              }}
               className="text-white hover:text-[#f4f4f4] focus:outline-none transition-transform duration-300 ease-in-out"
             >
               <i
@@ -113,6 +129,7 @@ const Navbar = () => {
                 onClick={() => {
                   setActiveLink(link.href);
                   setMobileMenuOpen(false);
+                  playClickSound();
                 }}
                 className={`block px-3 py-2 rounded-md transition-all font-hind duration-300 transform hover:text-[#f4f4f4] ${isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'} ${activeLink === link.href ? 'text-[#f4f4f4]' : 'text-[#909092]'}`}
                 style={{

@@ -13,6 +13,13 @@ const GitHubContributions = () => {
   const [year, setYear] = useState<number>(new Date().getFullYear()); // default latest year
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
+  // Play click audio sound from public/Audio/
+  const playClickSound = () => {
+    const audio = new Audio('/Audio/public_audio_toggle-on.MP3');
+    audio.volume = 0.1; // Lower volume for a very soft and pleasant click
+    audio.play().catch((err) => console.log('Audio play blocked or failed:', err));
+  };
+
   const GITHUB_USERNAME = 'codewithdhruba01';
   const TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
 
@@ -143,7 +150,10 @@ const GitHubContributions = () => {
                 {years.map((y) => (
                   <button
                     key={y}
-                    onClick={() => setYear(y)}
+                    onClick={() => {
+                      setYear(y);
+                      playClickSound();
+                    }}
                     className={`px-3 py-1 rounded text-xs font-semibold transition-all duration-200 cursor-pointer ${year === y
                       ? 'bg-[#00DC82] text-black'
                       : 'bg-neutral-800 text-[#909092] hover:bg-neutral-700 hover:text-white'

@@ -18,7 +18,15 @@ export default function Gears() {
     window.scrollTo(0, 0);
   }, []);
 
+  // Play click audio sound from public/Audio/
+  const playClickSound = () => {
+    const audio = new Audio('/Audio/public_audio_toggle-on.MP3');
+    audio.volume = 0.1; // Lower volume for a very soft and pleasant click
+    audio.play().catch((err) => console.log('Audio play blocked or failed:', err));
+  };
+
   const handleCopy = (text: string) => {
+    playClickSound();
     navigator.clipboard.writeText(text);
     setCopied(text);
     setTimeout(() => setCopied(null), 1500);

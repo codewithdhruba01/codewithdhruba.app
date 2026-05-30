@@ -46,6 +46,13 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
   const inputRef = useRef<HTMLInputElement>(null);
   const activeItemRef = useRef<HTMLButtonElement>(null);
 
+  // Play click audio sound from public/Audio/
+  const playClickSound = () => {
+    const audio = new Audio('/Audio/public_audio_toggle-on.MP3');
+    audio.volume = 0.1; // Lower volume for a very soft and pleasant click
+    audio.play().catch((err) => console.log('Audio play blocked or failed:', err));
+  };
+
   // Define all search items with proper categorization
   const searchItems: SearchItem[] = [
     // Recent (show recently visited pages)
@@ -316,6 +323,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
         case 'Enter':
           event.preventDefault();
           if (filteredItems[selectedIndex]) {
+            playClickSound();
             filteredItems[selectedIndex].action();
           }
           break;
@@ -329,6 +337,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
       const shortcutItem = filteredItems.find(item => item.shortcut === `Shift + ${event.key.toUpperCase()}`);
       if (shortcutItem && event.shiftKey && !event.ctrlKey && !event.metaKey && !event.altKey) {
         event.preventDefault();
+        playClickSound();
         shortcutItem.action();
       }
     };
@@ -405,7 +414,10 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
                       <button
                         key={item.id}
                         ref={isSelected ? activeItemRef : null}
-                        onClick={() => item.action()}
+                        onClick={() => {
+                          playClickSound();
+                          item.action();
+                        }}
                         className={`w-full flex items-center justify-between px-3 py-2.5 rounded-md text-left
                                    transition-all duration-200 hover:bg-neutral-800
                                    ${isSelected ? 'bg-neutral-800' : ''}`}

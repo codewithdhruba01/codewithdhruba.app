@@ -74,6 +74,13 @@ const socialLinks = [
 const Footer = () => {
   const [visitorCount, setVisitorCount] = useState<number | null>(null);
 
+  // Play click audio sound from public/Audio/
+  const playClickSound = () => {
+    const audio = new Audio('/Audio/public_audio_toggle-on.MP3');
+    audio.volume = 0.1; // Lower volume for a very soft and pleasant click
+    audio.play().catch((err) => console.log('Audio play blocked or failed:', err));
+  };
+
   useEffect(() => {
     const handleVisitorCount = async () => {
       try {
@@ -112,6 +119,7 @@ const Footer = () => {
                 <Link
                   key={link.name}
                   to={link.href}
+                  onClick={playClickSound}
                   className="text-[#909092] hover:text-white transition-colors duration-200"
                 >
                   {link.name}
@@ -124,6 +132,7 @@ const Footer = () => {
               href="https://open.spotify.com/playlist/7vcmvUAHBN1KU4KUQqDP03?si=03momC0tQ_a1SSmzOlE7-A"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={playClickSound}
               className="flex items-center gap-2.5 mt-4 group w-fit"
             >
               <div className="relative w-6 h-6 flex items-center justify-center">
@@ -158,6 +167,7 @@ const Footer = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={playClickSound}
                   className="group w-10 h-10 border border-neutral-800 bg-[#101010]/30 hover:border-neutral-700/60 rounded-lg flex items-center justify-center transition-all duration-300 hover:bg-neutral-900/40"
                 >
                   {link.icon}
