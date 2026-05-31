@@ -48,8 +48,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
 
   // Play click audio sound from public/Audio/
   const playClickSound = () => {
-    const audio = new Audio('/Audio/public_audio_toggle-on.MP3');
-    audio.volume = 0.1; // Lower volume for a very soft and pleasant click
+    const audio = new Audio('/Audio/mouse-click.mp3');
+    audio.volume = 0.2; // Lower volume for a very soft and pleasant click
     audio.play().catch((err) => console.log('Audio play blocked or failed:', err));
   };
 

@@ -16,8 +16,8 @@ const Photos = () => {
 
     // Play click audio sound from public/Audio/
     const playClickSound = () => {
-        const audio = new Audio('/Audio/public_audio_toggle-on.MP3');
-        audio.volume = 0.1; // Lower volume for a very soft and pleasant click
+        const audio = new Audio('/Audio/mouse-click.mp3');
+        audio.volume = 0.2; // Lower volume for a very soft and pleasant click
         audio.play().catch((err) => console.log('Audio play blocked or failed:', err));
     };
 
@@ -263,276 +263,276 @@ const Photos = () => {
                     <div className="relative mb-6">
                         <div
                             className="relative flex items-center justify-center min-h-[450px] md:min-h-[550px] lg:min-h-[600px] transition-transform duration-800 ease-out"
-                        style={{
-                            touchAction: 'pan-y pinch-zoom',
-                            userSelect: 'none',
-                            cursor: isSwiping ? 'grabbing' : 'grab'
-                        }}
-                        onTouchStart={onTouchStart}
-                        onTouchMove={onTouchMove}
-                        onTouchEnd={onTouchEnd}
-                        onTouchCancel={() => {
-                            setIsSwiping(false);
-                            setTouchStart(null);
-                            setTouchEnd(null);
-                        }}
-                        onMouseDown={onMouseDown}
-                        onMouseMove={onMouseMove}
-                        onMouseUp={onMouseUp}
-                        onMouseLeave={onMouseLeave}
-                    >
-                        {visiblePhotos.map((photo, index) => {
-                            const isCenter = photo.position === 0;
-                            const isNearSide = Math.abs(photo.position) === 1;
-                            const isFarSide = Math.abs(photo.position) === 2;
-                            const isLeft = photo.position < 0;
+                            style={{
+                                touchAction: 'pan-y pinch-zoom',
+                                userSelect: 'none',
+                                cursor: isSwiping ? 'grabbing' : 'grab'
+                            }}
+                            onTouchStart={onTouchStart}
+                            onTouchMove={onTouchMove}
+                            onTouchEnd={onTouchEnd}
+                            onTouchCancel={() => {
+                                setIsSwiping(false);
+                                setTouchStart(null);
+                                setTouchEnd(null);
+                            }}
+                            onMouseDown={onMouseDown}
+                            onMouseMove={onMouseMove}
+                            onMouseUp={onMouseUp}
+                            onMouseLeave={onMouseLeave}
+                        >
+                            {visiblePhotos.map((photo, index) => {
+                                const isCenter = photo.position === 0;
+                                const isNearSide = Math.abs(photo.position) === 1;
+                                const isFarSide = Math.abs(photo.position) === 2;
+                                const isLeft = photo.position < 0;
 
-                            return (
-                                <div
-                                    key={`${photo.id}-${index}`}
-                                    className={`absolute transition-all duration-800 ease-out ${isCenter
-                                        ? 'w-80 h-[400px] md:w-96 md:h-[480px] lg:w-[420px] lg:h-[525px] z-40 scale-100'
-                                        : isNearSide
-                                            ? 'w-72 h-[360px] md:w-80 md:h-[400px] lg:w-[360px] lg:h-[450px] z-20 scale-85'
-                                            : 'w-64 h-[320px] md:w-72 md:h-[360px] lg:w-[300px] lg:h-[375px] z-10 scale-75'
-                                        }`}
-                                    style={{
-                                        left: isCenter
-                                            ? '50%'
-                                            : isNearSide
-                                                ? isLeft
-                                                    ? '25%'
-                                                    : '75%'
-                                                : isLeft
-                                                    ? '5%'
-                                                    : '95%',
-                                        transform: `translateX(${isCenter ? '-50%' : isNearSide ? '-50%' : '-50%'
-                                            }) ${isCenter
-                                                ? 'scale(1)'
-                                                : isNearSide
-                                                    ? 'scale(0.85)'
-                                                    : 'scale(0.75)'
-                                            }`,
-                                        filter: isCenter
-                                            ? 'brightness(1.1) contrast(1.2) saturate(1.1)'
-                                            : isNearSide
-                                                ? 'brightness(0.8) contrast(0.9) blur(0.8px) saturate(0.9)'
-                                                : 'brightness(0.6) contrast(0.7) blur(2px) saturate(0.7)',
-                                    }}
-                                >
+                                return (
                                     <div
-                                        className="relative overflow-hidden rounded-3xl shadow-2xl shadow-black/40 h-full w-full cursor-pointer"
-                                        onDoubleClick={() => isCenter && handleLoveClick(photo.id)}
-                                        onClick={() => {
-                                            // Handle tapping on side cards to navigate to them (often expected when swiping is requested)
-                                            if (isNearSide) {
-                                                if (isLeft) prevPhoto();
-                                                else nextPhoto();
-                                            } else if (isFarSide) {
-                                                // Jump two cards
-                                                if (isLeft) {
-                                                    prevPhoto();
-                                                    setTimeout(prevPhoto, 150);
-                                                } else {
-                                                    nextPhoto();
-                                                    setTimeout(nextPhoto, 150);
-                                                }
-                                            }
-                                        }}
-                                        onTouchEnd={() => {
-                                            if (!isCenter) return;
-                                            const now = Date.now();
-                                            const DOUBLE_PRESS_DELAY = 300;
-                                            if (lastTap && (now - lastTap) < DOUBLE_PRESS_DELAY) {
-                                                handleLoveClick(photo.id);
-                                                setLastTap(0);
-                                            } else {
-                                                setLastTap(now);
-                                            }
+                                        key={`${photo.id}-${index}`}
+                                        className={`absolute transition-all duration-800 ease-out ${isCenter
+                                            ? 'w-80 h-[400px] md:w-96 md:h-[480px] lg:w-[420px] lg:h-[525px] z-40 scale-100'
+                                            : isNearSide
+                                                ? 'w-72 h-[360px] md:w-80 md:h-[400px] lg:w-[360px] lg:h-[450px] z-20 scale-85'
+                                                : 'w-64 h-[320px] md:w-72 md:h-[360px] lg:w-[300px] lg:h-[375px] z-10 scale-75'
+                                            }`}
+                                        style={{
+                                            left: isCenter
+                                                ? '50%'
+                                                : isNearSide
+                                                    ? isLeft
+                                                        ? '25%'
+                                                        : '75%'
+                                                    : isLeft
+                                                        ? '5%'
+                                                        : '95%',
+                                            transform: `translateX(${isCenter ? '-50%' : isNearSide ? '-50%' : '-50%'
+                                                }) ${isCenter
+                                                    ? 'scale(1)'
+                                                    : isNearSide
+                                                        ? 'scale(0.85)'
+                                                        : 'scale(0.75)'
+                                                }`,
+                                            filter: isCenter
+                                                ? 'brightness(1.1) contrast(1.2) saturate(1.1)'
+                                                : isNearSide
+                                                    ? 'brightness(0.8) contrast(0.9) blur(0.8px) saturate(0.9)'
+                                                    : 'brightness(0.6) contrast(0.7) blur(2px) saturate(0.7)',
                                         }}
                                     >
-                                        <img
-                                            src={photo.image}
-                                            alt={photo.title}
-                                            draggable={false}
-                                            className={`w-full h-full object-cover transition-all duration-700 ease-out ${loadedImages.has(photo.image) ? 'filter-none' : 'blur-sm scale-110'
-                                                }`}
-                                            onLoad={() => handleImageLoad(photo.image)}
-                                            onError={(e) => {
-                                                const target = e.target as HTMLImageElement;
-                                                target.src = '/placeholder-photo.jpg';
-                                                handleImageLoad(photo.image);
+                                        <div
+                                            className="relative overflow-hidden rounded-3xl shadow-2xl shadow-black/40 h-full w-full cursor-pointer"
+                                            onDoubleClick={() => isCenter && handleLoveClick(photo.id)}
+                                            onClick={() => {
+                                                // Handle tapping on side cards to navigate to them (often expected when swiping is requested)
+                                                if (isNearSide) {
+                                                    if (isLeft) prevPhoto();
+                                                    else nextPhoto();
+                                                } else if (isFarSide) {
+                                                    // Jump two cards
+                                                    if (isLeft) {
+                                                        prevPhoto();
+                                                        setTimeout(prevPhoto, 150);
+                                                    } else {
+                                                        nextPhoto();
+                                                        setTimeout(nextPhoto, 150);
+                                                    }
+                                                }
                                             }}
-                                        />
-
-                                        {/* Large Animated Heart */}
-                                        <AnimatePresence>
-                                            {showHeart[photo.id] && (
-                                                <motion.div
-                                                    initial={{ opacity: 0, scale: 0, x: "-50%", y: "-50%" }}
-                                                    animate={{
-                                                        opacity: [0, 1, 1, 0],
-                                                        scale: [0, 1.2, 1, 1.5],
-                                                        x: "-50%",
-                                                        y: "-50%"
-                                                    }}
-                                                    exit={{ opacity: 0, scale: 2, x: "-50%", y: "-50%" }}
-                                                    transition={{ duration: 0.8, ease: "easeOut" }}
-                                                    className="absolute top-1/2 left-1/2 z-50 pointer-events-none"
-                                                >
-                                                    <Heart className="w-24 h-24 text-red-500 fill-red-500 drop-shadow-[0_0_15px_rgba(239,68,68,0.6)]" />
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
-
-                                        {isNearSide && (
-                                            <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-black/10 to-black/30 rounded-3xl pointer-events-none" />
-                                        )}
-                                        {isFarSide && (
-                                            <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-black/50 rounded-3xl pointer-events-none" />
-                                        )}
-
-                                        {isCenter && (
-                                            <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-black/5 rounded-3xl pointer-events-none" />
-                                        )}
-
-                                        {/* Love Icon - positioned after overlays to ensure it's clickable */}
-                                        <motion.button
-                                            whileTap={{ scale: 0.8 }}
-                                            onClick={(e) => handleLoveClick(photo.id, e)}
-                                            onTouchStart={(e) => e.stopPropagation()}
-                                            onTouchMove={(e) => e.stopPropagation()}
-                                            onTouchEnd={(e) => e.stopPropagation()}
-                                            onMouseDown={(e) => e.stopPropagation()}
-                                            onMouseMove={(e) => e.stopPropagation()}
-                                            onMouseUp={(e) => e.stopPropagation()}
-                                            disabled={userLovedPhotos.has(photo.id) || lovingPhoto}
-                                            className={`absolute top-3 left-3 z-20 p-2 rounded-full bg-black/20 backdrop-blur-sm transition-colors duration-200 group flex items-center gap-1 ${userLovedPhotos.has(photo.id)
-                                                ? 'cursor-default'
-                                                : 'hover:bg-black/40 cursor-pointer'
-                                                }`}
-                                            aria-label={userLovedPhotos.has(photo.id) ? "Already loved" : "Add to favorites"}
+                                            onTouchEnd={() => {
+                                                if (!isCenter) return;
+                                                const now = Date.now();
+                                                const DOUBLE_PRESS_DELAY = 300;
+                                                if (lastTap && (now - lastTap) < DOUBLE_PRESS_DELAY) {
+                                                    handleLoveClick(photo.id);
+                                                    setLastTap(0);
+                                                } else {
+                                                    setLastTap(now);
+                                                }
+                                            }}
                                         >
-                                            <div className="relative">
-                                                <AnimatePresence>
-                                                    {userLovedPhotos.has(photo.id) && (
-                                                        <motion.div
-                                                            initial={{ scale: 0, opacity: 0 }}
-                                                            animate={{ scale: 1.5, opacity: 0 }}
-                                                            exit={{ opacity: 0 }}
-                                                            transition={{ duration: 0.5, ease: "easeOut" }}
-                                                            className="absolute inset-0 z-10"
-                                                        >
-                                                            <Heart className="w-5 h-5 text-red-500 fill-red-500" />
-                                                        </motion.div>
-                                                    )}
-                                                </AnimatePresence>
-                                                <motion.div
-                                                    initial={false}
-                                                    animate={{
-                                                        scale: userLovedPhotos.has(photo.id) ? [1, 1.4, 1] : 1,
-                                                        color: userLovedPhotos.has(photo.id) ? "#ef4444" : "rgba(255, 255, 255, 0.7)"
-                                                    }}
-                                                    transition={{
-                                                        duration: 0.4,
-                                                        ease: [0.175, 0.885, 0.32, 1.275] // spring-like easing
-                                                    }}
-                                                >
-                                                    <Heart
-                                                        className={`w-5 h-5 ${userLovedPhotos.has(photo.id)
-                                                            ? 'fill-red-500 drop-shadow-lg'
-                                                            : 'group-hover:text-white'
-                                                            }`}
-                                                    />
-                                                </motion.div>
-                                            </div>
-                                            <span className={`text-xs font-medium transition-all duration-200 ${userLovedPhotos.has(photo.id)
-                                                ? 'text-white/70'
-                                                : 'text-white/70 group-hover:text-white'
-                                                }`}>
-                                                {photoLoveCounts[photo.id] || 0}
-                                            </span>
-                                        </motion.button>
+                                            <img
+                                                src={photo.image}
+                                                alt={photo.title}
+                                                draggable={false}
+                                                className={`w-full h-full object-cover transition-all duration-700 ease-out ${loadedImages.has(photo.image) ? 'filter-none' : 'blur-sm scale-110'
+                                                    }`}
+                                                onLoad={() => handleImageLoad(photo.image)}
+                                                onError={(e) => {
+                                                    const target = e.target as HTMLImageElement;
+                                                    target.src = '/placeholder-photo.jpg';
+                                                    handleImageLoad(photo.image);
+                                                }}
+                                            />
+
+                                            {/* Large Animated Heart */}
+                                            <AnimatePresence>
+                                                {showHeart[photo.id] && (
+                                                    <motion.div
+                                                        initial={{ opacity: 0, scale: 0, x: "-50%", y: "-50%" }}
+                                                        animate={{
+                                                            opacity: [0, 1, 1, 0],
+                                                            scale: [0, 1.2, 1, 1.5],
+                                                            x: "-50%",
+                                                            y: "-50%"
+                                                        }}
+                                                        exit={{ opacity: 0, scale: 2, x: "-50%", y: "-50%" }}
+                                                        transition={{ duration: 0.8, ease: "easeOut" }}
+                                                        className="absolute top-1/2 left-1/2 z-50 pointer-events-none"
+                                                    >
+                                                        <Heart className="w-24 h-24 text-red-500 fill-red-500 drop-shadow-[0_0_15px_rgba(239,68,68,0.6)]" />
+                                                    </motion.div>
+                                                )}
+                                            </AnimatePresence>
+
+                                            {isNearSide && (
+                                                <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-black/10 to-black/30 rounded-3xl pointer-events-none" />
+                                            )}
+                                            {isFarSide && (
+                                                <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-black/50 rounded-3xl pointer-events-none" />
+                                            )}
+
+                                            {isCenter && (
+                                                <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-black/5 rounded-3xl pointer-events-none" />
+                                            )}
+
+                                            {/* Love Icon - positioned after overlays to ensure it's clickable */}
+                                            <motion.button
+                                                whileTap={{ scale: 0.8 }}
+                                                onClick={(e) => handleLoveClick(photo.id, e)}
+                                                onTouchStart={(e) => e.stopPropagation()}
+                                                onTouchMove={(e) => e.stopPropagation()}
+                                                onTouchEnd={(e) => e.stopPropagation()}
+                                                onMouseDown={(e) => e.stopPropagation()}
+                                                onMouseMove={(e) => e.stopPropagation()}
+                                                onMouseUp={(e) => e.stopPropagation()}
+                                                disabled={userLovedPhotos.has(photo.id) || lovingPhoto}
+                                                className={`absolute top-3 left-3 z-20 p-2 rounded-full bg-black/20 backdrop-blur-sm transition-colors duration-200 group flex items-center gap-1 ${userLovedPhotos.has(photo.id)
+                                                    ? 'cursor-default'
+                                                    : 'hover:bg-black/40 cursor-pointer'
+                                                    }`}
+                                                aria-label={userLovedPhotos.has(photo.id) ? "Already loved" : "Add to favorites"}
+                                            >
+                                                <div className="relative">
+                                                    <AnimatePresence>
+                                                        {userLovedPhotos.has(photo.id) && (
+                                                            <motion.div
+                                                                initial={{ scale: 0, opacity: 0 }}
+                                                                animate={{ scale: 1.5, opacity: 0 }}
+                                                                exit={{ opacity: 0 }}
+                                                                transition={{ duration: 0.5, ease: "easeOut" }}
+                                                                className="absolute inset-0 z-10"
+                                                            >
+                                                                <Heart className="w-5 h-5 text-red-500 fill-red-500" />
+                                                            </motion.div>
+                                                        )}
+                                                    </AnimatePresence>
+                                                    <motion.div
+                                                        initial={false}
+                                                        animate={{
+                                                            scale: userLovedPhotos.has(photo.id) ? [1, 1.4, 1] : 1,
+                                                            color: userLovedPhotos.has(photo.id) ? "#ef4444" : "rgba(255, 255, 255, 0.7)"
+                                                        }}
+                                                        transition={{
+                                                            duration: 0.4,
+                                                            ease: [0.175, 0.885, 0.32, 1.275] // spring-like easing
+                                                        }}
+                                                    >
+                                                        <Heart
+                                                            className={`w-5 h-5 ${userLovedPhotos.has(photo.id)
+                                                                ? 'fill-red-500 drop-shadow-lg'
+                                                                : 'group-hover:text-white'
+                                                                }`}
+                                                        />
+                                                    </motion.div>
+                                                </div>
+                                                <span className={`text-xs font-medium transition-all duration-200 ${userLovedPhotos.has(photo.id)
+                                                    ? 'text-white/70'
+                                                    : 'text-white/70 group-hover:text-white'
+                                                    }`}>
+                                                    {photoLoveCounts[photo.id] || 0}
+                                                </span>
+                                            </motion.button>
+                                        </div>
                                     </div>
-                                </div>
-                            );
-                        })}
+                                );
+                            })}
+                        </div>
                     </div>
-                </div>
-            </ScrollReveal>
+                </ScrollReveal>
 
-            {/* New Pagination Design */}
-            <ScrollReveal delay={0.2}>
-                <div className="flex flex-col items-center gap-8 mt-4">
-                    <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center px-4 py-3 bg-[#0A0A0A]/50 backdrop-blur-sm rounded-2xl border border-neutral-900/50">
-                        {(() => {
-                            const totalPages = filteredPhotos.length;
-                            const pages = [];
-                            const range = 1; // Number of pages to show around current page
+                {/* New Pagination Design */}
+                <ScrollReveal delay={0.2}>
+                    <div className="flex flex-col items-center gap-8 mt-4">
+                        <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center px-4 py-3 bg-[#0A0A0A]/50 backdrop-blur-sm rounded-2xl border border-neutral-900/50">
+                            {(() => {
+                                const totalPages = filteredPhotos.length;
+                                const pages = [];
+                                const range = 1; // Number of pages to show around current page
 
-                            // Always show first page
-                            pages.push(0);
+                                // Always show first page
+                                pages.push(0);
 
-                            if (currentIndex > range + 1) {
-                                pages.push('ellipsis-start');
-                            }
-
-                            for (let i = Math.max(1, currentIndex - range); i <= Math.min(totalPages - 2, currentIndex + range); i++) {
-                                pages.push(i);
-                            }
-
-                            if (currentIndex < totalPages - range - 2) {
-                                pages.push('ellipsis-end');
-                            }
-
-                            // Always show last page if it exists
-                            if (totalPages > 1) {
-                                pages.push(totalPages - 1);
-                            }
-
-                            return pages.map((page) => {
-                                if (typeof page === 'string') {
-                                    return (
-                                        <span key={page} className="text-gray-600 px-2 select-none">...</span>
-                                    );
+                                if (currentIndex > range + 1) {
+                                    pages.push('ellipsis-start');
                                 }
 
-                                const isActive = currentIndex === page;
-                                return (
-                                    <button
-                                        key={page}
-                                        onClick={() => setCurrentIndex(page)}
-                                        className={`w-10 h-10 flex items-center justify-center rounded-xl text-lg font-medium transition-all duration-300 ${isActive
-                                            ? 'bg-[#1C1C1E] text-white shadow-xl shadow-black/40'
-                                            : 'text-gray-500 hover:text-gray-300 hover:bg-neutral-900/50'
-                                            }`}
-                                    >
-                                        {page + 1}
-                                    </button>
-                                );
-                            });
-                        })()}
-                    </div>
+                                for (let i = Math.max(1, currentIndex - range); i <= Math.min(totalPages - 2, currentIndex + range); i++) {
+                                    pages.push(i);
+                                }
 
-                    <div className="flex gap-4">
-                        <button
-                            onClick={prevPhoto}
-                            className="p-3 rounded-xl border border-neutral-700/50 flex items-center justify-center hover:border-neutral-800 transition-all duration-300 hover:bg-white/5"
-                        >
-                            <ChevronLeft className="w-5 h-5 text-gray-500" />
-                        </button>
-                        <button
-                            onClick={nextPhoto}
-                            className="p-3 rounded-xl border border-neutral-700/50 flex items-center justify-center hover:border-neutral-800 transition-all duration-300 hover:bg-white/5"
-                        >
-                            <ChevronRight className="w-5 h-5 text-gray-500" />
-                        </button>
+                                if (currentIndex < totalPages - range - 2) {
+                                    pages.push('ellipsis-end');
+                                }
+
+                                // Always show last page if it exists
+                                if (totalPages > 1) {
+                                    pages.push(totalPages - 1);
+                                }
+
+                                return pages.map((page) => {
+                                    if (typeof page === 'string') {
+                                        return (
+                                            <span key={page} className="text-gray-600 px-2 select-none">...</span>
+                                        );
+                                    }
+
+                                    const isActive = currentIndex === page;
+                                    return (
+                                        <button
+                                            key={page}
+                                            onClick={() => setCurrentIndex(page)}
+                                            className={`w-10 h-10 flex items-center justify-center rounded-xl text-lg font-medium transition-all duration-300 ${isActive
+                                                ? 'bg-[#1C1C1E] text-white shadow-xl shadow-black/40'
+                                                : 'text-gray-500 hover:text-gray-300 hover:bg-neutral-900/50'
+                                                }`}
+                                        >
+                                            {page + 1}
+                                        </button>
+                                    );
+                                });
+                            })()}
+                        </div>
+
+                        <div className="flex gap-4">
+                            <button
+                                onClick={prevPhoto}
+                                className="p-3 rounded-xl border border-neutral-700/50 flex items-center justify-center hover:border-neutral-800 transition-all duration-300 hover:bg-white/5"
+                            >
+                                <ChevronLeft className="w-5 h-5 text-gray-500" />
+                            </button>
+                            <button
+                                onClick={nextPhoto}
+                                className="p-3 rounded-xl border border-neutral-700/50 flex items-center justify-center hover:border-neutral-800 transition-all duration-300 hover:bg-white/5"
+                            >
+                                <ChevronRight className="w-5 h-5 text-gray-500" />
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </ScrollReveal>
+                </ScrollReveal>
+            </div>
         </div>
-    </div>
-);
+    );
 };
 
 export default Photos;

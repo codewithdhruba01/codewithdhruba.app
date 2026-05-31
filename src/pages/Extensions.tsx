@@ -20,7 +20,7 @@ export default function Gears() {
 
   // Play click audio sound from public/Audio/
   const playClickSound = () => {
-    const audio = new Audio('/Audio/public_audio_toggle-on.MP3');
+    const audio = new Audio('/Audio/link_sound.mp3');
     audio.volume = 0.1; // Lower volume for a very soft and pleasant click
     audio.play().catch((err) => console.log('Audio play blocked or failed:', err));
   };
@@ -62,7 +62,7 @@ export default function Gears() {
               VS Code Extensions
             </h2>
           </ScrollReveal>
-          
+
           <ul className="space-y-4">
             {[
               { name: 'formulahendry.code-runner' },
