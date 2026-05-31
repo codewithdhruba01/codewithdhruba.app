@@ -64,7 +64,7 @@ const Hero = () => {
         {/* Banner Image Container */}
         <div className="relative w-full rounded-2xl overflow-hidden aspect-[13/5] sm:aspect-[3/1] bg-neutral-900 border border-neutral-800">
           <img
-            src="/assets/banner.png"
+            src="/assets/banner.jpg"
             alt="Mountain landscape banner"
             className="w-full h-full object-cover object-center brightness-[0.75]"
           />
