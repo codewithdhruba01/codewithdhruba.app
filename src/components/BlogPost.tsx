@@ -8,6 +8,7 @@ import {
   Minus,
   Settings,
   RotateCcw,
+  X,
 } from 'lucide-react';
 import GiscusComments from './GiscusComments';
 import ShareModal from './modals/ShareModal';
@@ -42,6 +43,7 @@ const BlogPost = () => {
   const post = slug ? blogPostsData[slug as keyof typeof blogPostsData] : null;
 
   const [showShareModal, setShowShareModal] = useState<boolean>(false);
+  const [activeImage, setActiveImage] = useState<{ src: string; alt: string } | null>(null);
 
   // Font size zoom functionality
   const [fontSize, setFontSize] = useState<number>(100); // percentage
@@ -235,46 +237,33 @@ const BlogPost = () => {
 
 
   const enhanceCodeBlocks = () => {
-
     const preElements = document.querySelectorAll('pre:not(.code-enhanced)');
 
     preElements.forEach((pre) => {
       const preElement = pre as HTMLElement;
-
-
       preElement.classList.add('code-enhanced');
-
 
       const codeElement = preElement.querySelector('code');
       if (!codeElement) return;
-
 
       const languageClass = Array.from(codeElement.classList).find(cls =>
         cls.startsWith('language-')
       );
       const language = languageClass ? languageClass.replace('language-', '') : 'text';
 
-
       const wrapper = document.createElement('div');
       wrapper.className = 'code-block-wrapper-modern';
       wrapper.setAttribute('data-language', language);
 
-
-      const header = document.createElement('div');
-      header.className = 'code-header';
-
-      const languageLabel = document.createElement('span');
-      languageLabel.className = 'code-language';
-      languageLabel.textContent = language.toUpperCase();
-
       const copyButton = document.createElement('button');
       copyButton.className = 'code-copy-btn-modern';
+      copyButton.title = 'Copy Code';
       copyButton.innerHTML = `
-        <svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg class="copy-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
           <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
         </svg>
-        <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+        <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display: none; color: #22c55e;">
           <polyline points="20,6 9,17 4,12"></polyline>
         </svg>
       `;
@@ -300,16 +289,34 @@ const BlogPost = () => {
         });
       };
 
-      header.appendChild(languageLabel);
-      header.appendChild(copyButton);
-
       // Wrap the pre element
       preElement.parentNode?.insertBefore(wrapper, preElement);
-      wrapper.appendChild(header);
+      wrapper.appendChild(copyButton);
       wrapper.appendChild(preElement);
 
       // Apply Prism.js highlighting
       Prism.highlightElement(codeElement);
+    });
+  };
+
+  const enhanceImages = () => {
+    const images = document.querySelectorAll('.prose img:not(.image-enhanced)');
+    images.forEach((img) => {
+      const imgElement = img as HTMLImageElement;
+      imgElement.classList.add('image-enhanced', 'cursor-zoom-in');
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'blog-image-wrapper-modern';
+
+      imgElement.parentNode?.insertBefore(wrapper, imgElement);
+      wrapper.appendChild(imgElement);
+
+      imgElement.onclick = () => {
+        setActiveImage({
+          src: imgElement.src,
+          alt: imgElement.alt || 'Blog Image Preview'
+        });
+      };
     });
   };
 
@@ -322,10 +329,11 @@ const BlogPost = () => {
     }
   }, [slug]);
 
-  // Enhance code blocks after content is rendered
+  // Enhance code blocks and images after content is rendered
   useEffect(() => {
     if (post) {
       enhanceCodeBlocks();
+      enhanceImages();
     }
   }, [post]);
 
@@ -716,6 +724,46 @@ const BlogPost = () => {
 
       {/* Floating Reading Progress Pill */}
       <ReadingProgressPill postTitle={post.title} isHidden={isMobileSheetOpen} />
+
+      {/* Image Lightbox Overlay Modal */}
+      {activeImage && (
+        <div 
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black/85 backdrop-blur-xl p-4 md:p-12 animate-fade-in"
+          onClick={() => setActiveImage(null)}
+        >
+          {/* Close Button in Top Right */}
+          <button 
+            className="absolute top-6 right-6 p-2.5 rounded-lg border border-white/15 bg-black/50 text-neutral-300 hover:text-white transition duration-200 shadow-lg hover:scale-105"
+            onClick={(e) => {
+              e.stopPropagation();
+              setActiveImage(null);
+            }}
+            title="Close Preview"
+          >
+            <X className="h-5 w-5" />
+          </button>
+
+          {/* Centered Image */}
+          <div className="relative max-w-5xl max-h-[75vh] w-full flex justify-center items-center">
+            <img 
+              src={activeImage.src} 
+              alt={activeImage.alt} 
+              className="max-w-full max-h-[75vh] object-contain rounded-xl border border-white/10 shadow-2xl animate-scale-up"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+
+          {/* Bottom Caption Pill */}
+          <div className="absolute bottom-8 flex justify-center w-full px-4 animate-slide-up">
+            <div className="bg-[#111] border border-white/10 rounded-full px-5 py-2 flex items-center gap-2.5 shadow-xl">
+              <span className="h-2 w-2 rounded-full bg-[#00DC82] animate-pulse"></span>
+              <span className="text-sm font-hanken text-neutral-300 font-medium">
+                {activeImage.alt}
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
