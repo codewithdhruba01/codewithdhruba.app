@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import CommandPalette from '../CommandPalette';
 import useUIStore from '../../store/useUIStore';
 import useAppStore from '../../store/useAppStore';
 
 const Navbar = () => {
-  const { isMobileMenuOpen, toggleMobileMenu, setMobileMenuOpen, isCommandPaletteOpen, setCommandPaletteOpen } = useUIStore();
+  const { isMobileMenuOpen, toggleMobileMenu, setMobileMenuOpen, setCommandPaletteOpen } = useUIStore();
   const { activeLink, setActiveLink } = useAppStore();
 
   // Play click audio sound from public/Audio/
@@ -142,13 +141,6 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-
-      {/* Command Palette */}
-      <CommandPalette
-        isOpen={isCommandPaletteOpen}
-        onClose={() => setCommandPaletteOpen(false)}
-        onNavigate={setActiveLink}
-      />
     </nav>
   );
 };

@@ -26,6 +26,9 @@ import WorkExperience from './pages/WorkExperience';
 import BucketList from './pages/BucketList';
 import ScrollToTop from './components/common/ScrollToTop';
 import PageTransition from './components/ui/PageTransition';
+import CommandPalette from './components/CommandPalette';
+import useUIStore from './store/useUIStore';
+import useAppStore from './store/useAppStore';
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -66,6 +69,9 @@ const AnimatedRoutes = () => {
 };
 
 const App = () => {
+  const { isCommandPaletteOpen, setCommandPaletteOpen } = useUIStore();
+  const { setActiveLink } = useAppStore();
+
   return (
     <Router>
       <ScrollToTop />
@@ -75,6 +81,11 @@ const App = () => {
         <AnimatedRoutes />
         <ChatBotLauncher />
         <Footer />
+        <CommandPalette
+          isOpen={isCommandPaletteOpen}
+          onClose={() => setCommandPaletteOpen(false)}
+          onNavigate={setActiveLink}
+        />
       </div>
     </Router>
   );
