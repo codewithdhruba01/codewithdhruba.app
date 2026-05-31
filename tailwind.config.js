@@ -23,7 +23,8 @@ export default {
         neco: ['Neco', 'serif'],
         pally: ['Pally', 'sans-serif'],
         hind: ['Hind', 'sans-serif'],
-        dancing: ['Dancing Script', 'cursive']
+        dancing: ['Dancing Script', 'cursive'],
+        hanken: ['Hanken Grotesk', 'HK Grotesk', 'sans-serif']
       },
       typography: {
         DEFAULT: {

@@ -342,7 +342,7 @@ const BlogPost = () => {
     return (
       <div className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#0A0A0A] flex flex-col items-center justify-center">
         <h1 className="text-2xl font-bold text-white mb-4">Post Not Found</h1>
-        <Link to="/all-posts" className="text-[#00DC82] hover:underline font-outfit">
+        <Link to="/all-posts" className="text-[#00DC82] hover:underline font-hanken">
           Back to Blog
         </Link>
       </div>
@@ -357,7 +357,7 @@ const BlogPost = () => {
           <div className="mb-8">
             <Link
               to="/all-posts"
-              className="inline-flex items-center text-gray-400 hover:text-white transition"
+              className="inline-flex items-center text-gray-400 hover:text-white transition font-hanken"
             >
               <Undo2 className="h-4 w-4 mr-2" />
               Back to Blog
@@ -399,7 +399,7 @@ const BlogPost = () => {
           </div>
 
           <div className="mb-6">
-            <h1 className="text-3xl md:text-4xl font-supreme font-bold text-[#F5F5F5] leading-tight">
+            <h1 className="text-4xl md:text-5xl font-normal text-[#F5F5F5] leading-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
               {post.title}
             </h1>
           </div>

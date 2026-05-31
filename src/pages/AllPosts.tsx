@@ -162,12 +162,12 @@ const AllPosts = () => {
                   {/* Content - 70% width */}
                   <div className="flex-1 order-2 md:order-1 w-full">
                     {/* Date */}
-                    <div className="text-neutral-500 text-xs mb-1.5 font-outfit">
+                    <div className="text-neutral-500 text-xs mb-1.5 font-hanken">
                       {post.date}
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl md:text-2xl font-bold text-[#f4f4f4] mb-2 font-outfit leading-tight">
+                    <h3 className="text-xl md:text-xl font-semibold text-[#f4f4f4] mb-2 font-hanken leading-tight">
                       <Link
                         to={`/blog/${post.slug}`}
                         className="transition-all duration-200 group-hover:bg-[#00DC82]/20 rounded-md px-1 -ml-1"
@@ -177,13 +177,13 @@ const AllPosts = () => {
                     </h3>
 
                     {/* Description */}
-                    <p className="text-[#909092] text-sm leading-relaxed mb-4 font-poppins font-light line-clamp-2">
+                    <p className="text-[#909092] text-sm leading-relaxed mb-4 font-hanken font-medium line-clamp-2">
                       {post.description}
                     </p>
 
                     {/* Metadata & Tags */}
                     <div className="flex flex-wrap items-center justify-between gap-4 mt-auto">
-                      <div className="flex items-center gap-4 text-xs text-neutral-400 font-outfit">
+                      <div className="flex items-center gap-4 text-xs text-neutral-400 font-hanken">
                         <span className="flex items-center gap-1.5">
                           <Clock size={14} className="text-[#00DC82]" />
                           {post.readTime}
@@ -198,7 +198,7 @@ const AllPosts = () => {
                         {post.category.map((cat, i) => (
                           <span
                             key={i}
-                            className="bg-[#1e1e1e] text-neutral-500 px-2.5 py-0.5 rounded-md text-[10px] font-medium font-poppins border border-neutral-800"
+                            className="bg-[#1e1e1e] text-neutral-500 px-2.5 py-0.5 rounded-md text-[10px] font-medium font-hanken border border-neutral-800"
                           >
                             {cat}
                           </span>

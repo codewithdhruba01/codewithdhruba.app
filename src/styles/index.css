@@ -394,3 +394,64 @@ html {
   -ms-user-select: none;
   user-select: none;
 }
+
+/* Custom styling for Blog Page Content */
+.prose-invert {
+  --tw-prose-body: #909092 !important;
+  --tw-prose-lead: #909092 !important;
+  --tw-prose-bold: #909092 !important; /* Bold color set to normal text color */
+  --tw-prose-counters: #909092 !important;
+  --tw-prose-bullets: #52525B !important;
+  --tw-prose-hr: #27272A !important;
+  --tw-prose-quotes: #909092 !important;
+  --tw-prose-quote-borders: #27272A !important;
+  --tw-prose-captions: #909092 !important;
+}
+
+/* Standard text elements inside blog prose content */
+.prose p,
+.prose li,
+.prose ul,
+.prose ol,
+.prose figcaption,
+.prose div {
+  color: #909092 !important;
+  font-family: 'Hanken Grotesk', 'HK Grotesk', sans-serif !important;
+  font-weight: 400 !important;
+}
+
+/* Make bold text look exactly like normal text (font-weight normal, color #909092, and Hanken Grotesk font) */
+.prose strong,
+.prose b,
+.prose strong *,
+.prose b * {
+  font-weight: 400 !important;
+  color: #909092 !important;
+  font-family: 'Hanken Grotesk', 'HK Grotesk', sans-serif !important;
+}
+
+/* Headings exclusion - Keep them light / bright and styled with Instrument Serif Regular */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: #F5F5F5 !important;
+  font-family: 'Instrument Serif', serif !important;
+  font-weight: 400 !important;
+  letter-spacing: normal;
+}
+
+/* Links exclusion - Keep them green */
+.prose a {
+  color: #00DC82 !important;
+}
+.prose a:hover {
+  color: #00FF9D !important;
+}
+
+/* Inline code elements - Keep them light and readable */
+.prose :not(pre) > code {
+  color: #E4E4E7 !important;
+}
