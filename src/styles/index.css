@@ -429,13 +429,33 @@ html {
   letter-spacing: normal;
 }
 
-/* Links exclusion - Keep them green */
+/* Links exclusion - Keep them white with link icon next to them */
 .prose a {
-  color: #00DC82 !important;
+  color: #FFFFFF !important;
+  text-decoration: underline !important;
+  text-decoration-color: rgba(255, 255, 255, 0.4) !important;
+  text-underline-offset: 4px;
+  font-weight: normal !important;
+  transition: all 0.2s ease;
 }
 
 .prose a:hover {
-  color: #00FF9D !important;
+  text-decoration-color: rgba(255, 255, 255, 0.8) !important;
+  opacity: 0.85;
+}
+
+.prose a:not(:has(img))::after {
+  content: "";
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71'%3E%3C/path%3E%3Cpath d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71'%3E%3C/path%3E%3Cpath d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  margin-left: 4px;
+  vertical-align: middle;
 }
 
 /* Inline code elements - Keep them light and readable */

@@ -20,7 +20,7 @@ export const openweatherApiGuide = {
 
 <p>With over <strong>1.5 million active developers</strong> and powering applications from startups to enterprises, OpenWeather API isn't just popular—it's the backbone of the weather technology ecosystem.</p>
 
-<div style="background: rgba(20, 20, 20, 0.1); border-left: 4px solid rgb(102, 234, 157); padding: 1.5rem; margin: 1.5rem 0; border-radius: 8px;">
+<div style="background: rgba(20, 20, 20, 0.1); border-left: 4px solid #ffffff; padding: 1.5rem; margin: 1.5rem 0; border-radius: 8px;">
   <h3>Key Advantages:</h3>
   <ul>
     <li><strong>99.9% Uptime SLA</strong> - Enterprise-grade reliability</li>
@@ -35,7 +35,7 @@ export const openweatherApiGuide = {
 
 <table style="width: 100%; border-collapse: collapse; margin: 2rem 0; background: rgba(255,255,255,0.05); border-radius: 8px;">
   <thead>
-    <tr style="background: rgba(102, 126, 234, 0.2);">
+    <tr style="background: rgba(255, 255, 255, 0.1);">
       <th style="padding: 1rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1);">API Type</th>
       <th style="padding: 1rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1);">Use Case</th>
       <th style="padding: 1rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1);">Update Frequency</th>
@@ -69,7 +69,7 @@ export const openweatherApiGuide = {
 
 <h3>Step 1: API Key Setup (The Right Way)</h3>
 
-<div style="background: rgba(255, 193, 7, 0.1); border: 1px solid rgba(255, 193, 7, 0.3); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+<div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
   <strong>🔐 Security First:</strong> Never commit API keys to version control. Use environment variables in production.
 </div>
 
@@ -541,30 +541,30 @@ class SmartIrrigationSystem:
 
 <table style="width: 100%; border-collapse: collapse; margin: 2rem 0;">
   <thead>
-    <tr style="background: rgba(239, 68, 68, 0.1);">
-      <th style="padding: 1rem; text-align: left; border: 1px solid rgba(239, 68, 68, 0.2);">Issue</th>
-      <th style="padding: 1rem; text-align: left; border: 1px solid rgba(239, 68, 68, 0.2);">Solution</th>
+    <tr style="background: rgba(255, 255, 255, 0.05);">
+      <th style="padding: 1rem; text-align: left; border: 1px solid rgba(255, 255, 255, 0.1);">Issue</th>
+      <th style="padding: 1rem; text-align: left; border: 1px solid rgba(255, 255, 255, 0.1);">Solution</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="padding: 1rem; border: 1px solid rgba(239, 68, 68, 0.2);">401 Unauthorized</td>
-      <td style="padding: 1rem; border: 1px solid rgba(239, 68, 68, 0.2);">Check API key validity and wait 10-15 minutes after generation</td>
+      <td style="padding: 1rem; border: 1px solid rgba(255, 255, 255, 0.1);">401 Unauthorized</td>
+      <td style="padding: 1rem; border: 1px solid rgba(255, 255, 255, 0.1);">Check API key validity and wait 10-15 minutes after generation</td>
     </tr>
     <tr>
-      <td style="padding: 1rem; border: 1px solid rgba(239, 68, 68, 0.2);">429 Too Many Requests</td>
-      <td style="padding: 1rem; border: 1px solid rgba(239, 68, 68, 0.2);">Implement exponential backoff and caching</td>
+      <td style="padding: 1rem; border: 1px solid rgba(255, 255, 255, 0.1);">429 Too Many Requests</td>
+      <td style="padding: 1rem; border: 1px solid rgba(255, 255, 255, 0.1);">Implement exponential backoff and caching</td>
     </tr>
     <tr>
-      <td style="padding: 1rem; border: 1px solid rgba(239, 68, 68, 0.2);">City Not Found</td>
-      <td style="padding: 1rem; border: 1px solid rgba(239, 68, 68, 0.2);">Use geocoding API first or try alternative city names</td>
+      <td style="padding: 1rem; border: 1px solid rgba(255, 255, 255, 0.1);">City Not Found</td>
+      <td style="padding: 1rem; border: 1px solid rgba(255, 255, 255, 0.1);">Use geocoding API first or try alternative city names</td>
     </tr>
   </tbody>
 </table>
 
 <h3>Production Security Checklist</h3>
 
-<div style="background: rgba(14, 13, 13, 0.1); border-left: 4px solid #ef4444; padding: 1rem; margin: 1rem 0;">
+<div style="background: rgba(14, 13, 13, 0.1); border-left: 4px solid #ffffff; padding: 1rem; margin: 1rem 0;">
   <h4>🔒 Security Best Practices:</h4>
   <ul>
     <li>Store API keys in environment variables</li>
@@ -580,7 +580,7 @@ class SmartIrrigationSystem:
 
 <table style="width: 100%; border-collapse: collapse; margin: 2rem 0; background: rgba(255,255,255,0.05);">
   <thead>
-    <tr style="background: rgba(34, 197, 94, 0.2);">
+    <tr style="background: rgba(255, 255, 255, 0.1);">
       <th style="padding: 1rem; text-align: left;">Plan</th>
       <th style="padding: 1rem; text-align: left;">Monthly Calls</th>
       <th style="padding: 1rem; text-align: left;">Features</th>

@@ -112,7 +112,7 @@ const Hero = () => {
         <div className="mt-6 px-1 flex flex-col md:flex-row md:items-center justify-between gap-4">
           {/* Name and subtitle */}
           <div>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-tight text-neutral-200">
+            <h2 className="text-3xl font-hanken-grotesk font-semibold md:text-4xl tracking-tight text-neutral-200">
               Dhrubaraj Pati
             </h2>
             <p className="mt-1.5 font-mono text-xs md:text-sm text-neutral-500">

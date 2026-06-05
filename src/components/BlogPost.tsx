@@ -727,12 +727,12 @@ const BlogPost = () => {
 
       {/* Image Lightbox Overlay Modal */}
       {activeImage && (
-        <div 
+        <div
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black/85 backdrop-blur-xl p-4 md:p-12 animate-fade-in"
           onClick={() => setActiveImage(null)}
         >
           {/* Close Button in Top Right */}
-          <button 
+          <button
             className="absolute top-6 right-6 p-2.5 rounded-lg border border-white/15 bg-black/50 text-neutral-300 hover:text-white transition duration-200 shadow-lg hover:scale-105"
             onClick={(e) => {
               e.stopPropagation();
@@ -745,9 +745,9 @@ const BlogPost = () => {
 
           {/* Centered Image */}
           <div className="relative max-w-5xl max-h-[75vh] w-full flex justify-center items-center">
-            <img 
-              src={activeImage.src} 
-              alt={activeImage.alt} 
+            <img
+              src={activeImage.src}
+              alt={activeImage.alt}
               className="max-w-full max-h-[75vh] object-contain rounded-xl border border-white/10 shadow-2xl animate-scale-up"
               onClick={(e) => e.stopPropagation()}
             />
