@@ -16,13 +16,13 @@ const staticPages: Record<string, PageMeta> = {
     title: 'Dhrubaraj Pati - A Full Stack Developer',
     description:
       "I'm a Full Stack web developer and open source contributor. I love building products to solve real-world problems. Explore my work.",
-    image: '/preview.png',
+    image: '/meta/home.jpeg',
   },
   '/about': {
     title: 'About | Dhrubaraj Pati',
     description:
       'Learn about Dhrubaraj Pati - Full Stack Web Developer and Open Source Contributor.',
-    image: '/meta/about.png',
+    image: '/meta/about.jpeg',
   },
   '/projects': {
     title: 'Projects | Dhrubaraj Pati',
