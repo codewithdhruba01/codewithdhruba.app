@@ -21,6 +21,8 @@ import Certificates from './pages/Certificates';
 import Photos from './pages/Photos';
 import Resume from './pages/Resume';
 import Tools from './components/Tools';
+import Bookshelf from './components/Bookshelf';
+import BookThoughts from './components/BookThoughts';
 import Touch from './components/Touch';
 import WorkExperience from './pages/WorkExperience';
 import BucketList from './pages/BucketList';
@@ -46,12 +48,14 @@ const AnimatedRoutes = () => {
               <Education />
               <Blog />
               <Tools />
+              <Bookshelf />
               <Touch />
             </PageTransition>
           }
         />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
         <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
+        <Route path="/thoughts/:slug" element={<PageTransition><BookThoughts /></PageTransition>} />
         <Route path="/all-posts" element={<PageTransition><AllPosts /></PageTransition>} />
         <Route path="/projects" element={<PageTransition><AllProjects /></PageTransition>} />
         <Route path="/chat-assistant" element={<PageTransition><ChatAssistant /></PageTransition>} />
