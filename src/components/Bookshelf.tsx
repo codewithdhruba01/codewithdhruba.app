@@ -208,6 +208,19 @@ const books: Book[] = [
     spineWidth: 32,
     baseTilt: -0.15,
     theme: 'light'
+  },
+  {
+    slug: 'cant-hurt-me',
+    title: "Can't Hurt Me",
+    author: 'David Goggins',
+    coverUrl: 'https://covers.openlibrary.org/b/isbn/9781544512280-L.jpg',
+    spineColor: '#171717',
+    spineTextColor: '#ffffff',
+    progress: 'Read',
+    coverWidth: 170,
+    spineWidth: 30,
+    baseTilt: -0.35,
+    theme: 'dark'
   }
 ];
 

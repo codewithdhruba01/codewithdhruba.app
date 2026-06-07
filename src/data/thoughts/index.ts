@@ -8,6 +8,7 @@ import { richDadPoorDad } from './rich-dad-poor-dad';
 import { aLittleLife } from './a-little-life';
 import { dopamineDetox } from './dopamine-detox';
 import { the7HabitsOfHighlyEffectivePeople } from './the-7-habits-of-highly-effective-people';
+import { cantHurtMe } from './cant-hurt-me';
 
 export const bookThoughtsData = {
   'designing-data-intensive-applications': designingDataIntensiveApplications,
@@ -20,6 +21,7 @@ export const bookThoughtsData = {
   'a-little-life': aLittleLife,
   'dopamine-detox': dopamineDetox,
   'the-7-habits-of-highly-effective-people': the7HabitsOfHighlyEffectivePeople,
+  'cant-hurt-me': cantHurtMe,
 };
 
 export type BookThoughtKey = keyof typeof bookThoughtsData;
