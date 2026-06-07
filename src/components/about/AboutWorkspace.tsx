@@ -110,11 +110,11 @@ export const AboutWorkspace = () => {
 
                             <div className="flex flex-col gap-1 group/title w-fit cursor-default">
                                 <div className="flex items-center gap-2.5">
-                                    <h4 className="text-lg md:text-xl font-bold font-outfit text-white">HP M270</h4>
+                                    <h4 className="text-lg md:text-xl font-bold font-outfit text-white">AMKETTE Mouse</h4>
                                     <Tooltip>
                                         <TooltipTrigger>
                                             <a
-                                                href="https://www.hp.com/"
+                                                href="https://www.amkette.com/collections/xs-flow-series/products/xs-flow-plus-wireless-mouse"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-neutral-700 bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-neutral-500 transition-all duration-300 ease-out select-none cursor-pointer"
@@ -127,7 +127,7 @@ export const AboutWorkspace = () => {
                                         </TooltipContent>
                                     </Tooltip>
                                 </div>
-                                <p className="text-xs font-mono text-[#00DC82] mt-0.5">Gaming Mouse</p>
+                                <p className="text-xs font-mono text-[#00DC82] mt-0.5">XS Series Flow </p>
                                 <p className="text-neutral-400 font-satoshi text-sm md:text-base leading-relaxed mt-2">
                                     This is my primary mouse. It has a highly ergonomic shape that fits perfectly in the hand, offering smooth tracking and precise control that keeps my daily workflows seamless.
                                 </p>
@@ -135,11 +135,11 @@ export const AboutWorkspace = () => {
 
                             <div className="flex flex-col gap-1 group/title w-fit cursor-default">
                                 <div className="flex items-center gap-2.5">
-                                    <h4 className="text-lg md:text-xl font-bold font-outfit text-white">Mester Keyboard</h4>
+                                    <h4 className="text-lg md:text-xl font-bold font-outfit text-white">Kreo Hive75</h4>
                                     <Tooltip>
                                         <TooltipTrigger>
                                             <a
-                                                href="https://epomaker.com/"
+                                                href="https://kreo-tech.com/collections/mechanical-keyboards/products/hive75-v2-black-purple-wired-mechanical-gaming-keyboard"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-neutral-700 bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-neutral-500 transition-all duration-300 ease-out select-none cursor-pointer"
@@ -152,7 +152,7 @@ export const AboutWorkspace = () => {
                                         </TooltipContent>
                                     </Tooltip>
                                 </div>
-                                <p className="text-xs font-mono text-[#00DC82] mt-0.5">Primary Keyboard • Mechanical Tactile Switches</p>
+                                <p className="text-xs font-mono text-[#00DC82] mt-0.5">V2 Black Purple • Mechanical Keyboard</p>
                                 <p className="text-neutral-400 font-satoshi text-sm md:text-base leading-relaxed mt-2">
                                     This is my primary keyboard. The satisfying tactile feedback and highly responsive layout make writing code and long typing sessions incredibly comfortable and enjoyable.
                                 </p>
