@@ -24,7 +24,7 @@ export default function ReadingProgressPill({ postTitle, isHidden = false }: Rea
       }
 
       // 2. Find Active Heading
-      const headings = Array.from(document.querySelectorAll('.prose h2, .prose h3'));
+      const headings = Array.from(document.querySelectorAll('.prose h2, .prose h3, .book-content h3, .book-content h4'));
       let currentActiveIndex = -1;
       let currentActiveText = '';
       const triggerTop = 150; // offset in pixels from viewport top

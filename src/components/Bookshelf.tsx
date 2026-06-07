@@ -373,7 +373,7 @@ const Bookshelf = () => {
             <div className="absolute inset-x-0 bottom-4 h-32 bg-gradient-to-t from-neutral-950 to-transparent pointer-events-none opacity-40 z-0"></div>
 
             {/* Scrollable Viewport */}
-            <div className="bookshelf-scrollbar overflow-x-auto overflow-y-visible flex items-end justify-start md:justify-center w-full px-4 pt-12 pb-4 min-h-[300px] relative z-10">
+            <div className="bookshelf-scrollbar overflow-x-auto overflow-y-visible flex items-end justify-start w-full px-4 pt-12 pb-4 min-h-[300px] relative z-10">
               <div className="flex items-end gap-[4px] w-max">
                 {books.map((book, idx) => {
                   const isActive = activeIndex === idx;

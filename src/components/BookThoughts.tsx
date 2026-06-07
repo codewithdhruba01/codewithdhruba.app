@@ -8,6 +8,7 @@ import {
   RotateCcw,
 } from 'lucide-react';
 import { bookThoughtsData } from '../data/thoughts';
+import ReadingProgressPill from './ui/ReadingProgressPill';
 
 const BookThoughts = () => {
   const { slug } = useParams();
@@ -50,6 +51,12 @@ const BookThoughts = () => {
 
   const getFontSizeInPx = () => {
     return Math.round((fontSize / 100) * 16);
+  };
+
+  const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const pxValue = parseInt(e.target.value);
+    const percentage = Math.round((pxValue / 16) * 100);
+    setFontSize(percentage);
   };
 
   const handleDragStart = (clientY: number) => {
@@ -204,7 +211,7 @@ const BookThoughts = () => {
 
   return (
     <>
-      <article className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#0A0A0A]">
+      <article className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#0A0A0A] book-content">
         <div className="max-w-3xl mx-auto w-full px-6" style={{ fontSize: `${fontSize}%` }}>
           {/* Back Button */}
           <div className="mb-8">
@@ -380,7 +387,9 @@ const BookThoughts = () => {
             onClick={handleCloseSheet}
           />
           <div
-            className={`fixed bottom-0 left-0 right-0 z-50 md:hidden bg-neutral-950/95 backdrop-blur-xl border-t border-white/10 rounded-t-3xl shadow-[0_0_60px_rgba(0,0,0,0.8)] transform transition-all duration-300 ease-out`}
+            className={`fixed bottom-0 left-0 right-0 z-50 md:hidden bg-neutral-950/95 backdrop-blur-xl border-t border-white/10 rounded-t-3xl shadow-[0_0_60px_rgba(0,0,0,0.8)] transform transition-all duration-300 ease-out pb-12 ${
+              isAnimating ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
+            }`}
             style={{
               transform: isAnimating ? `translateY(${currentTranslateY}px)` : 'translateY(100%)'
             }}
@@ -396,7 +405,7 @@ const BookThoughts = () => {
             <div className="px-6 pb-6">
               <h3 className="text-lg font-semibold text-white font-synonym text-center">Font Size</h3>
             </div>
-            <div className="px-6 pb-8 space-y-6">
+            <div className="px-6 pb-4 space-y-6">
               <div className="text-center">
                 <div className="text-3xl font-bold text-white mb-1">{getFontSizeInPx()}px</div>
                 <div className="text-sm text-white/60">Current font size</div>
@@ -424,10 +433,34 @@ const BookThoughts = () => {
                   <Plus className="w-5 h-5 text-white" />
                 </button>
               </div>
+
+              {/* Slider */}
+              <div className="space-y-3 pt-2">
+                <div className="flex justify-between text-xs text-white/60">
+                  <span>Small (12px)</span>
+                  <span>Large (24px)</span>
+                </div>
+                <input
+                  type="range"
+                  min="12"
+                  max="24"
+                  value={getFontSizeInPx()}
+                  onChange={handleSliderChange}
+                  className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer slider-thumb accent-[#00DC82]"
+                  style={{
+                    background: `linear-gradient(to right,
+                      #00DC82 0%,
+                      #00DC82 ${((getFontSizeInPx() - 12) / 12) * 100}%,
+                      rgba(255, 255, 255, 0.2) ${((getFontSizeInPx() - 12) / 12) * 100}%,
+                      rgba(255, 255, 255, 0.2) 100%)`
+                  }}
+                />
+              </div>
             </div>
           </div>
         </>
       )}
+      <ReadingProgressPill postTitle={thought.title} isHidden={isMobileSheetOpen} />
     </>
   );
 };
