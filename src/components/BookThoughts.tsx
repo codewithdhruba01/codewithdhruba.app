@@ -158,6 +158,50 @@ const BookThoughts = () => {
     }
   });
 
+  const renderItemText = (text: string) => {
+    if (text.includes('\n')) {
+      const lines = text.split('\n');
+      return (
+        <div className="space-y-3 mt-2 w-full">
+          {lines.map((line, idx) => {
+            const trimmed = line.trim();
+            if (trimmed.startsWith('* ') || trimmed.startsWith('- ')) {
+              const content = trimmed.substring(2);
+              const colonIndex = content.indexOf(':');
+              if (colonIndex !== -1 && colonIndex < 25) {
+                const prefix = content.substring(0, colonIndex);
+                const rest = content.substring(colonIndex + 1);
+                return (
+                  <div key={idx} className="flex items-start pl-6 text-[0.95em] text-white/80 leading-relaxed">
+                    <span className="mr-2.5 select-none font-bold text-[10px] text-white mt-[4px]">•</span>
+                    <span>
+                      <strong className="text-white font-semibold">{prefix}:</strong>
+                      {rest}
+                    </span>
+                  </div>
+                );
+              }
+              return (
+                <div key={idx} className="flex items-start pl-6 text-[0.95em] text-white/80 leading-relaxed">
+                  <span className="mr-2.5 select-none font-bold text-[10px] text-white mt-[4px]">•</span>
+                  <span>{content}</span>
+                </div>
+              );
+            }
+
+            return (
+              <p key={idx} className="text-[1em] text-white/85 leading-relaxed">
+                {line}
+              </p>
+            );
+          })}
+        </div>
+      );
+    }
+
+    return <span>{text}</span>;
+  };
+
   return (
     <>
       <article className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#0A0A0A]">
@@ -208,11 +252,11 @@ const BookThoughts = () => {
 
           {/* Book Summary / Short Story / Description */}
           <div className="mb-12">
-            <h3 className="text-base md:text-sm font-bold uppercase tracking-[0.2em] text-white/45 mb-6 flex items-center gap-4">
+            <h3 className="text-base md:text-sm font-bold uppercase tracking-[0.2em] text-white/75 mb-6 flex items-center gap-4">
               <span>Overview</span>
               <span className="flex-1 h-[1px] bg-white/10"></span>
             </h3>
-            <p className="text-[15.5px] text-white/85 leading-relaxed font-poppins">
+            <p className="text-[15.5px] text-white/60 leading-relaxed font-poppins">
               {thought.description}
             </p>
           </div>
@@ -228,7 +272,7 @@ const BookThoughts = () => {
               {groupedNotes.map((group, gIdx) => (
                 <div key={gIdx} className="space-y-4">
                   {group.heading && (
-                    <h4 
+                    <h4
                       className="text-[1.25em] font-semibold text-white flex items-center gap-3"
                       style={{ fontFamily: "'Instrument Serif', serif" }}
                     >
@@ -238,21 +282,24 @@ const BookThoughts = () => {
                   )}
                   <ul className={`space-y-4 ${group.heading ? 'pl-5 border-l border-white/5' : ''}`}>
                     {group.items.map((item, idx) => (
-                      <li key={idx} className="flex items-start text-[14.5px] text-white/85 leading-relaxed font-poppins">
-                        {!group.heading && (
-                          <span
-                            className="mr-4 mt-2 select-none font-black text-xs shrink-0 animate-pulse"
-                            style={{ color: thought.accentColor }}
-                          >
-                            •
-                          </span>
-                        )}
-                        <span>
-                          {item.subheading && (
-                            <strong className="text-white/90 font-semibold mr-1">{item.subheading}:</strong>
+                      <li key={idx} className="flex flex-col items-start text-[14.5px] text-white/85 leading-relaxed font-poppins">
+                        <div className="flex items-start w-full">
+                          {!group.heading && (
+                            <span
+                              className="mr-4 mt-2 select-none font-black text-xs shrink-0 animate-pulse"
+                              style={{ color: thought.accentColor }}
+                            >
+                              •
+                            </span>
                           )}
-                          {item.text}
-                        </span>
+                          <span>
+                            {item.subheading && (
+                              <strong className="text-white/90 font-semibold mr-1">{item.subheading}:</strong>
+                            )}
+                            {!item.text.includes('\n') && item.text}
+                          </span>
+                        </div>
+                        {item.text.includes('\n') && renderItemText(item.text)}
                       </li>
                     ))}
                   </ul>
