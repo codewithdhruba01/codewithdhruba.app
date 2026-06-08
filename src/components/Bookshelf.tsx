@@ -355,7 +355,7 @@ const Bookshelf = () => {
         <div className="max-w-4xl mx-auto w-full px-6">
 
           {/* Header */}
-          <ScrollReveal className="mb-10">
+          <ScrollReveal className="mb-4">
             <p className="text-lg text-neutral-400 font-outfit text-left">
               Reading
             </p>
@@ -373,7 +373,7 @@ const Bookshelf = () => {
             <div className="absolute inset-x-0 bottom-4 h-32 bg-gradient-to-t from-neutral-950 to-transparent pointer-events-none opacity-40 z-0"></div>
 
             {/* Scrollable Viewport */}
-            <div className="bookshelf-scrollbar overflow-x-auto overflow-y-visible flex items-end justify-start w-full px-4 pt-12 pb-4 min-h-[300px] relative z-10">
+            <div className="bookshelf-scrollbar overflow-x-auto overflow-y-visible flex items-end justify-start w-full px-4 pt-4 pb-4 min-h-[300px] relative z-10">
               <div className="flex items-end gap-[4px] w-max">
                 {books.map((book, idx) => {
                   const isActive = activeIndex === idx;

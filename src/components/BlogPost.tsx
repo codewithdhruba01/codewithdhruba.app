@@ -13,7 +13,6 @@ import {
 import GiscusComments from './GiscusComments';
 import ShareModal from './modals/ShareModal';
 import { ShareIcon, ClappingHandsIcon } from './icons/SocialIcons';
-import ChatBotLauncher from './ChatBotLauncher';
 import { useBlogReactions } from '../hooks/useBlogReactions';
 import { commentService } from '../lib/supabase';
 import LoveReactionButton from './ui/LoveReactionButton';
@@ -714,13 +713,6 @@ const BlogPost = () => {
         </>
       )}
 
-      {/* Mobile ChatBot Launcher with dynamic positioning */}
-      <div className="md:hidden">
-        <ChatBotLauncher
-          bottomOffset={isMobileSheetOpen ? 'bottom-4' : 'bottom-20'}
-          zIndex="z-30"
-        />
-      </div>
 
       {/* Floating Reading Progress Pill */}
       <ReadingProgressPill postTitle={post.title} isHidden={isMobileSheetOpen} />

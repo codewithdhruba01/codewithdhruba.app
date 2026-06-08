@@ -11,12 +11,10 @@ import BlogPost from './components/BlogPost';
 import Footer from './components/layout/Footer';
 import AllPosts from './pages/AllPosts';
 import AllProjects from './pages/AllProjects';
-import ChatAssistant from './pages/ChatAssistant';
 import Contact from './pages/Contact';
 import Gears from './pages/Gears';
 import Extensions from './pages/Extensions';
 import GitHubContributions from './components/GitHubContributions';
-import ChatBotLauncher from './components/ChatBotLauncher';
 import Certificates from './pages/Certificates';
 import Photos from './pages/Photos';
 import Resume from './pages/Resume';
@@ -58,7 +56,6 @@ const AnimatedRoutes = () => {
         <Route path="/thoughts/:slug" element={<PageTransition><BookThoughts /></PageTransition>} />
         <Route path="/all-posts" element={<PageTransition><AllPosts /></PageTransition>} />
         <Route path="/projects" element={<PageTransition><AllProjects /></PageTransition>} />
-        <Route path="/chat-assistant" element={<PageTransition><ChatAssistant /></PageTransition>} />
         <Route path="/certificates" element={<PageTransition><Certificates /></PageTransition>} />
         <Route path="/photos" element={<PageTransition><Photos /></PageTransition>} />
         <Route path="/resume" element={<PageTransition><Resume /></PageTransition>} />
@@ -83,7 +80,6 @@ const App = () => {
       <div className="min-h-screen bg-[#0A0A0A] text-white overflow-x-hidden relative">
         <Navbar />
         <AnimatedRoutes />
-        <ChatBotLauncher />
         <Footer />
         <CommandPalette
           isOpen={isCommandPaletteOpen}
