@@ -13,72 +13,67 @@ export type PageMeta = {
 
 const staticPages: Record<string, PageMeta> = {
   '/': {
-    title: 'Dhrubaraj Pati - A Full Stack Developer',
+    title: 'Dhrubaraj Pati - Full Stack Web Developer',
     description:
       "I'm a Full Stack web developer and open source contributor. I love building products to solve real-world problems. Explore my work.",
     image: '/meta/home.jpeg',
   },
   '/about': {
-    title: 'About | Dhrubaraj Pati',
+    title: 'About - Dhrubaraj Pati',
     description:
-      'Learn about Dhrubaraj Pati - Full Stack Web Developer and Open Source Contributor.',
+      'Get to know me a Full Stack Developer and Open Source Contributor. Explore my background, technical journey, development philosophy, and the tools I use to build for the web.',
     image: '/meta/about.jpeg',
   },
   '/projects': {
-    title: 'Projects | Dhrubaraj Pati',
+    title: 'Projects - Dhrubaraj Pati',
     description: 'Discover my projects and work across different technologies and domains. From web apps to mobile solutions.',
     image: '/meta/project.png',
   },
   '/all-posts': {
-    title: 'Blog & Publications | Dhrubaraj Pati',
+    title: 'Blog & Publications - Dhrubaraj Pati',
     description:
       'Exploring the art of engineering, the craft of code, and building impactful tech.',
     image: '/meta/blog.png',
   },
   '/contact': {
-    title: 'Contact | Dhrubaraj Pati',
+    title: 'Contact - Dhrubaraj Pati',
     description: 'Get in touch with me for collaborations, projects, or opportunities.',
     image: '/meta/contact.png',
   },
   '/resume': {
-    title: 'Resume | Dhrubaraj Pati',
+    title: 'Resume - Dhrubaraj Pati',
     description: 'View Dhrubaraj Pati\'s professional resume and CV. Technical skills, experience, and qualifications.',
     image: '/meta/resume.png',
   },
   '/experience': {
-    title: 'Work Experience | Dhrubaraj Pati',
+    title: 'Work Experience - Dhrubaraj Pati',
     description: 'Explore my professional work experience across different companies and roles in software development.',
     image: '/meta/experience.png',
   },
   '/certificates': {
-    title: 'Certificates | Dhrubaraj Pati',
+    title: 'Certificates - Dhrubaraj Pati',
     description: 'Certifications and achievements.',
     image: '/meta/certificates.png',
   },
   '/photos': {
-    title: 'Photos | Dhrubaraj Pati',
+    title: 'Photos - Dhrubaraj Pati',
     description: 'Explore my photo gallery.',
     image: '/meta/photo.png',
   },
   '/gears': {
-    title: 'Gears | Dhrubaraj Pati',
+    title: 'Gears - Dhrubaraj Pati',
     description: 'Tools and gears for development.',
     image: '/meta/gears.png',
   },
   '/extensions': {
-    title: 'Extensions | Dhrubaraj Pati',
+    title: 'Extensions - Dhrubaraj Pati',
     description: 'Browser extensions and dev tools recommendations.',
     image: '/meta/extensions.png',
   },
   '/bucket-list': {
-    title: 'Bucket List | Dhrubaraj Pati',
+    title: 'Bucket List - Dhrubaraj Pati',
     description: 'Goals and bucket list.',
     image: '/meta/bucketlist.png',
-  },
-  '/chat-assistant': {
-    title: 'AI Chat Assistant | Dhrubaraj Pati',
-    description: 'Chat with the AI assistant on codewithdhruba.in',
-    image: '/meta/chatassistant.png',
   },
 };
 
