@@ -6,6 +6,7 @@ import TailwindCss from '../svgs/TailwindCss';
 import NextJs from '../svgs/NextJs';
 import { Sun, Moon } from 'lucide-react';
 import { Tooltip, TooltipTrigger, TooltipContent } from '../ui/tooltip';
+import { InteractiveAboutBanner } from './InteractiveAboutBanner';
 
 export const AboutContent = () => {
     const [isLightMode, setIsLightMode] = useState(false);
@@ -19,26 +20,8 @@ export const AboutContent = () => {
 
     return (
         <div className="flex flex-col mt-6">
-            {/* Banner Image Card with Premium Cross-fade Animation */}
-            <div className="relative w-full rounded-2xl overflow-hidden border border-none shadow-xl mb-8 group bg-[#101010]">
-                {/* Dark Banner */}
-                <img
-                    src="/assets/Aboutbanner.jpg"
-                    alt="About Banner Dark"
-                    className={`w-full h-auto object-cover transition-all duration-700 ease-in-out group-hover:scale-[1.03] ${isLightMode ? 'opacity-0 pointer-events-none' : 'opacity-100'
-                        }`}
-                    loading="lazy"
-                />
-                {/* Light Banner */}
-                <img
-                    src="/assets/Aboutbannerlight.jpg"
-                    alt="About Banner Light"
-                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out group-hover:scale-[1.03] ${isLightMode ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                        }`}
-                    loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
-            </div>
+            {/* Interactive Polaroid Pin-Board Banner */}
+            <InteractiveAboutBanner isLightMode={isLightMode} />
 
             <div className="flex items-center justify-between mb-4">
                 <h1 className="text-3xl md:text-4xl font-bold font-excon bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
