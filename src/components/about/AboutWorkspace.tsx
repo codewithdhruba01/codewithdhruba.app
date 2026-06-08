@@ -14,7 +14,7 @@ export const AboutWorkspace = () => {
             <ScrollReveal delay={0.1}>
                 <div className="relative w-full rounded-2xl overflow-hidden border border-none shadow-xl mb-6 md:mb-12 group bg-[#101010]">
                     <img
-                        src="/assets/workspace.jpeg"
+                        src="/assets/workstation.jpg"
                         alt="Workspace Setup"
                         className="w-full h-auto max-h-[480px] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                         loading="lazy"
