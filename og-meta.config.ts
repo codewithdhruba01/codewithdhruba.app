@@ -133,11 +133,30 @@ const blogMeta: Record<string, PageMeta> = {
   },
 };
 
+import { bookThoughtsData } from './src/data/thoughts';
+
 export function getMetaForPath(pathname: string): PageMeta | null {
   const path = pathname.replace(/\/$/, '') || '/';
   if (staticPages[path]) return staticPages[path];
+
   const blogMatch = path.match(/^\/blog\/(.+)$/);
   if (blogMatch) return blogMeta[blogMatch[1]] || null;
+
+  const thoughtsMatch = path.match(/^\/thoughts\/(.+)$/);
+  if (thoughtsMatch) {
+    const slug = thoughtsMatch[1];
+    const book = bookThoughtsData[slug as keyof typeof bookThoughtsData];
+    if (book) {
+      return {
+        title: `${book.title} | Book Thoughts | Dhrubaraj Pati`,
+        description: book.description
+          ? book.description.substring(0, 150) + '...'
+          : `My key takeaways, notes, and personal thoughts on ${book.title} by ${book.author}.`,
+        image: book.coverUrl,
+      };
+    }
+  }
+
   return null;
 }
 

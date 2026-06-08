@@ -322,19 +322,14 @@ const BookThoughts = () => {
               <span className="flex-1 h-[1px] bg-white/10"></span>
             </h3>
 
-            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 relative overflow-hidden flex items-start gap-4">
-              {/* Background accent glow decoration */}
-              <div
-                className="absolute top-0 right-0 w-24 h-24 rounded-full blur-[60px] opacity-10 pointer-events-none"
-                style={{ backgroundColor: thought.accentColor }}
-              />
+            <div className="flex items-start gap-4">
               <span
-                className="text-[4em] leading-none select-none -mt-4 shrink-0 font-serif font-extrabold"
+                className="text-[3.5em] leading-none select-none -mt-3 shrink-0 font-serif font-extrabold"
                 style={{ color: thought.accentColor }}
               >
                 “
               </span>
-              <p className="text-[15px] text-white/50 leading-relaxed italic font-poppins pt-1.5">
+              <p className="text-[15.5px] text-white/60 leading-relaxed font-poppins pt-2">
                 {thought.finalThoughts}
               </p>
             </div>
