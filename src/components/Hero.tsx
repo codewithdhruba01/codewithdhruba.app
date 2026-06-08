@@ -63,12 +63,23 @@ const Hero = () => {
       <ScrollReveal className="max-w-4xl mx-auto w-full px-6 flex flex-col">
         {/* Banner Image Container */}
         <div className="relative w-full rounded-2xl overflow-hidden aspect-[13/5] sm:aspect-[3/1] bg-neutral-900 border border-neutral-800">
+          {/* Night theme banner (our beautiful generated starry night mountain) */}
+          <img
+            src="/assets/banner_dark.png"
+            alt="Night mountain landscape banner"
+            className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-750 ease-in-out ${
+              avatarBg === 'black' ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.02] pointer-events-none'
+            } brightness-[0.8]`}
+          />
+          {/* Day theme banner */}
           <img
             src="/assets/banner.jpg"
-            alt="Mountain landscape banner"
-            className="w-full h-full object-cover object-center brightness-[0.75]"
+            alt="Day mountain landscape banner"
+            className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-750 ease-in-out ${
+              avatarBg !== 'black' ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.02] pointer-events-none'
+            } brightness-[0.75]`}
           />
-          <div className="absolute inset-0 flex items-center justify-center p-4">
+          <div className="absolute inset-0 flex items-center justify-center p-4 z-10">
             <p className="font-serif italic text-white/95 text-center text-sm sm:text-base md:text-lg max-w-md md:max-w-xl leading-relaxed select-none drop-shadow-md">
               "First, solve the problem. Then, write the code."
             </p>
