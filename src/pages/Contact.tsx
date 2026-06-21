@@ -353,7 +353,7 @@ const Contact = () => {
                 requirements.
               </p>
               <div className="flex flex-col items-center">
-                 <motion.button
+                <motion.button
                   onClick={() => setShowCal(true)}
                   initial="initial"
                   whileHover="hover"
@@ -423,7 +423,7 @@ const Contact = () => {
                         <div className="flex items-center justify-between px-8 py-6 border-b border-white/5">
                           <div className="flex items-center gap-3">
                             <div className="w-2 h-8 bg-green-500 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.5)]" />
-                            <h3 className="text-2xl font-bold font-excon text-white">
+                            <h3 className="text-2xl font-bricolage font-bold text-white">
                               Schedule your Free Call
                             </h3>
                           </div>
