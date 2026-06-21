@@ -221,6 +221,19 @@ const books: Book[] = [
     spineWidth: 30,
     baseTilt: -0.35,
     theme: 'dark'
+  },
+  {
+    slug: 'open-to-work',
+    title: 'Open to Work: How to Get Ahead in the Age of AI',
+    author: 'Ryan Roslansky & Aneesh Raman',
+    coverUrl: 'https://images-na.ssl-images-amazon.com/images/P/0063486466.01.LZZZZZZZ.jpg',
+    spineColor: '#218ceb',
+    spineTextColor: '#ffffff',
+    progress: 'Read',
+    coverWidth: 175,
+    spineWidth: 26,
+    baseTilt: -0.5,
+    theme: 'dark'
   }
 ];
 
@@ -449,7 +462,7 @@ const Bookshelf = () => {
 
                         {/* Spine Face */}
                         <div
-                          className="absolute inset-y-0 flex flex-col justify-between py-4 select-none overflow-hidden"
+                          className="absolute inset-y-0 flex flex-col justify-between select-none overflow-hidden"
                           style={{
                             width: `${book.spineWidth}px`,
                             height: '260px',
@@ -653,11 +666,52 @@ const Bookshelf = () => {
                                 <div className="text-[4.5px] font-bold tracking-[0.15em] text-[#3a3530] uppercase leading-none font-sans text-center">
                                   FIRESIDE
                                 </div>
+                            </div>
+                          </div>
+                        ) : book.slug === 'open-to-work' ? (
+                            // Custom layout matching the reference image for Open to Work
+                            <div className="w-full h-full flex flex-col justify-between items-center text-white py-3 relative bg-gradient-to-b from-[#1b7ed9] via-[#218ceb] to-[#4aa7fd]">
+                              {/* Top Section: Author Names in Dark/Black Text (Rotated) */}
+                              <div
+                                className="flex flex-row justify-center items-start gap-[2px] text-center px-0.5 pt-1 text-[6.5px] font-sans font-extrabold leading-none text-[#1e293b]/90 select-none shrink-0"
+                                style={{
+                                  writingMode: 'vertical-rl',
+                                  transform: 'rotate(180deg)',
+                                }}
+                              >
+                                <span>RYAN ROSLANSKY</span>
+                                <span>& ANEESH RAMAN</span>
+                              </div>
+
+                              {/* Middle Section: Title in White Bold Text (Upright Letters) */}
+                              <div className="flex-1 flex items-center justify-center overflow-hidden my-2.5 w-full">
+                                <span
+                                  className="font-sans font-black text-white text-[9.5px] select-none text-center tracking-[0.08em] leading-none"
+                                  style={{
+                                    writingMode: 'vertical-rl',
+                                    textOrientation: 'upright',
+                                  }}
+                                >
+                                  OPENTOWORK
+                                </span>
+                              </div>
+
+                              {/* Bottom Section: Harper Business Logo */}
+                              <div className="w-full flex flex-col items-center gap-0.5 shrink-0 mt-auto px-1">
+                                <div className="w-[12px] h-[14px] text-[#1e293b]/90 shrink-0 flex items-center justify-center">
+                                  {/* Harper Collins style icon */}
+                                  <svg viewBox="0 0 24 24" className="w-full h-full" fill="currentColor">
+                                    <path d="M19 12h-2v9H7v-9H5l7-7 7 7zm-5-3.5h-4v2h4v-2zm0 3.5h-4v2h4v-2zm0 3.5h-4v2h4v-2z" />
+                                  </svg>
+                                </div>
+                                <div className="text-[4px] font-black tracking-[0.1em] text-[#1e293b]/90 uppercase leading-[1.1] font-sans text-center">
+                                  Harper<br />Collins
+                                </div>
                               </div>
                             </div>
                           ) : (
                             // Default layout for other books
-                            <>
+                            <div className="w-full h-full flex flex-col justify-between py-4">
                               {/* Top accent */}
                               <div className="w-full text-center px-1 font-synonym text-[9px] uppercase tracking-widest opacity-60 font-semibold shrink-0">
                                 {book.progress === 'Currently Reading' ? '•' : ''}
@@ -682,7 +736,7 @@ const Bookshelf = () => {
                               <div className="w-full text-center px-1 font-poppins text-[8px] opacity-75 shrink-0 truncate">
                                 {book.author.split(' ').pop()}
                               </div>
-                            </>
+                            </div>
                           )}
                         </div>
                       </div>
