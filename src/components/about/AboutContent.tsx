@@ -24,7 +24,7 @@ export const AboutContent = () => {
             <InteractiveAboutBanner isLightMode={isLightMode} />
 
             <div className="flex items-center justify-between mb-4">
-                <h1 className="text-3xl md:text-4xl font-bold font-excon bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
+                <h1 className="text-3xl md:text-4xl font-extrabold font-bricolage bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
                     About <span className="text-[#00DC82]">Me</span>
                 </h1>
                 <Tooltip>

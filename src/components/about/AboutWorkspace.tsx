@@ -5,7 +5,7 @@ export const AboutWorkspace = () => {
     return (
         <div className="mt-0 border-t border-neutral-900 pt-6">
             <ScrollReveal>
-                <h2 className="text-3xl font-bold font-excon mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300 text-left">
+                <h2 className="text-3xl font-extrabold font-bricolage mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300 text-left">
                     Workspace
                 </h2>
             </ScrollReveal>

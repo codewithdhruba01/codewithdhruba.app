@@ -73,7 +73,7 @@ const Skills = () => {
           <p className="text-lg text-neutral-400 font-outfit text-left">
             Latest
           </p>
-          <h2 className="text-3xl font-bold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-excon">
+          <h2 className="text-3xl font-extrabold font-bricolage text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left">
             Tech Stack
           </h2>
         </ScrollReveal>
