@@ -10,6 +10,7 @@ import { dopamineDetox } from './dopamine-detox';
 import { the7HabitsOfHighlyEffectivePeople } from './the-7-habits-of-highly-effective-people';
 import { cantHurtMe } from './cant-hurt-me';
 import { openToWork } from './open-to-work';
+import { theSubtleArt } from './the-subtle-art';
 
 export const bookThoughtsData = {
   'designing-data-intensive-applications': designingDataIntensiveApplications,
@@ -24,6 +25,7 @@ export const bookThoughtsData = {
   'the-7-habits-of-highly-effective-people': the7HabitsOfHighlyEffectivePeople,
   'cant-hurt-me': cantHurtMe,
   'open-to-work': openToWork,
+  'the-subtle-art-of-not-giving-a-fck': theSubtleArt,
 };
 
 export type BookThoughtKey = keyof typeof bookThoughtsData;

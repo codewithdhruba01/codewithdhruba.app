@@ -188,28 +188,24 @@ const Projects = () => {
                   </p>
 
                   {/* Tech Stack */}
-                  <div className="flex flex-col gap-2 mb-2">
-                    <p className="text-[#909092] text-sm font-outfit">Technologies :</p>
-                    <div className="flex flex-wrap gap-1">
-                      {project.techStack.map((tech, i) => {
+                  <div className="flex items-center gap-3 mb-2 select-none">
+                    <p className="text-[#909092] text-xs font-outfit uppercase tracking-wider shrink-0">Technologies :</p>
+                    <div className="flex -space-x-2 overflow-visible">
+                      {project.techStack.slice(0, 4).map((tech, i) => {
                         const Icon = iconMap[tech];
                         return (
                           <TooltipProvider key={i}>
                             <Tooltip>
-                              <TooltipTrigger>
-                                {Icon ? (
-                                  <div
-                                    className={`flex items-center justify-center w-6 h-6 rounded-lg text-neutral-400 hover:text-white transition-all duration-300 hover:scale-110 cursor-pointer group/icon ${tech === 'MDX' ? '[&>svg]:w-7 [&>svg]:h-7' : '[&>svg]:w-5 [&>svg]:h-5'}`}
-                                  >
-                                    <Icon />
-                                  </div>
-                                ) : (
-                                  <span
-                                    className="px-2 py-1 text-xs rounded-full bg-[#1f1f1f] text-[#00DC82] border border-[#00DC82]/40"
-                                  >
-                                    {tech}
-                                  </span>
-                                )}
+                              <TooltipTrigger asChild>
+                                <div
+                                  className={`relative z-10 w-7 h-7 rounded-full bg-[#1b1b1c] border-2 border-[#111111] flex items-center justify-center text-neutral-400 hover:text-white transition-all duration-300 hover:scale-110 hover:z-30 cursor-pointer group/icon shadow-md overflow-hidden ${
+                                    tech === 'TypeScript' ? '[&>svg]:w-7 [&>svg]:h-7' :
+                                    tech === 'MDX' ? '[&>svg]:w-5 [&>svg]:h-5' : 
+                                    '[&>svg]:w-4 [&>svg]:h-4'
+                                  }`}
+                                >
+                                  {Icon ? <Icon /> : <span className="text-[9px] font-bold">{tech.substring(0, 2)}</span>}
+                                </div>
                               </TooltipTrigger>
                               <TooltipContent>
                                 <p>{tech}</p>
@@ -218,6 +214,22 @@ const Projects = () => {
                           </TooltipProvider>
                         );
                       })}
+                      {project.techStack.length > 4 && (
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <div
+                                className="relative z-10 w-7 h-7 rounded-full bg-[#1b1b1c] border-2 border-[#111111] flex items-center justify-center text-neutral-400 hover:text-white transition-all duration-300 hover:scale-110 hover:z-30 cursor-pointer shadow-md"
+                              >
+                                <span className="text-[9px] font-bold text-neutral-300">+{project.techStack.length - 4}</span>
+                              </div>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>{project.techStack.slice(4).join(', ')}</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      )}
                     </div>
                   </div>
                 </div>

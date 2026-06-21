@@ -84,20 +84,20 @@ const books: Book[] = [
     title: 'Designing Data-Intensive Applications',
     author: 'Martin Kleppmann',
     coverUrl: 'https://covers.openlibrary.org/b/isbn/9781449373320-L.jpg',
-    spineColor: '#b83c24',
-    spineTextColor: '#ffffff',
+    spineColor: '#fafaf9',
+    spineTextColor: '#111111',
     progress: 'Read',
     coverWidth: 185,
     spineWidth: 32,
     baseTilt: 0.0,
-    theme: 'dark'
+    theme: 'light'
   },
   {
     slug: 'the-pragmatic-programmer',
     title: 'The Pragmatic Programmer',
     author: 'Andy Hunt & Dave Thomas',
     coverUrl: 'https://covers.openlibrary.org/b/isbn/9780135957059-L.jpg',
-    spineColor: '#0f2440',
+    spineColor: '#0b1a30',
     spineTextColor: '#f3f4f6',
     progress: 'Read',
     coverWidth: 195,
@@ -175,7 +175,7 @@ const books: Book[] = [
     title: 'A Little Life',
     author: 'Hanya Yanagihara',
     coverUrl: 'https://covers.openlibrary.org/b/isbn/9780804172707-L.jpg',
-    spineColor: '#a1a293',
+    spineColor: '#111111',
     spineTextColor: '#ffffff',
     progress: 'Read',
     coverWidth: 185,
@@ -233,6 +233,19 @@ const books: Book[] = [
     coverWidth: 175,
     spineWidth: 26,
     baseTilt: -0.5,
+    theme: 'dark'
+  },
+  {
+    slug: 'the-subtle-art-of-not-giving-a-fck',
+    title: 'The Subtle Art of Not Giving a F*ck',
+    author: 'Mark Manson',
+    coverUrl: 'https://images-na.ssl-images-amazon.com/images/P/0062457713.01.LZZZZZZZ.jpg',
+    spineColor: '#ff5f00',
+    spineTextColor: '#000000',
+    progress: 'Read',
+    coverWidth: 170,
+    spineWidth: 26,
+    baseTilt: -0.4,
     theme: 'dark'
   }
 ];
@@ -706,6 +719,178 @@ const Bookshelf = () => {
                                 </div>
                                 <div className="text-[4px] font-black tracking-[0.1em] text-[#1e293b]/90 uppercase leading-[1.1] font-sans text-center">
                                   Harper<br />Collins
+                                </div>
+                              </div>
+                            </div>
+                          ) : book.slug === 'designing-data-intensive-applications' ? (
+                            // Custom layout matching the physical book for Designing Data-Intensive Applications
+                            <div className="w-full h-full flex flex-col justify-between items-center text-black py-3 bg-[#fafaf9] border-x border-[#b83c24]/20 relative font-sans">
+                              {/* Top colored accent band - O'Reilly style top accent */}
+                              <div className="w-full h-[6px] bg-[#b83c24] shrink-0" />
+
+                              {/* Middle Section: Title & Author (Rotated top-down) */}
+                              <div className="flex-1 flex flex-col justify-center items-center overflow-hidden my-3 w-full px-1 gap-2">
+                                <span
+                                  className="font-sans font-black text-black text-[9.5px] select-none text-center tracking-[0.03em] leading-none"
+                                  style={{
+                                    writingMode: 'vertical-rl',
+                                    transform: 'rotate(180deg)',
+                                  }}
+                                >
+                                  Designing Data-Intensive Applications
+                                </span>
+                                <span
+                                  className="font-sans font-medium text-neutral-500 text-[7px] select-none text-center leading-none"
+                                  style={{
+                                    writingMode: 'vertical-rl',
+                                    transform: 'rotate(180deg)',
+                                  }}
+                                >
+                                  Martin Kleppmann
+                                </span>
+                              </div>
+
+                              {/* Bottom Section: Iconic Red O'Reilly "O" Logo */}
+                              <div className="w-full flex flex-col items-center gap-0.5 shrink-0 mt-auto pb-1 px-1 select-none">
+                                <div className="w-[12px] h-[12px] rounded-full border-[2.2px] border-[#e02020] shrink-0" />
+                                <div className="text-[3.5px] font-black tracking-[0.05em] text-neutral-800 uppercase leading-none font-sans text-center">
+                                  O'REILLY
+                                </div>
+                              </div>
+                            </div>
+                          ) : book.slug === 'the-pragmatic-programmer' ? (
+                            // Custom layout matching the physical book for The Pragmatic Programmer
+                            <div className="w-full h-full flex flex-col justify-between items-center text-white py-3 bg-[#0b1a30] relative font-sans">
+                              {/* Top Section: Author Names in Grey/White */}
+                              <div
+                                className="flex flex-col items-center text-center pt-1 text-[7px] font-bold leading-tight text-neutral-400 select-none shrink-0"
+                                style={{
+                                  writingMode: 'vertical-rl',
+                                  transform: 'rotate(180deg)',
+                                }}
+                              >
+                                <span>THOMAS</span>
+                                <span className="mx-0.5 text-neutral-600">•</span>
+                                <span>HUNT</span>
+                              </div>
+
+                              {/* Middle Section: Two-Tone Title and Subtitle */}
+                              <div className="flex-1 flex flex-col justify-center items-center overflow-hidden my-3 w-full px-1 gap-1">
+                                <span
+                                  className="font-sans font-extrabold text-white text-[9.5px] select-none text-center tracking-[0.04em] leading-none"
+                                  style={{
+                                    writingMode: 'vertical-rl',
+                                    transform: 'rotate(180deg)',
+                                  }}
+                                >
+                                  The Pragmatic
+                                </span>
+                                <span
+                                  className="font-sans font-black text-[#eab308] text-[10px] select-none text-center tracking-[0.04em] leading-none mt-1"
+                                  style={{
+                                    writingMode: 'vertical-rl',
+                                    transform: 'rotate(180deg)',
+                                  }}
+                                >
+                                  Programmer
+                                </span>
+                                <span
+                                  className="font-sans font-medium text-neutral-400 text-[5px] select-none text-center tracking-widest leading-none mt-1.5 uppercase"
+                                  style={{
+                                    writingMode: 'vertical-rl',
+                                    transform: 'rotate(180deg)',
+                                  }}
+                                >
+                                  20TH ANNIVERSARY
+                                </span>
+                              </div>
+
+                              {/* Bottom Section: Addison-Wesley Logo */}
+                              <div className="w-full flex flex-col items-center gap-0.5 shrink-0 mt-auto pb-1 px-1 select-none">
+                                <div className="w-[12px] h-[12px] bg-[#e03a20] rounded-[1.5px] flex items-center justify-center p-[2px] shrink-0 shadow-sm">
+                                  <svg viewBox="0 0 24 24" className="w-full h-full text-white" fill="currentColor">
+                                    <path d="M12 2L2 22h20L12 2zm0 3.8L18.4 18H5.6L12 5.8z" />
+                                  </svg>
+                                </div>
+                                <div className="text-[3px] font-black tracking-[0.05em] text-neutral-400 uppercase leading-none font-sans text-center mt-[1px]">
+                                  Addison-Wesley
+                                </div>
+                              </div>
+                            </div>
+                          ) : book.slug === 'a-little-life' ? (
+                            // Custom layout matching the physical book for A Little Life
+                            <div className="w-full h-full flex flex-col justify-between items-center text-white py-3 bg-[#111111] relative font-serif">
+                              {/* Top Section: Author Name in White Serif uppercase */}
+                              <div
+                                className="flex flex-col items-center text-center pt-1 text-[8.5px] font-medium tracking-[0.05em] text-neutral-300 select-none shrink-0"
+                                style={{
+                                  writingMode: 'vertical-rl',
+                                  transform: 'rotate(180deg)',
+                                }}
+                              >
+                                HANYA YANAGIHARA
+                              </div>
+
+                              {/* Middle Section: Title in Bold white Serif Font */}
+                              <div className="flex-1 flex items-center justify-center overflow-hidden my-4 w-full">
+                                <span
+                                  className="font-serif font-bold text-white text-[13px] select-none text-center tracking-[0.08em] leading-none uppercase"
+                                  style={{
+                                    writingMode: 'vertical-rl',
+                                    transform: 'rotate(180deg)',
+                                  }}
+                                >
+                                  A Little Life
+                                </span>
+                              </div>
+
+                              {/* Bottom Section: Iconic white Anchor logo */}
+                              <div className="w-full flex flex-col items-center gap-0.5 shrink-0 mt-auto pb-1 px-1 select-none">
+                                <div className="w-[14px] h-[14px] text-white/95 shrink-0 flex items-center justify-center">
+                                  <svg viewBox="0 0 24 24" className="w-full h-full" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                    <circle cx="12" cy="5" r="3" />
+                                    <line x1="12" y1="8" x2="12" y2="22" />
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                    <path d="M5 12a7 7 0 0014 0" />
+                                  </svg>
+                                </div>
+                                <div className="text-[3px] font-black tracking-[0.05em] text-neutral-400 uppercase leading-none font-sans text-center mt-[1.5px]">
+                                  ANCHOR
+                                </div>
+                              </div>
+                            </div>
+                          ) : book.slug === 'the-subtle-art-of-not-giving-a-fck' ? (
+                            // Custom layout matching the physical book for The Subtle Art of Not Giving a F*ck
+                            <div className="w-full h-full flex flex-col justify-between items-center text-black py-3 bg-[#ff5f00] relative font-sans">
+                              {/* Top Section: Author Name in Bold Black/White */}
+                              <div
+                                className="flex flex-col items-center text-center pt-1 text-[7.5px] font-black leading-tight text-black select-none shrink-0"
+                                style={{
+                                  writingMode: 'vertical-rl',
+                                  transform: 'rotate(180deg)',
+                                }}
+                              >
+                                <span>MARK</span>
+                                <span className="text-white mt-[1px]">MANSON</span>
+                              </div>
+
+                              {/* Middle Section: Title in Heavy Black Sans-Serif Font */}
+                              <div className="flex-1 flex items-center justify-center overflow-hidden my-3 w-full">
+                                <span
+                                  className="font-sans font-black text-black text-[10.5px] select-none text-center tracking-[0.05em] leading-none"
+                                  style={{
+                                    writingMode: 'vertical-rl',
+                                    transform: 'rotate(180deg)',
+                                  }}
+                                >
+                                  THE SUBTLE ART OF NOT GIVING A F*CK
+                                </span>
+                              </div>
+
+                              {/* Bottom Section: HarperOne */}
+                              <div className="w-full flex flex-col items-center gap-0.5 shrink-0 mt-auto px-1">
+                                <div className="text-[5.5px] font-black tracking-widest text-black uppercase leading-none font-sans text-center">
+                                  HarperOne
                                 </div>
                               </div>
                             </div>
