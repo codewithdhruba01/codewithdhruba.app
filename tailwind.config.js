@@ -24,7 +24,8 @@ export default {
         pally: ['Pally', 'sans-serif'],
         hind: ['Hind', 'sans-serif'],
         dancing: ['Dancing Script', 'cursive'],
-        hanken: ['Hanken Grotesk', 'HK Grotesk', 'sans-serif']
+        hanken: ['Hanken Grotesk', 'HK Grotesk', 'sans-serif'],
+        bricolage: ['Bricolage Grotesque', 'sans-serif']
       },
       typography: {
         DEFAULT: {

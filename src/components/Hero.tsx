@@ -67,17 +67,15 @@ const Hero = () => {
           <img
             src="/assets/banner_dark.png"
             alt="Night mountain landscape banner"
-            className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-750 ease-in-out ${
-              avatarBg === 'black' ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.02] pointer-events-none'
-            } brightness-[0.8]`}
+            className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-750 ease-in-out ${avatarBg === 'black' ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.02] pointer-events-none'
+              } brightness-[0.8]`}
           />
           {/* Day theme banner */}
           <img
             src="/assets/banner.jpg"
             alt="Day mountain landscape banner"
-            className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-750 ease-in-out ${
-              avatarBg !== 'black' ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.02] pointer-events-none'
-            } brightness-[0.75]`}
+            className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-750 ease-in-out ${avatarBg !== 'black' ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.02] pointer-events-none'
+              } brightness-[0.75]`}
           />
           <div className="absolute inset-0 flex items-center justify-center p-4 z-10">
             <p className="font-serif italic text-white/95 text-center text-sm sm:text-base md:text-lg max-w-md md:max-w-xl leading-relaxed select-none drop-shadow-md">
@@ -123,7 +121,7 @@ const Hero = () => {
         <div className="mt-6 px-1 flex flex-col md:flex-row md:items-center justify-between gap-4">
           {/* Name and subtitle */}
           <div>
-            <h2 className="text-3xl font-hanken-grotesk font-semibold md:text-4xl tracking-tight text-neutral-200">
+            <h2 className="text-3xl font-bricolage font-extrabold md:text-4xl tracking-tight text-neutral-200">
               Dhrubaraj Pati
             </h2>
             <p className="mt-1.5 font-mono text-xs md:text-sm text-neutral-500">
@@ -223,7 +221,7 @@ const Hero = () => {
 
         {/* Bio Section */}
         <div className="px-1">
-          <h3 className="font-bold text-neutral-200 text-base sm:text-lg mb-3">
+          <h3 className="font-bold font-bricolage text-neutral-200 text-base sm:text-lg mb-3">
             I build from scratch.
           </h3>
           <p className="text-neutral-400 leading-relaxed text-base">
