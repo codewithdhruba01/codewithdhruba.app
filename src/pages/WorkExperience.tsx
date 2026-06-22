@@ -15,10 +15,10 @@ const WorkExperience = () => {
                 {/* Header */}
                 <ScrollReveal>
                     <div className="text-left mb-10">
-                        <h1 className="text-3xl md:text-4xl font-bold font-outfit mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
+                        <h2 className="text-3xl md:text-4xl font-bold font-outfit mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
                             Work Experience
-                        </h1>
-                        <p className="text-[#909092] mt-2 text-base font-poppins">
+                        </h2>
+                        <p className="text-[#909092] mt-2 text-sm md:text-base font-poppins">
                             My work experiences across different companies and roles.
                         </p>
                     </div>

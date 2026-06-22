@@ -10,7 +10,7 @@ interface DayData {
 const GitHubContributions = () => {
   const [contributions, setContributions] = useState<DayData[]>([]);
   const [totalCount, setTotalCount] = useState<number>(0);
-  const [year, setYear] = useState<number>(new Date().getFullYear()); // default latest year
+  const [year, setYear] = useState<number | 'Default'>('Default'); // default to past 12 months
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   // Play click audio sound from public/Audio/
@@ -23,30 +23,48 @@ const GitHubContributions = () => {
   const GITHUB_USERNAME = 'codewithdhruba01';
   const TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
 
-  const fetchContributions = async (selectedYear: number) => {
+  const fetchContributions = async (selectedYear: number | 'Default') => {
     setIsLoading(true);
     const endpoint = 'https://api.github.com/graphql';
 
-    const query = gql`
-      query {
-        user(login: "${GITHUB_USERNAME}") {
-          contributionsCollection(
-            from: "${selectedYear}-01-01T00:00:00Z"
-            to: "${selectedYear}-12-31T23:59:59Z"
-          ) {
-            contributionCalendar {
-              totalContributions
-              weeks {
-                contributionDays {
-                  date
-                  contributionCount
+    const query = selectedYear === 'Default'
+      ? gql`
+          query {
+            user(login: "${GITHUB_USERNAME}") {
+              contributionsCollection {
+                contributionCalendar {
+                  totalContributions
+                  weeks {
+                    contributionDays {
+                      date
+                      contributionCount
+                    }
+                  }
                 }
               }
             }
           }
-        }
-      }
-    `;
+        `
+      : gql`
+          query {
+            user(login: "${GITHUB_USERNAME}") {
+              contributionsCollection(
+                from: "${selectedYear}-01-01T00:00:00Z"
+                to: "${selectedYear}-12-31T23:59:59Z"
+              ) {
+                contributionCalendar {
+                  totalContributions
+                  weeks {
+                    contributionDays {
+                      date
+                      contributionCount
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `;
 
     try {
       const headers = {
@@ -135,23 +153,28 @@ const GitHubContributions = () => {
         </ScrollReveal>
         <ScrollReveal className="w-full mt-8" delay={0.15}>
           {/* Graph Card */}
-          <div className="w-full border border-neutral-800 bg-neutral-900/60 rounded-lg p-4 sm:p-6 shadow-lg">
+          <div className="w-full border border-neutral-800 bg-neutral-900/60 rounded-lg p-4 sm:py-4 sm:px-6 shadow-lg">
             {/* Card Header: Total Contributions + Year Selector */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
               <div className="text-sm font-satoshi text-[#909092]">
-                Total contributions in {year}:{' '}
+                {year === 'Default' ? 'Total contributions in the last 12 months' : `Total contributions in ${year}`}
+                :{' '}
                 <span className={`text-[#00DC82] font-semibold transition-all duration-300 ${isLoading ? 'animate-shimmer bg-gradient-to-r from-[#00DC82]/20 via-[#00DC82]/60 to-[#00DC82]/20 bg-[length:200%_100%] rounded px-2' : ''}`}>
                   {isLoading ? 'Loading...' : totalCount}
                 </span>
               </div>
 
               {/* Year Selector */}
-              <div className="flex gap-2 font-outfit select-none items-center">
+              <div className="flex flex-wrap gap-2 font-outfit select-none items-center">
                 {years.map((y) => (
                   <button
                     key={y}
                     onClick={() => {
-                      setYear(y);
+                      if (year === y) {
+                        setYear('Default');
+                      } else {
+                        setYear(y);
+                      }
                       playClickSound();
                     }}
                     className={`px-3.5 py-1.5 border rounded-lg text-xs font-bold transition-all duration-150 cursor-pointer ${year === y
@@ -166,13 +189,13 @@ const GitHubContributions = () => {
             </div>
 
             {/* Scrollable container */}
-            <div className="overflow-x-auto thin-scrollbar">
+            <div className="overflow-x-auto thin-scrollbar pb-2">
               {/* Month labels */}
-              <div className="ml-8 flex gap-1 text-xs text-[#909092] font-supreme mb-1">
+              <div className="ml-[32px] sm:ml-[36px] flex gap-[2px] sm:gap-[3px] text-[#909092] font-supreme mb-1">
                 {weeks.map((_, weekIndex) => {
                   const label = monthLabels.find((m) => m.index === weekIndex);
                   return (
-                    <div key={weekIndex} className="w-3 text-center shrink-0">
+                    <div key={weekIndex} className="w-[8px] sm:w-[10px] text-[9px] sm:text-[10px] text-center shrink-0">
                       {label ? label.month : ''}
                     </div>
                   );
@@ -182,7 +205,7 @@ const GitHubContributions = () => {
               {/* Contribution Grid */}
               <div className="flex">
                 {/* Weekday labels */}
-                <div className="flex flex-col justify-between mr-2 text-xs font-supreme text-[#909092]">
+                <div className="flex flex-col justify-between w-[24px] sm:w-[28px] mr-2 text-[9px] sm:text-[10px] font-supreme text-[#909092]">
                   {Array.from({ length: 7 }).map((_, dayIndex) => {
                     const label =
                       dayIndex === 1
@@ -193,7 +216,7 @@ const GitHubContributions = () => {
                             ? 'Fri'
                             : '';
                     return (
-                      <div key={dayIndex} className="h-3">
+                      <div key={dayIndex} className="h-[8px] sm:h-[10px] flex items-center">
                         {label}
                       </div>
                     );
@@ -201,15 +224,15 @@ const GitHubContributions = () => {
                 </div>
 
                 {/* Grid */}
-                <div className="inline-flex gap-1">
+                <div className="inline-flex gap-[2px] sm:gap-[3px]">
                   {isLoading ? (
                     // Skeleton loading effect
                     Array.from({ length: 53 }).map((_, weekIndex) => (
-                      <div key={`skeleton-${weekIndex}`} className="flex flex-col gap-1">
+                      <div key={`skeleton-${weekIndex}`} className="flex flex-col gap-[2px] sm:gap-[3px]">
                         {Array.from({ length: 7 }).map((_, dayIndex) => (
                           <div
                             key={`skeleton-${weekIndex}-${dayIndex}`}
-                            className="w-3 h-3 rounded-sm bg-neutral-700 animate-pulse"
+                            className="w-[8px] h-[8px] sm:w-[10px] sm:h-[10px] rounded-sm bg-neutral-700 animate-pulse"
                             style={{
                               animationDelay: `${(weekIndex * 7 + dayIndex) * 30}ms`,
                               animationDuration: '1.5s'
@@ -220,11 +243,11 @@ const GitHubContributions = () => {
                     ))
                   ) : (
                     weeks.map((week, weekIndex) => (
-                      <div key={weekIndex} className="flex flex-col gap-1">
+                      <div key={weekIndex} className="flex flex-col gap-[2px] sm:gap-[3px]">
                         {week.map((day, dayIndex) => (
                           <div
                             key={`${weekIndex}-${dayIndex}`}
-                            className={`w-3 h-3 rounded-sm ${getContributionColor(
+                            className={`w-[8px] h-[8px] sm:w-[10px] sm:h-[10px] rounded-sm ${getContributionColor(
                               day.contributionCount
                             )}
                               hover:ring-2 hover:ring-[#00DC82]/30 transition-all duration-300 cursor-pointer group relative
@@ -244,7 +267,7 @@ const GitHubContributions = () => {
             </div>
 
             {/* Total contributions + Legend */}
-            <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm text-gray-400">
+            <div className="mt-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm text-gray-400">
               <div className="flex items-center gap-2">
                 <span className="font-bold font-supreme">Less</span>
                 <div className="flex gap-1">

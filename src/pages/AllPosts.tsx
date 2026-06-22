@@ -112,10 +112,10 @@ const AllPosts = () => {
       <div className="max-w-4xl mx-auto w-full px-6">
         <ScrollReveal>
           <div className="text-left mb-10">
-            <h1 className="text-3xl md:text-4xl font-bold font-outfit mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
+            <h2 className="text-3xl md:text-4xl font-bold font-outfit mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
               Blog & Publications
-            </h1>
-            <p className="text-[#909092] mt-2 text-base font-poppins">
+            </h2>
+            <p className="text-[#909092] mt-2 font-poppins text-sm md:text-base">
               Exploring the art of engineering, and the journey of building impactful tech.
             </p>
           </div>
