@@ -25,9 +25,9 @@ const WorkExperience = () => {
                 </ScrollReveal>
 
                 {/* Content */}
-                <div className="space-y-8">
+                <div className="space-y-6">
                     <ScrollReveal delay={0.1}>
-                        <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-8">
+                        <div className="flex items-center justify-between border-b border-neutral-900/60 pb-4 mb-4">
                             <p className="text-xl sm:text-xl font-bold text-neutral-300 font-outfit">
                                 All Experiences
                             </p>
@@ -37,14 +37,13 @@ const WorkExperience = () => {
                         </div>
                     </ScrollReveal>
 
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col">
                         {experiences.map((experience, index) => (
                             <ScrollReveal key={index} delay={index * 0.05}>
                                 <ExperienceCard
                                     experience={experience}
                                     isOpen={true}
                                     onClick={() => { }}
-                                    transparentOnOpen={true}
                                     alwaysOpen={true}
                                 />
                             </ScrollReveal>

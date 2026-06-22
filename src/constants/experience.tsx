@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { FastAPI } from '../components/svgs/FastAPI';
 import TailwindCss from '../components/svgs/TailwindCss';
@@ -15,36 +14,27 @@ import Shadcn from '../components/svgs/Shadcn';
 import { Php } from '../components/svgs/Php';
 import { AmazonWebServices } from '../components/svgs/AmazonWebServices';
 import { Python } from '../components/svgs/Python';
-import { Github } from 'lucide-react';
 
 export interface ExperienceInterface {
     company: string;
-    image: string;
     isBlur?: boolean;
-    website?: string;
-    x?: string;
-    linkedin?: string;
-    github?: string;
     isCurrent?: boolean;
     position: string;
     startDate: string;
     endDate?: string;
     location: string;
-    technologies: { name: string; href?: string; icon: React.ReactNode }[];
+    technologies: { name: string; icon: React.ReactNode }[];
     description: string[];
 }
 
 export const experiences: ExperienceInterface[] = [
     {
-        company: 'SpacECE India Foundation',
+        company: 'SpacECE India',
         isBlur: true,
-        location: 'Pune',
+        location: 'Pune, Maharashtra',
         position: 'Full Stack Developer (Intern)',
         startDate: 'Jan 2026',
-        isCurrent: true,
-        image: '/company/SpacECE.jpg',
-        website: 'https://www.spacece.in/',
-        github: 'https://github.com/SpacECE-India-Foundation',
+        endDate: 'Apr 2026',
         description: [
             'Designed and developed: RESTful APIs to support dynamic frontend features and ensure smooth data flow across the application.',
             'Focusing on building secure, scalable, and performance-optimized solutions for production-level applications.',
@@ -68,9 +58,6 @@ export const experiences: ExperienceInterface[] = [
         position: 'Technical Writer',
         startDate: 'May 2025',
         endDate: 'Dec 2025',
-        image: '/company/Recodehive.png',
-        website: 'https://recodehive.com/',
-        github: 'https://github.com/recodehive',
         description: [
             'Authored and maintained product documentation, user guides, and tutorials, simplifying complex technical concepts into clear, accessible content.',
             'Collaborated with engineers to ensure accurate and up-to-date documentation.',
@@ -85,7 +72,6 @@ export const experiences: ExperienceInterface[] = [
             { name: 'TypeScript', icon: <TypeScript /> },
             { name: 'Node.Js', icon: <NodeJs /> },
             { name: 'Tailwind CSS', icon: <TailwindCss /> },
-            { name: 'Github', icon: <Github className="w-3 h-3 text-white-500" /> },
         ],
     },
     {
@@ -94,7 +80,6 @@ export const experiences: ExperienceInterface[] = [
         position: 'Freelance Engineer',
         startDate: '2025',
         isCurrent: true,
-        image: '/company/Upwork.jpeg',
         description: [
             'Built custom websites for small businesses, including e-commerce and portfolio sites.',
             'Implemented SEO best practices to improve visibility and performance.',

@@ -1,13 +1,28 @@
-
-
-import { Tooltip, TooltipContent, TooltipTrigger } from '../components/ui/tooltip';
-import { Github, Globe, Linkedin, Twitter, ChevronDown } from 'lucide-react';
+import React from 'react';
+import { ChevronRight } from 'lucide-react';
 import { cn } from '../lib/utils';
-import Skill from '../components/common/Skill';
 import { ExperienceInterface } from '../constants/experience';
 
 const parseDescription = (text: string): string => {
     return text.replace(/\*(.*?)\*/g, '<b>$1</b>');
+};
+
+interface TechBadgeProps {
+    name: string;
+    children?: React.ReactNode;
+}
+
+const TechBadge = ({ name, children }: TechBadgeProps) => {
+    return (
+        <div className="group inline-flex items-center gap-0 rounded-md border border-dashed border-neutral-800 bg-neutral-900/40 px-2.5 py-1 text-xs font-medium text-neutral-300 outline-none transition-all duration-300 ease-out hover:scale-[1.03] hover:gap-1.5 hover:border-neutral-700 hover:bg-neutral-800/80 hover:text-white hover:shadow-sm">
+            <span className="w-4 h-4 shrink-0 flex items-center justify-center [&>svg]:w-3.5 [&>svg]:h-3.5 [&>svg]:text-neutral-400 group-hover:[&>svg]:text-white [&>svg]:transition-colors">
+                {children}
+            </span>
+            <span className="max-w-0 overflow-hidden opacity-0 whitespace-nowrap transition-all duration-300 ease-out group-hover:max-w-32 group-hover:opacity-100 group-hover:delay-150 leading-none">
+                {name}
+            </span>
+        </div>
+    );
 };
 
 interface ExperienceCardProps {
@@ -18,121 +33,73 @@ interface ExperienceCardProps {
     alwaysOpen?: boolean;
 }
 
-export function ExperienceCard({ experience, isOpen, onClick, transparentOnOpen = false, alwaysOpen = false }: ExperienceCardProps) {
+export function ExperienceCard({ experience, isOpen, onClick, alwaysOpen = false }: ExperienceCardProps) {
     const isExpanded = alwaysOpen || isOpen;
 
     return (
-        <div
-            className={cn(
-                "flex flex-col gap-0 transition-all duration-300 group",
-                isExpanded && !transparentOnOpen
-                    ? "bg-[#111111]/50 border border-white/5 rounded-2xl"
-                    : "bg-transparent border border-transparent"
-            )}
-        >
-            {/* Company Header - Always Visible */}
-            <div className={cn(
-                "flex flex-col py-3 sm:py-4 gap-4",
-                transparentOnOpen ? "px-0" : "px-4 sm:px-6"
-            )}>
-                <div className="flex flex-col sm:flex-row items-start justify-between gap-2 sm:gap-4">
-                    {/* Left Side: Logo & Info */}
-                    <div className="flex items-start gap-3 sm:gap-4 w-full sm:w-auto">
-                        <img
-                            src={experience.image}
-                            alt={experience.company}
-                            className="w-10 h-10 sm:w-12 sm:h-12 rounded-md object-cover bg-neutral-900 border border-neutral-800 shrink-0"
-                        />
-                        <div className="flex flex-col gap-1 sm:gap-0 w-full">
-                            <div className="flex flex-wrap items-center gap-2">
-                                <h3 className={cn(
-                                    "text-base sm:text-lg font-bold font-outfit text-[#f4f4f4] leading-tight",
-                                    experience.isBlur && "blur-[6px] select-none opacity-80"
-                                )}>
-                                    {experience.company}
-                                </h3>
+        <div className="flex flex-col py-2 sm:py-3 w-full transition-all duration-300">
+            {/* Header info */}
+            <div
+                className={cn(
+                    "flex flex-col gap-1 w-full group",
+                    !alwaysOpen ? "cursor-pointer select-none" : ""
+                )}
+                onClick={alwaysOpen ? undefined : onClick}
+            >
+                <div className="flex items-center justify-between w-full">
+                    {/* Left: Company name & Working badge & Chevron toggle */}
+                    <div className="flex items-center gap-2">
+                        <h3 className={cn(
+                            "text-base sm:text-lg font-bold font-outfit text-white tracking-wide transition-colors",
+                            experience.isBlur && "blur-[6px] select-none opacity-80"
+                        )}>
+                            {experience.company}
+                        </h3>
 
-                                {/* Social Links */}
-                                <div className="flex items-center gap-1" onClick={(e) => e.stopPropagation()}>
-                                    {experience.website && (
-                                        <Tooltip>
-                                            <TooltipTrigger>
-                                                <a href={experience.website} target="_blank" className="p-1 text-neutral-500 hover:text-white transition-colors block" rel="noreferrer">
-                                                    <Globe className="w-3.5 h-3.5" />
-                                                </a>
-                                            </TooltipTrigger>
-                                            <TooltipContent>Visit Website</TooltipContent>
-                                        </Tooltip>
-                                    )}
-                                    {experience.x && (
-                                        <Tooltip>
-                                            <TooltipTrigger>
-                                                <a href={experience.x} target="_blank" className="p-1 text-neutral-500 hover:text-white transition-colors block" rel="noreferrer">
-                                                    <Twitter className="w-3.5 h-3.5" />
-                                                </a>
-                                            </TooltipTrigger>
-                                            <TooltipContent>Follow on X</TooltipContent>
-                                        </Tooltip>
-                                    )}
-                                    {experience.linkedin && (
-                                        <Tooltip>
-                                            <TooltipTrigger>
-                                                <a href={experience.linkedin} target="_blank" className="p-1 text-neutral-500 hover:text-white transition-colors block" rel="noreferrer">
-                                                    <Linkedin className="w-3.5 h-3.5" />
-                                                </a>
-                                            </TooltipTrigger>
-                                            <TooltipContent>Connect on LinkedIn</TooltipContent>
-                                        </Tooltip>
-                                    )}
-                                    {experience.github && (
-                                        <Tooltip>
-                                            <TooltipTrigger>
-                                                <a href={experience.github} target="_blank" className="p-1 text-neutral-500 hover:text-white transition-colors block" rel="noreferrer">
-                                                    <Github className="w-3.5 h-3.5" />
-                                                </a>
-                                            </TooltipTrigger>
-                                            <TooltipContent>View GitHub</TooltipContent>
-                                        </Tooltip>
-                                    )}
-                                </div>
-
-                                {experience.isCurrent && (
-                                    <div className="flex items-center gap-1 rounded-md bg-[#022c1b] px-2 py-0.5 text-[10px] font-outfit text-[#ffffff] font-semibold ml-1 border border-black shadow-[0_0_10px_-3px_rgba(0,220,130,0.3)]">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-[#00DC82] animate-pulse"></div>
-                                        Working
-                                    </div>
-                                )}
-
-                                {!alwaysOpen && (
-                                    <Tooltip>
-                                        <TooltipTrigger>
-                                            <div
-                                                onClick={onClick}
-                                                className="ml-0 w-6 h-6 flex items-center justify-center rounded-lg border border-transparent bg-transparent hover:bg-[#161616] hover:border-[#222] transition-all duration-300 cursor-pointer"
-                                            >
-                                                <ChevronDown className={cn(
-                                                    "w-3.5 h-3.5 text-neutral-500 transition-transform duration-300",
-                                                    isExpanded ? "rotate-180" : ""
-                                                )} />
-                                            </div>
-                                        </TooltipTrigger>
-                                        <TooltipContent>
-                                            {isExpanded ? "Collapse" : "Expand"}
-                                        </TooltipContent>
-                                    </Tooltip>
-                                )}
+                        {experience.isCurrent && (
+                            <div className="inline-flex items-center gap-1 rounded-full border border-[#00DC82]/30 bg-[#00DC82]/10 px-2 py-0.5 text-[10px] font-outfit text-[#00DC82] font-semibold shadow-[0_0_10px_-3px_rgba(0,220,130,0.2)]">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#00DC82] animate-pulse"></span>
+                                Working
                             </div>
-                            <p className="text-[#909092] font-outfit font-semibold text-sm sm:text-base leading-snug">{experience.position}</p>
-                        </div>
+                        )}
+
+                        {/* Toggle Button for collapsible items on homepage */}
+                        {!alwaysOpen && (
+                            <div className={cn(
+                                "flex items-center justify-center w-5 h-5 rounded transition-all duration-300 opacity-0 group-hover:opacity-100 text-neutral-200 hover:text-white",
+                                isExpanded ? "rotate-90 text-white opacity-100" : ""
+                            )}>
+                                <ChevronRight className="w-4 h-4 shrink-0 transition-transform duration-300" strokeWidth={2.5} />
+                            </div>
+                        )}
                     </div>
 
-                    {/* Right Side: Date & Location */}
-                    <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start w-full sm:w-auto text-neutral-500 text-xs sm:text-sm font-medium shrink-0 pl-[52px] sm:pl-0 mt-1 sm:mt-0">
-                        <p>
-                            {experience.startDate} - {experience.isCurrent ? 'Present' : experience.endDate}
-                        </p>
-                        <p className="text-neutral-600">{experience.location}</p>
+                    {/* Right: Date Range (Desktop/Tablet) */}
+                    <div className="hidden sm:block text-neutral-400 text-sm font-synonym font-medium text-right shrink-0">
+                        {experience.startDate} – {experience.isCurrent ? 'Present' : experience.endDate}
                     </div>
+
+                    {/* Right: Date Range (Mobile) */}
+                    <div className="block sm:hidden text-neutral-400 text-xs font-synonym font-medium text-right shrink-0">
+                        {experience.startDate} – {experience.isCurrent ? 'Present' : (experience.endDate || '').replace(/20\d{2}/, (match) => match.slice(-2))}
+                    </div>
+                </div>
+
+                {/* Subtitle row */}
+                <div className="flex items-center justify-between text-sm w-full mt-0.5">
+                    <p className="text-neutral-400 font-bricolage font-medium text-sm sm:text-base leading-snug">
+                        {experience.position}
+                    </p>
+
+                    {/* Location (Desktop) */}
+                    <p className="hidden sm:block text-neutral-500 font-synonym text-sm">
+                        {experience.location}
+                    </p>
+
+                    {/* Location (Mobile) */}
+                    <p className="block sm:hidden text-neutral-500 font-synonym text-xs">
+                        {experience.location.includes('(') ? experience.location.replace(/.*\((.*)\)/, '$1') : experience.location}
+                    </p>
                 </div>
             </div>
 
@@ -144,38 +111,38 @@ export function ExperienceCard({ experience, isOpen, onClick, transparentOnOpen 
                 )}
             >
                 <div className="overflow-hidden">
-                    <div className={cn(
-                        "pb-4 sm:pb-5 pt-0 flex flex-col gap-4 sm:gap-6",
-                        transparentOnOpen ? "px-0" : "px-4 sm:px-6"
-                    )}>
-                        {/* Technologies */}
+                    <div className="mt-4 space-y-4 border-t border-neutral-900 pt-4">
+                        {/* Technologies & Tools */}
                         <div>
-                            <h4 className="text-sm font-synonym font-semibold text-[#909092] mb-2 sm:mb-3">Technologies & Tools</h4>
-                            <div className="flex flex-wrap gap-1.5 sm:gap-2 text-white font-synonym ">
+                            <h4 className="text-xs font-outfit font-semibold text-neutral-400 uppercase tracking-wider mb-2.5">Technologies & Tools</h4>
+                            <div className="flex flex-wrap gap-2 text-white font-synonym">
                                 {experience.technologies.map((technology, techIndex: number) => (
-                                    <Skill
+                                    <TechBadge
                                         key={techIndex}
                                         name={technology.name}
-                                        href={technology.href}
                                     >
                                         {technology.icon}
-                                    </Skill>
+                                    </TechBadge>
                                 ))}
                             </div>
                         </div>
 
-                        {/* Description */}
-                        <div className="text-[#909092] flex flex-col gap-2 text-sm sm:text-base font-supreme leading-relaxed">
-                            {experience.description.map(
-                                (description: string, descIndex: number) => (
-                                    <p
-                                        key={descIndex}
-                                        dangerouslySetInnerHTML={{
-                                            __html: `• ${parseDescription(description)}`,
-                                        }}
-                                    />
-                                ),
-                            )}
+                        {/* Description / What I've Done */}
+                        <div>
+                            <h4 className="text-xs font-outfit font-semibold text-neutral-400 uppercase tracking-wider mb-2.5 mt-3">What I've done</h4>
+                            <ul className="flex flex-col gap-2">
+                                {experience.description.map((description: string, descIndex: number) => (
+                                    <li key={descIndex} className="flex gap-2 items-start">
+                                        <span className="text-neutral-500 shrink-0 select-none mt-1.5 text-xs">•</span>
+                                        <span
+                                            className="text-neutral-500 font-supreme text-sm sm:text-base leading-relaxed"
+                                            dangerouslySetInnerHTML={{
+                                                __html: parseDescription(description),
+                                            }}
+                                        />
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     </div>
                 </div>
