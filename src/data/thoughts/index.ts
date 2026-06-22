@@ -11,6 +11,8 @@ import { the7HabitsOfHighlyEffectivePeople } from './the-7-habits-of-highly-effe
 import { cantHurtMe } from './cant-hurt-me';
 import { openToWork } from './open-to-work';
 import { theSubtleArt } from './the-subtle-art';
+import { theHappiestManOnEarth } from './the-happiest-man-on-earth';
+import { influenceThePsychologyOfPersuasion } from './influence-the-psychology-of-persuasion';
 
 export const bookThoughtsData = {
   'designing-data-intensive-applications': designingDataIntensiveApplications,
@@ -26,6 +28,8 @@ export const bookThoughtsData = {
   'cant-hurt-me': cantHurtMe,
   'open-to-work': openToWork,
   'the-subtle-art-of-not-giving-a-fck': theSubtleArt,
+  'the-happiest-man-on-earth': theHappiestManOnEarth,
+  'influence-the-psychology-of-persuasion': influenceThePsychologyOfPersuasion,
 };
 
 export type BookThoughtKey = keyof typeof bookThoughtsData;

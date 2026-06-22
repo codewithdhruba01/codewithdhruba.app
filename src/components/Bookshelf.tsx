@@ -247,6 +247,32 @@ const books: Book[] = [
     spineWidth: 26,
     baseTilt: -0.4,
     theme: 'dark'
+  },
+  {
+    slug: 'the-happiest-man-on-earth',
+    title: 'The Happiest Man on Earth',
+    author: 'Eddie Jaku',
+    coverUrl: 'https://images-na.ssl-images-amazon.com/images/P/0063097680.01.LZZZZZZZ.jpg',
+    spineColor: '#facc15',
+    spineTextColor: '#000000',
+    progress: 'Read',
+    coverWidth: 165,
+    spineWidth: 22,
+    baseTilt: -0.2,
+    theme: 'light'
+  },
+  {
+    slug: 'influence-the-psychology-of-persuasion',
+    title: 'Influence: The Psychology of Persuasion',
+    author: 'Robert B. Cialdini',
+    coverUrl: 'https://images-na.ssl-images-amazon.com/images/P/006124189X.01.LZZZZZZZ.jpg',
+    spineColor: '#b91c1c',
+    spineTextColor: '#ffffff',
+    progress: 'Currently Reading',
+    coverWidth: 175,
+    spineWidth: 26,
+    baseTilt: 0.1,
+    theme: 'dark'
   }
 ];
 
@@ -891,6 +917,87 @@ const Bookshelf = () => {
                               <div className="w-full flex flex-col items-center gap-0.5 shrink-0 mt-auto px-1">
                                 <div className="text-[5.5px] font-black tracking-widest text-black uppercase leading-none font-sans text-center">
                                   HarperOne
+                                </div>
+                              </div>
+                            </div>
+                          ) : book.slug === 'the-happiest-man-on-earth' ? (
+                            // Custom layout matching the physical book for The Happiest Man on Earth
+                            <div className="w-full h-full flex flex-col justify-between items-center text-black py-3 bg-[#facc15] relative font-serif">
+                              {/* Top Section: Author Name in Bold Black */}
+                              <div
+                                className="flex flex-col items-center text-center pt-1 text-[7.5px] font-black leading-tight text-black select-none shrink-0"
+                                style={{
+                                  writingMode: 'vertical-rl',
+                                  transform: 'rotate(180deg)',
+                                }}
+                              >
+                                <span>EDDIE</span>
+                                <span className="text-white mt-[1px]">JAKU</span>
+                              </div>
+
+                              {/* Middle Section: Title in Elegant Serif Font */}
+                              <div className="flex-1 flex items-center justify-center overflow-hidden my-3 w-full">
+                                <span
+                                  className="font-serif font-black text-black text-[10.5px] select-none text-center tracking-[0.05em] leading-none uppercase"
+                                  style={{
+                                    writingMode: 'vertical-rl',
+                                    transform: 'rotate(180deg)',
+                                  }}
+                                >
+                                  The Happiest Man on Earth
+                                </span>
+                              </div>
+
+                              {/* Bottom Section: Pan Books Logo */}
+                              <div className="w-full flex flex-col items-center gap-0.5 shrink-0 mt-auto px-1 select-none">
+                                <div className="w-[12px] h-[12px] bg-black rounded-full flex items-center justify-center p-[2px] shrink-0">
+                                  <svg viewBox="0 0 24 24" className="w-full h-full text-[#facc15]" fill="currentColor">
+                                    <circle cx="10" cy="6" r="3" />
+                                    <path d="M7 10h5v10H9v-5H7v-5z M14 9h2v8h-2z" />
+                                  </svg>
+                                </div>
+                                <div className="text-[3.5px] font-black tracking-[0.05em] text-neutral-800 uppercase leading-none font-sans text-center mt-[1px]">
+                                  PAN BOOKS
+                                </div>
+                              </div>
+                            </div>
+                          ) : book.slug === 'influence-the-psychology-of-persuasion' ? (
+                            // Custom layout matching the physical book for Influence: The Psychology of Persuasion
+                            <div className="w-full h-full flex flex-col justify-between items-center text-white py-3 bg-[#b91c1c] relative font-sans">
+                              {/* Top Section: Author Name in White Sans-Serif */}
+                              <div
+                                className="flex flex-col items-center text-center pt-1 text-[7px] font-bold tracking-[0.06em] text-white select-none shrink-0"
+                                style={{
+                                  writingMode: 'vertical-rl',
+                                  transform: 'rotate(180deg)',
+                                }}
+                              >
+                                ROBERT B. CIALDINI, Ph.D.
+                              </div>
+
+                              {/* Middle Section: Title in Large Bold Sans-Serif Font */}
+                              <div className="flex-1 flex items-center justify-center overflow-hidden my-3 w-full">
+                                <span
+                                  className="font-sans font-black text-white text-[12.5px] select-none text-center tracking-[0.1em] leading-none uppercase"
+                                  style={{
+                                    writingMode: 'vertical-rl',
+                                    transform: 'rotate(180deg)',
+                                  }}
+                                >
+                                  INFLUENCE
+                                </span>
+                              </div>
+
+                              {/* Bottom Section: Harper Business Style Logo */}
+                              <div className="w-full flex flex-col items-center gap-0.5 shrink-0 mt-auto px-1 select-none">
+                                <div className="w-[12px] h-[14px] text-white shrink-0 flex items-center justify-center">
+                                  {/* Harper Collins style icon */}
+                                  <svg viewBox="0 0 24 24" className="w-full h-full" fill="currentColor">
+                                    <path d="M19 12h-2v9H7v-9H5l7-7 7 7zm-5-3.5h-4v2h4v-2zm0 3.5h-4v2h4v-2zm0 3.5h-4v2h4v-2z" />
+                                  </svg>
+                                </div>
+                                <div className="text-[4px] font-black tracking-[0.08em] text-white uppercase leading-[1.1] font-sans text-center">
+                                  Harper<br />Collins
                                 </div>
                               </div>
                             </div>

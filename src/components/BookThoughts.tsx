@@ -343,21 +343,27 @@ const BookThoughts = () => {
           <button
             onClick={zoomIn}
             disabled={fontSize >= 150}
-            className="w-10 h-10 rounded-xl bg-white/5 hover:bg-white/15 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center transition-all duration-200 hover:scale-105"
+            className={`w-10 h-10 rounded-xl border flex items-center justify-center transition-all duration-150 cursor-pointer ${fontSize >= 150
+              ? 'border-[#2d2e2d] bg-[#161617] text-[#a0a0a5]/40 opacity-40 cursor-not-allowed'
+              : 'border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000]'
+              }`}
             title="Zoom In"
           >
-            <Plus className="w-5 h-5 text-white" />
+            <Plus className="w-5 h-5" />
           </button>
-          <div className="text-xs text-white/90 font-medium select-none px-2 py-1 bg-white/5 rounded-lg min-w-[44px] text-center">
+          <div className="text-xs font-bold select-none px-2.5 py-1.5 border border-neutral-950 bg-gradient-to-b from-[#0d0d0e] to-[#161617] text-white rounded-xl min-w-[44px] text-center shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)]">
             {getFontSizeInPx()}px
           </div>
           <button
             onClick={zoomOut}
             disabled={fontSize <= 80}
-            className="w-10 h-10 rounded-xl bg-white/5 hover:bg-white/15 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center transition-all duration-200 hover:scale-105"
+            className={`w-10 h-10 rounded-xl border flex items-center justify-center transition-all duration-150 cursor-pointer ${fontSize <= 80
+              ? 'border-[#2d2e2d] bg-[#161617] text-[#a0a0a5]/40 opacity-40 cursor-not-allowed'
+              : 'border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000]'
+              }`}
             title="Zoom Out"
           >
-            <Minus className="w-5 h-5 text-white" />
+            <Minus className="w-5 h-5" />
           </button>
         </div>
       </div>
@@ -382,9 +388,8 @@ const BookThoughts = () => {
             onClick={handleCloseSheet}
           />
           <div
-            className={`fixed bottom-0 left-0 right-0 z-50 md:hidden bg-neutral-950/95 backdrop-blur-xl border-t border-white/10 rounded-t-3xl shadow-[0_0_60px_rgba(0,0,0,0.8)] transform transition-all duration-300 ease-out pb-12 ${
-              isAnimating ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
-            }`}
+            className={`fixed bottom-0 left-0 right-0 z-50 md:hidden bg-neutral-950/95 backdrop-blur-xl border-t border-white/10 rounded-t-3xl shadow-[0_0_60px_rgba(0,0,0,0.8)] transform transition-all duration-300 ease-out pb-12 ${isAnimating ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
+              }`}
             style={{
               transform: isAnimating ? `translateY(${currentTranslateY}px)` : 'translateY(100%)'
             }}
@@ -397,25 +402,26 @@ const BookThoughts = () => {
             >
               <div className="w-16 h-1.5 bg-white/20 rounded-full"></div>
             </div>
-            <div className="px-6 pb-6">
-              <h3 className="text-lg font-semibold text-white font-synonym text-center">Font Size</h3>
-            </div>
+
             <div className="px-6 pb-4 space-y-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-1">{getFontSizeInPx()}px</div>
+                <div className="text-2xl font-bold text-white mb-1">{getFontSizeInPx()}px</div>
                 <div className="text-sm text-white/60">Current font size</div>
               </div>
               <div className="flex items-center justify-center gap-4">
                 <button
                   onClick={zoomOut}
                   disabled={fontSize <= 80}
-                  className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center"
+                  className={`w-12 h-12 rounded-xl border flex items-center justify-center transition-all duration-150 cursor-pointer ${fontSize <= 80
+                    ? 'border-[#2d2e2d] bg-[#161617] text-[#a0a0a5]/40 opacity-40 cursor-not-allowed'
+                    : 'border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000]'
+                    }`}
                 >
-                  <Minus className="w-5 h-5 text-white" />
+                  <Minus className="w-5 h-5" />
                 </button>
                 <button
                   onClick={resetZoom}
-                  className="px-6 py-2.5 bg-[#111111] border border-[#2d2e2d] rounded-xl text-[#d3d1d1] flex items-center gap-2"
+                  className="px-6 py-2.5 border border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000] rounded-xl text-sm font-bold flex items-center gap-2 transition-all duration-150"
                 >
                   <RotateCcw className="w-4 h-4" />
                   Reset
@@ -423,9 +429,12 @@ const BookThoughts = () => {
                 <button
                   onClick={zoomIn}
                   disabled={fontSize >= 150}
-                  className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center"
+                  className={`w-12 h-12 rounded-xl border flex items-center justify-center transition-all duration-150 cursor-pointer ${fontSize >= 150
+                    ? 'border-[#2d2e2d] bg-[#161617] text-[#a0a0a5]/40 opacity-40 cursor-not-allowed'
+                    : 'border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000]'
+                    }`}
                 >
-                  <Plus className="w-5 h-5 text-white" />
+                  <Plus className="w-5 h-5" />
                 </button>
               </div>
 
@@ -441,11 +450,11 @@ const BookThoughts = () => {
                   max="24"
                   value={getFontSizeInPx()}
                   onChange={handleSliderChange}
-                  className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer slider-thumb accent-[#00DC82]"
+                  className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer slider-thumb accent-white"
                   style={{
                     background: `linear-gradient(to right,
-                      #00DC82 0%,
-                      #00DC82 ${((getFontSizeInPx() - 12) / 12) * 100}%,
+                      #ffffff 0%,
+                      #ffffff ${((getFontSizeInPx() - 12) / 12) * 100}%,
                       rgba(255, 255, 255, 0.2) ${((getFontSizeInPx() - 12) / 12) * 100}%,
                       rgba(255, 255, 255, 0.2) 100%)`
                   }}

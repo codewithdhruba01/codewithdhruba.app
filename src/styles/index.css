@@ -356,9 +356,9 @@ html {
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  background: #00DC82;
+  background: #ffffff;
   cursor: pointer;
-  border: 2px solid #ffffff;
+  border: 2px solid #161617;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
@@ -366,9 +366,9 @@ html {
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  background: #00DC82;
+  background: #ffffff;
   cursor: pointer;
-  border: 2px solid #ffffff;
+  border: 2px solid #161617;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 

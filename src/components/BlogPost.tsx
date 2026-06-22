@@ -532,22 +532,17 @@ const BlogPost = () => {
           <button
             onClick={zoomIn}
             disabled={fontSize >= 150}
-            className="w-10 h-10 rounded-xl
-                 bg-white/5
-                 hover:bg-white/15
-                 disabled:opacity-40
-                 disabled:cursor-not-allowed
-                 flex items-center justify-center
-                 transition-all duration-200
-                 hover:scale-105"
+            className={`w-10 h-10 rounded-xl border flex items-center justify-center transition-all duration-150 cursor-pointer ${fontSize >= 150
+              ? 'border-[#2d2e2d] bg-[#161617] text-[#a0a0a5]/40 opacity-40 cursor-not-allowed'
+              : 'border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000]'
+              }`}
             title="Zoom In (Ctrl/Cmd + =)"
           >
-            <Plus className="w-5 h-5 text-white" />
+            <Plus className="w-5 h-5" />
           </button>
 
           {/* Font Size Indicator */}
-          <div className="text-xs text-white/90 font-medium select-none px-2 py-1
-                         bg-white/5 rounded-lg min-w-[44px] text-center">
+          <div className="text-xs font-bold select-none px-2.5 py-1.5 border border-neutral-950 bg-gradient-to-b from-[#0d0d0e] to-[#161617] text-white rounded-xl min-w-[44px] text-center shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)]">
             {getFontSizeInPx()}px
           </div>
 
@@ -555,17 +550,13 @@ const BlogPost = () => {
           <button
             onClick={zoomOut}
             disabled={fontSize <= 80}
-            className="w-10 h-10 rounded-xl
-                 bg-white/5
-                 hover:bg-white/15
-                 disabled:opacity-40
-                 disabled:cursor-not-allowed
-                 flex items-center justify-center
-                 transition-all duration-200
-                 hover:scale-105"
+            className={`w-10 h-10 rounded-xl border flex items-center justify-center transition-all duration-150 cursor-pointer ${fontSize <= 80
+              ? 'border-[#2d2e2d] bg-[#161617] text-[#a0a0a5]/40 opacity-40 cursor-not-allowed'
+              : 'border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000]'
+              }`}
             title="Zoom Out (Ctrl/Cmd + -)"
           >
-            <Minus className="w-5 h-5 text-white" />
+            <Minus className="w-5 h-5" />
           </button>
         </div>
       </div>
@@ -632,17 +623,14 @@ const BlogPost = () => {
                             ${isDragging ? 'scale-110' : 'scale-100'}`}></div>
             </div>
 
-            {/* Header */}
-            <div className="px-6 pb-6">
-              <h3 className="text-lg font-semibold text-white font-synonym text-center">Font Size</h3>
-            </div>
+
 
             {/* Content */}
             <div className="px-6 pb-8 space-y-6">
 
               {/* Current Font Size Display */}
               <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-1">
+                <div className="text-2xl font-bold text-white mb-1">
                   {getFontSizeInPx()}px
                 </div>
                 <div className="text-sm text-white/60 font-satoshi">
@@ -655,29 +643,31 @@ const BlogPost = () => {
                 <button
                   onClick={zoomOut}
                   disabled={fontSize <= 80}
-                  className="w-12 h-12 rounded-full bg-white/10
-                           hover:bg-white/20 disabled:opacity-40 disabled:cursor-not-allowed
-                           flex items-center justify-center transition-all duration-200"
+                  className={`w-12 h-12 rounded-xl border flex items-center justify-center transition-all duration-150 cursor-pointer ${fontSize <= 80
+                    ? 'border-[#2d2e2d] bg-[#161617] text-[#a0a0a5]/40 opacity-40 cursor-not-allowed'
+                    : 'border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000]'
+                    }`}
                 >
-                  <Minus className="w-5 h-5 text-white" />
+                  <Minus className="w-5 h-5" />
                 </button>
 
                 <button
                   onClick={resetZoom}
-                  className="px-6 py-2.5 bg-[#111111] border border-[#2d2e2d] rounded-xl text-[#d3d1d1] hover:border-[#A3A3A3]/50 hover:bg-[#1a1a1a] transition-all duration-300 group shadow-lg shadow-black/20 flex items-center gap-2"
+                  className="px-6 py-2.5 border border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000] rounded-xl text-sm font-bold flex items-center gap-2 transition-all duration-150 group"
                 >
                   <RotateCcw className="w-4 h-4 group-hover:rotate-[-45deg] transition-transform duration-300" />
-                  <span className="text-sm font-bold font-outfit">Reset</span>
+                  Reset
                 </button>
 
                 <button
                   onClick={zoomIn}
                   disabled={fontSize >= 150}
-                  className="w-12 h-12 rounded-full bg-white/10
-                           hover:bg-white/20 disabled:opacity-40 disabled:cursor-not-allowed
-                           flex items-center justify-center transition-all duration-200"
+                  className={`w-12 h-12 rounded-xl border flex items-center justify-center transition-all duration-150 cursor-pointer ${fontSize >= 150
+                    ? 'border-[#2d2e2d] bg-[#161617] text-[#a0a0a5]/40 opacity-40 cursor-not-allowed'
+                    : 'border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000]'
+                    }`}
                 >
-                  <Plus className="w-5 h-5 text-white" />
+                  <Plus className="w-5 h-5" />
                 </button>
               </div>
 
@@ -694,11 +684,11 @@ const BlogPost = () => {
                   value={getFontSizeInPx()}
                   onChange={handleSliderChange}
                   className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer
-                           slider-thumb accent-[#00DC82]"
+                           slider-thumb accent-white"
                   style={{
                     background: `linear-gradient(to right,
-                      #00DC82 0%,
-                      #00DC82 ${(getFontSizeInPx() - 12) / (24 - 12) * 100}%,
+                      #ffffff 0%,
+                      #ffffff ${(getFontSizeInPx() - 12) / (24 - 12) * 100}%,
                       rgba(255,255,255,0.2) ${(getFontSizeInPx() - 12) / (24 - 12) * 100}%,
                       rgba(255,255,255,0.2) 100%)`
                   }}
