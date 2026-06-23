@@ -78,6 +78,12 @@ const staticPages: Record<string, PageMeta> = {
 };
 
 const blogMeta: Record<string, PageMeta> = {
+  'the-unspoken-reality-of-tier-3-colleges': {
+    title: "The Unspoken Reality of Tier 3 Colleges: A Student's Perspective | Dhrubaraj Pati",
+    description:
+      "An honest, first-hand perspective on the challenges, misconceptions, and realities faced by students in Tier 3 engineering colleges, and how to build a successful career anyway.",
+    image: '/blog/tair3.png',
+  },
   'rag-ai-chatbot': {
     title: 'How I Built a RAG-based AI Chatbot | Dhrubaraj Pati',
     description:
