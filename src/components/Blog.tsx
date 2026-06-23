@@ -13,14 +13,13 @@ const Blog = () => {
 
   const blogPosts = [
     {
-      title: 'How NextAuth.js Works',
+      title: "The Unspoken Reality of Tier 3 Colleges: A Student's Perspective",
       description:
-        'NextAuth.js is a complete open-source authentication solution for Next.js applications. It handles authentication, authorization, and session management',
-      date: 'January 31, 2026',
-      image: '/blog/blog6.png',
-      category: ['NextAuth.js', 'Authentication'],
-      readTime: '10 min read',
-      slug: 'how-nextauth-works',
+        "An honest, first-hand perspective on the challenges, misconceptions, and realities faced by students in Tier 3 engineering colleges, and how to build a successful career anyway.",
+      date: 'June 23, 2026',
+      image: '/blog/tair3.png',
+      category: ['College Life', 'Career'],
+      slug: 'the-unspoken-reality-of-tier-3-colleges',
     },
     {
       title:
