@@ -20,6 +20,7 @@ import {
   Camera
 } from 'lucide-react';
 import { BookIcon, LeetcodeIcon } from './icons/SocialIcons';
+import { books } from './Bookshelf';
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -34,7 +35,7 @@ interface SearchItem {
   icon: React.ReactNode;
   shortcut?: string;
   action: () => void;
-  category: 'recent' | 'navigation' | 'actions';
+  category: 'recent' | 'navigation' | 'actions' | 'books';
 }
 
 const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavigate }) => {
@@ -46,6 +47,54 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
   const inputRef = useRef<HTMLInputElement>(null);
   const activeItemRef = useRef<HTMLButtonElement>(null);
 
+  const bookItems: SearchItem[] = books.map((book) => ({
+    id: `book-${book.slug}`,
+    title: `Book: ${book.title}`,
+    description: `Read thoughts on ${book.title} by ${book.author}`,
+    icon: <BookIcon size="16" />,
+    category: 'books',
+    action: () => {
+      navigate(`/thoughts/${book.slug}`);
+      onNavigate?.(`/thoughts/${book.slug}`);
+      onClose();
+    }
+  }));
+
+  const [recentIds, setRecentIds] = useState<string[]>([]);
+
+  // Load recent command IDs from localStorage on mount
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('cmd-palette-recent');
+      if (saved) {
+        setRecentIds(JSON.parse(saved));
+      } else {
+        // Fallback default navigation items
+        setRecentIds(['home', 'projects', 'contact']);
+      }
+    } catch (e) {
+      console.error('Failed to load recent commands:', e);
+    }
+  }, []);
+
+  const addToRecent = (id: string) => {
+    setRecentIds((prev) => {
+      const next = [id, ...prev.filter((x) => x !== id)].slice(0, 3);
+      try {
+        localStorage.setItem('cmd-palette-recent', JSON.stringify(next));
+      } catch (e) {
+        console.error('Failed to save recent commands:', e);
+      }
+      return next;
+    });
+  };
+
+  const handleItemAction = (item: SearchItem) => {
+    const originalId = item.id.startsWith('recent-') ? item.id.replace('recent-', '') : item.id;
+    addToRecent(originalId);
+    item.action();
+  };
+
   // Play click audio sound from public/Audio/
   const playClickSound = () => {
     const audio = new Audio('/Audio/mouse-click.mp3');
@@ -55,14 +104,13 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
 
   // Define all search items with proper categorization
   const searchItems: SearchItem[] = [
-    // Recent (show recently visited pages)
     {
       id: 'home',
       title: 'Go to Home',
       description: 'Navigate to the homepage',
       icon: <Home size={16} />,
       shortcut: 'Shift+H',
-      category: 'recent',
+      category: 'navigation',
       action: () => {
         navigate('/');
         onNavigate?.('/');
@@ -150,6 +198,19 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
       }
     },
     {
+      id: 'experience',
+      title: 'Go to Experience',
+      description: 'View my work experience and history',
+      icon: <Award size={16} />,
+      shortcut: 'Shift+W',
+      category: 'navigation',
+      action: () => {
+        navigate('/experience');
+        onNavigate?.('/experience');
+        onClose();
+      }
+    },
+    {
       id: 'contact',
       title: 'Go to Contact',
       description: 'Get in touch',
@@ -188,6 +249,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
         onClose();
       }
     },
+    ...bookItems,
 
     // Actions
     {
@@ -277,8 +339,25 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
     }
   ];
 
+  // Dynamically build the list of items starting with Recent items
+  const recentItems: SearchItem[] = recentIds
+    .map((id) => {
+      const baseItem = searchItems.find((item) => item.id === id);
+      if (!baseItem) return null;
+      const recentItem: SearchItem = {
+        ...baseItem,
+        id: `recent-${baseItem.id}`,
+        category: 'recent',
+        action: () => baseItem.action()
+      };
+      return recentItem;
+    })
+    .filter((item): item is SearchItem => item !== null);
+
+  const finalItems = [...recentItems, ...searchItems];
+
   // Filter items based on search query
-  const filteredItems = searchItems.filter(item =>
+  const filteredItems = finalItems.filter(item =>
     item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
     item.description.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -339,7 +418,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
           event.preventDefault();
           if (filteredItems[selectedIndex]) {
             playClickSound();
-            filteredItems[selectedIndex].action();
+            handleItemAction(filteredItems[selectedIndex]);
           }
           break;
         case 'Escape':
@@ -354,7 +433,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
       if (shortcutItem && event.shiftKey && !event.ctrlKey && !event.metaKey && !event.altKey) {
         event.preventDefault();
         playClickSound();
-        shortcutItem.action();
+        handleItemAction(shortcutItem);
       }
     };
 
@@ -405,6 +484,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
   const categoryLabels = {
     recent: 'Recent',
     navigation: 'Navigation',
+    books: 'Bookshelf / Reading',
     actions: 'Actions'
   };
 
@@ -456,7 +536,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
 
           {/* Results Scroll Container (Swaps to top on mobile) */}
           <div
-            className="max-h-[300px] md:max-h-[420px] overflow-y-auto overscroll-contain px-2.5 pt-4 pb-2 md:pt-2 md:pb-4 space-y-4 cmd-palette-scroll"
+            className="max-h-[450px] md:max-h-[420px] overflow-y-auto overscroll-contain px-2.5 pt-4 pb-2 md:pt-2 md:pb-4 space-y-4 cmd-palette-scroll"
             style={{
               scrollbarWidth: 'none',
               msOverflowStyle: 'none'
@@ -478,7 +558,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
                         ref={isSelected ? activeItemRef : null}
                         onClick={() => {
                           playClickSound();
-                          item.action();
+                          handleItemAction(item);
                         }}
                         className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-left
                                    transition-all duration-200 group

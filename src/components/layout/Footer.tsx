@@ -49,7 +49,7 @@ const socialLinks = [
     icon: <BlueskyLine size="18" className="fill-[#909092] group-hover:fill-white transition-colors duration-300" />
   },
   {
-    href: 'https://www.instagram.com/silent.coder5/',
+    href: 'https://www.instagram.com/codewithdhruba/',
     icon: <InstagramIcon size="18" className="stroke-[#909092] group-hover:stroke-white transition-all duration-300" />
   },
   {

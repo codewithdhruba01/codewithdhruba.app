@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ScrollReveal from './ui/ScrollReveal';
 
-interface Book {
+export interface Book {
   slug: string;
   title: string;
   author: string;
@@ -78,7 +78,7 @@ const calculateProjectedDimensions = (
   };
 };
 
-const books: Book[] = [
+export const books: Book[] = [
   {
     slug: 'designing-data-intensive-applications',
     title: 'Designing Data-Intensive Applications',
