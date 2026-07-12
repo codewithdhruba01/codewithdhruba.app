@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Heart } from 'lucide-react';
+import { Heart } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { photos, categories } from '../data/photos';
 import { commentService } from '../lib/supabase';
@@ -13,6 +13,7 @@ const Photos = () => {
     const [userLovedPhotos, setUserLovedPhotos] = useState<Set<number>>(new Set());
     const [lovingPhoto, setLovingPhoto] = useState(false);
     const [showHeart, setShowHeart] = useState<Record<number, boolean>>({});
+    const [isPlaying, setIsPlaying] = useState(true);
 
     // Play click audio sound from public/Audio/
     const playClickSound = () => {
@@ -44,6 +45,42 @@ const Photos = () => {
         setCurrentIndex(
             (prev) => (prev - 1 + filteredPhotos.length) % filteredPhotos.length
         );
+    };
+
+    // Auto-advance photo slideshow
+    useEffect(() => {
+        if (!isPlaying || filteredPhotos.length === 0) return;
+        const interval = setInterval(() => {
+            nextPhoto();
+        }, 4000);
+        return () => clearInterval(interval);
+    }, [isPlaying, currentIndex, filteredPhotos.length]);
+
+    const getIndicators = () => {
+        const total = filteredPhotos.length;
+        if (total <= 6) {
+            return Array.from({ length: total }, (_, i) => ({
+                index: i,
+                isActive: i === currentIndex
+            }));
+        }
+
+        let start = 0;
+        if (currentIndex < 3) {
+            start = 0;
+        } else if (currentIndex >= total - 3) {
+            start = total - 6;
+        } else {
+            start = currentIndex - 2;
+        }
+
+        return Array.from({ length: 6 }, (_, i) => {
+            const idx = start + i;
+            return {
+                index: idx,
+                isActive: idx === currentIndex
+            };
+        });
     };
 
     const getVisiblePhotos = () => {
@@ -215,6 +252,15 @@ const Photos = () => {
 
     return (
         <div className="min-h-screen bg-neutral-950 text-white pt-28 md:pt-36 pb-16">
+            <style>{`
+                @keyframes progress-animation {
+                    from { width: 0%; }
+                    to { width: 100%; }
+                }
+                .animate-progress-fill {
+                    animation: progress-animation 4000ms linear forwards;
+                }
+            `}</style>
             <div className="max-w-6xl mx-auto px-6 mb-16">
                 {/* Header Section */}
                 <ScrollReveal>
@@ -461,72 +507,66 @@ const Photos = () => {
                     </div>
                 </ScrollReveal>
 
-                {/* New Pagination Design */}
+                {/* Custom Autoplay Pagination Design */}
                 <ScrollReveal delay={0.2}>
-                    <div className="flex flex-col items-center gap-8 mt-4">
-                        <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center px-4 py-3 bg-[#0A0A0A]/50 backdrop-blur-sm rounded-2xl border border-neutral-900/50">
-                            {(() => {
-                                const totalPages = filteredPhotos.length;
-                                const pages = [];
-                                const range = 1; // Number of pages to show around current page
+                    <div className="flex items-center justify-center gap-3 mt-6 select-none font-outfit">
+                        {/* Play/Pause Button */}
+                        <button
+                            onClick={() => {
+                                setIsPlaying(!isPlaying);
+                                playClickSound();
+                            }}
+                            className="w-10 h-10 rounded-full bg-[#1c1c1e] hover:bg-[#2c2c2e] border border-neutral-800/40 flex items-center justify-center transition-colors duration-200 shadow-md group"
+                            aria-label={isPlaying ? "Pause slideshow" : "Play slideshow"}
+                        >
+                            {isPlaying ? (
+                                // Pause Icon (||)
+                                <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#a1a1a5] group-hover:text-white transition-colors duration-200">
+                                    <rect width="3.5" height="14" rx="1.75" fill="currentColor" />
+                                    <rect x="8.5" width="3.5" height="14" rx="1.75" fill="currentColor" />
+                                </svg>
+                            ) : (
+                                // Play Icon (▶)
+                                <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#a1a1a5] group-hover:text-white transition-colors duration-200 translate-x-[1px]">
+                                    <path d="M11.5 7L1 13V1L11.5 7Z" fill="currentColor" />
+                                </svg>
+                            )}
+                        </button>
 
-                                // Always show first page
-                                pages.push(0);
-
-                                if (currentIndex > range + 1) {
-                                    pages.push('ellipsis-start');
-                                }
-
-                                for (let i = Math.max(1, currentIndex - range); i <= Math.min(totalPages - 2, currentIndex + range); i++) {
-                                    pages.push(i);
-                                }
-
-                                if (currentIndex < totalPages - range - 2) {
-                                    pages.push('ellipsis-end');
-                                }
-
-                                // Always show last page if it exists
-                                if (totalPages > 1) {
-                                    pages.push(totalPages - 1);
-                                }
-
-                                return pages.map((page) => {
-                                    if (typeof page === 'string') {
-                                        return (
-                                            <span key={page} className="text-gray-600 px-2 select-none">...</span>
-                                        );
-                                    }
-
-                                    const isActive = currentIndex === page;
+                        {/* Indicators Pill Container */}
+                        <div className="flex items-center gap-3 px-5 py-3.5 bg-[#1c1c1e] border border-neutral-800/40 rounded-full shadow-md">
+                            {getIndicators().map((indicator) => {
+                                if (indicator.isActive) {
+                                    return (
+                                        <div
+                                            key={indicator.index}
+                                            onClick={() => {
+                                                setCurrentIndex(indicator.index);
+                                                playClickSound();
+                                            }}
+                                            className="w-12 h-2.5 rounded-full bg-[#2c2c2e] overflow-hidden cursor-pointer relative"
+                                        >
+                                            <div
+                                                key={`${indicator.index}-${isPlaying}`}
+                                                className={`h-full bg-[#a1a1a5] rounded-full ${isPlaying ? 'animate-progress-fill' : ''}`}
+                                                style={!isPlaying ? { width: '50%' } : undefined}
+                                            />
+                                        </div>
+                                    );
+                                } else {
                                     return (
                                         <button
-                                            key={page}
-                                            onClick={() => setCurrentIndex(page)}
-                                            className={`w-10 h-10 flex items-center justify-center rounded-xl text-lg font-medium transition-all duration-300 ${isActive
-                                                ? 'bg-[#1C1C1E] text-white shadow-xl shadow-black/40'
-                                                : 'text-gray-500 hover:text-gray-300 hover:bg-neutral-900/50'
-                                                }`}
-                                        >
-                                            {page + 1}
-                                        </button>
+                                            key={indicator.index}
+                                            onClick={() => {
+                                                setCurrentIndex(indicator.index);
+                                                playClickSound();
+                                            }}
+                                            className="w-2.5 h-2.5 rounded-full bg-[#3a3a3c] hover:bg-[#5a5a5c] transition-colors duration-200"
+                                            aria-label={`Go to slide ${indicator.index + 1}`}
+                                        />
                                     );
-                                });
-                            })()}
-                        </div>
-
-                        <div className="flex gap-4">
-                            <button
-                                onClick={prevPhoto}
-                                className="p-3 rounded-xl border border-neutral-700/50 flex items-center justify-center hover:border-neutral-800 transition-all duration-300 hover:bg-white/5"
-                            >
-                                <ChevronLeft className="w-5 h-5 text-gray-500" />
-                            </button>
-                            <button
-                                onClick={nextPhoto}
-                                className="p-3 rounded-xl border border-neutral-700/50 flex items-center justify-center hover:border-neutral-800 transition-all duration-300 hover:bg-white/5"
-                            >
-                                <ChevronRight className="w-5 h-5 text-gray-500" />
-                            </button>
+                                }
+                            })}
                         </div>
                     </div>
                 </ScrollReveal>
