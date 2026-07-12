@@ -296,17 +296,18 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
   useEffect(() => {
     if (isOpen) {
       setShouldRender(true);
-      const frame = requestAnimationFrame(() => {
+      // Wait for the next browser paint to ensure the initial closed state is rendered
+      const timer = setTimeout(() => {
         setIsAnimating(true);
-      });
-      return () => cancelAnimationFrame(frame);
+      }, 20);
+      return () => clearTimeout(timer);
     } else {
       setIsAnimating(false);
       const timer = setTimeout(() => {
         setShouldRender(false);
         setSearchQuery('');
         setSelectedIndex(0);
-      }, 150); // Wait for exit transition (150ms)
+      }, 300); // Matches the 300ms transition duration
       return () => clearTimeout(timer);
     }
   }, [isOpen]);
@@ -416,7 +417,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
       `}</style>
       {/* Backdrop with high-fidelity blur */}
       <div
-        className={`fixed inset-0 z-[60] bg-black/70 backdrop-blur-[4px] transition-all duration-[150ms] ease-out
+        className={`fixed inset-0 z-[60] bg-black/70 backdrop-blur-[4px] transition-all duration-[300ms] ease-out
                    ${isAnimating ? 'opacity-100' : 'opacity-0'}`}
         onClick={onClose}
       />
@@ -430,12 +431,12 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
           onClick={(e) => e.stopPropagation()}
           className={`w-full max-w-[440px] bg-[#0e0e10] border border-neutral-800/80 rounded-xl
                      shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)]
-                     overflow-hidden transition-all duration-[200ms] ease-out transform
+                     overflow-hidden transition-all duration-[300ms] cubic-bezier(0.16, 1, 0.3, 1) transform
                      origin-bottom md:origin-center
                      flex flex-col-reverse md:flex-col
                      ${isAnimating
               ? 'opacity-100 scale-100 translate-y-0'
-              : 'opacity-0 scale-[0.4] translate-y-12 md:scale-95 md:translate-y-0'
+              : 'opacity-0 scale-[0.35] translate-y-3 md:scale-95 md:translate-y-0'
             }`}
         >
           {/* Search Header Container (Swaps to bottom on mobile) */}
