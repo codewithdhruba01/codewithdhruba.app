@@ -81,6 +81,8 @@ const App = () => {
         <Navbar />
         <AnimatedRoutes />
         <Footer />
+        {/* Bottom blur overlay effect */}
+        <div className="bottom-blur-overlay" />
         <CommandPalette
           isOpen={isCommandPaletteOpen}
           onClose={() => setCommandPaletteOpen(false)}
