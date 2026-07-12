@@ -416,28 +416,30 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
       `}</style>
       {/* Backdrop with high-fidelity blur */}
       <div
-        className={`fixed inset-0 z-50 bg-black/70 backdrop-blur-[4px] transition-all duration-[150ms] ease-out
+        className={`fixed inset-0 z-[60] bg-black/70 backdrop-blur-[4px] transition-all duration-[150ms] ease-out
                    ${isAnimating ? 'opacity-100' : 'opacity-0'}`}
         onClick={onClose}
       />
 
       {/* Modal Container */}
       <div
-        className="fixed inset-0 z-50 flex items-center justify-center px-4 overflow-y-auto"
+        className="fixed inset-0 z-[70] flex items-end justify-center pb-6 px-4 md:items-center md:pb-0 overflow-y-auto"
         onClick={onClose}
       >
         <div
           onClick={(e) => e.stopPropagation()}
           className={`w-full max-w-[440px] bg-[#0e0e10] border border-neutral-800/80 rounded-xl
                      shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)]
-                     overflow-hidden transition-all duration-[150ms] ease-out transform
+                     overflow-hidden transition-all duration-[200ms] ease-out transform
+                     origin-bottom md:origin-center
+                     flex flex-col-reverse md:flex-col
                      ${isAnimating
-              ? 'opacity-100 scale-100'
-              : 'opacity-0 scale-95'
+              ? 'opacity-100 scale-100 translate-y-0'
+              : 'opacity-0 scale-[0.4] translate-y-12 md:scale-95 md:translate-y-0'
             }`}
         >
-          {/* Search Header Container */}
-          <div className="p-4 pb-2">
+          {/* Search Header Container (Swaps to bottom on mobile) */}
+          <div className="p-4 pb-4 md:pb-2">
             <div className="flex items-center bg-[#151518] border border-neutral-800/70 rounded-xl px-3.5 py-2.5 shadow-inner">
               <Search className="w-4 h-4 text-neutral-400 mr-2.5 flex-shrink-0" />
               <input
@@ -451,9 +453,9 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
             </div>
           </div>
 
-          {/* Results Scroll Container */}
+          {/* Results Scroll Container (Swaps to top on mobile) */}
           <div
-            className="max-h-[420px] overflow-y-auto overscroll-contain px-2.5 pb-4 pt-2 space-y-4 cmd-palette-scroll"
+            className="max-h-[300px] md:max-h-[420px] overflow-y-auto overscroll-contain px-2.5 pt-4 pb-2 md:pt-2 md:pb-4 space-y-4 cmd-palette-scroll"
             style={{
               scrollbarWidth: 'none',
               msOverflowStyle: 'none'
