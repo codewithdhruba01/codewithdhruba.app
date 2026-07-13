@@ -25,10 +25,10 @@ const BucketList = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-[#0A0A0A] text-white selection:bg-green-100/10 pt-28 md:pt-36 pb-16">
+        <div className="bg-[#0A0A0A] text-white selection:bg-green-100/10 pt-20 md:pt-24 pb-16">
             <div className="max-w-4xl mx-auto w-full px-6 relative">
                 {/* Top Flower Decoration */}
-                <div className="absolute top-[-1rem] md:top-[-4rem] left-1/2 -translate-x-1/2 pointer-events-none opacity-15 invert z-0">
+                <div className="absolute top-[8rem] md:top-[7rem] left-1/2 -translate-x-1/2 pointer-events-none opacity-15 invert z-0">
                     <img
                         src="/assets/flower1.png"
                         alt="Floral decoration"
@@ -36,12 +36,12 @@ const BucketList = () => {
                     />
                 </div>
 
-                <div className="relative pt-20 md:pt-32 pb-8 md:pb-12 text-center z-10">
+                <div className="relative pt-2 md:pt-4 pb-2 md:pb-3 text-center z-10">
                     <ScrollReveal>
                         <h1 className="font-dancing text-12xl md:text-8xl text-[#d4c5b9] mb-[-14px] md:mb-[-20px] relative z-10">
                             Personal
                         </h1>
-                        <h2 className="font-satoshi text-4xl md:text-4xl font-light text-[#01b369] tracking-tight">
+                        <h2 className="font-hanken text-4xl md:text-4xl font-light text-[#01b369] tracking-tight">
                             Bucket List
                         </h2>
                     </ScrollReveal>
@@ -82,7 +82,7 @@ const BucketList = () => {
                 </div>
 
                 {/* All Schedule Button */}
-                <ScrollReveal delay={0.2} className="mt-20 flex justify-center">
+                <ScrollReveal delay={0.2} className="mt-10 flex justify-center">
                     <div>
                         <SectionButton
                             text="View all Schedule"
