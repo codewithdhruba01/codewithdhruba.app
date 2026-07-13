@@ -11,6 +11,7 @@ interface LinkPreviewProps {
   className?: string;
   width?: number;
   height?: number;
+  onHoverChange?: (hovered: boolean) => void;
 }
 
 export const LinkPreview: React.FC<LinkPreviewProps> = ({
@@ -20,6 +21,7 @@ export const LinkPreview: React.FC<LinkPreviewProps> = ({
   className,
   width = 240,
   height = 135, // 16:9 aspect ratio
+  onHoverChange,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [coords, setCoords] = useState({ top: 0, left: 0 });
@@ -39,12 +41,15 @@ export const LinkPreview: React.FC<LinkPreviewProps> = ({
     if (triggerRef.current) {
       const rect = triggerRef.current.getBoundingClientRect();
       setCoords({
-        top: rect.top,
-        left: rect.left + rect.width / 2,
+        top: rect.bottom + window.scrollY,
+        left: rect.left + rect.width / 2 + window.scrollX,
       });
       x.set(0); // Reset spring value on enter
     }
     setIsOpen(true);
+    if (onHoverChange) {
+      onHoverChange(true);
+    }
   };
 
   const handleMouseMove = (event: React.MouseEvent<HTMLAnchorElement>) => {
@@ -59,6 +64,9 @@ export const LinkPreview: React.FC<LinkPreviewProps> = ({
 
   const handleMouseLeave = () => {
     setIsOpen(false);
+    if (onHoverChange) {
+      onHoverChange(false);
+    }
   };
 
   return (
@@ -87,19 +95,19 @@ export const LinkPreview: React.FC<LinkPreviewProps> = ({
             {isOpen && (
               <div
                 style={{
-                  position: 'fixed',
+                  position: 'absolute',
                   top: `${coords.top}px`,
                   left: `${coords.left}px`,
-                  transform: 'translate(-50%, -100%)', // Center horizontally, place above target
+                  transform: 'translate(-50%, 0%)', // Center horizontally, place below target
                   pointerEvents: 'none',
                   zIndex: 99999,
                 }}
               >
                 <motion.div
-                  initial={{ opacity: 0, y: 15, scale: 0.85, rotate: -2 }}
+                  initial={{ opacity: 0, y: -22, scale: 0.85, rotate: -2 }}
                   animate={{
                     opacity: 1,
-                    y: -12, // Gap above the link trigger
+                    y: -12, // Offset trigger's padding-bottom to keep a tight gap
                     scale: 1,
                     rotate: 0,
                     transition: {
@@ -110,7 +118,7 @@ export const LinkPreview: React.FC<LinkPreviewProps> = ({
                   }}
                   exit={{
                     opacity: 0,
-                    y: 10,
+                    y: -18,
                     scale: 0.85,
                     rotate: 1.5,
                     transition: {

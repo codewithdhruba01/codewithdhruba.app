@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { Clock, Eye } from 'lucide-react';
+import { useEffect, useState, useRef } from 'react';
+import { Calendar, ArrowRight, Eye } from 'lucide-react';
 import { commentService } from '../lib/supabase';
 import { blogPostsData } from '../data/blogs';
 import ScrollReveal from '../components/ui/ScrollReveal';
+import { LinkPreview } from '../components/ui/LinkPreview';
 
 // Blog post descriptions for listing
 const blogDescriptions = {
@@ -24,7 +24,6 @@ const blogPosts = Object.entries(blogPostsData).map(([slug, post]) => ({
   date: post.date,
   image: post.image,
   category: [post.category], // Convert single category to array
-  readTime: post.readTime,
   slug: slug,
 }));
 
@@ -46,20 +45,40 @@ const calculateTagCounts = () => {
 
 const tags = calculateTagCounts();
 
-// Distinct gradients for loading placeholders
-const placeholderGradients = [
-  'bg-gradient-to-br from-blue-900/40 via-neutral-900 to-black',
-  'bg-gradient-to-br from-emerald-900/40 via-neutral-900 to-black',
-  'bg-gradient-to-br from-purple-900/40 via-neutral-900 to-black',
-  'bg-gradient-to-br from-orange-900/40 via-neutral-900 to-black',
-  'bg-gradient-to-br from-cyan-900/40 via-neutral-900 to-black',
-];
-
 const AllPosts = () => {
   const [activeTag, setActiveTag] = useState('All');
   const [blogViews, setBlogViews] = useState<Record<string, number>>({});
   const [loadingViews, setLoadingViews] = useState(true);
-  const [loadedImages, setLoadedImages] = useState<Record<string, boolean>>({});
+  const [hoveredSlug, setHoveredSlug] = useState<string | null>(null);
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isDown, setIsDown] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeftState, setScrollLeftState] = useState(0);
+
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    setIsDown(true);
+    setStartX(e.pageX - (scrollRef.current?.offsetLeft || 0));
+    setScrollLeftState(scrollRef.current?.scrollLeft || 0);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDown(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDown(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - (scrollRef.current?.offsetLeft || 0);
+    const walk = (x - startX) * 1.5;
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = scrollLeftState - walk;
+    }
+  };
 
   // Play click audio sound from public/Audio/
   const playClickSound = () => {
@@ -99,10 +118,6 @@ const AllPosts = () => {
     }
   };
 
-  const handleImageLoad = (slug: string) => {
-    setLoadedImages(prev => ({ ...prev, [slug]: true }));
-  };
-
   const filteredPosts =
     activeTag === 'All'
       ? blogPosts
@@ -123,8 +138,19 @@ const AllPosts = () => {
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <div className="mt-10 mb-12">
-            <div className="flex flex-wrap gap-2.5 justify-start items-center">
+          <div className="mt-10 mb-6 relative">
+            {/* Left & Right Fade Overlays for scrolling (both mobile and desktop) */}
+            <div className="absolute -left-6 top-0 bottom-2 w-6 bg-gradient-to-r from-[#0A0A0A] to-transparent pointer-events-none z-10" />
+            <div className="absolute -right-6 top-0 bottom-2 w-12 bg-gradient-to-l from-[#0A0A0A] via-[#0A0A0A]/85 to-transparent pointer-events-none z-10" />
+
+            <div
+              ref={scrollRef}
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              className="flex overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] gap-2.5 justify-start items-center pb-2 -mx-6 px-6 cursor-grab active:cursor-grabbing select-none"
+            >
               {tags.map((tag, i) => {
                 const isActive = activeTag === tag.name;
                 return (
@@ -134,16 +160,16 @@ const AllPosts = () => {
                       setActiveTag(tag.name);
                       playClickSound();
                     }}
-                    className={`pl-4 pr-2.5 py-1.5 text-sm rounded-full font-outfit font-medium transition-all duration-200 flex items-center gap-2 ${isActive
-                      ? 'bg-[#E4E4E7] text-[#121214]'
-                      : 'bg-[#18181A] hover:bg-[#202024] text-[#909092] hover:text-white'
+                    className={`pl-3 pr-2 py-1 text-xs rounded-full font-outfit font-normal transition-all duration-200 flex items-center gap-1.5 border whitespace-nowrap shrink-0 ${isActive
+                      ? 'bg-neutral-200 text-neutral-900 border-transparent font-medium'
+                      : 'bg-[#1C1C1E] border-neutral-800/60 hover:bg-[#252528] text-neutral-400 hover:text-white'
                       }`}
                   >
                     <span>{tag.name}</span>
                     <span
-                      className={`text-[10px] px-2 py-0.5 rounded-full font-sans font-semibold ${isActive
-                        ? 'bg-black/10 text-[#27272A]'
-                        : 'bg-[#0F0F10] text-[#52525B]'
+                      className={`text-[9px] px-1.5 py-0.5 rounded-full font-sans font-medium transition-all duration-200 ${isActive
+                        ? 'bg-neutral-300/80 text-neutral-800'
+                        : 'bg-[#0F0F10] text-[#71717A]'
                         }`}
                     >
                       {tag.count}
@@ -155,90 +181,68 @@ const AllPosts = () => {
           </div>
         </ScrollReveal>
 
-        <div className="flex flex-col space-y-8">
+        <div className="flex flex-col">
           {filteredPosts.length > 0 ? (
             filteredPosts.map((post, index) => (
-              <ScrollReveal key={index} delay={index * 0.05} className="group">
-                <article className="flex flex-col md:flex-row gap-5 md:gap-8 items-start">
-                  {/* Content - 70% width */}
-                  <div className="flex-1 order-2 md:order-1 w-full">
-                    {/* Date */}
-                    <div className="text-neutral-500 text-xs mb-1.5 font-hanken">
-                      {post.date}
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="text-xl md:text-xl font-semibold text-[#f4f4f4] mb-2 font-hanken leading-tight">
-                      <Link
-                        to={`/blog/${post.slug}`}
-                        className="transition-all duration-200 group-hover:bg-[#00DC82]/20 rounded-md px-1 -ml-1"
-                      >
+              <ScrollReveal key={index} delay={index * 0.05} className="w-full">
+                <LinkPreview
+                  to={`/blog/${post.slug}`}
+                  imageSrc={post.image}
+                  onHoverChange={(hovered) => setHoveredSlug(hovered ? post.slug : null)}
+                  className={`group block py-6 border-b border-neutral-900/40 last:border-b-0 w-full text-left transition-all duration-300 ${hoveredSlug !== null && hoveredSlug !== post.slug
+                    ? 'blur-[1px] opacity-60'
+                    : 'blur-0 opacity-100'
+                    }`}
+                >
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 w-full">
+                    {/* Left Column: Info */}
+                    <div className="flex-1 space-y-2 min-w-0">
+                      <h3 className="text-lg md:text-xl font-bold font-outfit text-white group-hover:text-neutral-200 transition-colors">
                         {post.title}
-                      </Link>
-                    </h3>
+                      </h3>
+                      <p className="text-sm text-[#909092] font-poppins leading-relaxed font-light">
+                        {post.description}
+                      </p>
 
-                    {/* Description */}
-                    <p className="text-[#909092] text-sm leading-relaxed mb-4 font-hanken font-medium line-clamp-2">
-                      {post.description}
-                    </p>
-
-                    {/* Metadata & Tags */}
-                    <div className="flex flex-wrap items-center justify-between gap-4 mt-auto">
-                      <div className="flex items-center gap-4 text-xs text-neutral-400 font-hanken">
-                        <span className="flex items-center gap-1.5">
-                          <Clock size={14} className="text-[#00DC82]" />
-                          {post.readTime}
-                        </span>
-                        <span className="flex items-center gap-1.5">
-                          <Eye size={15} className="text-[#00DC82]" />
-                          {loadingViews ? '...' : `${blogViews[post.slug] || 0} views`}
-                        </span>
-                      </div>
-
-                      <div className="flex flex-wrap gap-2">
+                      {/* Tags/Categories & Views */}
+                      <div className="flex flex-wrap items-center gap-2 pt-1">
                         {post.category.map((cat, i) => (
                           <span
                             key={i}
-                            className="bg-[#1e1e1e] text-neutral-500 px-2.5 py-0.5 rounded-md text-[10px] font-medium font-hanken border border-neutral-800"
+                            className="bg-[#18181B] text-neutral-400 px-2.5 py-1 rounded-md text-[11px] font-medium font-poppins border border-neutral-800/80"
                           >
                             {cat}
                           </span>
                         ))}
+                        <span className="bg-[#18181B] text-neutral-400 px-2.5 py-1 rounded-md text-[11px] font-medium font-poppins border border-neutral-800/80 flex items-center gap-1.5">
+                          <Eye size={13} className="text-neutral-400" />
+                          <span>{loadingViews ? '...' : `${blogViews[post.slug] || 0} views`}</span>
+                        </span>
+                      </div>
+
+                      {/* Bottom Footer Line: Date & Mobile-only Read More */}
+                      <div className="flex items-center justify-between pt-1">
+                        <div className="flex items-center gap-1.5 text-xs text-neutral-500 font-outfit">
+                          <Calendar size={13} className="text-neutral-500" />
+                          <span>{post.date}</span>
+                        </div>
+
+                        {/* Mobile Read More */}
+                        <div className="flex md:hidden items-center gap-1.5 text-sm font-outfit text-neutral-400 group-hover:text-white transition-colors duration-300">
+                          <span>Read more</span>
+                          <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-300" />
+                        </div>
                       </div>
                     </div>
+
+                    {/* Right Column: Desktop Read More */}
+                    <div className="hidden md:flex items-center shrink-0">
+                      <span className="flex items-center gap-1.5 text-sm font-outfit text-neutral-400 group-hover:text-white transition-colors duration-300">
+                        Read more <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-300" />
+                      </span>
+                    </div>
                   </div>
-
-                  {/* Image - 30% width */}
-                  <div className="w-full md:w-[220px] shrink-0 order-1 md:order-2">
-                    <Link to={`/blog/${post.slug}`} className="block relative overflow-hidden rounded-lg border border-neutral-800 aspect-video md:aspect-[4/3]">
-
-                      {/* Gradient Placeholder */}
-                      <div
-                        className={`absolute inset-0 transition-opacity duration-700 ${loadedImages[post.slug] ? 'opacity-0' : 'opacity-100'
-                          } ${placeholderGradients[index % placeholderGradients.length]}`}
-                      >
-                        {/* Noise/Texture overlay for more realism */}
-                        <div className="absolute inset-0 opacity-20 bg-[url('/assets/noise.svg')]"></div>
-                      </div>
-
-                      {/* Actual Image */}
-                      <img
-                        src={post.image}
-                        alt={post.title}
-                        className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 transform ${loadedImages[post.slug]
-                          ? 'opacity-100 scale-100 blur-0'
-                          : 'opacity-0 scale-110 blur-xl'
-                          }`}
-                        onLoad={() => handleImageLoad(post.slug)}
-                      />
-                    </Link>
-                  </div>
-                </article>
-
-                {/* Separator Line (except for last item) */}
-                {index !== filteredPosts.length - 1 && (
-                  <div className="border-t border-dashed border-neutral-800 mt-8"></div>
-                )}
+                </LinkPreview>
               </ScrollReveal>
             ))
           ) : (

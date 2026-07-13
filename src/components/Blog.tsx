@@ -54,14 +54,14 @@ const Blog = () => {
                     <p className="text-sm text-[#909092] font-poppins leading-relaxed font-light">
                       {post.description}
                     </p>
-                    
+
                     {/* Bottom Footer Line: Date & Mobile-only Read More */}
                     <div className="flex items-center justify-between pt-1">
                       <div className="flex items-center gap-1.5 text-xs text-neutral-500 font-outfit">
                         <Calendar size={13} className="text-neutral-500" />
                         <span>{post.date}</span>
                       </div>
-                      
+
                       {/* Mobile Read More */}
                       <div className="flex md:hidden items-center gap-1.5 text-sm font-outfit text-neutral-400 group-hover:text-white transition-colors duration-300">
                         <span>Read more</span>
