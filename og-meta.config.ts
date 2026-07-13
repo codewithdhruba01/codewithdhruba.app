@@ -19,59 +19,59 @@ const staticPages: Record<string, PageMeta> = {
     image: '/meta/home.jpeg',
   },
   '/about': {
-    title: 'About - Dhrubaraj Pati',
+    title: 'About - My Story & Life',
     description:
       'Get to know me a Full Stack Developer and Open Source Contributor. Explore my background, technical journey, development philosophy, and the tools I use to build for the web.',
     image: '/meta/about.jpeg',
   },
   '/projects': {
-    title: 'Projects - Dhrubaraj Pati',
+    title: 'Projects - My Work & Projects',
     description: 'Discover my projects and work across different technologies and domains. From web apps to mobile solutions.',
     image: '/meta/project.png',
   },
   '/all-posts': {
-    title: 'Blog & Publications - Dhrubaraj Pati',
+    title: 'Blog - Thoughts, Publications & Journey',
     description:
       'Exploring the art of engineering, the craft of code, and building impactful tech.',
     image: '/meta/blog.png',
   },
   '/contact': {
-    title: 'Contact - Dhrubaraj Pati',
+    title: 'Contact - Collaborations & Opportunities',
     description: 'Get in touch with me for collaborations, projects, or opportunities.',
     image: '/meta/contact.png',
   },
   '/resume': {
-    title: 'Resume - Dhrubaraj Pati',
+    title: 'Resume - Journey of a Developer',
     description: 'View Dhrubaraj Pati\'s professional resume and CV. Technical skills, experience, and qualifications.',
     image: '/meta/resume.png',
   },
   '/experience': {
-    title: 'Work Experience - Dhrubaraj Pati',
+    title: 'Work Experience - Professional Journey',
     description: 'Explore my professional work experience across different companies and roles in software development.',
     image: '/meta/experience.png',
   },
   '/certificates': {
-    title: 'Certificates - Dhrubaraj Pati',
+    title: 'Certificates - Proof of Skills',
     description: 'Certifications and achievements.',
     image: '/meta/certificates.png',
   },
   '/photos': {
-    title: 'Photos - Dhrubaraj Pati',
+    title: 'Photos - A Glimpse of My Life',
     description: 'Explore my photo gallery.',
     image: '/meta/photo.png',
   },
   '/gears': {
-    title: 'Gears - Dhrubaraj Pati',
+    title: 'Gears - My Setup & Tools',
     description: 'Tools and gears for development.',
     image: '/meta/gears.png',
   },
   '/extensions': {
-    title: 'Extensions - Dhrubaraj Pati',
+    title: 'Extensions - My Daily use VS Code Extensions',
     description: 'Browser extensions and dev tools recommendations.',
     image: '/meta/extensions.png',
   },
   '/bucket-list': {
-    title: 'Bucket List - Dhrubaraj Pati',
+    title: 'Bucket List - Travel & Tour',
     description: 'Goals and bucket list.',
     image: '/meta/bucketlist.png',
   },
