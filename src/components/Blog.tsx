@@ -1,121 +1,83 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Calendar, ArrowRight } from 'lucide-react';
 import { SectionButton } from './ui/SectionButton';
 import ScrollReveal from './ui/ScrollReveal';
+import { blogPostsData } from '../data/blogs';
+import { LinkPreview } from './ui/LinkPreview';
+
+const blogDescriptions = {
+  'the-unspoken-reality-of-tier-3-colleges': "An honest, first-hand perspective on the challenges, misconceptions, and realities faced by students in Tier 3 engineering colleges, and how to build a successful career anyway.",
+  'getting-started-with-react-typescript': 'Learn how to set up a new React project with TypeScript and best practices for type safety.',
+  'chrome-keyboard-shortcuts': 'Discover the most useful Chrome keyboard shortcuts to browse faster, save time, and increase your daily productivity.',
+  'openweather-api-guide': 'Master OpenWeather API with production-ready patterns, advanced integrations, and enterprise-grade implementations.',
+  'building-my-first-website-with-react-and-tailwind': 'Learn how I built my Portfolio website from scratch using React and Tailwind CSS — from setup to responsive design, with tips and key takeaways.',
+  'essential-linux-commands': 'Learn the most essential Linux commands every beginner and intermediate user must know. This comprehensive guide explains each command in simple terms.',
+  'essential-tools-for-nextjs-and-react': 'A curated list of the best UI libraries, icons, animation tools, and utilities to supercharge your Next.js and React development workflow.',
+  'rag-ai-chatbot': 'Learn how to build a personalized AI chatbot that answers questions from your own data using RAG, LangChain, and local LLMs.',
+};
+
+const blogPosts = Object.entries(blogPostsData).map(([slug, post]) => ({
+  title: post.title.replace(/:.*$/, ''), // Remove everything after colon for cleaner titles
+  description: blogDescriptions[slug as keyof typeof blogDescriptions] || 'NextAuth.js is a complete open-source authentication solution for Next.js applications.',
+  date: post.date,
+  slug: slug,
+  image: post.image,
+}));
 
 const Blog = () => {
-  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
-
-  const handleImageLoad = (index: number) => {
-    setLoadedImages(prev => new Set([...prev, index]));
-  };
-
-  const blogPosts = [
-    {
-      title: "The Unspoken Reality of Tier 3 Colleges: A Student's Perspective",
-      description:
-        "An honest, first-hand perspective on the challenges, misconceptions, and realities faced by students in Tier 3 engineering colleges, and how to build a successful career anyway.",
-      date: 'June 23, 2026',
-      image: '/blog/tair3.png',
-      category: ['College Life', 'Career'],
-      slug: 'the-unspoken-reality-of-tier-3-colleges',
-    },
-    {
-      title:
-        'Built a RAG-based own AI Chatbot',
-      description:
-        'This blog explains how I built a RAG-based AI chatbot that can answer questions from personal documents like PDFs, notes, and images using LangChain, Chroma DB, Ollama (Llama 3), and Streamlit.',
-      date: 'March 07, 2026',
-      image: '/blog/ragCover.png',
-      category: ['AI', 'ML', 'RAG', 'LLM'],
-      slug: 'rag-ai-chatbot',
-    },
-  ];
-
   return (
     <section id="blog" className="pt-8 pb-8 bg-neutral-950">
       <div className="max-w-4xl mx-auto w-full px-6">
-        <ScrollReveal className="mb-8">
-          <p className="text-lg text-neutral-400 font-outfit text-left">
-            Latest
-          </p>
-          <h2 className="text-3xl font-bold text-left font-excon text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
-            Blog Posts
+        <ScrollReveal className="mb-2">
+          <h2 className="text-3xl font-bold text-left font-excon text-neutral-200">
+            Blog
           </h2>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {blogPosts.map((post, index) => (
+        <div className="flex flex-col">
+          {blogPosts.slice(0, 3).map((post, index) => (
             <ScrollReveal
               key={index}
-              delay={index * 0.15}
-              className="h-full"
+              delay={index * 0.1}
+              className="w-full"
             >
-              <article
-                className="bg-[#111111] border border-zinc-800 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col"
+              <LinkPreview
+                to={`/blog/${post.slug}`}
+                imageSrc={post.image}
+                className="group block py-6 border-b border-neutral-900/60 last:border-b-0"
               >
-                {/* Image */}
-                {/* Image Container with Noise Placeholder */}
-                <div className="relative w-full h-70 overflow-hidden bg-neutral-900">
-                  <div
-                    className={`absolute inset-0 z-10 transition-opacity duration-700 ${loadedImages.has(index) ? 'opacity-0' : 'opacity-100'
-                      } ${[
-                        'bg-gradient-to-br from-blue-900/40 via-neutral-900 to-black',
-                        'bg-gradient-to-br from-emerald-900/40 via-neutral-900 to-black',
-                        'bg-gradient-to-br from-purple-900/40 via-neutral-900 to-black'
-                      ][index % 3]}`}
-                  >
-                    <div className="absolute inset-0 opacity-20 bg-[url('/assets/noise.svg')]"></div>
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                  {/* Left Column: Info */}
+                  <div className="flex-1 space-y-2 min-w-0">
+                    <h3 className="text-lg font-bold font-outfit text-white group-hover:text-neutral-200 transition-colors">
+                      {post.title}
+                    </h3>
+                    <p className="text-sm text-[#909092] font-poppins leading-relaxed font-light">
+                      {post.description}
+                    </p>
+                    
+                    {/* Bottom Footer Line: Date & Mobile-only Read More */}
+                    <div className="flex items-center justify-between pt-1">
+                      <div className="flex items-center gap-1.5 text-xs text-neutral-500 font-outfit">
+                        <Calendar size={13} className="text-neutral-500" />
+                        <span>{post.date}</span>
+                      </div>
+                      
+                      {/* Mobile Read More */}
+                      <div className="flex md:hidden items-center gap-1.5 text-sm font-outfit text-neutral-400 group-hover:text-white transition-colors duration-300">
+                        <span>Read more</span>
+                        <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-300" />
+                      </div>
+                    </div>
                   </div>
 
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className={`w-full h-full object-cover transition-all duration-500 hover:scale-105 ${loadedImages.has(index) ? 'blur-0' : 'blur-md'
-                      }`}
-                    onLoad={() => handleImageLoad(index)}
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="p-6 flex flex-col justify-between flex-grow">
-                  {/* Title */}
-                  <h3 className="text-lg font-outfit mb-3 hover:text-[#f4f4f4] transition-colors">
-                    <Link to={`/blog/${post.slug}`}>{post.title}</Link>
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-sm text-[#909092] leading-relaxed mb-4 font-poppins font-light">
-                    {post.description}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {post.category.map((cat, i) => (
-                      <span
-                        key={i}
-                        className="bg-[#1f1e1e] text-[#909092] text-xs px-3 py-1 rounded-full font-poppins"
-                      >
-                        {cat}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex items-center justify-between text-sm text-neutral-400 font-outfit mt-auto">
-                    <span className="flex items-center gap-1">
-                      <Calendar size={14} className="text-neutral-300" />
-                      {post.date}
+                  {/* Desktop Read More */}
+                  <div className="hidden md:flex items-center shrink-0">
+                    <span className="flex items-center gap-1.5 text-sm font-outfit text-neutral-400 group-hover:text-white transition-colors duration-300">
+                      Read more <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-300" />
                     </span>
-                    <Link
-                      to={`/blog/${post.slug}`}
-                      className="flex items-center text-neutral-400 hover:text-white transition-colors font-medium"
-                    >
-                      Read More <ArrowRight size={16} className="ml-1" />
-                    </Link>
                   </div>
                 </div>
-              </article>
+              </LinkPreview>
             </ScrollReveal>
           ))}
         </div>
