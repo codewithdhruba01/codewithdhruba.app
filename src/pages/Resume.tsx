@@ -42,7 +42,7 @@ const Resume = () => {
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] pt-20 md:pt-28 pb-16">
-      <div className="max-w-4xl mx-auto w-full px-6">
+      <div className="max-w-3xl mx-auto w-full px-6">
         {/* Header */}
         <ScrollReveal>
           <div className="text-center mb-8 sm:mb-12">

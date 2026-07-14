@@ -107,7 +107,7 @@ const Footer = () => {
       {/* Top Gradient Line: Fade from transparent to #333333 to transparent */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#333333] to-transparent"></div>
 
-      <div className="max-w-4xl mx-auto w-full px-6">
+      <div className="max-w-3xl mx-auto w-full px-6">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
           {/* Left: NAVIGATE */}
           <div className="flex flex-col gap-4">

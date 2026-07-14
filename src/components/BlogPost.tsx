@@ -359,7 +359,7 @@ const BlogPost = () => {
   return (
     <>
       <article className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#0A0A0A]">
-        <div className="max-w-4xl mx-auto w-full px-6">
+        <div className="max-w-3xl mx-auto w-full px-6">
           {/* Back */}
           <div className="mb-8">
             <Link

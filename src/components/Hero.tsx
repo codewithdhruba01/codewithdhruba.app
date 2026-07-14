@@ -60,7 +60,7 @@ const Hero = () => {
       id="home"
       className="relative bg-[#0A0A0A] pt-24 md:pt-28 pb-12 md:pb-16"
     >
-      <ScrollReveal className="max-w-4xl mx-auto w-full px-6 flex flex-col">
+      <ScrollReveal className="max-w-3xl mx-auto w-full px-6 flex flex-col">
         {/* Banner Image Container */}
         <div className="relative w-full rounded-2xl overflow-hidden aspect-[13/5] sm:aspect-[3/1] bg-neutral-900 border border-neutral-800">
           {/* Night theme banner (our beautiful generated starry night mountain) */}

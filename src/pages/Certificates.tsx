@@ -196,7 +196,7 @@ const Certificates = () => {
 
   return (
     <div className="min-h-screen pt-28 md:pt-36 pb-6 bg-[#0A0A0A]">
-      <div className="max-w-4xl mx-auto w-full px-6">
+      <div className="max-w-3xl mx-auto w-full px-6">
 
 
         {/* Certifications Section */}

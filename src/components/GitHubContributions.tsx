@@ -138,15 +138,12 @@ const GitHubContributions = () => {
 
   return (
     <section id="contributions" className="pt-8 pb-8 bg-neutral-950">
-      <div className="max-w-4xl mx-auto w-full px-6">
+      <div className="max-w-3xl mx-auto w-full px-6">
         {/* Title */}
         <ScrollReveal className="mb-6">
-          <p className="text-lg text-neutral-400 font-outfit text-left">
-            Contributions
-          </p>
-          <h2 className="text-3xl font-bold text-left font-excon text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
+          <h4 className="text-2xl md:text-2xl font-extrabold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-hanken">
             GitHub Activity
-          </h2>
+          </h4>
           <p className="text-left mt-2 text-sm font-supreme text-[#909092]">
             <strong>codewithdhruba's</strong> coding journey over the past year
           </p>
@@ -191,11 +188,11 @@ const GitHubContributions = () => {
             {/* Scrollable container */}
             <div className="overflow-x-auto thin-scrollbar pb-2">
               {/* Month labels */}
-              <div className="ml-[32px] sm:ml-[36px] flex gap-[2px] sm:gap-[3px] text-[#909092] font-supreme mb-1">
+              <div className="ml-[32px] sm:ml-[36px] flex gap-[2px] sm:gap-[2px] text-[#909092] font-supreme mb-1">
                 {weeks.map((_, weekIndex) => {
                   const label = monthLabels.find((m) => m.index === weekIndex);
                   return (
-                    <div key={weekIndex} className="w-[8px] sm:w-[10px] text-[9px] sm:text-[10px] text-center shrink-0">
+                    <div key={weekIndex} className="w-[8px] sm:w-[9px] text-[9px] sm:text-[10px] text-center shrink-0">
                       {label ? label.month : ''}
                     </div>
                   );
@@ -216,7 +213,7 @@ const GitHubContributions = () => {
                             ? 'Fri'
                             : '';
                     return (
-                      <div key={dayIndex} className="h-[8px] sm:h-[10px] flex items-center">
+                      <div key={dayIndex} className="h-[8px] sm:h-[9px] flex items-center">
                         {label}
                       </div>
                     );
@@ -224,15 +221,15 @@ const GitHubContributions = () => {
                 </div>
 
                 {/* Grid */}
-                <div className="inline-flex gap-[2px] sm:gap-[3px]">
+                <div className="inline-flex gap-[2px] sm:gap-[2px]">
                   {isLoading ? (
                     // Skeleton loading effect
                     Array.from({ length: 53 }).map((_, weekIndex) => (
-                      <div key={`skeleton-${weekIndex}`} className="flex flex-col gap-[2px] sm:gap-[3px]">
+                      <div key={`skeleton-${weekIndex}`} className="flex flex-col gap-[2px] sm:gap-[2px]">
                         {Array.from({ length: 7 }).map((_, dayIndex) => (
                           <div
                             key={`skeleton-${weekIndex}-${dayIndex}`}
-                            className="w-[8px] h-[8px] sm:w-[10px] sm:h-[10px] rounded-sm bg-neutral-700 animate-pulse"
+                            className="w-[8px] h-[8px] sm:w-[9px] sm:h-[9px] rounded-sm bg-neutral-700 animate-pulse"
                             style={{
                               animationDelay: `${(weekIndex * 7 + dayIndex) * 30}ms`,
                               animationDuration: '1.5s'
@@ -243,11 +240,11 @@ const GitHubContributions = () => {
                     ))
                   ) : (
                     weeks.map((week, weekIndex) => (
-                      <div key={weekIndex} className="flex flex-col gap-[2px] sm:gap-[3px]">
+                      <div key={weekIndex} className="flex flex-col gap-[2px] sm:gap-[2px]">
                         {week.map((day, dayIndex) => (
                           <div
                             key={`${weekIndex}-${dayIndex}`}
-                            className={`w-[8px] h-[8px] sm:w-[10px] sm:h-[10px] rounded-sm ${getContributionColor(
+                            className={`w-[8px] h-[8px] sm:w-[9px] sm:h-[9px] rounded-sm ${getContributionColor(
                               day.contributionCount
                             )}
                               hover:ring-2 hover:ring-[#00DC82]/30 transition-all duration-300 cursor-pointer group relative

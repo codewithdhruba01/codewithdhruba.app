@@ -404,7 +404,7 @@ const Bookshelf = () => {
       )}
 
       <section id="bookshelf-section" className="pt-1 pb-8 bg-neutral-950 overflow-hidden">
-        <div className="max-w-4xl mx-auto w-full px-6">
+        <div className="max-w-3xl mx-auto w-full px-6">
 
           {/* Header */}
           <ScrollReveal className="mb-4">
@@ -705,9 +705,9 @@ const Bookshelf = () => {
                                 <div className="text-[4.5px] font-bold tracking-[0.15em] text-[#3a3530] uppercase leading-none font-sans text-center">
                                   FIRESIDE
                                 </div>
+                              </div>
                             </div>
-                          </div>
-                        ) : book.slug === 'open-to-work' ? (
+                          ) : book.slug === 'open-to-work' ? (
                             // Custom layout matching the reference image for Open to Work
                             <div className="w-full h-full flex flex-col justify-between items-center text-white py-3 relative bg-gradient-to-b from-[#1b7ed9] via-[#218ceb] to-[#4aa7fd]">
                               {/* Top Section: Author Names in Dark/Black Text (Rotated) */}

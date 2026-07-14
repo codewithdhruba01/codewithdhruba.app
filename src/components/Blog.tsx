@@ -26,11 +26,11 @@ const blogPosts = Object.entries(blogPostsData).map(([slug, post]) => ({
 const Blog = () => {
   return (
     <section id="blog" className="pt-8 pb-8 bg-neutral-950">
-      <div className="max-w-4xl mx-auto w-full px-6">
+      <div className="max-w-3xl mx-auto w-full px-6">
         <ScrollReveal className="mb-2">
-          <h2 className="text-3xl font-bold text-left font-excon text-neutral-200">
+          <h4 className="text-2xl md:text-2xl font-extrabold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-hanken">
             Blog
-          </h2>
+          </h4>
         </ScrollReveal>
 
         <div className="flex flex-col">

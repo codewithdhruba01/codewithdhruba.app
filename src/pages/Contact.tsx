@@ -68,13 +68,13 @@ const Contact = () => {
       {/* Header */}
       <div className="py-20 bg-gradient-to-br from-[#0A0A0A] via-green-900/20 to-[#0A0A0A] mb-12">
         <ScrollReveal>
-          <div className="max-w-4xl mx-auto w-full px-6 text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 font-excon">
+          <div className="max-w-3xl mx-auto w-full px-6 text-center">
+            <h1 className="text-4xl md:text-4xl font-bold mb-6 font-bricolage">
               <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
                 Let's Work Together
               </span>
             </h1>
-            <p className="text-[#909092] max-w-2xl mx-auto font-poppins text-base">
+            <p className="text-[#909092] max-w-2xl mx-auto font-bricolage text-base">
               Have a project in mind? Send me a message and let's discuss how we can bring your ideas to life.
             </p>
           </div>
@@ -83,7 +83,7 @@ const Contact = () => {
 
       {/* Contact Content */}
       <section className="pb-16">
-        <div className="max-w-2xl mx-auto w-full px-6">
+        <div className="max-w-3xl mx-auto w-full px-6">
           {/* Contact Form */}
           <ScrollReveal delay={0.2}>
             <div className="border-neutral-800 bg-[#101010] border backdrop-blur-sm rounded-2xl p-8">

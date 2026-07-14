@@ -11,7 +11,7 @@ const WorkExperience = () => {
 
     return (
         <div className="min-h-screen bg-[#0A0A0A] pt-28 md:pt-36 pb-16">
-            <div className="max-w-4xl mx-auto w-full px-6">
+            <div className="max-w-3xl mx-auto w-full px-6">
                 {/* Header */}
                 <ScrollReveal>
                     <div className="text-left mb-10">

@@ -96,14 +96,11 @@ const Projects = () => {
       `}</style>
 
       <section id="projects" className="pt-1 pb-8 bg-neutral-950">
-        <div className="max-w-4xl mx-auto w-full px-6">
+        <div className="max-w-3xl mx-auto w-full px-6">
           <ScrollReveal className="mb-8">
-            <p className="text-lg text-neutral-400 font-outfit text-left">
-              Latest
-            </p>
-            <h2 className="text-3xl font-bold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-excon">
+            <h4 className="text-2xl md:text-2xl font-extrabold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-hanken">
               Projects
-            </h2>
+            </h4>
           </ScrollReveal>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -117,125 +114,124 @@ const Projects = () => {
                   onClick={() => setSelectedProject(project)}
                   className="group bg-[#111111] border border-zinc-800 rounded-2xl overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-300 h-full"
                 >
-                {/* Image with smooth zoom */}
-                <div className="relative w-full h-70 overflow-hidden bg-neutral-900">
-                  {/* Gradient Placeholder with Noise */}
-                  <div
-                    className={`absolute inset-0 z-10 transition-opacity duration-700 ${loadedImages[index] ? 'opacity-0' : 'opacity-100'
-                      } ${['bg-gradient-to-br from-blue-900/40 via-neutral-900 to-black',
-                        'bg-gradient-to-br from-emerald-900/40 via-neutral-900 to-black',
-                        'bg-gradient-to-br from-purple-900/40 via-neutral-900 to-black'][index % 3]}`}
-                  >
-                    <div className="absolute inset-0 opacity-20 bg-[url('/assets/noise.svg')]"></div>
-                  </div>
-
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className={`w-full h-full object-cover transition-all duration-500 hover:scale-110 ${loadedImages[index] ? 'blur-0' : 'blur-md'
-                      }`}
-                    onLoad={() => handleImageLoad(index)}
-                  />
-                </div>
-
-                <div className="p-6">
-                  <div className="flex justify-between items-center mb-2">
-                    <h3 className="text-xl font-bold font-synonym text-[#CDCBCD]">
-                      {project.title}
-                    </h3>
-                    <div className="flex gap-3">
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger>
-                            <a
-                              href={project.demo}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-neutral-400 hover:text-white transition-colors"
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              <Globe className="w-5 h-5" />
-                            </a>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>View Website</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger>
-                            <a
-                              href={project.github}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-neutral-400 hover:text-white transition-colors"
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              <Github className="w-5 h-5" />
-                            </a>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>View GitHub</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
+                  {/* Image with smooth zoom */}
+                  <div className="relative w-full h-70 overflow-hidden bg-neutral-900">
+                    {/* Gradient Placeholder with Noise */}
+                    <div
+                      className={`absolute inset-0 z-10 transition-opacity duration-700 ${loadedImages[index] ? 'opacity-0' : 'opacity-100'
+                        } ${['bg-gradient-to-br from-blue-900/40 via-neutral-900 to-black',
+                          'bg-gradient-to-br from-emerald-900/40 via-neutral-900 to-black',
+                          'bg-gradient-to-br from-purple-900/40 via-neutral-900 to-black'][index % 3]}`}
+                    >
+                      <div className="absolute inset-0 opacity-20 bg-[url('/assets/noise.svg')]"></div>
                     </div>
-                  </div>
-                  <p className="text-[#909092] mb-4 leading-relaxed text-sm font-poppins">
-                    {project.description}
-                  </p>
 
-                  {/* Tech Stack */}
-                  <div className="flex items-center gap-3 mb-2 select-none">
-                    <p className="text-[#909092] text-xs font-outfit uppercase tracking-wider shrink-0">Technologies :</p>
-                    <div className="flex -space-x-2 overflow-visible">
-                      {project.techStack.slice(0, 4).map((tech, i) => {
-                        const Icon = iconMap[tech];
-                        return (
-                          <TooltipProvider key={i}>
-                            <Tooltip>
-                              <TooltipTrigger asChild>
-                                <div
-                                  className={`relative z-10 w-7 h-7 rounded-full bg-[#1b1b1c] border-2 border-[#111111] flex items-center justify-center text-neutral-400 hover:text-white transition-all duration-300 hover:scale-110 hover:z-30 cursor-pointer group/icon shadow-md overflow-hidden ${
-                                    tech === 'TypeScript' ? '[&>svg]:w-7 [&>svg]:h-7' :
-                                    tech === 'MDX' ? '[&>svg]:w-5 [&>svg]:h-5' : 
-                                    '[&>svg]:w-4 [&>svg]:h-4'
-                                  }`}
-                                >
-                                  {Icon ? <Icon /> : <span className="text-[9px] font-bold">{tech.substring(0, 2)}</span>}
-                                </div>
-                              </TooltipTrigger>
-                              <TooltipContent>
-                                <p>{tech}</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
-                        );
-                      })}
-                      {project.techStack.length > 4 && (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className={`w-full h-full object-cover transition-all duration-500 hover:scale-110 ${loadedImages[index] ? 'blur-0' : 'blur-md'
+                        }`}
+                      onLoad={() => handleImageLoad(index)}
+                    />
+                  </div>
+
+                  <div className="p-6">
+                    <div className="flex justify-between items-center mb-2">
+                      <h3 className="text-xl font-bold font-synonym text-[#CDCBCD]">
+                        {project.title}
+                      </h3>
+                      <div className="flex gap-3">
                         <TooltipProvider>
                           <Tooltip>
-                            <TooltipTrigger asChild>
-                              <div
-                                className="relative z-10 w-7 h-7 rounded-full bg-[#1b1b1c] border-2 border-[#111111] flex items-center justify-center text-neutral-400 hover:text-white transition-all duration-300 hover:scale-110 hover:z-30 cursor-pointer shadow-md"
+                            <TooltipTrigger>
+                              <a
+                                href={project.demo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-neutral-400 hover:text-white transition-colors"
+                                onClick={(e) => e.stopPropagation()}
                               >
-                                <span className="text-[9px] font-bold text-neutral-300">+{project.techStack.length - 4}</span>
-                              </div>
+                                <Globe className="w-5 h-5" />
+                              </a>
                             </TooltipTrigger>
                             <TooltipContent>
-                              <p>{project.techStack.slice(4).join(', ')}</p>
+                              <p>View Website</p>
                             </TooltipContent>
                           </Tooltip>
                         </TooltipProvider>
-                      )}
+
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <a
+                                href={project.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-neutral-400 hover:text-white transition-colors"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <Github className="w-5 h-5" />
+                              </a>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>View GitHub</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </div>
+                    </div>
+                    <p className="text-[#909092] mb-4 leading-relaxed text-sm font-poppins">
+                      {project.description}
+                    </p>
+
+                    {/* Tech Stack */}
+                    <div className="flex items-center gap-3 mb-2 select-none">
+                      <p className="text-[#909092] text-xs font-outfit uppercase tracking-wider shrink-0">Technologies :</p>
+                      <div className="flex -space-x-2 overflow-visible">
+                        {project.techStack.slice(0, 4).map((tech, i) => {
+                          const Icon = iconMap[tech];
+                          return (
+                            <TooltipProvider key={i}>
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <div
+                                    className={`relative z-10 w-7 h-7 rounded-full bg-[#1b1b1c] border-2 border-[#111111] flex items-center justify-center text-neutral-400 hover:text-white transition-all duration-300 hover:scale-110 hover:z-30 cursor-pointer group/icon shadow-md overflow-hidden ${tech === 'TypeScript' ? '[&>svg]:w-7 [&>svg]:h-7' :
+                                      tech === 'MDX' ? '[&>svg]:w-5 [&>svg]:h-5' :
+                                        '[&>svg]:w-4 [&>svg]:h-4'
+                                      }`}
+                                  >
+                                    {Icon ? <Icon /> : <span className="text-[9px] font-bold">{tech.substring(0, 2)}</span>}
+                                  </div>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                  <p>{tech}</p>
+                                </TooltipContent>
+                              </Tooltip>
+                            </TooltipProvider>
+                          );
+                        })}
+                        {project.techStack.length > 4 && (
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <div
+                                  className="relative z-10 w-7 h-7 rounded-full bg-[#1b1b1c] border-2 border-[#111111] flex items-center justify-center text-neutral-400 hover:text-white transition-all duration-300 hover:scale-110 hover:z-30 cursor-pointer shadow-md"
+                                >
+                                  <span className="text-[9px] font-bold text-neutral-300">+{project.techStack.length - 4}</span>
+                                </div>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>{project.techStack.slice(4).join(', ')}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </ScrollReveal>
-          ))}
+              </ScrollReveal>
+            ))}
           </div>
 
           <div className="text-center mt-12">

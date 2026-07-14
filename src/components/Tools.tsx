@@ -5,10 +5,10 @@ import ScrollReveal from './ui/ScrollReveal';
 const GetInTouch = () => {
   return (
     <section id="get-in-touch" className="pt-8 pb-8 bg-neutral-950">
-      <div className="max-w-4xl mx-auto w-full px-6">
+      <div className="max-w-3xl mx-auto w-full px-6">
         {/* Heading */}
         <ScrollReveal className="mb-8">
-          <h4 className="text-2xl font-bold text-left text-neutral-200 bg-clip-text font-excon text-transparent bg-gradient-to-b from-white to-neutral-400">
+          <h4 className="text-2xl md:text-2xl font-extrabold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-hanken">
             Development
           </h4>
         </ScrollReveal>

@@ -18,7 +18,7 @@ const GetInTouch = () => {
 
   return (
     <section id="get-in-touch" className="pt-2 pb-16 md:pt-4 md:pb-20 bg-[#0A0A0A]">
-      <div className="max-w-4xl mx-auto w-full px-6">
+      <div className="max-w-3xl mx-auto w-full px-6">
         <div className="pt-0">
           <ScrollReveal>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white font-bricolage leading-none">

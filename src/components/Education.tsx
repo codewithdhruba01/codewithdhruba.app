@@ -43,14 +43,11 @@ function ExperienceList({ experiences }: ExperienceListProps) {
 const Experience = () => {
   return (
     <section id="experience" className="pt-8 pb-8 bg-[#0A0A0A]">
-      <div className="max-w-4xl mx-auto w-full px-6">
+      <div className="max-w-3xl mx-auto w-full px-6">
         <ScrollReveal className="mb-8">
-          <p className="text-lg text-neutral-400 font-outfit text-left">
-            Featured
-          </p>
-          <h2 className="text-3xl font-bold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-excon">
+          <h4 className="text-2xl md:text-2xl font-extrabold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-hanken">
             Experience
-          </h2>
+          </h4>
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
