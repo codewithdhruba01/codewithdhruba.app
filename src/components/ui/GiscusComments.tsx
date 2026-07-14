@@ -1,6 +1,6 @@
 import Giscus from '@giscus/react';
 import { useEffect, useState, memo } from 'react';
-import './ui/giscus-comments.css';
+import './giscus-comments.css';
 
 interface GiscusCommentsProps {
   slug: string;

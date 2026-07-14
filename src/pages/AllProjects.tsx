@@ -3,6 +3,7 @@ import { Github, Globe, LayoutGrid, List } from 'lucide-react';
 import { SectionButton } from '../components/ui/SectionButton';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../components/ui/tooltip';
 import ScrollReveal from '../components/ui/ScrollReveal';
+import CategorySelector from '../components/ui/CategorySelector';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '../lib/utils';
 
@@ -270,6 +271,28 @@ const SkeletonListItem = () => (
   </div>
 );
 
+const calculateProjectCategoryCounts = () => {
+  const counts: Record<string, number> = {};
+
+  projects.forEach(project => {
+    project.tags.forEach(tag => {
+      if (categories.includes(tag)) {
+        counts[tag] = (counts[tag] || 0) + 1;
+      }
+    });
+  });
+
+  return [
+    { name: 'All', count: projects.length },
+    ...categories.filter(c => c !== 'All').map(name => ({
+      name,
+      count: counts[name] || 0
+    }))
+  ];
+};
+
+const projectTags = calculateProjectCategoryCounts();
+
 const AllProjects = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [loading, setLoading] = useState(true);
@@ -329,26 +352,15 @@ const AllProjects = () => {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.1}>
-            <div className="flex flex-wrap justify-start font-outfit gap-2.5 mb-8">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => {
-                    setSelectedCategory(category);
-                    setShowAll(false);
-                    setLoading(true);
-                  }}
-                  className={`px-4 py-1.5 rounded-full text-xs md:text-sm font-medium transition-all duration-300 ${selectedCategory === category
-                    ? 'bg-white text-neutral-950 shadow-lg shadow-white/5 scale-102 font-semibold'
-                    : 'bg-[#121214]/80 text-[#909092] border border-neutral-800/40 hover:border-neutral-700/50 hover:text-neutral-200 hover:bg-[#161619]'
-                    }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </ScrollReveal>
+          <CategorySelector
+            tags={projectTags}
+            selectedCategory={selectedCategory}
+            onSelectCategory={(category) => {
+              setSelectedCategory(category);
+              setShowAll(false);
+              setLoading(true);
+            }}
+          />
 
           {/* Subheader and Switcher Row */}
           <ScrollReveal delay={0.15}>

@@ -5,6 +5,26 @@ import { photos, categories } from '../data/photos';
 import { commentService } from '../lib/supabase';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import SlideshowControls from '../components/ui/SlideshowControls';
+import CategorySelector from '../components/ui/CategorySelector';
+
+const calculatePhotoCategoryCounts = () => {
+  const counts: Record<string, number> = {};
+
+  photos.forEach(photo => {
+    const cat = photo.category;
+    counts[cat] = (counts[cat] || 0) + 1;
+  });
+
+  return [
+    { name: 'All', count: photos.length },
+    ...categories.filter(c => c !== 'All').map(name => ({
+      name,
+      count: counts[name] || 0
+    }))
+  ];
+};
+
+const photoTags = calculatePhotoCategoryCounts();
 
 const Photos = () => {
     const [selectedCategory, setSelectedCategory] = useState('All');
@@ -258,27 +278,15 @@ const Photos = () => {
             </div>
 
             <div className="max-w-4xl mx-auto w-full px-6">
-                {/* Category Pills */}
-                <ScrollReveal delay={0.1}>
-                    <div className="flex flex-wrap justify-center gap-2.5 mb-16">
-                        {categories.map((category) => (
-                            <button
-                                key={category}
-                                onClick={() => {
-                                    setSelectedCategory(category);
-                                    setCurrentIndex(0);
-                                    playClickSound();
-                                }}
-                                className={`px-4 py-1.5 rounded-full text-xs md:text-sm font-medium font-outfit transition-all duration-300 ${selectedCategory === category
-                                    ? 'bg-white text-neutral-950 shadow-lg shadow-white/5 scale-102 font-semibold'
-                                    : 'bg-[#121214]/80 text-[#909092] border border-neutral-800/40 hover:border-neutral-700/50 hover:text-neutral-200 hover:bg-[#161619]'
-                                    }`}
-                            >
-                                {category}
-                            </button>
-                        ))}
-                    </div>
-                </ScrollReveal>
+                <CategorySelector
+                    tags={photoTags}
+                    selectedCategory={selectedCategory}
+                    onSelectCategory={(category) => {
+                        setSelectedCategory(category);
+                        setCurrentIndex(0);
+                    }}
+                    align="center"
+                />
 
                 <ScrollReveal delay={0.15}>
                     <div className="relative mb-6">
