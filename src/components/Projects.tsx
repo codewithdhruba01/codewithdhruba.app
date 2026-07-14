@@ -95,7 +95,7 @@ const Projects = () => {
         }
       `}</style>
 
-      <section id="projects" className="pt-1 pb-8 bg-neutral-950">
+      <section id="projects" className="pt-1 pb-6 md:pb-8 bg-neutral-950">
         <div className="max-w-3xl mx-auto w-full px-6">
           <ScrollReveal className="mb-8">
             <h4 className="text-2xl md:text-2xl font-extrabold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-hanken">

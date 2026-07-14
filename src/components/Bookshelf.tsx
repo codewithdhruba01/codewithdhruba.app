@@ -408,12 +408,9 @@ const Bookshelf = () => {
 
           {/* Header */}
           <ScrollReveal className="mb-4">
-            <p className="text-lg text-neutral-400 font-outfit text-left">
-              Reading
-            </p>
-            <h2 className="text-3xl font-bold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-excon">
+            <h4 className="text-2xl md:text-2xl font-extrabold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-hanken">
               Bookshelf
-            </h2>
+            </h4>
             <p className="text-neutral-400 font-poppins text-sm text-left mt-2 max-w-xl leading-relaxed">
               An interactive shelf of books and manga that have shaped my thinking on software engineering, design, philosophy, and habits. Click a book to inspect it.
             </p>

@@ -137,7 +137,7 @@ const GitHubContributions = () => {
   });
 
   return (
-    <section id="contributions" className="pt-8 pb-8 bg-neutral-950">
+    <section id="contributions" className="pt-4 pb-8 bg-neutral-950">
       <div className="max-w-3xl mx-auto w-full px-6">
         {/* Title */}
         <ScrollReveal className="mb-6">

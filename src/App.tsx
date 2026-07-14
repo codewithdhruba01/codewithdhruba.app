@@ -41,9 +41,9 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <Hero />
+              <Education />
               <Projects />
               <GitHubContributions />
-              <Education />
               <Blog />
               <Tools />
               <Bookshelf />

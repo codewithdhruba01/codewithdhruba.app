@@ -58,7 +58,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative bg-[#0A0A0A] pt-24 md:pt-28 pb-12 md:pb-16"
+      className="relative bg-[#0A0A0A] pt-24 md:pt-28 pb-6 md:pb-8"
     >
       <ScrollReveal className="max-w-3xl mx-auto w-full px-6 flex flex-col">
         {/* Banner Image Container */}
@@ -121,7 +121,7 @@ const Hero = () => {
         <div className="mt-6 px-1 flex flex-col md:flex-row md:items-center justify-between gap-4">
           {/* Name and subtitle */}
           <div>
-            <h2 className="text-3xl font-bricolage font-extrabold md:text-4xl tracking-tight text-neutral-200">
+            <h2 className="text-2xl font-bricolage font-extrabold md:text-3xl tracking-tight text-neutral-200">
               Dhrubaraj Pati
             </h2>
             <p className="mt-1.5 font-mono text-xs md:text-sm text-neutral-500">
@@ -138,7 +138,7 @@ const Hero = () => {
                   href="https://github.com/codewithdhruba01"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full border border-neutral-800 bg-[#111111]/50 hover:bg-neutral-800 text-neutral-400 hover:text-white transition duration-200 flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95"
+                  className="p-2.5 rounded-full border border-neutral-800/80 bg-[#121214] hover:bg-neutral-900 hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
                 >
                   <GithubIcon size="16" className="stroke-current" />
                 </a>
@@ -155,7 +155,7 @@ const Hero = () => {
                   href="https://x.com/codewithdhruba"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full border border-neutral-800 bg-[#111111]/50 hover:bg-neutral-800 text-neutral-400 hover:text-white transition duration-200 flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95"
+                  className="p-2.5 rounded-full border border-neutral-800/80 bg-[#121214] hover:bg-neutral-900 hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
                 >
                   <XIcon size="16" className="fill-current" />
                 </a>
@@ -172,7 +172,7 @@ const Hero = () => {
                   href="https://www.linkedin.com/in/dhrubaraj-pati/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full border border-neutral-800 bg-[#111111]/50 hover:bg-neutral-800 text-neutral-400 hover:text-white transition duration-200 flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95"
+                  className="p-2.5 rounded-full border border-neutral-800/80 bg-[#121214] hover:bg-neutral-900 hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
                 >
                   <LinkedinIcon size="16" className="fill-current" />
                 </a>
@@ -189,7 +189,7 @@ const Hero = () => {
                   href="https://leetcode.com/u/codewithdhruba/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full border border-neutral-800 bg-[#111111]/50 hover:bg-neutral-800 text-neutral-400 hover:text-white transition duration-200 flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95"
+                  className="p-2.5 rounded-full border border-neutral-800/80 bg-[#121214] hover:bg-neutral-900 hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
                 >
                   <LeetcodeIcon size="16" className="fill-current" />
                 </a>
@@ -204,7 +204,7 @@ const Hero = () => {
               <TooltipTrigger>
                 <button
                   onClick={handleThemeClick}
-                  className="p-2.5 rounded-full border border-neutral-800 bg-[#111111]/50 hover:bg-neutral-800 text-neutral-400 hover:text-white transition duration-200 flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 hover:rotate-45"
+                  className="p-2.5 rounded-full border border-neutral-800/80 bg-[#121214] hover:bg-neutral-900 hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer hover:rotate-45"
                 >
                   <Sun className="w-4 h-4" />
                 </button>

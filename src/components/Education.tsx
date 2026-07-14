@@ -42,9 +42,9 @@ function ExperienceList({ experiences }: ExperienceListProps) {
 
 const Experience = () => {
   return (
-    <section id="experience" className="pt-8 pb-8 bg-[#0A0A0A]">
+    <section id="experience" className="pt-4 pb-8 bg-[#0A0A0A]">
       <div className="max-w-3xl mx-auto w-full px-6">
-        <ScrollReveal className="mb-8">
+        <ScrollReveal className="mb-4">
           <h4 className="text-2xl md:text-2xl font-extrabold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-hanken">
             Experience
           </h4>
