@@ -62,17 +62,17 @@ const Hero = () => {
     >
       <ScrollReveal className="max-w-3xl mx-auto w-full px-6 flex flex-col">
         {/* Banner Image Container */}
-        <div className="relative w-full rounded-2xl overflow-hidden aspect-[13/5] sm:aspect-[3/1] bg-neutral-900 border border-neutral-800">
+        <div className="relative w-full rounded-2xl overflow-hidden aspect-[13/5] sm:aspect-[3/1] bg-neutral-900">
           {/* Night theme banner (our beautiful generated starry night mountain) */}
           <img
-            src="/assets/banner_dark.png"
+            src="/assets/darktheem.jpg"
             alt="Night mountain landscape banner"
             className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-750 ease-in-out ${avatarBg === 'black' ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.02] pointer-events-none'
               } brightness-[0.8]`}
           />
           {/* Day theme banner */}
           <img
-            src="/assets/banner.jpg"
+            src="/assets/lighttheem.jpg"
             alt="Day mountain landscape banner"
             className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-750 ease-in-out ${avatarBg !== 'black' ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.02] pointer-events-none'
               } brightness-[0.75]`}

@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import { Download } from 'lucide-react';
 import ScrollReveal from '../components/ui/ScrollReveal';
@@ -8,6 +8,32 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/b
 const Resume = () => {
   const [showFallback, setShowFallback] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = useState<number>(0);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const updateWidth = () => {
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.getBoundingClientRect().width);
+      }
+    };
+
+    updateWidth();
+
+    const resizeObserver = new ResizeObserver(() => {
+      updateWidth();
+    });
+
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
+    }
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
 
   const pdfUrl = '/assets/Dhrubaraj-Resume.pdf';
 
@@ -38,8 +64,6 @@ const Resume = () => {
     document.body.removeChild(link);
   };
 
-  const isMobile = window.innerWidth < 640;
-
   return (
     <div className="min-h-screen bg-[#0A0A0A] pt-20 md:pt-28 pb-16">
       <div className="max-w-3xl mx-auto w-full px-6">
@@ -58,11 +82,11 @@ const Resume = () => {
         {/* Resume Viewer */}
         <ScrollReveal delay={0.1}>
           <div className="w-full flex justify-center">
-            <div className="relative bg-white rounded-lg shadow-2xl overflow-hidden w-[95vw] sm:w-auto">
+            <div ref={containerRef} className="relative bg-white rounded-lg shadow-2xl overflow-hidden w-full">
               {showFallback ? (
                 <iframe
                   src={googleDriveEmbedUrl}
-                  className="w-full sm:w-[900px] h-[65vh] sm:h-[90vh] border-0"
+                  className="w-full h-[65vh] sm:h-[90vh] border-0"
                   title="Resume Viewer"
                   allowFullScreen
                 />
@@ -84,7 +108,7 @@ const Resume = () => {
                     onLoadSuccess={onDocumentLoadSuccess}
                     onLoadError={onDocumentLoadError}
                     loading={
-                      <div className="flex items-center justify-center h-[65vh] sm:h-[90vh] w-full sm:w-[900px]">
+                      <div className="flex items-center justify-center h-[65vh] sm:h-[90vh] w-full">
                         <div className="text-center">
                           <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-gray-800 mx-auto mb-4"></div>
                           <p className="text-[#909092]">Loading resume...</p>
@@ -93,14 +117,16 @@ const Resume = () => {
                     }
                     className="flex justify-center"
                   >
-                    <Page
-                      pageNumber={1}
-                      scale={isMobile ? 0.75 : 1.15}
-                      renderTextLayer={false}
-                      renderAnnotationLayer={false}
-                      className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'
-                        }`}
-                    />
+                    {containerWidth > 0 && (
+                      <Page
+                        pageNumber={1}
+                        width={containerWidth}
+                        renderTextLayer={false}
+                        renderAnnotationLayer={false}
+                        className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'
+                          }`}
+                      />
+                    )}
                   </Document>
                 </>
               )}
