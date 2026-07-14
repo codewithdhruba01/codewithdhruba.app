@@ -17,6 +17,7 @@ import { useBlogReactions } from '../hooks/useBlogReactions';
 import { commentService } from '../lib/supabase';
 import LoveReactionButton from './ui/LoveReactionButton';
 import ReadingProgressPill from './ui/ReadingProgressPill';
+import Subscribe from './ui/Subscribe';
 
 // Prism.js imports for syntax highlighting
 import Prism from 'prismjs';
@@ -499,6 +500,11 @@ const BlogPost = () => {
                 isLoading={lovingBlog}
               />
             </div>
+          </div>
+
+          {/* Subscribe Now Section */}
+          <div className="mt-12 mb-16">
+            <Subscribe postTitle={post.title} />
           </div>
 
           {/* Comments */}

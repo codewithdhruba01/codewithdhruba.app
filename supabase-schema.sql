@@ -117,3 +117,16 @@ CREATE POLICY "Anyone can read photo loves" ON photo_loves
 
 CREATE POLICY "Anyone can insert photo loves" ON photo_loves
   FOR INSERT WITH CHECK (true);
+
+-- Subscribers table for newsletter subscriptions
+CREATE TABLE IF NOT EXISTS subscribers (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  email TEXT NOT NULL UNIQUE,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL
+);
+
+ALTER TABLE subscribers ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Anyone can insert subscribers" ON subscribers
+  FOR INSERT WITH CHECK (true);
+
