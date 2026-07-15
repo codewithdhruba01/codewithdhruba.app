@@ -153,7 +153,7 @@ body {
   border: none !important;
   box-shadow: none !important;
   overflow-x: auto;
-  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', Courier, monospace;
+  font-family: 'Geist Mono', 'JetBrains Mono', 'Fira Code', 'Courier New', Courier, monospace;
   font-size: 14px;
   line-height: 1.6;
 }
@@ -432,6 +432,12 @@ html {
 /* Inline code elements - Keep them light and readable */
 .prose :not(pre)>code {
   color: #E4E4E7 !important;
+  font-family: 'Geist Mono', 'JetBrains Mono', 'Fira Code', monospace !important;
+}
+
+.prose pre,
+.prose code {
+  font-family: 'Geist Mono', 'JetBrains Mono', 'Fira Code', monospace !important;
 }
 
 /* Premium Blog Image Card & Lightbox Animations */

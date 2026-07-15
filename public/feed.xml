@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Dhrubaraj Pati - Blog</title>
+    <link>https://codewithdhruba.in/blog</link>
+    <description>Exploring the art of engineering, the craft of code, and building impactful tech.</description>
+    <language>en</language>
+    <lastBuildDate>Wed, 15 Jul 2026 07:00:53 GMT</lastBuildDate>
+    <atom:link href="https://codewithdhruba.in/feed.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>The Unspoken Reality of Tier 3 Colleges: A Student&apos;s Perspective</title>
+      <link>https://codewithdhruba.in/blog/the-unspoken-reality-of-tier-3-colleges</link>
+      <guid isPermaLink="true">https://codewithdhruba.in/blog/the-unspoken-reality-of-tier-3-colleges</guid>
+      <pubDate>Mon, 22 Jun 2026 18:30:00 GMT</pubDate>
+      <description><![CDATA[I am a student at a Tier 3 college myself. So this article is not written from the perspective of an outsider, but from the experiences, observations, and realities I have witnessed firsthand....]]></description>
+      <category>College Life</category>
+      <dc:creator>Dhrubaraj Pati</dc:creator>
+    </item>
+    <item>
+      <title>How I Built a RAG-based AI Chatbot from My Personal Data</title>
+      <link>https://codewithdhruba.in/blog/rag-ai-chatbot</link>
+      <guid isPermaLink="true">https://codewithdhruba.in/blog/rag-ai-chatbot</guid>
+      <pubDate>Fri, 06 Mar 2026 18:30:00 GMT</pubDate>
+      <description><![CDATA[When I started exploring the latest advancements in Artificial Intelligence, one concept kept appearing repeatedly — RAG (Retrieval Augmented Generation).
+
+    RAG is a powerful technique that co...]]></description>
+      <category>AI &amp; Machine Learning</category>
+      <dc:creator>Dhrubaraj Pati</dc:creator>
+    </item>
+    <item>
+      <title>Essential Tools &amp; Components for Your Next.js/React Projects</title>
+      <link>https://codewithdhruba.in/blog/essential-tools-for-nextjs-and-react</link>
+      <guid isPermaLink="true">https://codewithdhruba.in/blog/essential-tools-for-nextjs-and-react</guid>
+      <pubDate>Tue, 10 Feb 2026 18:30:00 GMT</pubDate>
+      <description><![CDATA[The Modern Frontend Stack: Must-Have Tools
+    The frontend ecosystem changes rapidly, but a stable, high-performance stack has emerged around Next.js and React. Building modern web applications...]]></description>
+      <category>Resources</category>
+      <dc:creator>Dhrubaraj Pati</dc:creator>
+    </item>
+    <item>
+      <title>How NextAuth.js Works</title>
+      <link>https://codewithdhruba.in/blog/how-nextauth-works</link>
+      <guid isPermaLink="true">https://codewithdhruba.in/blog/how-nextauth-works</guid>
+      <pubDate>Fri, 30 Jan 2026 18:30:00 GMT</pubDate>
+      <description><![CDATA[Introduction
+    Authentication is a crucial part of modern web applications. Implementing secure login, session handling, OAuth integration (like Google or GitHub login), and user management man...]]></description>
+      <category>Web Development</category>
+      <dc:creator>Dhrubaraj Pati</dc:creator>
+    </item>
+    <item>
+      <title>Building My portfolio Website from Scratch</title>
+      <link>https://codewithdhruba.in/blog/building-my-first-website-with-react-and-tailwind</link>
+      <guid isPermaLink="true">https://codewithdhruba.in/blog/building-my-first-website-with-react-and-tailwind</guid>
+      <pubDate>Sun, 28 Dec 2025 18:30:00 GMT</pubDate>
+      <description><![CDATA[Introduction
+    As a Computer Engineering student passionate about full-stack development, I wanted to create a portfolio website that truly represents my journey as a developer. This website yo...]]></description>
+      <category>Web Development</category>
+      <dc:creator>Dhrubaraj Pati</dc:creator>
+    </item>
+    <item>
+      <title>Essential Linux Commands: A Comprehensive Guide (50 Commands with Examples)</title>
+      <link>https://codewithdhruba.in/blog/essential-linux-commands</link>
+      <guid isPermaLink="true">https://codewithdhruba.in/blog/essential-linux-commands</guid>
+      <pubDate>Sun, 07 Dec 2025 18:30:00 GMT</pubDate>
+      <description><![CDATA[Linux is one of the most powerful and flexible operating systems available today. Whether you're a developer, system administrator, cybersecurity learner, or technology enthusiast, Linux commands...]]></description>
+      <category>Linux</category>
+      <dc:creator>Dhrubaraj Pati</dc:creator>
+    </item>
+    <item>
+      <title>The Ultimate Guide to OpenWeather API: From Zero to Production in 2025</title>
+      <link>https://codewithdhruba.in/blog/openweather-api-guide</link>
+      <guid isPermaLink="true">https://codewithdhruba.in/blog/openweather-api-guide</guid>
+      <pubDate>Tue, 07 Oct 2025 18:30:00 GMT</pubDate>
+      <description><![CDATA[Build production-ready weather applications with the world's most reliable weather data service
+
+"Weather data isn't just information—it's the foundation of intelligent applications that adapt to re...]]></description>
+      <category>API</category>
+      <dc:creator>Dhrubaraj Pati</dc:creator>
+    </item>
+    <item>
+      <title>10 Chrome Keyboard Shortcuts to Boost Your Productivity</title>
+      <link>https://codewithdhruba.in/blog/chrome-keyboard-shortcuts</link>
+      <guid isPermaLink="true">https://codewithdhruba.in/blog/chrome-keyboard-shortcuts</guid>
+      <pubDate>Sun, 05 Oct 2025 18:30:00 GMT</pubDate>
+      <description><![CDATA[Google Chrome is not just a browser — it's a productivity tool hiding in plain sight. While most users rely on their mouse for every action, Chrome offers dozens of keyboard shortcuts that make ev...]]></description>
+      <category>Productivity</category>
+      <dc:creator>Dhrubaraj Pati</dc:creator>
+    </item>
+    <item>
+      <title>Getting Started with React and TypeScript: A Complete Developer&apos;s Guide</title>
+      <link>https://codewithdhruba.in/blog/getting-started-with-react-typescript</link>
+      <guid isPermaLink="true">https://codewithdhruba.in/blog/getting-started-with-react-typescript</guid>
+      <pubDate>Fri, 14 Mar 2025 18:30:00 GMT</pubDate>
+      <description><![CDATA[Why React + TypeScript? The Perfect Developer Combo
+    If you're reading this, you've probably heard about React and TypeScript. But do you know why combining them creates the ultimate frontend...]]></description>
+      <category>Development</category>
+      <dc:creator>Dhrubaraj Pati</dc:creator>
+    </item>
+  </channel>
+</rss>

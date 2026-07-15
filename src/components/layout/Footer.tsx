@@ -28,7 +28,8 @@ const navigateLinks = [
   { name: 'Photos', href: '/photos' },
   { name: 'Achievements', href: '/certificates' },
   { name: 'Bucket List', href: '/bucket-list' },
-  { name: 'Contact', href: '/contact' }
+  { name: 'Contact', href: '/contact' },
+  { name: 'RSS FEED', href: '/feed.xml' }
 ];
 
 const socialLinks = [
@@ -115,16 +116,29 @@ const Footer = () => {
               Navigate
             </span>
             <div className="flex flex-wrap gap-x-6 gap-y-3 max-w-md font-outfit text-sm">
-              {navigateLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  onClick={playClickSound}
-                  className="text-[#909092] hover:text-white transition-colors duration-200"
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {navigateLinks.map((link) => 
+                link.href.endsWith('.xml') ? (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={playClickSound}
+                    className="text-[#909092] hover:text-white transition-colors duration-200"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    onClick={playClickSound}
+                    className="text-[#909092] hover:text-white transition-colors duration-200"
+                  >
+                    {link.name}
+                  </Link>
+                )
+              )}
             </div>
 
             {/* Spotify Widget */}

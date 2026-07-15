@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
-    "build": "vite build"
+    "build": "vite build && npx tsx scripts/generate-feed.ts"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
