@@ -2,27 +2,10 @@ import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { ExperienceInterface } from '../../constants/experience';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './tooltip';
 
 const parseDescription = (text: string): string => {
     return text.replace(/\*(.*?)\*/g, '<b>$1</b>');
-};
-
-interface TechBadgeProps {
-    name: string;
-    children?: React.ReactNode;
-}
-
-const TechBadge = ({ name, children }: TechBadgeProps) => {
-    return (
-        <div className="group inline-flex items-center gap-0 rounded-md border border-dashed border-neutral-800 bg-neutral-900/40 px-2.5 py-1 text-xs font-medium text-neutral-300 outline-none transition-all duration-300 ease-out hover:scale-[1.03] hover:gap-1.5 hover:border-neutral-700 hover:bg-neutral-800/80 hover:text-white hover:shadow-sm">
-            <span className="w-4 h-4 shrink-0 flex items-center justify-center [&>svg]:w-3.5 [&>svg]:h-3.5 [&>svg]:text-neutral-400 group-hover:[&>svg]:text-white [&>svg]:transition-colors">
-                {children}
-            </span>
-            <span className="max-w-0 overflow-hidden opacity-0 whitespace-nowrap transition-all duration-300 ease-out group-hover:max-w-32 group-hover:opacity-100 group-hover:delay-150 leading-none">
-                {name}
-            </span>
-        </div>
-    );
 };
 
 interface ExperienceCardProps {
@@ -112,24 +95,9 @@ export function ExperienceCard({ experience, isOpen, onClick, alwaysOpen = false
             >
                 <div className="overflow-hidden">
                     <div className="mt-4 space-y-4 border-t border-neutral-900 pt-4">
-                        {/* Technologies & Tools */}
-                        <div>
-                            <h4 className="text-xs font-outfit font-semibold text-neutral-400 uppercase tracking-wider mb-2.5">Technologies & Tools</h4>
-                            <div className="flex flex-wrap gap-2 text-white font-synonym">
-                                {experience.technologies.map((technology, techIndex: number) => (
-                                    <TechBadge
-                                        key={techIndex}
-                                        name={technology.name}
-                                    >
-                                        {technology.icon}
-                                    </TechBadge>
-                                ))}
-                            </div>
-                        </div>
-
                         {/* Description / What I've Done */}
                         <div>
-                            <h4 className="text-xs font-outfit font-semibold text-neutral-400 uppercase tracking-wider mb-2.5 mt-3">What I've done</h4>
+                            <h4 className="text-xs font-outfit font-semibold text-neutral-400 uppercase tracking-wider mb-2.5">What I've done</h4>
                             <ul className="flex flex-col gap-2">
                                 {experience.description.map((description: string, descIndex: number) => (
                                     <li key={descIndex} className="flex gap-2 items-start">
@@ -143,6 +111,30 @@ export function ExperienceCard({ experience, isOpen, onClick, alwaysOpen = false
                                     </li>
                                 ))}
                             </ul>
+                        </div>
+
+                        {/* Technologies & Tools */}
+                        <div className="flex flex-wrap items-center gap-3 pt-2">
+                            <h4 className="text-xs font-outfit font-semibold text-neutral-400 uppercase tracking-wider">Technologies & Tools :</h4>
+                            <div className="flex flex-wrap items-center gap-2.5 text-white font-synonym">
+                                <TooltipProvider>
+                                    {experience.technologies.map((technology, techIndex: number) => (
+                                        <Tooltip key={techIndex}>
+                                            <TooltipTrigger>
+                                                <div 
+                                                    className="w-5 h-5 flex items-center justify-center transition-all duration-300 hover:scale-125 cursor-pointer [&>svg]:w-[17px] [&>svg]:h-[17px] filter hover:brightness-110"
+                                                    aria-label={technology.name}
+                                                >
+                                                    {technology.icon}
+                                                </div>
+                                            </TooltipTrigger>
+                                            <TooltipContent>
+                                                <p>{technology.name}</p>
+                                            </TooltipContent>
+                                        </Tooltip>
+                                    ))}
+                                </TooltipProvider>
+                            </div>
                         </div>
                     </div>
                 </div>

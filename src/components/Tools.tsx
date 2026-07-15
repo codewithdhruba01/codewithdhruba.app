@@ -4,7 +4,7 @@ import ScrollReveal from './ui/ScrollReveal';
 
 const GetInTouch = () => {
   return (
-    <section id="get-in-touch" className="pt-8 pb-8 bg-neutral-950">
+    <section id="development" className="pt-4 pb-8 bg-neutral-950">
       <div className="max-w-3xl mx-auto w-full px-6">
         {/* Heading */}
         <ScrollReveal className="mb-8">
