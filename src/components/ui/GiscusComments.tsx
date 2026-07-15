@@ -24,7 +24,7 @@ const GiscusComments = ({ slug }: GiscusCommentsProps) => {
   }
 
   return (
-    <div className="mt-16 pt-8 border-t border-gray-800">
+    <div className="mt-6 pt-4">
       <h4 className="text-2xl font-bold text-white mb-6 font-synonym">
         Comments & Discussion
       </h4>

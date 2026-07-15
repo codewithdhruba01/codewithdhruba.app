@@ -2,19 +2,18 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
   ArrowLeft,
-  Heart,
   Calendar,
   X,
 } from 'lucide-react';
 import GiscusComments from './ui/GiscusComments';
 import ShareModal from './modals/ShareModal';
-import { ShareIcon, ClappingHandsIcon } from './icons/SocialIcons';
 import { useBlogReactions } from '../hooks/useBlogReactions';
 import { commentService } from '../lib/supabase';
 import LoveReactionButton from './ui/LoveReactionButton';
 import ReadingProgressPill from './ui/ReadingProgressPill';
 import Subscribe from './ui/Subscribe';
 import ZoomControls from './ui/ZoomControls';
+import BlogReactions from './ui/BlogReactions';
 
 // Prism.js imports for syntax highlighting
 import Prism from 'prismjs';
@@ -35,7 +34,7 @@ import 'prismjs/components/prism-docker';
 
 import { blogPostsData } from '../data/blogs';
 
-const BlogPost = () => {
+const BlogContent = () => {
   const { slug } = useParams();
   const post = slug ? blogPostsData[slug as keyof typeof blogPostsData] : null;
 
@@ -244,43 +243,17 @@ const BlogPost = () => {
               <span>{post.date}</span>
             </div>
 
-            <div className="flex items-center gap-3">
-              <button
-                onClick={handleBlogLove}
-                disabled={userHasLoved || lovingBlog}
-                className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition ${userHasLoved
-                  ? 'bg-red-500/20 border-red-500/40 text-red-400'
-                  : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-red-500/10'
-                  }`}
-              >
-                <Heart
-                  className={`h-4 w-4 ${userHasLoved ? 'fill-red-400 text-red-400' : ''
-                    }`}
-                />
-                <span>{blogLoves}</span>
-              </button>
-              <button
-                onClick={handleBlogLike}
-                disabled={userHasLiked || likingBlog}
-                className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition ${userHasLiked
-                  ? 'bg-blue-500/20 border-blue-500/40 text-blue-400'
-                  : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-blue-500/10'
-                  }`}
-              >
-                <ClappingHandsIcon
-                  size="18"
-                  className={userHasLiked ? 'fill-blue-400' : ''}
-                />
-                <span>{blogLikes}</span>
-              </button>
-              <button
-                onClick={() => setShowShareModal(true)}
-                className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition"
-              >
-                <ShareIcon size="18" />
-                <span>Share</span>
-              </button>
-            </div>
+            <BlogReactions
+              blogLoves={blogLoves}
+              blogLikes={blogLikes}
+              userHasLoved={userHasLoved}
+              userHasLiked={userHasLiked}
+              lovingBlog={lovingBlog}
+              likingBlog={likingBlog}
+              onLove={handleBlogLove}
+              onLike={handleBlogLike}
+              onShare={() => setShowShareModal(true)}
+            />
           </div>
 
           {/* Content */}
@@ -329,7 +302,7 @@ const BlogPost = () => {
           </div>
 
           {/* Subscribe Now Section */}
-          <div className="mt-12 mb-16">
+          <div className="mt-12 mb-6">
             <Subscribe postTitle={post.title} />
           </div>
 
@@ -402,4 +375,5 @@ const BlogPost = () => {
     </>
   );
 };
-export default BlogPost;
+
+export default BlogContent;

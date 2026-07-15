@@ -7,7 +7,7 @@ import About from './pages/About';
 import Education from './components/Education';
 import Projects from './components/Projects';
 import Blog from './components/Blog';
-import BlogPost from './components/BlogPost';
+import BlogContent from './components/BlogContent';
 import Footer from './components/layout/Footer';
 import BlogList from './pages/BlogList';
 import AllProjects from './pages/AllProjects';
@@ -52,7 +52,7 @@ const AnimatedRoutes = () => {
           }
         />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
-        <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
+        <Route path="/blog/:slug" element={<PageTransition><BlogContent /></PageTransition>} />
         <Route path="/thoughts/:slug" element={<PageTransition><BookThoughts /></PageTransition>} />
         <Route path="/blog" element={<PageTransition><BlogList /></PageTransition>} />
         <Route path="/all-posts" element={<Navigate to="/blog" replace />} />
