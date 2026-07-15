@@ -1,5 +1,5 @@
 import { Heart } from 'lucide-react';
-import ScrollReveal from './ui/ScrollReveal';
+import ScrollReveal from './ScrollReveal';
 
 interface Sponsor {
   name: string;

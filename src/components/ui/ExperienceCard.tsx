@@ -1,7 +1,7 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
-import { cn } from '../lib/utils';
-import { ExperienceInterface } from '../constants/experience';
+import { cn } from '../../lib/utils';
+import { ExperienceInterface } from '../../constants/experience';
 
 const parseDescription = (text: string): string => {
     return text.replace(/\*(.*?)\*/g, '<b>$1</b>');

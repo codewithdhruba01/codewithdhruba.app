@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { AboutContent } from '../components/about/AboutContent';
 import { AboutWorkspace } from '../components/about/AboutWorkspace';
-import Skills from '../components/Skills';
+import Skills from '../components/about/Skills';
 import ScrollReveal from '../components/ui/ScrollReveal';
 
 export default function AboutMe() {

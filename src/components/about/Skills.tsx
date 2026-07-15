@@ -1,32 +1,32 @@
-import ScrollReveal from './ui/ScrollReveal';
+import ScrollReveal from '../ui/ScrollReveal';
 
 // Import SVG icons from the components/svgs folder
-import TypeScript from './svgs/TypeScript';
-import JavaScript from './svgs/JavaScript';
-import { Python } from './svgs/Python';
-import { Php } from './svgs/Php';
-import { Java } from './svgs/Java';
-import ReactIcon from './svgs/ReactIcon';
-import NextJs from './svgs/NextJs';
-import TailwindCss from './svgs/TailwindCss';
-import Shadcn from './svgs/Shadcn';
-import Motion from './svgs/Motion';
-import NodeJs from './svgs/NodeJs';
-import Bun from './svgs/Bun';
-import { MySQL } from './svgs/MySQL';
-import MongoDB from './svgs/MongoDB';
-import Figma from './svgs/Figma';
-import Html from './svgs/Html';
-import CSS from './svgs/CSS';
-import BootStrap from './svgs/BootStrap';
-import Postman from './svgs/Postman';
-import { VisualStudioCode } from './svgs/VisualStudioCode';
-import Vercel from './svgs/Vercel';
-import ExpressJs from './svgs/ExpressJs';
-import AWS from './svgs/AWS';
-import { FastAPI } from './svgs/FastAPI';
-import ThreeJs from './svgs/ThreeJs';
-import { Linux } from './svgs/Linux';
+import TypeScript from '../svgs/TypeScript';
+import JavaScript from '../svgs/JavaScript';
+import { Python } from '../svgs/Python';
+import { Php } from '../svgs/Php';
+import { Java } from '../svgs/Java';
+import ReactIcon from '../svgs/ReactIcon';
+import NextJs from '../svgs/NextJs';
+import TailwindCss from '../svgs/TailwindCss';
+import Shadcn from '../svgs/Shadcn';
+import Motion from '../svgs/Motion';
+import NodeJs from '../svgs/NodeJs';
+import Bun from '../svgs/Bun';
+import { MySQL } from '../svgs/MySQL';
+import MongoDB from '../svgs/MongoDB';
+import Figma from '../svgs/Figma';
+import Html from '../svgs/Html';
+import CSS from '../svgs/CSS';
+import BootStrap from '../svgs/BootStrap';
+import Postman from '../svgs/Postman';
+import { VisualStudioCode } from '../svgs/VisualStudioCode';
+import Vercel from '../svgs/Vercel';
+import ExpressJs from '../svgs/ExpressJs';
+import AWS from '../svgs/AWS';
+import { FastAPI } from '../svgs/FastAPI';
+import ThreeJs from '../svgs/ThreeJs';
+import { Linux } from '../svgs/Linux';
 
 const Skills = () => {
   // A comprehensive, beautifully ordered tech stack array matching your reference image with official URLs

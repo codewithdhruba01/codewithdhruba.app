@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { SectionButton } from './ui/SectionButton';
 import { experiences } from '../constants/experience';
-import { ExperienceCard } from './ExperienceCard';
+import { ExperienceCard } from './ui/ExperienceCard';
 import ScrollReveal from './ui/ScrollReveal';
 
 interface ExperienceListProps {

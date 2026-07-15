@@ -47,7 +47,7 @@ const Navbar = () => {
     { href: '/experience', text: 'Work' },
     { href: '/blog', text: 'Blog' },
     { href: '/projects', text: 'Projects' },
-    { href: '/photos', text: 'Photos' },
+    { href: '/photos', text: 'Gallery' },
   ];
 
   return (

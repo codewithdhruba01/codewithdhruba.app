@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { experiences } from '../constants/experience';
-import { ExperienceCard } from '../components/ExperienceCard';
+import { ExperienceCard } from '../components/ui/ExperienceCard';
 import ScrollReveal from '../components/ui/ScrollReveal';
 
 const WorkExperience = () => {

@@ -25,7 +25,7 @@ const navigateLinks = [
   { name: 'Projects', href: '/projects' },
   { name: 'Gears', href: '/gears' },
   { name: 'Setup', href: '/extensions' },
-  { name: 'Photos', href: '/photos' },
+  { name: 'Gallery', href: '/photos' },
   { name: 'Achievements', href: '/certificates' },
   { name: 'Bucket List', href: '/bucket-list' },
   { name: 'Contact', href: '/contact' },
@@ -116,7 +116,7 @@ const Footer = () => {
               Navigate
             </span>
             <div className="flex flex-wrap gap-x-6 gap-y-3 max-w-md font-outfit text-sm">
-              {navigateLinks.map((link) => 
+              {navigateLinks.map((link) =>
                 link.href.endsWith('.xml') ? (
                   <a
                     key={link.name}

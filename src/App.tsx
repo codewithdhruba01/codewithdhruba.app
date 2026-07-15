@@ -4,7 +4,7 @@ import SEO from './components/SEO';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/Hero';
 import About from './pages/About';
-import Education from './components/Education';
+import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Blog from './components/Blog';
 import BlogContent from './components/BlogContent';
@@ -41,7 +41,7 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <Hero />
-              <Education />
+              <Experience />
               <Projects />
               <GitHubContributions />
               <Blog />

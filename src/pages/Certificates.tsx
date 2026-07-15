@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link as LinkIcon, ChevronDown, ChevronUp } from 'lucide-react';
 import ScrollReveal from '../components/ui/ScrollReveal';
-import Sponsors from '../components/Sponsors';
+import Sponsors from '../components/ui/Sponsors';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../components/ui/tooltip';
 
 // Dynamic, premium issuer logo component with company asset support
