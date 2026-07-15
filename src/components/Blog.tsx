@@ -86,7 +86,7 @@ const Blog = () => {
           className="text-center mt-12"
           delay={0.3}
         >
-          <SectionButton to="/all-posts" text="Show all blogs" />
+          <SectionButton to="/blog" text="Show all blogs" />
         </ScrollReveal>
       </div>
     </section>

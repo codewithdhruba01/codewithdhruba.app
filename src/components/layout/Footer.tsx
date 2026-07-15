@@ -20,7 +20,7 @@ const getOrdinalSuffix = (n: number) => {
 const navigateLinks = [
   { name: 'Home', href: '/' },
   { name: 'Work', href: '/experience' },
-  { name: 'Blog', href: '/all-posts' },
+  { name: 'Blog', href: '/blog' },
   { name: 'Resume', href: '/resume' },
   { name: 'Projects', href: '/projects' },
   { name: 'Gears', href: '/gears' },

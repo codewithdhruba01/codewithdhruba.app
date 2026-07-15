@@ -166,8 +166,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
       shortcut: 'Shift+B',
       category: 'navigation',
       action: () => {
-        navigate('/all-posts');
-        onNavigate?.('/all-posts');
+        navigate('/blog');
+        onNavigate?.('/blog');
         onClose();
       }
     },

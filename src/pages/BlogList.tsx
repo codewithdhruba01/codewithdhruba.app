@@ -46,13 +46,11 @@ const calculateTagCounts = () => {
 
 const tags = calculateTagCounts();
 
-const AllPosts = () => {
+const BlogList = () => {
   const [activeTag, setActiveTag] = useState('All');
   const [blogViews, setBlogViews] = useState<Record<string, number>>({});
   const [loadingViews, setLoadingViews] = useState(true);
   const [hoveredSlug, setHoveredSlug] = useState<string | null>(null);
-
-
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -185,4 +183,4 @@ const AllPosts = () => {
   );
 };
 
-export default AllPosts;
+export default BlogList;

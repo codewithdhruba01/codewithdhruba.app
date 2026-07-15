@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import SEO from './components/SEO';
 import Navbar from './components/layout/Navbar';
@@ -9,7 +9,7 @@ import Projects from './components/Projects';
 import Blog from './components/Blog';
 import BlogPost from './components/BlogPost';
 import Footer from './components/layout/Footer';
-import AllPosts from './pages/AllPosts';
+import BlogList from './pages/BlogList';
 import AllProjects from './pages/AllProjects';
 import Contact from './pages/Contact';
 import Gears from './pages/Gears';
@@ -54,7 +54,8 @@ const AnimatedRoutes = () => {
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
         <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
         <Route path="/thoughts/:slug" element={<PageTransition><BookThoughts /></PageTransition>} />
-        <Route path="/all-posts" element={<PageTransition><AllPosts /></PageTransition>} />
+        <Route path="/blog" element={<PageTransition><BlogList /></PageTransition>} />
+        <Route path="/all-posts" element={<Navigate to="/blog" replace />} />
         <Route path="/projects" element={<PageTransition><AllProjects /></PageTransition>} />
         <Route path="/certificates" element={<PageTransition><Certificates /></PageTransition>} />
         <Route path="/photos" element={<PageTransition><Photos /></PageTransition>} />

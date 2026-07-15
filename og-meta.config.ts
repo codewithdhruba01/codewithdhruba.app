@@ -29,7 +29,7 @@ const staticPages: Record<string, PageMeta> = {
     description: 'Discover my projects and work across different technologies and domains. From web apps to mobile solutions.',
     image: '/meta/project.png',
   },
-  '/all-posts': {
+  '/blog': {
     title: 'Blog - Thoughts, Publications & Journey',
     description:
       'Exploring the art of engineering, the craft of code, and building impactful tech.',
