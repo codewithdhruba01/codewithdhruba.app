@@ -86,14 +86,18 @@
   };
 
   const variants = [
-    { id: 'classic', name: 'Classic Cat', file: '/oneko/oneko.gif', desc: 'The original white cat' },
-    { id: 'tora', name: 'Tora Cat', file: '/oneko/oneko-tora.gif', desc: 'Cute tiger-striped cat' },
-    { id: 'dog', name: 'Doggy', file: '/oneko/oneko-dog.gif', desc: 'A friendly running pup' },
-    { id: 'maia', name: 'Maia', file: '/oneko/oneko-maia.gif', desc: 'Sleek brown companion' },
-    { id: 'vaporwave', name: 'Vaporwave', file: '/oneko/oneko-vaporwave.gif', desc: 'Synthwave purple cat' }
+    { id: 'classic', file: '/oneko/oneko.gif' },
+    { id: 'dog', file: '/oneko/oneko-dog.gif' },
+    { id: 'tora', file: '/oneko/oneko-tora.gif' },
+    { id: 'maia', file: '/oneko/oneko-maia.gif' },
+    { id: 'vaporwave', file: '/oneko/oneko-vaporwave.gif' }
   ];
 
   function setVariant(variantId) {
+    const allowed = ['classic', 'dog', 'tora', 'maia', 'vaporwave'];
+    if (!allowed.includes(variantId)) {
+      variantId = 'classic';
+    }
     localStorage.setItem('oneko-variant', variantId);
     let nekoFile = `/oneko/oneko-${variantId}.gif`;
     if (variantId === 'classic') {
@@ -125,9 +129,9 @@
         .oneko-backdrop {
           position: fixed;
           inset: 0;
-          background: rgba(0, 0, 0, 0.6);
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
+          background: rgba(0, 0, 0, 0.55);
+          backdrop-filter: blur(4px);
+          -webkit-backdrop-filter: blur(4px);
           z-index: 2147483645;
           animation: onekoBackdropFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -137,114 +141,78 @@
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
-          background: rgba(15, 15, 15, 0.75);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
+          background: #111111;
           border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 24px;
-          padding: 24px;
-          width: 90%;
-          max-width: 350px;
-          box-shadow: 0 30px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
+          border-radius: 12px;
+          padding: 14px;
+          width: 180px;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.6);
           color: #fff;
           font-family: 'Outfit', 'Cabinet Grotesk', system-ui, -apple-system, sans-serif;
           animation: onekoFadeIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
         .oneko-header {
-          position: relative;
-          margin-bottom: 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 12px;
         }
         .oneko-title {
           margin: 0;
-          font-size: 20px;
-          font-weight: 700;
+          font-size: 16px;
+          font-weight: 600;
           letter-spacing: -0.02em;
-          background: linear-gradient(180deg, #fff 0%, #aaa 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-        .oneko-subtitle {
-          margin: 4px 0 0 0;
-          font-size: 12px;
-          color: rgba(255,255,255,0.45);
         }
         .oneko-close {
-          position: absolute;
-          top: -2px;
-          right: 0;
-          background: rgba(255,255,255,0.03);
-          border: 1px solid rgba(255,255,255,0.05);
+          background: rgba(255, 255, 255, 0.08);
+          border: none;
           border-radius: 50%;
-          color: rgba(255, 255, 255, 0.6);
+          color: rgba(255, 255, 255, 0.8);
           cursor: pointer;
-          font-size: 18px;
-          width: 28px;
-          height: 28px;
+          font-size: 14px;
+          width: 24px;
+          height: 24px;
           display: flex;
           align-items: center;
           justify-content: center;
           transition: all 0.2s;
         }
         .oneko-close:hover {
-          background: rgba(255,255,255,0.1);
+          background: rgba(255, 255, 255, 0.15);
           color: #fff;
-          border-color: rgba(255,255,255,0.2);
           transform: scale(1.05);
         }
-        .oneko-options {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-          max-height: 320px;
-          overflow-y: auto;
+        .oneko-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 10px;
+          justify-items: center;
         }
-        .oneko-option {
+        .oneko-item {
+          width: 44px;
+          height: 44px;
           display: flex;
           align-items: center;
-          gap: 14px;
-          width: 100%;
-          background: rgba(255, 255, 255, 0.02);
-          border: 1px solid rgba(255, 255, 255, 0.04);
-          border-radius: 16px;
-          padding: 10px 14px;
-          color: #fff;
+          justify-content: center;
+          background: none;
+          border: 1px solid transparent;
+          border-radius: 8px;
           cursor: pointer;
-          transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-          text-align: left;
+          transition: all 0.2s;
         }
-        .oneko-option:hover {
-          background: rgba(255, 255, 255, 0.06);
-          border-color: rgba(255, 255, 255, 0.12);
-          transform: translateY(-1px);
+        .oneko-item:hover {
+          background: rgba(255, 255, 255, 0.05);
+          border-color: rgba(255, 255, 255, 0.1);
         }
-        .oneko-option.active {
-          background: rgba(0, 220, 130, 0.08);
-          border-color: rgba(0, 220, 130, 0.3);
-        }
-        .oneko-option.active .oneko-option-name {
-          color: #00DC82;
+        .oneko-item.active {
+          background: rgba(255, 255, 255, 0.08);
+          border-color: rgba(255, 255, 255, 0.2);
         }
         .oneko-preview {
           width: 32px;
           height: 32px;
-          flex-shrink: 0;
           background-position: -96px -96px;
           image-rendering: pixelated;
-          border-radius: 6px;
-        }
-        .oneko-info {
-          display: flex;
-          flex-direction: column;
-          gap: 1px;
-        }
-        .oneko-option-name {
-          font-size: 14px;
-          font-weight: 600;
-          transition: color 0.2s;
-        }
-        .oneko-option-desc {
-          font-size: 11px;
-          color: rgba(255,255,255,0.4);
         }
       `;
       document.head.appendChild(styleEl);
@@ -274,11 +242,7 @@
 
     const title = document.createElement('h3');
     title.className = 'oneko-title';
-    title.textContent = 'Choose Companion';
-
-    const subtitle = document.createElement('p');
-    subtitle.className = 'oneko-subtitle';
-    subtitle.textContent = 'Right-click on them anytime to switch';
+    title.textContent = 'Choose Neko';
 
     const closeBtn = document.createElement('button');
     closeBtn.className = 'oneko-close';
@@ -286,50 +250,35 @@
     closeBtn.onclick = closeAll;
 
     header.appendChild(title);
-    header.appendChild(subtitle);
     header.appendChild(closeBtn);
     modal.appendChild(header);
 
-    // Options Container
-    const optionsContainer = document.createElement('div');
-    optionsContainer.className = 'oneko-options';
+    // Grid Container
+    const gridContainer = document.createElement('div');
+    gridContainer.className = 'oneko-grid';
 
     const activeVariant = localStorage.getItem('oneko-variant') || 'classic';
 
     variants.forEach(v => {
-      const optBtn = document.createElement('button');
-      optBtn.className = `oneko-option ${v.id === activeVariant ? 'active' : ''}`;
-      
+      const itemBtn = document.createElement('button');
+      itemBtn.className = `oneko-item ${v.id === activeVariant ? 'active' : ''}`;
+      itemBtn.title = v.id.charAt(0).toUpperCase() + v.id.slice(1);
+
       const preview = document.createElement('div');
       preview.className = 'oneko-preview';
       preview.style.backgroundImage = `url(${v.file})`;
 
-      const info = document.createElement('div');
-      info.className = 'oneko-info';
+      itemBtn.appendChild(preview);
 
-      const optName = document.createElement('span');
-      optName.className = 'oneko-option-name';
-      optName.textContent = v.name;
-
-      const optDesc = document.createElement('span');
-      optDesc.className = 'oneko-option-desc';
-      optDesc.textContent = v.desc;
-
-      info.appendChild(optName);
-      info.appendChild(optDesc);
-
-      optBtn.appendChild(preview);
-      optBtn.appendChild(info);
-
-      optBtn.onclick = () => {
+      itemBtn.onclick = () => {
         setVariant(v.id);
         closeAll();
       };
 
-      optionsContainer.appendChild(optBtn);
+      gridContainer.appendChild(itemBtn);
     });
 
-    modal.appendChild(optionsContainer);
+    modal.appendChild(gridContainer);
     document.body.appendChild(modal);
   }
 
