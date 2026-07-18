@@ -19,6 +19,7 @@ const SEO = () => {
     <Helmet>
       <title>{meta.title}</title>
       <meta name="description" content={meta.description} />
+      <link rel="canonical" href={fullUrl} />
       <meta property="og:title" content={meta.title} />
       <meta property="og:description" content={meta.description} />
       <meta property="og:url" content={fullUrl} />

@@ -29,6 +29,7 @@ export default async function handler(req: Request): Promise<Response> {
 
     const replacements: Array<[RegExp, string]> = [
       [/<title>.*?<\/title>/s, `<title>${escape(meta.title)}</title>`],
+      [/<link\s+rel="canonical"\s+href="[^"]*"/is, `<link rel="canonical" href="${escape(fullUrl)}"`],
       [/<meta\s+name="description"\s+content="[^"]*"/is, `<meta name="description" content="${escape(meta.description)}"`],
       [/<meta\s+property="og:title"\s+content="[^"]*"/is, `<meta property="og:title" content="${escape(meta.title)}"`],
       [/<meta\s+property="og:description"\s+content="[^"]*"/is, `<meta property="og:description" content="${escape(meta.description)}"`],
