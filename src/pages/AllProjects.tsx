@@ -21,6 +21,7 @@ import Vercel from '../components/svgs/Vercel';
 import CSS from '../components/svgs/CSS';
 import Html from '../components/svgs/Html';
 import JavaScript from '../components/svgs/JavaScript';
+import ExpressJs from '../components/svgs/ExpressJs';
 
 const iconMap: Record<string, React.ElementType> = {
   'React': ReactIcon,
@@ -36,6 +37,8 @@ const iconMap: Record<string, React.ElementType> = {
   'CSS': CSS,
   'Html': Html,
   'JavaScript': JavaScript,
+  'Express': ExpressJs,
+  'Express.js': ExpressJs,
 };
 
 const categories = [
@@ -479,7 +482,7 @@ const AllProjects = () => {
                             const techStack = project.tags?.filter(tag => !categories.includes(tag)) || [];
                             return (
                               <div className="flex items-center gap-3 select-none">
-                                <p className="text-[#909092] text-xs font-outfit uppercase tracking-wider shrink-0">Technologies :</p>
+                                <p className="text-[#909092] text-xs font-outfit shrink-0">Technologies :</p>
                                 <div className="flex items-center gap-1.5 overflow-visible">
                                   {techStack.slice(0, 4).map((tech, tagIndex) => {
                                     const Icon = iconMap[tech];

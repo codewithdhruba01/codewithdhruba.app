@@ -145,7 +145,7 @@ const Hero = () => {
                 </TooltipContent>
               </Tooltip>
             </h2>
-            <p className="mt-1.5 font-mono text-xs md:text-sm text-neutral-500">
+            <p className="mt-1.5 font-hanken text-[14px] leading-[20px] tracking-normal text-[#909090]">
               engineer • developer • builder
             </p>
           </div>
@@ -228,8 +228,8 @@ const Hero = () => {
           <h3 className="font-bold font-bricolage text-neutral-200 text-base sm:text-lg mb-3">
             I build from scratch.
           </h3>
-          <p className="text-neutral-400 leading-relaxed text-base">
-            I am a <strong className="text-neutral-200">22 Year Old Full-Stack Developer</strong> dedicated to building scalable, high-performance web applications with{' '}
+          <p className="text-[#909092] leading-relaxed text-base font-hanken font-regular">
+            I am a <strong className="text-neutral-200 font-hanken font-medium">22 Year Old Full-Stack Developer</strong> dedicated to building scalable, high-performance web applications with{' '}
             <a
               href="https://www.typescriptlang.org/"
               target="_blank"

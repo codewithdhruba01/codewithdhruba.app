@@ -15,6 +15,7 @@ import MDXIcon from './svgs/MDXIcon';
 import Motion from './svgs/Motion';
 import Shadcn from './svgs/Shadcn';
 import Vercel from './svgs/Vercel';
+import ExpressJs from './svgs/ExpressJs';
 
 
 const iconMap: Record<string, React.ElementType> = {
@@ -28,6 +29,8 @@ const iconMap: Record<string, React.ElementType> = {
   'Motion': Motion,
   'Shadcn': Shadcn,
   'Vercel': Vercel,
+  'Express': ExpressJs,
+  'Express.js': ExpressJs,
 };
 
 type Project = {
@@ -51,11 +54,11 @@ const Projects = () => {
     {
       title: 'XMedia',
       description:
-        'XMedia is a simple, fast, and user-friendly social media downloader that makes everyday task easy and accessible for everyone.',
+        'X Media Downloader is a modern web app that lets users download videos from public X posts by simply pasting a post URL.',
       image: '/project/xmedia.png',
       github: 'https://github.com/codewithdhruba01/X-Downloader',
       demo: 'https://xmedia-one.vercel.app/',
-      techStack: ['TypeScript', 'React', 'Tailwind CSS', 'Node.js', 'MDX', 'Motion', 'Vercel',],
+      techStack: ['TypeScript', 'Express', 'Tailwind CSS', 'Node.js', 'React', 'Express', 'MDX', 'Motion', 'Vercel'],
     },
     {
       title: 'ColorKit',
@@ -172,13 +175,13 @@ const Projects = () => {
                         </TooltipProvider>
                       </div>
                     </div>
-                    <p className="text-[#909092] mb-4 leading-relaxed text-sm font-poppins">
+                    <p className="text-[#909092] mb-4 leading-relaxed text-sm font-hanken">
                       {project.description}
                     </p>
 
                     {/* Tech Stack */}
                     <div className="flex items-center gap-3 mb-2 select-none">
-                      <p className="text-[#909092] text-xs font-outfit uppercase tracking-wider shrink-0">Technologies :</p>
+                      <p className="text-[#909092] text-xs font-hanken shrink-0">Technologies :</p>
                       <div className="flex items-center gap-1.5 overflow-visible">
                         {project.techStack.slice(0, 4).map((tech, i) => {
                           const Icon = iconMap[tech];
