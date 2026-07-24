@@ -49,32 +49,24 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
-      title: 'MultiCalc',
+      title: 'XMedia',
       description:
-        'MultiCalc is a simple, fast, and user-friendly online calculator that makes everyday arithmetic easy and accessible for everyone.',
-      image: '/project/multicalc1.png',
-      github: 'https://github.com/codewithdhruba01/MultiCalc',
-      demo: 'https://www.multicalc.site/',
+        'XMedia is a simple, fast, and user-friendly social media downloader that makes everyday task easy and accessible for everyone.',
+      image: '/project/xmedia.png',
+      github: 'https://github.com/codewithdhruba01/X-Downloader',
+      demo: 'https://xmedia-one.vercel.app/',
       techStack: ['TypeScript', 'React', 'Tailwind CSS', 'Node.js', 'MDX', 'Motion', 'Vercel',],
     },
     {
-      title: 'ColorKit WebApp',
+      title: 'ColorKit',
       description:
         'A professional, feature-rich color picker and analysis tool Extract colors from images, generate color palettes, analyze accessibility.',
-      image: '/project/colorkit-cover.png',
+      image: '/project/colorkit.png',
       github: 'https://github.com/codewithdhruba01/ColorPicker',
       demo: 'https://colorskit.vercel.app/',
       techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Motion', 'Shadcn', 'Vercel', 'Node.js'],
     },
-    {
-      title: 'GitHub Developer Tools',
-      description:
-        'Advanced GitHub tools for developers follower analytics, README designer, comparison, and documentation.',
-      image: '/project/GithubDevloperTools-cover.png',
-      github: 'https://github.com/codewithdhruba01/GithubProtools',
-      demo: 'https://githubprotools.vercel.app/',
-      techStack: ['TypeScript', 'Next.js', 'Tailwind CSS', 'REST API', 'Shadcn', 'Vercel', 'Node.js'],
-    },
+
   ];
 
   return (

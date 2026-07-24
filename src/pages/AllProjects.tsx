@@ -62,16 +62,6 @@ const projects = [
   },
   {
     id: 2,
-    title: 'Outfit Wallpaper Generator',
-    description:
-      'Outfit Wallpaper Generator is a sleek and interactive tool for creating personalized phone wallpapers in your preferred colors, offering both gradient and solid options.',
-    image: '/project/wallpaperapp.png',
-    github: 'https://github.com/codewithdhruba01/OutfitWallpaper',
-    demo: 'https://outfitwallpaper.vercel.app/',
-    tags: ['React', 'Tailwind CSS', 'TypeScript', 'Node.js', 'Vercel', 'Frontend'],
-  },
-  {
-    id: 3,
     title: 'GitHub Developer Tools',
     description:
       'Advanced GitHub tools for developers follower analytics, README designer, comparison, and documentation.',
@@ -79,6 +69,16 @@ const projects = [
     github: 'https://github.com/codewithdhruba01/GithubProtools',
     demo: 'https://githubprotools.vercel.app/',
     tags: ['React', 'Next.js', 'REST API', 'TypeScript', 'Frontend', 'Shadcn', 'Vercel', 'Node.js'],
+  },
+  {
+    id: 3,
+    title: 'Outfit Wallpaper Generator',
+    description:
+      'Outfit Wallpaper Generator is a sleek and interactive tool for creating personalized phone wallpapers in your preferred colors, offering both gradient and solid options.',
+    image: '/project/wallpaperapp.png',
+    github: 'https://github.com/codewithdhruba01/OutfitWallpaper',
+    demo: 'https://outfitwallpaper.vercel.app/',
+    tags: ['React', 'Tailwind CSS', 'TypeScript', 'Node.js', 'Vercel', 'Frontend'],
   },
   {
     id: 4,
@@ -115,7 +115,7 @@ const projects = [
     title: 'ColorKit WebApp',
     description:
       'A professional, feature-rich color picker and analysis tool Extract colors from images, generate color palettes, analyze accessibility, and explore color theory with an elegant, animated interface.',
-    image: '/project/colorkit-cover.png',
+    image: '/project/colorkit.png',
     github: 'https://github.com/codewithdhruba01/ColorPicker',
     demo: 'https://colorskit.vercel.app/',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Motion', 'Shadcn', 'Vercel', 'Node.js'],
@@ -142,16 +142,6 @@ const projects = [
   },
   {
     id: 10,
-    title: 'E-Wallet Web App',
-    description:
-      'An interactive and responsive E-Wallet user interface built using HTML, CSS, and JavaScript.',
-    image: '/project/e-wallet.jpg',
-    github: 'https://github.com/codewithdhruba01/E-Wallet',
-    demo: 'https://codewithdhruba01.github.io/E-Wallet/',
-    tags: ['Html', 'CSS', 'JavaScript', 'MDX', 'Frontend'],
-  },
-  {
-    id: 11,
     title: 'College Fee Payment Portal',
     description:
       'A simple and responsive College Fee Payment Portal built using HTML, CSS, and JavaScript.',
@@ -161,17 +151,7 @@ const projects = [
     tags: ['Html', 'CSS', 'JavaScript', 'Frontend'],
   },
   {
-    id: 12,
-    title: 'Notes App',
-    description:
-      'A lightweight, responsive note-taking app with Classic UI/UX.',
-    image: '/project/zNote.jpg',
-    github: 'https://github.com/codewithdhruba01/Znote',
-    demo: 'https://codewithdhruba01.github.io/Znote/',
-    tags: ['Html', 'CSS', 'JavaScript', 'Full Stack'],
-  },
-  {
-    id: 13,
+    id: 11,
     title: 'Face Recognition Real-Time',
     description:
       'Real-time Face Attendance System using OpenCV for recognition.',
@@ -180,36 +160,7 @@ const projects = [
     tags: ['Python', 'OpenCV', 'cvzone', 'NumPy', 'AI/ML', 'ML'],
   },
   {
-    id: 14,
-    title: 'Tic Tac Toe Game',
-    description:
-      'Visually appealing Tic Tac Toe Game built using HTML, CSS, JS.',
-    image: '/project/game-project.jpg',
-    github: 'https://github.com/codewithdhruba01/tic-tac-toe-game',
-    demo: 'https://codewithdhruba01.github.io/tic-tac-toe-game/',
-    tags: ['Html', 'CSS', 'JavaScript', 'Game'],
-  },
-  {
-    id: 15,
-    title: 'Skill Progress',
-    description:
-      'Skillber is a simple and extensible CLI tool built with TypeScript.',
-    image: '/project/skillsber.jpg',
-    github: 'https://github.com/codewithdhruba01/Skillber',
-    tags: ['Html', 'CSS', 'JavaScript', 'Frontend'],
-  },
-  {
-    id: 16,
-    title: 'Vercual Assistence',
-    description:
-      'A web-based voice assistant designed to provide an interactive user experience.',
-    image: '/project/vercual-ass-project.jpg',
-    github: 'https://github.com/codewithdhruba01/Virtual-Assistant-Application',
-    demo: 'https://codewithdhruba01.github.io/Virtual-Assistant-Application/',
-    tags: ['Html', 'CSS', 'JavaScript', 'Bot Development', 'Full Stack'],
-  },
-  {
-    id: 17,
+    id: 12,
     title: 'ComfortPG-Website',
     description: 'A modern, responsive Paying Guest accommodation website',
     image: '/project/comfortpg.png',
@@ -229,13 +180,8 @@ const getProjectSubtitle = (project: typeof projects[0]) => {
   if (project.title.includes('ColorKit')) return 'Palette Extractor & Theory Tool';
   if (project.title.includes('EmojiHub')) return 'Emoji Search and Copy Engine';
   if (project.title.includes('FlipClock')) return 'Aesthetic Flip Clock Focus Tool';
-  if (project.title.includes('E-Wallet')) return 'E-Wallet Interaction Showcase';
   if (project.title.includes('College Fee')) return 'Fee Payment Portal Concept';
-  if (project.title.includes('Notes')) return 'Classic Note-Taking Application';
   if (project.title.includes('Face Recognition')) return 'Real-time Attendance ML Engine';
-  if (project.title.includes('Tic Tac Toe')) return 'Classic Board Game WebApp';
-  if (project.title.includes('Skill Progress')) return 'CLI Skill progress logger';
-  if (project.title.includes('Vercual Assistence')) return 'Voice Assistant Web Interface';
   if (project.title.includes('ComfortPG')) return 'Paying Guest Booking Portal';
 
   const categoryTag = project.tags.find(tag => categories.includes(tag)) || 'Web';
