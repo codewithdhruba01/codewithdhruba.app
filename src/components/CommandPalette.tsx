@@ -20,6 +20,7 @@ import {
   Camera
 } from 'lucide-react';
 import { BookIcon, LeetcodeIcon } from './icons/SocialIcons';
+import ScrollIcon from './svgs/ScrollIcon';
 import { books } from './Bookshelf';
 
 interface CommandPaletteProps {
@@ -51,7 +52,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
     id: `book-${book.slug}`,
     title: `Book: ${book.title}`,
     description: `Read thoughts on ${book.title} by ${book.author}`,
-    icon: <BookIcon size="16" />,
+    icon: <ScrollIcon size="16" />,
     category: 'books',
     action: () => {
       navigate(`/thoughts/${book.slug}`);
