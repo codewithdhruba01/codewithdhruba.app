@@ -5,7 +5,6 @@ import {
   GithubIcon,
   LinkedinIcon,
   XIcon,
-  LeetcodeIcon,
 } from './icons/SocialIcons';
 import { Tooltip, TooltipTrigger, TooltipContent } from './ui/tooltip';
 
@@ -174,28 +173,11 @@ const Hero = () => {
                   rel="noopener noreferrer"
                   className="p-2.5 rounded-full border border-neutral-800/80 bg-[#121214] hover:bg-neutral-900 hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
                 >
-                  <LinkedinIcon size="16" className="fill-current" />
+                  <LinkedinIcon size="19" />
                 </a>
               </TooltipTrigger>
               <TooltipContent side="top">
                 <p>LinkedIn</p>
-              </TooltipContent>
-            </Tooltip>
-
-            {/* Leetcode Link */}
-            <Tooltip>
-              <TooltipTrigger>
-                <a
-                  href="https://leetcode.com/u/codewithdhruba/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2.5 rounded-full border border-neutral-800/80 bg-[#121214] hover:bg-neutral-900 hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
-                >
-                  <LeetcodeIcon size="16" className="fill-current" />
-                </a>
-              </TooltipTrigger>
-              <TooltipContent side="top">
-                <p>LeetCode</p>
               </TooltipContent>
             </Tooltip>
 

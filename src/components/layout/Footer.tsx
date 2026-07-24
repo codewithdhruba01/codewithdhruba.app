@@ -39,7 +39,7 @@ const socialLinks = [
   },
   {
     href: 'https://www.linkedin.com/in/dhrubaraj-pati/',
-    icon: <LinkedinIcon size="18" className="fill-[#909092] group-hover:fill-white transition-colors duration-300" />
+    icon: <LinkedinIcon size="21" className="stroke-[#909092] group-hover:stroke-white transition-colors duration-300" />
   },
   {
     href: 'https://github.com/codewithdhruba01',
