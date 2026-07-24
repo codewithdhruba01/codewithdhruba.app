@@ -6,12 +6,14 @@ import {
   LinkedinIcon,
   XIcon,
 } from './icons/SocialIcons';
+import TerminalIcon from './svgs/TerminalIcon';
 import { Tooltip, TooltipTrigger, TooltipContent } from './ui/tooltip';
 
 import ScrollReveal from './ui/ScrollReveal';
 
 const Hero = () => {
   const [githubFollowers, setGithubFollowers] = useState<number | null>(null);
+  const [copiedTerminal, setCopiedTerminal] = useState(false);
   const [avatarBg, setAvatarBg] = useState<'black' | 'white' | 'sky'>(() => {
     const saved = localStorage.getItem('avatar_bg_theme');
     return (saved as 'black' | 'white' | 'sky') || 'black';
@@ -31,6 +33,12 @@ const Hero = () => {
       localStorage.setItem('avatar_bg_theme', next);
       return next;
     });
+  };
+
+  const handleCopyTerminal = () => {
+    navigator.clipboard.writeText('npx codewithdhruba');
+    setCopiedTerminal(true);
+    setTimeout(() => setCopiedTerminal(false), 2000);
   };
 
   useEffect(() => {
@@ -120,8 +128,22 @@ const Hero = () => {
         <div className="mt-6 px-1 flex flex-col md:flex-row md:items-center justify-between gap-4">
           {/* Name and subtitle */}
           <div>
-            <h2 className="text-2xl font-bricolage font-extrabold md:text-3xl tracking-tight text-neutral-200">
-              Dhrubaraj Pati
+            <h2 className="text-2xl font-bricolage font-extrabold md:text-3xl tracking-tight text-neutral-200 flex items-center gap-2">
+              <span>Dhrubaraj Pati</span>
+              <Tooltip>
+                <TooltipTrigger>
+                  <button
+                    onClick={handleCopyTerminal}
+                    className="p-1 rounded-md text-neutral-400 hover:text-white transition-colors cursor-pointer flex items-center justify-center focus:outline-none"
+                    aria-label="Copy npx codewithdhruba"
+                  >
+                    <TerminalIcon size={24} className="stroke-current" />
+                  </button>
+                </TooltipTrigger>
+                <TooltipContent side="top">
+                  <p>{copiedTerminal ? 'Copied npx codewithdhruba!' : 'npx codewithdhruba'}</p>
+                </TooltipContent>
+              </Tooltip>
             </h2>
             <p className="mt-1.5 font-mono text-xs md:text-sm text-neutral-500">
               engineer • developer • builder
