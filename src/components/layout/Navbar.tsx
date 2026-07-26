@@ -1,11 +1,14 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import useUIStore from '../../store/useUIStore';
 import useAppStore from '../../store/useAppStore';
 
 const Navbar = () => {
+  const location = useLocation();
   const { isMobileMenuOpen, toggleMobileMenu, setMobileMenuOpen, setCommandPaletteOpen } = useUIStore();
   const { activeLink, setActiveLink } = useAppStore();
+
+  const isBlogContentPage = (location.pathname.startsWith('/blog/') && location.pathname !== '/blog') || location.pathname.startsWith('/thoughts/');
 
   // Play click audio sound from public/Audio/
   const playClickSound = () => {
@@ -149,33 +152,35 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile Bottom Floating Search Bar (Clean search-only pill) */}
-      <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center bg-[#121214]/90 border border-neutral-800/80 backdrop-blur-md rounded-xl shadow-2xl px-3.5 py-1.5 text-xs font-outfit select-none pointer-events-auto">
-        <button
-          onClick={() => {
-            setCommandPaletteOpen(true);
-            playClickSound();
-          }}
-          className="flex items-center gap-2.5 text-[#909092] hover:text-white transition-colors duration-200"
-        >
-          <svg
-            width="13"
-            height="13"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+      {!isBlogContentPage && (
+        <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center bg-[#121214]/90 border border-neutral-800/80 backdrop-blur-md rounded-xl shadow-2xl px-3.5 py-1.5 text-xs font-outfit select-none pointer-events-auto">
+          <button
+            onClick={() => {
+              setCommandPaletteOpen(true);
+              playClickSound();
+            }}
+            className="flex items-center gap-2.5 text-[#909092] hover:text-white transition-colors duration-200"
           >
-            <circle cx="11" cy="11" r="8" />
-            <path d="m21 21-4.3-4.3" />
-          </svg>
-          <span className="text-[#909092] font-medium">Search...</span>
-          <span className="bg-[#202022] text-[#909092] text-[10px] px-1.5 py-0.5 rounded-md font-sans">
-            Ctrl+K
-          </span>
-        </button>
-      </div>
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+            <span className="text-[#909092] font-medium">Search...</span>
+            <span className="bg-[#202022] text-[#909092] text-[10px] px-1.5 py-0.5 rounded-md font-sans">
+              Ctrl+K
+            </span>
+          </button>
+        </div>
+      )}
     </>
   );
 };
