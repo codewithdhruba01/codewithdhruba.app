@@ -15,13 +15,45 @@ const ShareModal = ({ isOpen, onClose, title, slug }: ShareModalProps) => {
   const [shouldRender, setShouldRender] = useState(false);
 
   useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        handleClose();
+      }
+    };
+
     if (isOpen) {
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.overflow = 'hidden';
+      if (scrollbarWidth > 0) {
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
+        const navbar = document.querySelector('nav');
+        if (navbar) {
+          navbar.style.paddingRight = `${scrollbarWidth}px`;
+        }
+      }
       setShouldRender(true);
       setTimeout(() => setIsAnimating(true), 10);
+      window.addEventListener('keydown', handleKeyDown);
     } else {
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+      const navbar = document.querySelector('nav');
+      if (navbar) {
+        navbar.style.paddingRight = '';
+      }
       setIsAnimating(false);
       setTimeout(() => setShouldRender(false), 300);
     }
+
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+      const navbar = document.querySelector('nav');
+      if (navbar) {
+        navbar.style.paddingRight = '';
+      }
+      window.removeEventListener('keydown', handleKeyDown);
+    };
   }, [isOpen]);
 
   const handleClose = () => {
@@ -64,30 +96,32 @@ const ShareModal = ({ isOpen, onClose, title, slug }: ShareModalProps) => {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300 ${isAnimating
+      className={`fixed inset-0 z-[100] flex items-center justify-center p-4 transition-all duration-300 ${isAnimating
         ? 'bg-black/60 backdrop-blur-sm opacity-100'
         : 'bg-black/0 backdrop-blur-none opacity-0'
         }`}
+      onClick={handleClose}
     >
       <div
         className={`relative w-full max-w-md rounded-2xl border border-white/10 bg-[#0A0A0A]/95 p-5 shadow-2xl transition-all duration-300 ${isAnimating
           ? 'scale-100 opacity-100 translate-y-0'
           : 'scale-95 opacity-0 translate-y-4'
           }`}
+        onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h3 className="text-base font-semibold text-white">
+            <h3 className="text-base font-hanken text-white">
               Share this blog
             </h3>
-            <p className="text-sm text-neutral-400 mt-1">
+            <p className="text-sm font-hanken text-neutral-400 mt-1">
               Share "{title}"
             </p>
           </div>
           <button
             onClick={handleClose}
-            className="text-neutral-400 hover:text-white transition"
+            className="text-neutral-400 hover:text-white font-hanken transition"
           >
             <X className="h-5 w-5" />
           </button>
@@ -103,7 +137,7 @@ const ShareModal = ({ isOpen, onClose, title, slug }: ShareModalProps) => {
               type="text"
               value={getShareUrl()}
               readOnly
-              className="flex-1 bg-transparent text-sm text-white outline-none"
+              className="flex-1 bg-transparent text-sm text-neutral-400 outline-none font-hanken"
             />
             <button
               onClick={copyToClipboard}
@@ -114,7 +148,7 @@ const ShareModal = ({ isOpen, onClose, title, slug }: ShareModalProps) => {
             </button>
           </div>
           {copied && (
-            <p className="text-xs text-green-400 mt-2">
+            <p className="text-xs font-hanken text-green-400 mt-2">
               copied!
             </p>
           )}
@@ -122,13 +156,13 @@ const ShareModal = ({ isOpen, onClose, title, slug }: ShareModalProps) => {
 
         {/* Social buttons */}
         <div>
-          <p className="text-sm text-neutral-400 mb-3">
+          <p className="text-sm font-hanken text-neutral-400 mb-3">
             Share on Social Media
           </p>
           <div className="flex gap-3">
             <button
               onClick={shareOnTwitter}
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg
+              className="flex-1 flex items-center font-hanken justify-center gap-2 px-4 py-2 rounded-lg
               bg-white/5 border border-white/10 text-white hover:bg-white/10 transition"
             >
               <XIcon size="16" />
@@ -136,7 +170,7 @@ const ShareModal = ({ isOpen, onClose, title, slug }: ShareModalProps) => {
             </button>
             <button
               onClick={shareOnLinkedIn}
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg
+              className="flex-1 flex items-center font-hanken justify-center gap-2 px-4 py-2 rounded-lg
               bg-white/5 border border-white/10 text-white hover:bg-white/10 transition"
             >
               <LinkedinIcon size="20" />

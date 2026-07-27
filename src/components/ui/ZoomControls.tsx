@@ -6,6 +6,7 @@ interface ZoomControlsProps {
   setFontSize: React.Dispatch<React.SetStateAction<number>>;
   isMobileSheetOpen: boolean;
   setIsMobileSheetOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isHidden?: boolean;
 }
 
 const ZoomControls: React.FC<ZoomControlsProps> = ({
@@ -13,6 +14,7 @@ const ZoomControls: React.FC<ZoomControlsProps> = ({
   setFontSize,
   isMobileSheetOpen,
   setIsMobileSheetOpen,
+  isHidden = false,
 }) => {
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
   const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -147,6 +149,8 @@ const ZoomControls: React.FC<ZoomControlsProps> = ({
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [fontSize]);
+
+  if (isHidden) return null;
 
   return (
     <>

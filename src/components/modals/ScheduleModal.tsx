@@ -50,12 +50,18 @@ const ScheduleModal: React.FC<ScheduleModalProps> = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     if (isOpen) {
+      document.body.style.overflow = 'hidden';
       setShouldRender(true);
       setTimeout(() => setIsAnimating(true), 10);
     } else {
+      document.body.style.overflow = '';
       setIsAnimating(false);
       setTimeout(() => setShouldRender(false), 300);
     }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [isOpen]);
 
   const daysInMonth = (year: number, month: number) => new Date(year, month + 1, 0).getDate();

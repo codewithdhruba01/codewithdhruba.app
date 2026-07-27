@@ -327,11 +327,12 @@ const BlogContent = () => {
         setFontSize={setFontSize}
         isMobileSheetOpen={isMobileSheetOpen}
         setIsMobileSheetOpen={setIsMobileSheetOpen}
+        isHidden={showShareModal}
       />
 
 
       {/* Floating Reading Progress Pill */}
-      <ReadingProgressPill postTitle={post.title} isHidden={isMobileSheetOpen} />
+      <ReadingProgressPill postTitle={post.title} isHidden={isMobileSheetOpen || showShareModal} />
 
       {/* Image Lightbox Overlay Modal */}
       {activeImage && (
