@@ -411,7 +411,7 @@ const Bookshelf = () => {
             <h4 className="text-2xl md:text-2xl font-extrabold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-hanken">
               Bookshelf
             </h4>
-            <p className="text-neutral-400 font-poppins text-sm text-left mt-2 max-w-xl leading-relaxed">
+            <p className="text-neutral-400 font-hanken text-sm md:text-base text-left mt-2 max-w-xl leading-relaxed">
               An interactive shelf of books and manga that have shaped my thinking on software engineering, design, philosophy, and habits. Click a book to inspect it.
             </p>
           </ScrollReveal>

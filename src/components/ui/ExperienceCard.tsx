@@ -1,4 +1,3 @@
-import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { ExperienceInterface } from '../../constants/experience';
@@ -70,17 +69,17 @@ export function ExperienceCard({ experience, isOpen, onClick, alwaysOpen = false
 
                 {/* Subtitle row */}
                 <div className="flex items-center justify-between text-sm w-full mt-0.5">
-                    <p className="text-neutral-400 font-bricolage font-medium text-sm sm:text-base leading-snug">
+                    <p className="text-neutral-400 font-hanken font-medium text-sm sm:text-base leading-snug">
                         {experience.position}
                     </p>
 
                     {/* Location (Desktop) */}
-                    <p className="hidden sm:block text-neutral-500 font-synonym text-sm">
+                    <p className="hidden sm:block text-neutral-500 font-hanken text-sm">
                         {experience.location}
                     </p>
 
                     {/* Location (Mobile) */}
-                    <p className="block sm:hidden text-neutral-500 font-synonym text-xs">
+                    <p className="block sm:hidden text-neutral-500 font-hanken text-xs">
                         {experience.location.includes('(') ? experience.location.replace(/.*\((.*)\)/, '$1') : experience.location}
                     </p>
                 </div>
@@ -121,7 +120,7 @@ export function ExperienceCard({ experience, isOpen, onClick, alwaysOpen = false
                                     {experience.technologies.map((technology, techIndex: number) => (
                                         <Tooltip key={techIndex}>
                                             <TooltipTrigger>
-                                                <div 
+                                                <div
                                                     className="w-5 h-5 flex items-center justify-center transition-all duration-300 hover:scale-125 cursor-pointer [&>svg]:w-[17px] [&>svg]:h-[17px] filter hover:brightness-110"
                                                     aria-label={technology.name}
                                                 >

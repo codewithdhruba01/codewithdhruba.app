@@ -25,7 +25,7 @@ const GetInTouch = () => {
               Working on something?
               <span className="block text-neutral-500 mt-2">Let's build it.</span>
             </h2>
-            <p className="mt-4 text-neutral-400 font-supreme text-base sm:text-lg max-w-lg leading-relaxed">
+            <p className="mt-4 text-neutral-400 font-hanken text-sm sm:text-base max-w-lg leading-relaxed">
               Open to freelance projects, full-time roles, and interesting conversations.
             </p>
             <div className="flex flex-wrap items-center gap-6 mt-8">
