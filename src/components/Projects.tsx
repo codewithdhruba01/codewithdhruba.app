@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Github, Globe } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 import { SectionButton } from './ui/SectionButton';
@@ -45,6 +45,26 @@ type Project = {
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [loadedImages, setLoadedImages] = useState<Record<number, boolean>>({});
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedProject(null);
+      }
+    };
+
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedProject]);
 
   const handleImageLoad = (index: number) => {
     setLoadedImages(prev => ({ ...prev, [index]: true }));
@@ -234,23 +254,23 @@ const Projects = () => {
         {/* Modal Overlay */}
         {selectedProject && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex flex-col items-center justify-center z-50"
+            className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex flex-col items-center justify-center z-50 p-4 overflow-y-auto"
             onClick={() => setSelectedProject(null)}
           >
             <div
-              className="bg-[#111111] rounded-lg max-w-lg w-[90%] md:w-full p-6 relative transform transition-all duration-300 ease-out scale-95 opacity-0 animate-fadeIn"
+              className="bg-[#111111] border border-neutral-800 rounded-xl max-w-md w-[90%] md:w-full p-5 relative transform transition-all duration-300 ease-out scale-95 opacity-0 animate-fadeIn max-h-[85vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={selectedProject.image}
                 alt={selectedProject.title}
-                className="w-full h-48 md:h-64 object-cover rounded mb-4"
+                className="w-full h-40 md:h-48 object-cover rounded-lg mb-3"
               />
-              <div className="flex justify-between items-center mb-2">
-                <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 font-synonym">
+              <div className="flex justify-between items-center mb-1.5">
+                <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 font-synonym">
                   {selectedProject.title}
                 </h3>
-                <div className="flex gap-4">
+                <div className="flex gap-3">
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger>
@@ -260,7 +280,7 @@ const Projects = () => {
                           rel="noopener noreferrer"
                           className="text-neutral-400 hover:text-white transition-colors"
                         >
-                          <Globe className="w-6 h-6" />
+                          <Globe className="w-5 h-5" />
                         </a>
                       </TooltipTrigger>
                       <TooltipContent>
@@ -278,7 +298,7 @@ const Projects = () => {
                           rel="noopener noreferrer"
                           className="text-neutral-400 hover:text-white transition-colors"
                         >
-                          <Github className="w-6 h-6" />
+                          <Github className="w-5 h-5" />
                         </a>
                       </TooltipTrigger>
                       <TooltipContent>
@@ -288,13 +308,13 @@ const Projects = () => {
                   </TooltipProvider>
                 </div>
               </div>
-              <p className="text-neutral-500 mb-4 font-poppins text-sm">
+              <p className="text-neutral-400 mb-3 font-poppins text-xs leading-relaxed">
                 {selectedProject.description}
               </p>
 
               {/* Tech Stack in Modal */}
-              <div className="flex flex-col gap-2 mb-4">
-                <p className="text-neutral-500 text-sm font-outfit">Technologies :</p>
+              <div className="flex flex-col gap-1.5 mb-2">
+                <p className="text-neutral-400 text-xs font-outfit">Technologies :</p>
                 <div className="flex flex-wrap gap-2">
                   {selectedProject.techStack.map((tech, i) => {
                     const Icon = iconMap[tech];
@@ -310,7 +330,7 @@ const Projects = () => {
                               </div>
                             ) : (
                               <span
-                                className="px-3 py-1 text-xs rounded-full bg-[#1f1f1f] text-[#00DC82] border border-[#00DC82]/30"
+                                className="px-2.5 py-0.5 text-[11px] rounded-full bg-[#1f1f1f] text-[#00DC82] border border-[#00DC82]/30"
                               >
                                 {tech}
                               </span>
@@ -332,9 +352,9 @@ const Projects = () => {
             {/* Close Button */}
             <button
               onClick={() => setSelectedProject(null)}
-              className="mt-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#222] text-gray-300 hover:bg-red-500 hover:text-white transition-all duration-300 ease-in-out"
+              className="mt-3 inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#222] text-gray-300 hover:bg-red-500 hover:text-white transition-all duration-300 ease-in-out"
             >
-              <i className="fas fa-times text-lg"></i>
+              <i className="fas fa-times text-base"></i>
             </button>
           </div>
         )}
