@@ -25,7 +25,7 @@ const BucketList = () => {
     ];
 
     return (
-        <div className="bg-[#0A0A0A] text-white selection:bg-green-100/10 pt-20 md:pt-24 pb-16">
+        <div className="bg-[#100F0F] text-white selection:bg-green-100/10 pt-20 md:pt-24 pb-16">
             <div className="max-w-3xl mx-auto w-full px-6 relative">
                 {/* Top Flower Decoration */}
                 <div className="absolute top-[8rem] md:top-[7rem] left-1/2 -translate-x-1/2 pointer-events-none opacity-15 invert z-0">

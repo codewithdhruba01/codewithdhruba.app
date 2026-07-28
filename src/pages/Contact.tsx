@@ -64,9 +64,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="pt-16 min-h-screen bg-[#0A0A0A]">
+    <div className="pt-16 min-h-screen bg-[#100F0F]">
       {/* Header */}
-      <div className="py-20 bg-gradient-to-br from-[#0A0A0A] via-green-900/20 to-[#0A0A0A] mb-12">
+      <div className="py-20 bg-gradient-to-br from-[#100F0F] via-green-900/20 to-[#100F0F] mb-12">
         <ScrollReveal>
           <div className="max-w-3xl mx-auto w-full px-6 text-center">
             <h1 className="text-4xl md:text-4xl font-bold mb-6 font-bricolage">

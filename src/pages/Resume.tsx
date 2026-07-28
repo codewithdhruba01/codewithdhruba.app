@@ -65,7 +65,7 @@ const Resume = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] pt-20 md:pt-28 pb-16">
+    <div className="min-h-screen bg-[#100F0F] pt-20 md:pt-28 pb-16">
       <div className="max-w-3xl mx-auto w-full px-6">
         {/* Header */}
         <ScrollReveal>
@@ -139,7 +139,7 @@ const Resume = () => {
           <div className="text-center mt-8 sm:mt-12">
             <button
               onClick={handleDownload}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-[#111111] border border-neutral-800 rounded-xl text-neutral-300 hover:border-neutral-700 hover:bg-[#1a1a1a] transition-all duration-300 group shadow-lg shadow-black/20 text-xs font-semibold font-outfit"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[#1A1919] border border-neutral-800 rounded-xl text-neutral-300 hover:border-neutral-700 hover:bg-[#222121] transition-all duration-300 group shadow-lg shadow-black/20 text-xs font-semibold font-outfit"
             >
               <span>Download Resume</span>
               <Download className="w-3.5 h-3.5 text-neutral-300 group-hover:text-white transition-colors" />

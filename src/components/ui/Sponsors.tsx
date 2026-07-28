@@ -28,7 +28,7 @@ const sponsorsData: Sponsor[] = [
 
 const Sponsors = () => {
   return (
-    <section id="sponsors" className="pt-8 pb-8 bg-neutral-950">
+    <section id="sponsors" className="pt-8 pb-8 bg-[#100F0F]">
       <div className="max-w-3xl mx-auto w-full px-6">
         {/* Header Row */}
         <ScrollReveal className="flex items-center justify-between gap-4 mb-8">
@@ -39,7 +39,7 @@ const Sponsors = () => {
             href="https://github.com/sponsors/codewithdhruba01"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 py-2 bg-[#161616] border border-neutral-800 rounded-xl text-sm font-medium text-neutral-300 hover:text-white hover:bg-neutral-800/50 hover:border-neutral-700 transition duration-200 shadow-sm"
+            className="inline-flex items-center justify-center gap-2 px-6 py-2 bg-[#1A1919] border border-neutral-800 rounded-xl text-sm font-medium text-neutral-300 hover:text-white hover:bg-[#222121] hover:border-neutral-700 transition duration-200 shadow-sm"
           >
             <Heart className="w-4 h-4 text-rose-500 fill-rose-500" />
             <span>Sponsor Me</span>

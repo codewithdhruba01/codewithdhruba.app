@@ -78,7 +78,7 @@ const App = () => {
     <Router>
       <ScrollToTop />
       <SEO />
-      <div className="min-h-screen bg-[#0A0A0A] text-white overflow-x-hidden relative">
+      <div className="min-h-screen bg-[#100F0F] text-white overflow-x-hidden relative">
         <Navbar />
         <AnimatedRoutes />
         <Footer />

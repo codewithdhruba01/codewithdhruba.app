@@ -5,7 +5,7 @@ import BrandCursorIcon from './svgs/BrandCursorIcon';
 
 const GetInTouch = () => {
   return (
-    <section id="development" className="pt-4 pb-8 bg-neutral-950">
+    <section id="development" className="pt-4 pb-8 bg-[#100F0F]">
       <div className="max-w-3xl mx-auto w-full px-6">
         {/* Heading */}
         <ScrollReveal className="mb-8">
@@ -20,7 +20,7 @@ const GetInTouch = () => {
           <ScrollReveal delay={0.1}>
             <Link
               to="/gears"
-              className="group flex items-center justify-between w-full p-5 rounded-xl border border-neutral-800 bg-[#101010] transition-all duration-300 hover:bg-neutral-900"
+              className="group flex items-center justify-between w-full p-5 rounded-xl border border-neutral-800 bg-[#171717] transition-all duration-300 hover:bg-[#1D1D1D]"
             >
               <div className="flex items-center gap-4 min-w-0">
                 <div className="min-w-10 min-h-10 w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center shrink-0">
@@ -44,7 +44,7 @@ const GetInTouch = () => {
           <ScrollReveal delay={0.2}>
             <Link
               to="/extensions"
-              className="group flex items-center justify-between w-full p-5 rounded-xl border border-neutral-800 bg-[#101010] transition-all duration-300 hover:bg-neutral-900"
+              className="group flex items-center justify-between w-full p-5 rounded-xl border border-neutral-800 bg-[#171717] transition-all duration-300 hover:bg-[#1D1D1D]"
             >
               <div className="flex items-center gap-4 min-w-0">
                 <div className="min-w-10 min-h-10 w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center shrink-0">

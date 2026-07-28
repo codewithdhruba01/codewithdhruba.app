@@ -104,7 +104,7 @@ const Footer = () => {
     handleVisitorCount();
   }, []);
   return (
-    <footer className="bg-neutral-950 pt-20 pb-16 relative">
+    <footer className="bg-[#100F0F] pt-20 pb-16 relative">
       {/* Top Gradient Line: Fade from transparent to #333333 to transparent */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#333333] to-transparent"></div>
 

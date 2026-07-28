@@ -103,7 +103,7 @@ const ShareModal = ({ isOpen, onClose, title, slug }: ShareModalProps) => {
       onClick={handleClose}
     >
       <div
-        className={`relative w-full max-w-md rounded-2xl border border-white/10 bg-[#0A0A0A]/95 p-5 shadow-2xl transition-all duration-300 ${isAnimating
+        className={`relative w-full max-w-md rounded-2xl border border-white/10 bg-[#100F0F]/95 p-5 shadow-2xl transition-all duration-300 ${isAnimating
           ? 'scale-100 opacity-100 translate-y-0'
           : 'scale-95 opacity-0 translate-y-4'
           }`}

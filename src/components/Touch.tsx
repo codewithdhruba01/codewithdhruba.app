@@ -17,7 +17,7 @@ const GetInTouch = () => {
   }, []);
 
   return (
-    <section id="get-in-touch" className="pt-2 pb-16 md:pt-4 md:pb-20 bg-[#0A0A0A]">
+    <section id="get-in-touch" className="pt-2 pb-16 md:pt-4 md:pb-20 bg-[#100F0F]">
       <div className="max-w-3xl mx-auto w-full px-6">
         <div className="pt-0">
           <ScrollReveal>
@@ -74,7 +74,7 @@ const GetInTouch = () => {
               </motion.button>
 
               {/* Contact Us button matching the "Show all blogs" style */}
-              <SectionButton to="/contact" text="Contact Us" />
+              <SectionButton to="/contact" text="Contact Us" icon={null} />
             </div>
           </ScrollReveal>
         </div>

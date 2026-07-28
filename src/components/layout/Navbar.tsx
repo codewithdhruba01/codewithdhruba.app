@@ -55,7 +55,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 bg-[#0A0A0A]/80 backdrop-blur-md">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-[#100F0F]/80 backdrop-blur-md">
         <div className="max-w-3xl mx-auto w-full px-6">
           <div className="flex justify-between items-center h-16">
             {/* Left: Logo & Links */}
@@ -96,7 +96,7 @@ const Navbar = () => {
                     setCommandPaletteOpen(true);
                     playClickSound();
                   }}
-                  className="pl-3.5 pr-1.5 py-1 rounded-xl bg-[#121214] border border-neutral-800/80 hover:bg-neutral-900 hover:border-neutral-700 transition-all duration-200 flex items-center gap-3 text-sm font-outfit"
+                  className="pl-3.5 pr-1.5 py-1 rounded-xl bg-[#1A1919] border border-neutral-800/80 hover:bg-[#222121] hover:border-neutral-700 transition-all duration-200 flex items-center gap-3 text-sm font-outfit"
                   title="Search (Ctrl+K)"
                 >
                   <span className="text-[#909092]">Search</span>

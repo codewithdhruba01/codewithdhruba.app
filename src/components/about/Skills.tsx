@@ -67,7 +67,7 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="pt-8 pb-8 bg-[#0A0A0A]">
+    <section id="skills" className="pt-8 pb-8 bg-[#100F0F]">
       <div className="max-w-3xl mx-auto w-full px-6">
         <ScrollReveal className="mb-8">
           <p className="text-lg text-neutral-400 font-outfit text-left">

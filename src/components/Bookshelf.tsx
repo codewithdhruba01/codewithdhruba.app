@@ -403,7 +403,7 @@ const Bookshelf = () => {
         </div>
       )}
 
-      <section id="bookshelf-section" className="pt-1 pb-8 bg-neutral-950 overflow-hidden">
+      <section id="bookshelf-section" className="pt-1 pb-8 bg-[#100F0F] overflow-hidden">
         <div className="max-w-3xl mx-auto w-full px-6">
 
           {/* Header */}

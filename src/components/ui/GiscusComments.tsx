@@ -25,8 +25,8 @@ const GiscusComments = ({ slug }: GiscusCommentsProps) => {
 
   return (
     <div className="mt-6 pt-4">
-      <h4 className="text-2xl font-bold text-white mb-6 font-synonym">
-        Comments & Discussion
+      <h4 className="text-xl md:text-2xl font-semibold text-[#F9F9F9] mb-6 font-hanken">
+        Comments
       </h4>
       <div className="giscus-wrapper">
         <Giscus
@@ -38,7 +38,7 @@ const GiscusComments = ({ slug }: GiscusCommentsProps) => {
           categoryId="DIC_kwDOO78xo84C0Eyx"
           mapping="specific"
           term={`blog-{${slug}}`}
-          reactionsEnabled="1"
+
           emitMetadata="0"
           inputPosition="bottom"
           theme="preferred_color_scheme"

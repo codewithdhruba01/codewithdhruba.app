@@ -173,7 +173,7 @@ const BlogContent = () => {
 
   if (!post) {
     return (
-      <div className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#0A0A0A] flex flex-col items-center justify-center">
+      <div className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#100F0F] flex flex-col items-center justify-center">
         <h1 className="text-2xl font-bold text-white mb-4">Post Not Found</h1>
         <Link to="/blog" className="text-[#00DC82] hover:underline font-hanken">
           Back to Blog
@@ -184,13 +184,13 @@ const BlogContent = () => {
 
   return (
     <>
-      <article className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#0A0A0A]">
+      <article className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#100F0F]">
         <div className="max-w-3xl mx-auto w-full px-6">
           {/* Back */}
           <div className="mb-8">
             <Link
               to="/blog"
-              className="inline-flex items-center text-gray-400 hover:text-white transition font-hanken group"
+              className="inline-flex items-center text-neutral-300 hover:text-white transition font-hanken group"
             >
               <ArrowLeft className="h-4 w-4 mr-2 transform group-hover:-translate-x-1 transition-transform duration-200" />
               Back to Blog

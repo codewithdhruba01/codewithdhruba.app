@@ -105,7 +105,7 @@ export default function ReadingProgressPill({ postTitle, isHidden = false }: Rea
                 animate="animate"
                 exit="exit"
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute text-sm text-neutral-200 font-medium font-poppins truncate w-full tracking-wide text-left block"
+                className="absolute text-sm text-neutral-200 font-medium font-hanken truncate w-full tracking-wide text-left block"
               >
                 {truncateText(displayTitle, 24)}
               </motion.span>

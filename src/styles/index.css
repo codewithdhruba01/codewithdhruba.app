@@ -5,14 +5,14 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 4rem;
-  background-color: #0A0A0A;
+  background-color: #100F0F;
   color: #FFFFFF;
 }
 
 body {
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
-  background-color: #0A0A0A;
+  background-color: #100F0F;
   color: #FFFFFF;
 }
 

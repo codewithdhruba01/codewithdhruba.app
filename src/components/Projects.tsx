@@ -110,7 +110,7 @@ const Projects = () => {
         }
       `}</style>
 
-      <section id="projects" className="pt-1 pb-6 md:pb-8 bg-neutral-950">
+      <section id="projects" className="pt-1 pb-6 md:pb-8 bg-[#100F0F]">
         <div className="max-w-3xl mx-auto w-full px-6">
           <ScrollReveal className="mb-8">
             <h4 className="text-2xl md:text-2xl font-extrabold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-hanken">
@@ -247,7 +247,7 @@ const Projects = () => {
           </div>
 
           <div className="text-center mt-12">
-            <SectionButton to="/projects" text="View All Projects" />
+            <SectionButton to="/projects" text="View All Projects" icon={null} />
           </div>
         </div>
 

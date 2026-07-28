@@ -109,7 +109,7 @@ const BookThoughts = () => {
 
   if (!thought) {
     return (
-      <div className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#0A0A0A] flex flex-col items-center justify-center">
+      <div className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#100F0F] flex flex-col items-center justify-center">
         <h3 className="text-2xl sm:text-4xl font-bold text-white mb-4">Thoughts Not Found</h3>
         <Link to="/" className="text-[#00DC82] hover:underline font-hanken">
           Back to Home
@@ -211,7 +211,7 @@ const BookThoughts = () => {
 
   return (
     <>
-      <article className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#0A0A0A] book-content">
+      <article className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#100F0F] book-content">
         <div className="max-w-3xl mx-auto w-full px-6" style={{ fontSize: `${fontSize}%` }}>
           {/* Back Button */}
           <div className="mb-8">

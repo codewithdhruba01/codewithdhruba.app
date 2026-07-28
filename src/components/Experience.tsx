@@ -42,7 +42,7 @@ function ExperienceList({ experiences }: ExperienceListProps) {
 
 const Experience = () => {
   return (
-    <section id="experience" className="pt-4 pb-8 bg-[#0A0A0A]">
+    <section id="experience" className="pt-4 pb-8 bg-[#100F0F]">
       <div className="max-w-3xl mx-auto w-full px-6">
         <ScrollReveal className="mb-4">
           <h4 className="text-2xl md:text-2xl font-extrabold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-hanken">
@@ -54,7 +54,7 @@ const Experience = () => {
           <ExperienceList experiences={experiences} />
 
           <div className="text-center mt-6">
-            <SectionButton to="/experience" text="View all Experience" />
+            <SectionButton to="/experience" text="View all Experience" icon={null} />
           </div>
         </ScrollReveal>
       </div>

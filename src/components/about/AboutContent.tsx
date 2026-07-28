@@ -34,7 +34,7 @@ export const AboutContent = () => {
                                 setIsLightMode(!isLightMode);
                                 playClickSound();
                             }}
-                            className="p-2.5 rounded-xl bg-[#111111] border border-neutral-800 text-white hover:border-neutral-700 hover:bg-[#161616] active:scale-95 transition-all duration-300 shadow-md shadow-black/20 flex items-center justify-center group"
+                            className="p-2.5 rounded-xl bg-[#1A1919] border border-neutral-800 text-white hover:border-neutral-700 hover:bg-[#222121] active:scale-95 transition-all duration-300 shadow-md shadow-black/20 flex items-center justify-center group"
                             aria-label="Toggle Banner Theme"
                         >
                             {isLightMode ? (

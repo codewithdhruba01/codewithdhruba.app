@@ -65,7 +65,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative bg-[#0A0A0A] pt-24 md:pt-28 pb-6 md:pb-8"
+      className="relative bg-[#100F0F] pt-24 md:pt-28 pb-6 md:pb-8"
     >
       <ScrollReveal className="max-w-3xl mx-auto w-full px-6 flex flex-col">
         {/* Banner Image Container */}
@@ -94,7 +94,7 @@ const Hero = () => {
         {/* Avatar and GitHub Stats Overlap Row */}
         <div className="relative px-4 flex justify-between items-end -mt-10 sm:-mt-12 md:-mt-14 z-10">
           {/* Avatar */}
-          <div className={`relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-[#0A0A0A] shadow-md transition-colors duration-300 ${avatarBg === 'black' ? 'bg-[#0A0A0A]' : avatarBg === 'white' ? 'bg-[#FAF9F6]' : 'bg-[#bae6fd]'
+          <div className={`relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-[#100F0F] shadow-md transition-colors duration-300 ${avatarBg === 'black' ? 'bg-[#100F0F]' : avatarBg === 'white' ? 'bg-[#FAF9F6]' : 'bg-[#bae6fd]'
             }`}>
             <img
               src="/assets/my_avater.png"
@@ -159,7 +159,7 @@ const Hero = () => {
                   href="https://github.com/codewithdhruba01"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full border border-neutral-800/80 bg-[#121214] hover:bg-neutral-900 hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
+                  className="p-2.5 rounded-full border border-neutral-800/80 bg-[#1A1919] hover:bg-[#222121] hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
                 >
                   <GithubIcon size="16" className="stroke-current" />
                 </a>
@@ -176,7 +176,7 @@ const Hero = () => {
                   href="https://x.com/codewithdhruba"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full border border-neutral-800/80 bg-[#121214] hover:bg-neutral-900 hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
+                  className="p-2.5 rounded-full border border-neutral-800/80 bg-[#1A1919] hover:bg-[#222121] hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
                 >
                   <XIcon size="16" className="fill-current" />
                 </a>
@@ -193,7 +193,7 @@ const Hero = () => {
                   href="https://www.linkedin.com/in/dhrubaraj-pati/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full border border-neutral-800/80 bg-[#121214] hover:bg-neutral-900 hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
+                  className="p-2.5 rounded-full border border-neutral-800/80 bg-[#1A1919] hover:bg-[#222121] hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
                 >
                   <LinkedinIcon size="19" />
                 </a>
@@ -208,7 +208,7 @@ const Hero = () => {
               <TooltipTrigger>
                 <button
                   onClick={handleThemeClick}
-                  className="p-2.5 rounded-full border border-neutral-800/80 bg-[#121214] hover:bg-neutral-900 hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer hover:rotate-45"
+                  className="p-2.5 rounded-full border border-neutral-800/80 bg-[#1A1919] hover:bg-[#222121] hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer hover:rotate-45"
                 >
                   <Sun className="w-4 h-4" />
                 </button>
@@ -311,14 +311,14 @@ const Hero = () => {
         <div className="flex flex-wrap items-center gap-3 mt-8 px-1">
           <Link
             to="/resume"
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg border border-neutral-800 bg-[#171717] hover:bg-neutral-800 text-neutral-200 hover:text-white font-medium text-xs transition-all duration-200 shadow-sm"
+            className="flex items-center gap-1.5 px-3.5 py-2 font-hanken rounded-lg border border-neutral-800 bg-[#1A1919] hover:bg-[#222121] text-neutral-200 hover:text-white font-medium text-xs transition-all duration-200 shadow-sm"
           >
             <FileText className="w-3.5 h-3.5" />
             Resume / CV
           </Link>
           <Link
             to="/about"
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-white hover:bg-neutral-200 text-black font-medium text-xs transition-all duration-200 shadow-sm"
+            className="flex items-center gap-1.5 px-3.5 py-2 font-hanken rounded-lg bg-white hover:bg-neutral-200 text-black font-medium text-xs transition-all duration-200 shadow-sm"
           >
             <img src="/assets/my_avater.png" alt="Avatar" className="w-4 h-4 rounded-full object-cover" />
             About Me

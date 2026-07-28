@@ -498,7 +498,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
       `}</style>
       {/* Backdrop with high-fidelity blur */}
       <div
-        className={`fixed inset-0 z-[60] bg-black/70 backdrop-blur-[4px] transition-all duration-[300ms] ease-out
+        className={`fixed inset-0 z-[60] bg-[#100F0F]/70 backdrop-blur-[4px] transition-all duration-[300ms] ease-out
                    ${isAnimating ? 'opacity-100' : 'opacity-0'}`}
         onClick={onClose}
       />

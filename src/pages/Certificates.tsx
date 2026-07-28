@@ -3,6 +3,7 @@ import { Link as LinkIcon, ChevronDown, ChevronUp } from 'lucide-react';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import Sponsors from '../components/ui/Sponsors';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../components/ui/tooltip';
+import { SectionButton } from '../components/ui/SectionButton';
 
 // Dynamic, premium issuer logo component with company asset support
 const IssuerLogo = ({ issuer, logo }: { issuer: string; logo?: string }) => {
@@ -195,14 +196,14 @@ const Certificates = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-28 md:pt-36 pb-6 bg-[#0A0A0A]">
+    <div className="min-h-screen pt-28 md:pt-36 pb-6 bg-[#100F0F]">
       <div className="max-w-3xl mx-auto w-full px-6">
 
 
         {/* Certifications Section */}
         <div className="mb-16">
           <ScrollReveal>
-            <h4 className="text-xl sm:text-2xl font-bold text-neutral-200 font-excon text-left border-b border-neutral-800/60 pb-3 mb-2 flex items-center gap-1.5">
+            <h4 className="text-xl sm:text-2xl font-semibold text-neutral-200 font-hanken text-left border-b border-neutral-800/60 pb-3 mb-2 flex items-center gap-1.5">
               Certifications <span className="text-xs text-neutral-500 font-mono font-normal">[{certificates.length}]</span>
             </h4>
           </ScrollReveal>
@@ -222,7 +223,7 @@ const Certificates = () => {
                         <h3 className="text-sm sm:text-base font-semibold font-outfit text-neutral-300 group-hover:text-neutral-100 transition-colors duration-200 line-clamp-2">
                           {cert.title}
                         </h3>
-                        <p className="text-xs sm:text-sm text-neutral-500 font-poppins flex items-center flex-wrap gap-1.5">
+                        <p className="text-xs sm:text-sm text-neutral-500 font-hanken flex items-center flex-wrap gap-1.5">
                           <span className="text-neutral-400 flex items-center gap-1.5">
                             <span className="w-1.5 h-1.5 rounded-full bg-neutral-600 inline-block"></span>
                             {cert.issuer}
@@ -265,7 +266,7 @@ const Certificates = () => {
                     {/* Expandable Details Block */}
                     {isExpanded && (
                       <div className="pl-14 pr-4 pb-4.5 pt-1.5 flex flex-col gap-2.5 animate-fadeIn">
-                        <ul className="list-disc pl-4 space-y-2 text-xs sm:text-sm text-neutral-400 font-poppins leading-relaxed">
+                        <ul className="list-disc pl-4 space-y-2 text-xs sm:text-sm text-neutral-400 font-hanken leading-relaxed">
                           {cert.details.map((detail, dIdx) => (
                             <li key={dIdx} className="hover:text-neutral-200 transition-colors duration-150">
                               {detail}
@@ -283,17 +284,11 @@ const Certificates = () => {
           {/* Toggle Button styled like the standard buttons */}
           {certificates.length > 3 && (
             <ScrollReveal className="flex justify-center mt-6">
-              <button
+              <SectionButton
                 onClick={() => setVisibleCertCount(visibleCertCount === 3 ? certificates.length : 3)}
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#111111] border border-[#2d2e2d] rounded-lg text-[#d3d1d1] hover:border-[#A3A3A3]/50 hover:bg-[#1a1a1a] active:scale-95 transition-all duration-300 group shadow-lg shadow-black/20 text-sm font-bold font-outfit"
-              >
-                <span>{visibleCertCount === 3 ? 'Show More' : 'Show Less'}</span>
-                {visibleCertCount === 3 ? (
-                  <ChevronDown className="w-4 h-4 text-neutral-400 group-hover:translate-y-0.5 transition-transform" />
-                ) : (
-                  <ChevronUp className="w-4 h-4 text-neutral-400 group-hover:-translate-y-0.5 transition-transform" />
-                )}
-              </button>
+                text={visibleCertCount === 3 ? 'Show More Certificates' : 'Show Less Certificates'}
+                icon={null}
+              />
             </ScrollReveal>
           )}
         </div>
@@ -301,7 +296,7 @@ const Certificates = () => {
         {/* Achievements Section */}
         <div className="mb-6">
           <ScrollReveal>
-            <h4 className="text-xl sm:text-2xl font-bold text-neutral-200 font-excon text-left border-b border-neutral-800/60 pb-3 mb-2 flex items-center gap-1.5">
+            <h4 className="text-xl sm:text-2xl font-semibold font-hanken text-neutral-200 text-left border-b border-neutral-800/60 pb-3 mb-2 flex items-center gap-1.5">
               Contributions <span className="text-xs text-neutral-500 font-mono font-normal">[{achievements.length}]</span>
             </h4>
           </ScrollReveal>
@@ -321,7 +316,7 @@ const Certificates = () => {
                         <h3 className="text-sm sm:text-base font-semibold font-outfit text-neutral-300 group-hover:text-neutral-100 transition-colors duration-200 line-clamp-2">
                           {achievement.title}
                         </h3>
-                        <p className="text-xs sm:text-sm text-neutral-500 font-poppins flex items-center flex-wrap gap-1.5">
+                        <p className="text-xs sm:text-sm text-neutral-500 font-hanken flex items-center flex-wrap gap-1.5">
                           <span className="text-neutral-400 flex items-center gap-1.5">
                             <span className="w-1.5 h-1.5 rounded-full bg-neutral-600 inline-block"></span>
                             {achievement.organization}
@@ -364,7 +359,7 @@ const Certificates = () => {
                     {/* Expandable Details Block */}
                     {isExpanded && (
                       <div className="pl-14 pr-4 pb-4.5 pt-1.5 flex flex-col gap-2.5 animate-fadeIn">
-                        <ul className="list-disc pl-4 space-y-2 text-xs sm:text-sm text-neutral-400 font-poppins leading-relaxed">
+                        <ul className="list-disc pl-4 space-y-2 text-xs sm:text-sm text-neutral-400 font-hanken leading-relaxed">
                           {achievement.details.map((detail, dIdx) => (
                             <li key={dIdx} className="hover:text-neutral-200 transition-colors duration-150">
                               {detail}
@@ -382,17 +377,11 @@ const Certificates = () => {
           {/* Toggle Button styled like the standard buttons */}
           {achievements.length > 3 && (
             <ScrollReveal className="flex justify-center mt-6">
-              <button
+              <SectionButton
                 onClick={() => setVisibleAchieveCount(visibleAchieveCount === 3 ? achievements.length : 3)}
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#111111] border border-[#2d2e2d] rounded-lg text-[#d3d1d1] hover:border-[#A3A3A3]/50 hover:bg-[#1a1a1a] active:scale-95 transition-all duration-300 group shadow-lg shadow-black/20 text-sm font-bold font-outfit"
-              >
-                <span>{visibleAchieveCount === 3 ? 'Show More' : 'Show Less'}</span>
-                {visibleAchieveCount === 3 ? (
-                  <ChevronDown className="w-4 h-4 text-neutral-400 group-hover:translate-y-0.5 transition-transform" />
-                ) : (
-                  <ChevronUp className="w-4 h-4 text-neutral-400 group-hover:-translate-y-0.5 transition-transform" />
-                )}
-              </button>
+                text={visibleAchieveCount === 3 ? 'Show More Contributions' : 'Show Less Contributions'}
+                icon={null}
+              />
             </ScrollReveal>
           )}
         </div>
