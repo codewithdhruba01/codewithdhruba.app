@@ -258,13 +258,13 @@ const Projects = () => {
             onClick={() => setSelectedProject(null)}
           >
             <div
-              className="bg-[#111111] border border-neutral-800 rounded-xl max-w-md w-[90%] md:w-full p-5 relative transform transition-all duration-300 ease-out scale-95 opacity-0 animate-fadeIn max-h-[85vh] overflow-y-auto"
+              className="bg-[#111111] border border-neutral-800 rounded-xl max-w-md w-[92%] md:w-full p-5 relative transform transition-all duration-300 ease-out scale-95 opacity-0 animate-fadeIn min-h-[420px] sm:min-h-0 max-h-[90vh] sm:max-h-[85vh] overflow-y-auto flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={selectedProject.image}
                 alt={selectedProject.title}
-                className="w-full h-40 md:h-48 object-cover rounded-lg mb-3"
+                className="w-full h-48 sm:h-40 md:h-48 object-cover rounded-lg mb-3 shrink-0"
               />
               <div className="flex justify-between items-center mb-1.5">
                 <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 font-synonym">
