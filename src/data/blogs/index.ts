@@ -7,8 +7,10 @@ import { howNextAuthWorks } from './how-nextauth-works';
 import { essentialToolsForNextJsAndReact } from './essential-tools-for-nextjs-and-react';
 import { ragAiChatbot } from './rag-ai-chatbot';
 import { theUnspokenRealityOfTier3Colleges } from './the-unspoken-reality-of-tier-3-colleges';
+import { howToWorkWithMcpServer } from './how-to-work-with-mcp-server';
 
 export const blogPostsData = {
+  'how-to-work-with-mcp-server': howToWorkWithMcpServer,
   'the-unspoken-reality-of-tier-3-colleges': theUnspokenRealityOfTier3Colleges,
   'rag-ai-chatbot': ragAiChatbot,
   'essential-tools-for-nextjs-and-react': essentialToolsForNextJsAndReact,

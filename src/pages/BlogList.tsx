@@ -16,6 +16,7 @@ const blogDescriptions = {
   'essential-linux-commands': 'Learn the most essential Linux commands every beginner and intermediate user must know. This comprehensive guide explains each command in simple terms.',
   'essential-tools-for-nextjs-and-react': 'A curated list of the best UI libraries, icons, animation tools, and utilities to supercharge your Next.js and React development workflow.',
   'rag-ai-chatbot': 'Learn how to build a personalized AI chatbot that answers questions from your own data using RAG, LangChain, and local LLMs.',
+  'how-to-work-with-mcp-server': 'Discover what the Model Context Protocol (MCP) is, how it connects AI models with external tools, and learn to build your own MCP server step-by-step.',
 };
 
 // Extract simplified blog post data for listing
