@@ -154,7 +154,7 @@ if __name__ == "__main__":
       <li><strong>APIs and SaaS:</strong> If you have a REST API or SaaS platform, you can wrap it in an MCP server. For example, a Slack MCP server uses Slack's Web API internally.</li>
     </ul>
 
-    <h2>Operational Tasks: Backup, Monitoring, Logging, Scaling, Security, Patching</h2>
+    <h2>Operational Tasks</h2>
     <p><strong>Backup:</strong> If your MCP server stores any state, back it up according to your usual data policies. For stateless servers, ensure you have version control of your code and configuration.</p>
     <p><strong>Monitoring & Metrics:</strong> Expose basic health endpoints (e.g. <code>/healthz</code>) and integrate with monitoring. Watch request count, latency, error rates (via Prometheus or cloud monitoring).</p>
     <p><strong>Logging:</strong> Always log to stderr or log files. Use a structured logging framework if possible. Keep logs of critical errors or schema mismatches.</p>

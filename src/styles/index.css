@@ -377,6 +377,12 @@ html {
   font-weight: 400 !important;
 }
 
+/* Reduce spacing for paragraphs to decrease the gap */
+.prose p {
+  margin-top: 0.5em !important;
+  margin-bottom: 0.5em !important;
+}
+
 /* Make bold text look exactly like normal text (font-weight normal, color #909092, and Hanken Grotesk font) */
 .prose strong,
 .prose b,
@@ -398,6 +404,8 @@ html {
   font-family: 'Instrument Serif', serif !important;
   font-weight: 400 !important;
   letter-spacing: normal;
+  margin-top: 1.25em !important;
+  margin-bottom: 0.25em !important;
 }
 
 /* Links exclusion - Keep them white with link icon next to them */
