@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Calendar, ArrowRight, Eye } from 'lucide-react';
+import { CalendarDays, ArrowRight, Eye } from 'lucide-react';
 import { commentService } from '../lib/supabase';
 import { blogPostsData } from '../data/blogs';
 import ScrollReveal from '../components/ui/ScrollReveal';
@@ -150,9 +150,9 @@ const BlogList = () => {
 
                       {/* Bottom Footer Line: Date & Mobile-only Read More */}
                       <div className="flex items-center justify-between pt-1">
-                        <div className="flex items-center gap-1.5 text-xs text-neutral-500 font-outfit">
-                          <Calendar size={13} className="text-neutral-500" />
-                          <span>{post.date}</span>
+                        <div className="flex items-center gap-1.5 text-xs text-neutral-500 font-outfit leading-none">
+                          <CalendarDays size={16} className="text-neutral-500" />
+                          <span className="pt-[1px]">{post.date}</span>
                         </div>
 
                         {/* Mobile Read More */}

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
   ArrowLeft,
-  Calendar,
+  CalendarDays,
   X,
 } from 'lucide-react';
 import GiscusComments from './ui/GiscusComments';
@@ -232,9 +232,9 @@ const BlogContent = () => {
               />
               <div className="flex flex-col">
                 <span className="text-white font-bold">{post.author}</span>
-                <div className="flex items-center gap-1.5 text-xs mt-0.5 text-neutral-400">
-                  <Calendar className="h-3.5 w-3.5" />
-                  <span>{post.date}</span>
+                <div className="flex items-center gap-1.5 text-xs mt-0.5 text-neutral-400 leading-none">
+                  <CalendarDays className="h-4 w-4" />
+                  <span className="pt-[1px]">{post.date}</span>
                 </div>
               </div>
             </div>
