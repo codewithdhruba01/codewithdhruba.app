@@ -254,7 +254,7 @@ const BlogContent = () => {
 
           {/* Content */}
           <div
-            className="prose prose-sm md:prose-base lg:prose-lg font-poppins prose-invert max-w-none text-[#A3A3A3]"
+            className="prose prose-invert max-w-none font-hanken tracking-[0px] text-[#9ca3af] prose-p:text-[16px] prose-p:leading-[28px] prose-p:text-[#9ca3af] prose-li:text-[16px] prose-li:leading-[28px] prose-li:text-[#9ca3af] prose-headings:font-hanken prose-headings:text-gray-100 prose-strong:font-semibold prose-strong:text-gray-200"
             style={{ fontSize: `${fontSize}%` }}
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
