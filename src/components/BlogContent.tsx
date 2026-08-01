@@ -197,20 +197,6 @@ const BlogContent = () => {
             </Link>
           </div>
 
-          {/* Header */}
-          <header className="mb-12">
-            <div className="flex items-center text-gray-400 mb-8">
-              <img
-                src="https://avatars.githubusercontent.com/u/146111647?v=4"
-                alt={post.author}
-                className="w-10 h-10 rounded-full mr-4"
-              />
-              <div>
-                <div className="text-white font-bold">{post.author}</div>
-                <div className="text-sm text-neutral-400">{post.readTime}</div>
-              </div>
-            </div>
-          </header>
 
           {/* Image */}
           <div className="mb-6">
@@ -238,9 +224,19 @@ const BlogContent = () => {
           </div>
 
           <div className="mb-10 flex flex-wrap items-center justify-between gap-4 text-sm text-neutral-400">
-            <div className="flex items-center gap-2">
-              <Calendar className="h-4 w-4" />
-              <span>{post.date}</span>
+            <div className="flex items-center gap-3">
+              <img
+                src="https://avatars.githubusercontent.com/u/146111647?v=4"
+                alt={post.author}
+                className="w-10 h-10 rounded-full"
+              />
+              <div className="flex flex-col">
+                <span className="text-white font-bold">{post.author}</span>
+                <div className="flex items-center gap-1.5 text-xs mt-0.5 text-neutral-400">
+                  <Calendar className="h-3.5 w-3.5" />
+                  <span>{post.date}</span>
+                </div>
+              </div>
             </div>
 
             <BlogReactions
