@@ -75,7 +75,7 @@ export const howToWorkWithMcpServer = {
     <img src="/blog/workflow1.png" alt="MCP Architecture Workflow" className="w-full h-auto rounded-lg my-6 border border-neutral-800" />
     <p><em>Diagram: An AI assistant (Host) uses an MCP Client to communicate with the MCP Server. The server provides Tools, Resources, and Prompts, which in turn interface with enterprise systems (databases, APIs, etc.).</em></p>
 
-    <h2>Prerequisites and System Requirements</h2>
+    <h2>System Requirements</h2>
     <p>An MCP server is generally lightweight in resource needs. In practice, the requirements are similar to any small web service or tool:</p>
     <ul>
       <li><strong>Operating System:</strong> Linux is preferred for production (any distribution). macOS is also supported. Windows can be used via WSL, but most server deployments use Linux.</li>
@@ -208,14 +208,20 @@ if __name__ == "__main__":
       <li><strong>Google Cloud MCP (GCP):</strong> Cloud / Enterprise. Enterprise security: IAM policies, audit, risk scanning. Vendor lock-in to GCP.</li>
     </ul>
 
-    <h2>Sources</h2>
-    <p>This report draws on official MCP documentation and related sources:</p>
-    <ul>
-      <li>The ModelContextProtocol documentation and tutorials</li>
-      <li>Anthropic and partner blogs announcing MCP</li>
-      <li>Product docs (Slack, Celigo, Azure, Google) describing their MCP servers</li>
-      <li>Community articles and benchmarks.</li>
+    <h2 class="flex items-center gap-2 mt-16"> Links</h2>
+    <ul class="space-y-4">
+      <li>
+        <span class="text-neutral-400">Anthropic,</span> "<a href="https://www.anthropic.com/news/model-context-protocol" target="_blank" rel="noopener noreferrer" class="text-neutral-200 hover:text-white underline underline-offset-[8px] decoration-neutral-500/80 decoration-2 transition-colors">Introducing the Model Context Protocol</a>".
+      </li>
+      <li>
+        <span class="text-neutral-400">Model Context Protocol,</span> "<a href="https://modelcontextprotocol.io/introduction" target="_blank" rel="noopener noreferrer" class="text-neutral-200 hover:text-white underline underline-offset-[8px] decoration-neutral-500/80 decoration-2 transition-colors">Official MCP Documentation</a>".
+      </li>
+      <li>
+        <span class="text-neutral-400">GitHub,</span> "<a href="https://github.com/modelcontextprotocol" target="_blank" rel="noopener noreferrer" class="text-neutral-200 hover:text-white underline underline-offset-[8px] decoration-neutral-500/80 decoration-2 transition-colors">MCP Open Source Repository</a>".
+      </li>
+      <li>
+        <span class="text-neutral-400">Microsoft Azure,</span> "<a href="https://github.com/Azure/mcp-server-azure" target="_blank" rel="noopener noreferrer" class="text-neutral-200 hover:text-white underline underline-offset-[8px] decoration-neutral-500/80 decoration-2 transition-colors">Azure MCP Server</a>".
+      </li>
     </ul>
-    <p>Where specifics (e.g. commands, code) are given, they come from authoritative tutorials or code samples. All code/config snippets and diagrams are illustrative; real-world values (paths, ports) should be adapted to your setup.</p>
   `,
 };
