@@ -7,7 +7,6 @@ export const howToWorkWithMcpServer = {
   image: '/blog/mcp.png',
   tags: ['MCP', 'AI', 'Architecture', 'Backend'],
   content: `
-    <h2>Executive Summary</h2>
     <p>If you're building in the AI space right now, you know the integration headache: every new agent or LLM requires a bespoke API connector to talk to your enterprise data. The Model Context Protocol (MCP) completely flips this script. <span class="underline underline-offset-[5px] decoration-neutral-500/80 decoration-2">Think of MCP as the "USB-C for AI."</span> It’s an open standard that gives your backend systems a universal, secure plug directly into any compatible LLM (like Claude, Cursor, or Copilot).</p>
     
     <p>As developers, we don't need another proprietary SDK; we need standard protocols. By spinning up an <strong>MCP Server</strong>, you expose a standardized interface - wrapping your existing databases, SaaS apps, or internal APIs into three core primitives: <strong>Tools</strong> (callable functions for state changes), <strong>Resources</strong> (contextual data payloads), and <strong>Prompts</strong> (curated system templates). You build the server once, and suddenly your AI agents can safely query a PostgreSQL database, fetch customer logs, or trigger CI/CD pipelines without writing spaghetti integration code.</p>

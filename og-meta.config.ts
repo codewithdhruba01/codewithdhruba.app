@@ -132,6 +132,12 @@ const blogMeta: Record<string, PageMeta> = {
       'Best UI libraries, icons, and utilities for Next.js and React development.',
     image: '/meta/blog7.jpg',
   },
+  'how-to-work-with-mcp-server': {
+    title: 'How to Work MCP Server | Dhrubaraj Pati',
+    description:
+      'Discover what the Model Context Protocol (MCP) is, how it connects AI models with external tools, and learn to build your own MCP server step-by-step.',
+    image: '/blog/mcp.png',
+  },
 };
 
 import { bookThoughtsData } from './src/data/thoughts';
