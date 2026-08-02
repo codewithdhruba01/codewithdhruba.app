@@ -5,7 +5,7 @@ import { blogPostsData } from '../data/blogs';
 import { LinkPreview } from './ui/LinkPreview';
 
 const blogDescriptions = {
-  'the-unspoken-reality-of-tier-3-colleges': "An honest, first-hand perspective on the challenges, misconceptions, and realities faced by students in Tier 3 engineering colleges, and how to build a successful career anyway.",
+  'the-unspoken-reality-of-tier-3-colleges': "An honest, perspective on the challenges, misconceptions, and realities faced by students in Tier 3 engineering colleges, and how to build a successful career anyway.",
   'getting-started-with-react-typescript': 'Learn how to set up a new React project with TypeScript and best practices for type safety.',
   'chrome-keyboard-shortcuts': 'Discover the most useful Chrome keyboard shortcuts to browse faster, save time, and increase your daily productivity.',
   'openweather-api-guide': 'Master OpenWeather API with production-ready patterns, advanced integrations, and enterprise-grade implementations.',
@@ -16,8 +16,8 @@ const blogDescriptions = {
 };
 
 const blogPosts = Object.entries(blogPostsData).map(([slug, post]) => ({
-  title: post.title.replace(/:.*$/, ''), // Remove everything after colon for cleaner titles
-  description: blogDescriptions[slug as keyof typeof blogDescriptions] || 'NextAuth.js is a complete open-source authentication solution for Next.js applications.',
+  title: post.title.replace(/:.*$/, ''),
+  description: blogDescriptions[slug as keyof typeof blogDescriptions] || 'A deep dive into the MCP Server, how it connects AI models with external tools, and build your own MCP server.',
   date: post.date,
   slug: slug,
   image: post.image,

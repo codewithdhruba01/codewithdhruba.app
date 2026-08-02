@@ -1,5 +1,6 @@
 export const howToWorkWithMcpServer = {
   title: 'How to Work MCP Server',
+  description: 'A deep dive into the MCP Server, how it connects AI models with external tools, and build your own MCP server.',
   date: 'August 1, 2026',
   author: 'Dhrubaraj Pati',
   category: 'Development',

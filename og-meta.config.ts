@@ -81,7 +81,7 @@ const blogMeta: Record<string, PageMeta> = {
   'the-unspoken-reality-of-tier-3-colleges': {
     title: "The Unspoken Reality of College Student",
     description:
-      "An honest, first-hand perspective on the challenges, misconceptions, and realities faced by students in Tier 3 engineering colleges, and how to build a successful career anyway.",
+      "An honest, perspective on the challenges, misconceptions, and realities faced by students in Tier 3 engineering colleges, and how to build a successful career anyway.",
     image: '/blog/tair3.png',
   },
   'rag-ai-chatbot': {
