@@ -79,63 +79,63 @@ const staticPages: Record<string, PageMeta> = {
 
 const blogMeta: Record<string, PageMeta> = {
   'the-unspoken-reality-of-tier-3-colleges': {
-    title: "The Unspoken Reality of Tier 3 Colleges: A Student's Perspective | Dhrubaraj Pati",
+    title: "The Unspoken Reality of College Student",
     description:
       "An honest, first-hand perspective on the challenges, misconceptions, and realities faced by students in Tier 3 engineering colleges, and how to build a successful career anyway.",
     image: '/blog/tair3.png',
   },
   'rag-ai-chatbot': {
-    title: 'How I Built a RAG-based AI Chatbot | Dhrubaraj Pati',
+    title: 'How I Built a RAG-based AI Chatbot',
     description:
       'Learn how to build a personalized AI chatbot using RAG, LangChain, and local LLMs.',
     image: '/meta/ragCover.jpg',
   },
   'how-nextauth-works': {
-    title: 'How NextAuth.js Works | Dhrubaraj Pati',
+    title: 'How NextAuth.js Works',
     description:
       'NextAuth.js - complete open-source authentication solution for Next.js applications.',
     image: '/meta/blog6.jpg',
   },
   'getting-started-with-react-typescript': {
-    title: 'Getting Started with React and TypeScript | Dhrubaraj Pati',
+    title: 'Getting Started with React and TypeScript',
     description:
       'Set up React with TypeScript and best practices for type safety.',
     image: '/meta/blog2.jpg',
   },
   'chrome-keyboard-shortcuts': {
-    title: '10 Chrome Keyboard Shortcuts | Dhrubaraj Pati',
+    title: '10 Chrome Keyboard Shortcuts',
     description:
       'Useful Chrome keyboard shortcuts to browse faster and increase productivity.',
     image: '/blog/chrome_shortcuts.png',
   },
   'openweather-api-guide': {
-    title: 'OpenWeather API Guide | Dhrubaraj Pati',
+    title: 'OpenWeather API Guide',
     description:
       'Master OpenWeather API with production-ready patterns and implementations.',
     image: '/blog/OpenWeather.png',
   },
   'building-my-first-website-with-react-and-tailwind': {
-    title: 'Building My Portfolio from Scratch | Dhrubaraj Pati',
+    title: 'Building My Portfolio from Scratch',
     description:
       'Build a Portfolio website with React and Tailwind CSS - setup to responsive design.',
     image: '/meta/blog3.jpg',
   },
   'essential-linux-commands': {
-    title: 'Essential Linux Commands | Dhrubaraj Pati',
+    title: 'Essential Linux Commands',
     description:
       'Essential Linux commands every beginner and intermediate user must know.',
     image: '/blog/linux_commands.png',
   },
   'essential-tools-for-nextjs-and-react': {
-    title: 'Essential Tools for Next.js & React | Dhrubaraj Pati',
+    title: 'Essential Tools for Next.js & React',
     description:
       'Best UI libraries, icons, and utilities for Next.js and React development.',
     image: '/meta/blog7.jpg',
   },
   'how-to-work-with-mcp-server': {
-    title: 'How to Work MCP Server | Dhrubaraj Pati',
+    title: 'How to Work MCP Server',
     description:
-      'Discover what the Model Context Protocol (MCP) is, how it connects AI models with external tools, and learn to build your own MCP server step-by-step.',
+      'A deep dive into the MCP Server, how it connects AI models with external tools, and build your own MCP server',
     image: '/blog/mcp.png',
   },
 };
