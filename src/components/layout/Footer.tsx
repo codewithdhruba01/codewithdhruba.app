@@ -89,12 +89,12 @@ const Footer = () => {
 
         if (!hasVisited) {
           // Increment the view count for the entire site
-          await commentService.incrementBlogViews('site-total');
+          await commentService.incrementSiteViews('main-site');
           localStorage.setItem('site_visited', 'true');
         }
 
         // Fetch the updated count
-        const count = await commentService.getBlogViews('site-total');
+        const count = await commentService.getSiteViews('main-site');
         setVisitorCount(count);
       } catch (error) {
         console.warn('Error handling visitor count:', error);

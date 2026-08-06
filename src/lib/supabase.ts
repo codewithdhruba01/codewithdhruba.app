@@ -347,5 +347,67 @@ export const commentService = {
       console.warn('Error incrementing blog views:', error);
       // Don't throw error to avoid breaking the page load
     }
+  },
+
+  // Get site view count
+  async getSiteViews(siteId: string = 'main-site'): Promise<number> {
+    try {
+      const { data, error } = await supabase
+        .from('site_views')
+        .select('view_count')
+        .eq('id', siteId)
+        .single();
+
+      if (error && error.code !== 'PGRST116') { // PGRST116 = no rows returned
+        throw error;
+      }
+
+      return data?.view_count || 0;
+    } catch (error) {
+      console.warn('Error fetching site views:', error);
+      return 0;
+    }
+  },
+
+  // Increment site view count
+  async incrementSiteViews(siteId: string = 'main-site'): Promise<void> {
+    try {
+      // First, try to get existing view count
+      const { data: existingData, error: fetchError } = await supabase
+        .from('site_views')
+        .select('view_count')
+        .eq('id', siteId)
+        .single();
+
+      if (fetchError && fetchError.code !== 'PGRST116') {
+        throw fetchError;
+      }
+
+      if (existingData) {
+        // Update existing record
+        const { error } = await supabase
+          .from('site_views')
+          .update({
+            view_count: existingData.view_count + 1,
+            updated_at: new Date().toISOString()
+          })
+          .eq('id', siteId);
+
+        if (error) throw error;
+      } else {
+        // Create new record
+        const { error } = await supabase
+          .from('site_views')
+          .insert({
+            id: siteId,
+            view_count: 1
+          });
+
+        if (error) throw error;
+      }
+    } catch (error) {
+      console.warn('Error incrementing site views:', error);
+      // Don't throw error to avoid breaking the page load
+    }
   }
 };

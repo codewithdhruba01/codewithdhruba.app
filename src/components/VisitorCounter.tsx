@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Eye } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+import { commentService } from '../lib/supabase';
 
 const VisitorCounter = ({ className }: { className?: string }) => {
     const [count, setCount] = useState<number | null>(null);
@@ -16,73 +16,24 @@ const VisitorCounter = ({ className }: { className?: string }) => {
     };
 
     useEffect(() => {
-        const incrementAndFetchViews = async () => {
+        const handleVisitorCount = async () => {
             try {
-                const siteTotalSlug = 'site-total';
+                const sessionKey = 'site-visited';
+                const hasVisited = sessionStorage.getItem(sessionKey);
 
-                // First, try to get existing view count
-                const { data: existingData, error: fetchError } = await supabase
-                    .from('blog_views')
-                    .select('view_count')
-                    .eq('blog_slug', siteTotalSlug)
-                    .single();
-
-                if (fetchError && fetchError.code !== 'PGRST116') { // PGRST116 = no rows returned
-                    throw fetchError;
+                if (!hasVisited) {
+                    await commentService.incrementSiteViews('main-site');
+                    sessionStorage.setItem(sessionKey, 'true');
                 }
-
-                let newCount = 1;
-
-                if (existingData) {
-                    newCount = existingData.view_count + 1;
-                    // Update existing record
-                    const { error } = await supabase
-                        .from('blog_views')
-                        .update({
-                            view_count: newCount,
-                            updated_at: new Date().toISOString()
-                        })
-                        .eq('blog_slug', siteTotalSlug);
-
-                    if (error) throw error;
-                } else {
-                    // Create new record
-                    const { error } = await supabase
-                        .from('blog_views')
-                        .insert({
-                            blog_slug: siteTotalSlug,
-                            view_count: 1
-                        });
-
-                    if (error) throw error;
-                }
-
-                setCount(newCount);
+                
+                const views = await commentService.getSiteViews('main-site');
+                setCount(views);
             } catch (error) {
                 console.warn('Error handling visitor count:', error);
-                // Set fallback or handle gracefully
             }
         };
 
-        // Check if we've already counted this session to avoid double counting on re-renders
-        const sessionKey = 'site-visited';
-        const hasVisited = sessionStorage.getItem(sessionKey);
-
-        if (!hasVisited) {
-            incrementAndFetchViews();
-            sessionStorage.setItem(sessionKey, 'true');
-        } else {
-            // Just fetch if already visited this session
-            const fetchViews = async () => {
-                const { data } = await supabase
-                    .from('blog_views')
-                    .select('view_count')
-                    .eq('blog_slug', 'site-total')
-                    .single();
-                if (data) setCount(data.view_count);
-            };
-            fetchViews();
-        }
+        handleVisitorCount();
     }, []);
 
     if (count === null) return null;
