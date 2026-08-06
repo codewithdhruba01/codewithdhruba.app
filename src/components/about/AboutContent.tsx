@@ -1,53 +1,22 @@
-import { useState } from 'react';
 import HoverInfo from '../ui/HoverInfo';
 import ReactIcon from '../svgs/ReactIcon';
 import TypeScript from '../svgs/TypeScript';
 import TailwindCss from '../svgs/TailwindCss';
 import NextJs from '../svgs/NextJs';
-import { Sun, Moon } from 'lucide-react';
 import { Tooltip, TooltipTrigger, TooltipContent } from '../ui/tooltip';
-import { InteractiveAboutBanner } from './InteractiveAboutBanner';
+import { FilmStripCard } from '../gallery/film-strip-card';
 
 export const AboutContent = () => {
-    const [isLightMode, setIsLightMode] = useState(false);
-
-    // Play click audio sound from public/Audio/
-    const playClickSound = () => {
-        const audio = new Audio('/Audio/public_audio_toggle-on.MP3');
-        audio.volume = 0.1; // Lower volume for a very soft and pleasant click
-        audio.play().catch((err) => console.log('Audio play blocked or failed:', err));
-    };
 
     return (
-        <div className="flex flex-col mt-6">
-            {/* Interactive Polaroid Pin-Board Banner */}
-            <InteractiveAboutBanner isLightMode={isLightMode} />
+        <div className="flex flex-col mt-0">
+            {/* Film Strip Gallery Banner */}
+            <FilmStripCard className="-mt-6 sm:-mt-10 mb-8" />
 
             <div className="flex items-center justify-between mb-4">
                 <h1 className="text-3xl md:text-4xl font-extrabold font-bricolage bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
                     About <span className="text-[#00DC82]">Me</span>
                 </h1>
-                <Tooltip>
-                    <TooltipTrigger>
-                        <button
-                            onClick={() => {
-                                setIsLightMode(!isLightMode);
-                                playClickSound();
-                            }}
-                            className="p-2.5 rounded-xl bg-[#1A1919] border border-neutral-800 text-white hover:border-neutral-700 hover:bg-[#222121] active:scale-95 transition-all duration-300 shadow-md shadow-black/20 flex items-center justify-center group"
-                            aria-label="Toggle Banner Theme"
-                        >
-                            {isLightMode ? (
-                                <Moon className="w-5 h-5 text-white transition-transform duration-500 group-hover:rotate-12" />
-                            ) : (
-                                <Sun className="w-5 h-5 text-white transition-transform duration-500 group-hover:rotate-45" />
-                            )}
-                        </button>
-                    </TooltipTrigger>
-                    <TooltipContent side="top">
-                        {isLightMode ? "Switch to Dark Mode" : "Switch to Light Mode"}
-                    </TooltipContent>
-                </Tooltip>
             </div>
             <div className="flex flex-col gap-6">
                 <p className="text-neutral-400 font-satoshi text-sm md:text-base leading-relaxed">
