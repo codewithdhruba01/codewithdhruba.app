@@ -13,6 +13,7 @@ const defaultFrames = [
   "/assets/photo3.jpeg",
   "/assets/photo4.jpeg",
   "/assets/photo1.jpeg",
+  "/assets/photo6.jpeg",
 ];
 
 const LEFT_SPROCKET_HOLES = [
@@ -78,7 +79,7 @@ export const FilmStripCard = forwardRef<HTMLDivElement, FilmStripCardProps>(
           {frames.map((src, frameNumber) => (
             <div
               key={src}
-              className="relative h-20 w-16 shrink-0 overflow-hidden border-2 sm:border-[3px] border-neutral-800 sm:h-[120px] sm:w-24 md:h-40 md:w-32"
+              className="relative shrink-0 overflow-hidden border-2 sm:border-[3px] border-neutral-800 h-[75px] w-[60px] sm:h-[110px] sm:w-[88px] md:h-[145px] md:w-[116px]"
             >
               <img
                 src={src}
