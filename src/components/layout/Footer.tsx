@@ -27,7 +27,6 @@ const navigateLinks = [
   { name: 'Setup', href: '/extensions' },
   { name: 'Gallery', href: '/photos' },
   { name: 'Achievements', href: '/certificates' },
-  { name: 'Bucket List', href: '/bucket-list' },
   { name: 'Contact', href: '/contact' },
   { name: 'RSS FEED', href: '/feed.xml' }
 ];

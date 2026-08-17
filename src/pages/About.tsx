@@ -23,16 +23,6 @@ export default function AboutMe() {
         {/* Workspace Section */}
         <AboutWorkspace />
 
-        {/* Bucket List Link */}
-        <ScrollReveal delay={0.2} className="flex justify-center mt-2">
-          <Link
-            to="/bucket-list"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-[#1A1919] border border-neutral-800 rounded-xl text-neutral-300 hover:border-neutral-700 hover:bg-[#222121] transition-all duration-300 group shadow-lg shadow-black/20 text-xs font-semibold font-outfit"
-          >
-            <span>View My Bucket List</span>
-
-          </Link>
-        </ScrollReveal>
       </div>
     </section>
   );
