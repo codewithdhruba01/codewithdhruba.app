@@ -12,6 +12,8 @@ const GitHubContributions = () => {
   const [totalCount, setTotalCount] = useState<number>(0);
   const [year, setYear] = useState<number | 'Default'>('Default'); // default to past 12 months
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [tooltip, setTooltip] = useState<{ visible: boolean; x: number; y: number; text: string } | null>(null);
+
 
   // Play click audio sound from public/Audio/
   const playClickSound = () => {
@@ -137,7 +139,8 @@ const GitHubContributions = () => {
   });
 
   return (
-    <section id="contributions" className="pt-4 pb-8 bg-[#100F0F]">
+    <>
+      <section id="contributions" className="pt-4 pb-8 bg-[#100F0F]">
       <div className="max-w-3xl mx-auto w-full px-6">
         {/* Title */}
         <ScrollReveal className="mb-6">
@@ -253,7 +256,18 @@ const GitHubContributions = () => {
                               animationDelay: `${(weekIndex * 7 + dayIndex) * 15}ms`,
                               animationFillMode: 'both'
                             }}
-                            title={`${day.contributionCount} contributions on ${day.date}`}
+                            onMouseEnter={(e) => {
+                              const rect = e.currentTarget.getBoundingClientRect();
+                              const dateStr = new Date(day.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+                              const text = `${dateStr} · ${day.contributionCount} contribution${day.contributionCount === 1 ? '' : 's'}`;
+                              setTooltip({
+                                visible: true,
+                                x: rect.left + rect.width / 2,
+                                y: rect.top,
+                                text,
+                              });
+                            }}
+                            onMouseLeave={() => setTooltip(null)}
                           ></div>
                         ))}
                       </div>
@@ -280,6 +294,17 @@ const GitHubContributions = () => {
         </ScrollReveal>
       </div>
     </section>
+      {/* Custom Tooltip */}
+      {tooltip && tooltip.visible && (
+        <div 
+          className="fixed z-50 pointer-events-none transform -translate-x-1/2 -translate-y-full px-3 py-2 text-[13px] text-[#e1e1e3] bg-[#1a1a1a] rounded-lg shadow-xl font-satoshi border border-[#303030] whitespace-nowrap"
+          style={{ top: tooltip.y - 6, left: tooltip.x }}
+        >
+          {tooltip.text}
+          <div className="absolute left-1/2 -bottom-[4px] transform -translate-x-1/2 w-2 h-2 bg-[#1a1a1a] border-b border-r border-[#303030] rotate-45"></div>
+        </div>
+      )}
+    </>
   );
 };
 
