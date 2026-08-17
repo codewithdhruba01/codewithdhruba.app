@@ -1,11 +1,7 @@
-import { useState } from 'react';
 import { Check } from 'lucide-react';
-import { SectionButton } from '../components/ui/SectionButton';
-import ScheduleModal from '../components/modals/ScheduleModal';
 import ScrollReveal from '../components/ui/ScrollReveal';
 
 const BucketList = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const leftItems = [
         { text: "Visit Darjeeling and experience its beautiful hills", completed: false },
         { text: "Travel to Manali to experience snowfall", completed: false },
@@ -81,21 +77,7 @@ const BucketList = () => {
                     </div>
                 </div>
 
-                {/* All Schedule Button */}
-                <ScrollReveal delay={0.2} className="mt-10 flex justify-center">
-                    <div>
-                        <SectionButton
-                            text="View all Schedule"
-                            onClick={() => setIsModalOpen(true)}
-                        />
-                    </div>
-                </ScrollReveal>
             </div>
-
-            <ScheduleModal
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-            />
         </div>
     );
 };

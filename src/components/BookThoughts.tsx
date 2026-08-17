@@ -262,7 +262,7 @@ const BookThoughts = () => {
               <span>Overview</span>
               <span className="flex-1 h-[1px] bg-white/10"></span>
             </h3>
-            <p className="text-[15.5px] text-white/60 leading-relaxed font-poppins">
+            <p className="text-[15.5px] text-white/60 leading-relaxed font-hanken">
               {thought.description}
             </p>
           </div>
@@ -328,7 +328,7 @@ const BookThoughts = () => {
               >
                 “
               </span>
-              <p className="text-[15.5px] text-white/60 leading-relaxed font-poppins pt-2">
+              <p className="text-[15.5px] text-white/60 leading-relaxed font-hanken pt-2">
                 {thought.finalThoughts}
               </p>
             </div>
