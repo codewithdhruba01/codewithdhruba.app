@@ -79,7 +79,7 @@ export const FilmStripCard = forwardRef<HTMLDivElement, FilmStripCardProps>(
           {frames.map((src, frameNumber) => (
             <div
               key={src}
-              className="relative shrink-0 overflow-hidden border-2 sm:border-[3px] border-neutral-800 h-[75px] w-[60px] sm:h-[110px] sm:w-[88px] md:h-[145px] md:w-[116px]"
+              className="relative shrink-0 overflow-hidden border-2 sm:border-[3px] border-neutral-800 h-[90px] w-[72px] sm:h-[110px] sm:w-[88px] md:h-[145px] md:w-[116px]"
             >
               <img
                 src={src}
