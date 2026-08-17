@@ -1,0 +1,2 @@
+# npm test
+echo "Husky pre-commit hook is active. Add your commands here!"
