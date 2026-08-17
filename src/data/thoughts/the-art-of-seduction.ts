@@ -2,7 +2,7 @@ export const theArtOfSeduction = {
   slug: 'the-art-of-seduction',
   title: 'The Art of Seduction',
   author: 'Robert Greene',
-  coverUrl: 'https://covers.openlibrary.org/b/isbn/9780142001196-L.jpg',
+  coverUrl: '/books/the-art-of-seduction.jpg',
   accentColor: '#f43f5e',
   category: 'Philosophy & Psychology',
   rating: 4.6,

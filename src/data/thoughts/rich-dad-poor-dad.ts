@@ -2,7 +2,7 @@ export const richDadPoorDad = {
   slug: 'rich-dad-poor-dad',
   title: 'Rich Dad Poor Dad',
   author: 'Robert T. Kiyosaki',
-  coverUrl: 'https://covers.openlibrary.org/b/isbn/9781612680194-L.jpg',
+  coverUrl: '/books/rich-dad-poor-dad.jpg',
   accentColor: '#fbbf24',
   category: 'Personal Finance',
   rating: 4.6,

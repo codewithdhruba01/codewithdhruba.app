@@ -2,7 +2,7 @@ export const theSubtleArt = {
   slug: 'the-subtle-art-of-not-giving-a-fck',
   title: 'The Subtle Art of Not Giving a F*ck',
   author: 'Mark Manson',
-  coverUrl: 'https://images-na.ssl-images-amazon.com/images/P/0062457713.01.LZZZZZZZ.jpg',
+  coverUrl: '/books/the-subtle-art-of-not-giving-a-fck.jpg',
   accentColor: '#f97316', // Orange
   category: 'Self Improvement',
   rating: 4.6,

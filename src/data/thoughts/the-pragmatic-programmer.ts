@@ -2,7 +2,7 @@ export const thePragmaticProgrammer = {
   slug: 'the-pragmatic-programmer',
   title: 'The Pragmatic Programmer',
   author: 'Andy Hunt & Dave Thomas',
-  coverUrl: 'https://covers.openlibrary.org/b/isbn/9780135957059-L.jpg',
+  coverUrl: '/books/the-pragmatic-programmer.jpg',
   accentColor: '#10b981',
   category: 'Software Craftsmanship',
   rating: 5,

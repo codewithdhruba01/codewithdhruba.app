@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
-  Undo2,
+  ArrowLeft,
+  ArrowRight,
   Plus,
   Minus,
   Settings,
@@ -13,6 +14,15 @@ import ReadingProgressPill from './ui/ReadingProgressPill';
 const BookThoughts = () => {
   const { slug } = useParams();
   const thought = slug ? bookThoughtsData[slug as keyof typeof bookThoughtsData] : null;
+
+  const bookKeys = Object.keys(bookThoughtsData);
+  const currentIndex = bookKeys.indexOf(slug as string);
+  const nextBookKey = currentIndex !== -1 && currentIndex < bookKeys.length - 1 ? bookKeys[currentIndex + 1] : null;
+  const prevBookKey = currentIndex > 0 ? bookKeys[currentIndex - 1] : null;
+  
+  const rightSideBook = nextBookKey 
+    ? { key: nextBookKey, type: 'Next' } 
+    : (prevBookKey ? { key: prevBookKey, type: 'Previous' } : null);
 
   const [fontSize, setFontSize] = useState<number>(100); // percentage
   const [isMobileSheetOpen, setIsMobileSheetOpen] = useState<boolean>(false);
@@ -213,17 +223,6 @@ const BookThoughts = () => {
     <>
       <article className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#100F0F] book-content">
         <div className="max-w-3xl mx-auto w-full px-6" style={{ fontSize: `${fontSize}%` }}>
-          {/* Back Button */}
-          <div className="mb-8">
-            <Link
-              to="/"
-              className="inline-flex items-center text-gray-400 hover:text-white transition font-hanken"
-            >
-              <Undo2 className="h-4 w-4 mr-2" />
-              Back to Bookshelf
-            </Link>
-          </div>
-
           {/* Book Info Section */}
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
             {/* Book Cover with custom accent glow */}
@@ -333,6 +332,27 @@ const BookThoughts = () => {
                 {thought.finalThoughts}
               </p>
             </div>
+          </div>
+
+          {/* Bottom Navigation */}
+          <div className="flex items-center justify-between mt-20 pt-8 border-t border-white/10 font-hanken">
+            <Link
+              to="/"
+              className="inline-flex items-center text-neutral-300 hover:text-white transition group"
+            >
+              <ArrowLeft className="h-4 w-4 mr-2 transform group-hover:-translate-x-1 transition-transform duration-200" />
+              Back Bookshelf
+            </Link>
+
+            {rightSideBook && (
+              <Link
+                to={`/thoughts/${rightSideBook.key}`}
+                className="inline-flex items-center text-neutral-300 hover:text-white transition group"
+              >
+                {rightSideBook.type} Book
+                <ArrowRight className="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-200" />
+              </Link>
+            )}
           </div>
         </div>
       </article>

@@ -2,7 +2,7 @@ export const designingDataIntensiveApplications = {
   slug: 'designing-data-intensive-applications',
   title: 'Designing Data-Intensive Applications',
   author: 'Martin Kleppmann',
-  coverUrl: 'https://covers.openlibrary.org/b/isbn/9781449373320-L.jpg',
+  coverUrl: '/books/designing-data-intensive-applications.jpg',
   accentColor: '#b83c24',
   category: 'Software Architecture',
   rating: 5,

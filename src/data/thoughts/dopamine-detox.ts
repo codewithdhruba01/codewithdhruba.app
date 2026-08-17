@@ -2,7 +2,7 @@ export const dopamineDetox = {
   slug: 'dopamine-detox',
   title: 'Dopamine Detox',
   author: 'Thibaut Meurisse',
-  coverUrl: 'https://covers.openlibrary.org/b/isbn/9798525995178-L.jpg',
+  coverUrl: '/books/dopamine-detox.jpg',
   accentColor: '#eab308',
   category: 'Self Improvement',
   rating: 4.5,

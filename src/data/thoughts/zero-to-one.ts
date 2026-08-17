@@ -2,7 +2,7 @@ export const zeroToOne = {
   slug: 'zero-to-one',
   title: 'Zero to One',
   author: 'Peter Thiel',
-  coverUrl: 'https://covers.openlibrary.org/b/isbn/9780804139298-L.jpg',
+  coverUrl: '/books/zero-to-one.jpg',
   accentColor: '#102a5c',
   category: 'Entrepreneurship',
   rating: 4.5,

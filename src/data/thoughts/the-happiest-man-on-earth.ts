@@ -2,7 +2,7 @@ export const theHappiestManOnEarth = {
   slug: 'the-happiest-man-on-earth',
   title: 'The Happiest Man on Earth',
   author: 'Eddie Jaku',
-  coverUrl: 'https://covers.openlibrary.org/b/isbn/9781760980085-L.jpg',
+  coverUrl: '/books/the-happiest-man-on-earth.jpg',
   accentColor: '#facc15', // Yellow/Gold
   category: 'Biography / Memoir',
   rating: 4.8,

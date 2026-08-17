@@ -2,7 +2,7 @@ export const dontMakeMeThink = {
   slug: 'dont-make-me-think',
   title: "Don't Make Me Think, Revisited",
   author: 'Steve Krug',
-  coverUrl: 'https://covers.openlibrary.org/b/isbn/9780321965516-L.jpg',
+  coverUrl: '/books/dont-make-me-think.jpg',
   accentColor: '#f97316',
   category: 'UI/UX Design',
   rating: 4.7,

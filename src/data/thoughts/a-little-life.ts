@@ -2,7 +2,7 @@ export const aLittleLife = {
   slug: 'a-little-life',
   title: 'A Little Life',
   author: 'Hanya Yanagihara',
-  coverUrl: 'https://covers.openlibrary.org/b/isbn/9780804172707-L.jpg',
+  coverUrl: '/books/a-little-life.jpg',
   accentColor: '#ef4444',
   category: 'Fiction & Literature',
   rating: 4.8,

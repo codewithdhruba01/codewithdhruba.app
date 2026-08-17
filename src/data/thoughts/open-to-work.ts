@@ -2,7 +2,7 @@ export const openToWork = {
   slug: 'open-to-work',
   title: 'Open to Work: How to Get Ahead in the Age of AI',
   author: 'Ryan Roslansky & Aneesh Raman',
-  coverUrl: 'https://images-na.ssl-images-amazon.com/images/P/0063486466.01.LZZZZZZZ.jpg',
+  coverUrl: '/books/open-to-work.jpg',
   accentColor: '#3b82f6',
   category: 'Career & Tech',
   rating: 5,

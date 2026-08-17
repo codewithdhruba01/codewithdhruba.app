@@ -2,7 +2,7 @@ export const the7HabitsOfHighlyEffectivePeople = {
   slug: 'the-7-habits-of-highly-effective-people',
   title: 'The 7 Habits of Highly Effective People',
   author: 'Stephen R. Covey',
-  coverUrl: 'https://covers.openlibrary.org/b/isbn/9780743269513-L.jpg',
+  coverUrl: '/books/the-7-habits-of-highly-effective-people.jpg',
   accentColor: '#852a23',
   category: 'Self Improvement',
   rating: 4.8,

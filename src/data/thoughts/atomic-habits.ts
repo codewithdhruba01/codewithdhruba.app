@@ -2,7 +2,7 @@ export const atomicHabits = {
   slug: 'atomic-habits',
   title: 'Atomic Habits',
   author: 'James Clear',
-  coverUrl: 'https://covers.openlibrary.org/b/isbn/9780735211292-L.jpg',
+  coverUrl: '/books/atomic-habits.jpg',
   accentColor: '#ab8953',
   category: 'Self Improvement',
   rating: 5,

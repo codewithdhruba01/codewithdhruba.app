@@ -2,7 +2,7 @@ export const cantHurtMe = {
   slug: 'cant-hurt-me',
   title: "Can't Hurt Me",
   author: 'David Goggins',
-  coverUrl: 'https://covers.openlibrary.org/b/isbn/9781544512280-L.jpg',
+  coverUrl: '/books/cant-hurt-me.jpg',
   accentColor: '#ea580c',
   category: 'Self Improvement',
   rating: 4.9,
