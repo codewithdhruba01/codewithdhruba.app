@@ -208,8 +208,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Dashed Separator */}
-        <hr className="my-6 border-t border-dashed border-neutral-800" />
+        <div className="h-8 sm:h-10"></div>
 
         {/* Bio Section */}
         <div className="px-1">
