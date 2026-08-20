@@ -90,7 +90,7 @@ const Hero = () => {
         </div>
 
         <div className="relative px-4 flex justify-between items-end -mt-10 sm:-mt-12 md:-mt-14 z-10">
-          <div className={`relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-[#100F0F] shadow-md transition-colors duration-300 ${avatarBg === 'black' ? 'bg-[#100F0F]' : avatarBg === 'white' ? 'bg-[#FAF9F6]' : 'bg-[#bae6fd]'
+          <div className={`relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-[#1c1b1b] shadow-md transition-colors duration-300 ${avatarBg === 'black' ? 'bg-neutral-800' : avatarBg === 'white' ? 'bg-[#FAF9F6]' : 'bg-[#bae6fd]'
             }`}>
             <img
               src="/assets/my_avater.png"
