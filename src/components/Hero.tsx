@@ -68,32 +68,28 @@ const Hero = () => {
       className="relative bg-[#100F0F] pt-24 md:pt-28 pb-6 md:pb-8"
     >
       <ScrollReveal className="max-w-3xl mx-auto w-full px-6 flex flex-col">
-        {/* Banner Image Container */}
         <div className="relative w-full rounded-2xl overflow-hidden aspect-[13/5] sm:aspect-[3/1] bg-neutral-900">
-          {/* Night theme banner (our beautiful generated starry night mountain) */}
           <img
-            src="/assets/darktheem.jpg"
+            src="/assets/bg.png"
             alt="Night mountain landscape banner"
             className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-750 ease-in-out ${avatarBg === 'black' ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.02] pointer-events-none'
               } brightness-[0.8]`}
           />
-          {/* Day theme banner */}
+          
           <img
-            src="/assets/lighttheem.jpg"
+            src="/assets/bg1.jpg"
             alt="Day mountain landscape banner"
             className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-750 ease-in-out ${avatarBg !== 'black' ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.02] pointer-events-none'
               } brightness-[0.75]`}
           />
           <div className="absolute inset-0 flex items-center justify-center p-4 z-10">
             <p className="font-serif italic text-white/95 text-center text-sm sm:text-base md:text-lg max-w-md md:max-w-xl leading-relaxed select-none drop-shadow-md">
-              "First, solve the problem. Then, write the code."
+              "Hanging with problem"
             </p>
           </div>
         </div>
 
-        {/* Avatar and GitHub Stats Overlap Row */}
         <div className="relative px-4 flex justify-between items-end -mt-10 sm:-mt-12 md:-mt-14 z-10">
-          {/* Avatar */}
           <div className={`relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-[#100F0F] shadow-md transition-colors duration-300 ${avatarBg === 'black' ? 'bg-[#100F0F]' : avatarBg === 'white' ? 'bg-[#FAF9F6]' : 'bg-[#bae6fd]'
             }`}>
             <img
@@ -103,7 +99,6 @@ const Hero = () => {
             />
           </div>
 
-          {/* GitHub followers badge */}
           <div className="pb-2 md:pb-4">
             <Tooltip>
               <TooltipTrigger>
@@ -124,9 +119,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Personal Info and Social Icons Row */}
         <div className="mt-6 px-1 flex flex-col md:flex-row md:items-center justify-between gap-4">
-          {/* Name and subtitle */}
           <div>
             <h2 className="text-2xl font-bricolage font-extrabold md:text-3xl tracking-tight text-neutral-200 flex items-center gap-2">
               <span>Dhrubaraj Pati</span>
@@ -150,9 +143,7 @@ const Hero = () => {
             </p>
           </div>
 
-          {/* Social Icons & Theme Toggle */}
           <div className="flex items-center gap-2">
-            {/* GitHub Link */}
             <Tooltip>
               <TooltipTrigger>
                 <a
@@ -169,7 +160,6 @@ const Hero = () => {
               </TooltipContent>
             </Tooltip>
 
-            {/* X / Twitter Link */}
             <Tooltip>
               <TooltipTrigger>
                 <a
@@ -186,7 +176,6 @@ const Hero = () => {
               </TooltipContent>
             </Tooltip>
 
-            {/* LinkedIn Link */}
             <Tooltip>
               <TooltipTrigger>
                 <a
@@ -203,7 +192,6 @@ const Hero = () => {
               </TooltipContent>
             </Tooltip>
 
-            {/* Theme Toggle */}
             <Tooltip>
               <TooltipTrigger>
                 <button
