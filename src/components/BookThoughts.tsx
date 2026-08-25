@@ -19,9 +19,9 @@ const BookThoughts = () => {
   const currentIndex = bookKeys.indexOf(slug as string);
   const nextBookKey = currentIndex !== -1 && currentIndex < bookKeys.length - 1 ? bookKeys[currentIndex + 1] : null;
   const prevBookKey = currentIndex > 0 ? bookKeys[currentIndex - 1] : null;
-  
-  const rightSideBook = nextBookKey 
-    ? { key: nextBookKey, type: 'Next' } 
+
+  const rightSideBook = nextBookKey
+    ? { key: nextBookKey, type: 'Next' }
     : (prevBookKey ? { key: prevBookKey, type: 'Previous' } : null);
 
   const [fontSize, setFontSize] = useState<number>(100); // percentage
@@ -338,19 +338,19 @@ const BookThoughts = () => {
           <div className="flex items-center justify-between mt-20 pt-8 border-t border-white/10 font-hanken">
             <Link
               to="/"
-              className="inline-flex items-center text-neutral-300 hover:text-white transition group"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#1A1919] border border-neutral-800/80 rounded-lg text-neutral-300 hover:border-neutral-700 hover:bg-[#222121] transition-all duration-200 group shadow-md shadow-black/20 text-xs font-semibold font-hanken"
             >
-              <ArrowLeft className="h-4 w-4 mr-2 transform group-hover:-translate-x-1 transition-transform duration-200" />
+              <ArrowLeft className="h-3.5 w-3.5 transform group-hover:-translate-x-1 transition-transform duration-200" />
               Back Bookshelf
             </Link>
 
             {rightSideBook && (
               <Link
                 to={`/thoughts/${rightSideBook.key}`}
-                className="inline-flex items-center text-neutral-300 hover:text-white transition group"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#1A1919] border border-neutral-800/80 rounded-lg text-neutral-300 hover:border-neutral-700 hover:bg-[#222121] transition-all duration-200 group shadow-md shadow-black/20 text-xs font-semibold font-hanken"
               >
                 {rightSideBook.type} Book
-                <ArrowRight className="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-200" />
+                <ArrowRight className="h-3.5 w-3.5 transform group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
             )}
           </div>
