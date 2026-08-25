@@ -141,6 +141,7 @@ const blogMeta: Record<string, PageMeta> = {
 };
 
 import { bookThoughtsData } from './src/data/thoughts';
+import { projects } from './src/constants/projects';
 
 export function getMetaForPath(pathname: string): PageMeta | null {
   const path = pathname.replace(/\/$/, '') || '/';
@@ -148,6 +149,19 @@ export function getMetaForPath(pathname: string): PageMeta | null {
 
   const blogMatch = path.match(/^\/blog\/(.+)$/);
   if (blogMatch) return blogMeta[blogMatch[1]] || null;
+
+  const projectMatch = path.match(/^\/projects\/(.+)$/);
+  if (projectMatch) {
+    const slug = projectMatch[1];
+    const project = projects.find(p => p.slug === slug);
+    if (project) {
+      return {
+        title: `${project.title} - Overview`,
+        description: project.description,
+        image: project.image,
+      };
+    }
+  }
 
   const thoughtsMatch = path.match(/^\/thoughts\/(.+)$/);
   if (thoughtsMatch) {

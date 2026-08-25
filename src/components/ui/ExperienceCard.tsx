@@ -57,12 +57,12 @@ export function ExperienceCard({ experience, isOpen, onClick, alwaysOpen = false
                     </div>
 
                     {/* Right: Date Range (Desktop/Tablet) */}
-                    <div className="hidden sm:block text-neutral-400 text-sm font-synonym font-medium text-right shrink-0">
+                    <div className="hidden sm:block text-neutral-400 text-sm md:text-base font-hanken text-right shrink-0">
                         {experience.startDate} – {experience.isCurrent ? 'Present' : experience.endDate}
                     </div>
 
                     {/* Right: Date Range (Mobile) */}
-                    <div className="block sm:hidden text-neutral-400 text-xs font-synonym font-medium text-right shrink-0">
+                    <div className="block sm:hidden text-neutral-400 text-sm md:text-base font-hanken text-right shrink-0">
                         {experience.startDate} – {experience.isCurrent ? 'Present' : (experience.endDate || '').replace(/20\d{2}/, (match) => match.slice(-2))}
                     </div>
                 </div>
@@ -74,7 +74,7 @@ export function ExperienceCard({ experience, isOpen, onClick, alwaysOpen = false
                     </p>
 
                     {/* Location (Desktop) */}
-                    <p className="hidden sm:block text-neutral-500 font-hanken text-sm">
+                    <p className="hidden sm:block text-neutral-500 text-sm md:text-base font-hanken">
                         {experience.location}
                     </p>
 
