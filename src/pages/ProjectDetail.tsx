@@ -105,7 +105,7 @@ const ProjectDetail = () => {
         </ScrollReveal>
 
         <ScrollReveal delay={0.2}>
-          <div 
+          <div
             className="text-[#909092] leading-relaxed text-[1rem] font-hanken mb-8"
             dangerouslySetInnerHTML={{ __html: project.longDescription || project.description }}
           />
@@ -126,8 +126,8 @@ const ProjectDetail = () => {
             {project.tags.map((tag, index) => {
               const Icon = iconMap[tag];
               return (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-transparent border border-neutral-800 text-xs font-medium text-neutral-300 transition-colors hover:bg-neutral-900"
                 >
                   {Icon && (
@@ -165,7 +165,7 @@ const ProjectDetail = () => {
         {(project.reflections || project.reflectionsHtml) && (
           <ScrollReveal delay={0.3}>
             <h2 className="text-2xl md:text-3xl font-bold font-bricolage text-neutral-200 mb-6 border-b border-neutral-800/50 pb-3">
-              Reflections on the Project
+              Reflections
             </h2>
             {project.reflectionsHtml ? (
               <div className="text-[#909092] leading-relaxed text-[1rem] font-hanken" dangerouslySetInnerHTML={{ __html: project.reflectionsHtml }} />
