@@ -10,11 +10,52 @@ export type Project = {
   demo?: string;
   tags: string[];
   date: string;
+  features?: { title: string; description: string }[];
+  featuresHtml?: string;
+  reflectionsHtml?: string;
 };
 
 export const projects: Project[] = [
   {
     id: 1,
+    slug: 'xmedia',
+    title: 'XMedia',
+    description: 'X Media Downloader is a modern web app that lets users download videos from public X posts by simply pasting a post URL.',
+    longDescription: 'X-Media Downloader is a premium, full-stack, glassmorphic web application built with <strong class="text-white font-semibold">React, Express, and TypeScript</strong> that extracts direct, downloadable MP4 video stream URLs from public Twitter/X posts.<br/><br/>This project does not use the official Twitter API. Instead, it leverages a reverse-engineered token calculation and queries the public Twitter Syndication API, replicating the behavior of official embedded web widgets.',
+    reflections: 'Developing an efficient backend for media extraction while maintaining a clean, user-friendly frontend taught me a lot about API integrations and full-stack performance optimization.',
+    image: '/project/xmedia.png',
+    github: 'https://github.com/codewithdhruba01/XMedia',
+    demo: 'https://xmedia.vercel.app/',
+    tags: ['TypeScript', 'Express.js', 'Tailwind CSS', 'Node.js', 'Full Stack'],
+    date: 'Aug 2026',
+    features: [
+      { title: 'High-End Design System', description: 'Modern Glassmorphic UI with dynamic animated gradients, customizable dark/light themes, and custom animations utilizing Framer Motion.' },
+      { title: 'Micro-Animations', description: 'Smooth scale changes, sliding cards, and audio-style loading equalizers.' },
+      { title: 'Multiple Video Resolutions', description: 'Extracts and displays all available MP4 resolutions (e.g., 1080p, 720p, 480p, 360p) sorted by quality.' },
+      { title: 'Interactive Video Preview', description: 'Directly preview the video in a premium player before downloading.' },
+      { title: 'Download History', description: "Stores past downloads in the browser's LocalStorage with quick-reload, individual deletion, and history wipe controls." },
+      { title: 'Quick-Copy Stream Links', description: 'Direct buttons to copy raw CDN links or copy the post URL.' },
+      { title: 'Advanced Backend Protections', description: 'Integrates helmet security headers, custom logging, and rate limiting (max 30 download requests/15 mins per IP).' },
+      { title: 'TypeScript Everywhere', description: 'Strong types on both frontend and backend for robust, type-safe execution.' }
+    ]
+  },
+  {
+    id: 2,
+    slug: 'colorkit-webapp',
+    title: 'ColorKit',
+    description: 'A professional, feature-rich color picker and analysis tool Extract colors from images, generate color palettes, analyze accessibility.',
+    longDescription: 'ColorKit is a premium, all-in-one color management platform designed to elevate your creative workflow. Whether you\'re extracting the perfect shade from an image, generating harmonious palettes, or ensuring your designs meet global accessibility standards, ColorKit provides a seamless, highly visual experience.<br/><br/>Built for designers, developers, and creative minds, it allows you to explore the depths of color theory, test real-time contrast, and manage your color assets with an elegant, animated interface that inspires creativity at every click.',
+    reflections: 'Building tools that operate primarily on visual logic required a deep dive into color theory algorithms, color space conversions, and interactive UI design.',
+    reflectionsHtml: '<p class="mb-4">Analyzing <strong class="text-white font-medium">ColorKit</strong> reveals a meticulously crafted application that stands out for several reasons:</p><ol class="list-decimal list-outside ml-5 space-y-3 mb-6"><li><strong class="text-white font-medium">Focus on Accessibility</strong>: Beyond just picking colors, the inclusion of a robust Contrast Checker and Color Blindness Simulator demonstrates a deep understanding of modern web development standards. It encourages designers to create inclusive digital experiences.</li><li><strong class="text-white font-medium">Exceptional User Experience</strong>: The integration of <code class="bg-neutral-800 text-neutral-300 px-1.5 py-0.5 rounded text-sm font-mono">framer-motion</code> for micro-interactions and <code class="bg-neutral-800 text-neutral-300 px-1.5 py-0.5 rounded text-sm font-mono">lenis</code> for smooth scrolling creates a highly polished, "premium" feel. The glassmorphism UI and animated gradient backgrounds make the app visually stunning without compromising performance.</li><li><strong class="text-white font-medium">Solid Technical Foundation</strong>: Utilizing Next.js App Router along with TypeScript and Zustand ensures that the application is scalable, maintainable, and type-safe. The modular component structure (<code class="bg-neutral-800 text-neutral-300 px-1.5 py-0.5 rounded text-sm font-mono">components/color-picker</code>, <code class="bg-neutral-800 text-neutral-300 px-1.5 py-0.5 rounded text-sm font-mono">components/home</code>, etc.) reflects excellent separation of concerns.</li><li><strong class="text-white font-medium">Comprehensive Tooling</strong>: Integrating advanced algorithms like K-means clustering for image color extraction directly in the browser using the HTML5 Canvas API showcases a high level of technical competency.</li><li><strong class="text-white font-medium">Modern Authentication & Data</strong>: The groundwork laid with <code class="bg-neutral-800 text-neutral-300 px-1.5 py-0.5 rounded text-sm font-mono">Clerk</code> and <code class="bg-neutral-800 text-neutral-300 px-1.5 py-0.5 rounded text-sm font-mono">Supabase</code> indicates that the app is built to be a fully-fledged SaaS product, capable of saving user preferences, palettes, and historical data.</li></ol><p>ColorKit is not just a utility; it is a comprehensive suite for color management that perfectly balances aesthetic appeal with technical depth.</p>',
+    featuresHtml: '<h3 class="text-xl font-bold text-white mb-4">Advanced Color Picking Tools</h3><ul class="list-disc list-outside ml-5 text-[#909092] leading-relaxed text-[1rem] font-hanken space-y-2 mb-6"><li><strong class="text-white font-medium">Image Color Extraction</strong>: Upload images and instantly extract dominant color palettes using a k-means clustering algorithm.</li><li><strong class="text-white font-medium">Click-to-Pick</strong>: Interactively click anywhere on an uploaded image to pick precise pixel colors.</li><li><strong class="text-white font-medium">Manual Color Picker</strong>: Highly interactive visual color picker with RGB and HSL sliders.</li><li><strong class="text-white font-medium">Native Color Input</strong>: Quick access to the browser\'s native color picker.</li><li><strong class="text-white font-medium">Instant Color Picker Component</strong>: Pick colors directly from the homepage seamlessly.</li></ul><h3 class="text-xl font-bold text-white mt-8 mb-4">Comprehensive Color Formats & Conversions</h3><ul class="list-disc list-outside ml-5 text-[#909092] leading-relaxed text-[1rem] font-hanken space-y-2 mb-6"><li><strong class="text-white font-medium">Technical Formats</strong>: Live conversion between <strong class="text-white font-medium">HEX, RGB, HSL, HSV, and CMYK</strong>.</li><li><strong class="text-white font-medium">Practical Formats</strong>: Support for CSS RGB/HSL, Android Color Format, Swift UIColor.</li><li><strong class="text-white font-medium">Easy Export</strong>: One-click copy-to-clipboard functionality for all formats.</li></ul><h3 class="text-xl font-bold text-white mt-8 mb-4">Accessibility & Contrast Checker</h3><ul class="list-disc list-outside ml-5 text-[#909092] leading-relaxed text-[1rem] font-hanken space-y-2 mb-6"><li><strong class="text-white font-medium">WCAG Compliance</strong>: Built-in checker for WCAG AA (4.5:1) and AAA (7:1) contrast standards.</li><li><strong class="text-white font-medium">Real-time Preview</strong>: Test text legibility on colored backgrounds.</li><li><strong class="text-white font-medium">Smart Recommendations</strong>: Pass/fail feedback and actionable accessibility insights.</li><li><strong class="text-white font-medium">Color Blindness Simulator</strong>: Simulate how colors appear to people with Protanopia, Deuteranopia, and Tritanopia.</li></ul><h3 class="text-xl font-bold text-white mt-8 mb-4">Color Theory & Palettes</h3><ul class="list-disc list-outside ml-5 text-[#909092] leading-relaxed text-[1rem] font-hanken space-y-2 mb-6"><li><strong class="text-white font-medium">Harmonious Combinations</strong>: Generate Complementary, Analogous, Triadic, and Tetradic schemes.</li><li><strong class="text-white font-medium">Color Variations</strong>: Easily generate shades (adding black), tints (adding white), and tones (adding gray).</li><li><strong class="text-white font-medium">Curated Palettes & Gradients</strong>: Explore and manage beautiful pre-designed color palettes and gradients.</li></ul><h3 class="text-xl font-bold text-white mt-8 mb-4">Color Analysis</h3><ul class="list-disc list-outside ml-5 text-[#909092] leading-relaxed text-[1rem] font-hanken space-y-2 mb-6"><li>Color name identification based on hex codes.</li><li>Breakdown of Hue, Saturation, Lightness, and Brightness.</li><li>Temperature analysis (warm/cool) and vibrancy levels.</li><li>Mood associations and best use-case recommendations.</li></ul>',
+    image: '/project/colorkit.png',
+    github: 'https://github.com/codewithdhruba01/ColorPicker',
+    demo: 'https://colorskit.vercel.app/',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Figma', 'Motion', 'Shadcn', 'Vercel'],
+    date: 'Jul 2026',
+  },
+  {
+    id: 3,
     slug: 'multicalc',
     title: 'MultiCalc - Calculator',
     description: 'MultiCalc is a simple, fast, and user-friendly online calculator that makes everyday arithmetic easy and accessible for everyone.',
@@ -27,7 +68,7 @@ export const projects: Project[] = [
     date: 'Aug 2026',
   },
   {
-    id: 2,
+    id: 4,
     slug: 'github-developer-tools',
     title: 'GitHub Developer Tools',
     description: 'Advanced GitHub tools for developers follower analytics, README designer, comparison, and documentation.',
@@ -40,7 +81,7 @@ export const projects: Project[] = [
     date: 'Jul 2026',
   },
   {
-    id: 3,
+    id: 5,
     slug: 'outfit-wallpaper-generator',
     title: 'Outfit Wallpaper Generator',
     description: 'Outfit Wallpaper Generator is a sleek and interactive tool for creating personalized phone wallpapers in your preferred colors, offering both gradient and solid options.',
@@ -53,7 +94,7 @@ export const projects: Project[] = [
     date: 'Jun 2026',
   },
   {
-    id: 4,
+    id: 6,
     slug: 'dictionary-webapp',
     title: 'Dictionary - WebApp',
     description: 'A beautifully designed dictionary web app that allows you to look up any English word and explore rich details such as meanings, pronunciations, usage examples, synonyms, and much more.',
@@ -66,7 +107,7 @@ export const projects: Project[] = [
     date: 'May 2026',
   },
   {
-    id: 5,
+    id: 7,
     slug: 'typing-master',
     title: 'Typing Master',
     description: 'A modern, feature-rich typing test application. Test your typing speed and accuracy with customizable settings, real-time statistics, and professional-grade performance tracking.',
@@ -79,7 +120,7 @@ export const projects: Project[] = [
     date: 'Apr 2026',
   },
   {
-    id: 6,
+    id: 8,
     slug: 'ip-address-tracker',
     title: 'IP Address Tracker',
     description: 'A beautiful, modern web application for tracking and locating IP addresses in real-time with an interactive map interface.',
@@ -92,20 +133,7 @@ export const projects: Project[] = [
     date: 'Mar 2026',
   },
   {
-    id: 7,
-    slug: 'colorkit-webapp',
-    title: 'ColorKit WebApp',
-    description: 'A professional, feature-rich color picker and analysis tool Extract colors from images, generate color palettes, analyze accessibility, and explore color theory with an elegant, animated interface.',
-    longDescription: 'ColorKit is a comprehensive suite of tools for designers and developers. It provides color extraction from images, automated palette generation, and accessibility contrast checking, all wrapped in a visually stunning interface.',
-    reflections: 'Building tools that operate primarily on visual logic required a deep dive into color theory algorithms, color space conversions, and interactive UI design.',
-    image: '/project/colorkit.png',
-    github: 'https://github.com/codewithdhruba01/ColorPicker',
-    demo: 'https://colorskit.vercel.app/',
-    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Motion', 'Shadcn', 'Vercel', 'Node.js'],
-    date: 'Feb 2026',
-  },
-  {
-    id: 8,
+    id: 9,
     slug: 'emojihub-webapp',
     title: 'EmojiHub WebApp',
     description: 'A beautiful and fully functional emoji search-and-copy application featuring smooth animations, intuitive interactions, and a modern, polished interface.',
@@ -118,7 +146,7 @@ export const projects: Project[] = [
     date: 'Jan 2026',
   },
   {
-    id: 9,
+    id: 10,
     slug: 'flipclock',
     title: 'FlipClock - Aesthetic Clock',
     description: 'A modern, minimal digital clock with an elegant flip animation and a clutter-free interface designed to enhance focus, relaxation, and mindfulness.',
@@ -131,7 +159,7 @@ export const projects: Project[] = [
     date: 'Dec 2025',
   },
   {
-    id: 10,
+    id: 11,
     slug: 'college-fee-payment',
     title: 'College Fee Payment Portal',
     description: 'A simple and responsive College Fee Payment Portal built using HTML, CSS, and JavaScript.',
@@ -144,7 +172,7 @@ export const projects: Project[] = [
     date: 'Nov 2025',
   },
   {
-    id: 11,
+    id: 12,
     slug: 'face-recognition-realtime',
     title: 'Face Recognition Real-Time',
     description: 'Real-time Face Attendance System using OpenCV for recognition.',
@@ -156,7 +184,7 @@ export const projects: Project[] = [
     date: 'Oct 2025',
   },
   {
-    id: 12,
+    id: 13,
     slug: 'comfortpg-website',
     title: 'ComfortPG-Website',
     description: 'A modern, responsive Paying Guest accommodation website',

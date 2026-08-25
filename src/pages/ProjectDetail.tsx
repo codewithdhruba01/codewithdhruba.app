@@ -17,6 +17,8 @@ import CSS from '../components/svgs/CSS';
 import Html from '../components/svgs/Html';
 import JavaScript from '../components/svgs/JavaScript';
 import { Python } from '../components/svgs/Python';
+import Figma from '../components/svgs/Figma';
+import ExpressJs from '../components/svgs/ExpressJs';
 
 const iconMap: Record<string, React.ElementType> = {
   'React': ReactIcon,
@@ -33,6 +35,8 @@ const iconMap: Record<string, React.ElementType> = {
   'Html': Html,
   'JavaScript': JavaScript,
   'Python': Python,
+  'Figma': Figma,
+  'Express.js': ExpressJs,
 };
 
 const ProjectDetail = () => {
@@ -101,9 +105,10 @@ const ProjectDetail = () => {
         </ScrollReveal>
 
         <ScrollReveal delay={0.2}>
-          <p className="text-[#909092] leading-relaxed text-[1rem] font-hanken mb-8">
-            {project.longDescription || project.description}
-          </p>
+          <div 
+            className="text-[#909092] leading-relaxed text-[1rem] font-hanken mb-8"
+            dangerouslySetInnerHTML={{ __html: project.longDescription || project.description }}
+          />
 
           {project.image && (
             <div className="mb-8 p-1.5 md:p-2.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl">
@@ -137,14 +142,38 @@ const ProjectDetail = () => {
           </div>
         </ScrollReveal>
 
-        {project.reflections && (
-          <ScrollReveal delay={0.3}>
-            <h2 className="text-2xl md:text-3xl font-bold font-bricolage text-neutral-200 mb-4">
-              Reflections
+        {(project.features?.length ? project.features.length > 0 : false) || project.featuresHtml ? (
+          <ScrollReveal delay={0.25}>
+            <h2 className="text-2xl md:text-3xl font-bold font-bricolage text-neutral-200 mb-6 border-b border-neutral-800/50 pb-3 flex items-center gap-2">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-neutral-400"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+              Key Features
             </h2>
-            <p className="text-[#909092] leading-relaxed text-[1rem] font-hanken">
-              {project.reflections}
-            </p>
+            {project.featuresHtml ? (
+              <div className="mb-12" dangerouslySetInnerHTML={{ __html: project.featuresHtml }} />
+            ) : (
+              <ul className="list-disc list-outside ml-5 text-[#909092] leading-relaxed text-[1rem] font-hanken space-y-3 mb-12">
+                {project.features?.map((feature, idx) => (
+                  <li key={idx}>
+                    <strong className="text-white font-medium">{feature.title}</strong>: <span dangerouslySetInnerHTML={{ __html: feature.description }} />
+                  </li>
+                ))}
+              </ul>
+            )}
+          </ScrollReveal>
+        ) : null}
+
+        {(project.reflections || project.reflectionsHtml) && (
+          <ScrollReveal delay={0.3}>
+            <h2 className="text-2xl md:text-3xl font-bold font-bricolage text-neutral-200 mb-6 border-b border-neutral-800/50 pb-3">
+              Reflections on the Project
+            </h2>
+            {project.reflectionsHtml ? (
+              <div className="text-[#909092] leading-relaxed text-[1rem] font-hanken" dangerouslySetInnerHTML={{ __html: project.reflectionsHtml }} />
+            ) : (
+              <p className="text-[#909092] leading-relaxed text-[1rem] font-hanken">
+                {project.reflections}
+              </p>
+            )}
           </ScrollReveal>
         )}
       </div>
