@@ -61,12 +61,14 @@ const ProjectDetail = () => {
           </p>
 
           {project.image && (
-            <div className="mb-8 rounded-xl overflow-hidden border border-neutral-800 bg-[#111]">
-              <img 
-                src={project.image} 
-                alt={project.title} 
-                className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity" 
-              />
+            <div className="mb-8 p-1.5 md:p-2.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl">
+              <div className="rounded-xl overflow-hidden border border-white/10 relative bg-black/50">
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity" 
+                />
+              </div>
             </div>
           )}
 
