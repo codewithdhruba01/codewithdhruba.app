@@ -50,7 +50,7 @@ const ProjectDetail = () => {
                   rel="noopener noreferrer"
                   className="text-[#909092] hover:text-white transition-colors text-sm font-hanken"
                 >
-                  live
+                  Live
                 </a>
               )}
               {project.github && (

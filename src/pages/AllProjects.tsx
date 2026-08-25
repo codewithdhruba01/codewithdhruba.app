@@ -128,7 +128,7 @@ const AllProjects = () => {
                       className="block outline-none p-4 -mx-4 rounded-2xl hover:bg-[#1c1c1c] transition-colors duration-300"
                     >
                       <div className="flex flex-col md:flex-row md:justify-between md:items-baseline gap-1 md:gap-4 mb-2 md:mb-1">
-                        <h3 className="text-xl font-medium font-synonym text-neutral-200 group-hover:text-white transition-colors duration-200">
+                        <h3 className="text-xl font-semibold font-hanken text-neutral-200 group-hover:text-white transition-colors duration-200">
                           {project.title.split(' - ')[0]}
                         </h3>
                         <span className="text-neutral-500 text-sm md:text-base font-hanken whitespace-nowrap">
