@@ -48,7 +48,7 @@ const Blog = () => {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                   {/* Left Column: Info */}
                   <div className="flex-1 space-y-2 min-w-0">
-                    <h3 className="text-lg font-bold font-outfit text-white group-hover:text-neutral-200 transition-colors">
+                    <h3 className="text-lg font-semibold font-hanken text-neutral-200 group-hover:text-white transition-colors">
                       {post.title}
                     </h3>
                     <p className="text-sm text-[#909092] font-poppins leading-relaxed font-light">
@@ -57,13 +57,13 @@ const Blog = () => {
 
                     {/* Bottom Footer Line: Date & Mobile-only Read More */}
                     <div className="flex items-center justify-between pt-1">
-                      <div className="flex items-center gap-1.5 text-xs text-neutral-500 font-outfit leading-none">
-                        <CalendarDays size={16} className="text-neutral-500" />
+                      <div className="flex items-center gap-1.5 text-neutral-500 text-sm md:text-base font-hanken leading-none">
+                        <CalendarDays size={18} className="text-neutral-500" />
                         <span className="pt-[1px]">{post.date}</span>
                       </div>
 
                       {/* Mobile Read More */}
-                      <div className="flex md:hidden items-center gap-1.5 text-sm font-outfit text-neutral-400 group-hover:text-white transition-colors duration-300">
+                      <div className="flex md:hidden items-center gap-1.5 text-sm font-hanken text-neutral-400 group-hover:text-white transition-colors duration-300">
                         <span>Read more</span>
                         <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-300" />
                       </div>

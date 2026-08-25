@@ -97,14 +97,6 @@ const AllProjects = () => {
           }}
         />
 
-        <ScrollReveal delay={0.15}>
-          <div className="flex items-center justify-between border-b border-neutral-900/60 pb-4 mb-8 mt-6">
-            <p className="text-xl font-bold text-neutral-300 font-outfit">
-              All Projects
-            </p>
-          </div>
-        </ScrollReveal>
-
         <AnimatePresence mode="wait">
           <motion.div
             key={selectedCategory + '-' + (showAll ? 'all' : 'sliced') + '-' + loading}
