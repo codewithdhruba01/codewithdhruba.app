@@ -29,8 +29,32 @@ export interface ExperienceInterface {
 
 export const experiences: ExperienceInterface[] = [
     {
-        company: 'SpacECE India',
+        company: 'Hizen',
         isBlur: true,
+        location: 'Hyderabad, Telangana',
+        position: 'Product Engineer',
+        startDate: 'Feb 2026',
+        isCurrent: true,
+        description: [
+            'Prioritizing a deep understanding of customer problems and business requirements before diving into code to ensure technical solutions deliver true value.',
+            'Spearheading the end-to-end development of scalable product features, bridging the gap between engineering, design, and product management to deliver seamless user experiences.',
+            'Architecting and implementing robust full-stack solutions to optimize system performance and ensure high availability for core business applications.',
+            'Collaborating in agile environments to iteratively build, test, and deploy enhancements that directly address user needs and drive product growth.',
+            'Testing the product ourselves over relying on others (especially our users) to find issues'
+        ],
+        technologies: [
+            { name: 'React', icon: <ReactIcon /> },
+            { name: 'TypeScript', icon: <TypeScript /> },
+            { name: 'Node.Js', icon: <NodeJs /> },
+            { name: 'Tailwind CSS', icon: <TailwindCss /> },
+            { name: 'Python', icon: <Python /> },
+            { name: 'AWS', icon: <AmazonWebServices /> },
+            { name: 'Postman', icon: <Postman /> },
+            { name: 'MySQL', icon: <MySQL /> },
+        ],
+    },
+    {
+        company: 'SpacECE India',
         location: 'Pune, Maharashtra',
         position: 'Full Stack Developer (Intern)',
         startDate: 'Jan 2026',

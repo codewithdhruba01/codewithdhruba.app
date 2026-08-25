@@ -102,7 +102,7 @@ export function ExperienceCard({ experience, isOpen, onClick, alwaysOpen = false
                                     <li key={descIndex} className="flex gap-2 items-start">
                                         <span className="text-neutral-500 shrink-0 select-none mt-1.5 text-xs">•</span>
                                         <span
-                                            className="text-neutral-500 font-supreme text-sm sm:text-base leading-relaxed"
+                                            className="text-neutral-500 font-poppins text-sm sm:text-sm leading-relaxed"
                                             dangerouslySetInnerHTML={{
                                                 __html: parseDescription(description),
                                             }}
@@ -114,7 +114,7 @@ export function ExperienceCard({ experience, isOpen, onClick, alwaysOpen = false
 
                         {/* Technologies & Tools */}
                         <div className="flex flex-wrap items-center gap-3 pt-2">
-                            <h4 className="text-xs font-outfit font-semibold text-neutral-400 uppercase tracking-wider">Technologies & Tools :</h4>
+                            <h4 className="text-sm font-hanken font-medium text-neutral-400">Technologies & Tools :</h4>
                             <div className="flex flex-wrap items-center gap-2.5 text-white font-synonym">
                                 <TooltipProvider>
                                     {experience.technologies.map((technology, techIndex: number) => (
