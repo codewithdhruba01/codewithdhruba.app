@@ -11,6 +11,7 @@ import BlogContent from './components/BlogContent';
 import Footer from './components/layout/Footer';
 import BlogList from './pages/BlogList';
 import AllProjects from './pages/AllProjects';
+import ProjectDetail from './pages/ProjectDetail';
 import Contact from './pages/Contact';
 import Gears from './pages/Gears';
 import Extensions from './pages/Extensions';
@@ -57,6 +58,7 @@ const AnimatedRoutes = () => {
         <Route path="/blog" element={<PageTransition><BlogList /></PageTransition>} />
         <Route path="/all-posts" element={<Navigate to="/blog" replace />} />
         <Route path="/projects" element={<PageTransition><AllProjects /></PageTransition>} />
+        <Route path="/projects/:slug" element={<PageTransition><ProjectDetail /></PageTransition>} />
         <Route path="/certificates" element={<PageTransition><Certificates /></PageTransition>} />
         <Route path="/photos" element={<PageTransition><Photos /></PageTransition>} />
         <Route path="/resume" element={<PageTransition><Resume /></PageTransition>} />
