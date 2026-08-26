@@ -158,12 +158,11 @@ const ZoomControls: React.FC<ZoomControlsProps> = ({
       <div className="hidden md:block fixed right-6 top-1/2 -translate-y-1/2 z-40">
         <div className="flex flex-col items-center gap-3
                   rounded-2xl
-                  bg-black/20
+                  bg-[#100F0F]
                   backdrop-blur-xl
                   border border-white/10
                   shadow-[0_0_40px_rgba(0,0,0,0.3)]
                   px-3 py-4
-                  hover:bg-black/30
                   transition-all duration-300">
 
           {/* Zoom In */}

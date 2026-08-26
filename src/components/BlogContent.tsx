@@ -190,7 +190,7 @@ const BlogContent = () => {
           <div className="mb-8">
             <Link
               to="/blog"
-              className="inline-flex items-center text-neutral-300 hover:text-white transition font-hanken group"
+              className="inline-flex items-center text-[#909092] hover:text-white transition font-hanken group"
             >
               <ArrowLeft className="h-4 w-4 mr-2 transform group-hover:-translate-x-1 transition-transform duration-200" />
               Back to Blog
