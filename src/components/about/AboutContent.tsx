@@ -19,12 +19,8 @@ export const AboutContent = () => {
                 </h1>
             </div>
             <div className="flex flex-col gap-6">
-                <p className="text-neutral-400 font-satoshi text-sm md:text-base leading-relaxed">
-                    I am a <HoverInfo
-                        trigger={<span className="text-[#b5b5b6] font-bold">Frontend Developer</span>}
-                        title="Frontend Developer"
-                        description="Specializing in building responsive, accessible, and high-performance web interfaces using modern technologies."
-                    />{' '}with a strong focus on building modern,
+                <p className="text-[#909092] font-satoshi text-sm md:text-base leading-relaxed">
+                    I am a Full Stack Developer with a strong focus on building modern,
                     visually appealing, and user-centric web applications. My journey into development
                     is fueled by curiosity about how technology can solve real-world problems and a
                     constant desire to learn and grow.. I enjoy crafting pixel-perfect user interfaces and building scalable,
@@ -60,12 +56,12 @@ export const AboutContent = () => {
                     />{' '}I
                     create responsive, accessible, and performance-optimized web applications.
                 </p>
-                <p className="text-neutral-400 font-satoshi text-sm md:text-base leading-relaxed">
+                <p className="text-[#909092] font-satoshi text-sm md:text-base leading-relaxed">
                     Beyond writing code, I care deeply about delivering great user experiences,
                     <span className="text-[#b5b5b6]"> writing clean and reusable code, and collaborating effectively within a team. </span>
                     I’m always eager to explore new technologies and apply them to meaningful projects.
                 </p>
-                <p className="text-neutral-400 font-satoshi text-sm md:text-base leading-relaxed">
+                <p className="text-[#909092] font-satoshi text-sm md:text-base leading-relaxed">
                     I am seeking opportunities where I can contribute my skills to impactful products
                     while continuing to evolve as a developer and professional.
                 </p>

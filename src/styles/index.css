@@ -75,6 +75,17 @@ body {
   /* horizontal scrollbar height */
 }
 
+/* Hide thin scrollbar on mobile */
+@media (max-width: 768px) {
+  .thin-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .thin-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
 .thin-scrollbar::-webkit-scrollbar-track {
   background: transparent;
 }

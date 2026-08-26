@@ -177,9 +177,9 @@ const GitHubContributions = () => {
                       }
                       playClickSound();
                     }}
-                    className={`px-3.5 py-1.5 border rounded-lg text-xs font-bold transition-all duration-150 cursor-pointer ${year === y
-                      ? 'border-neutral-950 bg-gradient-to-b from-[#0d0d0e] to-[#161617] text-white translate-y-[2px] shadow-[0_1px_0_#000000,_inset_0_2px_4px_rgba(0,0,0,0.8)]'
-                      : 'border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000]'
+                    className={`px-3 py-1 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${year === y
+                      ? 'bg-white text-black shadow-sm'
+                      : 'bg-[#1C1C1C] text-[#909092] hover:bg-[#2A2A2A] hover:text-white'
                       }`}
                   >
                     {y}

@@ -229,14 +229,27 @@
     modal.className = 'oneko-modal';
     modal.id = 'oneko-selector-modal';
 
-    // Prevent background scrolling
+    // Prevent background scrolling and layout shift (scrollbar)
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     document.body.style.overflow = 'hidden';
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+      const navbar = document.querySelector('nav');
+      if (navbar) {
+        navbar.style.paddingRight = `${scrollbarWidth}px`;
+      }
+    }
 
     const closeAll = () => {
       modal.remove();
       backdrop.remove();
       // Restore scrolling
       document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+      const navbar = document.querySelector('nav');
+      if (navbar) {
+        navbar.style.paddingRight = '';
+      }
     };
 
     backdrop.onclick = closeAll;
