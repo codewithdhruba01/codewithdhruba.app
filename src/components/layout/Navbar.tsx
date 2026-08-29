@@ -6,7 +6,7 @@ import useAppStore from '../../store/useAppStore';
 const Navbar = () => {
   const location = useLocation();
   const { isMobileMenuOpen, toggleMobileMenu, setMobileMenuOpen, setCommandPaletteOpen } = useUIStore();
-  const { activeLink, setActiveLink } = useAppStore();
+  const { setActiveLink } = useAppStore();
 
   const isBlogContentPage = (location.pathname.startsWith('/blog/') && location.pathname !== '/blog') || location.pathname.startsWith('/thoughts/');
 
@@ -76,10 +76,7 @@ const Navbar = () => {
                       setActiveLink(link.href);
                       playClickSound();
                     }}
-                    className={`px-3 py-1.5 rounded-md transition-all duration-300 font-medium ${activeLink === link.href
-                      ? 'text-[#f4f4f4]'
-                      : 'text-[#909092] hover:text-[#f4f4f4]'
-                      }`}
+                    className="px-3 py-1.5 rounded-md transition-all duration-300 font-medium text-[#909092] hover:text-[#f4f4f4]"
                   >
                     {link.text}
                   </Link>
@@ -138,7 +135,7 @@ const Navbar = () => {
                     setMobileMenuOpen(false);
                     playClickSound();
                   }}
-                  className={`block px-3 py-2 rounded-md transition-all font-hind duration-300 transform hover:text-[#f4f4f4] ${isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'} ${activeLink === link.href ? 'text-[#f4f4f4]' : 'text-[#909092]'}`}
+                  className={`block px-3 py-2 rounded-md transition-all font-hind duration-300 transform text-[#909092] hover:text-[#f4f4f4] ${isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'}`}
                   style={{
                     transitionDelay: isMobileMenuOpen ? `${index * 50}ms` : '0ms'
                   }}

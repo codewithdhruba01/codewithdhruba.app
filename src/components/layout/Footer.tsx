@@ -45,7 +45,7 @@ const socialLinks = [
     icon: <GithubIcon size="18" className="stroke-[#909092] group-hover:stroke-white transition-all duration-300" />
   },
   {
-    href: 'https://bsky.app/profile/dhrubaraj.bsky.social',
+    href: '#',
     icon: <BlueskyLine size="18" className="fill-[#909092] group-hover:fill-white transition-colors duration-300" />
   },
   {
