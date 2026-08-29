@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import DOMPurify from 'dompurify';
 import { useParams, Link } from 'react-router-dom';
 import {
   ArrowLeft,
@@ -256,7 +257,7 @@ const BlogContent = () => {
           <div
             className="prose prose-invert max-w-none font-hanken tracking-[0px] text-[#9ca3af] prose-p:text-[#9ca3af] prose-li:text-[#9ca3af] prose-headings:font-hanken prose-headings:text-gray-100 prose-strong:font-semibold prose-strong:text-gray-200"
             style={{ fontSize: `${fontSize}%` }}
-            dangerouslySetInnerHTML={{ __html: post.content }}
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}
           />
 
           {/* Tags */}

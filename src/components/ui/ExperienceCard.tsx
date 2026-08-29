@@ -1,4 +1,5 @@
 import { ChevronRight } from 'lucide-react';
+import DOMPurify from 'dompurify';
 import { cn } from '../../lib/utils';
 import { ExperienceInterface } from '../../constants/experience';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './tooltip';
@@ -104,7 +105,7 @@ export function ExperienceCard({ experience, isOpen, onClick, alwaysOpen = false
                                         <span
                                             className="text-neutral-500 font-poppins text-sm sm:text-sm leading-relaxed"
                                             dangerouslySetInnerHTML={{
-                                                __html: parseDescription(description),
+                                                __html: DOMPurify.sanitize(parseDescription(description)),
                                             }}
                                         />
                                     </li>

@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
+import DOMPurify from 'dompurify';
 import { projects } from '../constants/projects';
 import ScrollReveal from '../components/ui/ScrollReveal';
 
@@ -70,7 +71,7 @@ const ProjectDetail = () => {
         <ScrollReveal delay={0.2}>
           <div
             className="text-[#909092] leading-relaxed text-[1rem] font-hanken mb-8"
-            dangerouslySetInnerHTML={{ __html: project.longDescription || project.description }}
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(project.longDescription || project.description) }}
           />
 
           {project.image && (
@@ -94,12 +95,12 @@ const ProjectDetail = () => {
               Key Features
             </h2>
             {project.featuresHtml ? (
-              <div className="mb-12" dangerouslySetInnerHTML={{ __html: project.featuresHtml }} />
+              <div className="mb-12" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(project.featuresHtml) }} />
             ) : (
               <ul className="list-disc list-outside ml-5 text-[#909092] leading-relaxed text-[1rem] font-hanken space-y-3 mb-12">
                 {project.features?.map((feature, idx) => (
                   <li key={idx}>
-                    <strong className="text-white font-medium">{feature.title}</strong>: <span dangerouslySetInnerHTML={{ __html: feature.description }} />
+                    <strong className="text-white font-medium">{feature.title}</strong>: <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(feature.description) }} />
                   </li>
                 ))}
               </ul>
@@ -113,7 +114,7 @@ const ProjectDetail = () => {
               Reflections
             </h2>
             {project.reflectionsHtml ? (
-              <div className="text-[#909092] leading-relaxed text-[1rem] font-hanken" dangerouslySetInnerHTML={{ __html: project.reflectionsHtml }} />
+              <div className="text-[#909092] leading-relaxed text-[1rem] font-hanken" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(project.reflectionsHtml) }} />
             ) : (
               <p className="text-[#909092] leading-relaxed text-[1rem] font-hanken">
                 {project.reflections}

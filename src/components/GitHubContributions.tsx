@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { request, gql } from 'graphql-request';
 import ScrollReveal from './ui/ScrollReveal';
 
 interface DayData {
@@ -23,68 +22,17 @@ const GitHubContributions = () => {
   };
 
   const GITHUB_USERNAME = 'codewithdhruba01';
-  const TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
 
   const fetchContributions = async (selectedYear: number | 'Default') => {
     setIsLoading(true);
-    const endpoint = 'https://api.github.com/graphql';
-
-    const query = selectedYear === 'Default'
-      ? gql`
-          query {
-            user(login: "${GITHUB_USERNAME}") {
-              contributionsCollection {
-                contributionCalendar {
-                  totalContributions
-                  weeks {
-                    contributionDays {
-                      date
-                      contributionCount
-                    }
-                  }
-                }
-              }
-            }
-          }
-        `
-      : gql`
-          query {
-            user(login: "${GITHUB_USERNAME}") {
-              contributionsCollection(
-                from: "${selectedYear}-01-01T00:00:00Z"
-                to: "${selectedYear}-12-31T23:59:59Z"
-              ) {
-                contributionCalendar {
-                  totalContributions
-                  weeks {
-                    contributionDays {
-                      date
-                      contributionCount
-                    }
-                  }
-                }
-              }
-            }
-          }
-        `;
-
+    
     try {
-      const headers = {
-        Authorization: `Bearer ${TOKEN}`,
-      };
-
-      const data = (await request(endpoint, query, {}, headers)) as {
-        user: {
-          contributionsCollection: {
-            contributionCalendar: {
-              totalContributions: number;
-              weeks: Array<{
-                contributionDays: DayData[];
-              }>;
-            };
-          };
-        };
-      };
+      const res = await fetch(`/api/github?year=${selectedYear}`);
+      if (!res.ok) {
+        throw new Error('Failed to fetch contributions');
+      }
+      
+      const data = await res.json();
 
       const calendar = data.user.contributionsCollection.contributionCalendar;
       const allDays: DayData[] = calendar.weeks.flatMap(
