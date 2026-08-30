@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
-import DOMPurify from 'dompurify';
+import { useEffect, useState, useMemo, lazy, Suspense, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
   ArrowLeft,
   CalendarDays,
   X,
+  Loader2,
 } from 'lucide-react';
 import GiscusComments from './ui/GiscusComments';
 import ShareModal from './modals/ShareModal';
@@ -15,6 +15,8 @@ import ReadingProgressPill from './ui/ReadingProgressPill';
 import Subscribe from './ui/Subscribe';
 import ZoomControls from './ui/ZoomControls';
 import BlogReactions from './ui/BlogReactions';
+
+const mdxModules = import.meta.glob('../content/blog/*.mdx');
 
 // Prism.js imports for syntax highlighting
 import Prism from 'prismjs';
@@ -35,9 +37,57 @@ import 'prismjs/components/prism-docker';
 
 import { blogPostsData } from '../data/blogs';
 
+const CodeBlock = ({ children, className }: any) => {
+  const language = className ? className.replace('language-', '') : 'text';
+  const codeRef = useRef<HTMLElement>(null);
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (codeRef.current) {
+      Prism.highlightElement(codeRef.current);
+    }
+  }, [children, className]);
+
+  const handleCopy = () => {
+    const textToCopy = typeof children === 'string' ? children : children?.toString() || '';
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  return (
+    <div className="code-block-wrapper-modern" data-language={language}>
+      <button className={`code-copy-btn-modern ${copied ? 'copied' : ''}`} onClick={handleCopy} title="Copy Code">
+        {copied ? (
+          <svg className="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'block', color: '#22c55e' }}>
+            <polyline points="20,6 9,17 4,12"></polyline>
+          </svg>
+        ) : (
+          <svg className="copy-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'block' }}>
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+        )}
+      </button>
+      <pre className="code-enhanced">
+        <code ref={codeRef} className={className}>{children}</code>
+      </pre>
+    </div>
+  );
+};
+
 const BlogContent = () => {
   const { slug } = useParams();
   const post = slug ? blogPostsData[slug as keyof typeof blogPostsData] : null;
+
+  const MdxContent = useMemo(() => {
+    const path = `../content/blog/${slug}.mdx`;
+    if (mdxModules[path]) {
+      return lazy(mdxModules[path] as any);
+    }
+    return null;
+  }, [slug]);
 
   const [showShareModal, setShowShareModal] = useState<boolean>(false);
   const [activeImage, setActiveImage] = useState<{ src: string; alt: string } | null>(null);
@@ -62,90 +112,6 @@ const BlogContent = () => {
 
 
 
-  const enhanceCodeBlocks = () => {
-    const preElements = document.querySelectorAll('pre:not(.code-enhanced)');
-
-    preElements.forEach((pre) => {
-      const preElement = pre as HTMLElement;
-      preElement.classList.add('code-enhanced');
-
-      const codeElement = preElement.querySelector('code');
-      if (!codeElement) return;
-
-      const languageClass = Array.from(codeElement.classList).find(cls =>
-        cls.startsWith('language-')
-      );
-      const language = languageClass ? languageClass.replace('language-', '') : 'text';
-
-      const wrapper = document.createElement('div');
-      wrapper.className = 'code-block-wrapper-modern';
-      wrapper.setAttribute('data-language', language);
-
-      const copyButton = document.createElement('button');
-      copyButton.className = 'code-copy-btn-modern';
-      copyButton.title = 'Copy Code';
-      copyButton.innerHTML = `
-        <svg class="copy-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-        </svg>
-        <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display: none; color: #22c55e;">
-          <polyline points="20,6 9,17 4,12"></polyline>
-        </svg>
-      `;
-
-      copyButton.onclick = () => {
-        const codeText = codeElement.textContent || '';
-        navigator.clipboard.writeText(codeText).then(() => {
-          // Show success state
-          const copyIcon = copyButton.querySelector('.copy-icon') as HTMLElement;
-          const checkIcon = copyButton.querySelector('.check-icon') as HTMLElement;
-
-          if (copyIcon && checkIcon) {
-            copyIcon.style.display = 'none';
-            checkIcon.style.display = 'block';
-            copyButton.classList.add('copied');
-
-            setTimeout(() => {
-              copyIcon.style.display = 'block';
-              checkIcon.style.display = 'none';
-              copyButton.classList.remove('copied');
-            }, 2000);
-          }
-        });
-      };
-
-      // Wrap the pre element
-      preElement.parentNode?.insertBefore(wrapper, preElement);
-      wrapper.appendChild(copyButton);
-      wrapper.appendChild(preElement);
-
-      // Apply Prism.js highlighting
-      Prism.highlightElement(codeElement);
-    });
-  };
-
-  const enhanceImages = () => {
-    const images = document.querySelectorAll('.prose img:not(.image-enhanced)');
-    images.forEach((img) => {
-      const imgElement = img as HTMLImageElement;
-      imgElement.classList.add('image-enhanced', 'cursor-zoom-in');
-
-      const wrapper = document.createElement('div');
-      wrapper.className = 'blog-image-wrapper-modern';
-
-      imgElement.parentNode?.insertBefore(wrapper, imgElement);
-      wrapper.appendChild(imgElement);
-
-      imgElement.onclick = () => {
-        setActiveImage({
-          src: imgElement.src,
-          alt: imgElement.alt || 'Blog Image Preview'
-        });
-      };
-    });
-  };
-
   useEffect(() => {
     // Reset scroll to top instantly
     window.scrollTo(0, 0);
@@ -154,14 +120,6 @@ const BlogContent = () => {
       incrementBlogViews();
     }
   }, [slug]);
-
-  // Enhance code blocks and images after content is rendered
-  useEffect(() => {
-    if (post) {
-      enhanceCodeBlocks();
-      enhanceImages();
-    }
-  }, [post]);
 
   const incrementBlogViews = async () => {
     if (!slug) return;
@@ -257,8 +215,30 @@ const BlogContent = () => {
           <div
             className="prose prose-invert max-w-none font-hanken tracking-[0px] text-[#9ca3af] prose-p:text-[#9ca3af] prose-li:text-[#9ca3af] prose-headings:font-hanken prose-headings:text-gray-100 prose-strong:font-semibold prose-strong:text-gray-200"
             style={{ fontSize: `${fontSize}%` }}
-            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}
-          />
+          >
+            {MdxContent ? (
+              <Suspense fallback={<div className="py-12 flex justify-center"><Loader2 className="animate-spin text-neutral-500" /></div>}>
+                <MdxContent 
+                  components={{
+                    pre: (props: any) => {
+                      if (props.children && props.children.type === 'code') {
+                        return <CodeBlock {...props.children.props} />;
+                      }
+                      return <pre {...props} />;
+                    },
+                    img: (props: any) => (
+                      <div 
+                        className="blog-image-wrapper-modern cursor-zoom-in" 
+                        onClick={() => setActiveImage({ src: props.src, alt: props.alt || 'Blog Image Preview' })}
+                      >
+                        <img className="image-enhanced" {...props} />
+                      </div>
+                    )
+                  }}
+                />
+              </Suspense>
+            ) : null}
+          </div>
 
           {/* Tags */}
           <div className="mt-12 pt-8 border-t font-outfit border-gray-800">

@@ -1,0 +1,215 @@
+If you're building in the AI space right now, you know the integration headache: every new agent or LLM requires a bespoke API connector to talk to your enterprise data. The Model Context Protocol (MCP) completely flips this script. Think of MCP as the "USB-C for AI." It’s an open standard that gives your backend systems a universal, secure plug directly into any compatible LLM (like Claude, Cursor, or Copilot).
+
+As developers, we don't need another proprietary SDK; we need standard protocols. By spinning up an **MCP Server**, you expose a standardized interface - wrapping your existing databases, SaaS apps, or internal APIs into three core primitives: **Tools** (callable functions for state changes), **Resources** (contextual data payloads), and **Prompts** (curated system templates). You build the server once, and suddenly your AI agents can safely query a PostgreSQL database, fetch customer logs, or trigger CI/CD pipelines without writing spaghetti integration code.
+
+In this guide, I’m skipping the fluff and diving straight into the engineering reality of operating an MCP Server in production. We’ll break down the architecture (JSON-RPC over STDIO vs. Streamable HTTP), system prerequisites, and the exact steps to containerize and deploy your server. I'll also share battle-tested insights on scaling, security hardening (because you _really_ shouldn't expose raw SQL to an LLM), and why choosing the right runtime matters when pushing for sub-millisecond latencies under heavy multi-agent load.
+
+## What is an MCP Server?
+
+An MCP (Model Context Protocol) server is _a standardized server interface that securely exposes tools, data, and prompts to AI agents_. In MCP's client-server architecture, the AI application (the **host**, e.g. a chat app or IDE) contains an **MCP client**. The client communicates with one or more **MCP servers** via JSON-RPC 2.0 messages. Each MCP server "offers" a catalog of capabilities:
+
+*   **Tools:** callable functions or actions (with defined JSON-schema inputs/outputs) that the AI agent can invoke (e.g. "search\_customer\_records", "send\_slack\_message").
+*   **Resources:** contextual data sources (read-only context) such as database tables, file contents, or API responses that the agent can use for information.
+*   **Prompts:** pre-defined prompt templates or assistants that guide the AI on how to use the tools and data.
+
+For example, Slack provides an official Slack MCP server so that Claude or Copilot can interact with Slack via MCP. The Slack documentation notes: _"The Slack MCP server lets third-party AI assistants securely access your Slack content so they can search messages, find information, and take actions in Slack on your behalf."_ Similarly, Celigo's integration platform includes a managed MCP server that publishes selected business integration capabilities as MCP tools (e.g. CRM updates). In each case, the MCP server acts as **the bridge between the LLM-based assistant and the enterprise systems**, exposing a curated set of operations (tools) that AI can call.
+
+Anthropic (who introduced MCP) emphasizes that without a standard, each AI-to-API integration would be ad-hoc and bespoke. MCP solves this "N×M integration" problem by letting developers spin up _small servers_ that wrap existing services. As one explanation puts it, MCP allows developers to _"spin up small 'servers' that expose tools (like databases or SaaS apps) over a secure protocol."_ In effect, each MCP server becomes an AI-accessible API gateway: it handles authentication/authorization on behalf of the AI, enforces schemas, logs activity, and returns results in JSON.
+
+Typical use cases include:
+
+*   **Data retrieval and query:** Exposing enterprise databases, search engines, knowledge bases, or APIs as MCP tools. E.g. an MCP server for PostgreSQL that lets the LLM query tables, update records, or list schemas.
+*   **Application actions:** Letting AI agents execute actions in enterprise apps (CRM, ERP, Ticketing, GitHub, etc.). For instance, updating a CRM contact, creating support tickets, or merging a GitHub PR via the MCP server's tools.
+*   **Workflow orchestration:** Coordinating multi-step processes. For example, an AI assistant in "agentic" mode might use a Sales MCP server to "pull opportunity data, validate pricing, create an order in the ERP, and log the interaction for audit". All steps are exposed as MCP tools and coordinated by the AI agent and server.
+*   **File and resource access:** Providing AI with relevant documents or file contexts through resources. E.g. exposing a document store or knowledge base via an MCP resource endpoint.
+
+In all cases, _governance_ is key: MCP servers allow centralized control over what the AI can do. Each tool can require specific credentials or scopes, and servers can restrict tools to certain agents or roles. This makes it far easier to audit and secure AI-driven automation than exposing raw APIs directly.
+
+## Architecture and Core Components
+
+The MCP architecture is a **client-server model**. An **MCP Host** (the AI application) can create multiple **MCP Clients**, one per server, each maintaining a connection. For local servers (typically using the STDIO transport), the client is usually a lightweight wrapper launched alongside the AI app. For remote servers, communication happens over HTTP (using _"Streamable HTTP"_ for efficiency). The key participants are:
+
+*   **MCP Host:** the AI tool or interface (e.g. Claude for Desktop, VS Code Copilot) that orchestrates the conversation.
+*   **MCP Client:** the component inside the host that knows how to speak the MCP JSON-RPC protocol and relay requests/responses to the server.
+*   **MCP Server:** the external program exposing tools, resources, prompts via the MCP protocol.
+
+For example, Visual Studio Code is an MCP host. When VS Code connects to a Sentry MCP server, it creates an MCP client to communicate; likewise it can connect to a local file-system MCP server over STDIO. The MCP server program itself can run locally or remotely (cloud, on-prem, container). A local server typically uses STDIO (no network overhead) and is single-tenant. A remote server uses HTTP (with JSON-RPC requests) and can serve many clients concurrently.
+
+**Transports:** MCP supports two primary transports:
+
+*   **STDIO:** the MCP server is started as a child process of the client. The client writes JSON-RPC messages to the server's STDIN and reads responses from STDOUT. This is simple and requires no network, but doesn't scale beyond one client per process.
+*   **Streamable HTTP:** the client sends MCP JSON-RPC messages via HTTP POST requests, and receives partial results via streaming responses (the "streamable" mode defined in MCP 2025-March). This allows horizontal scaling (multiple server instances behind a load balancer) and uses standard web infrastructure. (Earlier "HTTP+SSE" was replaced by Streamable HTTP in 2025.)
+
+**Core Components:** Within an MCP server, the **data layer** implements JSON-RPC calls for:
+
+*   `server/discover` (version and capability discovery)
+*   `tools/list` and `tools/execute` for the callable tools.
+*   `resources/list` and `resources/read` for data resources.
+*   `prompts/list` and `prompts/read` for pre-configured prompt templates.
+
+At a high level, the server provides three kinds of capabilities:
+
+1.  **Tools:** Defined actions with input/output schemas. For example, a "get\_forecast(latitude, longitude) → weather\_report" tool in a weather server, or "executeQuery(sql, params)" in a database server. The MCP client invokes a tool by name with JSON arguments.
+2.  **Resources:** Contextual data like file contents, config values, or API responses. For example, a resource might represent a CSV or a data query result. The agent can fetch resources to attach as context for prompts.
+3.  **Prompts:** Reusable prompt templates or "assistant states" packaged by the server to guide users. For instance, a GitHub server might include a prompt template for "summarize open PRs in a repository" that the assistant can use.
+
+These abstractions let servers present a _curated, AI-friendly interface_. The MCP server translates the AI's JSON requests into real system actions. For example, an MCP server running in Kubernetes might interpret a tool "list\_pods" as an internal API call to the K8s API server and return the result. The protocol itself doesn't care what the server does internally – it only defines the request/response format.
+
+**Mermaid Architecture Diagram:** The following illustrates a typical MCP setup. An LLM-driven assistant (host) connects via an MCP client to an MCP server. The server exposes Tools and Resources that map to backend systems (databases, APIs, etc.).
+
+![MCP Architecture Workflow](/blog/workflow1.png)
+
+_Diagram: An AI assistant (Host) uses an MCP Client to communicate with the MCP Server. The server provides Tools, Resources, and Prompts, which in turn interface with enterprise systems (databases, APIs, etc.)._
+
+## System Requirements
+
+An MCP server is generally lightweight in resource needs. In practice, the requirements are similar to any small web service or tool:
+
+*   **Operating System:** Linux is preferred for production (any distribution). macOS is also supported. Windows can be used via WSL, but most server deployments use Linux.
+*   **Runtime/Language:** Depends on the implementation. For Python-based servers, **Python 3.10+** is required. For Node.js servers, **Node.js 20+** is recommended. Java servers require a recent JDK (e.g. Java 21+) if using a Java MCP SDK.
+*   **Dependencies:** The MCP SDK and any tool-specific libraries. For example, a Python server might use the `mcp` SDK (`pip install mcp` or `mcp[cli]`). A Node server would install `@modelcontextprotocol/server` via npm.
+*   **Hardware:** Even a minimal cloud VM (1 CPU, ~2 GB RAM) is often sufficient for a small MCP server under light load. If the AI agent performs heavy work (e.g. large vector search, image processing), higher resources may be needed.
+*   **Network:** If using a remote HTTP server, the machine needs network access (public or internal). Open ports: by convention, MCP servers often listen on 3000+ (e.g. `http://localhost:3001`); this is configurable. If hosting publicly, TLS is required for security. If internal only, ensure firewall rules permit the clients to reach the port.
+*   **Security/Authentication:** For local STDIO servers no authentication is needed (client launches it). For remote HTTP servers, use HTTPS/TLS. Most server implementations support API tokens or OAuth for clients. For example, Azure's MCP server uses Azure AD (Entra ID) for auth, and Google Cloud MCP servers rely on Google IAM policies.
+*   **Containerization (optional):** You can run an MCP server in Docker or Kubernetes. Containerization helps with isolation and scaling. For local dev, it's optional; for production, Docker/K8s is a common choice.
+
+In summary, you _do not_ need a powerful machine: **Linux or WSL, Python 3.10+/Node 20+, and a small VM (1vCPU,2GB)** will run most MCP servers comfortably. Key system requirements are simply having the right language runtime and network connectivity.
+
+## Installation and Configuration
+
+Installation steps vary by language/implementation, but typically involve: installing the SDK or server package, writing some code or configuration to define your tools/resources, and configuring the host to connect. Below is a generic outline, with examples for Python and Node:
+
+*   **Install the MCP SDK or reference server:** For Python, you can use `pip` or the `astral/uv` tool. For example, to use the reference PostgreSQL server, you could run:
+
+```bash
+
+# Using uvx (Astral) environment tool
+uv add "mcp-server-postgres"
+# Or with pip and module invocation
+pip install mcp-server-postgres
+python -m mcp_server_postgres
+    
+```
+
+(These commands come from the official GitHub reference and start the server process.)  
+For a TypeScript server, you would `npm install @modelcontextprotocol/server` and build your project.
+
+*   **Write or configure your server code:** Using the SDK, you register your tools/resources. The official docs include examples in Python, TS, Java, etc. For instance, a simple Python MCP server might look like:
+
+```python
+
+from mcp.server import MCPServer, ToolSchema
+mcp = MCPServer(name="weather")
+mcp.add_tool("get_forecast", input_schema=ToolSchema(...), handler=get_forecast)
+if __name__ == "__main__":
+    mcp.run(transport="stdio")
+    
+```
+
+Here `transport="stdio"` tells the server to use STDIO. (If using HTTP, you might instead call `mcp.run(transport="http", port=3000)`.) **Important:** For STDIO servers, _never print to stdout_, only stderr. Logging frameworks should write to stderr or a file, because any output on stdout would corrupt the JSON-RPC stream.
+
+*   **Configure the host to connect:** Once the server is running, the AI host (e.g. Claude Desktop, VS Code) needs to know how to start or reach it. This typically involves editing a JSON config. For example, Claude Desktop on macOS has a `claude_desktop_config.json` file. To add a local server named "weather", you might add:
+
+```json
+
+{
+  "mcpServers": {
+    "weather": {
+      "command": "uv",
+      "args": ["--directory", "/ABSOLUTE/PATH/TO/weather", "run", "weather.py"]
+    }
+  }
+}
+    
+```
+
+In Visual Studio Code, MCP servers are configured in `.vscode/mcp.json`. For example, the VS Code docs show a workspace config with both a remote HTTP and a local server:
+
+```json
+
+{
+  "servers": {
+    "github": { "type": "http", "url": "https://api.githubcopilot.com/mcp" },
+    "playwright": { "command": "npx", "args": ["-y", "@microsoft/mcp-server-playwright"] }
+  }
+}
+    
+```
+
+## Deployment and Integration
+
+After building and testing locally, you'll likely deploy the MCP server to your target environment. Deployment options include:
+
+*   **Self-hosted on Servers/VMs:** Deploy the server (e.g. via a Python virtualenv or container) on a Linux VM. Use a process manager (systemd, PM2 for Node, etc.) to keep it running.
+*   **Containers/Kubernetes:** Package the server in a Docker container. You can run it in Kubernetes (as a Deployment or a Knative/Cloud Run service for serverless). For example, Red Hat's Kubernetes MCP server is designed as a container that connects to the K8s API and can run on OpenShift.
+*   **CI/CD Integration:** In your CI/CD pipeline, include steps to build the server image, run tests (e.g. using `claude mcp validate` or similar), and deploy.
+
+**Integration with Systems:** MCP servers are typically connectors to existing infrastructure:
+
+*   **Databases:** e.g. a PostgreSQL MCP server (read/write) can be deployed as a cloud service that agents call to query/update records.
+*   **Cloud Services:** Cloud providers offer MCP servers for their ecosystems. Microsoft's Azure MCP Server provides dozens of "Azure skills" (tools) for things like deploying resources via `azd`.
+*   **APIs and SaaS:** If you have a REST API or SaaS platform, you can wrap it in an MCP server. For example, a Slack MCP server uses Slack's Web API internally.
+
+## Operational Tasks
+
+**Backup:** If your MCP server stores any state, back it up according to your usual data policies. For stateless servers, ensure you have version control of your code and configuration.
+
+**Monitoring & Metrics:** Expose basic health endpoints (e.g. `/healthz`) and integrate with monitoring. Watch request count, latency, error rates (via Prometheus or cloud monitoring).
+
+**Logging:** Always log to stderr or log files. Use a structured logging framework if possible. Keep logs of critical errors or schema mismatches.
+
+**Scaling:** To scale an MCP server, run multiple instances (horizontal scaling). Use Kubernetes Deployments or cloud autoscaling groups. Choose **Streamable HTTP** transport for remote servers.
+
+**Security Hardening:**
+
+*   **TLS/Network:** Use HTTPS for all remote servers. Lock down firewall rules to only allow known clients.
+*   **Auth/Zones:** Integrate with identity: e.g. use OAuth2 scopes or enterprise SSO (Azure AD, GCP IAM).
+*   **Input Validation:** Define strict JSON schemas for each tool to prevent schema mismatch and injection.
+
+## Troubleshooting Common Issues
+
+*   **"Server not found" or fails to launch:** Usually the configured command/path in your MCP config is wrong. Check that the absolute path in your JSON matches the actual location.
+*   **Invalid JSON in config:** A missing comma or quote in the JSON config will prevent the server from registering. Validate syntax with tools like `jq`.
+*   **Port in use / connection refused:** If using HTTP transport, ensure the port isn't already occupied.
+*   **Timeout after 30 seconds:** Some MCP clients may give up if the server takes too long to respond. You can extend this by configuring a larger timeout.
+
+## Performance Tuning and Benchmarks
+
+MCP servers have been performance-tested, revealing some key insights:
+
+*   **Transport Matters:** Benchmarks show **STDIO transport does _not_ scale**. Use **Streamable HTTP** for any production or multi-agent scenario.
+*   **Language/Implementation Differences:** A multi-language benchmark compared Java, Go, Node.js, and Python MCP servers under heavy load. Java and Go implementations achieved _sub-millisecond_ average latencies and over **1600 requests/sec**. Node.js and Python were 10×-30× slower.
+*   **Concurrency:** Ensure your server can handle concurrent calls. If using Python's asyncio, configure `asyncio.run` properly and consider worker pools.
+*   **Caching and Batching:** Where possible, cache expensive operations in the server (e.g. database queries).
+
+## Sample Workflow Scenario
+
+Consider a real-world example: a customer-support chatbot that helps with order inquiries. A user asks "_Where is my order #12345?_" The LLM assistant knows that order info is in the company database. It thus invokes an MCP server designed for order management. The sequence is:
+
+1.  **User:** "Where is order 12345?"
+2.  **LLM (assistant) → MCP Client:** The LLM selects the `get_order_status(order_id)` tool and calls the MCP client.
+3.  **MCP Client → MCP Server:** Sends a JSON-RPC request: `tools/execute` with `{"tool": "get_order_status", "arguments": {"order_id": 12345}}`.
+4.  **MCP Server:** Receives the request, validates the schema, and runs the tool's handler. It queries the backend DB (e.g. `SELECT status FROM orders WHERE id=12345`).
+5.  **Database → MCP Server:** Returns e.g. `{"status":"Shipped"}`.
+6.  **MCP Server → Client:** Returns the result JSON with `{"status":"Shipped"}`.
+7.  **LLM:** Incorporates that into a reply: "Your order #12345 has been shipped."
+
+![MCP Sequence Diagram](/blog/workflow2.png)
+
+## Comparison of Major MCP Server Implementations
+
+Each implementation reflects different trade-offs. Open-source MCP SDKs give maximum flexibility at the cost of DIY effort. Vendor offerings (Azure, Google) provide rich tools and governance but tie you to that cloud's ecosystem.
+
+*   **MCP Reference Servers (Open Source):** Community SDKs & Reference. Free and flexible; multi-language support. Requires development effort.
+*   **Slack MCP Server:** SaaS (Slack). Quick setup (Slack app); secure model to Slack data. Scope limited to Slack workspace data.
+*   **Celigo Integrator.io MCP:** Managed iPaaS. Enterprise features: UI for tools, scopes, audit. Locked into Celigo ecosystem.
+*   **Red Hat Kubernetes MCP:** Self-hosted Container. Native to K8s/OpenShift; secure and performant. Specialized to K8s clusters.
+*   **Azure MCP Server (Microsoft):** Cloud / Developer tool. Rich Azure ecosystem support; managed authentication. Azure-only focus.
+*   **Google Cloud MCP (GCP):** Cloud / Enterprise. Enterprise security: IAM policies, audit, risk scanning. Vendor lock-in to GCP.
+
+## Links
+
+*   Anthropic, "[Introducing the Model Context Protocol](https://www.anthropic.com/news/model-context-protocol)".
+*   Model Context Protocol, "[Official MCP Documentation](https://modelcontextprotocol.io/introduction)".
+*   GitHub, "[MCP Open Source Repository](https://github.com/modelcontextprotocol)".
+*   Microsoft Azure, "[Azure MCP Server](https://github.com/Azure/mcp-server-azure)".

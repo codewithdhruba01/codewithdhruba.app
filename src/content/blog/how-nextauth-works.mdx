@@ -1,0 +1,102 @@
+## Introduction
+
+Authentication is a crucial part of modern web applications. Implementing secure login, session handling, OAuth integration (like Google or GitHub login), and user management manually can be quite complex and time-consuming.
+
+**NextAuth.js** (now Auth.js) is a powerful and secure authentication solution for Next.js applications that simplifies all of this complexity.
+
+In this guide, we will understand **how NextAuth.js works**, both concept-wise and step-by-step.
+
+## 1\. What is NextAuth.js?
+
+**NextAuth.js** is an open-source authentication library specifically designed for **Next.js**. It provides serverless and secure authentication.
+
+It handles:
+
+*   User Authentication (Login/Signup)
+*   OAuth Providers (Google, GitHub, Facebook, Twitter, etc.)
+*   Session and JWT (JSON Web Token) management
+*   Secure Cookies handling
+*   Database Integration (Prisma, MongoDB, etc.)
+
+👉 In simple terms:  
+**NextAuth.js = Secure authentication without writing complex logic.**
+
+## 2\. Why Do We Need NextAuth.js?
+
+If we were to implement authentication manually, we would have to manage all of the following ourselves:
+
+*   Password Hashing (for security)
+*   OAuth Flows (communicating with Google, exchanging tokens)
+*   Token Generation & Validation
+*   Session Expiry & Refresh Tokens
+*   CSRF Protection and Cookie Security
+
+NextAuth.js handles all of this **automatically**, which saves development time and ensures the application remains secure.
+
+## 3\. Authentication Flow: How It Works
+
+To understand the working mechanism of NextAuth.js, let's look at the flow step-by-step. The diagram below explains the entire process:
+
+![NextAuth.js Architecture Flow Diagram](/blog/nextauth-architecture.png)
+
+NextAuth.js Authentication Flow
+
+### Step 1: User Initiates Login
+
+When a user clicks the "Sign in with Google" or "Login" button on the website, the `signIn()` method of NextAuth.js is called.
+
+### Step 2: Redirect to Provider
+
+If you are using OAuth (like Google/GitHub), NextAuth **redirects** the user to that provider's secure login page. Here, the user enters their password and grants permission.
+
+### Step 3: Verification & Callback
+
+Once the user successfully logs in, the Provider (Google/GitHub) sends the user back to your website (Redirect back). Along with this, it sends a secret **authorization code**.
+
+The NextAuth.js backend (API route) receives this code and verifies whether it is genuine or not.
+
+### Step 4: Session Creation
+
+After successful verification, NextAuth.js creates a **Session**. This session can be of two types:
+
+*   **JWT (JSON Web Token):** Session data is stored in an encrypted form within the user's browser cookie. (Default behavior)
+*   **Database Session:** The session ID is in the cookie, and the actual data is saved in the database.
+
+### Step 5: Cookie Set & Login Complete
+
+Finally, a secure, encrypted **HTTP-only cookie** is set in the browser. Now, whenever the user visits a protected page, NextAuth checks this cookie and grants access.
+
+## 4\. Core Concepts
+
+### a) Providers
+
+Providers are the services through which a user logs in. NextAuth has built-in support for:
+
+*   **OAuth Providers:** Google, GitHub, Discord, Twitter, etc.
+*   **Credentials Provider:** Your own custom Email/Password login system.
+*   **Email Provider:** Magic Links (Passwordless login via email).
+
+### b) Sessions & Strategies
+
+NextAuth uses 2 strategies to manage sessions:
+
+*   **JWT (Stateless):** No database required. It is fast and best for small to medium applications.
+*   **Database (Stateful):** The session is stored in the database. This is better if you need to logout a user from the server side.
+
+### c) Adapters
+
+If you want to save user data (Profile, Sessions) in your database (MongoDB, Postgres, MySQL), **Adapters** are used. NextAuth provides adapters for popular ORMs like Prisma, Drizzle, Mongoose, etc.
+
+## 5\. Security
+
+NextAuth.js prioritizes security:
+
+*   **CSRF Token:** Protects against Cross-Site Request Forgery attacks.
+*   **Encrypted Cookies:** Cookies are encrypted by default, so no one can read them.
+*   **HTTP-Only:** Client-side JavaScript (XSS attacks) cannot access the cookies.
+
+## Conclusion
+
+So friends, NextAuth.js is not just a wrapper; it is a complete security suite for Next.js. It hides the complexity of OAuth flows, sessions, and security headers so you can focus on your app's features.
+
+If you are using Next.js, NextAuth.js (Auth.js) is definitely the best choice for authentication!

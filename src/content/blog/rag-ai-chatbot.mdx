@@ -1,0 +1,263 @@
+When I started exploring the latest advancements in Artificial Intelligence, one concept kept appearing repeatedly — **RAG (Retrieval Augmented Generation)**.
+
+RAG is a powerful technique that combines **information retrieval** with **large language models (LLMs)** to generate responses based on custom data. Instead of relying only on the model’s pre-trained knowledge, a RAG system retrieves relevant information from a specific dataset and then uses that information to generate accurate answers.
+
+This approach makes AI systems significantly more **context-aware, reliable, and useful for domain-specific tasks** such as study assistants, document analysis tools, and internal business knowledge systems.
+
+To better understand how RAG works in practice, I built a **personalized AI chatbot** that can answer questions from my own documents like PDFs, notes, and images.
+
+In this article, I’ll explain how the system works and walk through the complete architecture step by step.
+
+## Understanding RAG (Retrieval Augmented Generation)
+
+In simple terms, **RAG works in two main steps**.
+
+### 1\. Retrieval
+
+When a user asks a question, the system first searches through the available documents (such as PDFs, notes, or images) to find the most relevant pieces of information.
+
+### 2\. Generation
+
+The retrieved information is then provided to a **Large Language Model (LLM)**. The model uses this context to generate a meaningful and accurate answer.
+
+Because the response is generated using **actual retrieved content**, the system becomes much more reliable and avoids hallucinating incorrect information.
+
+* * *
+
+![Streamlit Chat Interface](/blog/ChatInterface.png)
+
+Personal AI Chatbot Interface
+
+## About the Application
+
+The application I built is an **AI-powered chatbot designed to answer questions based on user-provided data**.
+
+Instead of relying only on general knowledge, users can upload their own documents, including:
+
+*   PDFs
+*   Class notes
+*   Images containing text
+*   Text documents
+
+The system processes these files and converts them into a **vector database**, allowing the AI to efficiently search and retrieve relevant information.
+
+Whenever a user asks a question, the chatbot:
+
+1.  Searches the vector database
+2.  Retrieves the most relevant content
+3.  Sends that context to the language model
+4.  Generates a response based on the retrieved information
+
+This makes the chatbot **context-aware and highly accurate**.
+
+If the uploaded documents do not contain the required information, the chatbot clearly indicates that it cannot answer the question. This helps prevent misinformation.
+
+Another key feature is **conversation memory**. The chatbot stores chat history so it can understand follow-up questions naturally. For example, if a user asks about a topic and then asks a follow-up question using words like _“it”_ or _“that topic”_, the chatbot understands the reference.
+
+Additionally, the chatbot can **generate summaries of uploaded documents**, helping users quickly understand key insights from large files.
+
+## Technologies Used
+
+The chatbot was built using the following technologies:
+
+*   **LangChain** – For orchestrating the RAG pipeline
+*   **Sentence Transformers** – For generating embeddings
+*   **Chroma DB** – As the vector database
+*   **Streamlit** – For the user interface
+*   **Ollama (Llama 3)** – As the local large language model
+*   **PyPDF2 / PyPDF** – For PDF processing
+*   **Tesseract OCR** – For extracting text from images
+
+This stack allows the chatbot to process multiple types of documents and run locally without relying on external APIs.
+
+## System Architecture
+
+The project architecture consists of **six main components**.
+
+![RAG System Architecture Diagram](/blog/RagArchitecture.png)
+
+High-level System Architecture
+
+## 1\. Document Upload and Processing
+
+The first step is allowing users to upload documents.
+
+These documents may include PDF files, text files, and images containing text. The system processes these files and extracts the text content.
+
+For PDFs, libraries such as **PyPDF** are used to read and extract text. For images, **Tesseract OCR** is used to detect and extract text from the image.
+
+Example:
+
+```python
+from PIL import Image
+import pytesseract
+
+image = Image.open("notes.png")
+text = pytesseract.image_to_string(image)
+```
+
+This step converts all data into **plain text format**, which is necessary for further processing.
+
+## 2\. Splitting Text into Chunks
+
+![Splitting text into chunks](/blog/chank.jpeg)
+
+Documents can often be very large, sometimes containing thousands of words. Since LLMs have **context length limitations**, the text must be divided into smaller sections called **chunks**.
+
+Chunking improves both performance and retrieval accuracy. LangChain provides a built-in text splitter for this purpose.
+
+Example:
+
+```python
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+text_splitter = RecursiveCharacterTextSplitter(
+    chunk_size=500,
+    chunk_overlap=50
+)
+
+chunks = text_splitter.split_documents(documents)
+```
+
+Each chunk now contains a manageable piece of text that can be processed efficiently.
+
+## 3\. Creating Embeddings and Vector Database
+
+After splitting the documents into chunks, each chunk is converted into a **vector representation called an embedding**.
+
+Embeddings capture the **semantic meaning of text**. For example, two sentences with similar meanings will have embeddings that are close to each other in vector space.
+
+We use **Sentence Transformers** to generate embeddings.
+
+```python
+from langchain_huggingface import HuggingFaceEmbeddings
+
+embeddings = HuggingFaceEmbeddings(
+    model_name="all-MiniLM-L6-v2"
+)
+```
+
+These embeddings are then stored in a **vector database**. For this project, we use **Chroma DB**.
+
+```python
+from langchain.vectorstores import Chroma
+
+db = Chroma.from_documents(
+    documents=chunks,
+    embedding=embeddings,
+    persist_directory="chroma_db"
+)
+```
+
+This creates a searchable knowledge base from the uploaded data.
+
+## 4\. Retrieving Relevant Context
+
+When a user asks a question, the system searches the vector database to find the most relevant chunks. This process is called **semantic search**.
+
+Example:
+
+```python
+retriever = db.as_retriever(
+    search_type="similarity",
+    search_kwargs={"k":4}
+)
+```
+
+This retrieves the **top 4 most relevant chunks** related to the user’s question. These chunks provide the context required for generating the answer.
+
+## 5\. Generating Answers with LLM
+
+The retrieved context is passed to a **Large Language Model**. In this project, the model used is **Llama 3 running locally through Ollama**.
+
+Example:
+
+```python
+from langchain_ollama import ChatOllama
+
+llm = ChatOllama(
+    model="llama3.1",
+    temperature=0
+)
+```
+
+LangChain’s **Conversational Retrieval Chain** combines retrieval with response generation.
+
+```python
+from langchain.chains import ConversationalRetrievalChain
+
+qa_chain = ConversationalRetrievalChain.from_llm(
+    llm=llm,
+    retriever=retriever
+)
+```
+
+This chain automatically retrieves relevant context, sends it to the LLM, and generates an answer.
+
+## 6\. Managing Conversation Context
+
+To support follow-up questions, the chatbot maintains a **chat history**. This allows the system to understand references in later questions.
+
+For example:
+
+**User:** _"What topics are covered in my physics notes?"_
+
+**User:** _"Is it detailed?"_
+
+The chatbot understands that **“it” refers to physics notes**. This feature makes the conversation feel natural and interactive.
+
+## Building the Chat Interface with Streamlit
+
+The entire chatbot interface was built using **Streamlit**. Streamlit provides built-in components for creating chat interfaces.
+
+Example:
+
+```python
+import streamlit as st
+
+st.title("Personal Data Chatbot")
+
+query = st.chat_input("Ask a question")
+
+if query:
+    response = qa_chain({"question": query})
+    st.write(response["answer"])
+```
+
+With Streamlit, users can upload documents, ask questions, view answers instantly, and continue conversations naturally.
+
+## Additional Feature: Document Summarization
+
+Another useful feature of the chatbot is **automatic document summarization**. Users can ask the chatbot to summarize a document or a specific topic.
+
+The system retrieves relevant chunks and instructs the LLM to generate a concise summary. This makes the chatbot useful for studying, reviewing notes, and understanding large documents quickly.
+
+## Why This Approach Is Powerful
+
+Building a RAG chatbot offers several advantages:
+
+### Context-Aware Answers
+
+The chatbot answers questions based on **actual uploaded data**, not just general knowledge.
+
+### Reduced Hallucination
+
+Since responses are grounded in retrieved documents, the model is less likely to generate incorrect information.
+
+### Personalized Knowledge Assistant
+
+Users can turn their personal documents into an **interactive knowledge base**.
+
+### Scalable Architecture
+
+More documents can easily be added to the system without retraining the model.
+
+* * *
+
+## Conclusion
+
+Building this RAG-based chatbot helped me understand how modern AI systems can combine **retrieval mechanisms with large language models** to create powerful applications.
+
+By integrating tools like **LangChain, Sentence Transformers, Chroma DB, and Ollama**, it’s possible to build a fully functional **AI assistant that works with your own data**.
+
+As AI technology continues to evolve, **RAG architectures will play a key role in making AI systems more reliable, context-aware, and practical for everyday use.**

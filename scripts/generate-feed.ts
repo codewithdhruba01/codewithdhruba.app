@@ -37,10 +37,14 @@ function generateRssFeed() {
     const pubDate = post.parsedDate.toUTCString();
 
     // Limit description length or clean HTML
-    const cleanDesc = post.content
-      .replace(/<[^>]*>/g, '') // remove HTML tags
-      .substring(0, 200)
-      .trim() + '...';
+    let cleanDesc = '';
+    try {
+      const mdxPath = path.join(process.cwd(), 'src', 'content', 'blog', `${post.slug}.mdx`);
+      const mdxContent = fs.readFileSync(mdxPath, 'utf-8');
+      cleanDesc = mdxContent.replace(/<[^>]*>/g, '').replace(/[#*`_\[\]()]/g, '').substring(0, 200).trim() + '...';
+    } catch (e) {
+      cleanDesc = (post as any).description || post.title;
+    }
 
     itemsXml += `
     <item>
