@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo, lazy, Suspense } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
   ArrowLeft,
@@ -7,8 +7,11 @@ import {
   Minus,
   Settings,
   RotateCcw,
+  Loader2
 } from 'lucide-react';
 import { bookThoughtsData } from '../data/thoughts';
+
+const mdxModules = import.meta.glob('../content/thoughts/*.mdx');
 import ReadingProgressPill from './ui/ReadingProgressPill';
 
 const BookThoughts = () => {
@@ -128,96 +131,13 @@ const BookThoughts = () => {
     );
   }
 
-  // Calculate grouped notes for beautiful presentation (like Habit 1 heading groups)
-  interface GroupedNoteItem {
-    subheading?: string;
-    text: string;
-  }
-  interface GroupedNote {
-    heading: string | null;
-    items: GroupedNoteItem[];
-  }
-  const groupedNotes: GroupedNote[] = [];
-
-  thought.notes.forEach(note => {
-    const parts = note.split(' — ');
-    if (parts.length > 1) {
-      const heading = parts[0];
-      const rest = parts.slice(1).join(' — ');
-      const subParts = rest.split(': ');
-      let subheading: string | undefined;
-      let text = rest;
-
-      if (subParts.length > 1 && subParts[0].length < 40) {
-        subheading = subParts[0];
-        text = subParts.slice(1).join(': ');
-      }
-
-      const existing = groupedNotes.find(g => g.heading === heading);
-      if (existing) {
-        existing.items.push({ subheading, text });
-      } else {
-        groupedNotes.push({ heading, items: [{ subheading, text }] });
-      }
-    } else {
-      const colonParts = note.split(': ');
-      if (colonParts.length > 1 && colonParts[0].length < 45) {
-        groupedNotes.push({
-          heading: null,
-          items: [{ subheading: colonParts[0], text: colonParts.slice(1).join(': ') }]
-        });
-      } else {
-        groupedNotes.push({
-          heading: null,
-          items: [{ text: note }]
-        });
-      }
+  const MdxContent = useMemo(() => {
+    const path = `../content/thoughts/${slug}.mdx`;
+    if (mdxModules[path]) {
+      return lazy(mdxModules[path] as any);
     }
-  });
-
-  const renderItemText = (text: string) => {
-    if (text.includes('\n')) {
-      const lines = text.split('\n');
-      return (
-        <div className="space-y-3 mt-2 w-full">
-          {lines.map((line, idx) => {
-            const trimmed = line.trim();
-            if (trimmed.startsWith('* ') || trimmed.startsWith('- ')) {
-              const content = trimmed.substring(2);
-              const colonIndex = content.indexOf(':');
-              if (colonIndex !== -1 && colonIndex < 25) {
-                const prefix = content.substring(0, colonIndex);
-                const rest = content.substring(colonIndex + 1);
-                return (
-                  <div key={idx} className="flex items-start pl-6 text-[0.95em] text-white/80 leading-relaxed">
-                    <span className="mr-2.5 select-none font-bold text-[10px] text-white mt-[4px]">•</span>
-                    <span>
-                      <strong className="text-white font-semibold">{prefix}:</strong>
-                      {rest}
-                    </span>
-                  </div>
-                );
-              }
-              return (
-                <div key={idx} className="flex items-start pl-6 text-[0.95em] text-white/80 leading-relaxed">
-                  <span className="mr-2.5 select-none font-bold text-[10px] text-white mt-[4px]">•</span>
-                  <span>{content}</span>
-                </div>
-              );
-            }
-
-            return (
-              <p key={idx} className="text-[1em] text-white/85 leading-relaxed">
-                {line}
-              </p>
-            );
-          })}
-        </div>
-      );
-    }
-
-    return <span>{text}</span>;
-  };
+    return null;
+  }, [slug]);
 
   return (
     <>
@@ -256,83 +176,73 @@ const BookThoughts = () => {
             </div>
           </div>
 
-          {/* Book Summary / Short Story / Description */}
-          <div className="mb-12">
-            <h3 className="text-base md:text-sm font-bold uppercase tracking-[0.2em] text-white/75 mb-6 flex items-center gap-4">
-              <span>Overview</span>
-              <span className="flex-1 h-[1px] bg-white/10"></span>
-            </h3>
-            <p className="text-[15.5px] text-white/60 leading-relaxed font-hanken">
-              {thought.description}
-            </p>
-          </div>
-
-          {/* Book Notes */}
-          <div className="mb-12">
-            <h3 className="text-base md:text-sm font-bold uppercase tracking-[0.2em] text-white/45 mb-6 flex items-center gap-4">
-              <span>Notes</span>
-              <span className="flex-1 h-[1px] bg-white/10"></span>
-            </h3>
-
-            <div className="space-y-8">
-              {groupedNotes.map((group, gIdx) => (
-                <div key={gIdx} className="space-y-4">
-                  {group.heading && (
-                    <h4
-                      className="text-[1.25em] font-semibold text-white flex items-center gap-3"
-                      style={{ fontFamily: "'Instrument Serif', serif" }}
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: thought.accentColor }} />
-                      {group.heading}
-                    </h4>
-                  )}
-                  <ul className={`space-y-4 ${group.heading ? 'pl-5 border-l border-white/5' : ''}`}>
-                    {group.items.map((item, idx) => (
-                      <li key={idx} className="flex flex-col items-start text-[14.5px] text-white/85 leading-relaxed font-poppins">
+          {MdxContent ? (
+            <Suspense fallback={<div className="flex items-center justify-center py-12"><Loader2 className="animate-spin text-neutral-500" /></div>}>
+              <div className="mdx-content-container max-w-none pb-12">
+                <MdxContent 
+                  components={{
+                    h2: ({ children, ...props }: any) => {
+                      // Final thoughts has that big quote mark. We can inject it if the heading is "Final Thoughts"
+                      const isFinalThoughts = children === 'Final Thoughts';
+                      return (
+                        <h2 className="text-base md:text-sm font-bold uppercase tracking-[0.2em] text-white/45 mt-16 mb-6 flex items-center gap-4" {...props}>
+                          <span className={children === 'Overview' ? 'text-white/75' : ''}>{children}</span>
+                          <span className="flex-1 h-[1px] bg-white/10"></span>
+                        </h2>
+                      );
+                    },
+                    h3: ({ children, ...props }: any) => (
+                      <h3
+                        className="text-[1.25em] font-semibold text-white flex items-center gap-3 mt-8 mb-4"
+                        style={{ fontFamily: "'Instrument Serif', serif" }}
+                        {...props}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: thought.accentColor }} />
+                        {children}
+                      </h3>
+                    ),
+                    p: ({ children, ...props }: any) => {
+                      // To match the Final Thoughts quote mark style, we can check if it's the last element, but it's easier to just use standard p.
+                      return <p className="text-[15.5px] text-white/60 leading-relaxed font-hanken mb-6" {...props}>{children}</p>;
+                    },
+                    ul: (props: any) => <ul className="space-y-4 pl-5 border-l border-white/5 mb-8" {...props} />,
+                    li: ({ children, ...props }: any) => (
+                      <li className="flex flex-col items-start text-[14.5px] text-white/85 leading-relaxed font-poppins" {...props}>
                         <div className="flex items-start w-full">
-                          {!group.heading && (
-                            <span
-                              className="mr-4 mt-2 select-none font-black text-xs shrink-0 animate-pulse"
-                              style={{ color: thought.accentColor }}
-                            >
-                              •
-                            </span>
-                          )}
-                          <span>
-                            {item.subheading && (
-                              <strong className="text-white/90 font-semibold mr-1">{item.subheading}:</strong>
-                            )}
-                            {!item.text.includes('\n') && item.text}
+                          <span
+                            className="mr-4 mt-2 select-none font-black text-xs shrink-0 animate-pulse"
+                            style={{ color: thought.accentColor }}
+                          >
+                            •
                           </span>
+                          <span>{children}</span>
                         </div>
-                        {item.text.includes('\n') && renderItemText(item.text)}
                       </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+                    ),
+                    strong: (props: any) => <strong className="text-white/90 font-semibold mr-1" {...props} />,
+                    a: (props: any) => <a className="text-[#00DC82] hover:text-[#00b368] transition-colors" {...props} />,
+                    FinalThoughts: ({ children }: any) => (
+                      <div className="flex items-start gap-4">
+                        <span
+                          className="text-[3.5em] leading-none select-none -mt-3 shrink-0 font-serif font-extrabold"
+                          style={{ color: thought.accentColor }}
+                        >
+                          “
+                        </span>
+                        <div className="text-[15.5px] text-white/60 leading-relaxed font-hanken pt-2">
+                          {children}
+                        </div>
+                      </div>
+                    )
+                  }} 
+                />
+              </div>
+            </Suspense>
+          ) : (
+            <div className="py-12 text-center text-white/50 font-hanken">
+              Notes coming soon.
             </div>
-          </div>
-
-          {/* Final Thoughts */}
-          <div className="mb-16">
-            <h3 className="text-base md:text-sm font-bold uppercase tracking-[0.2em] text-white/45 mb-6 flex items-center gap-4">
-              <span>Final Thoughts</span>
-              <span className="flex-1 h-[1px] bg-white/10"></span>
-            </h3>
-
-            <div className="flex items-start gap-4">
-              <span
-                className="text-[3.5em] leading-none select-none -mt-3 shrink-0 font-serif font-extrabold"
-                style={{ color: thought.accentColor }}
-              >
-                “
-              </span>
-              <p className="text-[15.5px] text-white/60 leading-relaxed font-hanken pt-2">
-                {thought.finalThoughts}
-              </p>
-            </div>
-          </div>
+          )}
 
           {/* Bottom Navigation */}
           <div className="flex items-center justify-between mt-20 pt-8 border-t border-white/10 font-hanken">
