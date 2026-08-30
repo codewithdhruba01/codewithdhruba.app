@@ -6,6 +6,23 @@ import { Loader2 } from 'lucide-react';
 
 const mdxModules = import.meta.glob('../content/projects/*.mdx');
 
+const firstHeadingBySlug: Record<string, string> = {
+  'college-fee-payment': 'Reflections',
+  'colorkit-webapp': 'Key Features',
+  'comfortpg-website': 'Reflections',
+  'cutting-mat-generator': 'Key Features',
+  'dictionary-webapp': 'Key Features',
+  'emojihub-webapp': 'Key Features',
+  'face-recognition-realtime': 'Features',
+  'flipclock': 'Key Features',
+  'github-developer-tools': 'Key Features',
+  'ip-address-tracker': 'Reflections',
+  'multicalc': 'Key Features',
+  'outfit-wallpaper-generator': 'Key Features',
+  'typing-master': 'Key Features',
+  'xmedia': 'Key Features',
+};
+
 const ProjectDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const project = projects.find((p) => p.slug === slug);
@@ -79,27 +96,34 @@ const ProjectDetail = () => {
           )}
         </ScrollReveal>
 
-        <ScrollReveal delay={0.2}>
-          {project.image && (
-            <div className="mb-12 p-1.5 md:p-2.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl">
-              <div className="rounded-xl overflow-hidden border border-white/10 relative bg-black/50">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity"
-                />
-              </div>
-            </div>
-          )}
-        </ScrollReveal>
-
         <ScrollReveal delay={0.25}>
           {MdxContent ? (
             <Suspense fallback={<div className="flex items-center justify-center py-12"><Loader2 className="animate-spin text-neutral-500" /></div>}>
               <div className="mdx-content-container max-w-none">
                 <MdxContent 
                   components={{
-                    h2: (props: any) => <h2 className="text-2xl md:text-3xl font-bold font-bricolage text-neutral-200 mb-6 border-b border-neutral-800/50 pb-3 mt-12" {...props} />,
+                    h2: (props: any) => {
+                      const headingText = Array.isArray(props.children) ? props.children.join('') : String(props.children);
+                      const expectedFirstHeading = project?.slug ? firstHeadingBySlug[project.slug] || 'Key Features' : 'Key Features';
+                      const isFirstHeading = headingText.includes(expectedFirstHeading);
+                      
+                      return (
+                        <>
+                          {isFirstHeading && project?.image && (
+                            <div className="mb-12 p-1.5 md:p-2.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl mt-8">
+                              <div className="rounded-xl overflow-hidden border border-white/10 relative bg-black/50">
+                                <img
+                                  src={project.image}
+                                  alt={project.title}
+                                  className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity"
+                                />
+                              </div>
+                            </div>
+                          )}
+                          <h2 className="text-2xl md:text-3xl font-bold font-bricolage text-neutral-200 mb-6 border-b border-neutral-800/50 pb-3 mt-12" {...props} />
+                        </>
+                      );
+                    },
                     h3: (props: any) => <h3 className="text-xl font-bold font-bricolage text-neutral-200 mt-8 mb-4" {...props} />,
                     p: (props: any) => <p className="text-[#909092] leading-relaxed text-[1rem] font-hanken mb-4" {...props} />,
                     ul: (props: any) => <ul className="list-disc list-outside ml-5 space-y-3 mb-12 marker:text-[#909092] [&>li::before]:hidden" {...props} />,
