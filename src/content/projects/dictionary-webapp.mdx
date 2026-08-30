@@ -1,0 +1,48 @@
+The Dictionary WebApp leverages external public APIs to provide comprehensive linguistic data instantly. It features a clean, distraction-free interface that presents definitions, phonetics, and synonyms in an easily digestible format.
+
+## Key Features
+
+### Searching for Words
+1. Type any English word in the search bar
+2. Results appear automatically after 500ms of inactivity
+3. View complete word information including multiple meanings
+
+### Changing Fonts
+1. Click the "Font Selector" dropdown in the navbar
+2. Choose from Sans Serif, Serif, or Mono
+3. The entire app font changes instantly
+4. Your selection is saved automatically
+
+### Listening to Pronunciation
+1. Search for a word that has audio pronunciation
+2. Click the purple play button next to the word
+3. The pronunciation audio plays automatically
+
+### Core Dictionary Functionality
+- **Real-time Word Search**: Type to search for any English word from the Dictionary API
+- **Complete Word Information**: Display word, phonetics, pronunciation audio, meanings, definitions, examples, and synonyms
+- **Multiple Word Forms**: Support for different parts of speech (noun, verb, adjective, etc.)
+- **Source Links**: Direct links to authoritative sources for each word
+- **Audio Pronunciation**: Play pronunciation audio for words when available
+
+### User Experience
+- **Smart Search**: 500ms debounce to avoid excessive API calls while typing
+- **Loading States**: Beautiful animated spinner during API requests
+- **Error Handling**: User-friendly messages for "word not found" and network errors
+- **Smooth Animations**: Framer Motion animations for all transitions and interactions
+- **Responsive Design**: Fully responsive UI that works perfectly on mobile, tablet, and desktop
+
+## Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **API**: Dictionary API (api.dictionaryapi.dev)
+- **State Management**: React Hooks (useState, useContext)
+
+## Reflections
+
+Handling complex API responses and elegantly parsing nested data structures was crucial for this project. It emphasized the need for robust error handling and loading states.

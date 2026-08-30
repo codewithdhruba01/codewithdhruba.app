@@ -1,0 +1,28 @@
+A premium, highly customizable web application designed to generate precision SVG cutting mat backgrounds. Built for designers, crafters, and developers who need pixel-perfect grids, customizable layouts, and robust export capabilities.
+
+## Key Features
+
+- **Advanced Grid Customization**: Fine-tune your cutting mat's dimensions, padding, grid density, sub-grids, and visual thickness.
+- **Unit Flexibility**: Seamlessly toggle between Millimeters (mm), Centimeters (cm), and Inches (in) with mathematically precise scaling.
+- **Image Import & Manipulation**: Upload overlay images directly onto the mat. Precisely scale, rotate, adjust opacity, and modify border radius through dedicated controls.
+- **Robust History System**: Make mistakes fearlessly. Features a fully-integrated, debounced global Undo/Redo engine that tracks both mat settings and image manipulations.
+- **Dark & Light Themes**: Beautiful, hand-crafted color palettes with system-sync and seamless dark mode toggling, ensuring the app looks gorgeous in any lighting.
+- **Precision Exporting**: Export to SVG (pristine, infinitely scalable vector graphic) or PNG (high-resolution, background-free transparent).
+- **Mobile Responsive**: Carefully crafted slide-up drawer controls for mobile users, keeping the workspace unhindered on smaller devices.
+
+## Tech Stack
+
+- **Framework**: Next.js (App Router)
+- **Language**: TypeScript
+- **State Management**: Zustand
+- **Styling**: Tailwind CSS
+- **UI Components**: Shadcn UI & Radix UI
+- **Icons**: Lucide React
+
+## Reflections
+
+Building the **Cutting Mat Generator** was a fantastic exercise in handling complex state and precise mathematical scaling within a modern web application.
+
+1. **State Management**: Implementing a robust Undo/Redo engine using Zustand for canvas state and image manipulations significantly improved the user experience.
+2. **Mathematical Precision**: Ensuring accurate scaling across different units (mm, cm, inches) and rendering them flawlessly on an SVG canvas required careful calculations.
+3. **Exporting Capabilities**: Generating high-resolution PNGs and pristine, infinitely scalable SVGs directly from the client side without relying on a backend was an interesting challenge to solve.

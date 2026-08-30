@@ -1,5 +1,6 @@
 import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
+import mdx from '@mdx-js/rollup'
 
 // Custom plugin to run our Vercel API function locally
 const apiFallback = () => ({
@@ -37,5 +38,9 @@ const apiFallback = () => ({
 });
 
 export default defineConfig({
-  plugins: [react(), apiFallback()],
+  plugins: [
+    { enforce: 'pre', ...mdx() },
+    react(),
+    apiFallback()
+  ],
 })

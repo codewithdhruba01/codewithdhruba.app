@@ -5,9 +5,18 @@
     <link>https://codewithdhruba.in/blog</link>
     <description>Exploring the art of engineering, the craft of code, and building impactful tech.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 18 Jul 2026 14:51:09 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 30 Aug 2026 06:39:07 GMT</lastBuildDate>
     <atom:link href="https://codewithdhruba.in/feed.xml" rel="self" type="application/rss+xml" />
     
+    <item>
+      <title>How to Work MCP Server</title>
+      <link>https://codewithdhruba.in/blog/how-to-work-with-mcp-server</link>
+      <guid isPermaLink="true">https://codewithdhruba.in/blog/how-to-work-with-mcp-server</guid>
+      <pubDate>Fri, 31 Jul 2026 18:30:00 GMT</pubDate>
+      <description><![CDATA[If you're building in the AI space right now, you know the integration headache: every new agent or LLM requires a bespoke API connector to talk to your enterprise data. The Model Context Protoco...]]></description>
+      <category>Development</category>
+      <dc:creator>Dhrubaraj Pati</dc:creator>
+    </item>
     <item>
       <title>The Unspoken Reality of Tier 3 Colleges: A Student&apos;s Perspective</title>
       <link>https://codewithdhruba.in/blog/the-unspoken-reality-of-tier-3-colleges</link>
