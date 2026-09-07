@@ -55,7 +55,7 @@ const Hero = () => {
 
   // Format the followers count nicely
   const formatFollowers = (count: number | null) => {
-    if (count === null) return '2.2k'; // Fallback to 2.2k as seen in the reference screenshot
+    if (count === null) return '2.2k';
     if (count >= 1000) {
       return `${(count / 1000).toFixed(1)}k`;
     }
