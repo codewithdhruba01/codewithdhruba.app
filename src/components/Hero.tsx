@@ -68,7 +68,7 @@ const Hero = () => {
       className="relative bg-[#100F0F] pt-24 md:pt-28 pb-6 md:pb-8"
     >
       <ScrollReveal className="max-w-3xl mx-auto w-full px-6 flex flex-col">
-        <div className="relative w-full rounded-2xl overflow-hidden aspect-[13/5] sm:aspect-[3/1] bg-neutral-900">
+        <div className="relative w-full rounded-xl overflow-hidden aspect-[13/5] sm:aspect-[3/1] bg-neutral-900">
           <img
             src="/assets/bg.png"
             alt="Night mountain landscape banner"
