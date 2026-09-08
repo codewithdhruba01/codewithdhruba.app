@@ -191,7 +191,7 @@ const Hero = () => {
                   rel="noopener noreferrer"
                   className="p-2.5 rounded-full border border-neutral-800/80 bg-[#1A1919] hover:bg-[#222121] hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
                 >
-                  <GithubIcon size="16" className="stroke-current" />
+                  <GithubIcon size="18" className="stroke-current" />
                 </a>
               </TooltipTrigger>
               <TooltipContent side="top">
@@ -207,7 +207,7 @@ const Hero = () => {
                   rel="noopener noreferrer"
                   className="p-2.5 rounded-full border border-neutral-800/80 bg-[#1A1919] hover:bg-[#222121] hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
                 >
-                  <XIcon size="16" className="fill-current" />
+                  <XIcon size="18" className="fill-current" />
                 </a>
               </TooltipTrigger>
               <TooltipContent side="top">
@@ -223,7 +223,7 @@ const Hero = () => {
                   rel="noopener noreferrer"
                   className="p-2.5 rounded-full border border-neutral-800/80 bg-[#1A1919] hover:bg-[#222121] hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
                 >
-                  <LinkedinIcon size="19" />
+                  <LinkedinIcon size="20" />
                 </a>
               </TooltipTrigger>
               <TooltipContent side="top">
@@ -237,7 +237,7 @@ const Hero = () => {
                   onClick={handleThemeClick}
                   className="p-2.5 rounded-full border border-neutral-800/80 bg-[#1A1919] hover:bg-[#222121] hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer hover:rotate-45"
                 >
-                  <Earth className="w-4 h-4" />
+                  <Earth className="w-5 h-5" />
                 </button>
               </TooltipTrigger>
               <TooltipContent side="top">
