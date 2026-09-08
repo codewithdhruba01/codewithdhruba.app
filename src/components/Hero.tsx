@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Sun, FileText } from 'lucide-react';
+import { Earth, FileText } from 'lucide-react';
+import { motion } from 'framer-motion';
 import {
   GithubIcon,
   LinkedinIcon,
@@ -14,9 +15,9 @@ import ScrollReveal from './ui/ScrollReveal';
 const Hero = () => {
   const [githubFollowers, setGithubFollowers] = useState<number | null>(null);
   const [copiedTerminal, setCopiedTerminal] = useState(false);
-  const [avatarBg, setAvatarBg] = useState<'black' | 'white' | 'sky'>(() => {
-    const saved = localStorage.getItem('avatar_bg_theme');
-    return (saved as 'black' | 'white' | 'sky') || 'black';
+  const [avatarTheme, setAvatarTheme] = useState<'logo' | 'avatar'>(() => {
+    const saved = localStorage.getItem('avatar_theme');
+    return (saved as 'logo' | 'avatar') || 'logo';
   });
 
   // Play click audio sound from public/Audio/
@@ -28,9 +29,9 @@ const Hero = () => {
 
   const handleThemeClick = () => {
     playClickSound();
-    setAvatarBg((prev) => {
-      const next = prev === 'black' ? 'white' : prev === 'white' ? 'sky' : 'black';
-      localStorage.setItem('avatar_bg_theme', next);
+    setAvatarTheme((prev) => {
+      const next = prev === 'logo' ? 'avatar' : 'logo';
+      localStorage.setItem('avatar_theme', next);
       return next;
     });
   };
@@ -69,18 +70,34 @@ const Hero = () => {
     >
       <ScrollReveal className="max-w-3xl mx-auto w-full px-6 flex flex-col">
         <div className="relative w-full rounded-xl overflow-hidden aspect-[13/5] sm:aspect-[3/1] bg-neutral-900">
-          <img
+          <motion.img
             src="/assets/bg.png"
             alt="Night mountain landscape banner"
-            className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-750 ease-in-out ${avatarBg === 'black' ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.02] pointer-events-none'
-              } brightness-[0.8]`}
+            initial={false}
+            animate={{
+              opacity: avatarTheme === 'logo' ? 1 : 0,
+              filter: avatarTheme === 'logo' ? 'blur(0px)' : 'blur(12px)',
+              scale: avatarTheme === 'logo' ? 1 : 1.04,
+            }}
+            transition={{ duration: 0.75, ease: 'easeInOut' }}
+            className={`absolute inset-0 w-full h-full object-cover object-center brightness-[0.8] ${
+              avatarTheme === 'logo' ? 'pointer-events-auto z-10' : 'pointer-events-none z-0'
+            }`}
           />
           
-          <img
+          <motion.img
             src="/assets/bg1.jpg"
             alt="Day mountain landscape banner"
-            className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-750 ease-in-out ${avatarBg !== 'black' ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.02] pointer-events-none'
-              } brightness-[0.75]`}
+            initial={false}
+            animate={{
+              opacity: avatarTheme !== 'logo' ? 1 : 0,
+              filter: avatarTheme !== 'logo' ? 'blur(0px)' : 'blur(12px)',
+              scale: avatarTheme !== 'logo' ? 1 : 1.04,
+            }}
+            transition={{ duration: 0.75, ease: 'easeInOut' }}
+            className={`absolute inset-0 w-full h-full object-cover object-center brightness-[0.75] ${
+              avatarTheme !== 'logo' ? 'pointer-events-auto z-10' : 'pointer-events-none z-0'
+            }`}
           />
           <div className="absolute inset-0 flex items-center justify-center p-4 z-10">
             <p className="font-serif italic text-white/95 text-center text-sm sm:text-base md:text-lg max-w-md md:max-w-xl leading-relaxed select-none drop-shadow-md">
@@ -90,12 +107,34 @@ const Hero = () => {
         </div>
 
         <div className="relative px-4 flex justify-between items-end -mt-10 sm:-mt-12 md:-mt-14 z-10">
-          <div className={`relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-[#1c1b1b] shadow-md transition-colors duration-300 ${avatarBg === 'black' ? 'bg-neutral-800' : avatarBg === 'white' ? 'bg-[#FAF9F6]' : 'bg-[#bae6fd]'
-            }`}>
-            <img
-              src="/assets/my_avater.png"
+          <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-[#1c1b1b] shadow-md bg-neutral-800">
+            <motion.img
+              src="/assets/avaterlogo.png"
               alt="Dhrubaraj Pati"
-              className="w-full h-full object-cover"
+              initial={false}
+              animate={{
+                opacity: avatarTheme === 'logo' ? 1 : 0,
+                filter: avatarTheme === 'logo' ? 'blur(0px)' : 'blur(10px)',
+                scale: avatarTheme === 'logo' ? 1 : 1.05,
+              }}
+              transition={{ duration: 0.5, ease: 'easeInOut' }}
+              className={`absolute inset-0 w-full h-full object-cover ${
+                avatarTheme === 'logo' ? 'pointer-events-auto z-10' : 'pointer-events-none z-0'
+              }`}
+            />
+            <motion.img
+              src="/assets/avater.png"
+              alt="Dhrubaraj Pati"
+              initial={false}
+              animate={{
+                opacity: avatarTheme === 'avatar' ? 1 : 0,
+                filter: avatarTheme === 'avatar' ? 'blur(0px)' : 'blur(10px)',
+                scale: avatarTheme === 'avatar' ? 1 : 1.05,
+              }}
+              transition={{ duration: 0.5, ease: 'easeInOut' }}
+              className={`absolute inset-0 w-full h-full object-cover ${
+                avatarTheme === 'avatar' ? 'pointer-events-auto z-10' : 'pointer-events-none z-0'
+              }`}
             />
           </div>
 
@@ -198,7 +237,7 @@ const Hero = () => {
                   onClick={handleThemeClick}
                   className="p-2.5 rounded-full border border-neutral-800/80 bg-[#1A1919] hover:bg-[#222121] hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer hover:rotate-45"
                 >
-                  <Sun className="w-4 h-4" />
+                  <Earth className="w-4 h-4" />
                 </button>
               </TooltipTrigger>
               <TooltipContent side="top">
@@ -307,7 +346,11 @@ const Hero = () => {
             to="/about"
             className="flex items-center gap-1.5 px-3.5 py-2 font-hanken rounded-lg bg-white hover:bg-neutral-200 text-black font-medium text-xs transition-all duration-200 shadow-sm"
           >
-            <img src="/assets/my_avater.png" alt="Avatar" className="w-4 h-4 rounded-full object-cover" />
+            <img
+              src={avatarTheme === 'logo' ? '/assets/avaterlogo.png' : '/assets/avater.png'}
+              alt="Avatar"
+              className="w-4 h-4 rounded-full object-cover"
+            />
             About Me
           </Link>
         </div>

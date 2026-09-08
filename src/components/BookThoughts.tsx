@@ -181,16 +181,12 @@ const BookThoughts = () => {
               <div className="mdx-content-container max-w-none pb-12">
                 <MdxContent 
                   components={{
-                    h2: ({ children, ...props }: any) => {
-                      // Final thoughts has that big quote mark. We can inject it if the heading is "Final Thoughts"
-                      const isFinalThoughts = children === 'Final Thoughts';
-                      return (
-                        <h2 className="text-base md:text-sm font-bold uppercase tracking-[0.2em] text-white/45 mt-16 mb-6 flex items-center gap-4" {...props}>
-                          <span className={children === 'Overview' ? 'text-white/75' : ''}>{children}</span>
-                          <span className="flex-1 h-[1px] bg-white/10"></span>
-                        </h2>
-                      );
-                    },
+                    h2: ({ children, ...props }: any) => (
+                      <h2 className="text-base md:text-sm font-bold uppercase tracking-[0.2em] text-white/45 mt-16 mb-6 flex items-center gap-4" {...props}>
+                        <span className={children === 'Overview' ? 'text-white/75' : ''}>{children}</span>
+                        <span className="flex-1 h-[1px] bg-white/10"></span>
+                      </h2>
+                    ),
                     h3: ({ children, ...props }: any) => (
                       <h3
                         className="text-[1.25em] font-semibold text-white flex items-center gap-3 mt-8 mb-4"
