@@ -83,7 +83,7 @@ const Blog = () => {
         </div>
 
         <ScrollReveal
-          className="text-center mt-12"
+          className="text-center mt-6"
           delay={0.3}
         >
           <SectionButton to="/blog" text="Show all blogs" icon={null} />
