@@ -74,7 +74,7 @@ const AllProjects = () => {
   const showToggleBtn = filteredProjects.length > initialCount;
 
   return (
-    <div className="min-h-screen bg-background text-foreground pt-28 md:pt-36 pb-16">
+    <div className="min-h-screen bg-background text-foreground pt-20 md:pt-28 pb-16">
       <div className="max-w-3xl mx-auto w-full px-6">
         <ScrollReveal>
           <div className="text-left mb-10">

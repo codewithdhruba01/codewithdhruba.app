@@ -36,7 +36,7 @@ export default function Gears() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground pt-28 md:pt-36 pb-16">
+    <div className="min-h-screen bg-background text-foreground pt-20 md:pt-28 pb-16">
       <div className="max-w-3xl mx-auto w-full px-6">
         {/* Page Heading */}
         <ScrollReveal>

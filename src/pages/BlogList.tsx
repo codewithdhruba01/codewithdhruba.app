@@ -90,7 +90,7 @@ const BlogList = () => {
       : blogPosts.filter((post) => post.category.includes(activeTag));
 
   return (
-    <section className="bg-background text-foreground min-h-screen pt-28 md:pt-36 pb-16">
+    <section className="bg-background text-foreground min-h-screen pt-20 md:pt-28 pb-16">
       <div className="max-w-3xl mx-auto w-full px-6">
         <ScrollReveal>
           <div className="text-left mb-10">

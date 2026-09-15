@@ -10,7 +10,7 @@ const WorkExperience = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-background pt-28 md:pt-36 pb-16">
+        <div className="min-h-screen bg-background pt-20 md:pt-28 pb-16">
             <div className="max-w-3xl mx-auto w-full px-6">
                 {/* Header */}
                 <ScrollReveal>

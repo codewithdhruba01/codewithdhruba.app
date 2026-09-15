@@ -64,9 +64,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="pt-16 min-h-screen bg-background text-foreground">
+    <div className="pt-20 md:pt-28 min-h-screen bg-background text-foreground">
       {/* Header */}
-      <div className="pt-16 pb-6 mb-4">
+      <div className="pb-6 mb-4">
         <ScrollReveal>
           <div className="max-w-3xl mx-auto w-full px-6 text-center">
             <h1 className="text-4xl md:text-4xl font-bold mb-6 font-bricolage">

@@ -69,11 +69,11 @@ const Resume = () => {
       <div className="max-w-3xl mx-auto w-full px-6">
         {/* Header */}
         <ScrollReveal>
-          <div className="text-center mb-8 sm:mb-12">
-            <h4 className="text-3xl md:text-5xl font-bold font-excon mb-4 text-foreground">
+          <div className="text-left mb-12">
+            <h4 className="text-3xl md:text-4xl font-bold font-outfit mb-3 text-foreground">
               Resume
             </h4>
-            <p className="text-muted-foreground max-w-md mx-auto font-poppins pb-4 border-b border-border">
+            <p className="text-muted-foreground mt-2 font-poppins text-sm md:text-base">
               My professional resume and experience overview.
             </p>
           </div>
