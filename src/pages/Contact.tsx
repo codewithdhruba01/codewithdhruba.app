@@ -66,15 +66,15 @@ const Contact = () => {
   return (
     <div className="pt-16 min-h-screen bg-background text-foreground">
       {/* Header */}
-      <div className="py-20 bg-gradient-to-b from-background via-accent/20 to-background mb-12">
+      <div className="pt-16 pb-6 mb-4">
         <ScrollReveal>
           <div className="max-w-3xl mx-auto w-full px-6 text-center">
             <h1 className="text-4xl md:text-4xl font-bold mb-6 font-bricolage">
-              <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+              <span className="text-foreground font-bricolage">
                 Let's Work Together
               </span>
             </h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto font-bricolage text-base">
+            <p className="text-muted-foreground max-w-2xl mx-auto font-medium text-sm">
               Have a project in mind? Send me a message and let's discuss how we can bring your ideas to life.
             </p>
           </div>
@@ -87,7 +87,7 @@ const Contact = () => {
           {/* Contact Form */}
           <ScrollReveal delay={0.2}>
             <div className="border-border bg-card border backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-              <h2 className="text-3xl font-bold font-outfit text-foreground mb-6 text-center">
+              <h2 className="text-3xl font-bold font-bricolage text-foreground mb-6 text-center">
                 Send Message
               </h2>
 
@@ -106,7 +106,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-input bg-card border rounded-lg text-foreground font-poppins placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring transition-colors"
+                    className="w-full px-4 py-3 border-input bg-card border rounded-lg text-foreground font-poppins placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground/30 focus:border-foreground/30 transition-colors"
                     placeholder="Your Name"
                   />
                 </div>
@@ -125,7 +125,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-input bg-card border rounded-lg text-foreground font-poppins placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring transition-colors"
+                    className="w-full px-4 py-3 border-input bg-card border rounded-lg text-foreground font-poppins placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground/30 focus:border-foreground/30 transition-colors"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -144,7 +144,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 font-poppins border-input bg-card border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring transition-colors"
+                    className="w-full px-4 py-3 font-poppins border-input bg-card border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground/30 focus:border-foreground/30 transition-colors"
                     placeholder="Project Discussion"
                   />
                 </div>
@@ -163,7 +163,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 font-poppins border-input bg-card border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring transition-colors resize-none"
+                    className="w-full px-4 py-3 font-poppins border-input bg-card border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground/30 focus:border-foreground/30 transition-colors resize-none"
                     placeholder="Tell me about your project..."
                   />
                 </div>
