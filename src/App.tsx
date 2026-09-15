@@ -22,7 +22,7 @@ import Resume from './pages/Resume';
 import Tools from './components/Tools';
 import Bookshelf from './components/Bookshelf';
 import BookThoughts from './components/BookThoughts';
-import Touch from './components/Touch';
+import Cta from './components/Cta';
 import WorkExperience from './pages/WorkExperience';
 import BucketList from './pages/BucketList';
 import ScrollToTop from './components/common/ScrollToTop';
@@ -48,7 +48,7 @@ const AnimatedRoutes = () => {
               <Blog />
               <Tools />
               <Bookshelf />
-              <Touch />
+              <Cta />
             </PageTransition>
           }
         />
