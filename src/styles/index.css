@@ -369,11 +369,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Enhanced transitions for better UX */
-* {
-  transition-property: opacity, transform, background-color, border-color, color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+
 
 /* Hide scrollbar for image carousel */
 .scrollbar-hide {
@@ -635,6 +631,11 @@ html {
   -webkit-mask-image: linear-gradient(to top, black 25%, transparent);
 }
 
+/* Disable CSS transitions globally during view transitions to prevent mid-transition screenshots */
+.theme-transitioning * {
+  transition: none !important;
+}
+
 /* View Transition Theme Ripple Animation */
 ::view-transition-old(root),
 ::view-transition-new(root) {
@@ -646,10 +647,4 @@ html {
 }
 ::view-transition-new(root) {
   z-index: 9999;
-}
-.dark::view-transition-old(root) {
-  z-index: 9999;
-}
-.dark::view-transition-new(root) {
-  z-index: 1;
 }

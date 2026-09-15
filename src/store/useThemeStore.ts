@@ -74,9 +74,16 @@ const useThemeStore = create<ThemeState>((set, get) => ({
       Math.max(y, window.innerHeight - y)
     );
 
+    // Add class to disable CSS transitions globally during the view transition
+    document.documentElement.classList.add('theme-transitioning');
+
     const transition = document.startViewTransition(() => {
       applyThemeToDOM(next);
       set({ theme: next });
+    });
+
+    transition.finished.finally(() => {
+      document.documentElement.classList.remove('theme-transitioning');
     });
 
     transition.ready
@@ -99,6 +106,7 @@ const useThemeStore = create<ThemeState>((set, get) => ({
         // Fallback safely if animation fails
         applyThemeToDOM(next);
         set({ theme: next });
+        document.documentElement.classList.remove('theme-transitioning');
       });
   },
 }));

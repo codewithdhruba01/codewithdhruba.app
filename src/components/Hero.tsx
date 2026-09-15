@@ -337,7 +337,7 @@ const Hero = () => {
         <div className="flex flex-wrap items-center gap-3 mt-8 px-1">
           <Link
             to="/resume"
-            className="flex items-center gap-1.5 px-3.5 py-2 font-hanken rounded-lg border border-border bg-card hover:bg-accent text-foreground font-medium text-xs transition-all duration-200 shadow-sm"
+            className="flex items-center gap-1.5 px-3.5 py-2 font-hanken rounded-lg border border-input bg-background hover:bg-accent hover:text-accent-foreground text-foreground font-medium text-xs transition-all duration-200 shadow-sm"
           >
             <FileText className="w-3.5 h-3.5" />
             Resume / CV

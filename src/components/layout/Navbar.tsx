@@ -56,7 +56,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 bg-background/80 border-b border-border/40 backdrop-blur-md transition-colors duration-200">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md transition-colors duration-200">
         <div className="max-w-3xl mx-auto w-full px-6">
           <div className="flex justify-between items-center h-16">
             {/* Left: Logo & Links */}
