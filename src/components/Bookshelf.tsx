@@ -324,6 +324,18 @@ const Bookshelf = () => {
           -ms-overflow-style: none;
           scrollbar-width: none;
         }
+        .book-shadow-active {
+          box-shadow: 8px 12px 24px rgba(0, 0, 0, 0.05), inset -2px 0 8px rgba(255,255,255,0.1);
+        }
+        .dark .book-shadow-active {
+          box-shadow: 8px 12px 24px rgba(0, 0, 0, 0.6), inset -2px 0 8px rgba(255,255,255,0.05);
+        }
+        .book-shadow-inactive {
+          box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.02);
+        }
+        .dark .book-shadow-inactive {
+          box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4);
+        }
         .book-container {
           transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -419,7 +431,7 @@ const Bookshelf = () => {
           {/* Bookshelf Visual */}
           <ScrollReveal delay={0.1} className="relative w-full mb-8 select-none">
             {/* Shelf backdrop shadow / light reflection */}
-            <div className="absolute inset-x-0 bottom-4 h-32 bg-gradient-to-t from-neutral-950 to-transparent pointer-events-none opacity-40 z-0"></div>
+            <div className="absolute inset-x-0 bottom-4 h-32 bg-gradient-to-t from-neutral-950 to-transparent pointer-events-none opacity-40 z-0 hidden dark:block"></div>
 
             {/* Scrollable Viewport */}
             <div className="bookshelf-scrollbar overflow-x-auto overflow-y-visible flex items-end justify-start w-full px-4 pt-4 pb-4 min-h-[300px] relative z-10">
@@ -470,15 +482,12 @@ const Bookshelf = () => {
                       >
                         {/* Cover Face */}
                         <div
-                          className="absolute inset-0 rounded-r-[3px] overflow-hidden bg-neutral-900"
+                          className={`absolute inset-0 rounded-r-[3px] overflow-hidden bg-neutral-900 ${isActive ? 'book-shadow-active' : 'book-shadow-inactive'}`}
                           style={{
                             width: `${book.coverWidth}px`,
                             height: '260px',
                             transform: `translateZ(${book.spineWidth}px)`,
                             backfaceVisibility: 'hidden',
-                            boxShadow: isActive
-                              ? '8px 12px 24px rgba(0, 0, 0, 0.6), inset -2px 0 8px rgba(255,255,255,0.05)'
-                              : '2px 4px 8px rgba(0, 0, 0, 0.4)',
                           }}
                         >
                           <img
