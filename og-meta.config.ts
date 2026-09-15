@@ -166,7 +166,7 @@ export function getMetaForPath(pathname: string): PageMeta | null {
   const thoughtsMatch = path.match(/^\/thoughts\/(.+)$/);
   if (thoughtsMatch) {
     const slug = thoughtsMatch[1];
-    const book = bookThoughtsData[slug as keyof typeof bookThoughtsData];
+    const book = bookThoughtsData[slug as keyof typeof bookThoughtsData] as any;
     if (book) {
       return {
         title: `${book.title} | Book Thoughts | Dhrubaraj Pati`,

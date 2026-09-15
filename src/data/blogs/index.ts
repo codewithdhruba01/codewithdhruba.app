@@ -115,7 +115,7 @@ export const openweatherApiGuide = {
 
 
 export const ragAiChatbot = {
-    title: 'How I Built a RAG-based AI Chatbot from My Personal Data',
+    title: 'Rag Base Chatbot Using Local Data',
     date: 'March 07, 2026',
     author: 'Dhrubaraj Pati',
     category: 'AI & Machine Learning',
@@ -127,7 +127,7 @@ export const ragAiChatbot = {
 
 
 export const theUnspokenRealityOfTier3Colleges = {
-  title: "The Unspoken Reality of Tier 3 Colleges: A Student's Perspective",
+  title: "Average College Student life",
   date: 'June 23, 2026',
   author: 'Dhrubaraj Pati',
   category: 'College Life',

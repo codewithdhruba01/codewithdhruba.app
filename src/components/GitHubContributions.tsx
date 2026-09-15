@@ -21,7 +21,6 @@ const GitHubContributions = () => {
     audio.play().catch((err) => console.log('Audio play blocked or failed:', err));
   };
 
-  const GITHUB_USERNAME = 'codewithdhruba01';
 
   const fetchContributions = async (selectedYear: number | 'Default') => {
     setIsLoading(true);
