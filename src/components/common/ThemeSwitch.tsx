@@ -17,7 +17,7 @@ export const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ className = '' }) => {
         <TooltipTrigger asChild>
           <button
             onClick={(e) => toggleTheme(e)}
-            className={`relative p-2 rounded-xl bg-transparent hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer select-none outline-none focus:outline-none focus:ring-0 ${className}`}
+            className={`relative p-2 rounded-lg bg-transparent text-muted-foreground hover:bg-accent transition-all duration-200 flex items-center justify-center cursor-pointer select-none outline-none focus:outline-none focus:ring-0 ${className}`}
             aria-label={isDark ? 'Switch to Light mode' : 'Switch to Dark mode'}
           >
             <div className="relative w-4 h-4 flex items-center justify-center">

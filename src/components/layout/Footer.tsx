@@ -58,7 +58,7 @@ const socialLinks = [
   },
   {
     href: 'https://codepen.io/codewithdhruba',
-    icon: <CodepenIcon size="18" className="fill-muted-foreground group-hover:fill-foreground transition-colors duration-300" />
+    icon: <CodepenIcon size="18" className="stroke-muted-foreground group-hover:stroke-foreground transition-colors duration-300" />
   },
   {
     href: 'mailto:codewithdhruba@gmail.com',
