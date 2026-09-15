@@ -128,7 +128,7 @@ export const LinkPreview: React.FC<LinkPreviewProps> = ({
                   style={{
                     x: translateX,
                   }}
-                  className="bg-[#0A0A0B]/90 border border-neutral-800/80 p-1.5 rounded-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] backdrop-blur-md"
+                  className="bg-popover/95 border border-border p-1.5 rounded-xl shadow-2xl backdrop-blur-md"
                 >
                   <div
                     style={{

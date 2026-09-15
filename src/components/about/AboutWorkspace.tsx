@@ -3,16 +3,16 @@ import { Tooltip, TooltipTrigger, TooltipContent } from '../ui/tooltip';
 
 export const AboutWorkspace = () => {
   return (
-    <div className="mt-0 border-t border-neutral-900 pt-6">
+    <div className="mt-0 border-t border-border pt-6">
       <ScrollReveal>
-        <h2 className="text-3xl font-extrabold font-bricolage mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300 text-left">
+        <h2 className="text-3xl font-extrabold font-bricolage mb-6 text-foreground text-left">
           Workspace
         </h2>
       </ScrollReveal>
 
       {/* Photo Card */}
       <ScrollReveal delay={0.1}>
-        <div className="relative w-full rounded-2xl overflow-hidden border border-none shadow-xl mb-6 md:mb-12 group bg-[#101010]">
+        <div className="relative w-full rounded-2xl overflow-hidden border border-border shadow-xl mb-6 md:mb-12 group bg-card">
           <img
             src="/assets/desksetup.jpg"
             alt="Workspace Setup"
@@ -28,14 +28,14 @@ export const AboutWorkspace = () => {
         {/* Workstation Category */}
         <ScrollReveal delay={0.15}>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-10 py-6 text-left">
-            <div className="md:col-span-1 flex items-center md:items-start gap-4 text-xs font-semibold uppercase tracking-widest text-[#909092] font-mono">
+            <div className="md:col-span-1 flex items-center md:items-start gap-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground font-mono">
               <span>Workstation</span>
-              <div className="hidden md:block h-[1px] flex-1 bg-neutral-800/80 mt-2"></div>
+              <div className="hidden md:block h-[1px] flex-1 bg-border mt-2"></div>
             </div>
             <div className="md:col-span-3 flex flex-col gap-8">
               <div className="flex flex-col gap-1 group/title w-fit cursor-default">
                 <div className="flex items-center gap-2.5">
-                  <h4 className="text-lg md:text-xl font-bold font-outfit text-white">
+                  <h4 className="text-lg md:text-xl font-bold font-outfit text-foreground">
                     MacBook 13"
                   </h4>
                   <Tooltip>
@@ -44,9 +44,9 @@ export const AboutWorkspace = () => {
                         href="https://www.apple.com/macbook-pro/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-neutral-700 bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-neutral-500 transition-all duration-300 ease-out select-none cursor-pointer"
+                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-border bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-muted-foreground transition-all duration-300 ease-out select-none cursor-pointer"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-foreground"></span>
                       </a>
                     </TooltipTrigger>
                     <TooltipContent side="top">
@@ -57,7 +57,7 @@ export const AboutWorkspace = () => {
                 <p className="text-xs font-mono text-[#00DC82] mt-0.5">
                   M1 2023, 8GB Memory, 256GB SSD
                 </p>
-                <p className="text-neutral-400 font-satoshi text-sm md:text-base leading-relaxed mt-2">
+                <p className="text-muted-foreground font-satoshi text-sm md:text-base leading-relaxed mt-2">
                   My ultimate powerhouse and absolute daily driver. The
                   exceptional efficiency and outstanding performance of this
                   machine enable me to build, compile, and design complex
@@ -67,7 +67,7 @@ export const AboutWorkspace = () => {
 
               <div className="flex flex-col gap-1 group/title w-fit cursor-default">
                 <div className="flex items-center gap-2.5">
-                  <h4 className="text-lg md:text-xl font-bold font-outfit text-white">
+                  <h4 className="text-lg md:text-xl font-bold font-outfit text-foreground">
                     Infinix InBook X1 14"
                   </h4>
                   <Tooltip>
@@ -76,9 +76,9 @@ export const AboutWorkspace = () => {
                         href="https://www.infinixmobility.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-neutral-700 bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-neutral-500 transition-all duration-300 ease-out select-none cursor-pointer"
+                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-border bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-muted-foreground transition-all duration-300 ease-out select-none cursor-pointer"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-foreground"></span>
                       </a>
                     </TooltipTrigger>
                     <TooltipContent side="top">
@@ -89,7 +89,7 @@ export const AboutWorkspace = () => {
                 <p className="text-xs font-mono text-[#00DC82] mt-0.5">
                   Intel i5 10th Gen, 8GB RAM, 512GB SSD
                 </p>
-                <p className="text-neutral-400 font-satoshi text-sm md:text-base leading-relaxed mt-2">
+                <p className="text-muted-foreground font-satoshi text-sm md:text-base leading-relaxed mt-2">
                   This is my secondary system, which I mostly use for testing,
                   running lightweight tools, or as a reliable backup machine.
                 </p>
@@ -97,7 +97,7 @@ export const AboutWorkspace = () => {
 
               <div className="flex flex-col gap-1 group/title w-fit cursor-default">
                 <div className="flex items-center gap-2.5">
-                  <h4 className="text-lg md:text-xl font-bold font-outfit text-white">
+                  <h4 className="text-lg md:text-xl font-bold font-outfit text-foreground">
                     BenQ™ 2K
                   </h4>
                   <Tooltip>
@@ -106,9 +106,9 @@ export const AboutWorkspace = () => {
                         href="https://www.benq.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-neutral-700 bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-neutral-500 transition-all duration-300 ease-out select-none cursor-pointer"
+                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-border bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-muted-foreground transition-all duration-300 ease-out select-none cursor-pointer"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-foreground"></span>
                       </a>
                     </TooltipTrigger>
                     <TooltipContent side="top">
@@ -119,7 +119,7 @@ export const AboutWorkspace = () => {
                 <p className="text-xs font-mono text-[#00DC82] mt-0.5">
                   27 Inch Monitor
                 </p>
-                <p className="text-neutral-400 font-satoshi text-sm md:text-base leading-relaxed mt-2">
+                <p className="text-muted-foreground font-satoshi text-sm md:text-base leading-relaxed mt-2">
                   This is my secondary display. Mounted on a solid ergonomic
                   arm, it provides the perfect vertical or horizontal layout for
                   referencing documentation, tracking logs, and multitasking.
@@ -128,7 +128,7 @@ export const AboutWorkspace = () => {
 
               <div className="flex flex-col gap-1 group/title w-fit cursor-default">
                 <div className="flex items-center gap-2.5">
-                  <h4 className="text-lg md:text-xl font-bold font-outfit text-white">
+                  <h4 className="text-lg md:text-xl font-bold font-outfit text-foreground">
                     AMKETTE Mouse
                   </h4>
                   <Tooltip>
@@ -137,9 +137,9 @@ export const AboutWorkspace = () => {
                         href="https://www.amkette.com/collections/xs-flow-series/products/xs-flow-plus-wireless-mouse"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-neutral-700 bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-neutral-500 transition-all duration-300 ease-out select-none cursor-pointer"
+                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-border bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-muted-foreground transition-all duration-300 ease-out select-none cursor-pointer"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-foreground"></span>
                       </a>
                     </TooltipTrigger>
                     <TooltipContent side="top">
@@ -150,7 +150,7 @@ export const AboutWorkspace = () => {
                 <p className="text-xs font-mono text-[#00DC82] mt-0.5">
                   XS Series Flow{' '}
                 </p>
-                <p className="text-neutral-400 font-satoshi text-sm md:text-base leading-relaxed mt-2">
+                <p className="text-muted-foreground font-satoshi text-sm md:text-base leading-relaxed mt-2">
                   This is my primary mouse. It has a highly ergonomic shape that
                   fits perfectly in the hand, offering smooth tracking and
                   precise control that keeps my daily workflows seamless.
@@ -159,7 +159,7 @@ export const AboutWorkspace = () => {
 
               <div className="flex flex-col gap-1 group/title w-fit cursor-default">
                 <div className="flex items-center gap-2.5">
-                  <h4 className="text-lg md:text-xl font-bold font-outfit text-white">
+                  <h4 className="text-lg md:text-xl font-bold font-outfit text-foreground">
                     Kreo Hive75
                   </h4>
                   <Tooltip>
@@ -168,9 +168,9 @@ export const AboutWorkspace = () => {
                         href="https://kreo-tech.com/collections/mechanical-keyboards/products/hive75-v2-black-purple-wired-mechanical-gaming-keyboard"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-neutral-700 bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-neutral-500 transition-all duration-300 ease-out select-none cursor-pointer"
+                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-border bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-muted-foreground transition-all duration-300 ease-out select-none cursor-pointer"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-foreground"></span>
                       </a>
                     </TooltipTrigger>
                     <TooltipContent side="top">
@@ -181,7 +181,7 @@ export const AboutWorkspace = () => {
                 <p className="text-xs font-mono text-[#00DC82] mt-0.5">
                   V2 Black Purple • Mechanical Keyboard
                 </p>
-                <p className="text-neutral-400 font-satoshi text-sm md:text-base leading-relaxed mt-2">
+                <p className="text-muted-foreground font-satoshi text-sm md:text-base leading-relaxed mt-2">
                   This is my primary keyboard. The satisfying tactile feedback
                   and highly responsive layout make writing code and long typing
                   sessions incredibly comfortable and enjoyable.
@@ -193,15 +193,15 @@ export const AboutWorkspace = () => {
 
         {/* Furniture Category */}
         <ScrollReveal delay={0.2}>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-10 py-6 border-t border-neutral-900 text-left">
-            <div className="md:col-span-1 flex items-center md:items-start gap-4 text-xs font-semibold uppercase tracking-widest text-[#909092] font-mono">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-10 py-6 border-t border-border text-left">
+            <div className="md:col-span-1 flex items-center md:items-start gap-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground font-mono">
               <span>Furniture</span>
-              <div className="hidden md:block h-[1px] flex-1 bg-neutral-800/80 mt-2"></div>
+              <div className="hidden md:block h-[1px] flex-1 bg-border mt-2"></div>
             </div>
             <div className="md:col-span-3 flex flex-col gap-8">
               <div className="flex flex-col gap-1 group/title w-fit cursor-default">
                 <div className="flex items-center gap-2.5">
-                  <h4 className="text-lg md:text-xl font-bold font-outfit text-white">
+                  <h4 className="text-lg md:text-xl font-bold font-outfit text-foreground">
                     Engineered Wood Office Desk
                   </h4>
                   <Tooltip>
@@ -210,9 +210,9 @@ export const AboutWorkspace = () => {
                         href="https://amzn.in/d/0h3ilZMp"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-neutral-700 bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-neutral-500 transition-all duration-300 ease-out select-none cursor-pointer"
+                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-border bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-muted-foreground transition-all duration-300 ease-out select-none cursor-pointer"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-foreground"></span>
                       </a>
                     </TooltipTrigger>
                     <TooltipContent side="top">
@@ -223,7 +223,7 @@ export const AboutWorkspace = () => {
                 <p className="text-xs font-mono text-[#00DC82] mt-0.5">
                   120cm x 80cm
                 </p>
-                <p className="text-neutral-400 font-satoshi text-sm md:text-base leading-relaxed mt-2">
+                <p className="text-muted-foreground font-satoshi text-sm md:text-base leading-relaxed mt-2">
                   This spacious engineered wood desk is the anchor of my
                   workspace. It offers ample surface area for my dual-screen
                   setup and accessories while maintaining a clean, minimalist
@@ -233,7 +233,7 @@ export const AboutWorkspace = () => {
 
               <div className="flex flex-col gap-1 group/title w-fit cursor-default">
                 <div className="flex items-center gap-2.5">
-                  <h4 className="text-lg md:text-xl font-bold font-outfit text-white">
+                  <h4 className="text-lg md:text-xl font-bold font-outfit text-foreground">
                     Green Soul Ergonomic Chair
                   </h4>
                   <Tooltip>
@@ -242,9 +242,9 @@ export const AboutWorkspace = () => {
                         href="https://www.greensoul.online/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-neutral-700 bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-neutral-500 transition-all duration-300 ease-out select-none cursor-pointer"
+                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-border bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-muted-foreground transition-all duration-300 ease-out select-none cursor-pointer"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-foreground"></span>
                       </a>
                     </TooltipTrigger>
                     <TooltipContent side="top">
@@ -252,7 +252,7 @@ export const AboutWorkspace = () => {
                     </TooltipContent>
                   </Tooltip>
                 </div>
-                <p className="text-neutral-400 font-satoshi text-sm md:text-base leading-relaxed mt-2">
+                <p className="text-muted-foreground font-satoshi text-sm md:text-base leading-relaxed mt-2">
                   An incredibly comfortable and highly supportive ergonomic
                   chair where I spend most of my day sitting, learning, and
                   coding.
@@ -264,15 +264,15 @@ export const AboutWorkspace = () => {
 
         {/* Accessories Category */}
         <ScrollReveal delay={0.25}>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-10 py-6 border-t border-neutral-900 text-left">
-            <div className="md:col-span-1 flex items-center md:items-start gap-4 text-xs font-semibold uppercase tracking-widest text-[#909092] font-mono">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-10 py-6 border-t border-border text-left">
+            <div className="md:col-span-1 flex items-center md:items-start gap-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground font-mono">
               <span>Accessories</span>
-              <div className="hidden md:block h-[1px] flex-1 bg-neutral-800/80 mt-2"></div>
+              <div className="hidden md:block h-[1px] flex-1 bg-border mt-2"></div>
             </div>
             <div className="md:col-span-3 flex flex-col gap-8">
               <div className="flex flex-col gap-1 group/title w-fit cursor-default">
                 <div className="flex items-center gap-2.5">
-                  <h4 className="text-lg md:text-xl font-bold font-outfit text-white">
+                  <h4 className="text-lg md:text-xl font-bold font-outfit text-foreground">
                     Soundcore Anker H30i
                   </h4>
                   <Tooltip>
@@ -281,9 +281,9 @@ export const AboutWorkspace = () => {
                         href="https://www.soundcore.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-neutral-700 bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-neutral-500 transition-all duration-300 ease-out select-none cursor-pointer"
+                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-border bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-muted-foreground transition-all duration-300 ease-out select-none cursor-pointer"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-foreground"></span>
                       </a>
                     </TooltipTrigger>
                     <TooltipContent side="top">
@@ -291,14 +291,14 @@ export const AboutWorkspace = () => {
                     </TooltipContent>
                   </Tooltip>
                 </div>
-                <p className="text-neutral-400 font-satoshi text-sm md:text-base leading-relaxed mt-2">
+                <p className="text-muted-foreground font-satoshi text-sm md:text-base leading-relaxed mt-2">
                   Lightweight wireless headphones with long battery life,
                   perfect for block-out focus sessions.
                 </p>
               </div>
               <div className="flex flex-col gap-1 group/title w-fit cursor-default">
                 <div className="flex items-center gap-2.5">
-                  <h4 className="text-lg md:text-xl font-bold font-outfit text-white">
+                  <h4 className="text-lg md:text-xl font-bold font-outfit text-foreground">
                     AKR 1740
                   </h4>
                   <Tooltip>
@@ -307,9 +307,9 @@ export const AboutWorkspace = () => {
                         href="https://www.google.com/search?q=AKR+1740+Desk+Lamp"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-neutral-700 bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-neutral-500 transition-all duration-300 ease-out select-none cursor-pointer"
+                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-border bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-muted-foreground transition-all duration-300 ease-out select-none cursor-pointer"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-foreground"></span>
                       </a>
                     </TooltipTrigger>
                     <TooltipContent side="top">

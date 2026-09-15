@@ -109,22 +109,22 @@ const Subscribe: React.FC<SubscribeProps> = ({
 
   return (
     <div
-      className="relative overflow-hidden w-full bg-[#0D0D0E]/60 border border-white/5 rounded-3xl py-6 px-6 sm:py-8 sm:px-8 md:py-8 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-4 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-300"
+      className="relative overflow-hidden w-full bg-card border border-border rounded-3xl py-6 px-6 sm:py-8 sm:px-8 md:py-8 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-4 shadow-xl transition-all duration-300"
     >
       {/* Background Shapes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute left-[5%] -top-[20%] w-[130px] h-[130px] border border-white/[0.02] rounded-[30px] rotate-12"></div>
-        <div className="absolute left-[20%] -bottom-[30%] w-[180px] h-[180px] border border-white/[0.015] rounded-[40px] -rotate-12"></div>
-        <div className="absolute right-[25%] -top-[40%] w-[220px] h-[220px] border border-white/[0.015] rounded-[50px] rotate-45"></div>
-        <div className="absolute right-[10%] -bottom-[20%] w-[150px] h-[150px] border border-white/[0.02] rounded-[35px] -rotate-45"></div>
+        <div className="absolute left-[5%] -top-[20%] w-[130px] h-[130px] border border-border/40 rounded-[30px] rotate-12"></div>
+        <div className="absolute left-[20%] -bottom-[30%] w-[180px] h-[180px] border border-border/30 rounded-[40px] -rotate-12"></div>
+        <div className="absolute right-[25%] -top-[40%] w-[220px] h-[220px] border border-border/30 rounded-[50px] rotate-45"></div>
+        <div className="absolute right-[10%] -bottom-[20%] w-[150px] h-[150px] border border-border/40 rounded-[35px] -rotate-45"></div>
       </div>
 
       {/* Left/Bottom Column: Title, Subtitle, CTA */}
       <div className="flex flex-col items-start w-full md:max-w-[55%] relative z-10 order-2 md:order-1">
-        <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight font-hanken">
+        <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight font-hanken">
           Enjoying this post?
         </h3>
-        <p className="text-neutral-400 text-sm sm:text-base mt-2 max-w-md font-poppins leading-relaxed font-light">
+        <p className="text-muted-foreground text-sm sm:text-base mt-2 max-w-md font-poppins leading-relaxed font-light">
           Get my latest articles and web dev insights directly in your inbox.
         </p>
 
@@ -136,10 +136,10 @@ const Subscribe: React.FC<SubscribeProps> = ({
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="flex items-center gap-3 px-4 py-3 bg-white/5 border border-white/10 text-white rounded-2xl text-sm font-medium"
+                className="flex items-center gap-3 px-4 py-3 bg-muted border border-border text-foreground rounded-2xl text-sm font-medium"
               >
-                <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center">
-                  <Check className="w-3 h-3 text-white" />
+                <div className="w-5 h-5 rounded-full bg-[#00DC82]/20 flex items-center justify-center">
+                  <Check className="w-3 h-3 text-[#00DC82]" />
                 </div>
                 <span>You're subscribed!</span>
               </motion.div>
@@ -148,12 +148,12 @@ const Subscribe: React.FC<SubscribeProps> = ({
                 key="button"
                 layoutId="subscribeForm"
                 onClick={() => setShowInput(true)}
-                className="flex items-center gap-3 px-5 py-3.5 bg-[#0F0F10] border border-white/10 hover:border-white/20 text-neutral-200 rounded-2xl text-sm font-medium hover:bg-[#1A1A1C] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.4)] group"
+                className="flex items-center gap-3 px-5 py-3.5 bg-muted border border-border hover:border-border text-foreground rounded-2xl text-sm font-medium hover:bg-accent hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-sm group"
               >
                 <span>Subscribe Now</span>
-                <div className="w-5 h-5 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white/15 transition-colors">
+                <div className="w-5 h-5 rounded-full bg-card border border-border flex items-center justify-center group-hover:bg-accent transition-colors">
                   <svg
-                    className="w-2.5 h-2.5 text-neutral-400 group-hover:text-white group-hover:translate-x-0.5 transition-all"
+                    className="w-2.5 h-2.5 text-muted-foreground group-hover:text-foreground group-hover:translate-x-0.5 transition-all"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -168,7 +168,7 @@ const Subscribe: React.FC<SubscribeProps> = ({
                 <motion.form
                   layoutId="subscribeForm"
                   onSubmit={handleSubscribe}
-                  className="flex items-center gap-2 w-full bg-[#0F0F10] border border-white/10 rounded-2xl p-1.5 focus-within:border-white/25 transition-all duration-300 relative z-20"
+                  className="flex items-center gap-2 w-full bg-card border border-border rounded-2xl p-1.5 focus-within:border-ring transition-all duration-300 relative z-20"
                 >
                   <input
                     type="email"
@@ -178,18 +178,18 @@ const Subscribe: React.FC<SubscribeProps> = ({
                     required
                     autoFocus
                     disabled={isSubmitting}
-                    className="flex-1 bg-transparent px-3 py-2 text-white placeholder-neutral-500 focus:outline-none text-sm w-full"
+                    className="flex-1 bg-transparent px-3 py-2 text-foreground placeholder-muted-foreground focus:outline-none text-sm w-full"
                   />
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="flex items-center justify-center w-9 h-9 bg-[#1A1A1C] border border-white/10 hover:border-white/20 text-white rounded-xl active:scale-95 transition-all group"
+                    className="flex items-center justify-center w-9 h-9 bg-primary border border-border text-primary-foreground rounded-xl active:scale-95 transition-all group"
                   >
                     {isSubmitting ? (
-                      <span className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin"></span>
+                      <span className="w-4 h-4 border-2 border-primary-foreground/20 border-t-primary-foreground rounded-full animate-spin"></span>
                     ) : (
                       <svg
-                        className="w-3.5 h-3.5 text-neutral-300 group-hover:text-white group-hover:translate-x-0.5 transition-all"
+                        className="w-3.5 h-3.5 text-primary-foreground group-hover:translate-x-0.5 transition-all"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"

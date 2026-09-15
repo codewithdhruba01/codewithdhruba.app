@@ -14,12 +14,12 @@ export const AboutContent = () => {
             <FilmStripCard className="-mt-6 sm:-mt-10 mb-8" />
 
             <div className="flex items-center justify-between mb-4">
-                <h1 className="text-3xl md:text-4xl font-extrabold font-bricolage bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
+                <h1 className="text-3xl md:text-4xl font-extrabold font-bricolage text-foreground">
                     About <span className="text-[#00DC82]">Me</span>
                 </h1>
             </div>
             <div className="flex flex-col gap-6">
-                <p className="text-[#909092] font-satoshi text-sm md:text-base leading-relaxed">
+                <p className="text-muted-foreground font-satoshi text-sm md:text-base leading-relaxed">
                     I am a Full Stack Developer with a strong focus on building modern,
                     visually appealing, and user-centric web applications. My journey into development
                     is fueled by curiosity about how technology can solve real-world problems and a
@@ -27,28 +27,28 @@ export const AboutContent = () => {
                     maintainable frontend architectures. With hands-on experience in modern
                     tools and frameworks like{' '}
                     <HoverInfo
-                        trigger={<span className="text-[#b5b5b6] font-bold text-base">React</span>}
+                        trigger={<span className="text-foreground font-bold text-base">React</span>}
                         title="React"
                         description="The library for web and native user interfaces. I use it to build component-based architecture."
                         joinedDate="May 2013"
                         icon={ReactIcon}
                     />,{' '}
                     <HoverInfo
-                        trigger={<span className="text-[#b5b5b6] font-bold">TypeScript</span>}
+                        trigger={<span className="text-foreground font-bold">TypeScript</span>}
                         title="TypeScript"
                         description="TypeScript is a strongly typed programming language that builds on JavaScript."
                         joinedDate="Oct 2012"
                         icon={TypeScript}
                     />,{' '}
                     <HoverInfo
-                        trigger={<span className="text-[#b5b5b6] font-bold">Tailwind CSS</span>}
+                        trigger={<span className="text-foreground font-bold">Tailwind CSS</span>}
                         title="Tailwind CSS"
                         description="A utility-first CSS framework packed with classes that can be composed to build any design, directly in your markup."
                         joinedDate="Nov 2017"
                         icon={TailwindCss}
                     />{' '}and{' '}
                     <HoverInfo
-                        trigger={<span className="text-[#b5b5b6] font-bold">Next.js</span>}
+                        trigger={<span className="text-foreground font-bold">Next.js</span>}
                         title="Next.js"
                         description="The React Framework for the Web. Used for server-side rendering and static site generation."
                         joinedDate="Oct 2016"
@@ -56,34 +56,34 @@ export const AboutContent = () => {
                     />{' '}I
                     create responsive, accessible, and performance-optimized web applications.
                 </p>
-                <p className="text-[#909092] font-satoshi text-sm md:text-base leading-relaxed">
+                <p className="text-muted-foreground font-satoshi text-sm md:text-base leading-relaxed">
                     Beyond writing code, I care deeply about delivering great user experiences,
-                    <span className="text-[#b5b5b6]"> writing clean and reusable code, and collaborating effectively within a team. </span>
+                    <span className="text-foreground"> writing clean and reusable code, and collaborating effectively within a team. </span>
                     I’m always eager to explore new technologies and apply them to meaningful projects.
                 </p>
-                <p className="text-[#909092] font-satoshi text-sm md:text-base leading-relaxed">
+                <p className="text-muted-foreground font-satoshi text-sm md:text-base leading-relaxed">
                     I am seeking opportunities where I can contribute my skills to impactful products
                     while continuing to evolve as a developer and professional.
                 </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-10 py-6 text-left">
-                <div className="md:col-span-1 flex items-center md:items-start gap-4 text-xs font-semibold uppercase tracking-widest text-[#909092] font-mono">
+                <div className="md:col-span-1 flex items-center md:items-start gap-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground font-mono">
                     <span>Education</span>
-                    <div className="hidden md:block h-[1px] flex-1 bg-neutral-800/80 mt-2"></div>
+                    <div className="hidden md:block h-[1px] flex-1 bg-border mt-2"></div>
                 </div>
                 <div className="md:col-span-3 flex flex-col gap-8">
                     <div className="flex flex-col gap-1 group/title w-fit cursor-default">
                         <div className="flex items-center gap-2.5">
-                            <h4 className="text-lg md:text-xl font-bold font-outfit text-white">Bachelors of Computer Application</h4>
+                            <h4 className="text-lg md:text-xl font-bold font-outfit text-foreground">Bachelors of Computer Application</h4>
                             <Tooltip>
                                 <TooltipTrigger>
                                     <a
                                         href="https://swamivivekanandauniversity.ac.in/"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-neutral-700 bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-neutral-500 transition-all duration-300 ease-out select-none cursor-pointer"
+                                        className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-border bg-transparent opacity-0 -translate-x-1.5 scale-90 group-hover/title:opacity-100 group-hover/title:translate-x-0 group-hover/title:scale-100 hover:border-muted-foreground transition-all duration-300 ease-out select-none cursor-pointer"
                                     >
-                                        <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
+                                        <span className="w-1.5 h-1.5 rounded-full bg-foreground"></span>
                                     </a>
                                 </TooltipTrigger>
                                 <TooltipContent side="top">

@@ -95,11 +95,12 @@ const LoveReactionButton = memo(({
                 disabled={isLoved || isLoading}
                 animate={controls}
                 whileTap={{ scale: 0.9 }}
-                className="relative z-10 group"
+                className="relative z-10 group cursor-pointer disabled:cursor-default"
+                aria-label={isLoved ? "Loved" : "Love this post"}
             >
-                <div className={`relative w-28 h-28 rounded-full border flex items-center justify-center transition-all duration-300 ease-out bg-neutral-950 ${isLoved
-                    ? 'border-neutral-600/30 shadow-[0_0_20px_rgba(239,68,68,0.2)]'
-                    : 'border-neutral-700/30 hover:border-neutral-600/50'
+                <div className={`relative w-28 h-28 rounded-full border flex items-center justify-center transition-all duration-300 ease-out bg-card shadow-lg ${isLoved
+                    ? 'border-red-500/40 shadow-[0_0_25px_rgba(239,68,68,0.25)]'
+                    : 'border-border hover:border-neutral-500/40 hover:bg-accent/50'
                     }`}
                 >
                     {/* Ripple/Glow effect behind heart */}
@@ -108,14 +109,14 @@ const LoveReactionButton = memo(({
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1.2, opacity: [0.5, 0] }}
                             transition={{ duration: 1, repeat: Infinity, repeatDelay: 1 }}
-                            className="absolute inset-0 rounded-full bg-red-500/10 blur-xl"
+                            className="absolute inset-0 rounded-full bg-red-500/15 blur-xl"
                         />
                     )}
 
                     <Heart
-                        className={`w-14 h-14 transition-colors duration-300 ${isLoved
-                            ? 'fill-red-500 text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]'
-                            : 'fill-neutral-800 text-neutral-600 group-hover:text-neutral-400'
+                        className={`w-14 h-14 transition-all duration-300 ${isLoved
+                            ? 'fill-red-500 text-red-500 drop-shadow-[0_0_10px_rgba(239,68,68,0.5)]'
+                            : 'fill-muted/70 text-muted-foreground group-hover:text-red-500 group-hover:fill-red-500/20 group-hover:scale-105'
                             }`}
                     />
                 </div>

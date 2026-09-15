@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import useUIStore from '../../store/useUIStore';
 import useAppStore from '../../store/useAppStore';
+import ThemeSwitch from '../common/ThemeSwitch';
 
 const Navbar = () => {
   const location = useLocation();
@@ -55,7 +56,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 bg-[#100F0F]/80 backdrop-blur-md">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-background/80 border-b border-border/40 backdrop-blur-md transition-colors duration-200">
         <div className="max-w-3xl mx-auto w-full px-6">
           <div className="flex justify-between items-center h-16">
             {/* Left: Logo & Links */}
@@ -76,7 +77,7 @@ const Navbar = () => {
                       setActiveLink(link.href);
                       playClickSound();
                     }}
-                    className="px-3 py-1.5 rounded-md transition-all duration-300 font-medium text-[#909092] hover:text-[#f4f4f4]"
+                    className="px-3 py-1.5 rounded-md transition-all duration-300 font-medium text-muted-foreground hover:text-foreground"
                   >
                     {link.text}
                   </Link>
@@ -84,8 +85,8 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Right Side: Search & Mobile Menu Trigger */}
-            <div className="flex items-center gap-4">
+            {/* Right Side: Search, ThemeSwitch & Mobile Menu Trigger */}
+            <div className="flex items-center gap-2 sm:gap-3">
               {/* Desktop Search Button */}
               <div className="hidden md:flex items-center">
                 <button
@@ -93,15 +94,18 @@ const Navbar = () => {
                     setCommandPaletteOpen(true);
                     playClickSound();
                   }}
-                  className="pl-3.5 pr-1.5 py-1 rounded-xl bg-[#1A1919] border border-neutral-800/80 hover:bg-[#222121] hover:border-neutral-700 transition-all duration-200 flex items-center gap-3 text-sm font-outfit"
+                  className="pl-3.5 pr-1.5 py-1 rounded-xl bg-card border border-border hover:bg-accent transition-all duration-200 flex items-center gap-3 text-sm font-outfit shadow-sm"
                   title="Search (Ctrl+K)"
                 >
-                  <span className="text-[#909092]">Search</span>
-                  <span className="bg-[#202022] text-[#909092] text-[11px] px-2 py-0.5 rounded-md font-sans">
+                  <span className="text-muted-foreground">Search</span>
+                  <span className="bg-muted text-muted-foreground text-[11px] px-2 py-0.5 rounded-md font-sans border border-border/40">
                     Ctrl+K
                   </span>
                 </button>
               </div>
+
+              {/* Theme Toggle Button */}
+              <ThemeSwitch />
 
               {/* Mobile menu button (remains in the top navbar) */}
               <div className="md:hidden">
@@ -110,12 +114,13 @@ const Navbar = () => {
                     toggleMobileMenu();
                     playClickSound();
                   }}
-                  className="text-white hover:text-[#f4f4f4] focus:outline-none transition-transform duration-300 ease-in-out"
+                  className="p-1.5 rounded-lg text-foreground hover:text-foreground/80 focus:outline-none transition-transform duration-300 ease-in-out"
                   aria-label="Toggle Menu"
                 >
                   <i
-                    className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'} text-2xl transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'rotate-90' : 'rotate-0'
-                      }`}
+                    className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'} text-xl transition-transform duration-300 ease-in-out ${
+                      isMobileMenuOpen ? 'rotate-90' : 'rotate-0'
+                    }`}
                   ></i>
                 </button>
               </div>
@@ -123,9 +128,12 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Navigation Dropdown (from top navbar) */}
-          <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-            }`}>
-            <div className="px-2 pt-2 pb-3 space-y-1">
+          <div
+            className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out border-b border-border/40 ${
+              isMobileMenuOpen ? 'max-h-96 opacity-100 py-3' : 'max-h-0 opacity-0 py-0'
+            }`}
+          >
+            <div className="px-2 space-y-1">
               {navLinks.map((link, index) => (
                 <Link
                   key={link.href}
@@ -135,9 +143,11 @@ const Navbar = () => {
                     setMobileMenuOpen(false);
                     playClickSound();
                   }}
-                  className={`block px-3 py-2 rounded-md transition-all font-hind duration-300 transform text-[#909092] hover:text-[#f4f4f4] ${isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'}`}
+                  className={`block px-3 py-2 rounded-md transition-all font-hind duration-300 transform text-muted-foreground hover:text-foreground hover:bg-accent ${
+                    isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
+                  }`}
                   style={{
-                    transitionDelay: isMobileMenuOpen ? `${index * 50}ms` : '0ms'
+                    transitionDelay: isMobileMenuOpen ? `${index * 50}ms` : '0ms',
                   }}
                 >
                   {link.text}
@@ -150,13 +160,13 @@ const Navbar = () => {
 
       {/* Mobile Bottom Floating Search Bar (Clean search-only pill) */}
       {!isBlogContentPage && (
-        <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center bg-[#121214]/90 border border-neutral-800/80 backdrop-blur-md rounded-xl shadow-2xl px-3.5 py-1.5 text-xs font-outfit select-none pointer-events-auto">
+        <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1.5 bg-card/95 border border-border backdrop-blur-md rounded-xl shadow-2xl px-3 py-1.5 text-xs font-outfit select-none pointer-events-auto">
           <button
             onClick={() => {
               setCommandPaletteOpen(true);
               playClickSound();
             }}
-            className="flex items-center gap-2.5 text-[#909092] hover:text-white transition-colors duration-200"
+            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
             <svg
               width="13"
@@ -171,8 +181,8 @@ const Navbar = () => {
               <circle cx="11" cy="11" r="8" />
               <path d="m21 21-4.3-4.3" />
             </svg>
-            <span className="text-[#909092] font-medium">Search...</span>
-            <span className="bg-[#202022] text-[#909092] text-[10px] px-1.5 py-0.5 rounded-md font-sans">
+            <span className="text-muted-foreground font-medium">Search...</span>
+            <span className="bg-muted text-muted-foreground text-[10px] px-1.5 py-0.5 rounded-md font-sans border border-border/40">
               Ctrl+K
             </span>
           </button>

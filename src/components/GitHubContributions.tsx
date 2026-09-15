@@ -25,13 +25,13 @@ const GitHubContributions = () => {
 
   const fetchContributions = async (selectedYear: number | 'Default') => {
     setIsLoading(true);
-    
+
     try {
       const res = await fetch(`/api/github?year=${selectedYear}`);
       if (!res.ok) {
         throw new Error('Failed to fetch contributions');
       }
-      
+
       const data = await res.json();
 
       const calendar = data.user.contributionsCollection.contributionCalendar;
@@ -56,7 +56,7 @@ const GitHubContributions = () => {
   }, [year]);
 
   const getContributionColor = (count: number) => {
-    if (count === 0) return 'bg-[#1f1f1f]';
+    if (count === 0) return 'bg-muted/80';
     if (count <= 2) return 'bg-[#00DC82]/20';
     if (count <= 5) return 'bg-[#00DC82]/50';
     if (count <= 8) return 'bg-[#00DC82]/80';
@@ -88,23 +88,23 @@ const GitHubContributions = () => {
 
   return (
     <>
-      <section id="contributions" className="pt-4 pb-8 bg-[#100F0F]">
+      <section id="contributions" className="pt-4 pb-8 bg-background">
       <div className="max-w-3xl mx-auto w-full px-6">
         {/* Title */}
         <ScrollReveal className="mb-6">
-          <h4 className="text-2xl md:text-2xl font-extrabold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-hanken">
+          <h4 className="text-2xl md:text-2xl font-extrabold text-foreground text-left font-hanken">
             GitHub Activity
           </h4>
-          <p className="text-left mt-2 text-sm font-supreme text-[#909092]">
+          <p className="text-left mt-2 text-sm font-supreme text-muted-foreground">
             <strong>codewithdhruba's</strong> coding journey over the past year
           </p>
         </ScrollReveal>
         <ScrollReveal className="w-full mt-8" delay={0.15}>
           {/* Graph Card */}
-          <div className="w-full border border-neutral-800 bg-neutral-900/60 rounded-lg p-4 sm:py-4 sm:px-6 shadow-lg">
+          <div className="w-full border border-border bg-card rounded-lg p-4 sm:py-4 sm:px-6 shadow-lg">
             {/* Card Header: Total Contributions + Year Selector */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-              <div className="text-sm font-satoshi text-[#909092]">
+              <div className="text-sm font-satoshi text-muted-foreground">
                 {year === 'Default' ? 'Total contributions in the last 12 months' : `Total contributions in ${year}`}
                 :{' '}
                 <span className={`text-[#00DC82] font-semibold transition-all duration-300 ${isLoading ? 'animate-shimmer bg-gradient-to-r from-[#00DC82]/20 via-[#00DC82]/60 to-[#00DC82]/20 bg-[length:200%_100%] rounded px-2' : ''}`}>
@@ -126,8 +126,8 @@ const GitHubContributions = () => {
                       playClickSound();
                     }}
                     className={`px-3 py-1 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${year === y
-                      ? 'bg-white text-black shadow-sm'
-                      : 'bg-[#1C1C1C] text-[#909092] hover:bg-[#2A2A2A] hover:text-white'
+                      ? 'bg-foreground text-background shadow-sm'
+                      : 'bg-muted text-muted-foreground hover:bg-accent hover:text-foreground'
                       }`}
                   >
                     {y}
@@ -139,7 +139,7 @@ const GitHubContributions = () => {
             {/* Scrollable container */}
             <div className="overflow-x-auto thin-scrollbar pb-2">
               {/* Month labels */}
-              <div className="ml-[32px] sm:ml-[36px] flex gap-[2px] sm:gap-[2px] text-[#909092] font-supreme mb-1">
+              <div className="ml-[32px] sm:ml-[36px] flex gap-[2px] sm:gap-[2px] text-muted-foreground font-supreme mb-1">
                 {weeks.map((_, weekIndex) => {
                   const label = monthLabels.find((m) => m.index === weekIndex);
                   return (
@@ -153,7 +153,7 @@ const GitHubContributions = () => {
               {/* Contribution Grid */}
               <div className="flex">
                 {/* Weekday labels */}
-                <div className="flex flex-col justify-between w-[24px] sm:w-[28px] mr-2 text-[9px] sm:text-[10px] font-supreme text-[#909092]">
+                <div className="flex flex-col justify-between w-[24px] sm:w-[28px] mr-2 text-[9px] sm:text-[10px] font-supreme text-muted-foreground">
                   {Array.from({ length: 7 }).map((_, dayIndex) => {
                     const label =
                       dayIndex === 1
@@ -180,7 +180,7 @@ const GitHubContributions = () => {
                         {Array.from({ length: 7 }).map((_, dayIndex) => (
                           <div
                             key={`skeleton-${weekIndex}-${dayIndex}`}
-                            className="w-[8px] h-[8px] sm:w-[9px] sm:h-[9px] rounded-sm bg-neutral-700 animate-pulse"
+                            className="w-[8px] h-[8px] sm:w-[9px] sm:h-[9px] rounded-sm bg-muted animate-pulse"
                             style={{
                               animationDelay: `${(weekIndex * 7 + dayIndex) * 30}ms`,
                               animationDuration: '1.5s'
@@ -226,10 +226,11 @@ const GitHubContributions = () => {
             </div>
 
             {/* Total contributions + Legend */}
-            <div className="mt-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm text-gray-400">
+            <div className="mt-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <span className="font-bold font-supreme">Less</span>
                 <div className="flex gap-1">
+                  <div className="w-3 h-3 rounded-sm bg-muted/80"></div>
                   <div className="w-3 h-3 rounded-sm bg-[#00DC82]/20"></div>
                   <div className="w-3 h-3 rounded-sm bg-[#00DC82]/50"></div>
                   <div className="w-3 h-3 rounded-sm bg-[#00DC82]/80"></div>
@@ -244,12 +245,12 @@ const GitHubContributions = () => {
     </section>
       {/* Custom Tooltip */}
       {tooltip && tooltip.visible && (
-        <div 
-          className="fixed z-50 pointer-events-none transform -translate-x-1/2 -translate-y-full px-3 py-2 text-[13px] text-[#e1e1e3] bg-[#1a1a1a] rounded-lg shadow-xl font-satoshi border border-[#303030] whitespace-nowrap"
+        <div
+          className="fixed z-50 pointer-events-none transform -translate-x-1/2 -translate-y-full px-3 py-1.5 text-xs font-semibold text-white bg-neutral-900 dark:text-black dark:bg-white rounded-md shadow-xl font-satoshi whitespace-nowrap"
           style={{ top: tooltip.y - 6, left: tooltip.x }}
         >
           {tooltip.text}
-          <div className="absolute left-1/2 -bottom-[4px] transform -translate-x-1/2 w-2 h-2 bg-[#1a1a1a] border-b border-r border-[#303030] rotate-45"></div>
+          <div className="absolute left-1/2 -bottom-[4px] transform -translate-x-1/2 w-2 h-2 bg-neutral-900 dark:bg-white rotate-45"></div>
         </div>
       )}
     </>

@@ -33,30 +33,30 @@ export default function Gears() {
   };
 
   return (
-    <div className="min-h-screen bg-[#100F0F] text-white pt-28 md:pt-36 pb-16">
+    <div className="min-h-screen bg-background text-foreground pt-28 md:pt-36 pb-16">
       <div className="max-w-3xl mx-auto w-full px-6">
         {/* Page Heading */}
         <ScrollReveal>
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold font-outfit mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
+            <h2 className="text-3xl md:text-4xl font-bold font-outfit mb-3 text-foreground">
               Tools & Extensions
             </h2>
-            <p className="text-[#909092] mt-2 text-sm sm:text-base font-supreme">
+            <p className="text-muted-foreground mt-2 text-sm sm:text-base font-supreme">
               VS Code extensions I use daily to speed up my workflow.
             </p>
           </div>
         </ScrollReveal>
 
         {/* Divider */}
-        <div className="border-t border-[#2b2a2a] mb-12"></div>
+        <div className="border-t border-border mb-12"></div>
 
         <div className="space-y-12">
           {/* VS Code Extensions Section */}
           <section>
             <ScrollReveal delay={0.1}>
-              <h4 className="text-base md:text-xl sm:text-base font-bold mb-6 flex items-center gap-3">
-                <span className="w-10 h-10 flex items-center justify-center rounded-xl border border-neutral-800 bg-neutral-900/50">
-                  <VisualStudioCode className="w-6 h-6" />
+              <h4 className="text-base md:text-xl sm:text-base font-bold mb-6 flex items-center gap-3 text-foreground">
+                <span className="w-10 h-10 flex items-center justify-center rounded-xl border border-border bg-card">
+                  <VisualStudioCode className="w-6 h-6 text-foreground" />
                 </span>
                 VS Code Extensions
               </h4>
@@ -92,19 +92,19 @@ export default function Gears() {
               ].map((ext, i) => (
                 <ScrollReveal key={i} delay={i * 0.02} className="flex items-center gap-3 text-base sm:text-base">
                   {/* Number Circle */}
-                  <span className="w-7 h-7 flex items-center justify-center rounded-md bg-neutral-800 text-sm text-gray-300">
+                  <span className="w-7 h-7 flex items-center justify-center rounded-md bg-muted text-sm text-foreground">
                     {i + 1}
                   </span>
 
                   {/* Extension Name with Copy Icon */}
-                  <span className="flex items-center gap-2 text-[#909092] hover:text-white transition font-supreme">
+                  <span className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition font-supreme">
                     {ext.name}
                     <TooltipProvider>
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <button
                             onClick={() => handleCopy(ext.name)}
-                            className="text-gray-400 hover:text-white transition"
+                            className="text-muted-foreground hover:text-foreground transition"
                           >
                             {copied === ext.name ? (
                               <Check className="w-4 h-4 text-green-400" />
@@ -114,7 +114,7 @@ export default function Gears() {
                           </button>
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p className="font-outfit text-[#2b2a2a]">Copy Extension</p>
+                          <p className="font-outfit text-foreground">Copy Extension</p>
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
@@ -127,9 +127,9 @@ export default function Gears() {
           {/* Web Extensions Section */}
           <section>
             <ScrollReveal delay={0.15}>
-              <h4 className="text-base md:text-xl sm:text-base font-bold mb-6 flex items-center gap-3">
-                <span className="w-10 h-10 flex items-center justify-center rounded-xl border border-neutral-800 bg-neutral-900/50">
-                  <Chrome className="w-6 h-6" />
+              <h4 className="text-base md:text-xl sm:text-base font-bold mb-6 flex items-center gap-3 text-foreground">
+                <span className="w-10 h-10 flex items-center justify-center rounded-xl border border-border bg-card">
+                  <Chrome className="w-6 h-6 text-foreground" />
                 </span>
                 Chrome Extensions
               </h4>
@@ -175,17 +175,17 @@ export default function Gears() {
               ].map((ext, i) => (
                 <ScrollReveal key={i} delay={i * 0.02} className="flex items-center gap-3 text-base sm:text-base">
                   {/* Number Circle */}
-                  <span className="w-7 h-7 flex items-center justify-center rounded-md bg-neutral-800 text-sm text-gray-300">
+                  <span className="w-7 h-7 flex items-center justify-center rounded-md bg-muted text-sm text-foreground">
                     {i + 1}
                   </span>
                   <a
                     href={ext.url}
                     target="_blank"
-                    className="text-[#909092] hover:text-white transition font-supreme"
+                    className="text-muted-foreground hover:text-foreground transition font-supreme"
                   >
                     {ext.name}
                   </a>
-                  <ArrowUpRight className="w-4 h-4 text-[#909092] hover:text-white" />
+                  <ArrowUpRight className="w-4 h-4 text-muted-foreground hover:text-foreground" />
                 </ScrollReveal>
               ))}
             </ul>

@@ -10,15 +10,15 @@ const WorkExperience = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-[#100F0F] pt-28 md:pt-36 pb-16">
+        <div className="min-h-screen bg-background pt-28 md:pt-36 pb-16">
             <div className="max-w-3xl mx-auto w-full px-6">
                 {/* Header */}
                 <ScrollReveal>
                     <div className="text-left mb-10">
-                        <h2 className="text-3xl md:text-4xl font-bold font-outfit mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
+                        <h2 className="text-3xl md:text-4xl font-bold font-outfit mb-3 text-foreground">
                             Work Experience
                         </h2>
-                        <p className="text-[#909092] mt-2 text-sm md:text-base font-poppins">
+                        <p className="text-muted-foreground mt-2 text-sm md:text-base font-poppins">
                             My work experiences across different companies and roles.
                         </p>
                     </div>
@@ -27,11 +27,11 @@ const WorkExperience = () => {
                 {/* Content */}
                 <div className="space-y-6">
                     <ScrollReveal delay={0.1}>
-                        <div className="flex items-center justify-between border-b border-neutral-900/60 pb-4 mb-4">
-                            <p className="text-xl sm:text-xl font-bold text-neutral-300 font-outfit">
+                        <div className="flex items-center justify-between border-b border-border pb-4 mb-4">
+                            <p className="text-xl sm:text-xl font-bold text-foreground font-outfit">
                                 All Experiences
                             </p>
-                            <span className="text-neutral-500 text-sm font-synonym">
+                            <span className="text-muted-foreground text-sm font-synonym">
                                 {experiences.length} experiences
                             </span>
                         </div>

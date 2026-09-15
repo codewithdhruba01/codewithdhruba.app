@@ -120,7 +120,7 @@ export const ImageCarousel = ({ images, className = '' }: ImageCarouselProps) =>
               onClick={() => setHoveredIndex(hoveredIndex === index ? null : index)}
               className={`relative transition-all duration-500 ease-out rounded-full flex items-center justify-center group ${hoveredIndex === index
                 ? `w-8 h-8 ${colors.active} scale-110 shadow-lg ${colors.glow}`
-                : `w-6 h-6 bg-neutral-800 ${colors.hover} hover:scale-105`
+                : `w-6 h-6 bg-muted ${colors.hover} hover:scale-105`
                 }`}
               style={{
                 transitionDelay: `${index * 50}ms`
@@ -137,7 +137,7 @@ export const ImageCarousel = ({ images, className = '' }: ImageCarouselProps) =>
       </div>
 
       <div className="text-center mt-6">
-        <p className={`text-[#909092] text-sm transition-all duration-700 ease-out ${isVisible ? 'opacity-70 transform translate-y-0' : 'opacity-0 transform translate-y-4'
+        <p className={`text-muted-foreground text-sm transition-all duration-700 ease-out ${isVisible ? 'opacity-80 transform translate-y-0' : 'opacity-0 transform translate-y-4'
           }`}>
           Hover over images to explore
         </p>

@@ -90,14 +90,14 @@ const BlogList = () => {
       : blogPosts.filter((post) => post.category.includes(activeTag));
 
   return (
-    <section className="bg-[#100F0F] min-h-screen pt-28 md:pt-36 pb-16">
+    <section className="bg-background text-foreground min-h-screen pt-28 md:pt-36 pb-16">
       <div className="max-w-3xl mx-auto w-full px-6">
         <ScrollReveal>
           <div className="text-left mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold font-outfit mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
+            <h2 className="text-3xl md:text-4xl font-bold font-outfit mb-3 text-foreground">
               Blog & Publications
             </h2>
-            <p className="text-[#909092] mt-2 font-poppins text-sm md:text-base">
+            <p className="text-muted-foreground mt-2 font-poppins text-sm md:text-base">
               Exploring the art of engineering, and the journey of building impactful tech.
             </p>
           </div>
@@ -117,7 +117,7 @@ const BlogList = () => {
                   to={`/blog/${post.slug}`}
                   imageSrc={post.image}
                   onHoverChange={(hovered) => setHoveredSlug(hovered ? post.slug : null)}
-                  className={`group block py-6 border-b border-neutral-900/40 last:border-b-0 w-full text-left transition-all duration-300 ${hoveredSlug !== null && hoveredSlug !== post.slug
+                  className={`group block py-6 border-b border-border last:border-b-0 w-full text-left transition-all duration-300 ${hoveredSlug !== null && hoveredSlug !== post.slug
                     ? 'blur-[1px] opacity-60'
                     : 'blur-0 opacity-100'
                     }`}
@@ -125,10 +125,10 @@ const BlogList = () => {
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 w-full">
                     {/* Left Column: Info */}
                     <div className="flex-1 space-y-2 min-w-0">
-                      <h3 className="text-lg md:text-xl font-semibold font-hanken text-neutral-200 group-hover:text-white transition-colors">
+                      <h3 className="text-lg md:text-xl font-semibold font-hanken text-foreground transition-colors">
                         {post.title}
                       </h3>
-                      <p className="text-sm text-[#909092] font-poppins leading-relaxed font-light">
+                      <p className="text-sm text-muted-foreground font-poppins leading-relaxed font-light">
                         {post.description}
                       </p>
 
@@ -137,26 +137,26 @@ const BlogList = () => {
                         {post.category.map((cat, i) => (
                           <span
                             key={i}
-                            className="bg-[#18181B] text-neutral-400 px-2.5 py-1 rounded-md text-[11px] font-medium font-poppins border border-neutral-800/80"
+                            className="bg-muted text-muted-foreground px-2.5 py-1 rounded-md text-[11px] font-medium font-poppins border border-border"
                           >
                             {cat}
                           </span>
                         ))}
-                        <span className="bg-[#18181B] text-neutral-400 px-2.5 py-1 rounded-md text-[11px] font-medium font-poppins border border-neutral-800/80 flex items-center gap-1.5">
-                          <Eye size={13} className="text-neutral-400" />
+                        <span className="bg-muted text-muted-foreground px-2.5 py-1 rounded-md text-[11px] font-medium font-poppins border border-border flex items-center gap-1.5">
+                          <Eye size={13} className="text-muted-foreground" />
                           <span>{loadingViews ? '...' : `${blogViews[post.slug] || 0} views`}</span>
                         </span>
                       </div>
 
                       {/* Bottom Footer Line: Date & Mobile-only Read More */}
                       <div className="flex items-center justify-between pt-1">
-                        <div className="flex items-center gap-1.5 text-neutral-500 text-sm md:text-base font-hanken leading-none">
-                          <CalendarDays size={18} className="text-neutral-500" />
+                        <div className="flex items-center gap-1.5 text-muted-foreground text-sm md:text-base font-hanken leading-none">
+                          <CalendarDays size={18} className="text-muted-foreground" />
                           <span className="pt-[1px]">{post.date}</span>
                         </div>
 
                         {/* Mobile Read More */}
-                        <div className="flex md:hidden items-center gap-1.5 text-sm font-outfit text-neutral-400 group-hover:text-white transition-colors duration-300">
+                        <div className="flex md:hidden items-center gap-1.5 text-sm font-outfit text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                           <span>Read more</span>
                           <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-300" />
                         </div>
@@ -165,7 +165,7 @@ const BlogList = () => {
 
                     {/* Right Column: Desktop Read More */}
                     <div className="hidden md:flex items-center shrink-0">
-                      <span className="flex items-center gap-1.5 text-sm font-hanken text-neutral-400 group-hover:text-white transition-colors duration-300">
+                      <span className="flex items-center gap-1.5 text-sm font-hanken text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                         Read more <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-300" />
                       </span>
                     </div>
@@ -174,7 +174,7 @@ const BlogList = () => {
               </ScrollReveal>
             ))
           ) : (
-            <p className="text-gray-400 col-span-full text-center py-20 text-lg">
+            <p className="text-muted-foreground col-span-full text-center py-20 text-lg">
               No posts found for "{activeTag}"
             </p>
           )}

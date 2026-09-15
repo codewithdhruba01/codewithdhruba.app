@@ -34,36 +34,36 @@ const navigateLinks = [
 const socialLinks = [
   {
     href: 'https://x.com/codewithdhruba',
-    icon: <XIcon size="18" className="fill-[#909092] group-hover:fill-white transition-colors duration-300" />
+    icon: <XIcon size="18" className="fill-muted-foreground group-hover:fill-foreground transition-colors duration-300" />
   },
   {
     href: 'https://www.linkedin.com/in/dhrubaraj-pati/',
-    icon: <LinkedinIcon size="21" className="stroke-[#909092] group-hover:stroke-white transition-colors duration-300" />
+    icon: <LinkedinIcon size="21" className="stroke-muted-foreground group-hover:stroke-foreground transition-colors duration-300" />
   },
   {
     href: 'https://github.com/codewithdhruba01',
-    icon: <GithubIcon size="18" className="stroke-[#909092] group-hover:stroke-white transition-all duration-300" />
+    icon: <GithubIcon size="18" className="stroke-muted-foreground group-hover:stroke-foreground transition-all duration-300" />
   },
   {
     href: '#',
-    icon: <BlueskyLine size="18" className="fill-[#909092] group-hover:fill-white transition-colors duration-300" />
+    icon: <BlueskyLine size="18" className="fill-muted-foreground group-hover:fill-foreground transition-colors duration-300" />
   },
   {
     href: 'https://www.instagram.com/codewithdhruba/',
-    icon: <InstagramIcon size="18" className="stroke-[#909092] group-hover:stroke-white transition-all duration-300" />
+    icon: <InstagramIcon size="18" className="stroke-muted-foreground group-hover:stroke-foreground transition-all duration-300" />
   },
   {
     href: 'https://www.threads.com/@codewithdhruba',
-    icon: <ThreadsIcon size="18" className="fill-[#909092] group-hover:fill-white transition-colors duration-300" />
+    icon: <ThreadsIcon size="18" className="fill-muted-foreground group-hover:fill-foreground transition-colors duration-300" />
   },
   {
     href: 'https://codepen.io/codewithdhruba',
-    icon: <CodepenIcon size="18" className="fill-[#909092] group-hover:fill-white transition-colors duration-300" />
+    icon: <CodepenIcon size="18" className="fill-muted-foreground group-hover:fill-foreground transition-colors duration-300" />
   },
   {
     href: 'mailto:codewithdhruba@gmail.com',
     icon: (
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stroke-[#909092] group-hover:stroke-white transition-colors duration-300">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stroke-muted-foreground group-hover:stroke-foreground transition-colors duration-300">
         <rect width="20" height="16" x="2" y="4" rx="2" />
         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
       </svg>
@@ -103,15 +103,15 @@ const Footer = () => {
     handleVisitorCount();
   }, []);
   return (
-    <footer className="bg-[#100F0F] pt-20 pb-16 relative">
-      {/* Top Gradient Line: Fade from transparent to #333333 to transparent */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#333333] to-transparent"></div>
+    <footer className="bg-background pt-20 pb-16 relative">
+      {/* Top Gradient Line */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-border to-transparent"></div>
 
       <div className="max-w-3xl mx-auto w-full px-6">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
           {/* Left: NAVIGATE */}
           <div className="flex flex-col gap-4">
-            <span className="text-[#f4f4f4] text-xs font-bold uppercase tracking-wider font-outfit">
+            <span className="text-foreground text-xs font-bold uppercase tracking-wider font-outfit">
               Navigate
             </span>
             <div className="flex flex-wrap gap-x-6 gap-y-3 max-w-md font-outfit text-sm">
@@ -123,7 +123,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={playClickSound}
-                    className="text-[#909092] hover:text-white transition-colors duration-200"
+                    className="text-muted-foreground hover:text-foreground transition-colors duration-200"
                   >
                     {link.name}
                   </a>
@@ -132,7 +132,7 @@ const Footer = () => {
                     key={link.name}
                     to={link.href}
                     onClick={playClickSound}
-                    className="text-[#909092] hover:text-white transition-colors duration-200"
+                    className="text-muted-foreground hover:text-foreground transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -157,11 +157,11 @@ const Footer = () => {
                 />
               </div>
               <div className="flex items-center gap-1.5 text-sm font-medium font-outfit">
-                <span className="text-gray-300 group-hover:text-[#1DB954] transition-colors">
+                <span className="text-foreground group-hover:text-[#1DB954] transition-colors">
                   My Ordinary Life
                 </span>
-                <span className="text-gray-600">—</span>
-                <span className="text-[#909092] group-hover:text-[#f4f4f4] transition-colors">
+                <span className="text-muted-foreground/60">—</span>
+                <span className="text-muted-foreground group-hover:text-foreground transition-colors">
                   Everyday Feelings
                 </span>
               </div>
@@ -170,7 +170,7 @@ const Footer = () => {
 
           {/* Right: CONNECT */}
           <div className="flex flex-col gap-4 text-left">
-            <span className="text-[#f4f4f4] text-xs font-bold uppercase tracking-wider font-outfit">
+            <span className="text-foreground text-xs font-bold uppercase tracking-wider font-outfit">
               Connect
             </span>
             <div className="flex flex-wrap md:grid md:grid-cols-4 gap-2">
@@ -181,7 +181,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={playClickSound}
-                  className="group w-10 h-10 border border-neutral-800 bg-[#101010]/30 hover:border-neutral-700/60 rounded-lg flex items-center justify-center transition-all duration-300 hover:bg-neutral-900/40"
+                  className="group w-10 h-10 border border-border bg-card hover:bg-accent rounded-lg flex items-center justify-center transition-all duration-300"
                 >
                   {link.icon}
                 </a>
@@ -191,15 +191,15 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-8 relative flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
-          <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#333333] to-transparent"></div>
-          <p className="text-[#737373] text-sm font-satoshi">
+          <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-border to-transparent"></div>
+          <p className="text-muted-foreground text-sm font-satoshi">
             © 2026 Dhrubaraj Pati. All rights reserved.
           </p>
-          <p className="text-[#737373] text-sm font-satoshi">
+          <p className="text-muted-foreground text-sm font-satoshi">
             You're the{' '}
             {visitorCount !== null ? (
               <>
-                <span className="text-white/90 font-medium">
+                <span className="text-foreground font-medium">
                   {visitorCount.toLocaleString()}
                   <sup className="text-[10px] opacity-80 ml-0.5">
                     {getOrdinalSuffix(visitorCount)}

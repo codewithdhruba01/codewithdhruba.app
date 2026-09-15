@@ -17,11 +17,13 @@ import {
   Phone,
   Newspaper,
   Mail,
-  Camera
+  Camera,
+  Sun
 } from 'lucide-react';
 import { BookIcon, LeetcodeIcon } from './icons/SocialIcons';
 import ScrollIcon from './svgs/ScrollIcon';
 import { books } from './Bookshelf';
+import useThemeStore from '../store/useThemeStore';
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -253,6 +255,18 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
     ...bookItems,
 
     // Actions
+    {
+      id: 'toggle-theme',
+      title: 'Toggle Theme',
+      description: 'Switch between light and dark theme',
+      icon: <Sun size={16} />,
+      shortcut: 'Shift+D',
+      category: 'actions',
+      action: () => {
+        useThemeStore.getState().toggleTheme();
+        onClose();
+      }
+    },
     {
       id: 'share-page',
       title: 'Share Current Page',
@@ -498,7 +512,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
       `}</style>
       {/* Backdrop with high-fidelity blur */}
       <div
-        className={`fixed inset-0 z-[60] bg-[#100F0F]/70 backdrop-blur-[4px] transition-all duration-[300ms] ease-out
+        className={`fixed inset-0 z-[60] bg-background/80 backdrop-blur-sm transition-all duration-[300ms] ease-out
                    ${isAnimating ? 'opacity-100' : 'opacity-0'}`}
         onClick={onClose}
       />
@@ -510,8 +524,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
       >
         <div
           onClick={(e) => e.stopPropagation()}
-          className={`w-full max-w-[440px] bg-[#0e0e10] border border-neutral-800/80 rounded-xl
-                     shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)]
+          className={`w-full max-w-[440px] bg-popover border border-border rounded-xl
+                     shadow-2xl
                      overflow-hidden transition-all duration-[300ms] cubic-bezier(0.16, 1, 0.3, 1) transform
                      origin-bottom md:origin-center
                      flex flex-col-reverse md:flex-col
@@ -522,15 +536,15 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
         >
           {/* Search Header Container (Swaps to bottom on mobile) */}
           <div className="p-4 pb-4 md:pb-2">
-            <div className="flex items-center bg-[#151518] border border-neutral-800/70 rounded-xl px-3.5 py-2.5 shadow-inner">
-              <Search className="w-4 h-4 text-neutral-400 mr-2.5 flex-shrink-0" />
+            <div className="flex items-center bg-muted border border-border rounded-xl px-3.5 py-2.5 shadow-inner">
+              <Search className="w-4 h-4 text-muted-foreground mr-2.5 flex-shrink-0" />
               <input
                 ref={inputRef}
                 type="text"
                 placeholder="Type a command or search..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="flex-1 bg-transparent text-white placeholder-neutral-500 outline-none text-sm font-outfit font-light"
+                className="flex-1 bg-transparent text-foreground placeholder-muted-foreground outline-none text-sm font-outfit font-light"
               />
             </div>
           </div>
@@ -545,7 +559,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
           >
             {Object.entries(groupedItems).map(([category, items]) => (
               <div key={category} className="space-y-1">
-                <div className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest px-3 mb-2">
+                <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-3 mb-2">
                   {categoryLabels[category as keyof typeof categoryLabels]}
                 </div>
                 <div className="space-y-1">
@@ -563,20 +577,20 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
                         }}
                         className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-left
                                    transition-all duration-200 group
-                                   ${isSelected ? 'bg-[#1c1c1e]' : 'hover:bg-[#151518]/60 bg-transparent'}`}
+                                   ${isSelected ? 'bg-accent' : 'hover:bg-accent/60 bg-transparent'}`}
                       >
                         <div className="flex items-center gap-4 min-w-0">
-                          <div className={`flex-shrink-0 text-neutral-400 transition-colors duration-200
-                            ${isSelected ? 'text-white' : 'group-hover:text-white'}`}>
+                          <div className={`flex-shrink-0 transition-colors duration-200
+                            ${isSelected ? 'text-foreground' : 'group-hover:text-foreground text-muted-foreground'}`}>
                             {item.icon}
                           </div>
                           <div className="min-w-0">
-                            <div className="text-white font-medium text-sm font-outfit truncate">{item.title}</div>
-                            <div className="text-neutral-500 text-xs font-outfit truncate mt-0.5">{item.description}</div>
+                            <div className="text-foreground font-medium text-sm font-outfit truncate">{item.title}</div>
+                            <div className="text-muted-foreground text-xs font-outfit truncate mt-0.5">{item.description}</div>
                           </div>
                         </div>
                         {item.shortcut && (
-                          <div className="text-[10px] font-mono text-neutral-400 bg-neutral-800/40 border border-neutral-700/50 px-1.5 py-0.5 rounded-md flex-shrink-0 ml-2 shadow-sm font-semibold">
+                          <div className="text-[10px] font-mono text-muted-foreground bg-muted border border-border px-1.5 py-0.5 rounded-md flex-shrink-0 ml-2 shadow-sm font-semibold">
                             {item.shortcut}
                           </div>
                         )}

@@ -11,7 +11,7 @@ const IssuerLogo = ({ issuer, logo }: { issuer: string; logo?: string }) => {
 
   if (logo) {
     return (
-      <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800/80 flex items-center justify-center p-1.5 shrink-0 overflow-hidden group-hover:border-neutral-700 transition-all duration-300">
+      <div className="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center p-1.5 shrink-0 overflow-hidden group-hover:border-neutral-500/40 transition-all duration-300">
         <img
           src={logo}
           alt={issuer}
@@ -27,7 +27,7 @@ const IssuerLogo = ({ issuer, logo }: { issuer: string; logo?: string }) => {
 
   if (normalized.includes('google')) {
     return (
-      <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800/80 flex items-center justify-center text-neutral-400 group-hover:text-blue-400 transition-colors duration-200 shrink-0">
+      <div className="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground group-hover:text-blue-400 transition-colors duration-200 shrink-0">
         <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
           <path d="M12.24 10.285V13.4h6.887c-.275 1.565-1.88 4.604-6.887 4.604-4.33 0-7.866-3.577-7.866-8s3.536-8 7.866-8c2.46 0 4.105 1.025 5.047 1.926l2.427-2.334C17.955 2.192 15.34 1 12.24 1 6.033 1 1 6.033 1 12.24s5.033 11.24 11.24 11.24c6.478 0 10.793-4.537 10.793-10.986 0-.74-.08-1.3-.176-1.836h-10.62z" />
         </svg>
@@ -37,7 +37,7 @@ const IssuerLogo = ({ issuer, logo }: { issuer: string; logo?: string }) => {
 
   if (normalized.includes('udemy')) {
     return (
-      <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800/80 flex items-center justify-center text-neutral-400 group-hover:text-red-400 transition-colors duration-200 shrink-0">
+      <div className="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground group-hover:text-red-400 transition-colors duration-200 shrink-0">
         <span className="font-outfit font-extrabold text-base text-red-500 leading-none">U</span>
       </div>
     );
@@ -45,7 +45,7 @@ const IssuerLogo = ({ issuer, logo }: { issuer: string; logo?: string }) => {
 
   if (normalized.includes('postman')) {
     return (
-      <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800/80 flex items-center justify-center text-neutral-400 group-hover:text-orange-400 transition-colors duration-200 shrink-0">
+      <div className="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground group-hover:text-orange-400 transition-colors duration-200 shrink-0">
         <span className="font-outfit font-extrabold text-base text-orange-500 leading-none">P</span>
       </div>
     );
@@ -53,7 +53,7 @@ const IssuerLogo = ({ issuer, logo }: { issuer: string; logo?: string }) => {
 
   if (normalized.includes('girlscript') || normalized.includes('gssoc')) {
     return (
-      <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800/80 flex items-center justify-center text-neutral-400 group-hover:text-[#f05123] transition-colors duration-200 shrink-0">
+      <div className="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground group-hover:text-[#f05123] transition-colors duration-200 shrink-0">
         <span className="font-outfit font-extrabold text-base text-[#f05123] leading-none">G</span>
       </div>
     );
@@ -61,7 +61,7 @@ const IssuerLogo = ({ issuer, logo }: { issuer: string; logo?: string }) => {
 
   if (normalized.includes('hacktoberfest') || normalized.includes('hacktoberfast')) {
     return (
-      <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800/80 flex items-center justify-center text-neutral-400 group-hover:text-rose-400 transition-colors duration-200 shrink-0">
+      <div className="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground group-hover:text-rose-400 transition-colors duration-200 shrink-0">
         <span className="font-outfit font-extrabold text-base text-[#ff0a78] leading-none">H</span>
       </div>
     );
@@ -69,7 +69,7 @@ const IssuerLogo = ({ issuer, logo }: { issuer: string; logo?: string }) => {
 
   // General fallback - Verified badge
   return (
-    <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800/80 flex items-center justify-center text-neutral-400 group-hover:text-[#00DC82] transition-colors duration-200 shrink-0">
+    <div className="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground group-hover:text-[#00DC82] transition-colors duration-200 shrink-0">
       <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
         <path d="m9 12 2 2 4-4" />
@@ -196,15 +196,15 @@ const Certificates = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-28 md:pt-36 pb-6 bg-[#100F0F]">
+    <div className="min-h-screen pt-28 md:pt-36 pb-6 bg-background">
       <div className="max-w-3xl mx-auto w-full px-6">
 
 
         {/* Certifications Section */}
         <div className="mb-16">
           <ScrollReveal>
-            <h4 className="text-xl sm:text-2xl font-semibold text-neutral-200 font-hanken text-left border-b border-neutral-800/60 pb-3 mb-2 flex items-center gap-1.5">
-              Certifications <span className="text-xs text-neutral-500 font-mono font-normal">[{certificates.length}]</span>
+            <h4 className="text-xl sm:text-2xl font-semibold text-foreground font-hanken text-left border-b border-border pb-3 mb-2 flex items-center gap-1.5">
+              Certifications <span className="text-xs text-muted-foreground font-mono font-normal">[{certificates.length}]</span>
             </h4>
           </ScrollReveal>
 
@@ -213,22 +213,22 @@ const Certificates = () => {
               const isExpanded = expandedCertIndex === index;
               return (
                 <ScrollReveal key={index} delay={index * 0.05}>
-                  <div className="border-b border-neutral-900">
+                  <div className="border-b border-border/50">
                     <div
                       onClick={() => toggleCertExpand(index)}
-                      className="flex items-center gap-4 py-3.5 sm:py-4.5 px-3 -mx-3 rounded-2xl hover:bg-[#111112]/45 cursor-pointer group transition-all duration-300"
+                      className="flex items-center gap-4 py-3.5 sm:py-4.5 px-3 -mx-3 rounded-2xl hover:bg-accent cursor-pointer group transition-all duration-300"
                     >
                       <IssuerLogo issuer={cert.issuer} logo={cert.logo} />
                       <div className="flex-1 min-w-0 flex flex-col gap-1">
-                        <h3 className="text-sm sm:text-base font-semibold font-outfit text-neutral-300 group-hover:text-neutral-100 transition-colors duration-200 line-clamp-2">
+                        <h3 className="text-sm sm:text-base font-semibold font-outfit text-foreground/90 group-hover:text-foreground transition-colors duration-200 line-clamp-2">
                           {cert.title}
                         </h3>
-                        <p className="text-xs sm:text-sm text-neutral-500 font-hanken flex items-center flex-wrap gap-1.5">
-                          <span className="text-neutral-400 flex items-center gap-1.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-neutral-600 inline-block"></span>
+                        <p className="text-xs sm:text-sm text-muted-foreground font-hanken flex items-center flex-wrap gap-1.5">
+                          <span className="text-muted-foreground/90 flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/60 inline-block"></span>
                             {cert.issuer}
                           </span>
-                          <span className="text-neutral-700">|</span>
+                          <span className="text-border">|</span>
                           <span>{cert.date}</span>
                         </p>
                       </div>
@@ -242,7 +242,7 @@ const Certificates = () => {
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   onClick={(e) => e.stopPropagation()}
-                                  className="p-2 rounded-xl bg-neutral-950/40 border border-neutral-800/60 text-neutral-500 hover:text-white hover:border-neutral-700/80 hover:bg-neutral-900/60 transition-all duration-300"
+                                  className="p-2 rounded-xl bg-card border border-border text-muted-foreground hover:text-foreground hover:border-neutral-500/40 hover:bg-accent transition-all duration-300"
                                 >
                                   <LinkIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                                 </a>
@@ -253,7 +253,7 @@ const Certificates = () => {
                             </Tooltip>
                           </TooltipProvider>
                         )}
-                        <div className="text-neutral-600 group-hover:text-neutral-300 transition-colors duration-300 p-1">
+                        <div className="text-muted-foreground group-hover:text-foreground transition-colors duration-300 p-1">
                           {isExpanded ? (
                             <ChevronUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                           ) : (
@@ -266,9 +266,9 @@ const Certificates = () => {
                     {/* Expandable Details Block */}
                     {isExpanded && (
                       <div className="pl-14 pr-4 pb-4.5 pt-1.5 flex flex-col gap-2.5 animate-fadeIn">
-                        <ul className="list-disc pl-4 space-y-2 text-xs sm:text-sm text-neutral-400 font-hanken leading-relaxed">
+                        <ul className="list-disc pl-4 space-y-2 text-xs sm:text-sm text-muted-foreground font-hanken leading-relaxed">
                           {cert.details.map((detail, dIdx) => (
-                            <li key={dIdx} className="hover:text-neutral-200 transition-colors duration-150">
+                            <li key={dIdx} className="hover:text-foreground transition-colors duration-150">
                               {detail}
                             </li>
                           ))}
@@ -296,8 +296,8 @@ const Certificates = () => {
         {/* Achievements Section */}
         <div className="mb-6">
           <ScrollReveal>
-            <h4 className="text-xl sm:text-2xl font-semibold font-hanken text-neutral-200 text-left border-b border-neutral-800/60 pb-3 mb-2 flex items-center gap-1.5">
-              Contributions <span className="text-xs text-neutral-500 font-mono font-normal">[{achievements.length}]</span>
+            <h4 className="text-xl sm:text-2xl font-semibold font-hanken text-foreground text-left border-b border-border pb-3 mb-2 flex items-center gap-1.5">
+              Contributions <span className="text-xs text-muted-foreground font-mono font-normal">[{achievements.length}]</span>
             </h4>
           </ScrollReveal>
 
@@ -306,22 +306,22 @@ const Certificates = () => {
               const isExpanded = expandedAchieveIndex === index;
               return (
                 <ScrollReveal key={index} delay={index * 0.05}>
-                  <div className="border-b border-neutral-900">
+                  <div className="border-b border-border/50">
                     <div
                       onClick={() => toggleAchieveExpand(index)}
-                      className="flex items-center gap-4 py-3.5 sm:py-4.5 px-3 -mx-3 rounded-2xl hover:bg-[#111112]/45 cursor-pointer group transition-all duration-300"
+                      className="flex items-center gap-4 py-3.5 sm:py-4.5 px-3 -mx-3 rounded-2xl hover:bg-accent cursor-pointer group transition-all duration-300"
                     >
                       <IssuerLogo issuer={achievement.organization} logo={achievement.logo} />
                       <div className="flex-1 min-w-0 flex flex-col gap-1">
-                        <h3 className="text-sm sm:text-base font-semibold font-outfit text-neutral-300 group-hover:text-neutral-100 transition-colors duration-200 line-clamp-2">
+                        <h3 className="text-sm sm:text-base font-semibold font-outfit text-foreground/90 group-hover:text-foreground transition-colors duration-200 line-clamp-2">
                           {achievement.title}
                         </h3>
-                        <p className="text-xs sm:text-sm text-neutral-500 font-hanken flex items-center flex-wrap gap-1.5">
-                          <span className="text-neutral-400 flex items-center gap-1.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-neutral-600 inline-block"></span>
+                        <p className="text-xs sm:text-sm text-muted-foreground font-hanken flex items-center flex-wrap gap-1.5">
+                          <span className="text-muted-foreground/90 flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/60 inline-block"></span>
                             {achievement.organization}
                           </span>
-                          <span className="text-neutral-700">|</span>
+                          <span className="text-border">|</span>
                           <span>{achievement.date}</span>
                         </p>
                       </div>
@@ -335,7 +335,7 @@ const Certificates = () => {
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   onClick={(e) => e.stopPropagation()}
-                                  className="p-2 rounded-xl bg-neutral-950/40 border border-neutral-800/60 text-neutral-500 hover:text-white hover:border-neutral-700/80 hover:bg-neutral-900/60 transition-all duration-300"
+                                  className="p-2 rounded-xl bg-card border border-border text-muted-foreground hover:text-foreground hover:border-neutral-500/40 hover:bg-accent transition-all duration-300"
                                 >
                                   <LinkIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                                 </a>
@@ -346,7 +346,7 @@ const Certificates = () => {
                             </Tooltip>
                           </TooltipProvider>
                         )}
-                        <div className="text-neutral-600 group-hover:text-neutral-300 transition-colors duration-300 p-1">
+                        <div className="text-muted-foreground group-hover:text-foreground transition-colors duration-300 p-1">
                           {isExpanded ? (
                             <ChevronUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                           ) : (
@@ -359,9 +359,9 @@ const Certificates = () => {
                     {/* Expandable Details Block */}
                     {isExpanded && (
                       <div className="pl-14 pr-4 pb-4.5 pt-1.5 flex flex-col gap-2.5 animate-fadeIn">
-                        <ul className="list-disc pl-4 space-y-2 text-xs sm:text-sm text-neutral-400 font-hanken leading-relaxed">
+                        <ul className="list-disc pl-4 space-y-2 text-xs sm:text-sm text-muted-foreground font-hanken leading-relaxed">
                           {achievement.details.map((detail, dIdx) => (
-                            <li key={dIdx} className="hover:text-neutral-200 transition-colors duration-150">
+                            <li key={dIdx} className="hover:text-foreground transition-colors duration-150">
                               {detail}
                             </li>
                           ))}

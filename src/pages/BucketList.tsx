@@ -21,10 +21,10 @@ const BucketList = () => {
     ];
 
     return (
-        <div className="bg-[#100F0F] text-white selection:bg-green-100/10 pt-20 md:pt-24 pb-16">
+        <div className="bg-background text-foreground selection:bg-primary/10 pt-20 md:pt-24 pb-16">
             <div className="max-w-3xl mx-auto w-full px-6 relative">
                 {/* Top Flower Decoration */}
-                <div className="absolute top-[8rem] md:top-[7rem] left-1/2 -translate-x-1/2 pointer-events-none opacity-15 invert z-0">
+                <div className="absolute top-[8rem] md:top-[7rem] left-1/2 -translate-x-1/2 pointer-events-none opacity-15 dark:invert z-0">
                     <img
                         src="/assets/flower1.png"
                         alt="Floral decoration"
@@ -48,12 +48,12 @@ const BucketList = () => {
                     <div className="space-y-6">
                         {leftItems.map((item, index) => (
                             <ScrollReveal key={index} delay={index * 0.05} className="flex items-start gap-4 group">
-                                <div className={`w-6 h-6 rounded-full flex-shrink-0 mt-1 cursor-pointer transition-all duration-300 flex items-center justify-center relative ${item.completed ? 'bg-[#01b369]' : 'bg-white'}`}>
+                                <div className={`w-6 h-6 rounded-full flex-shrink-0 mt-1 cursor-pointer transition-all duration-300 flex items-center justify-center relative ${item.completed ? 'bg-[#01b369] text-white border border-[#01b369]' : 'bg-card border border-border'}`}>
                                     {item.completed && (
                                         <Check className="text-white w-4 h-4" />
                                     )}
                                 </div>
-                                <p className="text-sm md:text-base font-supreme tracking-wide text-[#909092] leading-tight pt-1">
+                                <p className="text-sm md:text-base font-supreme tracking-wide text-muted-foreground leading-tight pt-1">
                                     {item.text}
                                 </p>
                             </ScrollReveal>
@@ -64,12 +64,12 @@ const BucketList = () => {
                     <div className="space-y-6">
                         {rightItems.map((item, index) => (
                             <ScrollReveal key={index} delay={index * 0.05} className="flex items-start gap-4 group">
-                                <div className={`w-6 h-6 rounded-full flex-shrink-0 mt-1 cursor-pointer transition-all duration-300 flex items-center justify-center relative ${item.completed ? 'bg-[#01b369]' : 'bg-white'}`}>
+                                <div className={`w-6 h-6 rounded-full flex-shrink-0 mt-1 cursor-pointer transition-all duration-300 flex items-center justify-center relative ${item.completed ? 'bg-[#01b369] text-white border border-[#01b369]' : 'bg-card border border-border'}`}>
                                     {item.completed && (
                                         <Check className="text-white w-4 h-4" />
                                     )}
                                 </div>
-                                <p className="text-sm md:text-base font-supreme tracking-wide text-[#909092] leading-tight pt-1">
+                                <p className="text-sm md:text-base font-supreme tracking-wide text-muted-foreground leading-tight pt-1">
                                     {item.text}
                                 </p>
                             </ScrollReveal>

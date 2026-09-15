@@ -18,7 +18,7 @@ function ExperienceList({ experiences }: ExperienceListProps) {
   if (experiences.length === 0) {
     return (
       <div className="py-8 text-center">
-        <p className="text-neutral-500">No work experiences found.</p>
+        <p className="text-muted-foreground">No work experiences found.</p>
       </div>
     );
   }
@@ -42,10 +42,10 @@ function ExperienceList({ experiences }: ExperienceListProps) {
 
 const Experience = () => {
   return (
-    <section id="experience" className="pt-4 pb-8 bg-[#100F0F]">
+    <section id="experience" className="pt-4 pb-8 bg-background">
       <div className="max-w-3xl mx-auto w-full px-6">
         <ScrollReveal className="mb-4">
-          <h4 className="text-2xl md:text-2xl font-extrabold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-hanken">
+          <h4 className="text-2xl md:text-2xl font-extrabold text-foreground text-left font-hanken">
             Experience
           </h4>
         </ScrollReveal>

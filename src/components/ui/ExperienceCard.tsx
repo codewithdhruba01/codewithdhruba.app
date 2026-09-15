@@ -33,7 +33,7 @@ export function ExperienceCard({ experience, isOpen, onClick, alwaysOpen = false
                     {/* Left: Company name & Working badge & Chevron toggle */}
                     <div className="flex items-center gap-2">
                         <h3 className={cn(
-                            "text-base sm:text-lg font-bold font-outfit text-white tracking-wide transition-colors",
+                            "text-base sm:text-lg font-bold font-outfit text-foreground tracking-wide transition-colors",
                             experience.isBlur && "blur-[6px] select-none opacity-80"
                         )}>
                             {experience.company}
@@ -49,8 +49,8 @@ export function ExperienceCard({ experience, isOpen, onClick, alwaysOpen = false
                         {/* Toggle Button for collapsible items on homepage */}
                         {!alwaysOpen && (
                             <div className={cn(
-                                "flex items-center justify-center w-5 h-5 rounded transition-all duration-300 opacity-0 group-hover:opacity-100 text-neutral-200 hover:text-white",
-                                isExpanded ? "rotate-90 text-white opacity-100" : ""
+                                "flex items-center justify-center w-5 h-5 rounded transition-all duration-300 opacity-0 group-hover:opacity-100 text-muted-foreground hover:text-foreground",
+                                isExpanded ? "rotate-90 text-foreground opacity-100" : ""
                             )}>
                                 <ChevronRight className="w-4 h-4 shrink-0 transition-transform duration-300" strokeWidth={2.5} />
                             </div>
@@ -58,29 +58,29 @@ export function ExperienceCard({ experience, isOpen, onClick, alwaysOpen = false
                     </div>
 
                     {/* Right: Date Range (Desktop/Tablet) */}
-                    <div className="hidden sm:block text-neutral-400 text-sm md:text-base font-hanken text-right shrink-0">
+                    <div className="hidden sm:block text-muted-foreground text-sm md:text-base font-hanken text-right shrink-0">
                         {experience.startDate} – {experience.isCurrent ? 'Present' : experience.endDate}
                     </div>
 
                     {/* Right: Date Range (Mobile) */}
-                    <div className="block sm:hidden text-neutral-400 text-sm md:text-base font-hanken text-right shrink-0">
+                    <div className="block sm:hidden text-muted-foreground text-sm md:text-base font-hanken text-right shrink-0">
                         {experience.startDate} – {experience.isCurrent ? 'Present' : (experience.endDate || '').replace(/20\d{2}/, (match) => match.slice(-2))}
                     </div>
                 </div>
 
                 {/* Subtitle row */}
                 <div className="flex items-center justify-between text-sm w-full mt-0.5">
-                    <p className="text-neutral-400 font-hanken font-medium text-sm sm:text-base leading-snug">
+                    <p className="text-muted-foreground font-hanken font-medium text-sm sm:text-base leading-snug">
                         {experience.position}
                     </p>
 
                     {/* Location (Desktop) */}
-                    <p className="hidden sm:block text-neutral-500 text-sm md:text-base font-hanken">
+                    <p className="hidden sm:block text-muted-foreground text-sm md:text-base font-hanken">
                         {experience.location}
                     </p>
 
                     {/* Location (Mobile) */}
-                    <p className="block sm:hidden text-neutral-500 font-hanken text-xs">
+                    <p className="block sm:hidden text-muted-foreground font-hanken text-xs">
                         {experience.location.includes('(') ? experience.location.replace(/.*\((.*)\)/, '$1') : experience.location}
                     </p>
                 </div>
@@ -94,19 +94,19 @@ export function ExperienceCard({ experience, isOpen, onClick, alwaysOpen = false
                 )}
             >
                 <div className="overflow-hidden">
-                    <div className="mt-4 space-y-4 border-t border-neutral-900 pt-4">
+                    <div className="mt-4 space-y-4 border-t border-border pt-4">
                         {/* Description / What I've Done */}
                         <div>
-                            <h4 className="text-xs font-outfit font-semibold text-neutral-400 uppercase tracking-wider mb-2.5">What I've done</h4>
+                            <h4 className="text-xs font-outfit font-semibold text-muted-foreground uppercase tracking-wider mb-2.5">What I've done</h4>
                             <ul className="flex flex-col gap-2">
                                 {experience.description.map((description: string, descIndex: number) => (
                                     <li key={descIndex} className="flex gap-2 items-start">
-                                        <span className="text-neutral-500 shrink-0 select-none mt-1.5 text-xs">•</span>
+                                        <span className="text-muted-foreground shrink-0 select-none mt-1.5 text-xs">•</span>
                                         <span
-                                            className="text-neutral-500 font-poppins text-sm sm:text-sm leading-relaxed"
+                                            className="text-muted-foreground font-poppins text-sm sm:text-sm leading-relaxed"
                                             dangerouslySetInnerHTML={{
                                                 __html: DOMPurify.sanitize(parseDescription(description)),
-                                            }}
+                                             }}
                                         />
                                     </li>
                                 ))}
@@ -115,8 +115,8 @@ export function ExperienceCard({ experience, isOpen, onClick, alwaysOpen = false
 
                         {/* Technologies & Tools */}
                         <div className="flex flex-wrap items-center gap-3 pt-2">
-                            <h4 className="text-sm font-hanken font-medium text-neutral-400">Technologies & Tools :</h4>
-                            <div className="flex flex-wrap items-center gap-2.5 text-white font-synonym">
+                            <h4 className="text-sm font-hanken font-medium text-muted-foreground">Technologies & Tools :</h4>
+                            <div className="flex flex-wrap items-center gap-2.5 text-foreground font-synonym">
                                 <TooltipProvider>
                                     {experience.technologies.map((technology, techIndex: number) => (
                                         <Tooltip key={techIndex}>

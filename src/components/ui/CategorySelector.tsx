@@ -60,8 +60,8 @@ const CategorySelector: React.FC<CategorySelectorProps> = ({
     <ScrollReveal delay={delay}>
       <div className="mt-10 mb-6 relative">
         {/* Left & Right Fade Overlays for scrolling (both mobile and desktop) */}
-        <div className="absolute -left-6 top-0 bottom-2 w-6 bg-gradient-to-r from-[#0A0A0A] to-transparent pointer-events-none z-10" />
-        <div className="absolute -right-6 top-0 bottom-2 w-12 bg-gradient-to-l from-[#0A0A0A] via-[#0A0A0A]/85 to-transparent pointer-events-none z-10" />
+        <div className="absolute -left-6 top-0 bottom-2 w-6 bg-gradient-to-r from-background to-transparent pointer-events-none z-10" />
+        <div className="absolute -right-6 top-0 bottom-2 w-12 bg-gradient-to-l from-background via-background/85 to-transparent pointer-events-none z-10" />
 
         <div
           ref={scrollRef}
@@ -82,16 +82,16 @@ const CategorySelector: React.FC<CategorySelectorProps> = ({
                   onSelectCategory(tag.name);
                   playClickSound();
                 }}
-                className={`pl-3 pr-2 py-1 text-xs rounded-full font-outfit font-normal transition-all duration-200 flex items-center gap-1.5 border whitespace-nowrap shrink-0 ${isActive
-                  ? 'bg-neutral-200 text-neutral-900 border-transparent font-medium'
-                  : 'bg-[#1C1C1E] border-neutral-800/60 hover:bg-[#252528] text-neutral-400 hover:text-white'
+                className={`pl-3 pr-2 py-1 text-xs rounded-full font-outfit transition-all duration-200 flex items-center gap-1.5 border whitespace-nowrap shrink-0 ${isActive
+                  ? 'bg-foreground text-background border-transparent font-medium shadow-sm'
+                  : 'bg-card border-border hover:bg-accent text-muted-foreground hover:text-foreground'
                   }`}
               >
                 <span>{tag.name}</span>
                 <span
                   className={`text-[9px] px-1.5 py-0.5 rounded-full font-sans font-medium transition-all duration-200 ${isActive
-                    ? 'bg-neutral-300/80 text-neutral-800'
-                    : 'bg-[#0F0F10] text-[#71717A]'
+                    ? 'bg-background/20 text-background'
+                    : 'bg-muted text-muted-foreground'
                     }`}
                 >
                   {tag.count}

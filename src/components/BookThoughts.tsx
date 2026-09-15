@@ -122,8 +122,8 @@ const BookThoughts = () => {
 
   if (!thought) {
     return (
-      <div className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#100F0F] flex flex-col items-center justify-center">
-        <h3 className="text-2xl sm:text-4xl font-bold text-white mb-4">Thoughts Not Found</h3>
+      <div className="pt-28 md:pt-36 pb-16 min-h-screen bg-background text-foreground flex flex-col items-center justify-center">
+        <h3 className="text-2xl sm:text-4xl font-bold text-foreground mb-4">Thoughts Not Found</h3>
         <Link to="/" className="text-[#00DC82] hover:underline font-hanken">
           Back to Home
         </Link>
@@ -141,7 +141,7 @@ const BookThoughts = () => {
 
   return (
     <>
-      <article className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#100F0F] book-content">
+      <article className="pt-28 md:pt-36 pb-16 min-h-screen bg-background text-foreground book-content">
         <div className="max-w-3xl mx-auto w-full px-6" style={{ fontSize: `${fontSize}%` }}>
           {/* Book Info Section */}
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
@@ -163,13 +163,13 @@ const BookThoughts = () => {
             {/* Title, Author, Overview */}
             <div className="flex-1 flex flex-col justify-center text-center md:text-left">
               <h1
-                className="text-[2.2em] md:text-[3em] font-black text-white leading-[1.15] mb-2 tracking-tight"
+                className="text-[2.2em] md:text-[3em] font-black text-foreground leading-[1.15] mb-2 tracking-tight"
                 style={{ fontFamily: "'Instrument Serif', serif" }}
               >
                 {thought.title}
               </h1>
               <p
-                className="text-[1.125em] text-white/50 mb-6 font-semibold font-hanken tracking-wide"
+                className="text-[1.125em] text-muted-foreground mb-6 font-semibold font-hanken tracking-wide"
               >
                 by {thought.author}
               </p>
@@ -177,19 +177,19 @@ const BookThoughts = () => {
           </div>
 
           {MdxContent ? (
-            <Suspense fallback={<div className="flex items-center justify-center py-12"><Loader2 className="animate-spin text-neutral-500" /></div>}>
+            <Suspense fallback={<div className="flex items-center justify-center py-12"><Loader2 className="animate-spin text-muted-foreground" /></div>}>
               <div className="mdx-content-container max-w-none pb-12">
-                <MdxContent 
+                <MdxContent
                   components={{
                     h2: ({ children, ...props }: any) => (
-                      <h2 className="text-base md:text-sm font-bold uppercase tracking-[0.2em] text-white/45 mt-16 mb-6 flex items-center gap-4" {...props}>
-                        <span className={children === 'Overview' ? 'text-white/75' : ''}>{children}</span>
-                        <span className="flex-1 h-[1px] bg-white/10"></span>
+                      <h2 className="text-base md:text-sm font-bold uppercase tracking-[0.2em] text-muted-foreground mt-16 mb-6 flex items-center gap-4" {...props}>
+                        <span>{children}</span>
+                        <span className="flex-1 h-[1px] bg-border"></span>
                       </h2>
                     ),
                     h3: ({ children, ...props }: any) => (
                       <h3
-                        className="text-[1.25em] font-semibold text-white flex items-center gap-3 mt-8 mb-4"
+                        className="text-[1.25em] font-semibold text-foreground flex items-center gap-3 mt-8 mb-4"
                         style={{ fontFamily: "'Instrument Serif', serif" }}
                         {...props}
                       >
@@ -198,12 +198,11 @@ const BookThoughts = () => {
                       </h3>
                     ),
                     p: ({ children, ...props }: any) => {
-                      // To match the Final Thoughts quote mark style, we can check if it's the last element, but it's easier to just use standard p.
-                      return <p className="text-[15.5px] text-white/60 leading-relaxed font-hanken mb-6" {...props}>{children}</p>;
+                      return <p className="text-[15.5px] text-muted-foreground leading-relaxed font-hanken mb-6" {...props}>{children}</p>;
                     },
-                    ul: (props: any) => <ul className="space-y-4 pl-5 border-l border-white/5 mb-8" {...props} />,
+                    ul: (props: any) => <ul className="space-y-4 pl-5 border-l border-border mb-8" {...props} />,
                     li: ({ children, ...props }: any) => (
-                      <li className="flex flex-col items-start text-[14.5px] text-white/85 leading-relaxed font-poppins" {...props}>
+                      <li className="flex flex-col items-start text-[14.5px] text-foreground leading-relaxed font-poppins" {...props}>
                         <div className="flex items-start w-full">
                           <span
                             className="mr-4 mt-2 select-none font-black text-xs shrink-0 animate-pulse"
@@ -215,8 +214,8 @@ const BookThoughts = () => {
                         </div>
                       </li>
                     ),
-                    strong: (props: any) => <strong className="text-white/90 font-semibold mr-1" {...props} />,
-                    a: (props: any) => <a className="text-[#00DC82] hover:text-[#00b368] transition-colors" {...props} />,
+                    strong: (props: any) => <strong className="text-foreground font-semibold mr-1" {...props} />,
+                    a: (props: any) => <a className="text-[#00DC82] hover:underline transition-colors" {...props} />,
                     FinalThoughts: ({ children }: any) => (
                       <div className="flex items-start gap-4">
                         <span
@@ -225,26 +224,26 @@ const BookThoughts = () => {
                         >
                           “
                         </span>
-                        <div className="text-[15.5px] text-white/60 leading-relaxed font-hanken pt-2">
+                        <div className="text-[15.5px] text-muted-foreground leading-relaxed font-hanken pt-2">
                           {children}
                         </div>
                       </div>
                     )
-                  }} 
+                  }}
                 />
               </div>
             </Suspense>
           ) : (
-            <div className="py-12 text-center text-white/50 font-hanken">
+            <div className="py-12 text-center text-muted-foreground font-hanken">
               Notes coming soon.
             </div>
           )}
 
           {/* Bottom Navigation */}
-          <div className="flex items-center justify-between mt-20 pt-8 border-t border-white/10 font-hanken">
+          <div className="flex items-center justify-between mt-20 pt-8 border-t border-border font-hanken">
             <Link
               to="/"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#1A1919] border border-neutral-800/80 rounded-lg text-neutral-300 hover:border-neutral-700 hover:bg-[#222121] transition-all duration-200 group shadow-md shadow-black/20 text-xs font-semibold font-hanken"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-card border border-border rounded-lg text-foreground hover:bg-accent transition-all duration-200 group shadow-sm text-xs font-semibold font-hanken"
             >
               <ArrowLeft className="h-3.5 w-3.5 transform group-hover:-translate-x-1 transition-transform duration-200" />
               Back Bookshelf
@@ -253,7 +252,7 @@ const BookThoughts = () => {
             {rightSideBook && (
               <Link
                 to={`/thoughts/${rightSideBook.key}`}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#1A1919] border border-neutral-800/80 rounded-lg text-neutral-300 hover:border-neutral-700 hover:bg-[#222121] transition-all duration-200 group shadow-md shadow-black/20 text-xs font-semibold font-hanken"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-card border border-border rounded-lg text-foreground hover:bg-accent transition-all duration-200 group shadow-sm text-xs font-semibold font-hanken"
               >
                 {rightSideBook.type} Book
                 <ArrowRight className="h-3.5 w-3.5 transform group-hover:translate-x-1 transition-transform duration-200" />
@@ -265,27 +264,27 @@ const BookThoughts = () => {
 
       {/* Side Zoom Panel for Font Size */}
       <div className="hidden md:block fixed right-6 top-1/2 -translate-y-1/2 z-40">
-        <div className="flex flex-col items-center gap-3 rounded-2xl bg-[#100F0F] backdrop-blur-xl border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.3)] px-3 py-4 hover:bg-black/30 transition-all duration-300">
+        <div className="flex flex-col items-center gap-3 rounded-2xl bg-card/90 backdrop-blur-xl border border-border shadow-xl px-3 py-4 transition-all duration-300">
           <button
             onClick={zoomIn}
             disabled={fontSize >= 150}
             className={`w-10 h-10 rounded-xl border flex items-center justify-center transition-all duration-150 cursor-pointer ${fontSize >= 150
-              ? 'border-[#2d2e2d] bg-[#161617] text-[#a0a0a5]/40 opacity-40 cursor-not-allowed'
-              : 'border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000]'
+              ? 'border-border bg-muted text-muted-foreground/40 opacity-40 cursor-not-allowed'
+              : 'border-border bg-muted text-muted-foreground hover:text-foreground hover:bg-accent shadow-sm'
               }`}
             title="Zoom In"
           >
             <Plus className="w-5 h-5" />
           </button>
-          <div className="text-xs font-bold select-none px-2.5 py-1.5 border border-neutral-950 bg-gradient-to-b from-[#0d0d0e] to-[#161617] text-white rounded-xl min-w-[44px] text-center shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)]">
+          <div className="text-xs font-bold select-none px-2.5 py-1.5 border border-border bg-card text-foreground rounded-xl min-w-[44px] text-center shadow-inner">
             {getFontSizeInPx()}px
           </div>
           <button
             onClick={zoomOut}
             disabled={fontSize <= 80}
             className={`w-10 h-10 rounded-xl border flex items-center justify-center transition-all duration-150 cursor-pointer ${fontSize <= 80
-              ? 'border-[#2d2e2d] bg-[#161617] text-[#a0a0a5]/40 opacity-40 cursor-not-allowed'
-              : 'border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000]'
+              ? 'border-border bg-muted text-muted-foreground/40 opacity-40 cursor-not-allowed'
+              : 'border-border bg-muted text-muted-foreground hover:text-foreground hover:bg-accent shadow-sm'
               }`}
             title="Zoom Out"
           >
@@ -298,10 +297,10 @@ const BookThoughts = () => {
       <div className="md:hidden fixed right-4 top-20 z-40">
         <button
           onClick={handleOpenSheet}
-          className="w-14 h-14 rounded-full bg-black/40 backdrop-blur-xl border border-white/20 shadow-[0_0_30px_rgba(0,0,0,0.4)] flex items-center justify-center hover:bg-black/60 transition-all duration-300 hover:scale-105"
+          className="w-14 h-14 rounded-full bg-card/80 backdrop-blur-xl border border-border shadow-lg flex items-center justify-center hover:bg-card transition-all duration-300 hover:scale-105"
           title="Font Size Settings"
         >
-          <Settings className="w-6 h-6 text-white" />
+          <Settings className="w-6 h-6 text-foreground" />
         </button>
       </div>
 
@@ -314,7 +313,7 @@ const BookThoughts = () => {
             onClick={handleCloseSheet}
           />
           <div
-            className={`fixed bottom-0 left-0 right-0 z-50 md:hidden bg-neutral-950/95 backdrop-blur-xl border-t border-white/10 rounded-t-3xl shadow-[0_0_60px_rgba(0,0,0,0.8)] transform transition-all duration-300 ease-out pb-12 ${isAnimating ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
+            className={`fixed bottom-0 left-0 right-0 z-50 md:hidden bg-card/95 backdrop-blur-xl border-t border-border rounded-t-3xl shadow-2xl transform transition-all duration-300 ease-out pb-12 ${isAnimating ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
               }`}
             style={{
               transform: isAnimating ? `translateY(${currentTranslateY}px)` : 'translateY(100%)'
@@ -326,28 +325,28 @@ const BookThoughts = () => {
               onTouchMove={(e) => handleDragMove(e.touches[0].clientY)}
               onTouchEnd={handleDragEnd}
             >
-              <div className="w-16 h-1.5 bg-white/20 rounded-full"></div>
+              <div className="w-16 h-1.5 bg-muted-foreground/30 rounded-full"></div>
             </div>
 
             <div className="px-6 pb-4 space-y-6">
               <div className="text-center">
-                <div className="text-2xl font-bold text-white mb-1">{getFontSizeInPx()}px</div>
-                <div className="text-sm text-white/60">Current font size</div>
+                <div className="text-2xl font-bold text-foreground mb-1">{getFontSizeInPx()}px</div>
+                <div className="text-sm text-muted-foreground">Current font size</div>
               </div>
               <div className="flex items-center justify-center gap-4">
                 <button
                   onClick={zoomOut}
                   disabled={fontSize <= 80}
                   className={`w-12 h-12 rounded-xl border flex items-center justify-center transition-all duration-150 cursor-pointer ${fontSize <= 80
-                    ? 'border-[#2d2e2d] bg-[#161617] text-[#a0a0a5]/40 opacity-40 cursor-not-allowed'
-                    : 'border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000]'
+                    ? 'border-border bg-muted text-muted-foreground/40 opacity-40 cursor-not-allowed'
+                    : 'border-border bg-muted text-muted-foreground hover:text-foreground hover:bg-accent shadow-sm'
                     }`}
                 >
                   <Minus className="w-5 h-5" />
                 </button>
                 <button
                   onClick={resetZoom}
-                  className="px-6 py-2.5 border border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000] rounded-xl text-sm font-bold flex items-center gap-2 transition-all duration-150"
+                  className="px-6 py-2.5 border border-border bg-muted text-muted-foreground hover:text-foreground hover:bg-accent shadow-sm rounded-xl text-sm font-bold flex items-center gap-2 transition-all duration-150"
                 >
                   <RotateCcw className="w-4 h-4" />
                   Reset
@@ -356,8 +355,8 @@ const BookThoughts = () => {
                   onClick={zoomIn}
                   disabled={fontSize >= 150}
                   className={`w-12 h-12 rounded-xl border flex items-center justify-center transition-all duration-150 cursor-pointer ${fontSize >= 150
-                    ? 'border-[#2d2e2d] bg-[#161617] text-[#a0a0a5]/40 opacity-40 cursor-not-allowed'
-                    : 'border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000]'
+                    ? 'border-border bg-muted text-muted-foreground/40 opacity-40 cursor-not-allowed'
+                    : 'border-border bg-muted text-muted-foreground hover:text-foreground hover:bg-accent shadow-sm'
                     }`}
                 >
                   <Plus className="w-5 h-5" />
@@ -366,7 +365,7 @@ const BookThoughts = () => {
 
               {/* Slider */}
               <div className="space-y-3 pt-2">
-                <div className="flex justify-between text-xs text-white/60">
+                <div className="flex justify-between text-xs text-muted-foreground">
                   <span>Small (12px)</span>
                   <span>Large (24px)</span>
                 </div>
@@ -376,14 +375,7 @@ const BookThoughts = () => {
                   max="24"
                   value={getFontSizeInPx()}
                   onChange={handleSliderChange}
-                  className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer slider-thumb accent-white"
-                  style={{
-                    background: `linear-gradient(to right,
-                      #ffffff 0%,
-                      #ffffff ${((getFontSizeInPx() - 12) / 12) * 100}%,
-                      rgba(255, 255, 255, 0.2) ${((getFontSizeInPx() - 12) / 12) * 100}%,
-                      rgba(255, 255, 255, 0.2) 100%)`
-                  }}
+                  className="w-full h-2 bg-muted rounded-lg appearance-none cursor-pointer accent-primary"
                 />
               </div>
             </div>

@@ -64,9 +64,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="pt-16 min-h-screen bg-[#100F0F]">
+    <div className="pt-16 min-h-screen bg-background text-foreground">
       {/* Header */}
-      <div className="py-20 bg-gradient-to-br from-[#100F0F] via-green-900/20 to-[#100F0F] mb-12">
+      <div className="py-20 bg-gradient-to-b from-background via-accent/20 to-background mb-12">
         <ScrollReveal>
           <div className="max-w-3xl mx-auto w-full px-6 text-center">
             <h1 className="text-4xl md:text-4xl font-bold mb-6 font-bricolage">
@@ -74,7 +74,7 @@ const Contact = () => {
                 Let's Work Together
               </span>
             </h1>
-            <p className="text-[#909092] max-w-2xl mx-auto font-bricolage text-base">
+            <p className="text-muted-foreground max-w-2xl mx-auto font-bricolage text-base">
               Have a project in mind? Send me a message and let's discuss how we can bring your ideas to life.
             </p>
           </div>
@@ -86,8 +86,8 @@ const Contact = () => {
         <div className="max-w-3xl mx-auto w-full px-6">
           {/* Contact Form */}
           <ScrollReveal delay={0.2}>
-            <div className="border-neutral-800 bg-[#101010] border backdrop-blur-sm rounded-2xl p-8">
-              <h2 className="text-3xl font-bold font-outfit text-white mb-6 text-center">
+            <div className="border-border bg-card border backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+              <h2 className="text-3xl font-bold font-outfit text-foreground mb-6 text-center">
                 Send Message
               </h2>
 
@@ -95,7 +95,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium font-poppins text-[#909092] mb-2"
+                    className="block text-sm font-medium font-poppins text-muted-foreground mb-2"
                   >
                     Full Name
                   </label>
@@ -106,7 +106,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-neutral-800 bg-[#101010] border rounded-lg text-white font-poppins placeholder-[#909092] focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors"
+                    className="w-full px-4 py-3 border-input bg-card border rounded-lg text-foreground font-poppins placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring transition-colors"
                     placeholder="Your Name"
                   />
                 </div>
@@ -114,7 +114,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium font-poppins text-[#909092] mb-2"
+                    className="block text-sm font-medium font-poppins text-muted-foreground mb-2"
                   >
                     Email Address
                   </label>
@@ -125,7 +125,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-neutral-800 bg-[#101010] border rounded-lg text-white font-poppins placeholder-[#909092] focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors"
+                    className="w-full px-4 py-3 border-input bg-card border rounded-lg text-foreground font-poppins placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring transition-colors"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -133,7 +133,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="subject"
-                    className="block text-sm font-medium font-poppins text-[#909092] mb-2"
+                    className="block text-sm font-medium font-poppins text-muted-foreground mb-2"
                   >
                     Subject
                   </label>
@@ -144,7 +144,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 font-poppins border-neutral-800 bg-[#101010] border rounded-lg text-white placeholder-[#909092] focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors"
+                    className="w-full px-4 py-3 font-poppins border-input bg-card border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring transition-colors"
                     placeholder="Project Discussion"
                   />
                 </div>
@@ -152,7 +152,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium font-poppins text-[#909092] mb-2"
+                    className="block text-sm font-medium font-poppins text-muted-foreground mb-2"
                   >
                     Message
                   </label>
@@ -163,7 +163,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 font-poppins border-neutral-800 bg-[#101010] border rounded-lg text-white placeholder-[#909092] focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors resize-none"
+                    className="w-full px-4 py-3 font-poppins border-input bg-card border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring transition-colors resize-none"
                     placeholder="Tell me about your project..."
                   />
                 </div>
@@ -176,7 +176,7 @@ const Contact = () => {
                     text={loading ? "Sending..." : sent ? "Message Sent" : "Send Message"}
                     icon={loading ? (
                       <svg
-                        className="animate-spin h-5 w-5 text-white"
+                        className="animate-spin h-5 w-5 text-foreground"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -202,7 +202,7 @@ const Contact = () => {
 
               {/* Status Message */}
               {status && (
-                <p className="mt-4 text-center text-sm text-[#909092]">
+                <p className="mt-4 text-center text-sm text-muted-foreground">
                   {status}
                 </p>
               )}

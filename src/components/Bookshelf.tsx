@@ -397,21 +397,21 @@ const Bookshelf = () => {
             transition: 'transform 0.28s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.18s ease',
           }}
         >
-          <div className="px-3 py-1 bg-neutral-950/90 border border-neutral-800 backdrop-blur-sm text-[10px] font-bold tracking-wide uppercase text-neutral-200 rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.5)] transform -translate-x-1/2 -translate-y-full -mt-4 whitespace-nowrap">
+          <div className="px-3 py-1 bg-neutral-900 text-white dark:bg-white dark:text-black border border-border/20 backdrop-blur-sm text-[10px] font-bold tracking-wide uppercase rounded-full shadow-lg transform -translate-x-1/2 -translate-y-full -mt-4 whitespace-nowrap">
             {tooltipText}
           </div>
         </div>
       )}
 
-      <section id="bookshelf-section" className="pt-1 pb-8 bg-[#100F0F] overflow-hidden">
+      <section id="bookshelf-section" className="pt-1 pb-8 bg-background overflow-hidden">
         <div className="max-w-3xl mx-auto w-full px-6">
 
           {/* Header */}
           <ScrollReveal className="mb-4">
-            <h4 className="text-2xl md:text-2xl font-extrabold text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left font-hanken">
+            <h4 className="text-2xl md:text-2xl font-extrabold text-foreground text-left font-hanken">
               Bookshelf
             </h4>
-            <p className="text-neutral-400 font-hanken text-sm md:text-base text-left mt-2 max-w-xl leading-relaxed">
+            <p className="text-muted-foreground font-hanken text-sm md:text-base text-left mt-2 max-w-xl leading-relaxed">
               An interactive shelf of books and manga that have shaped my thinking on software engineering, design, philosophy, and habits. Click a book to inspect it.
             </p>
           </ScrollReveal>
@@ -1035,9 +1035,9 @@ const Bookshelf = () => {
               </div>
             </div>
 
-            {/* Premium Metallic/Wooden Shelf Base - Subtle Line to maintain depth */}
-            <div className="relative w-full h-[2px] bg-neutral-900 border-t border-neutral-800 rounded shadow-[0_4px_12px_rgba(0,0,0,0.5)] mt-[-2px] z-20">
-              <div className="absolute inset-0 bg-neutral-900/60"></div>
+            {/* Premium Shelf Base */}
+            <div className="relative w-full h-[2px] bg-border border-t border-border rounded shadow-sm mt-[-2px] z-20">
+              <div className="absolute inset-0 bg-muted/40"></div>
             </div>
           </ScrollReveal>
 

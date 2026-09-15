@@ -158,10 +158,10 @@ const ZoomControls: React.FC<ZoomControlsProps> = ({
       <div className="hidden md:block fixed right-6 top-1/2 -translate-y-1/2 z-40">
         <div className="flex flex-col items-center gap-3
                   rounded-2xl
-                  bg-[#100F0F]
+                  bg-card/90
                   backdrop-blur-xl
-                  border border-white/10
-                  shadow-[0_0_40px_rgba(0,0,0,0.3)]
+                  border border-border
+                  shadow-xl
                   px-3 py-4
                   transition-all duration-300">
 
@@ -170,8 +170,8 @@ const ZoomControls: React.FC<ZoomControlsProps> = ({
             onClick={zoomIn}
             disabled={fontSize >= 150}
             className={`w-10 h-10 rounded-xl border flex items-center justify-center transition-all duration-150 cursor-pointer ${fontSize >= 150
-              ? 'border-[#2d2e2d] bg-[#161617] text-[#a0a0a5]/40 opacity-40 cursor-not-allowed'
-              : 'border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000]'
+              ? 'border-border bg-muted text-muted-foreground/40 opacity-40 cursor-not-allowed'
+              : 'border-border bg-muted text-muted-foreground hover:text-foreground hover:bg-accent shadow-sm'
               }`}
             title="Zoom In (Ctrl/Cmd + =)"
           >
@@ -179,7 +179,7 @@ const ZoomControls: React.FC<ZoomControlsProps> = ({
           </button>
 
           {/* Font Size Indicator */}
-          <div className="text-xs font-bold select-none px-2.5 py-1.5 border border-neutral-950 bg-gradient-to-b from-[#0d0d0e] to-[#161617] text-white rounded-xl min-w-[44px] text-center shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)]">
+          <div className="text-xs font-bold select-none px-2.5 py-1.5 border border-border bg-card text-foreground rounded-xl min-w-[44px] text-center shadow-inner">
             {getFontSizeInPx()}px
           </div>
 
@@ -188,8 +188,8 @@ const ZoomControls: React.FC<ZoomControlsProps> = ({
             onClick={zoomOut}
             disabled={fontSize <= 80}
             className={`w-10 h-10 rounded-xl border flex items-center justify-center transition-all duration-150 cursor-pointer ${fontSize <= 80
-              ? 'border-[#2d2e2d] bg-[#161617] text-[#a0a0a5]/40 opacity-40 cursor-not-allowed'
-              : 'border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000]'
+              ? 'border-border bg-muted text-muted-foreground/40 opacity-40 cursor-not-allowed'
+              : 'border-border bg-muted text-muted-foreground hover:text-foreground hover:bg-accent shadow-sm'
               }`}
             title="Zoom Out (Ctrl/Cmd + -)"
           >
@@ -203,16 +203,16 @@ const ZoomControls: React.FC<ZoomControlsProps> = ({
         <button
           onClick={handleOpenSheet}
           className="w-14 h-14 rounded-full
-                   bg-black/40 backdrop-blur-xl
-                   border border-white/20
-                   shadow-[0_0_30px_rgba(0,0,0,0.4)]
+                   bg-card/80 backdrop-blur-xl
+                   border border-border
+                   shadow-lg
                    flex items-center justify-center
-                   hover:bg-black/60
+                   hover:bg-card
                    transition-all duration-300
                    hover:scale-105"
           title="Font Size Settings"
         >
-          <Settings className="w-6 h-6 text-white" />
+          <Settings className="w-6 h-6 text-foreground" />
         </button>
       </div>
 
@@ -232,10 +232,10 @@ const ZoomControls: React.FC<ZoomControlsProps> = ({
           {/* Bottom Sheet */}
           <div
             className={`fixed bottom-0 left-0 right-0 z-50 md:hidden
-                        bg-neutral-950/95 backdrop-blur-xl
-                        border-t border-white/10
+                        bg-card/95 backdrop-blur-xl
+                        border-t border-border
                         rounded-t-3xl
-                        shadow-[0_0_60px_rgba(0,0,0,0.8)]
+                        shadow-2xl
                         transform transition-all duration-300 ease-out
                         ${isAnimating
                 ? 'translate-y-0 opacity-100'
@@ -256,7 +256,7 @@ const ZoomControls: React.FC<ZoomControlsProps> = ({
               onTouchEnd={handleTouchEnd}
               onMouseDown={handleMouseDown}
             >
-              <div className={`w-16 h-1.5 bg-white/20 rounded-full transition-transform duration-200
+              <div className={`w-16 h-1.5 bg-muted-foreground/30 rounded-full transition-transform duration-200
                             ${isDragging ? 'scale-110' : 'scale-100'}`}></div>
             </div>
 
@@ -265,10 +265,10 @@ const ZoomControls: React.FC<ZoomControlsProps> = ({
 
               {/* Current Font Size Display */}
               <div className="text-center">
-                <div className="text-2xl font-bold text-white mb-1">
+                <div className="text-2xl font-bold text-foreground mb-1">
                   {getFontSizeInPx()}px
                 </div>
-                <div className="text-sm text-white/60 font-satoshi">
+                <div className="text-sm text-muted-foreground font-satoshi">
                   Current font size
                 </div>
               </div>
@@ -279,8 +279,8 @@ const ZoomControls: React.FC<ZoomControlsProps> = ({
                   onClick={zoomOut}
                   disabled={fontSize <= 80}
                   className={`w-12 h-12 rounded-xl border flex items-center justify-center transition-all duration-150 cursor-pointer ${fontSize <= 80
-                    ? 'border-[#2d2e2d] bg-[#161617] text-[#a0a0a5]/40 opacity-40 cursor-not-allowed'
-                    : 'border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000]'
+                    ? 'border-border bg-muted text-muted-foreground/40 opacity-40 cursor-not-allowed'
+                    : 'border-border bg-muted text-muted-foreground hover:text-foreground hover:bg-accent shadow-sm'
                     }`}
                 >
                   <Minus className="w-5 h-5" />
@@ -288,7 +288,7 @@ const ZoomControls: React.FC<ZoomControlsProps> = ({
 
                 <button
                   onClick={resetZoom}
-                  className="px-6 py-2.5 border border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000] rounded-xl text-sm font-bold flex items-center gap-2 transition-all duration-150 group"
+                  className="px-6 py-2.5 border border-border bg-muted text-muted-foreground hover:text-foreground hover:bg-accent shadow-sm rounded-xl text-sm font-bold flex items-center gap-2 transition-all duration-150 group"
                 >
                   <RotateCcw className="w-4 h-4 group-hover:rotate-[-45deg] transition-transform duration-300" />
                   Reset
@@ -298,8 +298,8 @@ const ZoomControls: React.FC<ZoomControlsProps> = ({
                   onClick={zoomIn}
                   disabled={fontSize >= 150}
                   className={`w-12 h-12 rounded-xl border flex items-center justify-center transition-all duration-150 cursor-pointer ${fontSize >= 150
-                    ? 'border-[#2d2e2d] bg-[#161617] text-[#a0a0a5]/40 opacity-40 cursor-not-allowed'
-                    : 'border-[#2d2e2d] bg-gradient-to-b from-[#252526] to-[#161617] text-[#a0a0a5] hover:text-white shadow-[0_3px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-[1px] hover:shadow-[0_4px_0_#000000,_inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[1px] active:shadow-[0_1px_0_#000000]'
+                    ? 'border-border bg-muted text-muted-foreground/40 opacity-40 cursor-not-allowed'
+                    : 'border-border bg-muted text-muted-foreground hover:text-foreground hover:bg-accent shadow-sm'
                     }`}
                 >
                   <Plus className="w-5 h-5" />
@@ -308,7 +308,7 @@ const ZoomControls: React.FC<ZoomControlsProps> = ({
 
               {/* Slider */}
               <div className="space-y-3">
-                <div className="flex justify-between text-sm text-white/60">
+                <div className="flex justify-between text-sm text-muted-foreground">
                   <span>Small</span>
                   <span>Large</span>
                 </div>
@@ -318,17 +318,9 @@ const ZoomControls: React.FC<ZoomControlsProps> = ({
                   max="24"
                   value={getFontSizeInPx()}
                   onChange={handleSliderChange}
-                  className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer
-                           slider-thumb accent-white"
-                  style={{
-                    background: `linear-gradient(to right,
-                      #ffffff 0%,
-                      #ffffff ${(getFontSizeInPx() - 12) / (24 - 12) * 100}%,
-                      rgba(255,255,255,0.2) ${(getFontSizeInPx() - 12) / (24 - 12) * 100}%,
-                      rgba(255,255,255,0.2) 100%)`
-                  }}
+                  className="w-full h-2 bg-muted rounded-lg appearance-none cursor-pointer accent-primary"
                 />
-                <div className="flex justify-between text-xs text-white/40">
+                <div className="flex justify-between text-xs text-muted-foreground/60">
                   <span>12px</span>
                   <span>24px</span>
                 </div>

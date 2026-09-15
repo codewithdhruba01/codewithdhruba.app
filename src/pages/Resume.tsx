@@ -65,15 +65,15 @@ const Resume = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#100F0F] pt-20 md:pt-28 pb-16">
+    <div className="min-h-screen bg-background pt-20 md:pt-28 pb-16">
       <div className="max-w-3xl mx-auto w-full px-6">
         {/* Header */}
         <ScrollReveal>
           <div className="text-center mb-8 sm:mb-12">
-            <h4 className="text-3xl md:text-5xl font-bold font-excon mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
+            <h4 className="text-3xl md:text-5xl font-bold font-excon mb-4 text-foreground">
               Resume
             </h4>
-            <p className="text-[#909092] max-w-md mx-auto font-poppins pb-4 border-b border-neutral-800/60">
+            <p className="text-muted-foreground max-w-md mx-auto font-poppins pb-4 border-b border-border">
               My professional resume and experience overview.
             </p>
           </div>
@@ -82,7 +82,7 @@ const Resume = () => {
         {/* Resume Viewer */}
         <ScrollReveal delay={0.1}>
           <div className="w-full flex justify-center">
-            <div ref={containerRef} className="relative bg-white rounded-lg shadow-2xl overflow-hidden w-full">
+            <div ref={containerRef} className="relative bg-white rounded-lg shadow-2xl border border-border overflow-hidden w-full">
               {showFallback ? (
                 <iframe
                   src={googleDriveEmbedUrl}
@@ -93,13 +93,13 @@ const Resume = () => {
               ) : (
                 <>
                   <div
-                    className={`absolute inset-0 z-10 bg-white/80 backdrop-blur-md transition-all duration-1000 ease-out ${isLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                    className={`absolute inset-0 z-10 bg-background/80 backdrop-blur-md transition-all duration-1000 ease-out ${isLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'
                       }`}
                   >
                     <div className="flex items-center justify-center h-full w-full">
                       <div className="text-center">
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-800 mx-auto mb-4"></div>
-                        <p className="text-[#909092] font-medium">Loading resume...</p>
+                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-foreground mx-auto mb-4"></div>
+                        <p className="text-muted-foreground font-medium">Loading resume...</p>
                       </div>
                     </div>
                   </div>
@@ -110,8 +110,8 @@ const Resume = () => {
                     loading={
                       <div className="flex items-center justify-center h-[65vh] sm:h-[90vh] w-full">
                         <div className="text-center">
-                          <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-gray-800 mx-auto mb-4"></div>
-                          <p className="text-[#909092]">Loading resume...</p>
+                          <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-foreground mx-auto mb-4"></div>
+                          <p className="text-muted-foreground">Loading resume...</p>
                         </div>
                       </div>
                     }
@@ -139,10 +139,10 @@ const Resume = () => {
           <div className="text-center mt-8 sm:mt-12">
             <button
               onClick={handleDownload}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-[#1A1919] border border-neutral-800 rounded-xl text-neutral-300 hover:border-neutral-700 hover:bg-[#222121] transition-all duration-300 group shadow-lg shadow-black/20 text-xs font-semibold font-outfit"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-card border border-border rounded-xl text-foreground/90 hover:border-neutral-500/40 hover:bg-accent transition-all duration-300 group shadow-lg text-xs font-semibold font-outfit"
             >
               <span>Download Resume</span>
-              <Download className="w-3.5 h-3.5 text-neutral-300 group-hover:text-white transition-colors" />
+              <Download className="w-3.5 h-3.5 text-muted-foreground group-hover:text-foreground transition-colors" />
             </button>
           </div>
         </ScrollReveal>
@@ -150,7 +150,7 @@ const Resume = () => {
         {/* Footer */}
         <ScrollReveal delay={0.2}>
           <div className="text-center mt-6 sm:mt-8">
-            <p className="text-sm text-[#909092] font-satoshi">
+            <p className="text-sm text-muted-foreground font-satoshi">
               Resume last updated: January 2026
             </p>
           </div>

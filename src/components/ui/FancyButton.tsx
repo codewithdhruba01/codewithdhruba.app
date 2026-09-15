@@ -6,7 +6,7 @@ const StyledWrapper = styled.div`
     border: 2px solid #00DC82;
     border-radius: 5px;
     box-sizing: border-box;
-    color: #fff;
+    color: hsl(var(--foreground));
     cursor: pointer;
     display: inline-block;
     font-weight: 700;
@@ -25,7 +25,7 @@ const StyledWrapper = styled.div`
     content: " ";
     width: 1.5625rem;
     height: 2px;
-    background: white;
+    background: hsl(var(--foreground));
     top: 50%;
     left: 1.5em;
     position: absolute;
@@ -39,7 +39,7 @@ const StyledWrapper = styled.div`
     display: block;
     text-align: left;
     transition: all 0.3s ease-in-out;
-    color: #fff;
+    color: hsl(var(--foreground));
     text-transform: uppercase;
   }
 
@@ -49,7 +49,7 @@ const StyledWrapper = styled.div`
     top: -2px;
     left: 0.625rem;
     position: absolute;
-    background: black;
+    background: hsl(var(--background));
     transition: width 0.5s ease-out, left 0.3s ease-out;
   }
 
@@ -59,7 +59,7 @@ const StyledWrapper = styled.div`
     right: 1.875rem;
     bottom: -2px;
     position: absolute;
-    background: black;
+    background: hsl(var(--background));
     transition: width 0.5s ease-out, right 0.3s ease-out;
   }
 
@@ -69,7 +69,7 @@ const StyledWrapper = styled.div`
     right: 0.625rem;
     bottom: -2px;
     position: absolute;
-    background: black;
+    background: hsl(var(--background));
     transition: width 0.5s ease-out, right 0.3s ease-out;
   }
 

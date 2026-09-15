@@ -76,10 +76,10 @@ export default function ReadingProgressPill({ postTitle, isHidden = false }: Rea
           animate={{ opacity: 1, y: 0, x: '-50%' }}
           exit={{ opacity: 0, y: 55, x: '-50%' }}
           transition={{ type: 'spring', damping: 26, stiffness: 210 }}
-          className="fixed bottom-8 left-1/2 z-50 flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#141416]/95 backdrop-blur-md border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.6)] w-[283px]"
+          className="fixed bottom-8 left-1/2 z-50 flex items-center gap-3 px-5 py-2.5 rounded-full bg-card/95 backdrop-blur-md border border-border shadow-2xl w-[283px]"
         >
-          {/* White Dot on the left */}
-          <span className="w-2 h-2 rounded-full bg-white shrink-0 block" />
+          {/* Dot on the left */}
+          <span className="w-2 h-2 rounded-full bg-foreground shrink-0 block" />
 
           {/* Dynamic Title Indicator Wrapper with hidden overflow and fixed height for ticker effect */}
           <div className="relative overflow-hidden h-5 flex-grow select-none ml-1 pr-2">
@@ -105,7 +105,7 @@ export default function ReadingProgressPill({ postTitle, isHidden = false }: Rea
                 animate="animate"
                 exit="exit"
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute text-sm text-neutral-200 font-medium font-hanken truncate w-full tracking-wide text-left block"
+                className="absolute text-sm text-foreground font-medium font-hanken truncate w-full tracking-wide text-left block"
               >
                 {truncateText(displayTitle, 24)}
               </motion.span>
@@ -115,7 +115,7 @@ export default function ReadingProgressPill({ postTitle, isHidden = false }: Rea
           {/* Circular Progress Tracker Button */}
           <button
             onClick={scrollToTop}
-            className="relative flex items-center justify-center w-8 h-8 rounded-full bg-transparent hover:bg-white/5 border-none transition-all duration-200 shrink-0 cursor-pointer"
+            className="relative flex items-center justify-center w-8 h-8 rounded-full bg-transparent hover:bg-accent border-none transition-all duration-200 shrink-0 cursor-pointer"
             title="Scroll to Top"
           >
             <svg className="w-7 h-7 transform -rotate-90" viewBox="0 0 24 24">
@@ -124,7 +124,7 @@ export default function ReadingProgressPill({ postTitle, isHidden = false }: Rea
                 cx="12"
                 cy="12"
                 r="10.2"
-                className="stroke-white/10"
+                className="stroke-muted"
                 strokeWidth="3"
                 fill="transparent"
               />
@@ -133,7 +133,7 @@ export default function ReadingProgressPill({ postTitle, isHidden = false }: Rea
                 cx="12"
                 cy="12"
                 r="10.2"
-                className="stroke-white transition-all duration-300 ease-out"
+                className="stroke-foreground transition-all duration-300 ease-out"
                 strokeWidth="3"
                 fill="transparent"
                 strokeDasharray={2 * Math.PI * 10.2}

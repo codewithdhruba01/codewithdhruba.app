@@ -66,10 +66,10 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative bg-[#100F0F] pt-24 md:pt-28 pb-6 md:pb-8"
+      className="relative bg-background pt-24 md:pt-28 pb-6 md:pb-8"
     >
       <ScrollReveal className="max-w-3xl mx-auto w-full px-6 flex flex-col">
-        <div className="relative w-full rounded-xl overflow-hidden aspect-[13/5] sm:aspect-[3/1] bg-neutral-900">
+        <div className="relative w-full rounded-xl overflow-hidden aspect-[13/5] sm:aspect-[3/1] bg-muted">
           <motion.img
             src="/assets/bg.png"
             alt="Night mountain landscape banner"
@@ -84,7 +84,7 @@ const Hero = () => {
               avatarTheme === 'logo' ? 'pointer-events-auto z-10' : 'pointer-events-none z-0'
             }`}
           />
-          
+
           <motion.img
             src="/assets/bg1.jpg"
             alt="Day mountain landscape banner"
@@ -107,7 +107,7 @@ const Hero = () => {
         </div>
 
         <div className="relative px-4 flex justify-between items-end -mt-10 sm:-mt-12 md:-mt-14 z-10">
-          <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-[#1c1b1b] shadow-md bg-neutral-800">
+          <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-card shadow-md bg-muted">
             <motion.img
               src="/assets/avaterlogo.png"
               alt="Dhrubaraj Pati"
@@ -145,9 +145,9 @@ const Hero = () => {
                   href="https://github.com/codewithdhruba01"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#111111]/80 backdrop-blur-sm border border-neutral-800 text-neutral-300 hover:text-white text-xs font-medium transition duration-200 select-none shadow-sm cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-card/90 backdrop-blur-sm border border-border text-muted-foreground hover:text-foreground text-xs font-medium transition duration-200 select-none shadow-sm cursor-pointer"
                 >
-                  <GithubIcon size="14" className="stroke-neutral-300 inline" />
+                  <GithubIcon size="14" className="stroke-current inline" />
                   <span>{formatFollowers(githubFollowers)}</span>
                 </a>
               </TooltipTrigger>
@@ -160,13 +160,13 @@ const Hero = () => {
 
         <div className="mt-6 px-1 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-bricolage font-extrabold md:text-3xl tracking-tight text-neutral-200 flex items-center gap-2">
+            <h2 className="text-2xl font-bricolage font-extrabold md:text-3xl tracking-tight text-foreground flex items-center gap-2">
               <span>Dhrubaraj Pati</span>
               <Tooltip>
                 <TooltipTrigger>
                   <button
                     onClick={handleCopyTerminal}
-                    className="p-1 rounded-md text-neutral-400 hover:text-white transition-colors cursor-pointer flex items-center justify-center focus:outline-none"
+                    className="p-1 rounded-md text-muted-foreground hover:text-foreground transition-colors cursor-pointer flex items-center justify-center focus:outline-none"
                     aria-label="Copy npx codewithdhruba"
                   >
                     <TerminalIcon size={24} className="stroke-current" />
@@ -177,7 +177,7 @@ const Hero = () => {
                 </TooltipContent>
               </Tooltip>
             </h2>
-            <p className="mt-1.5 font-hanken text-[14px] leading-[20px] tracking-normal text-[#909090]">
+            <p className="mt-1.5 font-hanken text-[14px] leading-[20px] tracking-normal text-muted-foreground">
               engineer • developer • builder
             </p>
           </div>
@@ -189,7 +189,7 @@ const Hero = () => {
                   href="https://github.com/codewithdhruba01"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full border border-neutral-800/80 bg-[#1A1919] hover:bg-[#222121] hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
+                  className="p-2.5 rounded-full border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer shadow-sm"
                 >
                   <GithubIcon size="18" className="stroke-current" />
                 </a>
@@ -205,7 +205,7 @@ const Hero = () => {
                   href="https://x.com/codewithdhruba"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full border border-neutral-800/80 bg-[#1A1919] hover:bg-[#222121] hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
+                  className="p-2.5 rounded-full border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer shadow-sm"
                 >
                   <XIcon size="18" className="fill-current" />
                 </a>
@@ -221,7 +221,7 @@ const Hero = () => {
                   href="https://www.linkedin.com/in/dhrubaraj-pati/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full border border-neutral-800/80 bg-[#1A1919] hover:bg-[#222121] hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
+                  className="p-2.5 rounded-full border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer shadow-sm"
                 >
                   <LinkedinIcon size="20" />
                 </a>
@@ -235,7 +235,7 @@ const Hero = () => {
               <TooltipTrigger>
                 <button
                   onClick={handleThemeClick}
-                  className="p-2.5 rounded-full border border-neutral-800/80 bg-[#1A1919] hover:bg-[#222121] hover:border-neutral-700 text-neutral-400 hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer hover:rotate-45"
+                  className="p-2.5 rounded-full border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer hover:rotate-45 shadow-sm"
                 >
                   <Earth className="w-5 h-5" />
                 </button>
@@ -251,16 +251,16 @@ const Hero = () => {
 
         {/* Bio Section */}
         <div className="px-1">
-          <h3 className="font-bold font-bricolage text-neutral-200 text-base sm:text-lg mb-3">
+          <h3 className="font-bold font-bricolage text-foreground text-base sm:text-lg mb-3">
             I build from scratch.
           </h3>
-          <p className="text-[#909092] leading-relaxed text-base font-hanken font-regular">
-            I am a <strong className="text-neutral-200 font-hanken font-medium">22 Year Old Full-Stack Developer</strong> dedicated to building scalable, high-performance web applications with{' '}
+          <p className="text-muted-foreground leading-relaxed text-base font-hanken font-regular">
+            I am a <strong className="text-foreground font-hanken font-medium">22 Year Old Full-Stack Developer</strong> dedicated to building scalable, high-performance web applications with{' '}
             <a
               href="https://www.typescriptlang.org/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#171717] border border-neutral-800 text-neutral-200 hover:text-white transition duration-200 text-xs font-medium"
+              className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-muted border border-border text-foreground hover:bg-accent transition duration-200 text-xs font-medium"
             >
               <svg viewBox="0 0 128 128" className="w-3 h-3">
                 <path fill="#fff" d="M22.67 47h99.67v73.67H22.67z"></path>
@@ -276,7 +276,7 @@ const Hero = () => {
               href="https://react.dev/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#171717] border border-neutral-800 text-neutral-200 hover:text-white transition duration-200 text-xs font-medium"
+              className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-muted border border-border text-foreground hover:bg-accent transition duration-200 text-xs font-medium"
             >
               <svg viewBox="0 0 128 128" className="w-3 h-3">
                 <g fill="#61DAFB">
@@ -291,7 +291,7 @@ const Hero = () => {
               href="https://nextjs.org/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#171717] border border-neutral-800 text-neutral-200 hover:text-white transition duration-200 text-xs font-medium"
+              className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-muted border border-border text-foreground hover:bg-accent transition duration-200 text-xs font-medium"
             >
               <svg viewBox="0 0 128 128" className="w-3 h-3 bg-white rounded-full">
                 <circle cx="64" cy="64" r="64" fill="#000"></circle>
@@ -337,14 +337,14 @@ const Hero = () => {
         <div className="flex flex-wrap items-center gap-3 mt-8 px-1">
           <Link
             to="/resume"
-            className="flex items-center gap-1.5 px-3.5 py-2 font-hanken rounded-lg border border-neutral-800 bg-[#1A1919] hover:bg-[#222121] text-neutral-200 hover:text-white font-medium text-xs transition-all duration-200 shadow-sm"
+            className="flex items-center gap-1.5 px-3.5 py-2 font-hanken rounded-lg border border-border bg-card hover:bg-accent text-foreground font-medium text-xs transition-all duration-200 shadow-sm"
           >
             <FileText className="w-3.5 h-3.5" />
             Resume / CV
           </Link>
           <Link
             to="/about"
-            className="flex items-center gap-1.5 px-3.5 py-2 font-hanken rounded-lg bg-white hover:bg-neutral-200 text-black font-medium text-xs transition-all duration-200 shadow-sm"
+            className="flex items-center gap-1.5 px-3.5 py-2 font-hanken rounded-lg bg-foreground hover:bg-foreground/90 text-background font-medium text-xs transition-all duration-200 shadow-sm"
           >
             <img
               src={avatarTheme === 'logo' ? '/assets/avaterlogo.png' : '/assets/avater.png'}

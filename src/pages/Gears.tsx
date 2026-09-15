@@ -36,30 +36,30 @@ export default function Gears() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#100F0F] text-white pt-28 md:pt-36 pb-16">
+    <div className="min-h-screen bg-background text-foreground pt-28 md:pt-36 pb-16">
       <div className="max-w-3xl mx-auto w-full px-6">
         {/* Page Heading */}
         <ScrollReveal>
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold font-outfit mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
+            <h2 className="text-3xl md:text-4xl font-bold font-outfit mb-3 text-foreground">
               Tools & Gears
             </h2>
-            <p className="text-[#909092] mt-2 text-sm sm:text-base font-supreme">
+            <p className="text-muted-foreground mt-2 text-sm sm:text-base font-supreme">
               Tools and gear I use every day to make work happen.
             </p>
           </div>
         </ScrollReveal>
 
         {/* Divider */}
-        <div className="border-t border-[#262626] mb-12"></div>
+        <div className="border-t border-border mb-12"></div>
 
         <div className="space-y-12">
           {/* Devices Section */}
           <section>
             <ScrollReveal delay={0.1}>
-              <h4 className="text-lg md:text-xl sm:text-base font-bold mb-6 flex items-center gap-3">
-                <span className="w-10 h-10 flex items-center justify-center rounded-xl border border-neutral-800 bg-neutral-900/50">
-                  <Devices className="w-5 h-5" />
+              <h4 className="text-lg md:text-xl sm:text-base font-bold mb-6 flex items-center gap-3 text-foreground">
+                <span className="w-10 h-10 flex items-center justify-center rounded-xl border border-border bg-card">
+                  <Devices className="w-5 h-5 text-foreground" />
                 </span>
                 Devices
               </h4>
@@ -69,9 +69,9 @@ export default function Gears() {
               {devicesList.map((dev, i) => {
                 const Icon = dev.icon;
                 return (
-                  <ScrollReveal key={i} delay={i * 0.02} className="flex items-center gap-3 text-base sm:text-base font-supreme text-[#909092]">
-                    <span className="w-8 h-8 flex items-center justify-center border border-neutral-700 rounded-md bg-neutral-800">
-                      <Icon className="w-4 h-4 text-gray-300" />
+                  <ScrollReveal key={i} delay={i * 0.02} className="flex items-center gap-3 text-base sm:text-base font-supreme text-muted-foreground">
+                    <span className="w-8 h-8 flex items-center justify-center border border-border rounded-md bg-muted">
+                      <Icon className="w-4 h-4 text-foreground" />
                     </span>
                     {dev.text}
                   </ScrollReveal>
@@ -82,9 +82,9 @@ export default function Gears() {
 
           <section>
             <ScrollReveal delay={0.15}>
-              <h4 className="text-lg md:text-xl sm:text-base font-bold mb-6 flex items-center gap-3">
-                <span className="w-10 h-10 flex items-center justify-center rounded-xl border border-neutral-800 bg-neutral-900/50">
-                  <AppStore className="w-5 h-5" />
+              <h4 className="text-lg md:text-xl sm:text-base font-bold mb-6 flex items-center gap-3 text-foreground">
+                <span className="w-10 h-10 flex items-center justify-center rounded-xl border border-border bg-card">
+                  <AppStore className="w-5 h-5 text-foreground" />
                 </span>
                 Software
               </h4>
@@ -132,17 +132,17 @@ export default function Gears() {
               ].map((ext, i) => (
                 <ScrollReveal key={i} delay={i * 0.02} className="flex items-center gap-3 text-base sm:text-base">
                   {/* Number Circle */}
-                  <span className="w-7 h-7 flex items-center justify-center rounded-md bg-neutral-800 text-sm text-gray-300">
+                  <span className="w-7 h-7 flex items-center justify-center rounded-md bg-muted text-sm text-foreground">
                     {i + 1}
                   </span>
                   <a
                     href={ext.url}
                     target="_blank"
-                    className="text-[#909092] hover:text-white transition font-supreme"
+                    className="text-muted-foreground hover:text-foreground transition font-supreme"
                   >
                     {ext.name}
                   </a>
-                  <ArrowUpRight className="w-4 h-4 text-neutral-400 hover:text-white" />
+                  <ArrowUpRight className="w-4 h-4 text-muted-foreground hover:text-foreground" />
                 </ScrollReveal>
               ))}
             </ul>

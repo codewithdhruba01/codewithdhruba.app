@@ -246,7 +246,7 @@ const Photos = () => {
     };
 
     return (
-        <div className="min-h-screen bg-[#100F0F] text-white pt-28 md:pt-36 pb-16">
+        <div className="min-h-screen bg-background text-foreground pt-28 md:pt-36 pb-16">
             <style>{`
                 @keyframes progress-animation {
                     from { width: 0%; }
@@ -261,14 +261,14 @@ const Photos = () => {
                 <ScrollReveal>
                     <div className="text-center">
                         <div className="mb-4">
-                            <span className="text-sm font-medium text-[#909092] tracking-widest uppercase">
+                            <span className="text-sm font-medium text-muted-foreground tracking-widest uppercase">
                                 GALLERY
                             </span>
                         </div>
-                        <h2 className="text-5xl md:text-4xl font-bold mb-3 font-serif bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">
+                        <h2 className="text-5xl md:text-4xl font-bold mb-3 font-serif text-foreground">
                             Wildlife Chronicles
                         </h2>
-                        <p className="text-base text-[#909092] max-w-2xl mx-auto leading-relaxed font-light font-hanken">
+                        <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light font-hanken">
                             A visual journey through India's diverse wildlife, capturing the
                             beauty and mystery of nature's creatures. Each encounter tells a
                             story of survival, adaptation, and the delicate balance of life.

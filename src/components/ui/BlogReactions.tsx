@@ -30,37 +30,40 @@ export const BlogReactions: React.FC<BlogReactionsProps> = ({
       <button
         onClick={onLove}
         disabled={userHasLoved || lovingBlog}
-        className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition ${userHasLoved
-          ? 'bg-red-500/20 border-red-500/40 text-red-400'
-          : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-red-500/10'
+        className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition cursor-pointer disabled:cursor-default ${userHasLoved
+          ? 'bg-red-500/15 border-red-500/30 text-red-500 font-medium'
+          : 'bg-card border-border text-foreground hover:bg-red-500/10 hover:border-red-500/30 hover:text-red-500 shadow-sm'
           }`}
+        aria-label="Love this post"
       >
         <Heart
-          className={`h-4 w-4 ${userHasLoved ? 'fill-red-400 text-red-400' : ''
+          className={`h-4 w-4 transition-colors ${userHasLoved ? 'fill-red-500 text-red-500' : 'fill-none'
             }`}
         />
-        <span>{blogLoves}</span>
+        <span className="text-xs font-semibold">{blogLoves}</span>
       </button>
       <button
         onClick={onLike}
         disabled={userHasLiked || likingBlog}
-        className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition ${userHasLiked
-          ? 'bg-blue-500/20 border-blue-500/40 text-blue-400'
-          : 'bg-white/5 border-white/10 text-neutral-300 hover:bg-blue-500/10'
+        className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition cursor-pointer disabled:cursor-default ${userHasLiked
+          ? 'bg-blue-500/15 border-blue-500/30 text-blue-500 font-medium'
+          : 'bg-card border-border text-foreground hover:bg-blue-500/10 hover:border-blue-500/30 hover:text-blue-500 shadow-sm'
           }`}
+        aria-label="Clap for this post"
       >
         <ClappingHandsIcon
           size="18"
-          className={userHasLiked ? 'fill-blue-400' : ''}
+          className={userHasLiked ? 'fill-blue-500' : 'fill-current text-foreground'}
         />
-        <span>{blogLikes}</span>
+        <span className="text-xs font-semibold">{blogLikes}</span>
       </button>
       <button
         onClick={onShare}
-        className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition"
+        className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-card border border-border text-foreground hover:bg-accent hover:border-neutral-500/40 transition shadow-sm cursor-pointer"
+        aria-label="Share this post"
       >
-        <ShareIcon size="18" />
-        <span>Share</span>
+        <ShareIcon size="18" className="fill-current text-foreground" />
+        <span className="text-xs font-semibold">Share</span>
       </button>
     </div>
   );

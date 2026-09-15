@@ -29,10 +29,10 @@ export const TooltipContent = ({ children, side = 'top' }: { children: React.Rea
     if (!context?.open) return null;
 
     const sideClasses = {
-        top: "bottom-full mb-4",
-        bottom: "top-full mt-4",
-        left: "right-full mr-4",
-        right: "left-full ml-4",
+        top: "bottom-full mb-3",
+        bottom: "top-full mt-3",
+        left: "right-full mr-3",
+        right: "left-full ml-3",
     };
 
     const arrowClasses = {
@@ -45,12 +45,12 @@ export const TooltipContent = ({ children, side = 'top' }: { children: React.Rea
     return (
         <div
             className={cn(
-                "absolute px-3 py-1.5 bg-white text-black text-xs font-semibold rounded-md shadow-xl whitespace-nowrap z-50 animate-in fade-in zoom-in-95 duration-200",
+                "absolute px-3 py-1.5 bg-neutral-900 text-white dark:bg-white dark:text-black text-xs font-semibold rounded-md shadow-xl whitespace-nowrap z-50 animate-in fade-in zoom-in-95 duration-200 pointer-events-none",
                 sideClasses[side]
             )}
         >
             {children}
-            <div className={cn("absolute w-2 h-2 bg-white rotate-45", arrowClasses[side])} />
+            <div className={cn("absolute w-2 h-2 bg-neutral-900 dark:bg-white rotate-45", arrowClasses[side])} />
         </div>
     );
 };

@@ -20,7 +20,7 @@ export const SectionButton = ({
     type = 'button',
     ...props
 }: SectionButtonProps) => {
-    const baseClasses = "inline-flex items-center gap-2 px-4 py-2.5 bg-[#1A1919] border border-neutral-800/80 rounded-xl text-[#d3d1d1] hover:border-neutral-700 hover:bg-[#222121] transition-all duration-200 group shadow-lg shadow-black/20 text-sm font-bold font-outfit";
+    const baseClasses = "inline-flex items-center gap-2 px-4 py-2.5 bg-card border border-border rounded-xl text-foreground hover:bg-accent transition-all duration-200 group shadow-sm text-sm font-bold font-outfit cursor-pointer";
 
     const content = (
         <>

@@ -55,15 +55,15 @@ export const FilmStripCard = forwardRef<HTMLDivElement, FilmStripCardProps>(
       className={cn("w-full max-w-[720px] font-mono mx-auto my-6 sm:my-10", className)}
       {...props}
     >
-      <p className="mb-2 sm:mb-4 text-center text-[9px] sm:text-xs tracking-widest text-neutral-400 uppercase">
+      <p className="mb-2 sm:mb-4 text-center text-[9px] sm:text-xs tracking-widest text-muted-foreground uppercase">
         {label}
       </p>
-      <div className="relative rounded-sm bg-neutral-900 px-2 py-3 sm:px-4 sm:py-5 shadow-xl flex justify-center">
+      <div className="relative rounded-md bg-card border border-border px-2 py-3 sm:px-4 sm:py-5 shadow-xl flex justify-center transition-colors duration-300">
         <div className="absolute top-0 bottom-0 left-0 flex w-3 sm:w-5 flex-col justify-evenly">
           {LEFT_SPROCKET_HOLES.map((holeId) => (
             <div
               key={holeId}
-              className="mx-auto h-2 w-1.5 sm:h-3 sm:w-2.5 rounded-sm bg-neutral-700"
+              className="mx-auto h-2 w-1.5 sm:h-3 sm:w-2.5 rounded-sm bg-background border border-border/60 transition-colors duration-300"
             />
           ))}
         </div>
@@ -71,7 +71,7 @@ export const FilmStripCard = forwardRef<HTMLDivElement, FilmStripCardProps>(
           {RIGHT_SPROCKET_HOLES.map((holeId) => (
             <div
               key={holeId}
-              className="mx-auto h-2 w-1.5 sm:h-3 sm:w-2.5 rounded-sm bg-neutral-700"
+              className="mx-auto h-2 w-1.5 sm:h-3 sm:w-2.5 rounded-sm bg-background border border-border/60 transition-colors duration-300"
             />
           ))}
         </div>
@@ -79,14 +79,14 @@ export const FilmStripCard = forwardRef<HTMLDivElement, FilmStripCardProps>(
           {frames.map((src, frameNumber) => (
             <div
               key={src}
-              className="relative shrink-0 overflow-hidden border-2 sm:border-[3px] border-neutral-800 h-[90px] w-[72px] sm:h-[110px] sm:w-[88px] md:h-[145px] md:w-[116px]"
+              className="relative shrink-0 overflow-hidden border-2 sm:border-[3px] border-border rounded-sm h-[90px] w-[72px] sm:h-[110px] sm:w-[88px] md:h-[145px] md:w-[116px] bg-muted/40 transition-colors duration-300"
             >
               <img
                 src={src}
                 alt={`Frame ${frameNumber + 1}`}
                 className="w-full h-full object-cover"
               />
-              <span className="absolute bottom-0.5 left-0.5 sm:bottom-1 sm:left-1 bg-black/60 px-1 py-0.5 sm:px-1.5 text-[7px] sm:text-[9px] text-white">
+              <span className="absolute bottom-0.5 left-0.5 sm:bottom-1 sm:left-1 bg-black/70 text-white px-1 py-0.5 sm:px-1.5 text-[7px] sm:text-[9px] rounded-sm font-mono">
                 {String(frameNumber + 1).padStart(2, "0")}
               </span>
             </div>

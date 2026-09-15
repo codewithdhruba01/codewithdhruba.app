@@ -132,8 +132,8 @@ const BlogContent = () => {
 
   if (!post) {
     return (
-      <div className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#100F0F] flex flex-col items-center justify-center">
-        <h1 className="text-2xl font-bold text-white mb-4">Post Not Found</h1>
+      <div className="pt-28 md:pt-36 pb-16 min-h-screen bg-background text-foreground flex flex-col items-center justify-center">
+        <h1 className="text-2xl font-bold text-foreground mb-4">Post Not Found</h1>
         <Link to="/blog" className="text-[#00DC82] hover:underline font-hanken">
           Back to Blog
         </Link>
@@ -143,19 +143,18 @@ const BlogContent = () => {
 
   return (
     <>
-      <article className="pt-28 md:pt-36 pb-16 min-h-screen bg-[#100F0F]">
+      <article className="pt-28 md:pt-36 pb-16 min-h-screen bg-background text-foreground">
         <div className="max-w-3xl mx-auto w-full px-6">
           {/* Back */}
           <div className="mb-8">
             <Link
               to="/blog"
-              className="inline-flex items-center text-[#909092] hover:text-white transition font-hanken group"
+              className="inline-flex items-center text-muted-foreground hover:text-foreground transition font-hanken group"
             >
               <ArrowLeft className="h-4 w-4 mr-2 transform group-hover:-translate-x-1 transition-transform duration-200" />
               Back to Blog
             </Link>
           </div>
-
 
           {/* Image */}
           <div className="mb-6">
@@ -171,18 +170,18 @@ const BlogContent = () => {
             />
           </div>
           <div className="mb-6">
-            <span className="bg-[#1e1e1e] text-neutral-300 px-3 py-1 font-outfit rounded-full text-sm">
+            <span className="bg-muted text-muted-foreground px-3 py-1 font-outfit rounded-full text-sm border border-border">
               {post.category}
             </span>
           </div>
 
           <div className="mb-6">
-            <h1 className="text-4xl md:text-5xl font-normal text-[#F5F5F5] leading-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
+            <h1 className="text-4xl md:text-5xl font-normal text-foreground leading-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
               {post.title}
             </h1>
           </div>
 
-          <div className="mb-10 flex flex-wrap items-center justify-between gap-4 text-sm text-neutral-400">
+          <div className="mb-10 flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-3">
               <img
                 src="https://avatars.githubusercontent.com/u/146111647?v=4"
@@ -190,8 +189,8 @@ const BlogContent = () => {
                 className="w-10 h-10 rounded-full"
               />
               <div className="flex flex-col">
-                <span className="text-white font-bold">{post.author}</span>
-                <div className="flex items-center gap-1.5 text-xs mt-0.5 text-neutral-400 leading-none">
+                <span className="text-foreground font-bold">{post.author}</span>
+                <div className="flex items-center gap-1.5 text-xs mt-0.5 text-muted-foreground leading-none">
                   <CalendarDays className="h-4 w-4" />
                   <span className="pt-[1px]">{post.date}</span>
                 </div>
@@ -213,12 +212,12 @@ const BlogContent = () => {
 
           {/* Content */}
           <div
-            className="prose prose-invert max-w-none font-hanken tracking-[0px] text-[#9ca3af] prose-p:text-[#9ca3af] prose-li:text-[#9ca3af] prose-headings:font-hanken prose-headings:text-gray-100 prose-strong:font-semibold prose-strong:text-gray-200"
+            className="prose max-w-none font-hanken tracking-[0px]"
             style={{ fontSize: `${fontSize}%` }}
           >
             {MdxContent ? (
-              <Suspense fallback={<div className="py-12 flex justify-center"><Loader2 className="animate-spin text-neutral-500" /></div>}>
-                <MdxContent 
+              <Suspense fallback={<div className="py-12 flex justify-center"><Loader2 className="animate-spin text-muted-foreground" /></div>}>
+                <MdxContent
                   components={{
                     pre: (props: any) => {
                       if (props.children && props.children.type === 'code') {
@@ -227,8 +226,8 @@ const BlogContent = () => {
                       return <pre {...props} />;
                     },
                     img: (props: any) => (
-                      <div 
-                        className="blog-image-wrapper-modern cursor-zoom-in" 
+                      <div
+                        className="blog-image-wrapper-modern cursor-zoom-in"
                         onClick={() => setActiveImage({ src: props.src, alt: props.alt || 'Blog Image Preview' })}
                       >
                         <img className="image-enhanced" {...props} />
@@ -241,12 +240,12 @@ const BlogContent = () => {
           </div>
 
           {/* Tags */}
-          <div className="mt-12 pt-8 border-t font-outfit border-gray-800">
+          <div className="mt-12 pt-8 border-t font-outfit border-border">
             <div className="flex flex-wrap gap-2">
               {post.tags.map((tag: string) => (
                 <span
                   key={tag}
-                  className="bg-[#1a1919] text-neutral-400 px-3 py-1 rounded-full text-sm"
+                  className="bg-muted text-muted-foreground px-3 py-1 rounded-full text-sm border border-border"
                 >
                   #{tag}
                 </span>
@@ -262,7 +261,7 @@ const BlogContent = () => {
 
             {/* Large Reaction Count - Atmospheric/Watermark Style */}
             <div className="-mb-8 z-0">
-              <span className="text-8xl md:text-9xl font-bold text-neutral-700/30 font-outfit tracking-wider select-none relative z-0">
+              <span className="text-8xl md:text-9xl font-bold text-foreground/10 font-outfit tracking-wider select-none relative z-0">
                 {blogLoves}
               </span>
             </div>
@@ -341,9 +340,9 @@ const BlogContent = () => {
 
           {/* Bottom Caption Pill */}
           <div className="absolute bottom-8 flex justify-center w-full px-4 animate-slide-up">
-            <div className="bg-[#111] border border-white/10 rounded-full px-5 py-2 flex items-center gap-2.5 shadow-xl">
+            <div className="bg-card/90 border border-border rounded-full px-5 py-2 flex items-center gap-2.5 shadow-xl">
               <span className="h-2 w-2 rounded-full bg-[#00DC82] animate-pulse"></span>
-              <span className="text-sm font-hanken text-neutral-300 font-medium">
+              <span className="text-sm font-hanken text-foreground font-medium">
                 {activeImage.alt}
               </span>
             </div>

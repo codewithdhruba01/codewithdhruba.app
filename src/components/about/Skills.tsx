@@ -67,13 +67,13 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="pt-8 pb-8 bg-[#100F0F]">
+    <section id="skills" className="pt-8 pb-8 bg-background">
       <div className="max-w-3xl mx-auto w-full px-6">
         <ScrollReveal className="mb-8">
-          <p className="text-lg text-neutral-400 font-outfit text-left">
+          <p className="text-lg text-muted-foreground font-outfit text-left">
             Latest
           </p>
-          <h2 className="text-3xl font-extrabold font-bricolage text-neutral-200 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 text-left">
+          <h2 className="text-3xl font-extrabold font-bricolage text-foreground text-left">
             Tech Stack
           </h2>
         </ScrollReveal>
@@ -90,10 +90,10 @@ const Skills = () => {
                   href={tech.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 px-2.5 py-1 bg-[#111112]/95 border border-neutral-800/80 rounded-full shadow-md shadow-black/10 cursor-pointer select-none transition-colors duration-200 hover:border-neutral-700/80 hover:bg-[#161618]/95"
+                  className="flex items-center gap-1 px-2.5 py-1 bg-card border border-border rounded-full shadow-sm cursor-pointer select-none transition-colors duration-200 hover:bg-accent"
                 >
                   {IconComponent && <IconComponent className="w-3.5 h-3.5 shrink-0" />}
-                  <span className="font-outfit font-medium text-[11px] sm:text-xs text-[#E4E4E7] tracking-wide">
+                  <span className="font-outfit font-medium text-[11px] sm:text-xs text-foreground tracking-wide">
                     {tech.name}
                   </span>
                 </a>

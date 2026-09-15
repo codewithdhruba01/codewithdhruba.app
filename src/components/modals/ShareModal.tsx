@@ -103,7 +103,7 @@ const ShareModal = ({ isOpen, onClose, title, slug }: ShareModalProps) => {
       onClick={handleClose}
     >
       <div
-        className={`relative w-full max-w-md rounded-2xl border border-white/10 bg-[#100F0F]/95 p-5 shadow-2xl transition-all duration-300 ${isAnimating
+        className={`relative w-full max-w-md rounded-2xl border border-border bg-popover/95 text-popover-foreground p-5 shadow-2xl transition-all duration-300 ${isAnimating
           ? 'scale-100 opacity-100 translate-y-0'
           : 'scale-95 opacity-0 translate-y-4'
           }`}
@@ -112,16 +112,16 @@ const ShareModal = ({ isOpen, onClose, title, slug }: ShareModalProps) => {
         {/* Header */}
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h3 className="text-base font-hanken text-white">
+            <h3 className="text-base font-hanken text-foreground font-semibold">
               Share this blog
             </h3>
-            <p className="text-sm font-hanken text-neutral-400 mt-1">
+            <p className="text-sm font-hanken text-muted-foreground mt-1">
               Share "{title}"
             </p>
           </div>
           <button
             onClick={handleClose}
-            className="text-neutral-400 hover:text-white font-hanken transition"
+            className="text-muted-foreground hover:text-foreground font-hanken transition"
           >
             <X className="h-5 w-5" />
           </button>
@@ -129,26 +129,26 @@ const ShareModal = ({ isOpen, onClose, title, slug }: ShareModalProps) => {
 
         {/* Copy link */}
         <div className="mb-5">
-          <label className="block text-sm text-neutral-400 mb-2">
+          <label className="block text-sm text-muted-foreground mb-2">
             Copy Link
           </label>
-          <div className="flex items-center gap-2 rounded-lg bg-white/5 border border-white/10 px-3 py-2">
+          <div className="flex items-center gap-2 rounded-lg bg-muted/50 border border-border px-3 py-2">
             <input
               type="text"
               value={getShareUrl()}
               readOnly
-              className="flex-1 bg-transparent text-sm text-neutral-400 outline-none font-hanken"
+              className="flex-1 bg-transparent text-sm text-foreground outline-none font-hanken"
             />
             <button
               onClick={copyToClipboard}
-              className="p-2 rounded-md bg-white/10 hover:bg-white/20 transition text-white"
+              className="p-2 rounded-md bg-accent hover:bg-muted transition text-foreground"
               title="Copy link"
             >
               <Copy className="h-4 w-4" />
             </button>
           </div>
           {copied && (
-            <p className="text-xs font-hanken text-green-400 mt-2">
+            <p className="text-xs font-hanken text-green-500 mt-2">
               copied!
             </p>
           )}
@@ -156,14 +156,14 @@ const ShareModal = ({ isOpen, onClose, title, slug }: ShareModalProps) => {
 
         {/* Social buttons */}
         <div>
-          <p className="text-sm font-hanken text-neutral-400 mb-3">
+          <p className="text-sm font-hanken text-muted-foreground mb-3">
             Share on Social Media
           </p>
           <div className="flex gap-3">
             <button
               onClick={shareOnTwitter}
               className="flex-1 flex items-center font-hanken justify-center gap-2 px-4 py-2 rounded-lg
-              bg-white/5 border border-white/10 text-white hover:bg-white/10 transition"
+              bg-card border border-border text-foreground hover:bg-accent transition"
             >
               <XIcon size="16" />
               Twitter
@@ -171,7 +171,7 @@ const ShareModal = ({ isOpen, onClose, title, slug }: ShareModalProps) => {
             <button
               onClick={shareOnLinkedIn}
               className="flex-1 flex items-center font-hanken justify-center gap-2 px-4 py-2 rounded-lg
-              bg-white/5 border border-white/10 text-white hover:bg-white/10 transition"
+              bg-card border border-border text-foreground hover:bg-accent transition"
             >
               <LinkedinIcon size="20" />
               LinkedIn
