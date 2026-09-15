@@ -141,13 +141,13 @@
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
-          background: #111111;
-          border: 1px solid rgba(255, 255, 255, 0.08);
+          background: hsl(var(--card));
+          border: 1px solid hsl(var(--border));
           border-radius: 12px;
           padding: 14px;
           width: 180px;
-          box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-          color: #fff;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+          color: hsl(var(--foreground));
           font-family: 'Outfit', 'Cabinet Grotesk', system-ui, -apple-system, sans-serif;
           animation: onekoFadeIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
@@ -164,10 +164,10 @@
           letter-spacing: -0.02em;
         }
         .oneko-close {
-          background: rgba(255, 255, 255, 0.08);
+          background: hsl(var(--muted));
           border: none;
           border-radius: 50%;
-          color: rgba(255, 255, 255, 0.8);
+          color: hsl(var(--muted-foreground));
           cursor: pointer;
           font-size: 14px;
           width: 24px;
@@ -178,8 +178,8 @@
           transition: all 0.2s;
         }
         .oneko-close:hover {
-          background: rgba(255, 255, 255, 0.15);
-          color: #fff;
+          background: hsl(var(--accent));
+          color: hsl(var(--accent-foreground));
           transform: scale(1.05);
         }
         .oneko-grid {
@@ -194,19 +194,19 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          background: none;
+          background: transparent;
           border: 1px solid transparent;
           border-radius: 8px;
           cursor: pointer;
           transition: all 0.2s;
         }
         .oneko-item:hover {
-          background: rgba(255, 255, 255, 0.05);
-          border-color: rgba(255, 255, 255, 0.1);
+          background: hsl(var(--accent));
+          border-color: hsl(var(--border));
         }
         .oneko-item.active {
-          background: rgba(255, 255, 255, 0.08);
-          border-color: rgba(255, 255, 255, 0.2);
+          background: hsl(var(--muted));
+          border-color: hsl(var(--border));
         }
         .oneko-preview {
           width: 32px;
