@@ -114,7 +114,7 @@ export default function Gears() {
                           </button>
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p className="font-outfit text-foreground">Copy Extension</p>
+                          <p className="font-outfit text-white dark:text-black">Copy Extension</p>
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
