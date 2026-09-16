@@ -80,6 +80,19 @@ const calculateProjectedDimensions = (
 
 export const books: Book[] = [
   {
+    slug: 'open-to-work',
+    title: 'Open to Work: How to Get Ahead in the Age of AI',
+    author: 'Ryan Roslansky & Aneesh Raman',
+    coverUrl: '/books/open-to-work.jpg',
+    spineColor: '#218ceb',
+    spineTextColor: '#ffffff',
+    progress: 'Read',
+    coverWidth: 175,
+    spineWidth: 26,
+    baseTilt: 0.0,
+    theme: 'dark'
+  },
+  {
     slug: 'designing-data-intensive-applications',
     title: 'Designing Data-Intensive Applications',
     author: 'Martin Kleppmann',
@@ -89,7 +102,7 @@ export const books: Book[] = [
     progress: 'Read',
     coverWidth: 185,
     spineWidth: 32,
-    baseTilt: 0.0,
+    baseTilt: -0.35,
     theme: 'light'
   },
   {
@@ -220,19 +233,6 @@ export const books: Book[] = [
     coverWidth: 170,
     spineWidth: 30,
     baseTilt: -0.35,
-    theme: 'dark'
-  },
-  {
-    slug: 'open-to-work',
-    title: 'Open to Work: How to Get Ahead in the Age of AI',
-    author: 'Ryan Roslansky & Aneesh Raman',
-    coverUrl: '/books/open-to-work.jpg',
-    spineColor: '#218ceb',
-    spineTextColor: '#ffffff',
-    progress: 'Read',
-    coverWidth: 175,
-    spineWidth: 26,
-    baseTilt: -0.5,
     theme: 'dark'
   },
   {

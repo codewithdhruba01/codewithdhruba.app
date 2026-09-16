@@ -179,6 +179,7 @@ export const zeroToOne = {
 
 
 export const bookThoughtsData = {
+  'open-to-work': openToWork,
   'designing-data-intensive-applications': designingDataIntensiveApplications,
   'the-pragmatic-programmer': thePragmaticProgrammer,
   'the-art-of-seduction': theArtOfSeduction,
@@ -190,7 +191,6 @@ export const bookThoughtsData = {
   'dopamine-detox': dopamineDetox,
   'the-7-habits-of-highly-effective-people': the7HabitsOfHighlyEffectivePeople,
   'cant-hurt-me': cantHurtMe,
-  'open-to-work': openToWork,
   'the-subtle-art-of-not-giving-a-fck': theSubtleArt,
   'the-happiest-man-on-earth': theHappiestManOnEarth,
   'influence-the-psychology-of-persuasion': influenceThePsychologyOfPersuasion,
