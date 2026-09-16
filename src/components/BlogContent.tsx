@@ -70,8 +70,8 @@ const CodeBlock = ({ children, className }: any) => {
           </svg>
         )}
       </button>
-      <pre className="code-enhanced">
-        <code ref={codeRef} className={className}>{children}</code>
+      <pre className="code-enhanced font-['Geist_Mono'] text-[0.875em]">
+        <code ref={codeRef} className={className} style={{ fontFamily: "'Geist Mono', monospace" }}>{children}</code>
       </pre>
     </div>
   );
@@ -175,11 +175,18 @@ const BlogContent = () => {
             </span>
           </div>
 
-          <div className="mb-6">
-            <h1 className="text-4xl md:text-5xl font-normal text-foreground leading-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
+          <div className="mb-4" style={{ fontSize: `${fontSize}%` }}>
+            <h1 className="text-[2.25em] md:text-[3em] lg:text-[3.5em] font-normal text-foreground leading-[1.1] tracking-[-0.01em] font-['Instrument_Serif']">
               {post.title}
             </h1>
           </div>
+          {post.description && (
+            <div className="mb-8" style={{ fontSize: `${fontSize}%` }}>
+              <p className="font-hanken text-[1em] leading-[1.75em] text-[#737373] dark:text-[#a1a1aa]">
+                {post.description}
+              </p>
+            </div>
+          )}
 
           <div className="mb-10 flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-3">
@@ -212,7 +219,7 @@ const BlogContent = () => {
 
           {/* Content */}
           <div
-            className="prose max-w-none font-hanken tracking-[0px]"
+            className="prose max-w-none prose-p:font-hanken prose-p:text-[1em] prose-p:leading-[1.75em] prose-p:text-[#737373] dark:prose-p:text-[#a1a1aa] prose-li:font-hanken prose-li:text-[1em] prose-li:leading-[1.75em] prose-li:text-[#737373] dark:prose-li:text-[#a1a1aa] prose-headings:font-['Instrument_Serif'] prose-headings:font-normal prose-strong:font-bold prose-strong:text-foreground"
             style={{ fontSize: `${fontSize}%` }}
           >
             {MdxContent ? (

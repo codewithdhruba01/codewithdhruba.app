@@ -145,7 +145,18 @@ export const theUnspokenRealityOfTier3Colleges = {
 };
 
 
-export const blogPostsData = {
+export type BlogPost = {
+  title: string;
+  description?: string;
+  date: string;
+  author: string;
+  category: string;
+  readTime: string;
+  image: string;
+  tags: string[];
+};
+
+export const blogPostsData: Record<string, BlogPost> = {
   'how-to-work-with-mcp-server': howToWorkWithMcpServer,
   'the-unspoken-reality-of-tier-3-colleges': theUnspokenRealityOfTier3Colleges,
   'rag-ai-chatbot': ragAiChatbot,
@@ -159,4 +170,3 @@ export const blogPostsData = {
 };
 
 export type BlogPostKey = keyof typeof blogPostsData;
-export type BlogPost = typeof blogPostsData[BlogPostKey];

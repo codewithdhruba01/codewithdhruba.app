@@ -432,15 +432,19 @@ html {
 .prose ol,
 .prose figcaption,
 .prose div {
-  color: hsl(var(--muted-foreground)) !important;
-  font-family: 'Hanken Grotesk', 'HK Grotesk', sans-serif !important;
+  color: hsl(var(--foreground)) !important;
+  opacity: 0.85;
+  font-family: 'Inter', sans-serif !important;
   font-weight: 400 !important;
+  font-size: 1.0625rem !important;
+  line-height: 1.8 !important;
+  letter-spacing: -0.005em !important;
 }
 
-/* Reduce spacing for paragraphs to decrease the gap */
+/* Paragraph spacing */
 .prose p {
-  margin-top: 0.5em !important;
-  margin-bottom: 0.5em !important;
+  margin-top: 1.25em !important;
+  margin-bottom: 1.25em !important;
 }
 
 /* Bold text styling */
@@ -450,7 +454,7 @@ html {
 .prose b * {
   font-weight: 600 !important;
   color: hsl(var(--foreground)) !important;
-  font-family: 'Hanken Grotesk', 'HK Grotesk', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
 }
 
 /* Headings exclusion - Keep them styled with Instrument Serif Regular */
@@ -463,9 +467,17 @@ html {
   color: hsl(var(--foreground)) !important;
   font-family: 'Instrument Serif', serif !important;
   font-weight: 400 !important;
-  letter-spacing: normal;
-  margin-top: 1.25em !important;
-  margin-bottom: 0.25em !important;
+  letter-spacing: -0.02em !important;
+  margin-top: 1.5em !important;
+  margin-bottom: 0.5em !important;
+}
+.prose h2 {
+  font-size: 2.25rem !important;
+  line-height: 1.2 !important;
+}
+.prose h3 {
+  font-size: 1.75rem !important;
+  line-height: 1.3 !important;
 }
 
 /* Links exclusion */
