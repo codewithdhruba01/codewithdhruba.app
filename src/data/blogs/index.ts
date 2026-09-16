@@ -1,13 +1,3 @@
-export const buildingMyFirstWebsiteWithReactAndTailwind = {
-  title: 'Building My portfolio Website from Scratch',
-  date: 'December 29, 2025',
-  author: 'Dhrubaraj Pati',
-  category: 'Web Development',
-  readTime: '8 min read',
-  image: '/blog/blog3.png',
-  tags: ['React', 'Tailwind CSS', 'TypeScript', 'Portfolio', 'GitHub API', 'AOS'],
-  
-};
 
 
 export const chromeKeyboardShortcuts = {
@@ -58,16 +48,6 @@ export const essentialToolsForNextJsAndReact = {
   tags: ['Resources', 'React', 'Next.js', 'UI/UX', 'Tools'],
 };
 
-
-export const gettingStartedWithReactTypescript = {
-  title: 'Getting Started with React and TypeScript: A Complete Developer\'s Guide',
-  date: 'March 15, 2025',
-  author: 'Dhrubaraj Pati',
-  category: 'Development',
-  readTime: '12 min read',
-  image: '/blog/blog2.png',
-  tags: ['React', 'TypeScript', 'Web Development', 'JavaScript', 'Frontend'],
-};
 
 
 export const howNextAuthWorks = {
@@ -162,8 +142,6 @@ export const blogPostsData: Record<string, BlogPost> = {
   'rag-ai-chatbot': ragAiChatbot,
   'essential-tools-for-nextjs-and-react': essentialToolsForNextJsAndReact,
   'how-nextauth-works': howNextAuthWorks,
-  'getting-started-with-react-typescript': gettingStartedWithReactTypescript,
-  'building-my-first-website-with-react-and-tailwind': buildingMyFirstWebsiteWithReactAndTailwind,
   'chrome-keyboard-shortcuts': chromeKeyboardShortcuts,
   'essential-linux-commands': essentialLinuxCommands,
   'openweather-api-guide': openweatherApiGuide,

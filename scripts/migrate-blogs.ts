@@ -51,8 +51,6 @@ const indexContent = consolidatedExports +
   'rag-ai-chatbot': ragAiChatbot,
   'essential-tools-for-nextjs-and-react': essentialToolsForNextJsAndReact,
   'how-nextauth-works': howNextAuthWorks,
-  'getting-started-with-react-typescript': gettingStartedWithReactTypescript,
-  'building-my-first-website-with-react-and-tailwind': buildingMyFirstWebsiteWithReactAndTailwind,
   'chrome-keyboard-shortcuts': chromeKeyboardShortcuts,
   'essential-linux-commands': essentialLinuxCommands,
   'openweather-api-guide': openweatherApiGuide,

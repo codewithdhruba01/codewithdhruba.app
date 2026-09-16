@@ -75,7 +75,7 @@ const Contact = () => {
               </span>
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto font-medium text-sm">
-              Have a project in mind? Send me a message and let's discuss how we can bring your ideas to life.
+              Have an interesting idea or a project in mind ! Drop a message and let's build something extraordinary together.
             </p>
           </div>
         </ScrollReveal>

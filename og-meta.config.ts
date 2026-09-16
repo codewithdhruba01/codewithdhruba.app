@@ -96,12 +96,6 @@ const blogMeta: Record<string, PageMeta> = {
       'NextAuth.js - complete open-source authentication solution for Next.js applications.',
     image: '/meta/blog6.jpg',
   },
-  'getting-started-with-react-typescript': {
-    title: 'Getting Started with React and TypeScript',
-    description:
-      'Set up React with TypeScript and best practices for type safety.',
-    image: '/meta/blog2.jpg',
-  },
   'chrome-keyboard-shortcuts': {
     title: '10 Chrome Keyboard Shortcuts',
     description:
@@ -113,12 +107,6 @@ const blogMeta: Record<string, PageMeta> = {
     description:
       'Master OpenWeather API with production-ready patterns and implementations.',
     image: '/blog/OpenWeather.png',
-  },
-  'building-my-first-website-with-react-and-tailwind': {
-    title: 'Building My Portfolio from Scratch',
-    description:
-      'Build a Portfolio website with React and Tailwind CSS - setup to responsive design.',
-    image: '/meta/blog3.jpg',
   },
   'essential-linux-commands': {
     title: 'Essential Linux Commands',

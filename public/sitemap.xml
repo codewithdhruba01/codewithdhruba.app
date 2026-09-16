@@ -116,20 +116,6 @@
   </url>
 
   <url>
-    <loc>https://codewithdhruba.in/blog/getting-started-with-react-typescript</loc>
-    <lastmod>2026-03-13</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://codewithdhruba.in/blog/building-my-first-website-with-react-and-tailwind</loc>
-    <lastmod>2026-03-13</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
     <loc>https://codewithdhruba.in/blog/chrome-keyboard-shortcuts</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>yearly</changefreq>

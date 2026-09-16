@@ -8,8 +8,6 @@ This guide explains how to add new blog posts to the portfolio website.
 src/data/blogs/
 ├── README.md                    # This guide
 ├── index.ts                     # Central export file
-├── getting-started-with-react-typescript.ts
-├── building-my-first-website-with-react-and-tailwind.ts
 ├── chrome-keyboard-shortcuts.ts
 ├── essential-linux-commands.ts
 └── openweather-api-guide.ts
