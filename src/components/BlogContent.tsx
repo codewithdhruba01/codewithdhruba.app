@@ -175,75 +175,77 @@ const BlogContent = () => {
             </span>
           </div>
 
-          <div className="mb-4" style={{ fontSize: `${fontSize}%` }}>
+          <div className="mb-4">
             <h1 className="text-[2.25em] md:text-[3em] lg:text-[3.5em] font-normal text-foreground leading-[1.1] tracking-[-0.01em] font-['Instrument_Serif']">
               {post.title}
             </h1>
           </div>
-          {post.description && (
-            <div className="mb-8" style={{ fontSize: `${fontSize}%` }}>
-              <p className="font-hanken text-[1em] leading-[1.75em] text-[#737373] dark:text-[#a1a1aa]">
-                {post.description}
-              </p>
-            </div>
-          )}
+          {/* Zoomable Content Wrapper */}
+          <div className="blog-zoom-content" style={{ zoom: `${fontSize}%` }}>
+            {post.description && (
+              <div className="mb-8">
+                <p className="font-hanken text-[1em] leading-[1.75em] text-[#737373] dark:text-[#a1a1aa]">
+                  {post.description}
+                </p>
+              </div>
+            )}
 
-          <div className="mb-10 flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
-            <div className="flex items-center gap-3">
-              <img
-                src="https://avatars.githubusercontent.com/u/146111647?v=4"
-                alt={post.author}
-                className="w-10 h-10 rounded-full"
-              />
-              <div className="flex flex-col">
-                <span className="text-foreground font-bold">{post.author}</span>
-                <div className="flex items-center gap-1.5 text-xs mt-0.5 text-muted-foreground leading-none">
-                  <CalendarDays className="h-4 w-4" />
-                  <span className="pt-[1px]">{post.date}</span>
+            <div className="mb-10 flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
+              <div className="flex items-center gap-3">
+                <img
+                  src="https://avatars.githubusercontent.com/u/146111647?v=4"
+                  alt={post.author}
+                  className="w-10 h-10 rounded-full"
+                />
+                <div className="flex flex-col">
+                  <span className="text-foreground font-bold">{post.author}</span>
+                  <div className="flex items-center gap-1.5 text-xs mt-0.5 text-muted-foreground leading-none">
+                    <CalendarDays className="h-4 w-4" />
+                    <span className="pt-[1px]">{post.date}</span>
+                  </div>
                 </div>
               </div>
+
+              <BlogReactions
+                blogLoves={blogLoves}
+                blogLikes={blogLikes}
+                userHasLoved={userHasLoved}
+                userHasLiked={userHasLiked}
+                lovingBlog={lovingBlog}
+                likingBlog={likingBlog}
+                onLove={handleBlogLove}
+                onLike={handleBlogLike}
+                onShare={() => setShowShareModal(true)}
+              />
             </div>
 
-            <BlogReactions
-              blogLoves={blogLoves}
-              blogLikes={blogLikes}
-              userHasLoved={userHasLoved}
-              userHasLiked={userHasLiked}
-              lovingBlog={lovingBlog}
-              likingBlog={likingBlog}
-              onLove={handleBlogLove}
-              onLike={handleBlogLike}
-              onShare={() => setShowShareModal(true)}
-            />
-          </div>
-
-          {/* Content */}
-          <div
-            className="prose max-w-none prose-p:font-hanken prose-p:text-[1em] prose-p:leading-[1.75em] prose-p:text-[#737373] dark:prose-p:text-[#a1a1aa] prose-li:font-hanken prose-li:text-[1em] prose-li:leading-[1.75em] prose-li:text-[#737373] dark:prose-li:text-[#a1a1aa] prose-headings:font-['Instrument_Serif'] prose-headings:font-normal prose-strong:font-bold prose-strong:text-foreground"
-            style={{ fontSize: `${fontSize}%` }}
-          >
-            {MdxContent ? (
-              <Suspense fallback={<div className="py-12 flex justify-center"><Loader2 className="animate-spin text-muted-foreground" /></div>}>
-                <MdxContent
-                  components={{
-                    pre: (props: any) => {
-                      if (props.children && props.children.type === 'code') {
-                        return <CodeBlock {...props.children.props} />;
-                      }
-                      return <pre {...props} />;
-                    },
-                    img: (props: any) => (
-                      <div
-                        className="blog-image-wrapper-modern cursor-zoom-in"
-                        onClick={() => setActiveImage({ src: props.src, alt: props.alt || 'Blog Image Preview' })}
-                      >
-                        <img className="image-enhanced" {...props} />
-                      </div>
-                    )
-                  }}
-                />
-              </Suspense>
-            ) : null}
+            {/* Content */}
+            <div
+              className="prose max-w-none prose-p:font-hanken prose-p:text-[1em] prose-p:leading-[1.75em] prose-p:text-[#737373] dark:prose-p:text-[#a1a1aa] prose-li:font-hanken prose-li:text-[1em] prose-li:leading-[1.75em] prose-li:text-[#737373] dark:prose-li:text-[#a1a1aa] prose-headings:font-['Instrument_Serif'] prose-headings:font-normal prose-strong:font-bold prose-strong:text-foreground"
+            >
+              {MdxContent ? (
+                <Suspense fallback={<div className="py-12 flex justify-center"><Loader2 className="animate-spin text-muted-foreground" /></div>}>
+                  <MdxContent
+                    components={{
+                      pre: (props: any) => {
+                        if (props.children && props.children.type === 'code') {
+                          return <CodeBlock {...props.children.props} />;
+                        }
+                        return <pre {...props} />;
+                      },
+                      img: (props: any) => (
+                        <div
+                          className="blog-image-wrapper-modern cursor-zoom-in"
+                          onClick={() => setActiveImage({ src: props.src, alt: props.alt || 'Blog Image Preview' })}
+                        >
+                          <img className="image-enhanced" {...props} />
+                        </div>
+                      )
+                    }}
+                  />
+                </Suspense>
+              ) : null}
+            </div>
           </div>
 
           {/* Tags */}

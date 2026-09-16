@@ -22,11 +22,11 @@ const ZoomControls: React.FC<ZoomControlsProps> = ({
   const [currentTranslateY, setCurrentTranslateY] = useState<number>(0);
 
   const zoomIn = () => {
-    setFontSize(prev => Math.min(prev + 10, 150)); // max 150%
+    setFontSize(prev => Math.min(prev + 5, 150)); // max 150%
   };
 
   const zoomOut = () => {
-    setFontSize(prev => Math.max(prev - 10, 80)); // min 80%
+    setFontSize(prev => Math.max(prev - 5, 80)); // min 80%
   };
 
   const resetZoom = () => {
@@ -38,9 +38,7 @@ const ZoomControls: React.FC<ZoomControlsProps> = ({
   };
 
   const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newSize = parseInt(event.target.value);
-    const percentage = (newSize / 16) * 100;
-    setFontSize(Math.max(80, Math.min(150, percentage)));
+    setFontSize(parseInt(event.target.value));
   };
 
   const handleOpenSheet = () => {
@@ -314,15 +312,16 @@ const ZoomControls: React.FC<ZoomControlsProps> = ({
                 </div>
                 <input
                   type="range"
-                  min="12"
-                  max="24"
-                  value={getFontSizeInPx()}
+                  min="80"
+                  max="150"
+                  step="5"
+                  value={fontSize}
                   onChange={handleSliderChange}
                   className="w-full h-2 bg-muted rounded-lg appearance-none cursor-pointer accent-primary"
                 />
                 <div className="flex justify-between text-xs text-muted-foreground/60">
-                  <span>12px</span>
-                  <span>24px</span>
+                  <span>80%</span>
+                  <span>150%</span>
                 </div>
               </div>
             </div>

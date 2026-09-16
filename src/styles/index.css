@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Blog Zoom Content - smooth zoom transitions */
+.blog-zoom-content {
+  transition: zoom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: zoom;
+}
+
 @layer base {
   :root {
     color-scheme: light;
@@ -239,9 +245,13 @@ html.dark::-webkit-scrollbar-thumb:hover {
   transform: scale(0.95);
 }
 
+.code-copy-btn-modern:focus,
+.code-copy-btn-modern:focus-visible {
+  outline: none;
+}
+
 .code-copy-btn-modern.copied {
   color: #22c55e;
-  border-color: rgba(34, 197, 94, 0.4);
 }
 
 .code-copy-btn-modern svg {
@@ -256,7 +266,7 @@ html.dark::-webkit-scrollbar-thumb:hover {
   box-shadow: none !important;
   overflow-x: auto;
   font-family: 'Geist Mono', 'JetBrains Mono', 'Fira Code', 'Courier New', Courier, monospace;
-  font-size: 14px;
+  font-size: 0.875em;
   line-height: 1.6;
   color: #e4e4e7 !important;
 }
@@ -319,7 +329,7 @@ html.dark::-webkit-scrollbar-thumb:hover {
 
   .code-block-wrapper-modern pre {
     padding: 1rem;
-    font-size: 13px;
+    font-size: 0.8125em;
   }
 }
 
