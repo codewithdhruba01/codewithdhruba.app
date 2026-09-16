@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    color-scheme: light;
     --background: 0 0% 98%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -26,6 +27,7 @@
   }
 
   .dark {
+    color-scheme: dark;
     --background: 0 3% 6%;
     --foreground: 0 0% 98%;
     --card: 0 3% 10%;
@@ -53,6 +55,12 @@ html {
   scroll-padding-top: 4rem;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.22) transparent;
+}
+
+html.dark {
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
 body {
@@ -78,21 +86,40 @@ body {
   }
 }
 
+/* Modern Theme-Aware Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 9px;
+  height: 9px;
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(var(--background));
+  background: transparent;
 }
 
+/* Light Mode Webkit Thumb */
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted-foreground) / 0.3);
-  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.22);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground) / 0.5);
+  background-color: rgba(0, 0, 0, 0.38);
+}
+
+/* Dark Mode Webkit Thumb */
+.dark ::-webkit-scrollbar-thumb,
+html.dark::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover,
+html.dark::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.38);
 }
 
 /* Add smooth transition for mobile menu */
@@ -116,9 +143,18 @@ body {
 }
 
 /* Custom thin scrollbar */
+.thin-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.dark .thin-scrollbar {
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
 .thin-scrollbar::-webkit-scrollbar {
   height: 6px;
-  /* horizontal scrollbar height */
+  width: 6px;
 }
 
 /* Hide thin scrollbar on mobile */
@@ -137,14 +173,22 @@ body {
 }
 
 .thin-scrollbar::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted-foreground) / 0.3);
-  /* scrollbar color */
+  background-color: rgba(0, 0, 0, 0.2);
   border-radius: 9999px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
 }
 
 .thin-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground) / 0.6);
-  /* hover color */
+  background-color: rgba(0, 0, 0, 0.38);
+}
+
+.dark .thin-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark .thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.38);
 }
 
 /* Enhanced Code Blocks with Prism.js - Dark Card in Both Light & Dark Mode */
