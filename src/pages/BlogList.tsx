@@ -8,6 +8,7 @@ import CategorySelector from '../components/ui/CategorySelector';
 
 // Blog post descriptions for listing
 const blogDescriptions = {
+  'practical-ui-rules-for-better-interfaces': 'Small design decisions that make websites clearer, more accessible, and easier to use.',
   'the-unspoken-reality-of-tier-3-colleges': "An honest, perspective on the challenges, misconceptions, and realities faced by students in Tier 3 engineering colleges, and how to build a successful career anyway.",
   'chrome-keyboard-shortcuts': 'Discover the most useful Chrome keyboard shortcuts to browse faster, save time, and increase your daily productivity.',
   'openweather-api-guide': 'Master OpenWeather API with production-ready patterns, advanced integrations, and enterprise-grade implementations.',
