@@ -136,7 +136,19 @@ export type BlogPost = {
   tags: string[];
 };
 
+export const practicalUiRulesForBetterInterfaces = {
+  title: 'Practical UI Rules for Better Interfaces',
+  description: 'Practical principles that developers and designers can use to create interfaces that feel consistent, accessible, responsive, and intentional.',
+  date: 'September 18, 2026',
+  author: 'Dhrubaraj Pati',
+  category: 'UI/UX',
+  readTime: '10 min read',
+  image: '/blog/Interfaces.png',
+  tags: ['UI', 'UX', 'Design', 'Web Development', 'Frontend', 'CSS'],
+};
+
 export const blogPostsData: Record<string, BlogPost> = {
+  'practical-ui-rules-for-better-interfaces': practicalUiRulesForBetterInterfaces,
   'how-to-work-with-mcp-server': howToWorkWithMcpServer,
   'the-unspoken-reality-of-tier-3-colleges': theUnspokenRealityOfTier3Colleges,
   'rag-ai-chatbot': ragAiChatbot,
