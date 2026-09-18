@@ -6,8 +6,6 @@ Modern interface design is built around hundreds of small decisions. From the wa
 
 In this article, we'll explore practical principles that developers and designers can use to create interfaces that feel consistent, accessible, responsive, and intentional.
 
----
-
 ## Why Small UI Details Matter
 
 When developing a website, it is easy to focus on the large things:
@@ -34,7 +32,6 @@ Good interface design is therefore less about adding more and more visual elemen
 
 The goal is not to make every part of a website visually impressive. The goal is to make every interaction feel clear, predictable, and comfortable.
 
----
 
 # 1. UI Fundamentals: Consistency Over Decoration
 
@@ -63,8 +60,6 @@ This is especially important when working with:
 - and irregular shapes.
 
 A few pixels of visual adjustment can sometimes make a component feel much more polished.
-
----
 
 # 2. Animation: Make Interactions Feel Natural
 
@@ -109,7 +104,6 @@ Good interaction animation should usually support the interaction rather than be
 
 When a user clicks a button, opens a menu, or changes a setting, the animation should help communicate what happened.
 
----
 
 # 3. CSS Transitions vs Keyframes
 
@@ -141,7 +135,6 @@ For example, a hover effect usually benefits from a transition, while a three-st
 
 Choosing the right animation technique helps keep the interface predictable.
 
----
 
 # 4. Don't Animate Everything
 
@@ -163,9 +156,8 @@ Use motion where it communicates something:
 - a menu opened,
 - or the user pressed something.
 
-A good interface does not need to move constantly to feel modern.
+> A good interface does not need to move constantly to feel modern.
 
----
 
 # 5. Respect Reduced Motion
 
@@ -196,8 +188,6 @@ When building animated interfaces, it is useful to ask:
 
 That question can prevent unnecessary motion throughout a product.
 
----
-
 # 6. Typography Is Part of the Interface
 
 Typography is not just about selecting a nice font.
@@ -222,7 +212,6 @@ A narrower text column creates a more comfortable reading experience and makes l
 
 Typography should therefore be treated as part of the layout rather than something added after the layout is finished.
 
----
 
 # 7. Make Numbers Easy to Compare
 
@@ -258,7 +247,6 @@ When users need to compare numbers quickly, consistent digit widths can make a n
 
 This is a small typographic feature, but it can significantly improve data-heavy interfaces.
 
----
 
 # 8. Use Modern Text Wrapping
 
@@ -288,7 +276,6 @@ These properties can make responsive layouts feel more intentional, especially w
 
 The goal is not to control every line manually. It is to give the browser enough information to create better text flow.
 
----
 
 # 9. Build a Semantic Color System
 
@@ -332,8 +319,6 @@ If the secondary text color needs to change, you can update the token without se
 
 This approach becomes especially useful when supporting multiple themes.
 
----
-
 # 10. Dark Mode Is Not Just Inverted Light Mode
 
 A common implementation mistake is treating dark mode as a reversed light palette.
@@ -375,7 +360,6 @@ The components can then remain unchanged while the theme values change.
 
 This creates a cleaner architecture and makes future theme adjustments much easier.
 
----
 
 # 11. Accessibility Should Be Built Into the UI
 
@@ -407,8 +391,6 @@ Semantic HTML gives browsers, assistive technologies, and users more meaningful 
 
 It can also reduce the amount of custom behavior developers need to implement.
 
----
-
 # 12. Never Remove Focus Without Replacing It
 
 A common CSS pattern is:
@@ -433,8 +415,6 @@ This provides a visible focus state when keyboard navigation requires it.
 Keyboard users should be able to understand exactly where they are on the page.
 
 A visible focus indicator is therefore not just a visual detail. It is part of making an interface navigable.
-
----
 
 # 13. Icon-Only Buttons Need Context
 
@@ -471,8 +451,6 @@ An icon can communicate visually while an accessible label communicates programm
 
 Good interfaces provide both.
 
----
-
 # 14. Forms Need Real Labels
 
 Forms are another area where small implementation choices matter.
@@ -503,8 +481,6 @@ Clear labels also make forms easier to understand for users who navigate with ke
 
 A well-designed form should make the purpose of every field obvious before the user starts typing.
 
----
-
 # 15. Touch Targets Matter
 
 A button can technically work while still being frustrating to use.
@@ -530,8 +506,6 @@ This is an important distinction:
 > 
 
 Giving users enough space to tap a control can make a mobile interface much more comfortable.
-
----
 
 # 16. Don't Communicate Status Through Color Alone
 
@@ -565,8 +539,6 @@ This approach helps users understand status even when color perception is limite
 
 Color should reinforce meaning, not carry the entire meaning by itself.
 
----
-
 # 17. Think About Hover on Touch Devices
 
 Desktop users can hover.
@@ -597,8 +569,6 @@ This is especially useful for:
 
 Responsive interaction design is not only about changing the layout. It also means considering how the user actually interacts with the device.
 
----
-
 # 18. Layout: Spacing Creates Hierarchy
 
 Good spacing is not simply about making everything look spacious.
@@ -627,8 +597,6 @@ Spacing is therefore a communication tool.
 
 If every element has the same amount of space around it, the interface can become difficult to understand because there is no visual distinction between groups.
 
----
-
 # 19. Use Logical CSS Properties
 
 Instead of always writing:
@@ -650,8 +618,6 @@ Logical properties are particularly useful when building interfaces that may sup
 They describe the relationship of an element rather than assuming a fixed left-to-right layout.
 
 This can make CSS more adaptable and easier to maintain when supporting internationalized interfaces.
-
----
 
 # 20. Don't Force Text Containers Into Fixed Dimensions
 
@@ -680,8 +646,6 @@ Responsive design works better when the layout can accommodate different:
 Instead of designing for one exact piece of content, design the component so it can handle reasonable variation.
 
 A flexible component is usually more reliable than one that depends on fixed dimensions.
-
----
 
 # 21. Microcopy Is Part of UX
 
@@ -727,8 +691,6 @@ Whenever possible, interface text should be:
 - specific,
 - and consistent.
 
----
-
 # 22. Keep Terminology Consistent
 
 Imagine a multi-step form using:
@@ -770,8 +732,6 @@ Consistency makes an interface easier to learn.
 
 When users understand what a term means in one part of an application, they should be able to recognize the same concept elsewhere.
 
----
-
 # 23. Empty States Should Help Users Move Forward
 
 A message like:
@@ -806,8 +766,6 @@ Good empty states can:
 - and guide users toward an action.
 
 An empty screen does not have to feel like a dead end.
-
----
 
 # 24. Think Like a Product Designer, Even as a Developer
 
