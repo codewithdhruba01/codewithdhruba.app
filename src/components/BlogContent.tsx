@@ -240,7 +240,31 @@ const BlogContent = () => {
                         >
                           <img className="image-enhanced" {...props} />
                         </div>
-                      )
+                      ),
+                      input: (props: any) => {
+                        if (props.type === 'checkbox') {
+                          return (
+                            <input
+                              type="checkbox"
+                              defaultChecked={props.checked}
+                              className="blog-custom-checkbox"
+                            />
+                          );
+                        }
+                        return <input {...props} />;
+                      },
+                      li: (props: any) => {
+                        // Check if this list item contains a checkbox to apply flex layout
+                        const hasCheckbox = Array.isArray(props.children) 
+                          ? props.children.some((child: any) => child?.props?.type === 'checkbox')
+                          : props.children?.props?.type === 'checkbox';
+                        
+                        return (
+                          <li {...props} className={`${props.className || ''} ${hasCheckbox ? 'blog-task-list-item' : ''}`}>
+                            {props.children}
+                          </li>
+                        );
+                      }
                     }}
                   />
                 </Suspense>

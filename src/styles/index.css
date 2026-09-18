@@ -714,3 +714,87 @@ html {
 ::view-transition-new(root) {
   z-index: 9999;
 }
+
+/* Custom Blog Checkbox & Task List Styles */
+.prose .blog-task-list-item {
+  display: flex !important;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem !important;
+  margin-bottom: 0.75rem !important;
+  list-style-type: none !important;
+  padding-left: 0 !important;
+  transition: all 0.3s ease;
+}
+
+.prose .blog-task-list-item::before {
+  display: none !important; /* Hide default bullets */
+}
+
+.blog-custom-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 4px;
+  border: 2px solid hsl(var(--border));
+  background-color: hsl(var(--background));
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  flex-shrink: 0;
+}
+
+.dark .blog-custom-checkbox {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.blog-custom-checkbox:hover {
+  border-color: #00DC82;
+  transform: scale(1.05);
+}
+
+.blog-custom-checkbox:checked {
+  background-color: #00DC82;
+  border-color: #00DC82;
+  transform: scale(1);
+}
+
+.blog-custom-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  animation: checkmark-in 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.dark .blog-custom-checkbox:checked::after {
+  border-color: #0f0f10; /* Darker checkmark for contrast on light green */
+}
+
+/* Strikethrough effect when checked */
+.prose .blog-task-list-item:has(.blog-custom-checkbox:checked) {
+  opacity: 0.5;
+  text-decoration: line-through;
+  text-decoration-color: hsl(var(--muted-foreground));
+}
+
+@keyframes checkmark-in {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 0.35rem;
+    height: 0.65rem;
+    opacity: 1;
+  }
+}
