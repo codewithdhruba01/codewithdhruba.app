@@ -126,6 +126,11 @@ const blogMeta: Record<string, PageMeta> = {
       'A deep dive into the MCP Server, how it connects AI models with external tools, and build your own MCP server',
     image: '/blog/mcp.png',
   },
+  'practical-ui-rules-for-better-interfaces': {
+    title: 'Practical UI Rules for Better Interfaces',
+    description: 'Small design decisions that make websites clearer, more accessible, and easier to use.',
+    image: '/blog/Interfaces.png',
+  },
 };
 
 import { bookThoughtsData } from './src/data/thoughts';
