@@ -1,82 +1,11 @@
 import { useState } from 'react';
-import { Link as LinkIcon, ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import Sponsors from '../components/ui/Sponsors';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../components/ui/tooltip';
 import { SectionButton } from '../components/ui/SectionButton';
+import { cn } from '../lib/utils';
 
-// Dynamic, premium issuer logo component with company asset support
-const IssuerLogo = ({ issuer, logo }: { issuer: string; logo?: string }) => {
-  const normalized = issuer.toLowerCase();
-
-  if (logo) {
-    return (
-      <div className="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center p-1.5 shrink-0 overflow-hidden group-hover:border-neutral-500/40 transition-all duration-300">
-        <img
-          src={logo}
-          alt={issuer}
-          className="w-full h-full object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
-          onError={(e) => {
-            // Hide failed image
-            (e.target as HTMLElement).style.display = 'none';
-          }}
-        />
-      </div>
-    );
-  }
-
-  if (normalized.includes('google')) {
-    return (
-      <div className="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground group-hover:text-blue-400 transition-colors duration-200 shrink-0">
-        <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
-          <path d="M12.24 10.285V13.4h6.887c-.275 1.565-1.88 4.604-6.887 4.604-4.33 0-7.866-3.577-7.866-8s3.536-8 7.866-8c2.46 0 4.105 1.025 5.047 1.926l2.427-2.334C17.955 2.192 15.34 1 12.24 1 6.033 1 1 6.033 1 12.24s5.033 11.24 11.24 11.24c6.478 0 10.793-4.537 10.793-10.986 0-.74-.08-1.3-.176-1.836h-10.62z" />
-        </svg>
-      </div>
-    );
-  }
-
-  if (normalized.includes('udemy')) {
-    return (
-      <div className="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground group-hover:text-red-400 transition-colors duration-200 shrink-0">
-        <span className="font-outfit font-extrabold text-base text-red-500 leading-none">U</span>
-      </div>
-    );
-  }
-
-  if (normalized.includes('postman')) {
-    return (
-      <div className="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground group-hover:text-orange-400 transition-colors duration-200 shrink-0">
-        <span className="font-outfit font-extrabold text-base text-orange-500 leading-none">P</span>
-      </div>
-    );
-  }
-
-  if (normalized.includes('girlscript') || normalized.includes('gssoc')) {
-    return (
-      <div className="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground group-hover:text-[#f05123] transition-colors duration-200 shrink-0">
-        <span className="font-outfit font-extrabold text-base text-[#f05123] leading-none">G</span>
-      </div>
-    );
-  }
-
-  if (normalized.includes('hacktoberfest') || normalized.includes('hacktoberfast')) {
-    return (
-      <div className="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground group-hover:text-rose-400 transition-colors duration-200 shrink-0">
-        <span className="font-outfit font-extrabold text-base text-[#ff0a78] leading-none">H</span>
-      </div>
-    );
-  }
-
-  // General fallback - Verified badge
-  return (
-    <div className="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground group-hover:text-[#00DC82] transition-colors duration-200 shrink-0">
-      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-        <path d="m9 12 2 2 4-4" />
-      </svg>
-    </div>
-  );
-};
 
 const Certificates = () => {
   const [visibleCertCount, setVisibleCertCount] = useState(3);
@@ -208,31 +137,42 @@ const Certificates = () => {
             </h4>
           </ScrollReveal>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col py-2 sm:py-3 w-full transition-all duration-300">
             {certificates.slice(0, visibleCertCount).map((cert, index) => {
               const isExpanded = expandedCertIndex === index;
               return (
                 <ScrollReveal key={index} delay={index * 0.05}>
-                  <div className="border-b border-border/50">
+                  <div className="flex flex-col py-2 sm:py-3 w-full transition-all duration-300">
                     <div
+                      className="flex flex-col gap-1 w-full group cursor-pointer select-none"
                       onClick={() => toggleCertExpand(index)}
-                      className="flex items-center gap-4 py-3.5 sm:py-4.5 px-3 -mx-3 rounded-2xl hover:bg-accent cursor-pointer group transition-all duration-300"
                     >
-                      <IssuerLogo issuer={cert.issuer} logo={cert.logo} />
-                      <div className="flex-1 min-w-0 flex flex-col gap-1">
-                        <h3 className="text-sm sm:text-base font-semibold font-outfit text-foreground/90 group-hover:text-foreground transition-colors duration-200 line-clamp-2">
-                          {cert.title}
-                        </h3>
-                        <p className="text-xs sm:text-sm text-muted-foreground font-hanken flex items-center flex-wrap gap-1.5">
-                          <span className="text-muted-foreground/90 flex items-center gap-1.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/60 inline-block"></span>
-                            {cert.issuer}
-                          </span>
-                          <span className="text-border">|</span>
-                          <span>{cert.date}</span>
-                        </p>
+                      <div className="flex items-center justify-between w-full">
+                        <div className="flex items-center gap-2">
+                          <h3 className="text-base sm:text-lg font-bold font-outfit text-foreground tracking-wide transition-colors">
+                            {cert.title}
+                          </h3>
+                          <div className={cn(
+                            "flex items-center justify-center w-5 h-5 rounded transition-all duration-300 opacity-0 group-hover:opacity-100 text-muted-foreground hover:text-foreground",
+                            isExpanded ? "rotate-90 text-foreground opacity-100" : ""
+                          )}>
+                            <ChevronRight className="w-4 h-4 shrink-0 transition-transform duration-300" strokeWidth={2.5} />
+                          </div>
+                        </div>
+
+                        <div className="hidden sm:block text-muted-foreground text-sm md:text-base font-hanken text-right shrink-0">
+                          {cert.date}
+                        </div>
+                        <div className="block sm:hidden text-muted-foreground text-sm md:text-base font-hanken text-right shrink-0">
+                          {cert.date}
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2 sm:gap-3 px-1">
+
+                      <div className="flex items-center justify-between text-sm w-full mt-0.5">
+                        <p className="text-muted-foreground font-hanken font-medium text-sm sm:text-base leading-snug">
+                          {cert.issuer}
+                        </p>
+
                         {cert.href && (
                           <TooltipProvider>
                             <Tooltip>
@@ -242,9 +182,9 @@ const Certificates = () => {
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   onClick={(e) => e.stopPropagation()}
-                                  className="p-2 rounded-xl bg-card border border-border text-muted-foreground hover:text-foreground hover:border-neutral-500/40 hover:bg-accent transition-all duration-300"
+                                  className="text-xs sm:text-sm font-medium text-muted-foreground hover:text-foreground transition-colors underline underline-offset-2"
                                 >
-                                  <LinkIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                                  Link
                                 </a>
                               </TooltipTrigger>
                               <TooltipContent>
@@ -253,28 +193,33 @@ const Certificates = () => {
                             </Tooltip>
                           </TooltipProvider>
                         )}
-                        <div className="text-muted-foreground group-hover:text-foreground transition-colors duration-300 p-1">
-                          {isExpanded ? (
-                            <ChevronUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                          ) : (
-                            <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                          )}
-                        </div>
                       </div>
                     </div>
 
-                    {/* Expandable Details Block */}
-                    {isExpanded && (
-                      <div className="pl-14 pr-4 pb-4.5 pt-1.5 flex flex-col gap-2.5 animate-fadeIn">
-                        <ul className="list-disc pl-4 space-y-2 text-xs sm:text-sm text-muted-foreground font-hanken leading-relaxed">
-                          {cert.details.map((detail, dIdx) => (
-                            <li key={dIdx} className="hover:text-foreground transition-colors duration-150">
-                              {detail}
-                            </li>
-                          ))}
-                        </ul>
+                    <div
+                      className={cn(
+                        "grid transition-all duration-300 ease-in-out",
+                        isExpanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                      )}
+                    >
+                      <div className="overflow-hidden">
+                        <div className="mt-4 space-y-4 border-t border-border pt-4">
+                          <div>
+                            <h4 className="text-xs font-outfit font-semibold text-muted-foreground uppercase tracking-wider mb-2.5">What I've done</h4>
+                            <ul className="flex flex-col gap-2">
+                              {cert.details.map((detail, dIdx) => (
+                                <li key={dIdx} className="flex gap-2 items-start">
+                                  <span className="text-muted-foreground shrink-0 select-none mt-1.5 text-xs">•</span>
+                                  <span className="text-muted-foreground font-poppins text-sm sm:text-sm leading-relaxed">
+                                    {detail}
+                                  </span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
                       </div>
-                    )}
+                    </div>
                   </div>
                 </ScrollReveal>
               );
@@ -301,31 +246,42 @@ const Certificates = () => {
             </h4>
           </ScrollReveal>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col py-2 sm:py-3 w-full transition-all duration-300">
             {achievements.slice(0, visibleAchieveCount).map((achievement, index) => {
               const isExpanded = expandedAchieveIndex === index;
               return (
                 <ScrollReveal key={index} delay={index * 0.05}>
-                  <div className="border-b border-border/50">
+                  <div className="flex flex-col py-2 sm:py-3 w-full transition-all duration-300">
                     <div
+                      className="flex flex-col gap-1 w-full group cursor-pointer select-none"
                       onClick={() => toggleAchieveExpand(index)}
-                      className="flex items-center gap-4 py-3.5 sm:py-4.5 px-3 -mx-3 rounded-2xl hover:bg-accent cursor-pointer group transition-all duration-300"
                     >
-                      <IssuerLogo issuer={achievement.organization} logo={achievement.logo} />
-                      <div className="flex-1 min-w-0 flex flex-col gap-1">
-                        <h3 className="text-sm sm:text-base font-semibold font-outfit text-foreground/90 group-hover:text-foreground transition-colors duration-200 line-clamp-2">
-                          {achievement.title}
-                        </h3>
-                        <p className="text-xs sm:text-sm text-muted-foreground font-hanken flex items-center flex-wrap gap-1.5">
-                          <span className="text-muted-foreground/90 flex items-center gap-1.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/60 inline-block"></span>
-                            {achievement.organization}
-                          </span>
-                          <span className="text-border">|</span>
-                          <span>{achievement.date}</span>
-                        </p>
+                      <div className="flex items-center justify-between w-full">
+                        <div className="flex items-center gap-2">
+                          <h3 className="text-base sm:text-lg font-bold font-outfit text-foreground tracking-wide transition-colors">
+                            {achievement.title}
+                          </h3>
+                          <div className={cn(
+                            "flex items-center justify-center w-5 h-5 rounded transition-all duration-300 opacity-0 group-hover:opacity-100 text-muted-foreground hover:text-foreground",
+                            isExpanded ? "rotate-90 text-foreground opacity-100" : ""
+                          )}>
+                            <ChevronRight className="w-4 h-4 shrink-0 transition-transform duration-300" strokeWidth={2.5} />
+                          </div>
+                        </div>
+
+                        <div className="hidden sm:block text-muted-foreground text-sm md:text-base font-hanken text-right shrink-0">
+                          {achievement.date}
+                        </div>
+                        <div className="block sm:hidden text-muted-foreground text-sm md:text-base font-hanken text-right shrink-0">
+                          {achievement.date}
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2 sm:gap-3 px-1">
+
+                      <div className="flex items-center justify-between text-sm w-full mt-0.5">
+                        <p className="text-muted-foreground font-hanken font-medium text-sm sm:text-base leading-snug">
+                          {achievement.organization}
+                        </p>
+
                         {achievement.href && (
                           <TooltipProvider>
                             <Tooltip>
@@ -335,9 +291,9 @@ const Certificates = () => {
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   onClick={(e) => e.stopPropagation()}
-                                  className="p-2 rounded-xl bg-card border border-border text-muted-foreground hover:text-foreground hover:border-neutral-500/40 hover:bg-accent transition-all duration-300"
+                                  className="text-xs sm:text-sm font-medium text-muted-foreground hover:text-foreground transition-colors underline underline-offset-2"
                                 >
-                                  <LinkIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                                  Link
                                 </a>
                               </TooltipTrigger>
                               <TooltipContent>
@@ -346,28 +302,33 @@ const Certificates = () => {
                             </Tooltip>
                           </TooltipProvider>
                         )}
-                        <div className="text-muted-foreground group-hover:text-foreground transition-colors duration-300 p-1">
-                          {isExpanded ? (
-                            <ChevronUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                          ) : (
-                            <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                          )}
-                        </div>
                       </div>
                     </div>
 
-                    {/* Expandable Details Block */}
-                    {isExpanded && (
-                      <div className="pl-14 pr-4 pb-4.5 pt-1.5 flex flex-col gap-2.5 animate-fadeIn">
-                        <ul className="list-disc pl-4 space-y-2 text-xs sm:text-sm text-muted-foreground font-hanken leading-relaxed">
-                          {achievement.details.map((detail, dIdx) => (
-                            <li key={dIdx} className="hover:text-foreground transition-colors duration-150">
-                              {detail}
-                            </li>
-                          ))}
-                        </ul>
+                    <div
+                      className={cn(
+                        "grid transition-all duration-300 ease-in-out",
+                        isExpanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                      )}
+                    >
+                      <div className="overflow-hidden">
+                        <div className="mt-4 space-y-4 border-t border-border pt-4">
+                          <div>
+                            <h4 className="text-xs font-outfit font-semibold text-muted-foreground uppercase tracking-wider mb-2.5">What I've done</h4>
+                            <ul className="flex flex-col gap-2">
+                              {achievement.details.map((detail, dIdx) => (
+                                <li key={dIdx} className="flex gap-2 items-start">
+                                  <span className="text-muted-foreground shrink-0 select-none mt-1.5 text-xs">•</span>
+                                  <span className="text-muted-foreground font-poppins text-sm sm:text-sm leading-relaxed">
+                                    {detail}
+                                  </span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
                       </div>
-                    )}
+                    </div>
                   </div>
                 </ScrollReveal>
               );
