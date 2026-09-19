@@ -132,24 +132,33 @@ const Certificates = () => {
         {/* Certifications Section */}
         <div className="mb-16">
           <ScrollReveal>
-            <h4 className="text-xl sm:text-2xl font-semibold text-foreground font-hanken text-left border-b border-border pb-3 mb-2 flex items-center gap-1.5">
+            <h4 className="text-lg sm:text-1xl font-semibold text-foreground font-hanken text-left border-b border-border pb-3 mb-2 flex items-center gap-1.5">
               Certifications <span className="text-xs text-muted-foreground font-mono font-normal">[{certificates.length}]</span>
             </h4>
           </ScrollReveal>
 
           <div className="flex flex-col py-2 sm:py-3 w-full transition-all duration-300">
-            {certificates.slice(0, visibleCertCount).map((cert, index) => {
+            {certificates.map((cert, index) => {
               const isExpanded = expandedCertIndex === index;
+              const isVisible = index < 3 || visibleCertCount > 3;
               return (
-                <ScrollReveal key={index} delay={index * 0.05}>
-                  <div className="flex flex-col py-2 sm:py-3 w-full transition-all duration-300">
+                <div
+                  key={index}
+                  className={cn(
+                    "grid transition-all duration-500 ease-in-out",
+                    isVisible ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  )}
+                >
+                  <div className="overflow-hidden">
+                    <ScrollReveal delay={index < 3 ? index * 0.05 : 0}>
+                      <div className="flex flex-col py-2 sm:py-3 w-full transition-all duration-300">
                     <div
                       className="flex flex-col gap-1 w-full group cursor-pointer select-none"
                       onClick={() => toggleCertExpand(index)}
                     >
                       <div className="flex items-center justify-between w-full">
                         <div className="flex items-center gap-2">
-                          <h3 className="text-base sm:text-lg font-bold font-outfit text-foreground tracking-wide transition-colors">
+                          <h3 className="text-sm sm:text-base font-bold font-outfit text-foreground tracking-wide transition-colors">
                             {cert.title}
                           </h3>
                           <div className={cn(
@@ -187,7 +196,7 @@ const Certificates = () => {
                                   Link
                                 </a>
                               </TooltipTrigger>
-                              <TooltipContent>
+                              <TooltipContent side="left">
                                 <p>Verify Credentials</p>
                               </TooltipContent>
                             </Tooltip>
@@ -220,8 +229,10 @@ const Certificates = () => {
                         </div>
                       </div>
                     </div>
+                      </div>
+                    </ScrollReveal>
                   </div>
-                </ScrollReveal>
+                </div>
               );
             })}
           </div>
@@ -241,17 +252,26 @@ const Certificates = () => {
         {/* Achievements Section */}
         <div className="mb-6">
           <ScrollReveal>
-            <h4 className="text-xl sm:text-2xl font-semibold font-hanken text-foreground text-left border-b border-border pb-3 mb-2 flex items-center gap-1.5">
+            <h4 className="text-lg sm:text-1xl font-semibold font-hanken text-foreground text-left border-b border-border pb-3 mb-2 flex items-center gap-1.5">
               Contributions <span className="text-xs text-muted-foreground font-mono font-normal">[{achievements.length}]</span>
             </h4>
           </ScrollReveal>
 
           <div className="flex flex-col py-2 sm:py-3 w-full transition-all duration-300">
-            {achievements.slice(0, visibleAchieveCount).map((achievement, index) => {
+            {achievements.map((achievement, index) => {
               const isExpanded = expandedAchieveIndex === index;
+              const isVisible = index < 3 || visibleAchieveCount > 3;
               return (
-                <ScrollReveal key={index} delay={index * 0.05}>
-                  <div className="flex flex-col py-2 sm:py-3 w-full transition-all duration-300">
+                <div
+                  key={index}
+                  className={cn(
+                    "grid transition-all duration-500 ease-in-out",
+                    isVisible ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  )}
+                >
+                  <div className="overflow-hidden">
+                    <ScrollReveal delay={index < 3 ? index * 0.05 : 0}>
+                      <div className="flex flex-col py-2 sm:py-3 w-full transition-all duration-300">
                     <div
                       className="flex flex-col gap-1 w-full group cursor-pointer select-none"
                       onClick={() => toggleAchieveExpand(index)}
@@ -296,7 +316,7 @@ const Certificates = () => {
                                   Link
                                 </a>
                               </TooltipTrigger>
-                              <TooltipContent>
+                              <TooltipContent side="left">
                                 <p>Verify Contribution</p>
                               </TooltipContent>
                             </Tooltip>
@@ -329,8 +349,10 @@ const Certificates = () => {
                         </div>
                       </div>
                     </div>
+                      </div>
+                    </ScrollReveal>
                   </div>
-                </ScrollReveal>
+                </div>
               );
             })}
           </div>

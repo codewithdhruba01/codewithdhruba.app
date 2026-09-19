@@ -147,6 +147,7 @@ const AllProjects = () => {
                   setShowAll(!showAll);
                 }}
                 text={showAll ? 'Show Less' : 'See More Projects'}
+                icon={null}
               />
             </div>
           </ScrollReveal>

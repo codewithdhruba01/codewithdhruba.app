@@ -24,10 +24,8 @@ const Cta = () => {
       <div className="max-w-3xl mx-auto w-full px-6">
         <div className="pt-0">
           <ScrollReveal>
-            {/* Outer Box with First Border (Glass Effect) */}
             <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-muted/70 dark:bg-muted/30 backdrop-blur-2xl border border-border/60 dark:border-border/40 p-1 sm:p-2.5 shadow-xl mx-auto w-full">
               
-              {/* Inner Box with Second Border (Glass Effect) */}
               <div className="relative rounded-xl sm:rounded-2xl border border-border/60 dark:border-border/30 bg-card/80 dark:bg-card/40 px-3 py-5 sm:px-8 sm:py-8 flex flex-col items-center text-center overflow-hidden">
                 
                 <div className="relative z-10 flex flex-col items-center">
@@ -37,7 +35,6 @@ const Cta = () => {
                   </h2>
                   
                   <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5 mt-6 w-full">
-                    {/* Interactive Book a free call button */}
                     <motion.button
                       onClick={() => setShowCal(true)}
                       initial="initial"
@@ -49,7 +46,6 @@ const Cta = () => {
                       }}
                       className="group relative flex items-center px-3.5 py-1.5 sm:px-5 sm:py-2 bg-card border border-border rounded-xl hover:bg-accent transition-all duration-300 shadow-sm overflow-hidden cursor-pointer"
                     >
-                      {/* Avatar - Always visible */}
                       <div className="flex items-center shrink-0">
                         <img
                           src="/assets/avaterlogo.png"
@@ -58,7 +54,6 @@ const Cta = () => {
                         />
                       </div>
 
-                      {/* Plus + Google Meet - Reveal on hover */}
                       <motion.div
                         className="flex items-center overflow-hidden h-5 sm:h-6"
                         variants={{
@@ -75,13 +70,11 @@ const Cta = () => {
                         </div>
                       </motion.div>
 
-                      {/* Always visible text */}
                       <span className="text-foreground font-outfit font-bold text-xs sm:text-sm whitespace-nowrap transition-colors duration-300 ml-2">
                         Book a Free Call
                       </span>
                     </motion.button>
 
-                    {/* Contact Us button matching the "Show all blogs" style */}
                     <SectionButton to="/contact" text="Contact Us" icon={null} className="px-3.5 py-1.5 sm:px-4 sm:py-2.5 text-xs sm:text-sm" />
                   </div>
                 </div>
@@ -91,11 +84,9 @@ const Cta = () => {
         </div>
       </div>
 
-      {/* Popup Card Scheduler */}
       <AnimatePresence>
         {showCal && (
           <>
-            {/* Full-screen Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -104,7 +95,6 @@ const Cta = () => {
               className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm cursor-pointer"
             />
 
-            {/* Premium Glassmorphism Card */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 40 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -113,7 +103,6 @@ const Cta = () => {
               className="fixed inset-0 z-[101] flex items-center justify-center p-4 md:p-8 pointer-events-none"
             >
               <div className="relative w-full max-w-4xl h-[75vh] bg-card/95 backdrop-blur-2xl border border-border rounded-[2rem] shadow-2xl overflow-hidden pointer-events-auto flex flex-col">
-                {/* Header */}
                 <div className="flex items-center justify-between px-8 py-6 border-b border-border">
                   <div className="flex items-center gap-3">
                     <h3 className="text-2xl font-bold font-bricolage text-foreground">

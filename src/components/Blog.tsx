@@ -45,7 +45,6 @@ const Blog = () => {
                 className="group block py-6 border-b border-border last:border-b-0"
               >
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                  {/* Left Column: Info */}
                   <div className="flex-1 space-y-2 min-w-0">
                     <h3 className="text-lg font-semibold font-hanken text-foreground transition-colors">
                       {post.title}
@@ -54,22 +53,17 @@ const Blog = () => {
                       {post.description}
                     </p>
 
-                    {/* Bottom Footer Line: Date & Mobile-only Read More */}
                     <div className="flex items-center justify-between pt-1">
                       <div className="flex items-center gap-1.5 text-muted-foreground text-sm md:text-base font-hanken leading-none">
                         <CalendarDays size={18} className="text-muted-foreground" />
                         <span className="pt-[1px]">{post.date}</span>
                       </div>
-
-                      {/* Mobile Read More */}
                       <div className="flex md:hidden items-center gap-1.5 text-sm font-hanken text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                         <span>Read more</span>
                         <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-300" />
                       </div>
                     </div>
                   </div>
-
-                  {/* Desktop Read More */}
                   <div className="hidden md:flex items-center shrink-0">
                     <span className="flex items-center gap-1.5 text-sm font-outfit text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                       Read more <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-300" />
@@ -85,7 +79,7 @@ const Blog = () => {
           className="text-center mt-6"
           delay={0.3}
         >
-          <SectionButton to="/blog" text="Show all blogs" icon={null} />
+          <SectionButton to="/blog" text="Show All Blogs" icon={null} />
         </ScrollReveal>
       </div>
     </section>
