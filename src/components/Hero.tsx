@@ -83,6 +83,9 @@ const Hero = () => {
             className={`absolute inset-0 w-full h-full object-cover object-center brightness-[0.8] ${
               avatarTheme === 'logo' ? 'pointer-events-auto z-10' : 'pointer-events-none z-0'
             }`}
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
           />
 
           <motion.img
@@ -98,6 +101,9 @@ const Hero = () => {
             className={`absolute inset-0 w-full h-full object-cover object-center brightness-[0.75] ${
               avatarTheme !== 'logo' ? 'pointer-events-auto z-10' : 'pointer-events-none z-0'
             }`}
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
           />
           <div className="absolute inset-0 flex items-center justify-center p-4 z-10">
             <p className="font-serif italic text-white/95 text-center text-sm sm:text-base md:text-lg max-w-md md:max-w-xl leading-relaxed select-none drop-shadow-md">
@@ -121,6 +127,8 @@ const Hero = () => {
               className={`absolute inset-0 w-full h-full object-cover ${
                 avatarTheme === 'logo' ? 'pointer-events-auto z-10' : 'pointer-events-none z-0'
               }`}
+              fetchPriority="high"
+              loading="eager"
             />
             <motion.img
               src="/assets/avater.png"
@@ -135,6 +143,8 @@ const Hero = () => {
               className={`absolute inset-0 w-full h-full object-cover ${
                 avatarTheme === 'avatar' ? 'pointer-events-auto z-10' : 'pointer-events-none z-0'
               }`}
+              fetchPriority="high"
+              loading="eager"
             />
           </div>
 
