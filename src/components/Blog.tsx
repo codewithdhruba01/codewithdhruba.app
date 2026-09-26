@@ -42,6 +42,11 @@ const Blog = () => {
               <LinkPreview
                 to={`/blog/${post.slug}`}
                 imageSrc={post.image}
+                onHoverChange={(hovered) => {
+                  if (hovered) {
+                    import(`../content/blog/${post.slug}.mdx`).catch(() => {});
+                  }
+                }}
                 className="group block py-6 border-b border-border last:border-b-0"
               >
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">

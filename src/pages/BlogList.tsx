@@ -115,7 +115,13 @@ const BlogList = () => {
                 <LinkPreview
                   to={`/blog/${post.slug}`}
                   imageSrc={post.image}
-                  onHoverChange={(hovered) => setHoveredSlug(hovered ? post.slug : null)}
+                  onHoverChange={(hovered) => {
+                    setHoveredSlug(hovered ? post.slug : null);
+                    if (hovered) {
+                      // Prefetch on hover
+                      import(`../content/blog/${post.slug}.mdx`).catch(() => {});
+                    }
+                  }}
                   className={`group block py-6 border-b border-border last:border-b-0 w-full text-left transition-all duration-300 ${hoveredSlug !== null && hoveredSlug !== post.slug
                     ? 'blur-[1px] opacity-60'
                     : 'blur-0 opacity-100'
