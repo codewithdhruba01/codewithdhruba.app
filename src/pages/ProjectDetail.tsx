@@ -8,6 +8,7 @@ const mdxModules = import.meta.glob('../content/projects/*.mdx');
 
 const firstHeadingBySlug: Record<string, string> = {
   'college-fee-payment': 'Reflections',
+  'clearbg': 'Key Features',
   'colorkit-webapp': 'Key Features',
   'comfortpg-website': 'Reflections',
   'cutting-mat-generator': 'Key Features',

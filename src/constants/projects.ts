@@ -13,6 +13,17 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: 15,
+    slug: 'clearbg',
+    title: 'ClearBG',
+    description: 'A free background removal tool that lets you instantly download high-quality images without any sign-up and it was free and open-source.',
+    image: '/project/clearbg.png',
+    github: 'https://github.com/codewithdhruba01/ClearBG',
+    demo: 'https://clearbg-puce.vercel.app/',
+    tags: ['React', 'Express.js', 'Tailwind CSS', 'Framer Motion', 'AI', 'Full Stack'],
+    date: 'Sep 2026',
+  },
+  {
     id: 14,
     slug: 'cutting-mat-generator',
     title: 'Cutting Mat',
