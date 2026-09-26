@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo, lazy, Suspense } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
   ArrowLeft,
@@ -6,12 +6,11 @@ import {
   Plus,
   Minus,
   Settings,
-  RotateCcw,
-  Loader2
+  RotateCcw
 } from 'lucide-react';
 import { bookThoughtsData } from '../data/thoughts';
 
-const mdxModules = import.meta.glob('../content/thoughts/*.mdx');
+const mdxModules = import.meta.glob('../content/thoughts/*.mdx', { eager: true });
 import ReadingProgressPill from './ui/ReadingProgressPill';
 
 const BookThoughts = () => {
@@ -134,7 +133,7 @@ const BookThoughts = () => {
   const MdxContent = useMemo(() => {
     const path = `../content/thoughts/${slug}.mdx`;
     if (mdxModules[path]) {
-      return lazy(mdxModules[path] as any);
+      return (mdxModules[path] as any).default;
     }
     return null;
   }, [slug]);
@@ -177,62 +176,60 @@ const BookThoughts = () => {
           </div>
 
           {MdxContent ? (
-            <Suspense fallback={<div className="flex items-center justify-center py-12"><Loader2 className="animate-spin text-muted-foreground" /></div>}>
-              <div className="mdx-content-container max-w-none pb-12">
-                <MdxContent
-                  components={{
-                    h2: ({ children, ...props }: any) => (
-                      <h2 className="text-base md:text-sm font-bold uppercase tracking-[0.2em] text-muted-foreground mt-16 mb-6 flex items-center gap-4" {...props}>
-                        <span>{children}</span>
-                        <span className="flex-1 h-[1px] bg-border"></span>
-                      </h2>
-                    ),
-                    h3: ({ children, ...props }: any) => (
-                      <h3
-                        className="text-[1.25em] font-semibold text-foreground flex items-center gap-3 mt-8 mb-4"
-                        style={{ fontFamily: "'Instrument Serif', serif" }}
-                        {...props}
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: thought.accentColor }} />
-                        {children}
-                      </h3>
-                    ),
-                    p: ({ children, ...props }: any) => {
-                      return <p className="text-[15.5px] text-muted-foreground leading-relaxed font-hanken mb-6" {...props}>{children}</p>;
-                    },
-                    ul: (props: any) => <ul className="space-y-4 pl-5 border-l border-border mb-8" {...props} />,
-                    li: ({ children, ...props }: any) => (
-                      <li className="flex flex-col items-start text-[14.5px] text-foreground leading-relaxed font-poppins" {...props}>
-                        <div className="flex items-start w-full">
-                          <span
-                            className="mr-4 mt-2 select-none font-black text-xs shrink-0 animate-pulse"
-                            style={{ color: thought.accentColor }}
-                          >
-                            •
-                          </span>
-                          <span>{children}</span>
-                        </div>
-                      </li>
-                    ),
-                    strong: (props: any) => <strong className="text-foreground font-semibold mr-1" {...props} />,
-                    a: (props: any) => <a className="text-[#00DC82] hover:underline transition-colors" {...props} />,
-                    FinalThoughts: ({ children }: any) => (
-                      <div className="flex items-start gap-4">
+            <div className="mdx-content-container max-w-none pb-12">
+              <MdxContent
+                components={{
+                  h2: ({ children, ...props }: any) => (
+                    <h2 className="text-base md:text-sm font-bold uppercase tracking-[0.2em] text-muted-foreground mt-16 mb-6 flex items-center gap-4" {...props}>
+                      <span>{children}</span>
+                      <span className="flex-1 h-[1px] bg-border"></span>
+                    </h2>
+                  ),
+                  h3: ({ children, ...props }: any) => (
+                    <h3
+                      className="text-[1.25em] font-semibold text-foreground flex items-center gap-3 mt-8 mb-4"
+                      style={{ fontFamily: "'Instrument Serif', serif" }}
+                      {...props}
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: thought.accentColor }} />
+                      {children}
+                    </h3>
+                  ),
+                  p: ({ children, ...props }: any) => {
+                    return <p className="text-[15.5px] text-muted-foreground leading-relaxed font-hanken mb-6" {...props}>{children}</p>;
+                  },
+                  ul: (props: any) => <ul className="space-y-4 pl-5 border-l border-border mb-8" {...props} />,
+                  li: ({ children, ...props }: any) => (
+                    <li className="flex flex-col items-start text-[14.5px] text-foreground leading-relaxed font-poppins" {...props}>
+                      <div className="flex items-start w-full">
                         <span
-                          className="text-[3.5em] leading-none select-none -mt-3 shrink-0 font-serif font-extrabold"
+                          className="mr-4 mt-2 select-none font-black text-xs shrink-0 animate-pulse"
                           style={{ color: thought.accentColor }}
                         >
-                          “
+                          •
                         </span>
-                        <div className="text-[15.5px] text-muted-foreground leading-relaxed font-hanken pt-2">
-                          {children}
-                        </div>
+                        <span>{children}</span>
                       </div>
-                    )
-                  }}
-                />
-              </div>
-            </Suspense>
+                    </li>
+                  ),
+                  strong: (props: any) => <strong className="text-foreground font-semibold mr-1" {...props} />,
+                  a: (props: any) => <a className="text-[#00DC82] hover:underline transition-colors" {...props} />,
+                  FinalThoughts: ({ children }: any) => (
+                    <div className="flex items-start gap-4">
+                      <span
+                        className="text-[3.5em] leading-none select-none -mt-3 shrink-0 font-serif font-extrabold"
+                        style={{ color: thought.accentColor }}
+                      >
+                        “
+                      </span>
+                      <div className="text-[15.5px] text-muted-foreground leading-relaxed font-hanken pt-2">
+                        {children}
+                      </div>
+                    </div>
+                  )
+                }}
+              />
+            </div>
           ) : (
             <div className="py-12 text-center text-muted-foreground font-hanken">
               Notes coming soon.
