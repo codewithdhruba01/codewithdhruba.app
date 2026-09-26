@@ -9,11 +9,11 @@ export type FilmStripCardProps = Readonly<
 >;
 
 const defaultFrames = [
-  "/assets/photo2.jpeg",
-  "/assets/photo3.jpeg",
-  "/assets/photo4.jpeg",
-  "/assets/photo1.jpeg",
-  "/assets/photo6.jpeg",
+  "/assets/photo2.webp",
+  "/assets/photo3.webp",
+  "/assets/photo4.webp",
+  "/assets/photo1.webp",
+  "/assets/photo6.webp",
 ];
 
 const LEFT_SPROCKET_HOLES = [
