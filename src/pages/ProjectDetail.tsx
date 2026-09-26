@@ -1,10 +1,9 @@
 import { useParams, Link } from 'react-router-dom';
 import { projects } from '../constants/projects';
 import ScrollReveal from '../components/ui/ScrollReveal';
-import { lazy, Suspense, useMemo } from 'react';
-import { Loader2 } from 'lucide-react';
+import { useMemo } from 'react';
 
-const mdxModules = import.meta.glob('../content/projects/*.mdx');
+const mdxModules = import.meta.glob('../content/projects/*.mdx', { eager: true });
 
 const firstHeadingBySlug: Record<string, string> = {
   'college-fee-payment': 'Reflections',
@@ -31,7 +30,7 @@ const ProjectDetail = () => {
   const MdxContent = useMemo(() => {
     const path = `../content/projects/${slug}.mdx`;
     if (mdxModules[path]) {
-      return lazy(mdxModules[path] as any);
+      return (mdxModules[path] as any).default;
     }
     return null;
   }, [slug]);
@@ -99,45 +98,43 @@ const ProjectDetail = () => {
 
         <ScrollReveal delay={0.25}>
           {MdxContent ? (
-            <Suspense fallback={<div className="flex items-center justify-center py-12"><Loader2 className="animate-spin text-muted-foreground" /></div>}>
-              <div className="mdx-content-container max-w-none">
-                <MdxContent
-                  components={{
-                    h2: (props: any) => {
-                      const headingText = Array.isArray(props.children) ? props.children.join('') : String(props.children);
-                      const expectedFirstHeading = project?.slug ? firstHeadingBySlug[project.slug] || 'Key Features' : 'Key Features';
-                      const isFirstHeading = headingText.includes(expectedFirstHeading);
+            <div className="mdx-content-container max-w-none">
+              <MdxContent
+                components={{
+                  h2: (props: any) => {
+                    const headingText = Array.isArray(props.children) ? props.children.join('') : String(props.children);
+                    const expectedFirstHeading = project?.slug ? firstHeadingBySlug[project.slug] || 'Key Features' : 'Key Features';
+                    const isFirstHeading = headingText.includes(expectedFirstHeading);
 
-                      return (
-                        <>
-                          {isFirstHeading && project?.image && (
-                            <div className="mb-12 p-1.5 md:p-2.5 rounded-2xl bg-card border border-border backdrop-blur-md shadow-2xl mt-8">
-                              <div className="rounded-xl overflow-hidden border border-border relative bg-muted/40">
-                                <img
-                                  src={project.image}
-                                  alt={project.title}
-                                  className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity"
-                                  fetchPriority="high"
-                                  loading="eager"
-                                  decoding="async"
-                                />
-                              </div>
+                    return (
+                      <>
+                        {isFirstHeading && project?.image && (
+                          <div className="mb-12 p-1.5 md:p-2.5 rounded-2xl bg-card border border-border backdrop-blur-md shadow-2xl mt-8">
+                            <div className="rounded-xl overflow-hidden border border-border relative bg-muted/40">
+                              <img
+                                src={project.image}
+                                alt={project.title}
+                                className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity"
+                                fetchPriority="high"
+                                loading="eager"
+                                decoding="async"
+                              />
                             </div>
-                          )}
-                          <h2 className="text-2xl md:text-3xl font-bold font-bricolage text-foreground mb-6 border-b border-border pb-3 mt-12" {...props} />
-                        </>
-                      );
-                    },
-                    h3: (props: any) => <h3 className="text-xl font-bold font-bricolage text-foreground mt-8 mb-4" {...props} />,
-                    p: (props: any) => <p className="text-muted-foreground leading-relaxed text-[1rem] font-hanken mb-4" {...props} />,
-                    ul: (props: any) => <ul className="list-disc list-outside ml-5 space-y-3 mb-12 marker:text-muted-foreground [&>li::before]:hidden" {...props} />,
-                    li: (props: any) => <li className="text-muted-foreground leading-relaxed text-[1rem] font-hanken" {...props} />,
-                    strong: (props: any) => <strong className="text-foreground font-medium" {...props} />,
-                    a: (props: any) => <a className="text-[#00DC82] hover:underline transition-colors" {...props} />
-                  }}
-                />
-              </div>
-            </Suspense>
+                          </div>
+                        )}
+                        <h2 className="text-2xl md:text-3xl font-bold font-bricolage text-foreground mb-6 border-b border-border pb-3 mt-12" {...props} />
+                      </>
+                    );
+                  },
+                  h3: (props: any) => <h3 className="text-xl font-bold font-bricolage text-foreground mt-8 mb-4" {...props} />,
+                  p: (props: any) => <p className="text-muted-foreground leading-relaxed text-[1rem] font-hanken mb-4" {...props} />,
+                  ul: (props: any) => <ul className="list-disc list-outside ml-5 space-y-3 mb-12 marker:text-muted-foreground [&>li::before]:hidden" {...props} />,
+                  li: (props: any) => <li className="text-muted-foreground leading-relaxed text-[1rem] font-hanken" {...props} />,
+                  strong: (props: any) => <strong className="text-foreground font-medium" {...props} />,
+                  a: (props: any) => <a className="text-[#00DC82] hover:underline transition-colors" {...props} />
+                }}
+              />
+            </div>
           ) : (
             <p className="text-muted-foreground font-hanken">Project details coming soon.</p>
           )}
