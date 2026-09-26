@@ -115,7 +115,7 @@ const Hero = () => {
         <div className="relative px-4 flex justify-between items-end -mt-10 sm:-mt-12 md:-mt-14 z-10">
           <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-card shadow-md bg-muted">
             <motion.img
-              src="/assets/avaterlogo.png"
+              src="/assets/avaterlogo.webp"
               alt="Dhrubaraj Pati"
               initial={false}
               animate={{
@@ -131,7 +131,7 @@ const Hero = () => {
               loading="eager"
             />
             <motion.img
-              src="/assets/avater.png"
+              src="/assets/avater.webp"
               alt="Dhrubaraj Pati"
               initial={false}
               animate={{
@@ -357,7 +357,7 @@ const Hero = () => {
             className="flex items-center gap-1.5 px-3.5 py-2 font-hanken rounded-lg bg-neutral-800 dark:bg-foreground hover:bg-zinc-700 dark:hover:bg-foreground/90 text-white dark:text-background font-medium text-xs transition-all duration-200 shadow-sm"
           >
             <img
-              src={avatarTheme === 'logo' ? '/assets/avaterlogo.png' : '/assets/avater.png'}
+              src={avatarTheme === 'logo' ? '/assets/avaterlogo.webp' : '/assets/avater.webp'}
               alt="Avatar"
               className="w-4 h-4 rounded-full object-cover"
             />

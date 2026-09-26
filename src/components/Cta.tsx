@@ -48,7 +48,7 @@ const Cta = () => {
                     >
                       <div className="flex items-center shrink-0">
                         <img
-                          src="/assets/avaterlogo.png"
+                          src="/assets/avaterlogo.webp"
                           alt="Avatar"
                           className="w-5 h-5 sm:w-6 sm:h-6 rounded-full object-cover border border-border shadow-sm"
                         />
