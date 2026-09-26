@@ -117,6 +117,9 @@ const ProjectDetail = () => {
                                   src={project.image}
                                   alt={project.title}
                                   className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity"
+                                  fetchPriority="high"
+                                  loading="eager"
+                                  decoding="async"
                                 />
                               </div>
                             </div>
