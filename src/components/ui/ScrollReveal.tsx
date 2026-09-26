@@ -30,6 +30,7 @@ export const ScrollReveal = ({
         delay,
         ease: [0.16, 1, 0.3, 1], // Custom premium cubic-bezier easing curve for organic motion
       }}
+      style={{ willChange: 'transform, opacity' }}
       className={className}
     >
       {children}

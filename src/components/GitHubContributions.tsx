@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import ScrollReveal from './ui/ScrollReveal';
+import { useInView } from 'framer-motion';
 
 interface DayData {
   date: string;
@@ -12,6 +13,8 @@ const GitHubContributions = () => {
   const [year, setYear] = useState<number | 'Default'>('Default'); // default to past 12 months
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [tooltip, setTooltip] = useState<{ visible: boolean; x: number; y: number; text: string } | null>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const isGridInView = useInView(gridRef, { once: true, margin: '-50px' });
 
 
   // Play click audio sound from public/Audio/
@@ -171,7 +174,7 @@ const GitHubContributions = () => {
                 </div>
 
                 {/* Grid */}
-                <div className="inline-flex gap-[2px] sm:gap-[2px]">
+                <div ref={gridRef} className="inline-flex gap-[2px] sm:gap-[2px]">
                   {isLoading ? (
                     // Skeleton loading effect
                     Array.from({ length: 53 }).map((_, weekIndex) => (
@@ -198,10 +201,11 @@ const GitHubContributions = () => {
                               day.contributionCount
                             )}
                               hover:ring-2 hover:ring-[#00DC82]/30 transition-all duration-300 cursor-pointer group relative
-                              animate-fade-in`}
+                              ${isGridInView ? 'animate-fade-in' : 'opacity-0'}`}
                             style={{
                               animationDelay: `${(weekIndex * 7 + dayIndex) * 15}ms`,
-                              animationFillMode: 'both'
+                              animationFillMode: 'both',
+                              willChange: 'transform, opacity'
                             }}
                             onMouseEnter={(e) => {
                               const rect = e.currentTarget.getBoundingClientRect();

@@ -691,10 +691,6 @@ html {
   pointer-events: none;
   user-select: none;
   background: linear-gradient(to top, hsl(var(--background)) 15%, transparent);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  mask-image: linear-gradient(to top, black 25%, transparent);
-  -webkit-mask-image: linear-gradient(to top, black 25%, transparent);
 }
 
 /* Disable CSS transitions globally during view transitions to prevent mid-transition screenshots */

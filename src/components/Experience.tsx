@@ -29,12 +29,13 @@ function ExperienceList({ experiences }: ExperienceListProps) {
   return (
     <div className="flex flex-col gap-0">
       {featuredExperiences.map((experience, index) => (
-        <ExperienceCard
-          key={index}
-          experience={experience}
-          isOpen={openIndex === index}
-          onClick={() => handleToggle(index)}
-        />
+        <ScrollReveal key={index} delay={index * 0.15}>
+          <ExperienceCard
+            experience={experience}
+            isOpen={openIndex === index}
+            onClick={() => handleToggle(index)}
+          />
+        </ScrollReveal>
       ))}
     </div>
   );
