@@ -1,27 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  Search,
-  Home,
-  User,
-  FolderOpen,
-  Rss,
-  Award,
-  Github,
-  Linkedin,
-  Codepen,
-  Share2,
-  Code,
-  Settings,
-  Wrench,
-  Phone,
-  Newspaper,
-  Mail,
-  Camera,
-  Sun
-} from 'lucide-react';
-import { BookIcon, LeetcodeIcon } from './icons/SocialIcons';
-import ScrollIcon from './svgs/ScrollIcon';
+import { Search } from 'lucide-react';
 import { books } from './Bookshelf';
 import useThemeStore from '../store/useThemeStore';
 
@@ -35,7 +14,6 @@ interface SearchItem {
   id: string;
   title: string;
   description: string;
-  icon: React.ReactNode;
   shortcut?: string;
   action: () => void;
   category: 'recent' | 'navigation' | 'actions' | 'books';
@@ -59,7 +37,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
     id: `book-${book.slug}`,
     title: `Book: ${book.title}`,
     description: `Read thoughts on ${book.title} by ${book.author}`,
-    icon: <ScrollIcon size="16" />,
     category: 'books',
     action: () => {
       navigate(`/thoughts/${book.slug}`);
@@ -116,7 +93,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
       id: 'home',
       title: 'Go to Home',
       description: 'Navigate to the homepage',
-      icon: <Home size={16} />,
       shortcut: 'Shift+H',
       category: 'navigation',
       action: () => {
@@ -131,7 +107,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
       id: 'about',
       title: 'Go to About',
       description: 'Learn more about me',
-      icon: <User size={16} />,
       shortcut: 'Shift+A',
       category: 'navigation',
       action: () => {
@@ -144,7 +119,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
       id: 'projects',
       title: 'Go to Projects',
       description: 'View my projects',
-      icon: <FolderOpen size={16} />,
       shortcut: 'Shift+P',
       category: 'navigation',
       action: () => {
@@ -157,7 +131,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
       id: 'photos',
       title: 'Go to Photos',
       description: 'View my photography portfolio',
-      icon: <Camera size={16} />,
       shortcut: 'Shift+F',
       category: 'navigation',
       action: () => {
@@ -170,7 +143,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
       id: 'blogs',
       title: 'Go to Blogs',
       description: 'Read my blog posts',
-      icon: <Rss size={16} />,
       shortcut: 'Shift+B',
       category: 'navigation',
       action: () => {
@@ -183,7 +155,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
       id: 'certificates',
       title: 'Go to Certificates',
       description: 'View my certificates',
-      icon: <Award size={16} />,
       shortcut: 'Shift+C',
       category: 'navigation',
       action: () => {
@@ -196,7 +167,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
       id: 'resume',
       title: 'Go to Resume',
       description: 'View my resume and experience',
-      icon: <BookIcon size="16" />,
       shortcut: 'Shift+R',
       category: 'navigation',
       action: () => {
@@ -209,7 +179,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
       id: 'experience',
       title: 'Go to Experience',
       description: 'View my work experience and history',
-      icon: <Award size={16} />,
       shortcut: 'Shift+W',
       category: 'navigation',
       action: () => {
@@ -222,7 +191,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
       id: 'contact',
       title: 'Go to Contact',
       description: 'Get in touch',
-      icon: <Phone size={16} />,
       shortcut: 'Shift+T',
       category: 'navigation',
       action: () => {
@@ -235,7 +203,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
       id: 'tools-gears',
       title: 'Go to Tools & Gears',
       description: 'Explore my development tools and gear',
-      icon: <Wrench size={16} />,
       shortcut: 'Shift+O',
       category: 'navigation',
       action: () => {
@@ -248,7 +215,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
       id: 'vscode-extensions',
       title: 'Go to VS Code Extensions',
       description: 'Check out my recommended extensions',
-      icon: <Settings size={16} />,
       shortcut: 'Shift+X',
       category: 'navigation',
       action: () => {
@@ -264,7 +230,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
       id: 'toggle-theme',
       title: 'Toggle Theme',
       description: 'Switch between light and dark theme',
-      icon: <Sun size={16} />,
       shortcut: 'Shift+D',
       category: 'actions',
       action: () => {
@@ -276,7 +241,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
       id: 'share-page',
       title: 'Share Current Page',
       description: 'Share this page on social media',
-      icon: <Share2 size={16} />,
       shortcut: 'Shift+S',
       category: 'actions',
       action: () => {
@@ -295,7 +259,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
       id: 'copy-email',
       title: 'Copy Email Address',
       description: 'Copy my email to clipboard',
-      icon: <Mail size={16} />,
       shortcut: 'Shift+E',
       category: 'actions',
       action: () => {
@@ -307,7 +270,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
       id: 'view-source',
       title: 'View Source Code',
       description: 'Open GitHub repository',
-      icon: <Code size={16} />,
       shortcut: 'Shift+V',
       category: 'actions',
       action: () => window.open('https://github.com/codewithdhruba01/codewithdhruba.app', '_blank')
@@ -316,7 +278,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
       id: 'github-profile',
       title: 'Open GitHub Profile',
       description: 'Visit my GitHub profile',
-      icon: <Github size={16} />,
       shortcut: 'Shift+G',
       category: 'actions',
       action: () => window.open('https://github.com/codewithdhruba01', '_blank')
@@ -325,7 +286,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
       id: 'linkedin-profile',
       title: 'Open LinkedIn Profile',
       description: 'Connect on LinkedIn',
-      icon: <Linkedin size={16} />,
       shortcut: 'Shift+L',
       category: 'actions',
       action: () => window.open('https://www.linkedin.com/in/dhrubaraj-pati/', '_blank')
@@ -334,7 +294,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
       id: 'daily-dev',
       title: 'Open Daily.dev',
       description: 'Follow me on Daily.dev',
-      icon: <Newspaper size={16} />,
       shortcut: 'Shift+D',
       category: 'actions',
       action: () => window.open('https://app.daily.dev/codewithdhruba', '_blank')
@@ -343,7 +302,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
       id: 'codepen',
       title: 'Open CodePen',
       description: 'View my CodePen creations',
-      icon: <Codepen size={16} />,
       shortcut: 'Shift+N',
       category: 'actions',
       action: () => window.open('https://codepen.io/Dhrubaraj-Pati-the-looper', '_blank')
@@ -352,7 +310,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
       id: 'leetcode',
       title: 'Open Leetcode',
       description: 'View my Leetcode profile',
-      icon: <LeetcodeIcon size="16" />,
       shortcut: 'Shift+I',
       category: 'actions',
       action: () => window.open('https://leetcode.com/u/codewithdhruba/', '_blank')
@@ -583,10 +540,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
                                    ${isSelected ? 'bg-accent' : 'hover:bg-accent/60 bg-transparent'}`}
                       >
                         <div className="flex items-center gap-4 min-w-0">
-                          <div className={`flex-shrink-0 transition-colors duration-200
-                            ${isSelected ? 'text-foreground' : 'group-hover:text-foreground text-muted-foreground'}`}>
-                            {item.icon}
-                          </div>
                           <div className="min-w-0">
                             <div className="text-foreground font-medium text-sm font-hanken truncate">{item.title}</div>
                             <div className="text-muted-foreground text-sm font-hanken truncate mt-0.5">{item.description}</div>

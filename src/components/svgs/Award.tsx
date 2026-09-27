@@ -1,0 +1,30 @@
+interface AwardProps {
+  size?: number | string;
+  color?: string;
+  strokeWidth?: number | string;
+  className?: string;
+}
+
+export default function Award({
+  size = 25,
+  color = "currentColor",
+  strokeWidth = 2,
+  className = "",
+}: AwardProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={color}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M19 9C19 12.86599 15.86599 16 12 16C8.13401 16 5 12.86599 5 9C5 5.13401 8.13401 2 12 2C15.86599 2 19 5.13401 19 9ZM16.1787 14.61591L17.8979 19.9266C18.3406 21.1954 17.2603 22.4559 16.2597 21.838L12.5365 19.5391C12.1988 19.3305 11.8012 19.3305 11.4635 19.5391L7.7403 21.838C6.7397 22.4559 5.6594 21.1954 6.1021 19.9266L7.8213 14.61591" />
+    </svg>
+  );
+}

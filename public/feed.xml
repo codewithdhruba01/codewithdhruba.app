@@ -5,14 +5,23 @@
     <link>https://codewithdhruba.in/blog</link>
     <description>Exploring the art of engineering, the craft of code, and building impactful tech.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 16 Sep 2026 10:02:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 27 Sep 2026 09:22:20 GMT</lastBuildDate>
     <atom:link href="https://codewithdhruba.in/feed.xml" rel="self" type="application/rss+xml" />
     
+    <item>
+      <title>Practical UI Rules for Better Interfaces</title>
+      <link>https://codewithdhruba.in/blog/practical-ui-rules-for-better-interfaces</link>
+      <guid isPermaLink="true">https://codewithdhruba.in/blog/practical-ui-rules-for-better-interfaces</guid>
+      <pubDate>Thu, 17 Sep 2026 18:30:00 GMT</pubDate>
+      <description><![CDATA[Building a good web interface is not only about choosing beautiful colors, adding animations, or making a page responsive. The small details often have a much bigger impact on how an interface feels....]]></description>
+      <category>UI/UX</category>
+      <dc:creator>Dhrubaraj Pati</dc:creator>
+    </item>
     <item>
       <title>How to Work MCP Server</title>
       <link>https://codewithdhruba.in/blog/how-to-work-with-mcp-server</link>
       <guid isPermaLink="true">https://codewithdhruba.in/blog/how-to-work-with-mcp-server</guid>
-      <pubDate>Sat, 01 Aug 2026 07:00:00 GMT</pubDate>
+      <pubDate>Fri, 31 Jul 2026 18:30:00 GMT</pubDate>
       <description><![CDATA[If you're building in the AI space right now, you know the integration headache: every new agent or LLM requires a bespoke API connector to talk to your enterprise data. The Model Context Protocol MCP...]]></description>
       <category>Development</category>
       <dc:creator>Dhrubaraj Pati</dc:creator>
@@ -21,7 +30,7 @@
       <title>Average College Student life</title>
       <link>https://codewithdhruba.in/blog/the-unspoken-reality-of-tier-3-colleges</link>
       <guid isPermaLink="true">https://codewithdhruba.in/blog/the-unspoken-reality-of-tier-3-colleges</guid>
-      <pubDate>Tue, 23 Jun 2026 07:00:00 GMT</pubDate>
+      <pubDate>Mon, 22 Jun 2026 18:30:00 GMT</pubDate>
       <description><![CDATA[I am a student at a Tier 3 college myself. So this article is not written from the perspective of an outsider, but from the experiences, observations, and realities I have witnessed firsthand.
 
 Many...]]></description>
@@ -32,7 +41,7 @@ Many...]]></description>
       <title>Rag Base Chatbot Using Local Data</title>
       <link>https://codewithdhruba.in/blog/rag-ai-chatbot</link>
       <guid isPermaLink="true">https://codewithdhruba.in/blog/rag-ai-chatbot</guid>
-      <pubDate>Sat, 07 Mar 2026 08:00:00 GMT</pubDate>
+      <pubDate>Fri, 06 Mar 2026 18:30:00 GMT</pubDate>
       <description><![CDATA[When I started exploring the latest advancements in Artificial Intelligence, one concept kept appearing repeatedly — RAG Retrieval Augmented Generation.
 
 RAG is a powerful technique that combines in...]]></description>
@@ -43,7 +52,7 @@ RAG is a powerful technique that combines in...]]></description>
       <title>Essential Tools &amp; Components for Your Next.js/React Projects</title>
       <link>https://codewithdhruba.in/blog/essential-tools-for-nextjs-and-react</link>
       <guid isPermaLink="true">https://codewithdhruba.in/blog/essential-tools-for-nextjs-and-react</guid>
-      <pubDate>Wed, 11 Feb 2026 08:00:00 GMT</pubDate>
+      <pubDate>Tue, 10 Feb 2026 18:30:00 GMT</pubDate>
       <description><![CDATA[The Modern Frontend Stack: Must-Have Tools
 
 The frontend ecosystem changes rapidly, but a stable, high-performance stack has emerged around Next.js and React. Building modern web applications is no...]]></description>
@@ -54,7 +63,7 @@ The frontend ecosystem changes rapidly, but a stable, high-performance stack has
       <title>How NextAuth.js Works</title>
       <link>https://codewithdhruba.in/blog/how-nextauth-works</link>
       <guid isPermaLink="true">https://codewithdhruba.in/blog/how-nextauth-works</guid>
-      <pubDate>Sat, 31 Jan 2026 08:00:00 GMT</pubDate>
+      <pubDate>Fri, 30 Jan 2026 18:30:00 GMT</pubDate>
       <description><![CDATA[Introduction
 
 Authentication is a crucial part of modern web applications. Implementing secure login, session handling, OAuth integration like Google or GitHub login, and user management manually c...]]></description>
@@ -65,7 +74,7 @@ Authentication is a crucial part of modern web applications. Implementing secure
       <title>Essential Linux Commands: A Comprehensive Guide (50 Commands with Examples)</title>
       <link>https://codewithdhruba.in/blog/essential-linux-commands</link>
       <guid isPermaLink="true">https://codewithdhruba.in/blog/essential-linux-commands</guid>
-      <pubDate>Mon, 08 Dec 2025 08:00:00 GMT</pubDate>
+      <pubDate>Sun, 07 Dec 2025 18:30:00 GMT</pubDate>
       <description><![CDATA[Linux is one of the most powerful and flexible operating systems available today. Whether you're a developer, system administrator, cybersecurity learner, or technology enthusiast, Linux commands help...]]></description>
       <category>Linux</category>
       <dc:creator>Dhrubaraj Pati</dc:creator>
@@ -74,7 +83,7 @@ Authentication is a crucial part of modern web applications. Implementing secure
       <title>The Ultimate Guide to OpenWeather API: From Zero to Production in 2025</title>
       <link>https://codewithdhruba.in/blog/openweather-api-guide</link>
       <guid isPermaLink="true">https://codewithdhruba.in/blog/openweather-api-guide</guid>
-      <pubDate>Wed, 08 Oct 2025 07:00:00 GMT</pubDate>
+      <pubDate>Tue, 07 Oct 2025 18:30:00 GMT</pubDate>
       <description><![CDATA[Build production-ready weather applications with the world's most reliable weather data service
 
 "Weather data isn't just information—it's the foundation of intelligent applications that adapt to re...]]></description>
@@ -85,7 +94,7 @@ Authentication is a crucial part of modern web applications. Implementing secure
       <title>10 Chrome Keyboard Shortcuts to Boost Your Productivity</title>
       <link>https://codewithdhruba.in/blog/chrome-keyboard-shortcuts</link>
       <guid isPermaLink="true">https://codewithdhruba.in/blog/chrome-keyboard-shortcuts</guid>
-      <pubDate>Mon, 06 Oct 2025 07:00:00 GMT</pubDate>
+      <pubDate>Sun, 05 Oct 2025 18:30:00 GMT</pubDate>
       <description><![CDATA[Google Chrome is not just a browser — it's a productivity tool hiding in plain sight. While most users rely on their mouse for every action, Chrome offers dozens of keyboard shortcuts that make everyd...]]></description>
       <category>Productivity</category>
       <dc:creator>Dhrubaraj Pati</dc:creator>
