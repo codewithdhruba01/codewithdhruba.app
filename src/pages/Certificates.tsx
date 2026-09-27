@@ -130,7 +130,7 @@ const Certificates = () => {
 
 
         {/* Certifications Section */}
-        <div className="mb-16">
+        <div className="mb-8">
           <ScrollReveal>
             <h4 className="text-lg sm:text-1xl font-semibold text-foreground font-hanken text-left border-b border-border pb-3 mb-2 flex items-center gap-1.5">
               Certifications <span className="text-xs text-muted-foreground font-mono font-normal">[{certificates.length}]</span>
