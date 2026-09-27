@@ -41,7 +41,7 @@ interface SearchItem {
   category: 'recent' | 'navigation' | 'actions' | 'books';
 }
 
-const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavigate }) => {
+const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOnClose, onNavigate }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -49,6 +49,11 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
   const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement>(null);
   const activeItemRef = useRef<HTMLButtonElement>(null);
+
+  const onClose = () => {
+    setIsAnimating(false);
+    setTimeout(() => propOnClose(), 300);
+  };
 
   const bookItems: SearchItem[] = books.map((book) => ({
     id: `book-${book.slug}`,
@@ -474,15 +479,12 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
         }
       }
     } else {
-      const timer = setTimeout(() => {
-        document.body.style.overflow = '';
-        document.body.style.paddingRight = '';
-        const navbar = document.querySelector('nav');
-        if (navbar) {
-          navbar.style.paddingRight = '';
-        }
-      }, 150); // Wait for transition to finish before restoring scroll
-      return () => clearTimeout(timer);
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+      const navbar = document.querySelector('nav');
+      if (navbar) {
+        navbar.style.paddingRight = '';
+      }
     }
     return () => {
       document.body.style.overflow = '';
@@ -512,8 +514,10 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
       `}</style>
       {/* Backdrop with high-fidelity blur */}
       <div
-        className={`fixed inset-0 z-[60] bg-background/80 backdrop-blur-sm transition-all duration-[300ms] ease-out
-                   ${isAnimating ? 'opacity-100' : 'opacity-0'}`}
+        className={`fixed inset-0 z-[60] transition-all duration-300 ${isAnimating
+          ? 'bg-black/60 backdrop-blur-sm opacity-100'
+          : 'bg-black/0 backdrop-blur-none opacity-0'
+          }`}
         onClick={onClose}
       />
 
@@ -526,12 +530,11 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
           onClick={(e) => e.stopPropagation()}
           className={`w-full max-w-[440px] bg-popover border border-border rounded-xl
                      shadow-2xl
-                     overflow-hidden transition-all duration-[300ms] cubic-bezier(0.16, 1, 0.3, 1) transform
-                     origin-bottom md:origin-center
+                     overflow-hidden transition-all duration-300
                      flex flex-col-reverse md:flex-col
                      ${isAnimating
-              ? 'opacity-100 scale-100 translate-y-0'
-              : 'opacity-0 scale-[0.35] translate-y-3 md:scale-95 md:translate-y-0'
+              ? 'scale-100 opacity-100 translate-y-0'
+              : 'scale-95 opacity-0 translate-y-4'
             }`}
         >
           {/* Search Header Container (Swaps to bottom on mobile) */}
@@ -585,8 +588,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
                             {item.icon}
                           </div>
                           <div className="min-w-0">
-                            <div className="text-foreground font-medium text-sm font-outfit truncate">{item.title}</div>
-                            <div className="text-muted-foreground text-xs font-outfit truncate mt-0.5">{item.description}</div>
+                            <div className="text-foreground font-medium text-sm font-hanken truncate">{item.title}</div>
+                            <div className="text-muted-foreground text-sm font-hanken truncate mt-0.5">{item.description}</div>
                           </div>
                         </div>
                         {item.shortcut && (
