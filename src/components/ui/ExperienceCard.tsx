@@ -33,14 +33,14 @@ export function ExperienceCard({ experience, isOpen, onClick, alwaysOpen = false
                     {/* Left: Company name & Working badge & Chevron toggle */}
                     <div className="flex items-center gap-2">
                         <h3 className={cn(
-                            "text-base sm:text-lg font-bold font-outfit text-foreground tracking-wide transition-colors",
+                            "text-base sm:text-lg font-bold font-hanken text-foreground tracking-wide transition-colors",
                             experience.isBlur && "blur-[6px] select-none opacity-80"
                         )}>
                             {experience.company}
                         </h3>
 
                         {experience.isCurrent && (
-                            <div className="inline-flex items-center gap-1 rounded-full border border-[#00DC82]/30 bg-[#00DC82]/10 px-2 py-0.5 text-[10px] font-outfit text-[#00DC82] font-semibold shadow-[0_0_10px_-3px_rgba(0,220,130,0.2)]">
+                            <div className="inline-flex items-center gap-1 rounded-md border border-[#00DC82]/30 bg-[#00DC82]/10 px-2 py-0.5 text-[10px] font-hanken text-muted-foreground font-medium">
                                 <span className="w-1.5 h-1.5 rounded-full bg-[#00DC82] animate-pulse"></span>
                                 Working
                             </div>

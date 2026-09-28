@@ -70,12 +70,12 @@ const Cta = () => {
                         </div>
                       </motion.div>
 
-                      <span className="text-foreground font-outfit font-bold text-xs sm:text-sm whitespace-nowrap transition-colors duration-300 ml-2">
+                      <span className="text-foreground font-hanken font-medium text-xs sm:text-sm whitespace-nowrap transition-colors duration-300 ml-2">
                         Book a Free Call
                       </span>
                     </motion.button>
 
-                    <SectionButton to="/contact" text="Contact Us" icon={null} className="px-3.5 py-1.5 sm:px-4 sm:py-2.5 text-xs sm:text-sm" />
+                    <SectionButton to="/contact" text="Contact Us" icon={null} className="px-3.5 py-1.5 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-hanken font-medium" />
                   </div>
                 </div>
               </div>

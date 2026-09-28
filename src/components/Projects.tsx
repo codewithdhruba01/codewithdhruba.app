@@ -43,7 +43,7 @@ const Projects = () => {
         </div>
 
         <div className="text-center mt-12">
-          <SectionButton to="/projects" text="View All Projects" icon={null} />
+          <SectionButton to="/projects" text="Show all projects" icon={null} />
         </div>
       </div>
     </section>

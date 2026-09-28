@@ -111,10 +111,10 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
           {/* Left: NAVIGATE */}
           <div className="flex flex-col gap-4">
-            <span className="text-foreground text-xs font-bold uppercase tracking-wider font-outfit">
+            <span className="text-foreground text-xs font-bold uppercase tracking-wider font-hanken">
               Navigate
             </span>
-            <div className="flex flex-wrap gap-x-6 gap-y-3 max-w-md font-outfit text-sm">
+            <div className="flex flex-wrap gap-x-6 gap-y-3 max-w-md font-hanken font-medium text-sm">
               {navigateLinks.map((link) =>
                 link.href.endsWith('.xml') ? (
                   <a
@@ -156,7 +156,7 @@ const Footer = () => {
                   className="w-5 h-5 relative z-10 group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              <div className="flex items-center gap-1.5 text-sm font-medium font-outfit">
+              <div className="flex items-center gap-1.5 text-sm font-medium font-hanken">
                 <span className="text-foreground group-hover:text-[#1DB954] transition-colors">
                   My Ordinary Life
                 </span>
@@ -170,7 +170,7 @@ const Footer = () => {
 
           {/* Right: CONNECT */}
           <div className="flex flex-col gap-4 text-left">
-            <span className="text-foreground text-xs font-bold uppercase tracking-wider font-outfit">
+            <span className="text-foreground text-xs font-bold uppercase tracking-wider font-hanken">
               Connect
             </span>
             <div className="flex flex-wrap md:grid md:grid-cols-4 gap-2">
@@ -192,10 +192,10 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 relative flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
           <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-border to-transparent"></div>
-          <p className="text-muted-foreground text-sm font-satoshi">
+          <p className="text-muted-foreground text-sm font-hanken">
             © 2026 Dhrubaraj Pati. All rights reserved.
           </p>
-          <p className="text-muted-foreground text-sm font-satoshi">
+          <p className="text-muted-foreground text-sm font-hanken">
             You're the{' '}
             {visitorCount !== null ? (
               <>

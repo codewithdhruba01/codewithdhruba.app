@@ -67,7 +67,7 @@ const Navbar = () => {
               </div>
 
               {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center gap-1 font-outfit text-sm">
+              <div className="hidden md:flex items-center gap-1 font-hanken font-medium text-sm">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
@@ -93,7 +93,7 @@ const Navbar = () => {
                     setCommandPaletteOpen(true);
                     playClickSound();
                   }}
-                  className="pl-3.5 pr-1.5 py-1 rounded-xl bg-card border border-border hover:bg-accent transition-all duration-200 flex items-center gap-3 text-sm font-outfit shadow-sm"
+                  className="pl-3.5 pr-1.5 py-1 rounded-xl bg-card border border-border hover:bg-accent transition-all duration-200 flex items-center gap-3 text-sm font-hanken font-medium shadow-sm"
                   title="Search (Ctrl+K)"
                 >
                   <span className="text-muted-foreground">Search</span>

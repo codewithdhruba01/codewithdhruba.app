@@ -55,7 +55,7 @@ const Experience = () => {
           <ExperienceList experiences={experiences} />
 
           <div className="text-center mt-6">
-            <SectionButton to="/experience" text="View All Experience" icon={null} />
+            <SectionButton to="/experience" text="Show all experiences" icon={null} />
           </div>
         </ScrollReveal>
       </div>

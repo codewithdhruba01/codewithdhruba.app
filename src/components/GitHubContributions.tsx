@@ -97,7 +97,7 @@ const GitHubContributions = () => {
           <h4 className="text-2xl md:text-2xl font-extrabold text-foreground text-left font-hanken">
             GitHub Activity
           </h4>
-          <p className="text-left mt-2 text-sm font-supreme text-muted-foreground">
+          <p className="text-left mt-2 text-sm font-hanken text-muted-foreground">
             <strong>codewithdhruba's</strong> coding journey over the past year
           </p>
         </ScrollReveal>
@@ -106,16 +106,16 @@ const GitHubContributions = () => {
           <div className="w-full border border-border bg-card rounded-lg p-4 sm:py-4 sm:px-6 shadow-lg">
             {/* Card Header: Total Contributions + Year Selector */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-              <div className="text-sm font-satoshi text-muted-foreground">
+              <div className="text-sm font-hanken text-muted-foreground">
                 {year === 'Default' ? 'Total contributions in the last 12 months' : `Total contributions in ${year}`}
                 :{' '}
-                <span className={`text-[#00DC82] font-semibold transition-all duration-300 ${isLoading ? 'animate-shimmer bg-gradient-to-r from-[#00DC82]/20 via-[#00DC82]/60 to-[#00DC82]/20 bg-[length:200%_100%] rounded px-2' : ''}`}>
+                <span className={`text-[#00DC82] font-medium transition-all duration-300 ${isLoading ? 'animate-shimmer bg-gradient-to-r from-[#00DC82]/20 via-[#00DC82]/60 to-[#00DC82]/20 bg-[length:200%_100%] rounded px-2' : ''}`}>
                   {isLoading ? 'Loading...' : totalCount}
                 </span>
               </div>
 
               {/* Year Selector */}
-              <div className="flex flex-wrap gap-2 font-outfit select-none items-center">
+              <div className="flex flex-wrap gap-2 font-hanken select-none items-center">
                 {years.map((y) => (
                   <button
                     key={y}
@@ -141,7 +141,7 @@ const GitHubContributions = () => {
             {/* Scrollable container */}
             <div className="overflow-x-auto thin-scrollbar pb-2">
               {/* Month labels */}
-              <div className="ml-[32px] sm:ml-[36px] flex gap-[2px] sm:gap-[2px] text-muted-foreground font-supreme mb-1">
+              <div className="ml-[32px] sm:ml-[36px] flex gap-[2px] sm:gap-[2px] text-muted-foreground font-hanken mb-1">
                 {weeks.map((_, weekIndex) => {
                   const label = monthLabels.find((m) => m.index === weekIndex);
                   return (
@@ -155,7 +155,7 @@ const GitHubContributions = () => {
               {/* Contribution Grid */}
               <div className="flex">
                 {/* Weekday labels */}
-                <div className="flex flex-col justify-between w-[24px] sm:w-[28px] mr-2 text-[9px] sm:text-[10px] font-supreme text-muted-foreground">
+                <div className="flex flex-col justify-between w-[24px] sm:w-[28px] mr-2 text-[9px] sm:text-[10px] font-hanken text-muted-foreground">
                   {Array.from({ length: 7 }).map((_, dayIndex) => {
                     const label =
                       dayIndex === 1
@@ -231,7 +231,7 @@ const GitHubContributions = () => {
             {/* Total contributions + Legend */}
             <div className="mt-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
-                <span className="font-bold font-supreme">Less</span>
+                <span className="font-medium font-hanken">Less</span>
                 <div className="flex gap-1">
                   <div className="w-3 h-3 rounded-sm bg-muted/80"></div>
                   <div className="w-3 h-3 rounded-sm bg-[#00DC82]/20"></div>
@@ -239,7 +239,7 @@ const GitHubContributions = () => {
                   <div className="w-3 h-3 rounded-sm bg-[#00DC82]/80"></div>
                   <div className="w-3 h-3 rounded-sm bg-[#00DC82]"></div>
                 </div>
-                <span className="font-bold font-supreme">More</span>
+                <span className="font-medium font-hanken">More</span>
               </div>
             </div>
           </div>

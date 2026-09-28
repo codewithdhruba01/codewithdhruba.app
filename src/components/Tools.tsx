@@ -28,10 +28,10 @@ const GetInTouch = () => {
                 </div>
 
                 <div className="min-w-0">
-                  <h3 className="text-sm sm:text-base font-semibold font-outfit text-foreground whitespace-nowrap">
+                  <h3 className="text-sm sm:text-base font-medium font-hanken text-foreground whitespace-nowrap">
                     Tools & Gears
                   </h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground font-poppins leading-snug break-words">
+                  <p className="text-xs sm:text-base text-muted-foreground font-hanken leading-snug break-words">
                     Productivity tools and gears that power my workflow.
                   </p>
                 </div>
@@ -57,10 +57,10 @@ const GetInTouch = () => {
                 </div>
 
                 <div className="min-w-0">
-                  <h3 className="text-sm sm:text-base font-semibold font-outfit text-foreground whitespace-nowrap">
+                  <h3 className="text-sm sm:text-base font-medium font-hanken text-foreground whitespace-nowrap">
                     VS Code
                   </h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground font-poppins leading-snug break-words">
+                  <p className="text-xs sm:text-base text-muted-foreground font-hanken leading-snug break-words">
                     My essential VS Code extensions for daily development.
                   </p>
                 </div>

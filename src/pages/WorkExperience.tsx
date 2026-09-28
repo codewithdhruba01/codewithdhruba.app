@@ -15,10 +15,10 @@ const WorkExperience = () => {
                 {/* Header */}
                 <ScrollReveal>
                     <div className="text-left mb-10">
-                        <h2 className="text-3xl md:text-4xl font-bold font-outfit mb-3 text-foreground">
+                        <h2 className="text-3xl md:text-4xl font-bold font-hanken mb-3 text-foreground">
                             Work Experience
                         </h2>
-                        <p className="text-muted-foreground mt-2 text-sm md:text-base font-poppins">
+                        <p className="text-muted-foreground mt-2 text-sm md:text-base font-hanken font-medium">
                             My work experiences across different companies and roles.
                         </p>
                     </div>
@@ -28,10 +28,10 @@ const WorkExperience = () => {
                 <div className="space-y-6">
                     <ScrollReveal delay={0.1}>
                         <div className="flex items-center justify-between border-b border-border pb-4 mb-4">
-                            <p className="text-xl sm:text-xl font-bold text-foreground font-outfit">
+                            <p className="text-xl sm:text-xl text-foreground font-hanken font-medium">
                                 All Experiences
                             </p>
-                            <span className="text-muted-foreground text-sm font-synonym">
+                            <span className="text-muted-foreground text-sm font-hanken font-medium">
                                 {experiences.length} experiences
                             </span>
                         </div>

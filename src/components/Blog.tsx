@@ -84,7 +84,7 @@ const Blog = () => {
           className="text-center mt-6"
           delay={0.3}
         >
-          <SectionButton to="/blog" text="Show All Blogs" icon={null} />
+          <SectionButton to="/blog" text="Show all blogs" icon={null} />
         </ScrollReveal>
       </div>
     </section>
