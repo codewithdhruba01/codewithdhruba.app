@@ -93,10 +93,10 @@ const BlogList = () => {
       <div className="max-w-3xl mx-auto w-full px-6">
         <ScrollReveal>
           <div className="text-left mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold font-outfit mb-3 text-foreground">
+            <h2 className="text-3xl md:text-4xl font-bold font-hanken mb-3 text-foreground">
               Blog & Publications
             </h2>
-            <p className="text-muted-foreground mt-2 font-poppins text-sm md:text-base">
+            <p className="text-muted-foreground mt-2 font-hanken text-sm md:text-base">
               Exploring the art of engineering, and the journey of building impactful tech.
             </p>
           </div>
@@ -133,7 +133,7 @@ const BlogList = () => {
                       <h3 className="text-lg md:text-xl font-semibold font-hanken text-foreground transition-colors">
                         {post.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground font-poppins leading-relaxed font-light">
+                      <p className="text-muted-foreground leading-relaxed text-[0.95rem] font-hanken">
                         {post.description}
                       </p>
 
@@ -142,12 +142,12 @@ const BlogList = () => {
                         {post.category.map((cat, i) => (
                           <span
                             key={i}
-                            className="bg-muted text-muted-foreground px-2.5 py-1 rounded-md text-[11px] font-medium font-poppins border border-border"
+                            className="bg-muted text-muted-foreground px-2.5 py-1 rounded-md text-[11px] font-medium font-hanken border border-border"
                           >
                             {cat}
                           </span>
                         ))}
-                        <span className="bg-muted text-muted-foreground px-2.5 py-1 rounded-md text-[11px] font-medium font-poppins border border-border flex items-center gap-1.5">
+                        <span className="bg-muted text-muted-foreground px-2.5 py-1 rounded-md text-[11px] font-medium font-hanken border border-border flex items-center gap-1.5">
                           <Eye size={13} className="text-muted-foreground" />
                           <span>{loadingViews ? '...' : `${blogViews[post.slug] || 0} views`}</span>
                         </span>
@@ -161,7 +161,7 @@ const BlogList = () => {
                         </div>
 
                         {/* Mobile Read More */}
-                        <div className="flex md:hidden items-center gap-1.5 text-sm font-outfit text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                        <div className="flex md:hidden items-center gap-1.5 text-sm font-hanken text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                           <span>Read more</span>
                           <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-300" />
                         </div>

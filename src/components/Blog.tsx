@@ -54,7 +54,7 @@ const Blog = () => {
                     <h3 className="text-lg font-semibold font-hanken text-foreground transition-colors">
                       {post.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground font-poppins leading-relaxed font-light">
+                    <p className="text-muted-foreground leading-relaxed text-[0.95rem] font-hanken">
                       {post.description}
                     </p>
 
@@ -70,7 +70,7 @@ const Blog = () => {
                     </div>
                   </div>
                   <div className="hidden md:flex items-center shrink-0">
-                    <span className="flex items-center gap-1.5 text-sm font-outfit text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                    <span className="flex items-center gap-1.5 text-sm font-hanken text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                       Read more <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-300" />
                     </span>
                   </div>

@@ -78,10 +78,10 @@ const AllProjects = () => {
       <div className="max-w-3xl mx-auto w-full px-6">
         <ScrollReveal>
           <div className="text-left mb-10">
-            <h2 className="text-3xl md:text-4xl font-semibold font-bricolage mb-3 text-foreground">
+            <h2 className="text-3xl md:text-4xl font-bold font-hanken mb-3 text-foreground">
               Projects
             </h2>
-            <p className="text-muted-foreground mt-2 font-poppins text-sm md:text-base">
+            <p className="text-muted-foreground mt-2 font-hanken text-sm md:text-base">
               A showcase of featured projects, built to solve real-world problems and explore new technologies.
             </p>
           </div>
