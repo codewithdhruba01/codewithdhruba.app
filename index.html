@@ -121,6 +121,15 @@
     }
   </script>
 
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=%VITE_GA_ID%"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '%VITE_GA_ID%');
+  </script>
 </head>
 
 <body class="bg-[#0A0A0A]" style="background-color: #0A0A0A; color: #FFFFFF;">
