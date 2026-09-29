@@ -42,7 +42,7 @@ export default {
         ring: 'hsl(var(--ring) / <alpha-value>)',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Hanken Grotesk', 'sans-serif'],
         cabinet: ['Cabinet Grotesk', 'sans-serif'],
         general: ['General Sans', 'sans-serif'],
         boska: ['Boska', 'serif'],

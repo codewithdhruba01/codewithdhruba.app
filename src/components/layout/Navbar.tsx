@@ -67,7 +67,7 @@ const Navbar = () => {
               </div>
 
               {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center gap-1 font-hanken font-medium text-sm">
+              <div className="hidden md:flex items-center gap-1 font-outfit text-sm">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}

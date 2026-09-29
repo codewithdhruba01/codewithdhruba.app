@@ -83,7 +83,13 @@ const GitHubContributions = () => {
       const month = date.toLocaleString('default', { month: 'short' });
       const prev = monthLabels[monthLabels.length - 1];
       if (!prev || prev.month !== month) {
-        monthLabels.push({ index, month });
+        if (prev && (index - prev.index) < 3) {
+          if (prev.index === 0) {
+            monthLabels[monthLabels.length - 1] = { index, month };
+          }
+        } else {
+          monthLabels.push({ index, month });
+        }
       }
     }
   });
@@ -141,11 +147,11 @@ const GitHubContributions = () => {
             {/* Scrollable container */}
             <div className="overflow-x-auto thin-scrollbar pb-2">
               {/* Month labels */}
-              <div className="ml-[32px] sm:ml-[36px] flex gap-[2px] sm:gap-[2px] text-muted-foreground font-hanken mb-1">
+              <div className="ml-[32px] sm:ml-[36px] flex gap-[2px] sm:gap-[2px] text-muted-foreground/70 font-hanken mb-1">
                 {weeks.map((_, weekIndex) => {
                   const label = monthLabels.find((m) => m.index === weekIndex);
                   return (
-                    <div key={weekIndex} className="w-[8px] sm:w-[9px] text-[9px] sm:text-[10px] text-center shrink-0">
+                    <div key={weekIndex} className="w-[8px] sm:w-[9px] text-[11px] sm:text-[13px] text-left shrink-0 overflow-visible whitespace-nowrap">
                       {label ? label.month : ''}
                     </div>
                   );
@@ -155,7 +161,7 @@ const GitHubContributions = () => {
               {/* Contribution Grid */}
               <div className="flex">
                 {/* Weekday labels */}
-                <div className="flex flex-col justify-between w-[24px] sm:w-[28px] mr-2 text-[9px] sm:text-[10px] font-hanken text-muted-foreground">
+                <div className="flex flex-col justify-between w-[24px] sm:w-[28px] mr-2 text-[11px] sm:text-[13px] font-hanken text-muted-foreground/70">
                   {Array.from({ length: 7 }).map((_, dayIndex) => {
                     const label =
                       dayIndex === 1

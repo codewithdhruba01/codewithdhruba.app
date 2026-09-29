@@ -111,10 +111,10 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
           {/* Left: NAVIGATE */}
           <div className="flex flex-col gap-4">
-            <span className="text-foreground text-xs font-bold uppercase tracking-wider font-hanken">
+            <span className="text-foreground text-xs font-bold uppercase tracking-wider font-outfit">
               Navigate
             </span>
-            <div className="flex flex-wrap gap-x-6 gap-y-3 max-w-md font-hanken font-medium text-sm">
+            <div className="flex flex-wrap gap-x-6 gap-y-3 max-w-md font-outfit text-sm">
               {navigateLinks.map((link) =>
                 link.href.endsWith('.xml') ? (
                   <a
@@ -156,7 +156,7 @@ const Footer = () => {
                   className="w-5 h-5 relative z-10 group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              <div className="flex items-center gap-1.5 text-sm font-medium font-hanken">
+              <div className="flex items-center gap-1.5 text-sm font-medium font-outfit">
                 <span className="text-foreground group-hover:text-[#1DB954] transition-colors">
                   My Ordinary Life
                 </span>
@@ -170,7 +170,7 @@ const Footer = () => {
 
           {/* Right: CONNECT */}
           <div className="flex flex-col gap-4 text-left">
-            <span className="text-foreground text-xs font-bold uppercase tracking-wider font-hanken">
+            <span className="text-foreground text-xs font-bold uppercase tracking-wider font-outfit">
               Connect
             </span>
             <div className="flex flex-wrap md:grid md:grid-cols-4 gap-2">

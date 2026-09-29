@@ -69,8 +69,22 @@ html.dark {
   scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
+@font-face {
+  font-family: 'Hanken Grotesk';
+  src: url('/fonts/HankenGrotesk-Variable.ttf') format('truetype');
+  font-weight: 100 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hanken Grotesk';
+  src: url('/fonts/HankenGrotesk-Italic-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Hanken Grotesk', sans-serif;
   overflow-x: hidden;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
@@ -488,7 +502,7 @@ html {
 .prose div {
   color: hsl(var(--foreground)) !important;
   opacity: 0.85;
-  font-family: 'Inter', sans-serif !important;
+  font-family: 'Hanken Grotesk', sans-serif !important;
   font-weight: 400 !important;
   font-size: 1.0625rem !important;
   line-height: 1.8 !important;
@@ -508,7 +522,7 @@ html {
 .prose b * {
   font-weight: 600 !important;
   color: hsl(var(--foreground)) !important;
-  font-family: 'Inter', sans-serif !important;
+  font-family: 'Hanken Grotesk', sans-serif !important;
 }
 
 /* Headings exclusion - Keep them styled with Instrument Serif Regular */
