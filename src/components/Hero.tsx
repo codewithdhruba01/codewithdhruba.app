@@ -71,7 +71,7 @@ const Hero = () => {
       <ScrollReveal className="max-w-3xl mx-auto w-full px-6 flex flex-col">
         <div className="relative w-full rounded-xl overflow-hidden aspect-[13/5] sm:aspect-[3/1] bg-muted">
           <motion.img
-            src="/assets/cover.webp"
+            src="/assets/bg1.jpg"
             alt="Night mountain landscape banner"
             initial={false}
             animate={{
@@ -89,7 +89,7 @@ const Hero = () => {
           />
 
           <motion.img
-            src="/assets/cover1.webp"
+            src="/assets/bg.png"
             alt="Day mountain landscape banner"
             initial={false}
             animate={{
