@@ -26,7 +26,7 @@ export const essentialLinuxCommands = {
   category: 'Linux',
   readTime: '10 min read',
   
-  image: '/blog/linux_commands.png',
+  image: '/blog/Linux_Commands.webp',
   tags: [
     'Linux',
     'Commands',
@@ -112,7 +112,7 @@ export const theUnspokenRealityOfTier3Colleges = {
   author: 'Dhrubaraj Pati',
   category: 'College Life',
   readTime: '6 min read',
-  image: '/blog/tair3.png',
+  image: '/blog/Students.webp',
   tags: [
     'College Life',
     'Career Advice',

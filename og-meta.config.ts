@@ -82,7 +82,7 @@ const blogMeta: Record<string, PageMeta> = {
     title: "The Unspoken Reality of College Student",
     description:
       "An honest, perspective on the challenges, misconceptions, and realities faced by students in Tier 3 engineering colleges, and how to build a successful career anyway.",
-    image: '/blog/tair3.png',
+    image: '/blog/Students.webp',
   },
   'rag-ai-chatbot': {
     title: 'How I Built a RAG-based AI Chatbot',
@@ -112,7 +112,7 @@ const blogMeta: Record<string, PageMeta> = {
     title: 'Essential Linux Commands',
     description:
       'Essential Linux commands every beginner and intermediate user must know.',
-    image: '/blog/linux_commands.png',
+    image: '/blog/Linux_Commands.webp',
   },
   'essential-tools-for-nextjs-and-react': {
     title: 'Essential Tools for Next.js & React',
