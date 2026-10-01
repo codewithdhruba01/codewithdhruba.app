@@ -88,13 +88,13 @@ const blogMeta: Record<string, PageMeta> = {
     title: 'How I Built a RAG-based AI Chatbot',
     description:
       'Learn how to build a personalized AI chatbot using RAG, LangChain, and local LLMs.',
-    image: '/meta/ragCover.jpg',
+    image: '/blog/Rag.webp',
   },
   'how-nextauth-works': {
     title: 'How NextAuth.js Works',
     description:
       'NextAuth.js - complete open-source authentication solution for Next.js applications.',
-    image: '/meta/blog6.jpg',
+    image: '/blog/NextAuth.js.webp',
   },
   'chrome-keyboard-shortcuts': {
     title: '10 Chrome Keyboard Shortcuts',
@@ -118,7 +118,7 @@ const blogMeta: Record<string, PageMeta> = {
     title: 'Essential Tools for Next.js & React',
     description:
       'Best UI libraries, icons, and utilities for Next.js and React development.',
-    image: '/meta/blog7.jpg',
+    image: '/blog/Components.webp',
   },
   'how-to-work-with-mcp-server': {
     title: 'How to Work MCP Server',
@@ -129,7 +129,7 @@ const blogMeta: Record<string, PageMeta> = {
   'practical-ui-rules-for-better-interfaces': {
     title: 'Practical UI Rules for Better Interfaces',
     description: 'Small design decisions that make websites clearer, more accessible, and easier to use.',
-    image: '/blog/Interfaces.png',
+    image: '/blog/Better_Interfaces.webp',
   },
 };
 

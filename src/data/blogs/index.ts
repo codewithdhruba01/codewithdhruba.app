@@ -44,7 +44,7 @@ export const essentialToolsForNextJsAndReact = {
   category: 'Resources',
   readTime: '15 min read',
   
-  image: '/blog/blog7.png',
+  image: '/blog/Components.webp',
   tags: ['Resources', 'React', 'Next.js', 'UI/UX', 'Tools'],
 };
 
@@ -56,7 +56,7 @@ export const howNextAuthWorks = {
   author: 'Dhrubaraj Pati',
   category: 'Web Development',
   readTime: '10 min read',
-  image: '/blog/blog6.png',
+  image: '/blog/NextAuth.js.webp',
   tags: ['Next.js', 'NextAuth.js', 'Authentication', 'React', 'Security'],
   
 };
@@ -100,7 +100,7 @@ export const ragAiChatbot = {
     author: 'Dhrubaraj Pati',
     category: 'AI & Machine Learning',
     readTime: '12 min read',
-    image: '/blog/ragCover.png',
+    image: '/blog/Rag.webp',
     tags: ['RAG', 'AI', 'LangChain', 'Python', 'LLM', 'Ollama', 'Vector Database'],
     
 };
@@ -143,7 +143,7 @@ export const practicalUiRulesForBetterInterfaces = {
   author: 'Dhrubaraj Pati',
   category: 'UI/UX',
   readTime: '10 min read',
-  image: '/blog/Interfaces.png',
+  image: '/blog/Better_Interfaces.webp',
   tags: ['UI', 'UX', 'Design', 'Web Development', 'Frontend', 'CSS'],
 };
 
