@@ -34,17 +34,6 @@ export const cantHurtMe = {
     };
 
 
-export const designingDataIntensiveApplications = {
-  slug: 'designing-data-intensive-applications',
-  title: 'Designing Data-Intensive Applications',
-  author: 'Martin Kleppmann',
-  coverUrl: '/books/designing-data-intensive-applications.jpg',
-  accentColor: '#b83c24',
-  category: 'Software Architecture',
-  rating: 5,
-    goodreadsUrl: 'https://www.goodreads.com/book/show/23463279-designing-data-intensive-applications',
-    };
-
 
 export const dontMakeMeThink = {
   slug: 'dont-make-me-think',
@@ -142,17 +131,6 @@ export const theHappiestManOnEarth = {
     };
 
 
-export const thePragmaticProgrammer = {
-  slug: 'the-pragmatic-programmer',
-  title: 'The Pragmatic Programmer',
-  author: 'Andy Hunt & Dave Thomas',
-  coverUrl: '/books/the-pragmatic-programmer.jpg',
-  accentColor: '#10b981',
-  category: 'Software Craftsmanship',
-  rating: 5,
-    goodreadsUrl: 'https://www.goodreads.com/book/show/48712217-the-pragmatic-programmer',
-    };
-
 
 export const theSubtleArt = {
   slug: 'the-subtle-art-of-not-giving-a-fck',
@@ -180,8 +158,6 @@ export const zeroToOne = {
 
 export const bookThoughtsData = {
   'open-to-work': openToWork,
-  'designing-data-intensive-applications': designingDataIntensiveApplications,
-  'the-pragmatic-programmer': thePragmaticProgrammer,
   'the-art-of-seduction': theArtOfSeduction,
   'atomic-habits': atomicHabits,
   'dont-make-me-think': dontMakeMeThink,
