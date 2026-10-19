@@ -256,7 +256,7 @@ const Photos = () => {
                     animation: progress-animation 4000ms linear forwards;
                 }
             `}</style>
-            <div className="max-w-6xl mx-auto px-6 mb-16">
+            <div className="max-w-[690px] mx-auto w-full px-6 mb-16">
                 {/* Header Section */}
                 <ScrollReveal>
                     <div className="text-center">
@@ -277,7 +277,7 @@ const Photos = () => {
                 </ScrollReveal>
             </div>
 
-            <div className="max-w-4xl mx-auto w-full px-6">
+            <div className="max-w-[690px] mx-auto w-full px-6">
                 <CategorySelector
                     tags={photoTags}
                     selectedCategory={selectedCategory}
@@ -291,7 +291,7 @@ const Photos = () => {
                 <ScrollReveal delay={0.15}>
                     <div className="relative mb-6">
                         <div
-                            className="relative flex items-center justify-center min-h-[450px] md:min-h-[550px] lg:min-h-[600px] transition-transform duration-800 ease-out"
+                            className="relative flex items-center justify-center min-h-[400px] md:min-h-[460px] lg:min-h-[500px] transition-transform duration-800 ease-out"
                             style={{
                                 touchAction: 'pan-y pinch-zoom',
                                 userSelect: 'none',
@@ -320,10 +320,10 @@ const Photos = () => {
                                     <div
                                         key={`${photo.id}-${index}`}
                                         className={`absolute transition-all duration-800 ease-out ${isCenter
-                                            ? 'w-80 h-[400px] md:w-96 md:h-[480px] lg:w-[420px] lg:h-[525px] z-40 scale-100'
+                                            ? 'w-72 h-[360px] md:w-80 md:h-[400px] lg:w-[350px] lg:h-[440px] z-40 scale-100'
                                             : isNearSide
-                                                ? 'w-72 h-[360px] md:w-80 md:h-[400px] lg:w-[360px] lg:h-[450px] z-20 scale-85'
-                                                : 'w-64 h-[320px] md:w-72 md:h-[360px] lg:w-[300px] lg:h-[375px] z-10 scale-75'
+                                                ? 'w-64 h-[320px] md:w-72 md:h-[360px] lg:w-[310px] lg:h-[390px] z-20 scale-85'
+                                                : 'w-56 h-[280px] md:w-64 md:h-[320px] lg:w-[260px] lg:h-[330px] z-10 scale-75'
                                             }`}
                                         style={{
                                             left: isCenter
