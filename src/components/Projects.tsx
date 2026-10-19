@@ -8,7 +8,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="pt-1 pb-6 md:pb-8 bg-background">
-      <div className="max-w-3xl mx-auto w-full px-6">
+      <div className="max-w-[690px] mx-auto w-full px-6">
         <ScrollReveal className="mb-4">
           <h4 className="text-2xl md:text-2xl font-extrabold text-foreground text-left font-hanken">
             Projects

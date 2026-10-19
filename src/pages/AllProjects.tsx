@@ -75,7 +75,7 @@ const AllProjects = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground pt-20 md:pt-28 pb-16">
-      <div className="max-w-3xl mx-auto w-full px-6">
+      <div className="max-w-[690px] mx-auto w-full px-6">
         <ScrollReveal>
           <div className="text-left mb-10">
             <h2 className="text-3xl md:text-4xl font-bold font-hanken mb-3 text-foreground">
