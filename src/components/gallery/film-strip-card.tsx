@@ -75,16 +75,16 @@ export const FilmStripCard = forwardRef<HTMLDivElement, FilmStripCardProps>(
             />
           ))}
         </div>
-        <div className="mx-4 sm:mx-6 flex gap-1 sm:gap-2.5 overflow-hidden">
+        <div className="w-full mx-3.5 sm:mx-6 flex gap-1.5 sm:gap-2.5">
           {frames.map((src, frameNumber) => (
             <div
               key={src}
-              className="relative shrink-0 overflow-hidden border-2 sm:border-[3px] border-border rounded-sm h-[90px] w-[72px] sm:h-[110px] sm:w-[88px] md:h-[145px] md:w-[116px] bg-muted/40 transition-colors duration-300"
+              className="relative flex-1 min-w-0 aspect-[4/5] overflow-hidden border-2 sm:border-[3px] border-border rounded-sm bg-muted/40 transition-colors duration-300"
             >
               <img
                 src={src}
                 alt={`Frame ${frameNumber + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
               />
               <span className="absolute bottom-0.5 left-0.5 sm:bottom-1 sm:left-1 bg-black/70 text-white px-1 py-0.5 sm:px-1.5 text-[7px] sm:text-[9px] rounded-sm font-mono">
                 {String(frameNumber + 1).padStart(2, "0")}
