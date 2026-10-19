@@ -115,6 +115,8 @@ const BlogList = () => {
                 <LinkPreview
                   to={`/blog/${post.slug}`}
                   imageSrc={post.image}
+                  title={post.title}
+                  date={post.date}
                   onHoverChange={(hovered) => {
                     setHoveredSlug(hovered ? post.slug : null);
                     if (hovered) {

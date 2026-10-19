@@ -42,6 +42,8 @@ const Blog = () => {
               <LinkPreview
                 to={`/blog/${post.slug}`}
                 imageSrc={post.image}
+                title={post.title}
+                date={post.date}
                 onHoverChange={(hovered) => {
                   if (hovered) {
                     import(`../content/blog/${post.slug}.mdx`).catch(() => {});

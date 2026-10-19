@@ -61,7 +61,8 @@ export default {
         hind: ['Hind', 'sans-serif'],
         dancing: ['Dancing Script', 'cursive'],
         hanken: ['Hanken Grotesk', 'HK Grotesk', 'sans-serif'],
-        bricolage: ['Bricolage Grotesque', 'sans-serif']
+        bricolage: ['Bricolage Grotesque', 'sans-serif'],
+        instrument: ['"Instrument Serif"', 'Georgia', 'serif']
       },
       typography: {
         DEFAULT: {

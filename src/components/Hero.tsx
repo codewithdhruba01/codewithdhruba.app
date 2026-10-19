@@ -199,9 +199,9 @@ const Hero = () => {
                   href="https://github.com/codewithdhruba01"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer shadow-sm"
+                  className="w-8 h-8 shrink-0 rounded-full border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer shadow-sm"
                 >
-                  <GithubIcon size="18" className="stroke-current" />
+                  <GithubIcon size="15" className="stroke-current" />
                 </a>
               </TooltipTrigger>
               <TooltipContent side="top">
@@ -215,9 +215,9 @@ const Hero = () => {
                   href="https://x.com/codewithdhruba"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer shadow-sm"
+                  className="w-8 h-8 shrink-0 rounded-full border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer shadow-sm"
                 >
-                  <XIcon size="18" className="fill-current" />
+                  <XIcon size="14" className="fill-current" />
                 </a>
               </TooltipTrigger>
               <TooltipContent side="top">
@@ -231,9 +231,9 @@ const Hero = () => {
                   href="https://www.linkedin.com/in/dhrubaraj-pati/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer shadow-sm"
+                  className="w-8 h-8 shrink-0 rounded-full border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer shadow-sm"
                 >
-                  <LinkedinIcon size="20" />
+                  <LinkedinIcon size={16} />
                 </a>
               </TooltipTrigger>
               <TooltipContent side="top">
@@ -245,9 +245,9 @@ const Hero = () => {
               <TooltipTrigger>
                 <button
                   onClick={handleThemeClick}
-                  className="p-2.5 rounded-full border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer hover:rotate-45 shadow-sm"
+                  className="w-8 h-8 shrink-0 rounded-full border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer hover:rotate-45 shadow-sm"
                 >
-                  <Earth className="w-5 h-5" />
+                  <Earth className="w-4 h-4" />
                 </button>
               </TooltipTrigger>
               <TooltipContent side="top">
