@@ -21,7 +21,7 @@ const Cta = () => {
 
   return (
     <section id="get-in-touch" className="pt-2 pb-16 md:pt-4 md:pb-20 bg-background">
-      <div className="max-w-3xl mx-auto w-full px-6">
+      <div className="max-w-[690px] mx-auto w-full px-6">
         <div className="pt-0">
           <ScrollReveal>
             <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-muted/70 dark:bg-muted/30 backdrop-blur-2xl border border-border/60 dark:border-border/40 p-1 sm:p-2.5 shadow-xl mx-auto w-full">

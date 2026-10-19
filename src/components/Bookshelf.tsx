@@ -390,7 +390,7 @@ const Bookshelf = () => {
       )}
 
       <section id="bookshelf-section" className="pt-1 pb-8 bg-background overflow-hidden">
-        <div className="max-w-3xl mx-auto w-full px-6">
+        <div className="max-w-[690px] mx-auto w-full px-6">
 
           {/* Header */}
           <ScrollReveal className="mb-4">

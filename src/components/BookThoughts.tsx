@@ -141,7 +141,7 @@ const BookThoughts = () => {
   return (
     <>
       <article className="pt-28 md:pt-36 pb-16 min-h-screen bg-background text-foreground book-content">
-        <div className="max-w-3xl mx-auto w-full px-6" style={{ fontSize: `${fontSize}%` }}>
+        <div className="max-w-[690px] mx-auto w-full px-6" style={{ fontSize: `${fontSize}%` }}>
           {/* Book Info Section */}
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
             {/* Book Cover with custom accent glow */}
