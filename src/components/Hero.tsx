@@ -264,8 +264,8 @@ const Hero = () => {
           <h3 className="font-bold font-bricolage text-foreground text-base sm:text-lg mb-3">
             I build from scratch.
           </h3>
-          <p className="text-muted-foreground leading-relaxed text-base font-hanken font-regular">
-            I am a <strong className="text-foreground font-hanken font-medium">22 Year Old Full-Stack Developer</strong> dedicated to building scalable, high-performance web applications with{' '}
+          <p className="text-[15.5px] text-muted-foreground leading-relaxed font-hanken">
+            I am a <strong className="text-foreground font-hanken font-semibold">22 Year Old Full-Stack Developer</strong> dedicated to building scalable, high-performance web applications with{' '}
             <a
               href="https://www.typescriptlang.org/"
               target="_blank"

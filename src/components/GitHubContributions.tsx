@@ -103,7 +103,7 @@ const GitHubContributions = () => {
           <h4 className="text-2xl md:text-2xl font-extrabold text-foreground text-left font-hanken">
             GitHub Activity
           </h4>
-          <p className="text-left mt-2 text-sm font-hanken text-muted-foreground">
+          <p className="text-left mt-2 text-sm font-medium poppins text-muted-foreground">
             <strong>codewithdhruba's</strong> coding journey over the past year
           </p>
         </ScrollReveal>
@@ -145,7 +145,7 @@ const GitHubContributions = () => {
             </div>
 
             {/* Scrollable container */}
-            <div className="overflow-x-auto thin-scrollbar pb-2">
+            <div className="overflow-x-auto scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] pb-2">
               {/* Month labels */}
               <div className="ml-[32px] sm:ml-[36px] flex gap-[2px] sm:gap-[2px] text-muted-foreground/70 font-hanken mb-1">
                 {weeks.map((_, weekIndex) => {

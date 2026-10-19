@@ -34,7 +34,7 @@ const Projects = () => {
                     {project.date}
                   </span>
                 </div>
-                <p className="text-muted-foreground leading-relaxed text-[0.95rem] font-hanken">
+                <p className="text-muted-foreground leading-relaxed text-base font-hanken">
                   {project.description}
                 </p>
               </Link>
