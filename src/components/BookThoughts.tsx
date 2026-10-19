@@ -261,31 +261,31 @@ const BookThoughts = () => {
 
       {/* Side Zoom Panel for Font Size */}
       <div className="hidden md:block fixed right-6 top-1/2 -translate-y-1/2 z-40">
-        <div className="flex flex-col items-center gap-3 rounded-2xl bg-card/90 backdrop-blur-xl border border-border shadow-xl px-3 py-4 transition-all duration-300">
+        <div className="flex flex-col items-center gap-2 rounded-xl bg-card/90 backdrop-blur-xl border border-border shadow-xl p-2 transition-all duration-300">
           <button
             onClick={zoomIn}
             disabled={fontSize >= 150}
-            className={`w-10 h-10 rounded-xl border flex items-center justify-center transition-all duration-150 cursor-pointer ${fontSize >= 150
+            className={`w-8 h-8 rounded-lg border flex items-center justify-center transition-all duration-150 cursor-pointer ${fontSize >= 150
               ? 'border-border bg-muted text-muted-foreground/40 opacity-40 cursor-not-allowed'
               : 'border-border bg-muted text-muted-foreground hover:text-foreground hover:bg-accent shadow-sm'
               }`}
             title="Zoom In"
           >
-            <Plus className="w-5 h-5" />
+            <Plus className="w-4 h-4" />
           </button>
-          <div className="text-xs font-bold select-none px-2.5 py-1.5 border border-border bg-card text-foreground rounded-xl min-w-[44px] text-center shadow-inner">
+          <div className="text-[11px] font-bold select-none px-1.5 py-1 border border-border bg-card text-foreground rounded-lg min-w-[36px] text-center shadow-inner">
             {getFontSizeInPx()}px
           </div>
           <button
             onClick={zoomOut}
             disabled={fontSize <= 80}
-            className={`w-10 h-10 rounded-xl border flex items-center justify-center transition-all duration-150 cursor-pointer ${fontSize <= 80
+            className={`w-8 h-8 rounded-lg border flex items-center justify-center transition-all duration-150 cursor-pointer ${fontSize <= 80
               ? 'border-border bg-muted text-muted-foreground/40 opacity-40 cursor-not-allowed'
               : 'border-border bg-muted text-muted-foreground hover:text-foreground hover:bg-accent shadow-sm'
               }`}
             title="Zoom Out"
           >
-            <Minus className="w-5 h-5" />
+            <Minus className="w-4 h-4" />
           </button>
         </div>
       </div>
@@ -294,10 +294,10 @@ const BookThoughts = () => {
       <div className="md:hidden fixed right-4 top-20 z-40">
         <button
           onClick={handleOpenSheet}
-          className="w-14 h-14 rounded-full bg-card/80 backdrop-blur-xl border border-border shadow-lg flex items-center justify-center hover:bg-card transition-all duration-300 hover:scale-105"
+          className="w-10 h-10 rounded-full bg-card/80 backdrop-blur-xl border border-border shadow-lg flex items-center justify-center hover:bg-card transition-all duration-300 hover:scale-105"
           title="Font Size Settings"
         >
-          <Settings className="w-6 h-6 text-foreground" />
+          <Settings className="w-4 h-4 text-foreground" />
         </button>
       </div>
 
