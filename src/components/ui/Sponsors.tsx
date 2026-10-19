@@ -29,25 +29,25 @@ const sponsorsData: Sponsor[] = [
 const Sponsors = () => {
   return (
     <section id="sponsors" className="pt-8 pb-8 bg-background">
-      <div className="max-w-3xl mx-auto w-full px-6">
+      <div className="max-w-[690px] mx-auto w-full px-6">
         {/* Header Row */}
         <ScrollReveal className="flex items-center justify-between gap-4 mb-8">
-          <h2 className="text-3xl font-bold text-foreground font-excon">
+          <h4 className="text-lg sm:text-xl font-semibold text-foreground font-hanken text-left flex items-center gap-1.5 leading-none">
             Sponsors
-          </h2>
+          </h4>
           <a
             href="https://github.com/sponsors/codewithdhruba01"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 py-2 bg-card border border-border rounded-xl text-sm font-medium text-foreground hover:bg-accent hover:border-neutral-500/40 transition duration-200 shadow-sm"
+            className="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 bg-card border border-border rounded-lg text-xs sm:text-sm font-medium text-foreground hover:bg-accent hover:border-neutral-500/40 transition duration-200 shadow-sm"
           >
-            <Heart className="w-4 h-4 text-rose-500 fill-rose-500" />
+            <Heart className="w-3.5 h-3.5 text-pink-400 fill-pink-400" />
             <span>Sponsor Me</span>
           </a>
         </ScrollReveal>
 
         {/* Sponsors Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {sponsorsData.map((sponsor, idx) => (
             <ScrollReveal
               key={idx}
@@ -55,11 +55,11 @@ const Sponsors = () => {
               className="h-full"
             >
               <div
-                className="bg-card border border-border rounded-2xl p-5 flex gap-5 items-start h-full shadow-sm"
+                className="bg-card border border-border rounded-xl p-3.5 sm:p-4 flex gap-3 sm:gap-3.5 items-start h-full shadow-sm"
               >
-                <div className="flex flex-col border border-border rounded-xl p-2 items-center w-20 sm:w-24 shrink-0 bg-transparent">
+                <div className="flex flex-col border border-border rounded-lg p-1.5 items-center w-16 sm:w-[70px] shrink-0 bg-transparent">
                   {/* Avatar wrapper box with its own border */}
-                  <div className="w-full aspect-square rounded-lg overflow-hidden border border-border bg-muted">
+                  <div className="w-full aspect-square rounded-md overflow-hidden border border-border bg-muted">
                     <img
                       src={sponsor.avatar}
                       alt={sponsor.name}
@@ -69,33 +69,33 @@ const Sponsors = () => {
                   </div>
 
                   {/* Horizontal Divider touching the edges */}
-                  <hr className="w-[calc(100%+16px)] -mx-2 border-t border-border my-2" />
+                  <hr className="w-[calc(100%+12px)] -mx-1.5 border-t border-border my-1.5" />
 
                   {/* Amount box with its own border */}
-                  <div className="w-full py-1 border border-border bg-muted/40 rounded-lg text-[#00DC82] text-sm sm:text-base font-bold font-mono text-center leading-none">
+                  <div className="w-full py-0.5 border border-border bg-muted/40 rounded-md text-[#00DC82] text-xs font-bold font-mono text-center leading-tight">
                     {sponsor.amount}
                   </div>
                 </div>
 
                 {/* Right Column: Name & Social Link Box Container */}
-                <div className="flex flex-col gap-2.5 flex-1 min-w-0">
+                <div className="flex flex-col gap-2 flex-1 min-w-0">
                   {/* Title (Sponsor Name) */}
-                  <h3 className="text-base sm:text-lg font-bold font-outfit text-foreground truncate leading-tight ml-1">
+                  <h3 className="text-sm sm:text-[15px] font-bold font-outfit text-foreground truncate leading-tight ml-0.5">
                     {sponsor.name}
                   </h3>
 
                   {/* Nested Box enclosing the handles */}
-                  <div className="border border-border rounded-xl p-3 flex flex-col gap-2 bg-transparent">
+                  <div className="border border-border rounded-lg p-2 sm:p-2.5 flex flex-col gap-1.5 bg-transparent">
                     {/* GitHub Handle Box */}
                     <a
                       href={`https://github.com/${sponsor.github}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2.5 px-3 py-2 bg-transparent border border-border rounded-lg text-foreground/80 hover:text-foreground hover:bg-accent text-xs sm:text-sm cursor-pointer transition-colors duration-150"
+                      className="flex items-center gap-2 px-2.5 py-1.5 bg-transparent border border-border rounded-md text-foreground/80 hover:text-foreground hover:bg-accent text-xs cursor-pointer transition-colors duration-150"
                     >
                       <svg
                         viewBox="0 0 24 24"
-                        className="w-3.5 h-3.5 fill-none stroke-current text-muted-foreground"
+                        className="w-3 h-3 fill-none stroke-current text-muted-foreground shrink-0"
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -110,11 +110,11 @@ const Sponsors = () => {
                       href={`https://x.com/${sponsor.x}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2.5 px-3 py-2 bg-transparent border border-border rounded-lg text-foreground/80 hover:text-foreground hover:bg-accent text-xs sm:text-sm cursor-pointer transition-colors duration-150"
+                      className="flex items-center gap-2 px-2.5 py-1.5 bg-transparent border border-border rounded-md text-foreground/80 hover:text-foreground hover:bg-accent text-xs cursor-pointer transition-colors duration-150"
                     >
                       <svg
                         viewBox="0 0 24 24"
-                        className="w-3.5 h-3.5 fill-current text-muted-foreground"
+                        className="w-3 h-3 fill-current text-muted-foreground shrink-0"
                       >
                         <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584l-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
                       </svg>

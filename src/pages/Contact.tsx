@@ -69,13 +69,14 @@ const Contact = () => {
       <div className="pb-6 mb-4">
         <ScrollReveal>
           <div className="max-w-3xl mx-auto w-full px-6 text-center">
-            <h1 className="text-4xl md:text-4xl font-bold mb-6 font-bricolage">
+            <h1 className="text-2xl sm:text-3xl md:text-3xl font-bold mb-4 font-bricolage">
               <span className="text-foreground font-bricolage">
                 Let's Work Together
               </span>
             </h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto font-medium text-sm">
-              Have an interesting idea or a project in mind ! Drop a message and let's build something extraordinary together.
+            <p className="text-muted-foreground max-w-2xl mx-auto font-medium text-sm leading-relaxed">
+              Have an interesting idea or a project in mind!
+              <span className="block">Drop a message and let's build something extraordinary together.</span>
             </p>
           </div>
         </ScrollReveal>
@@ -83,19 +84,19 @@ const Contact = () => {
 
       {/* Contact Content */}
       <section className="pb-16">
-        <div className="max-w-3xl mx-auto w-full px-6">
+        <div className="max-w-xl mx-auto w-full px-6">
           {/* Contact Form */}
           <ScrollReveal delay={0.2}>
-            <div className="border-border bg-card border backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-              <h2 className="text-3xl font-bold font-bricolage text-foreground mb-6 text-center">
+            <div className="border-border bg-card border backdrop-blur-sm rounded-2xl p-6 sm:p-7 shadow-lg">
+              <h2 className="text-xl sm:text-2xl font-bold font-bricolage text-foreground mb-5 text-center">
                 Send Message
               </h2>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium font-poppins text-muted-foreground mb-2"
+                    className="block text-sm font-medium font-poppins text-muted-foreground mb-1.5"
                   >
                     Full Name
                   </label>
@@ -106,7 +107,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-input bg-card border rounded-lg text-foreground font-poppins placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground/30 focus:border-foreground/30 transition-colors"
+                    className="w-full px-3.5 py-2.5 border-input bg-card border rounded-lg text-foreground font-poppins placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground/30 focus:border-foreground/30 transition-colors text-sm"
                     placeholder="Your Name"
                   />
                 </div>
@@ -114,7 +115,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium font-poppins text-muted-foreground mb-2"
+                    className="block text-sm font-medium font-poppins text-muted-foreground mb-1.5"
                   >
                     Email Address
                   </label>
@@ -125,7 +126,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-input bg-card border rounded-lg text-foreground font-poppins placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground/30 focus:border-foreground/30 transition-colors"
+                    className="w-full px-3.5 py-2.5 border-input bg-card border rounded-lg text-foreground font-poppins placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground/30 focus:border-foreground/30 transition-colors text-sm"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -133,7 +134,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="subject"
-                    className="block text-sm font-medium font-poppins text-muted-foreground mb-2"
+                    className="block text-sm font-medium font-poppins text-muted-foreground mb-1.5"
                   >
                     Subject
                   </label>
@@ -144,7 +145,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 font-poppins border-input bg-card border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground/30 focus:border-foreground/30 transition-colors"
+                    className="w-full px-3.5 py-2.5 font-poppins border-input bg-card border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground/30 focus:border-foreground/30 transition-colors text-sm"
                     placeholder="Project Discussion"
                   />
                 </div>
@@ -152,7 +153,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium font-poppins text-muted-foreground mb-2"
+                    className="block text-sm font-medium font-poppins text-muted-foreground mb-1.5"
                   >
                     Message
                   </label>
@@ -162,13 +163,13 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows={5}
-                    className="w-full px-4 py-3 font-poppins border-input bg-card border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground/30 focus:border-foreground/30 transition-colors resize-none"
+                    rows={4}
+                    className="w-full px-3.5 py-2.5 font-poppins border-input bg-card border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground/30 focus:border-foreground/30 transition-colors resize-none text-sm"
                     placeholder="Tell me about your project..."
                   />
                 </div>
 
-                <div className="flex justify-center">
+                <div className="flex justify-center pt-1">
                   <SectionButton
                     type="submit"
                     disabled={loading || sent}
