@@ -68,7 +68,7 @@ const Hero = () => {
       id="home"
       className="relative bg-background pt-24 md:pt-28 pb-6 md:pb-8"
     >
-      <ScrollReveal className="max-w-3xl mx-auto w-full px-6 flex flex-col">
+      <ScrollReveal className="max-w-[690px] mx-auto w-full px-6 flex flex-col">
         <div className="relative w-full rounded-xl overflow-hidden aspect-[13/5] sm:aspect-[3/1] bg-muted">
           <motion.img
             src="/assets/bg1.jpg"
