@@ -144,13 +144,9 @@ const BookThoughts = () => {
         <div className="max-w-[690px] mx-auto w-full px-6" style={{ fontSize: `${fontSize}%` }}>
           {/* Book Info Section */}
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
-            {/* Book Cover with custom accent glow */}
+            {/* Book Cover */}
             <div
-              className="w-[180px] aspect-[2/3] shrink-0 relative rounded-lg shadow-2xl overflow-hidden"
-              style={{
-                boxShadow: `0 10px 40px ${thought.accentColor}25`,
-                border: `1px solid ${thought.accentColor}20`
-              }}
+              className="w-[180px] aspect-[2/3] shrink-0 relative rounded-lg border border-border overflow-hidden"
             >
               <img
                 src={thought.coverUrl}
