@@ -362,15 +362,26 @@ export const commentService = {
         throw error;
       }
 
-      return data?.view_count || 0;
+      if (data?.view_count != null && data.view_count > 0) {
+        return data.view_count;
+      }
+
+      // Fallback to legacy blog_views site-total if site_views is empty/zero
+      const { data: legacyData } = await supabase
+        .from('blog_views')
+        .select('view_count')
+        .eq('blog_slug', 'site-total')
+        .single();
+
+      return legacyData?.view_count || 0;
     } catch (error) {
       console.warn('Error fetching site views:', error);
       return 0;
     }
   },
 
-  // Increment site view count
-  async incrementSiteViews(siteId: string = 'main-site'): Promise<void> {
+  // Increment site view count and return updated count
+  async incrementSiteViews(siteId: string = 'main-site'): Promise<number> {
     try {
       // First, try to get existing view count
       const { data: existingData, error: fetchError } = await supabase
@@ -383,31 +394,97 @@ export const commentService = {
         throw fetchError;
       }
 
+      const now = new Date().toISOString();
+      let newCount = 1;
+
       if (existingData) {
-        // Update existing record
-        const { error } = await supabase
+        newCount = (existingData.view_count || 0) + 1;
+        const { data, error } = await supabase
           .from('site_views')
           .update({
-            view_count: existingData.view_count + 1,
-            updated_at: new Date().toISOString()
+            view_count: newCount,
+            updated_at: now
           })
-          .eq('id', siteId);
+          .eq('id', siteId)
+          .select('view_count')
+          .single();
 
         if (error) throw error;
+        if (data?.view_count != null) newCount = data.view_count;
       } else {
-        // Create new record
-        const { error } = await supabase
+        // Fallback: check legacy blog_views count if starting fresh
+        let startingCount = 1;
+        try {
+          const { data: legacyData } = await supabase
+            .from('blog_views')
+            .select('view_count')
+            .eq('blog_slug', 'site-total')
+            .single();
+          if (legacyData?.view_count) {
+            startingCount = legacyData.view_count + 1;
+          }
+        } catch {
+          // ignore
+        }
+
+        const { data, error } = await supabase
           .from('site_views')
           .insert({
             id: siteId,
-            view_count: 1
-          });
+            view_count: startingCount,
+            updated_at: now
+          })
+          .select('view_count')
+          .single();
 
         if (error) throw error;
+        if (data?.view_count != null) newCount = data.view_count;
       }
+
+      // Also keep blog_views 'site-total' synchronized as a backup record
+      try {
+        await supabase
+          .from('blog_views')
+          .update({
+            view_count: newCount,
+            updated_at: now
+          })
+          .eq('blog_slug', 'site-total');
+      } catch (backupError) {
+        console.warn('Backup count update skipped:', backupError);
+      }
+
+      return newCount;
     } catch (error) {
       console.warn('Error incrementing site views:', error);
-      // Don't throw error to avoid breaking the page load
+      return await this.getSiteViews(siteId);
     }
+  },
+
+  // Subscribe to real-time site view changes
+  subscribeToSiteViews(siteId: string = 'main-site', callback: (count: number) => void) {
+    if (!supabase || typeof supabase.channel !== 'function') return () => {};
+
+    const channel = supabase
+      .channel(`site_views_channel_${siteId}`)
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'site_views',
+          filter: `id=eq.${siteId}`
+        },
+        (payload: any) => {
+          if (payload?.new && typeof payload.new.view_count === 'number') {
+            callback(payload.new.view_count);
+          }
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }
 };

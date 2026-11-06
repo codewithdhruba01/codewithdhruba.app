@@ -82,25 +82,49 @@ const Footer = () => {
   };
 
   useEffect(() => {
+    let isMounted = true;
+
     const handleVisitorCount = async () => {
       try {
-        const hasVisited = localStorage.getItem('site_visited');
-
-        if (!hasVisited) {
-          // Increment the view count for the entire site
-          await commentService.incrementSiteViews('main-site');
-          localStorage.setItem('site_visited', 'true');
+        // Clear old permanent localStorage lock from earlier implementations
+        if (localStorage.getItem('site_visited')) {
+          localStorage.removeItem('site_visited');
         }
 
-        // Fetch the updated count
-        const count = await commentService.getSiteViews('main-site');
-        setVisitorCount(count);
+        const sessionKey = 'site_visited_session';
+        const hasVisited = sessionStorage.getItem(sessionKey);
+
+        let count: number;
+        if (!hasVisited) {
+          // Increment the view count for the entire site on new visit session
+          count = await commentService.incrementSiteViews('main-site');
+          sessionStorage.setItem(sessionKey, 'true');
+        } else {
+          // Fetch current count for active session
+          count = await commentService.getSiteViews('main-site');
+        }
+
+        if (isMounted && typeof count === 'number') {
+          setVisitorCount(count);
+        }
       } catch (error) {
         console.warn('Error handling visitor count:', error);
       }
     };
 
     handleVisitorCount();
+
+    // Listen for live visitor count updates via Supabase Realtime
+    const unsubscribe = commentService.subscribeToSiteViews('main-site', (newCount) => {
+      if (isMounted) {
+        setVisitorCount(newCount);
+      }
+    });
+
+    return () => {
+      isMounted = false;
+      unsubscribe();
+    };
   }, []);
   return (
     <footer className="bg-background pt-20 pb-16 relative">

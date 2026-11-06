@@ -16,24 +16,44 @@ const VisitorCounter = ({ className }: { className?: string }) => {
     };
 
     useEffect(() => {
+        let isMounted = true;
         const handleVisitorCount = async () => {
             try {
-                const sessionKey = 'site-visited';
+                if (localStorage.getItem('site_visited')) {
+                    localStorage.removeItem('site_visited');
+                }
+
+                const sessionKey = 'site_visited_session';
                 const hasVisited = sessionStorage.getItem(sessionKey);
 
+                let views: number;
                 if (!hasVisited) {
-                    await commentService.incrementSiteViews('main-site');
+                    views = await commentService.incrementSiteViews('main-site');
                     sessionStorage.setItem(sessionKey, 'true');
+                } else {
+                    views = await commentService.getSiteViews('main-site');
                 }
                 
-                const views = await commentService.getSiteViews('main-site');
-                setCount(views);
+                if (isMounted && typeof views === 'number') {
+                    setCount(views);
+                }
             } catch (error) {
                 console.warn('Error handling visitor count:', error);
             }
         };
 
         handleVisitorCount();
+
+        const unsubscribe = commentService.subscribeToSiteViews('main-site', (newCount) => {
+            if (isMounted) {
+                setCount(newCount);
+            }
+        });
+
+        return () => {
+            isMounted = false;
+            unsubscribe();
+        };
     }, []);
 
     if (count === null) return null;
