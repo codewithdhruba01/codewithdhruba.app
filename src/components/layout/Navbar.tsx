@@ -113,11 +113,11 @@ const Navbar = () => {
                     toggleMobileMenu();
                     playClickSound();
                   }}
-                  className="p-1.5 rounded-lg text-foreground hover:text-foreground/80 focus:outline-none transition-transform duration-300 ease-in-out"
+                  className="p-1.5 rounded-lg text-foreground hover:text-foreground/80 focus:outline-none transition-transform duration-300 ease-in-out flex items-center justify-center"
                   aria-label="Toggle Menu"
                 >
                   <i
-                    className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'} text-xl transition-transform duration-300 ease-in-out ${
+                    className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'} text-[22px] leading-none transition-transform duration-300 ease-in-out ${
                       isMobileMenuOpen ? 'rotate-90' : 'rotate-0'
                     }`}
                   ></i>

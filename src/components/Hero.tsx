@@ -112,8 +112,8 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="relative px-4 flex justify-between items-end -mt-10 sm:-mt-12 md:-mt-14 z-10">
-          <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-card shadow-md bg-muted">
+        <div className="relative px-4 flex justify-between items-end -mt-12 md:-mt-14 z-10">
+          <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-card shadow-md bg-muted">
             <motion.img
               src="/assets/avaterlogo.webp"
               alt="Dhrubaraj Pati"
