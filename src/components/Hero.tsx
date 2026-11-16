@@ -170,7 +170,7 @@ const Hero = () => {
 
         <div className="mt-6 px-1 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-bricolage font-extrabold md:text-3xl tracking-tight text-foreground flex items-center gap-2">
+            <h2 className="text-[28px] sm:text-3xl md:text-3xl font-bricolage font-extrabold tracking-tight text-foreground flex items-center gap-2">
               <span>Dhrubaraj Pati</span>
               <Tooltip>
                 <TooltipTrigger>
@@ -187,7 +187,7 @@ const Hero = () => {
                 </TooltipContent>
               </Tooltip>
             </h2>
-            <p className="mt-1.5 font-hanken text-[14px] leading-[20px] tracking-normal text-muted-foreground">
+            <p className="mt-1.5 font-hanken text-[16px] sm:text-[15px] md:text-[14px] leading-[22px] md:leading-[20px] tracking-normal text-muted-foreground">
               engineer • developer • builder
             </p>
           </div>
