@@ -192,16 +192,16 @@ const Hero = () => {
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2.5 sm:gap-2">
             <Tooltip>
               <TooltipTrigger>
                 <a
                   href="https://github.com/codewithdhruba01"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 shrink-0 rounded-full border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer shadow-sm"
+                  className="w-10 h-10 sm:w-9 sm:h-9 shrink-0 rounded-full border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer shadow-sm"
                 >
-                  <GithubIcon size="18" className="stroke-current" />
+                  <GithubIcon size="20" className="w-5 h-5 sm:w-[18px] sm:h-[18px] stroke-current" />
                 </a>
               </TooltipTrigger>
               <TooltipContent side="top">
@@ -215,9 +215,9 @@ const Hero = () => {
                   href="https://x.com/codewithdhruba"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 shrink-0 rounded-full border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer shadow-sm"
+                  className="w-10 h-10 sm:w-9 sm:h-9 shrink-0 rounded-full border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer shadow-sm"
                 >
-                  <XIcon size="16" className="fill-current" />
+                  <XIcon size="18" className="w-[18px] h-[18px] sm:w-4 sm:h-4 fill-current" />
                 </a>
               </TooltipTrigger>
               <TooltipContent side="top">
@@ -231,9 +231,9 @@ const Hero = () => {
                   href="https://www.linkedin.com/in/dhrubaraj-pati/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 shrink-0 rounded-full border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer shadow-sm"
+                  className="w-10 h-10 sm:w-9 sm:h-9 shrink-0 rounded-full border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer shadow-sm"
                 >
-                  <LinkedinIcon size={18} />
+                  <LinkedinIcon size={20} className="w-5 h-5 sm:w-[18px] sm:h-[18px]" />
                 </a>
               </TooltipTrigger>
               <TooltipContent side="top">
@@ -245,9 +245,9 @@ const Hero = () => {
               <TooltipTrigger>
                 <button
                   onClick={handleThemeClick}
-                  className="w-9 h-9 shrink-0 rounded-full border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer hover:rotate-45 shadow-sm"
+                  className="w-10 h-10 sm:w-9 sm:h-9 shrink-0 rounded-full border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center justify-center cursor-pointer hover:rotate-45 shadow-sm"
                 >
-                  <Earth className="w-[18px] h-[18px]" />
+                  <Earth className="w-5 h-5 sm:w-[18px] sm:h-[18px]" />
                 </button>
               </TooltipTrigger>
               <TooltipContent side="top">
@@ -347,19 +347,19 @@ const Hero = () => {
         <div className="flex flex-wrap items-center gap-3 mt-8 px-1">
           <Link
             to="/resume"
-            className="flex items-center gap-1.5 px-3.5 py-2 font-hanken rounded-lg border border-input bg-background hover:bg-accent hover:text-accent-foreground text-foreground font-medium text-xs transition-all duration-200 shadow-sm"
+            className="flex items-center gap-2 sm:gap-1.5 px-4 py-2.5 sm:px-3.5 sm:py-2 font-hanken rounded-lg border border-input bg-background hover:bg-accent hover:text-accent-foreground text-foreground font-medium text-sm sm:text-xs transition-all duration-200 shadow-sm"
           >
-            <FileText className="w-3.5 h-3.5" />
+            <FileText className="w-4 h-4 sm:w-3.5 sm:h-3.5" />
             Resume / CV
           </Link>
           <Link
             to="/about"
-            className="flex items-center gap-1.5 px-3.5 py-2 font-hanken rounded-lg bg-neutral-800 dark:bg-foreground hover:bg-zinc-700 dark:hover:bg-foreground/90 text-white dark:text-background font-medium text-xs transition-all duration-200 shadow-sm"
+            className="flex items-center gap-2 sm:gap-1.5 px-4 py-2.5 sm:px-3.5 sm:py-2 font-hanken rounded-lg bg-neutral-800 dark:bg-foreground hover:bg-zinc-700 dark:hover:bg-foreground/90 text-white dark:text-background font-medium text-sm sm:text-xs transition-all duration-200 shadow-sm"
           >
             <img
               src={avatarTheme === 'logo' ? '/assets/avaterlogo.webp' : '/assets/avater.webp'}
               alt="Avatar"
-              className="w-4 h-4 rounded-full object-cover"
+              className="w-[18px] h-[18px] sm:w-4 sm:h-4 rounded-full object-cover"
             />
             About Me
           </Link>

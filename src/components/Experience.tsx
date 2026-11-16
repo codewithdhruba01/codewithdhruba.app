@@ -55,7 +55,7 @@ const Experience = () => {
           <ExperienceList experiences={experiences} />
 
           <div className="text-center mt-6">
-            <SectionButton to="/experience" text="Show all experiences" icon={null} />
+            <SectionButton to="/experience" text="Show all experiences" icon={null} className="text-base sm:text-sm py-2 sm:py-1.5" />
           </div>
         </ScrollReveal>
       </div>
