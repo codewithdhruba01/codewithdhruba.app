@@ -159,28 +159,30 @@ const Navbar = () => {
 
       {/* Mobile Bottom Floating Search Bar (Clean search-only pill) */}
       {!isBlogContentPage && (
-        <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1.5 bg-card/95 border border-border backdrop-blur-md rounded-xl shadow-2xl px-3 py-1.5 text-xs font-outfit select-none pointer-events-auto">
+        <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[175px] bg-card/95 border border-border backdrop-blur-md rounded-xl shadow-2xl px-3 py-1.5 text-xs font-outfit select-none pointer-events-auto">
           <button
             onClick={() => {
               setCommandPaletteOpen(true);
               playClickSound();
             }}
-            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-200"
+            className="flex items-center justify-between w-full text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
-            <svg
-              width="13"
-              height="13"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.3-4.3" />
-            </svg>
-            <span className="text-muted-foreground font-medium">Search...</span>
+            <div className="flex items-center gap-1.5">
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+              </svg>
+              <span className="text-muted-foreground font-hanken text-sm">Search</span>
+            </div>
             <span className="bg-muted text-muted-foreground text-[10px] px-1.5 py-0.5 rounded-md font-sans border border-border/40">
               Ctrl+K
             </span>

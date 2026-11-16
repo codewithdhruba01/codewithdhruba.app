@@ -20,18 +20,18 @@ const GetInTouch = () => {
           <ScrollReveal delay={0.1}>
             <Link
               to="/gears"
-              className="group flex items-center justify-between w-full py-3 px-3.5 sm:p-5 rounded-xl border border-border bg-card transition-all duration-300 hover:bg-accent"
+              className="group flex items-center justify-between w-full py-3.5 px-4 sm:p-5 rounded-xl border border-border bg-card transition-all duration-300 hover:bg-accent"
             >
               <div className="flex items-center gap-3 sm:gap-4 min-w-0">
-                <div className="w-8 h-8 min-w-8 min-h-8 sm:w-10 sm:h-10 sm:min-w-10 sm:min-h-10 bg-muted rounded-lg flex items-center justify-center shrink-0">
-                  <Settings className="w-4 h-4 sm:w-5 sm:h-5 text-foreground" />
+                <div className="w-9 h-9 min-w-9 min-h-9 sm:w-10 sm:h-10 sm:min-w-10 sm:min-h-10 bg-muted rounded-lg flex items-center justify-center shrink-0">
+                  <Settings className="w-[18px] h-[18px] sm:w-5 sm:h-5 text-foreground" />
                 </div>
 
                 <div className="min-w-0">
-                  <h3 className="text-sm sm:text-base font-medium font-hanken text-foreground whitespace-nowrap">
+                  <h3 className="text-base sm:text-base font-semibold sm:font-medium font-hanken text-foreground whitespace-nowrap">
                     Tools & Gears
                   </h3>
-                  <p className="text-xs sm:text-base text-muted-foreground font-hanken leading-snug break-words">
+                  <p className="text-sm sm:text-base text-muted-foreground font-hanken leading-snug break-words mt-0.5">
                     Productivity tools and gears that power my workflow.
                   </p>
                 </div>
@@ -44,12 +44,12 @@ const GetInTouch = () => {
           <ScrollReveal delay={0.2}>
             <Link
               to="/extensions"
-              className="group flex items-center justify-between w-full py-3 px-3.5 sm:p-5 rounded-xl border border-border bg-card transition-all duration-300 hover:bg-accent"
+              className="group flex items-center justify-between w-full py-3.5 px-4 sm:p-5 rounded-xl border border-border bg-card transition-all duration-300 hover:bg-accent"
             >
               <div className="flex items-center gap-3 sm:gap-4 min-w-0">
-                <div className="w-8 h-8 min-w-8 min-h-8 sm:w-10 sm:h-10 sm:min-w-10 sm:min-h-10 bg-muted rounded-lg flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 min-w-9 min-h-9 sm:w-10 sm:h-10 sm:min-w-10 sm:min-h-10 bg-muted rounded-lg flex items-center justify-center shrink-0">
                   <span className="sm:hidden">
-                    <BrandCursorIcon size={16} className="text-foreground" />
+                    <BrandCursorIcon size={18} className="text-foreground" />
                   </span>
                   <span className="hidden sm:inline">
                     <BrandCursorIcon size={20} className="text-foreground" />
@@ -57,10 +57,10 @@ const GetInTouch = () => {
                 </div>
 
                 <div className="min-w-0">
-                  <h3 className="text-sm sm:text-base font-medium font-hanken text-foreground whitespace-nowrap">
+                  <h3 className="text-base sm:text-base font-semibold sm:font-medium font-hanken text-foreground whitespace-nowrap">
                     VS Code
                   </h3>
-                  <p className="text-xs sm:text-base text-muted-foreground font-hanken leading-snug break-words">
+                  <p className="text-sm sm:text-base text-muted-foreground font-hanken leading-snug break-words mt-0.5">
                     My essential VS Code extensions for daily development.
                   </p>
                 </div>

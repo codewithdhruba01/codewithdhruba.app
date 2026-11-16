@@ -501,7 +501,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose: propOn
               <input
                 ref={inputRef}
                 type="text"
-                placeholder="Type a command or search..."
+                placeholder="Search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="flex-1 bg-transparent text-foreground placeholder-muted-foreground outline-none text-sm font-outfit font-light"
